@@ -1,76 +1,36 @@
 ;;; -*- Mode: Lisp; -*-
 ;;;
-;;; Author: Peter Denno, National Institute of Standards and Technology 
-;;;         peter.denno@nist.gov
-;;;
-;;; Peter Denno
-;;;  Date: 2004-06-12
-
-;;; THIS IS A REALLY OLD COMMENT WHICH IS MOSTLY NOT TRUE:
-;;; There are currently two application that can be loaded from this file:
-;;;   (1) A hunchentoot-based server for the SysML MIWG and MEXICO;
-;;;       This uses application-server.asd.
-;;;   (2) A cells-gtk-based application called 'Expresso'
-;;;       This uses application-expresso.asd.
-;;; The ASDF build files are classified along two dimensions:
-;;;   (a) UML/EXPRESS - application-server uses parts of both (but no Part 14 stuff).
-;;;       The difference is that either one loads (from 
+;;; Author: Peter Denno
 
 (pushnew :iface-http *features*)  
 (pushnew :miwg *features*)
-;(pushnew :mod *features*) ; 2016 .. and this means??? (A modelica thing???) grep only show #+modelica
+(pushnew :sei *features*)
+(pushnew :hunchentoot-no-ssl *features*)
 ;(push :home *features*)
-;(push :modelica *features*)
-;(push :closure-xml *features*)
 ;(pushnew :qvt *features*) 
-;(pushnew :alf *features*)
-
-(pushnew :sei *features*)    ;; for Price, this is AP233 in UML. 
-;(pushnew :ap233-validator *features*)    ;; for Sampson (and Price?)
-;(pushnew :mexico    *features*)  ;; for Price and Sampson (for generating an AP233 schema).
-;(pushnew :express   *features*)  ;; For Price and Sampson
-
-(push :hunchentoot-no-ssl *features*)
 
 (require :asdf)
 
-#+mswindows
-(progn
-  (load "c:/local/lisp/cl-who/current/packages.lisp")
-  (load "c:/local/lisp/cl-ppcre/current/packages.lisp")
-  (load "c:/local/lisp/pod-utils/packages.lisp")
-  (asdf:initialize-source-registry #P"c:/Users/Peter Denno/.config/common-lisp/source-registry.conf")
-  (load "c:/local/lisp/pod-utils/utils.lisp"))
 
-#+linux
 (progn
-  (load "/local/lisp/cl-who/current/packages.lisp")
-  (load "/local/lisp/cl-ppcre/current/packages.lisp")
-  (load "/home/pdenno/rt/projects/lisp/pod-utils/packages.lisp")
-  (load "/home/pdenno/rt/projects/lisp/pod-utils/utils.lisp"))
+  (load "./utils/cl-who/current/packages.lisp")
+  (load "./utils/cl-ppcre/current/packages.lisp")
+  (load "./pod-utils/packages.lisp")
+  (load "./pod-utils/utils.lisp"))
 
 ;;; Bootstrap logical pathnames. 
 (defvar pod:*lpath-ht* (make-hash-table))
 
-#+linux
-(loop for (key . val) in '((:sei     . "/home/pdenno/projects/sei/source/") ; ,(truename ".")  has problems
-			   (:expo    . "/home/pdenno/projects/sei/source/")
-			   (:lisplib . "/local/lisp/")
-			   (:testlib . "/home/pdenno/projects/lisp/")
-			   (:mylib   . "/home/pdenno/projects/lisp/")
-			   (:models  . "/home/pdenno/win-pdenno/rt/projects/mm/models/") ; I updated it from a local copy on Windows.
+(loop for (key . val) in '((:sei     . ,(truename ".")
+			   (:expo    . ,(truename ".")
+			   (:lisplib . ,(truename "./utils")
+			   (:testlib . ,(truename "./pod-utils")
+			   (:mylib   . ,(truename "./pod-utils")
+			   ;18(:models  . "/home/pdenno/win-pdenno/rt/projects/mm/models/")
 			   (:tmp     . "/local/tmp/")
-			   (:miwg    . "/home/pdenno/projects/miwg/Tests/"))
+			   ;18(:miwg    . "/home/pdenno/projects/miwg/Tests/")
+			   )
      do (setf (gethash key pod:*lpath-ht*) val))
-
-#+mswindows
-(loop for (key . val) in '((:sei     . "c:/users/pdenno/projects/sei/source/") ; ,(truename ".")  has problems
-			   (:expo    . "c:/users/pdenno/projects/sei/source/")
-			   (:lisplib . "c:/local/lisp/")
-			   (:tmp     . "c:/local/tmp/")
-			   (:miwg    . "c:/users/pdenno/projects/miwg/Tests/"))
-     do (setf (gethash key pod:*lpath-ht*) val))
-
 
 (defpackage :user-system
   (:use :cl :asdf :pod-utils))
@@ -93,7 +53,6 @@
 ;;;==================================================
 ;;; Load package files
 ;;;==================================================
-;;;ff #-:lispworks(lpath :lisplib "lw-compat/current/lw-compat-package.lisp")
 #+:lispworks(load (lpath :lisplib "closer/current/closer-mop-packages.lisp"))
 
 ;;; Note some ediware .asd files define packages
@@ -120,17 +79,13 @@
 (load (lpath :mylib "pod-utils/uml-utils/mof/package.lisp"))
 ;;; Don't load it if you don't need it; screws up ocl debugging.
 (load (lpath :sei "iface/http/httpcore/package.lisp"))
-#+home (load (lpath :sei "iface/capi/packages.lisp"))
 ;;; I think load the qvt package even if you don't use it. (Some stuff in OCL refers to it?)
 (load (lpath :mylib "pod-utils/uml-utils/qvt/package.lisp"))
-;15(load (lpath :mylib "pod-utils/uml-utils/models/packages.lisp"))
+;(load (lpath :mylib "pod-utils/uml-utils/models/packages.lisp"))
 (load (lpath :mylib "pod-utils/uml-utils/browser/packages.lisp"))
-#+alf(load (lpath :mylib "pod-utils/uml-utils/alf/packages.lisp"))
 
 (handler-bind ((style-warning #'muffle-warning))
-    #+lispworks(asdf:oos 'asdf:load-op :hunchentoot)
-    (asdf:oos 'asdf:load-op :application-server)
-    #+home(asdf:oos 'asdf:load-op :capi-gui))
+    (asdf:oos 'asdf:load-op :application-server))
 
 ;;; I gave up trying to understand how ASDF is organized. The documentation is not helpful.
 (in-package :mofi)
@@ -142,10 +97,6 @@
 
 (defun comp-it ()
   (let ((po.lisp (pod:lpath :mylib "pod-utils/uml-utils/mof/pop-generate.lisp")))
-;    (setf *cmpkg* :cmof)
-;    (load (compile-file po.lisp))
-;    (setf *cmpkg* :uml4sysml12)
-;    (load (compile-file po.lisp))
     (setf *cmpkg* :uml23)
     (load (compile-file po.lisp))
     (setf *cmpkg* :uml241)
