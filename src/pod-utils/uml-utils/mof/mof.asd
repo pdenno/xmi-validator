@@ -8,13 +8,11 @@
 	       :xml-utils
 	       :html-utils
 	       :trie
-	       :closer-mop
-	       #+clozure-xml :cxml)
+	       :closer-mop)
   :serial t
   :components
   ((:file "package")
    (:file "model")
-   #+cre(:file "cre-model")
    (:file "mof")
    (:file "mof-types")))
 

@@ -2,11 +2,12 @@
 
 (in-package :user-system)
 
-(defsystem :xmi-validator
-  :depends-on (:clxml-adds
+(asdf:defsystem :xmi-validator
+  :depends-on (:hunchentoot ;18
+	       :closer-mop  ;18
+	       :clxml-adds
 	       :miwg
-	       #+home            :capi-gui
-	       #+qvt             :qvt)
+	       #+qvt :qvt)
   :components ())
 
 

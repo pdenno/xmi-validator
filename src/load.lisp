@@ -6,26 +6,27 @@
 (pushnew :miwg *features*)
 (pushnew :sei *features*)
 (pushnew :hunchentoot-no-ssl *features*)
-;(push :home *features*)
-;(pushnew :qvt *features*) 
+(pushnew :qvt *features*)
+;;;(push :home *features*)
 
 (require :asdf)
-
+(asdf:initialize-source-registry)
+(ql:quickload "hunchentoot")
+(ql:quickload "cl-who")
+(ql:quickload "closer-mop")
 
 (progn
-  (load "./utils/cl-who/current/packages.lisp")
-  (load "./utils/cl-ppcre/current/packages.lisp")
   (load "./pod-utils/packages.lisp")
   (load "./pod-utils/utils.lisp"))
 
 ;;; Bootstrap logical pathnames. 
 (defvar pod:*lpath-ht* (make-hash-table))
 
-(loop for (key . val) in '((:sei     . ,(truename ".")
-			   (:expo    . ,(truename ".")
-			   (:lisplib . ,(truename "./utils")
-			   (:testlib . ,(truename "./pod-utils")
-			   (:mylib   . ,(truename "./pod-utils")
+(loop for (key . val) in `((:sei     . ,(truename "."))
+			   (:expo    . ,(truename "."))
+	    	           (:lisplib . ,(truename "./utils"))
+			   (:testlib . ,(truename "./pod-utils"))
+			   (:mylib   . ,(truename "./pod-utils"))
 			   ;18(:models  . "/home/pdenno/win-pdenno/rt/projects/mm/models/")
 			   (:tmp     . "/local/tmp/")
 			   ;18(:miwg    . "/home/pdenno/projects/miwg/Tests/")
@@ -36,7 +37,6 @@
   (:use :cl :asdf :pod-utils))
 
 (in-package :user-system)
-
 
 #+SBCL
 (progn
@@ -60,32 +60,32 @@
 ;(load (lpath :lisplib "md5/current/md5.asd"))
 ;(load (lpath :lisplib "flexi-streams/current/flexi-streams.asd"))
 
-(load (lpath :lisplib "rfc2388/current/packages.lisp"))
-(load (lpath :lisplib "url-rewrite/current/packages.lisp"))
-(load (lpath :lisplib "cl-who/current/packages.lisp"))
-(load (lpath :lisplib "cl-fad/current/packages.lisp"))
-(load (lpath :lisplib "trivial-gray-streams/current/trivial-gray-streams.asd"))
-(load (lpath :lisplib "trivial-gray-streams/current/package.lisp"))
-(load (lpath :lisplib "flexi-streams/current/packages.lisp"))
-(load (lpath :lisplib "cl-fad/current/packages.lisp"))
-(load (lpath :lisplib "chunga/current/packages.lisp"))
-(load (lpath :lisplib "hunchentoot/current/hunchentoot.asd"))
-(load (lpath :lisplib "hunchentoot/current/packages.lisp"))
-(load (lpath :lisplib "trivial-backtrace/trivial-backtrace/trivial-backtrace.asd"))
+;18(load (lpath :lisplib "rfc2388/current/packages.lisp"))
+;18(load (lpath :lisplib "url-rewrite/current/packages.lisp"))
+;18(load (lpath :lisplib "cl-who/current/packages.lisp"))
+;18(load (lpath :lisplib "cl-fad/current/packages.lisp"))
+;18(load (lpath :lisplib "trivial-gray-streams/current/trivial-gray-streams.asd"))
+;18(load (lpath :lisplib "trivial-gray-streams/current/package.lisp"))
+;18(load (lpath :lisplib "flexi-streams/current/packages.lisp"))
+;18(load (lpath :lisplib "cl-fad/current/packages.lisp"))
+;18(load (lpath :lisplib "chunga/current/packages.lisp"))
+;18(load (lpath :lisplib "hunchentoot/current/hunchentoot.asd"))
+;18(load (lpath :lisplib "hunchentoot/current/packages.lisp"))
+;18(load (lpath :lisplib "trivial-backtrace/trivial-backtrace/trivial-backtrace.asd"))
 
-(load (lpath :mylib "pod-utils/trie/package.lisp"))
-(load (lpath :mylib "pod-utils/xpath/package.lisp"))
-(load (lpath :mylib "pod-utils/uml-utils/ocl/package.lisp"))
-(load (lpath :mylib "pod-utils/uml-utils/mof/package.lisp"))
+(load (lpath :mylib "trie/package.lisp"))
+(load (lpath :mylib "xpath/package.lisp"))
+(load (lpath :mylib "uml-utils/ocl/package.lisp"))
+(load (lpath :mylib "uml-utils/mof/package.lisp"))
 ;;; Don't load it if you don't need it; screws up ocl debugging.
 (load (lpath :sei "iface/http/httpcore/package.lisp"))
 ;;; I think load the qvt package even if you don't use it. (Some stuff in OCL refers to it?)
-(load (lpath :mylib "pod-utils/uml-utils/qvt/package.lisp"))
+(load (lpath :mylib "uml-utils/qvt/package.lisp"))
 ;(load (lpath :mylib "pod-utils/uml-utils/models/packages.lisp"))
-(load (lpath :mylib "pod-utils/uml-utils/browser/packages.lisp"))
+(load (lpath :mylib "uml-utils/browser/packages.lisp"))
 
 (handler-bind ((style-warning #'muffle-warning))
-    (asdf:oos 'asdf:load-op :application-server))
+    (asdf:load-system :xmi-validator))
 
 ;;; I gave up trying to understand how ASDF is organized. The documentation is not helpful.
 (in-package :mofi)
