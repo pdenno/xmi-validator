@@ -1,0 +1,12 @@
+# KDE Config File  
+[KDE Desktop Entry]
+Type=Application
+Exec=expresso
+Icon=expresso.xpm
+MiniIcon=expresso.xpm
+DocPath=expresso/index.html
+Comment=
+Comment[de]=
+Terminal=0
+Name=Expresso
+Name[de]=Expresso

@@ -1,0 +1,237 @@
+
+transformation UmlToRdbms(uml:umlMM; rdbms:rdbmsMM)
+{
+	key rdbmsMM::Table {name, schema};
+	key rdbmsMM::Column {name, owner};
+	key rdbmsMM::Key {name, owner};
+	key rdbmsMM::ForeignKey {name, owner};
+
+	query PrimitiveTypeToSqlType(primitiveTpe:String):String;
+
+	top relation PackageToSchema
+	{
+		pn: String;
+		
+		checkonly domain uml 
+		p:Package 
+		{
+			name=pn
+		};
+		
+		enforce domain rdbms 
+		s:Schema 
+		{
+			name=pn
+		};
+	}
+
+	top relation ClassToTable
+	{
+		cn, prefix: String;
+
+		checkonly domain uml 
+		c:Class 
+		{
+			namespace=p:Package {},
+			kind='Persistent',
+			name=cn
+		};
+		
+		enforce domain rdbms 
+		t:Table 
+		{
+			schema=s:Schema {},
+			name=cn,
+			column=cl:Column 
+			{
+				name=cn+'_tid',
+				type='NUMBER'
+			},
+			hasKey=k:Key 
+			{
+				name=cn+'_pk',
+				column=cl
+			}
+		};
+		
+		when 
+		{
+			PackageToSchema(p, s);
+		}
+		
+		where 
+		{
+			prefix = '';
+			AttributeToColumn(c, t, prefix);
+		}
+	}
+
+	relation AttributeToColumn
+	{
+		checkonly domain uml 
+		c:Class {};
+		
+		enforce domain rdbms 
+		t:Table {};
+		
+		primitive domain 
+		prefix:String;
+		
+		where 
+		{
+			PrimitiveAttributeToColumn(c, t, prefix);
+			ComplexAttributeToColumn(c, t, prefix);
+			SuperAttributeToColumn(c, t, prefix);
+		}
+	}
+
+	relation PrimitiveAttributeToColumn
+	{
+		an, pn, cn, sqltype: String;
+
+		checkonly domain uml 
+		c:Class 
+		{
+			attribute=a:Attribute 
+			{
+				name=an,
+				type=p:PrimitiveDataType 
+				{
+					name=pn
+				}
+			}
+		};
+		
+		enforce domain rdbms 
+		t:Table 
+		{
+			column=cl:Column 
+			{
+				name=cn,
+				type=sqltype
+			}
+		};
+		
+		primitive domain 
+		prefix:String;
+		
+		where 
+		{
+			cn = if (prefix = '') then an else prefix+'_'+an endif;
+			sqltype = PrimitiveTypeToSqlType(pn);
+		}
+	}
+
+	relation ComplexAttributeToColumn
+	{
+		an, newPrefix: String;
+
+		checkonly domain uml 
+		c:Class 
+		{
+			attribute=a:Attribute 
+			{
+				name=an,
+				type=tc:Class {}
+			}
+		};
+		
+		enforce domain rdbms 
+		t:Table {};
+
+		primitive domain 
+		prefix:String;
+		
+		where 
+		{
+			newPrefix = prefix+'_'+an;
+			AttributeToColumn(tc, t, newPrefix);
+		}
+	}
+
+	relation SuperAttributeToColumn
+	{
+		checkonly domain uml 
+		c:Class 
+		{
+			general=sc:Class {}
+		};
+		
+		enforce domain rdbms 
+		t:Table {};
+		
+		primitive domain 
+		prefix:String;
+		
+		where 
+		{
+			AttributeToColumn(sc, t, prefix);
+		}
+	}
+
+	top relation AssocToFKey
+	{
+		srcTbl, destTbl: rdbmsMM::Table;
+		pKey: rdbmsMM::Key;
+		an, scn, dcn, fkn, fcn: String;
+
+		checkonly domain uml 
+		a:Association 
+		{
+			namespace=p:Package {},
+			name=an,
+			source=sc:Class 
+			{
+				kind='Persistent',
+				name=scn
+			},
+			destination=dc:Class 
+			{
+				kind='Persistent',
+				name=dcn
+			}
+		};
+		
+		enforce domain rdbms 
+		fk:ForeignKey 
+		{
+			schema=s:Schema {},
+			name=fkn,
+			owner=srcTbl,
+			column=fc:Column 
+			{
+				name=fcn,
+				type='NUMBER',
+				owner=srcTbl
+			},
+			refersTo=pKey
+		};
+		
+		when 
+		{
+			PackageToSchema(p, s);
+			ClassToTable(sc, srcTbl);
+			ClassToTable(dc, destTbl);
+			pKey = destTbl.hasKey;
+		}
+		
+		where 
+		{
+			fkn=scn+'_'+an+'_'+dcn;
+			fcn=fkn+'_tid';
+		}
+	}
+
+	query PrimitiveTypeToSqlType(primitiveType:String):String
+	{
+		if (primitiveType='INTEGER')
+		then 'NUMBER'
+		else 
+			if (primitiveType='BOOLEAN')
+			then 'BOOLEAN'
+			else 'VARCHAR'
+			endif
+		endif
+	}
+}
+

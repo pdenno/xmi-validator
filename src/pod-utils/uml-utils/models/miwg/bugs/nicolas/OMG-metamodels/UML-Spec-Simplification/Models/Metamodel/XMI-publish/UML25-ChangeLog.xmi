@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
+	<packagedElement xmi:id="A_attribute_classifier">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_attribute_classifier-classifier" type="Classifier" subsettedProperty="Feature-featuringClassifier RedefinableElement-redefinitionContext" name="classifier" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_attribute_classifier"/>
+	</packagedElement>
+	<!-- (added in 2.5) -->
+	<packagedElement xmi:id="A_conveyed_conveyingFlow" name="A_conveyed_conveyingFlow" memberEnd="InformationFlow-conveyed A_conveyed_conveyingFlow-conveyingFlow">
+		<ownedEnd xmi:id="A_conveyed_conveyingFlow-conveyingFlow" type="InformationFlow" name="conveyingFlow" association="A_conveyed_conveyingFlow"> </ownedEnd>
+	</packagedElement>
+	<!-- (added in 2.5) -->
+	<packagedElement xmi:id="A_deployedArtifact_deploymentForArtifact" name="A_deployedArtifact_deploymentForArtifact" memberEnd="Deployment-deployedArtifact A_deployedArtifact_deploymentForArtifact-deploymentForArtifact">
+		<ownedEnd xmi:id="A_deployedArtifact_deploymentForArtifact-deploymentForArtifact" type="Deployment" subsettedProperty="A_supplier_supplierDependency-supplierDependency" name="deploymentForArtifact" association="A_deployedArtifact_deploymentForArtifact"> </ownedEnd>
+	</packagedElement>
+	<!-- (added in 2.5) -->
+	<packagedElement xmi:id="A_importedElement_import" name="A_importedElement_import" memberEnd="ElementImport-importedElement A_importedElement_import-import">
+		<ownedEnd xmi:id="A_importedElement_import-import" type="ElementImport" subsettedProperty="A_target_directedRelationship-directedRelationship" name="import" association="A_importedElement_import"> </ownedEnd>
+	</packagedElement>
+	<!-- (added in 2.5) -->
+	<packagedElement xmi:id="A_inheritedMember_inheritingClassifier" name="A_inheritedMember_inheritingClassifier" memberEnd="Classifier-inheritedMember A_inheritedMember_inheritingClassifier-inheritingClassifier" isDerived="true">
+		<ownedEnd xmi:id="A_inheritedMember_inheritingClassifier-inheritingClassifier" type="Classifier" subsettedProperty="A_member_memberNamespace-memberNamespace" name="inheritingClassifier" association="A_inheritedMember_inheritingClassifier"> </ownedEnd>
+	</packagedElement>
+	<packagedElement xmi:id="A_input_action">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_input_action-action" type="Action" subsettedProperty="Element-owner" name="action" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_input_action"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_loopVariable_loopNode">
+		<!-- (added{@subsettedProperty}) -->
+		<ownedEnd xmi:id="A_loopVariable_loopNode-loopNode" type="LoopNode" subsettedProperty="Element-owner" name="loopNode" association="A_loopVariable_loopNode"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_member_memberNamespace">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_member_memberNamespace-memberNamespace" type="Namespace" name="memberNamespace" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_member_memberNamespace"/>
+	</packagedElement>
+	<!-- (added in 2.5) -->
+	<packagedElement xmi:id="A_nestedClassifier_nestingClass" name="A_nestedClassifier_nestingClass" memberEnd="Class-nestedClassifier A_nestedClassifier_nestingClass-nestingClass">
+		<ownedEnd xmi:id="A_nestedClassifier_nestingClass-nestingClass" type="Class" subsettedProperty="NamedElement-namespace RedefinableElement-redefinitionContext" name="nestingClass" association="A_nestedClassifier_nestingClass"> </ownedEnd>
+	</packagedElement>
+	<packagedElement xmi:id="A_output_action">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_output_action-action" type="Action" subsettedProperty="Element-owner" name="action" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_output_action"/>
+	</packagedElement>
+	<!-- (added in 2.5) -->
+	<packagedElement xmi:id="A_ownedActual_owningTemplateParameterSubstitution" name="A_ownedActual_owningTemplateParameterSubstitution" memberEnd="TemplateParameterSubstitution-ownedActual A_ownedActual_owningTemplateParameterSubstitution-owningTemplateParameterSubstitution">
+		<generalization xmi:id="A_ownedActual_owningTemplateParameterSubstitution-_generalization.0" general="A_actual_templateParameterSubstitution"/>
+		<ownedEnd xmi:id="A_ownedActual_owningTemplateParameterSubstitution-owningTemplateParameterSubstitution" type="TemplateParameterSubstitution" subsettedProperty="Element-owner" redefinedProperty="A_actual_templateParameterSubstitution-templateParameterSubstitution" name="owningTemplateParameterSubstitution" association="A_ownedActual_owningTemplateParameterSubstitution"> </ownedEnd>
+	</packagedElement>
+	<packagedElement xmi:id="A_redefinedElement_redefinableElement">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_redefinedElement_redefinableElement-redefinableElement" type="RedefinableElement" name="redefinableElement" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_redefinedElement_redefinableElement"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_redefinitionContext_redefinableElement">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_redefinitionContext_redefinableElement-redefinableElement" type="RedefinableElement" name="redefinableElement" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_redefinitionContext_redefinableElement"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_redefinitionContext_region">
+		<!--OMG Issue: 18873 (added{@subsettedProperty}; deleted{@redefinedProperty}) -->
+		<ownedEnd xmi:id="A_redefinitionContext_region-region" type="Region" subsettedProperty="A_redefinitionContext_redefinableElement-redefinableElement" name="region" association="A_redefinitionContext_region"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_redefinitionContext_state">
+		<!--OMG Issue: 18873 (added{@subsettedProperty}; deleted{@redefinedProperty}) -->
+		<ownedEnd xmi:id="A_redefinitionContext_state-state" type="State" subsettedProperty="A_redefinitionContext_redefinableElement-redefinableElement" name="state" association="A_redefinitionContext_state"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_redefinitionContext_transition">
+		<!--OMG Issue: 18873 (added{@subsettedProperty}; deleted{@redefinedProperty}) -->
+		<ownedEnd xmi:id="A_redefinitionContext_transition-transition" type="Transition" subsettedProperty="A_redefinitionContext_redefinableElement-redefinableElement" name="transition" association="A_redefinitionContext_transition"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_relatedElement_relationship">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_relatedElement_relationship-relationship" type="Relationship" name="relationship" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_relatedElement_relationship"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_role_structuredClassifier">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_role_structuredClassifier-structuredClassifier" type="StructuredClassifier" subsettedProperty="A_member_memberNamespace-memberNamespace" name="structuredClassifier" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_role_structuredClassifier"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_source_directedRelationship">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_source_directedRelationship-directedRelationship" type="DirectedRelationship" subsettedProperty="A_relatedElement_relationship-relationship" name="directedRelationship" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_source_directedRelationship"/>
+	</packagedElement>
+	<packagedElement xmi:id="A_target_directedRelationship">
+		<!--OMG Issues: 17172, 18873 (added{@isReadOnly}; added{@isDerivedUnion}; added{@isDerived}) -->
+		<ownedEnd xmi:id="A_target_directedRelationship-directedRelationship" type="DirectedRelationship" subsettedProperty="A_relatedElement_relationship-relationship" name="directedRelationship" isReadOnly="true" isDerivedUnion="true" isDerived="true" association="A_target_directedRelationship"/>
+	</packagedElement>
+	<packagedElement xmi:id="AcceptEventAction">
+		<!-- (added{@isOrdered}) -->
+		<ownedAttribute xmi:id="AcceptEventAction-result" type="OutputPin" subsettedProperty="Action-output" name="result" isOrdered="true" association="A_result_acceptEventAction" aggregation="composite"/>
+	</packagedElement>
+	<packagedElement xmi:id="Association">
+		<!--OMG Issue: 18788 (deleted{@isOrdered}) -->
+		<ownedAttribute xmi:id="Association-endType" type="Type" subsettedProperty="Relationship-relatedElement" name="endType" isReadOnly="true" isDerived="true" association="A_endType_association"/>
+	</packagedElement>
+	<!--OMG Issues: 17917, 17918 (different sub-elements) -->
+	<packagedElement xmi:id="Classifier">
+		<!-- (added{@isOrdered}) -->
+		<ownedAttribute xmi:id="Classifier-attribute" type="Property" subsettedProperty="A_redefinitionContext_redefinableElement-redefinableElement Classifier-feature" name="attribute" isReadOnly="true" isOrdered="true" isDerivedUnion="true" isDerived="true" association="A_attribute_classifier"/>
+	</packagedElement>
+	<packagedElement xmi:id="ConnectableElement">
+		<!--OMG Issue: 18140 (deleted{@isOrdered}) -->
+		<ownedAttribute xmi:id="ConnectableElement-end" type="ConnectorEnd" name="end" isReadOnly="true" isDerived="true" association="A_end_role"/>
+	</packagedElement>
+	<packagedElement xmi:id="DurationObservation">
+		<!--OMG Issue: 17466 (added{@isOrdered}) -->
+		<ownedAttribute xmi:id="DurationObservation-event" type="NamedElement" name="event" isOrdered="true" association="A_event_durationObservation"/>
+	</packagedElement>
+	<packagedElement xmi:id="LoopNode">
+		<!-- (added{@subsettedProperty}; added{@aggregation}) -->
+		<ownedAttribute xmi:id="LoopNode-loopVariable" type="OutputPin" subsettedProperty="Element-ownedElement" name="loopVariable" isOrdered="true" association="A_loopVariable_loopNode" aggregation="composite"/>
+	</packagedElement>
+	<packagedElement xmi:id="NamedElement">
+		<!--OMG Issue: 15056 (added{@isDerived}) -->
+		<ownedAttribute xmi:id="NamedElement-clientDependency" type="Dependency" subsettedProperty="A_source_directedRelationship-directedRelationship" name="clientDependency" isDerived="true" association="A_clientDependency_client"/>
+	</packagedElement>
+	<packagedElement xmi:id="ReplyAction">
+		<!-- (added{@isOrdered}) -->
+		<ownedAttribute xmi:id="ReplyAction-replyValue" type="InputPin" subsettedProperty="Action-input" name="replyValue" isOrdered="true" association="A_replyValue_replyAction" aggregation="composite"/>
+	</packagedElement>
+	<packagedElement xmi:id="StringExpression">
+		<!--OMG Issue: 7882 (added{@isOrdered}) -->
+		<ownedAttribute xmi:id="StringExpression-subExpression" type="StringExpression" subsettedProperty="Element-ownedElement" name="subExpression" isOrdered="true" association="A_subExpression_owningExpression" aggregation="composite"/>
+	</packagedElement>
+	<packagedElement xmi:id="UnmarshallAction">
+		<!-- (added{@isOrdered}) -->
+		<ownedAttribute xmi:id="UnmarshallAction-result" type="OutputPin" subsettedProperty="Action-output" name="result" isOrdered="true" association="A_result_unmarshallAction" aggregation="composite"/>
+	</packagedElement>
+</uml:Package>

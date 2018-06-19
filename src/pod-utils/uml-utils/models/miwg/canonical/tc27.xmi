@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-27" xmi:uuid="725A27D7-D489-406D-97A5-CD4457DD82C8">
+        <packagedElement xmi:id="Test-Case-27-Test-Case-27"
+            xmi:uuid="725A27D7-D489-4AA1-9CBB-CD4494B5C496" xmi:type="uml:Activity">
+            <node xmi:id="Test-Case-27-Test-Case-27-Data_Store"
+                xmi:uuid="725A27D7-D489-4E5C-99D4-CD44946AD317" xmi:type="uml:DataStoreNode">
+                <outgoing xmi:idref="Test-Case-27-Test-Case-27-edge-4"/>
+                <incoming xmi:idref="Test-Case-27-Test-Case-27-edge-2"/>
+                <name>Data Store</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-27-Test-Case-27-Central_Buffer"
+                xmi:uuid="725A27D7-D489-4B02-987A-CD442F4354BB" xmi:type="uml:CentralBufferNode">
+                <outgoing xmi:idref="Test-Case-27-Test-Case-27-edge-5"/>
+                <incoming xmi:idref="Test-Case-27-Test-Case-27-edge-3"/>
+                <name>Central Buffer</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-27-Test-Case-27-Opaque_Action"
+                xmi:uuid="725A27D7-D489-435F-97E3-CD44ED7261CD" xmi:type="uml:OpaqueAction">
+                <body>Do action</body>
+                <language>English</language>
+                <incoming xmi:idref="Test-Case-27-Test-Case-27-edge-1"/>
+                <outputValue xmi:id="Test-Case-27-Test-Case-27-Opaque_Action-output-1"
+                    xmi:uuid="725A27D7-D489-4C73-971F-CD4484558463" xmi:type="uml:OutputPin">
+                    <outgoing xmi:idref="Test-Case-27-Test-Case-27-edge-2"/>
+                    <name>output-1</name>
+                    <visibility>public</visibility>
+                </outputValue>
+                <outputValue xmi:id="Test-Case-27-Test-Case-27-Opaque_Action-output-2"
+                    xmi:uuid="725A27D7-D489-4C7D-9B6E-CD44DF99F6A8" xmi:type="uml:OutputPin">
+                    <outgoing xmi:idref="Test-Case-27-Test-Case-27-edge-3"/>
+                    <name>output-2</name>
+                    <visibility>public</visibility>
+                </outputValue>
+                <name>Opaque Action</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-27-Test-Case-27-node-4"
+                xmi:uuid="725A27D7-D489-473D-90DF-CD446133F77C" xmi:type="uml:InitialNode">
+                <outgoing xmi:idref="Test-Case-27-Test-Case-27-edge-1"/>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-27-Test-Case-27-node-5"
+                xmi:uuid="725A27D7-D489-4091-9EAE-CD44CFA1C82E" xmi:type="uml:FlowFinalNode">
+                <incoming xmi:idref="Test-Case-27-Test-Case-27-edge-4"/>
+                <incoming xmi:idref="Test-Case-27-Test-Case-27-edge-5"/>
+                <visibility>public</visibility>
+            </node>
+            <edge xmi:id="Test-Case-27-Test-Case-27-edge-1"
+                xmi:uuid="725A27D7-D489-4929-959D-CD449E2DBEAF" xmi:type="uml:ControlFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-27-Test-Case-27-node-4"/>
+                <target xmi:idref="Test-Case-27-Test-Case-27-Opaque_Action"/>
+            </edge>
+            <edge xmi:id="Test-Case-27-Test-Case-27-edge-2"
+                xmi:uuid="725A27D7-D489-4561-9B15-CD443F996C9B" xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-27-Test-Case-27-Opaque_Action-output-1"/>
+                <target xmi:idref="Test-Case-27-Test-Case-27-Data_Store"/>
+            </edge>
+            <edge xmi:id="Test-Case-27-Test-Case-27-edge-3"
+                xmi:uuid="725A27D7-D489-4642-94B4-CD44A5B34838" xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-27-Test-Case-27-Opaque_Action-output-2"/>
+                <target xmi:idref="Test-Case-27-Test-Case-27-Central_Buffer"/>
+            </edge>
+            <edge xmi:id="Test-Case-27-Test-Case-27-edge-4"
+                xmi:uuid="725A27D7-D489-4D82-973D-CD443620179E" xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-27-Test-Case-27-Data_Store"/>
+                <target xmi:idref="Test-Case-27-Test-Case-27-node-5"/>
+            </edge>
+            <edge xmi:id="Test-Case-27-Test-Case-27-edge-5"
+                xmi:uuid="725A27D7-D489-461F-93CC-CD44F7D41A77" xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-27-Test-Case-27-Central_Buffer"/>
+                <target xmi:idref="Test-Case-27-Test-Case-27-node-5"/>
+            </edge>
+            <name>Test-Case-27</name>
+        </packagedElement>
+        <name>Test-Case-27</name>
+    </uml:Model>
+</xmi:XMI>

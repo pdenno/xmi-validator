@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version = "2.1" xmlns:xmi = "http://schema.omg.org/spec/XMI/2.1" xmlns:uml = "http://www.omg.org/spec/UML/20090901" xmlns:StandardProfileL2 = "http://www.omg.org/spec/UML/20090901/StandardProfileL2.xmi" >
+  <documentation xmi:type = "xmi:Documentation">
+    <exporter>Artisan Studio</exporter>
+    <exporterVersion>7.2.10</exporterVersion>
+  </documentation>
+  <uml:Model name = "TestCase4" xmi:id = "_445f1b1f-aa68-4c84-b13c-3657b385c6c8">
+      <packagedElement xmi:type = "uml:Activity" xmi:id = "_a075c870-4b2b-4cdc-a259-d21385847407" name = "Activity1" visibility = "public" isReentrant = "false" isReadOnly = "false" isSingleExecution = "false">
+        <ownedParameter xmi:type = "uml:Parameter" xmi:id = "_9b473ef3-844f-4078-84ae-f422c921d6fa" name = "input">
+          <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+          </type>
+        </ownedParameter>
+        <ownedParameter xmi:type = "uml:Parameter" xmi:id = "_df0994f5-ee6f-45f4-9190-c69a03dbaa3d" name = "output1" direction = "out">
+          <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+          </type>
+        </ownedParameter>
+        <ownedParameter xmi:type = "uml:Parameter" xmi:id = "_6bceaa94-dd7f-4c8a-94cd-4e9caf0e4932" name = "output2" direction = "out">
+          <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+          </type>
+        </ownedParameter>
+        <node xmi:type = "uml:ForkNode" xmi:id = "_16ecd428-887d-489a-80c6-a2f11fcdf09e" name = "Fork" visibility = "public" outgoing = "_68f1f2d6-fb78-4d56-b4e3-bae361ba9f16 _87207fe0-4213-4c24-8f97-93b94f64aa46" incoming = "_08a558c0-6fdf-4196-8dd3-2fffaeef32fa">
+        </node>
+        <node xmi:type = "uml:ActivityParameterNode" xmi:id = "_3c48b1e3-bce5-4c63-b9da-5d7833fd57b0" name = "input" visibility = "public" parameter = "_9b473ef3-844f-4078-84ae-f422c921d6fa" outgoing = "_08a558c0-6fdf-4196-8dd3-2fffaeef32fa">
+          <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+          </type>
+        </node>
+        <node xmi:type = "uml:ActivityParameterNode" xmi:id = "_0f049ea4-c2df-4b7f-81f5-e5a690c0fa95" name = "output1" visibility = "public" parameter = "_df0994f5-ee6f-45f4-9190-c69a03dbaa3d" incoming = "_68f1f2d6-fb78-4d56-b4e3-bae361ba9f16">
+          <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+          </type>
+        </node>
+        <node xmi:type = "uml:ActivityParameterNode" xmi:id = "_062735b5-553b-4ab5-968e-9b9ca432c756" name = "output2" visibility = "public" parameter = "_6bceaa94-dd7f-4c8a-94cd-4e9caf0e4932" incoming = "_87207fe0-4213-4c24-8f97-93b94f64aa46">
+          <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+          </type>
+        </node>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_68f1f2d6-fb78-4d56-b4e3-bae361ba9f16" source = "_16ecd428-887d-489a-80c6-a2f11fcdf09e" target = "_0f049ea4-c2df-4b7f-81f5-e5a690c0fa95">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_08a558c0-6fdf-4196-8dd3-2fffaeef32fa" source = "_3c48b1e3-bce5-4c63-b9da-5d7833fd57b0" target = "_16ecd428-887d-489a-80c6-a2f11fcdf09e">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_87207fe0-4213-4c24-8f97-93b94f64aa46" source = "_16ecd428-887d-489a-80c6-a2f11fcdf09e" target = "_062735b5-553b-4ab5-968e-9b9ca432c756">
+        </edge>
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Activity" xmi:id = "_1b3e61c4-f6df-4caf-b6c8-c71bc2d3e031" name = "Activity2" visibility = "public" isReentrant = "false" isReadOnly = "false" isSingleExecution = "false">
+        <node xmi:type = "uml:InitialNode" xmi:id = "_95f3b6dc-1fc6-4c01-84c4-517e9b140830" name = "Initial" visibility = "public" outgoing = "_11345df5-7b52-4142-ae37-96ac05f222e8">
+        </node>
+        <node xmi:type = "uml:ValueSpecificationAction" xmi:id = "_b70658f7-defd-4fc7-ab70-5813afc607bf" name = "Value" visibility = "public" incoming = "_11345df5-7b52-4142-ae37-96ac05f222e8">
+          <result xmi:type = "uml:OutputPin" xmi:id = "_bf4a7bd9-0793-4adf-8a4b-66d4929b6196" name = "Value.output" visibility = "public" outgoing = "_26ac3645-118f-42ed-aa37-ca41a9b6cb47">
+            <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+            </type>
+          </result>
+          <value xmi:type = "uml:OpaqueExpression" xmi:id = "_b70658f7-defd-4fc7-ab70-5813afc607bfvalue" language = "English">
+              <body>1</body>
+          </value>
+        </node>
+        <node xmi:type = "uml:CallBehaviorAction" xmi:id = "_661c03b2-eb06-4e2b-920f-65360dfd67a5" name = "Call1" visibility = "public" behavior = "_a075c870-4b2b-4cdc-a259-d21385847407">
+          <argument xmi:type = "uml:InputPin" xmi:id = "_20676fee-8bbb-4ddd-a8ae-5990c203ad80" name = "input" visibility = "public" incoming = "_26ac3645-118f-42ed-aa37-ca41a9b6cb47">
+            <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+            </type>
+          </argument>
+          <result xmi:type = "uml:OutputPin" xmi:id = "_133add43-6c4b-4bb7-a3c7-f1df6cad55a3" name = "output1" visibility = "public" outgoing = "_880f6b94-2381-49dd-9fc6-f6a39ad286d8">
+            <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+            </type>
+          </result>
+          <result xmi:type = "uml:OutputPin" xmi:id = "_9549b521-0365-498c-b89c-9627c25293b9" name = "output2" visibility = "public" outgoing = "_2ea657f8-6cb2-4408-9ecc-a23fb146e82c">
+            <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+            </type>
+          </result>
+        </node>
+        <node xmi:type = "uml:DecisionNode" xmi:id = "_0eed2c47-f585-4da1-8079-f14cd4562474" name = "Decision" visibility = "public" outgoing = "_bcb7ea42-926d-4ee1-bcf1-f59f9bc75f2d _e6fc809b-d557-4374-90de-b2c33480a8a4" incoming = "_880f6b94-2381-49dd-9fc6-f6a39ad286d8">
+        </node>
+        <node xmi:type = "uml:CallBehaviorAction" xmi:id = "_5da53db0-8fbd-488f-831b-4a939a2213d6" name = "Call2" visibility = "public" behavior = "_a075c870-4b2b-4cdc-a259-d21385847407">
+          <argument xmi:type = "uml:InputPin" xmi:id = "_5a391830-bd7b-4a2f-9411-b3f824382d4b" name = "input" visibility = "public" incoming = "_bcb7ea42-926d-4ee1-bcf1-f59f9bc75f2d">
+            <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+            </type>
+          </argument>
+          <result xmi:type = "uml:OutputPin" xmi:id = "_407118da-f6a0-4cde-b13f-c7f465e2bb97" name = "output1" visibility = "public" outgoing = "_957df7d4-0204-41c5-a850-c17a1639d085">
+            <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+            </type>
+          </result>
+          <result xmi:type = "uml:OutputPin" xmi:id = "_d5ec6212-af39-4023-a029-c41e50a01779" name = "output2" visibility = "public" outgoing = "_01712936-2854-4b41-869e-d233c56559e2">
+            <type xmi:type = "uml:PrimitiveType" href = "http://www.omg.org/spec/UML/20090901/UML.xmi#Integer">
+            </type>
+          </result>
+        </node>
+        <node xmi:type = "uml:MergeNode" xmi:id = "_7eccf516-2185-4130-8261-cb640376e067" name = "Merge" visibility = "public" outgoing = "_dc01d956-6dd1-4a65-b6ec-4862ce0170c4" incoming = "_01712936-2854-4b41-869e-d233c56559e2 _957df7d4-0204-41c5-a850-c17a1639d085 _e6fc809b-d557-4374-90de-b2c33480a8a4">
+        </node>
+        <node xmi:type = "uml:JoinNode" xmi:id = "_9effa91b-4b0c-499c-9809-7a2b347106e1" name = "Join" visibility = "public" outgoing = "_3b2f1fd5-a994-4024-9553-aad771040b79" incoming = "_2ea657f8-6cb2-4408-9ecc-a23fb146e82c _dc01d956-6dd1-4a65-b6ec-4862ce0170c4">
+        </node>
+        <node xmi:type = "uml:ActivityFinalNode" xmi:id = "_fc967ca2-1828-4c83-b9c6-02bee024b447" name = "Final" visibility = "public" incoming = "_3b2f1fd5-a994-4024-9553-aad771040b79">
+        </node>
+        <edge xmi:type = "uml:ControlFlow" xmi:id = "_11345df5-7b52-4142-ae37-96ac05f222e8" source = "_95f3b6dc-1fc6-4c01-84c4-517e9b140830" target = "_b70658f7-defd-4fc7-ab70-5813afc607bf">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_26ac3645-118f-42ed-aa37-ca41a9b6cb47" source = "_bf4a7bd9-0793-4adf-8a4b-66d4929b6196" target = "_20676fee-8bbb-4ddd-a8ae-5990c203ad80">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_880f6b94-2381-49dd-9fc6-f6a39ad286d8" source = "_133add43-6c4b-4bb7-a3c7-f1df6cad55a3" target = "_0eed2c47-f585-4da1-8079-f14cd4562474">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_2ea657f8-6cb2-4408-9ecc-a23fb146e82c" source = "_9549b521-0365-498c-b89c-9627c25293b9" target = "_9effa91b-4b0c-499c-9809-7a2b347106e1">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_bcb7ea42-926d-4ee1-bcf1-f59f9bc75f2d" source = "_0eed2c47-f585-4da1-8079-f14cd4562474" target = "_5a391830-bd7b-4a2f-9411-b3f824382d4b">
+          <guard xmi:type = "uml:OpaqueExpression" xmi:id = "_bcb7ea42-926d-4ee1-bcf1-f59f9bc75f2dguard">
+              <body>1</body>
+          </guard>
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_3b2f1fd5-a994-4024-9553-aad771040b79" source = "_9effa91b-4b0c-499c-9809-7a2b347106e1" target = "_fc967ca2-1828-4c83-b9c6-02bee024b447">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_957df7d4-0204-41c5-a850-c17a1639d085" source = "_407118da-f6a0-4cde-b13f-c7f465e2bb97" target = "_7eccf516-2185-4130-8261-cb640376e067">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_01712936-2854-4b41-869e-d233c56559e2" source = "_d5ec6212-af39-4023-a029-c41e50a01779" target = "_7eccf516-2185-4130-8261-cb640376e067">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_dc01d956-6dd1-4a65-b6ec-4862ce0170c4" source = "_7eccf516-2185-4130-8261-cb640376e067" target = "_9effa91b-4b0c-499c-9809-7a2b347106e1">
+        </edge>
+        <edge xmi:type = "uml:ObjectFlow" xmi:id = "_e6fc809b-d557-4374-90de-b2c33480a8a4" source = "_0eed2c47-f585-4da1-8079-f14cd4562474" target = "_7eccf516-2185-4130-8261-cb640376e067">
+          <guard xmi:type = "uml:OpaqueExpression" xmi:id = "_e6fc809b-d557-4374-90de-b2c33480a8a4guard">
+              <body>0</body>
+          </guard>
+        </edge>
+      </packagedElement>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication0">
+  <appliedProfile  xmi:type="uml:Profile" href="http://www.omg.org/spec/UML/20090901/StandardProfileL2.xmi#_0"/>
+</profileApplication>
+  </uml:Model>
+</xmi:XMI>

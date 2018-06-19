@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version = "2.1" xmlns:xmi = "http://schema.omg.org/spec/XMI/2.1" xmlns:uml = "http://www.omg.org/spec/UML/20090901" xmlns:updm = "http://www.omg.org/spec/UPDM/20120301" xmlns:sysml = "http://www.omg.org/spec/SysML/20100301/SysML-profile" >
+  <uml:Model name = "TestCase20" xmi:id = "_dd481805-102c-41c5-8518-9c9530ed5b88">
+    <packagedElement xmi:type = "uml:Package" xmi:id = "_60dd4476-e7e4-40b6-80d4-00a9246da992" name = "Architectural Description1">
+      <packagedElement xmi:type = "uml:Class" xmi:id = "_acf7a8dd-47e4-4e0f-a3fc-0165e69dcaa4" name = "Capability1">
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Class" xmi:id = "_d75af802-b127-43b7-b3e4-29ee7397918b" name = "Enterprise Goal1" isAbstract = "true">
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Class" xmi:id = "_5698b3cb-6838-4232-a4e8-5f6c38575f65" name = "Enterprise Phase1">
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Class" xmi:id = "_81483c34-8d94-41e9-b6f0-d4ff9ea8b3a2" name = "Enterprise Phase2">
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Class" xmi:id = "_5683afb9-8cd3-447c-9628-7922063cf3c6" name = "Vision1">
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Class" xmi:id = "_dca97b2b-8ce0-4ffd-894b-b03937f66407" name = "Whole Life Enterprise1">
+        <ownedAttribute xmi:type = "uml:Property" xmi:id="_471d561a-7750-41c3-931c-93bfd1784f99" name = "Structual Part1" type = "_5698b3cb-6838-4232-a4e8-5f6c38575f65" visibility = "public" aggregation = "composite" association = "_50a73f76-db8e-47b6-ba7f-59aa833c342f">
+        </ownedAttribute>
+        <ownedAttribute xmi:type = "uml:Property" xmi:id="_a3e2dca2-5f8e-414f-90a1-5ce8a04a5606" name = "Temporal Part1" type = "_81483c34-8d94-41e9-b6f0-d4ff9ea8b3a2" visibility = "public" aggregation = "composite" association = "_bfdd4b1f-a64e-481c-a5a5-3483824f92ca">
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Association" xmi:id = "_bfdd4b1f-a64e-481c-a5a5-3483824f92ca" name = "Composition" memberEnd = "_63dfc172-ed5b-41d2-9647-3d062d8467ec _a3e2dca2-5f8e-414f-90a1-5ce8a04a5606">
+        <ownedEnd xmi:type = "uml:Property" xmi:id = "_63dfc172-ed5b-41d2-9647-3d062d8467ec" type = "_dca97b2b-8ce0-4ffd-894b-b03937f66407" visibility = "private" association = "_bfdd4b1f-a64e-481c-a5a5-3483824f92ca">
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Association" xmi:id = "_50a73f76-db8e-47b6-ba7f-59aa833c342f" name = "Composition" memberEnd = "_eaddbf6f-44d3-4899-94bc-19e47284add1 _471d561a-7750-41c3-931c-93bfd1784f99">
+        <ownedEnd xmi:type = "uml:Property" xmi:id = "_eaddbf6f-44d3-4899-94bc-19e47284add1" type = "_dca97b2b-8ce0-4ffd-894b-b03937f66407" visibility = "private" association = "_50a73f76-db8e-47b6-ba7f-59aa833c342f">
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Dependency" xmi:id = "_e925fdcc-bc1a-487b-be04-ba19d834fa9f" client = "_dca97b2b-8ce0-4ffd-894b-b03937f66407" supplier = "_acf7a8dd-47e4-4e0f-a3fc-0165e69dcaa4">
+      </packagedElement>
+      <packagedElement xmi:type="uml:LiteralString" xmi:id="_907de1a3-a21d-4a37-982b-0cef7d94cadb" value="2012-08-16 00:00:00">
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication0">
+      <appliedProfile  xmi:type="uml:Profile" href="http://www.omg.org/spec/UPDM/20120301/UPDM-Profile.xmi#UPDM"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication1">
+      <appliedProfile  xmi:type="uml:Profile" href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <updm:ArchitecturalDescription base_Package = "_60dd4476-e7e4-40b6-80d4-00a9246da992" xmi:id = "_9f238edc-7dd6-4347-bead-44aa3ea41ce4_60dd4476-e7e4-40b6-80d4-00a9246da992" viewpoint = "" purpose = "" recommendations = "" assumptionAndConstraint = "" creatingOrganization = "" summaryOfFindings = "" toBe = "false" toolsUsed = "" architect = "" architectureFramework = "DoDAF" />
+  <sysml:Block base_Class = "_acf7a8dd-47e4-4e0f-a3fc-0165e69dcaa4" xmi:id = "_830e357d-4657-41af-bfbf-f45d6e34953b_acf7a8dd-47e4-4e0f-a3fc-0165e69dcaa4" />
+  <updm:Capability base_Class = "_acf7a8dd-47e4-4e0f-a3fc-0165e69dcaa4" xmi:id = "_a3a3c3de-fede-44d1-827f-1c979ab68201_acf7a8dd-47e4-4e0f-a3fc-0165e69dcaa4" />
+  <updm:EnterpriseGoal base_Class = "_d75af802-b127-43b7-b3e4-29ee7397918b" xmi:id = "_321f14a8-c7df-4824-b5f7-f792d08f4805_d75af802-b127-43b7-b3e4-29ee7397918b" />
+  <sysml:Requirement base_Class = "_d75af802-b127-43b7-b3e4-29ee7397918b" xmi:id = "_c8397039-60bb-473b-af94-d8f886d4a425_d75af802-b127-43b7-b3e4-29ee7397918b" Text = "The Enterprise shall..." />
+  <updm:EnterprisePhase base_Class = "_5698b3cb-6838-4232-a4e8-5f6c38575f65" xmi:id = "_fba9af48-f861-467c-a434-d57344942ceb_5698b3cb-6838-4232-a4e8-5f6c38575f65" endDate = "_2CDB81C9-F2A9-40CB-9936-636FBB279B4E_907de1a3-a21d-4a37-982b-0cef7d94cadb" startDate = "_2CDB81C9-F2A9-40CB-9936-636FBB279B4E_907de1a3-a21d-4a37-982b-0cef7d94cadb" vision = "_4195ef5d-a34b-49f3-98ad-9ec3a6ddc6d7_5683afb9-8cd3-447c-9628-7922063cf3c6" />
+  <updm:EnterprisePhase base_Class = "_81483c34-8d94-41e9-b6f0-d4ff9ea8b3a2" xmi:id = "_fba9af48-f861-467c-a434-d57344942ceb_81483c34-8d94-41e9-b6f0-d4ff9ea8b3a2" endDate = "_2CDB81C9-F2A9-40CB-9936-636FBB279B4E_907de1a3-a21d-4a37-982b-0cef7d94cadb" startDate = "_2CDB81C9-F2A9-40CB-9936-636FBB279B4E_907de1a3-a21d-4a37-982b-0cef7d94cadb" vision = "_4195ef5d-a34b-49f3-98ad-9ec3a6ddc6d7_5683afb9-8cd3-447c-9628-7922063cf3c6" />
+  <updm:Vision base_Class = "_5683afb9-8cd3-447c-9628-7922063cf3c6" xmi:id = "_4195ef5d-a34b-49f3-98ad-9ec3a6ddc6d7_5683afb9-8cd3-447c-9628-7922063cf3c6" />
+  <updm:WholeLifeEnterprise base_Class = "_dca97b2b-8ce0-4ffd-894b-b03937f66407" xmi:id = "_98a34db1-21bf-46d7-a6d8-782d52b001dc_dca97b2b-8ce0-4ffd-894b-b03937f66407" descibedBy = "_9f238edc-7dd6-4347-bead-44aa3ea41ce4_60dd4476-e7e4-40b6-80d4-00a9246da992" endDate = "_2CDB81C9-F2A9-40CB-9936-636FBB279B4E_907de1a3-a21d-4a37-982b-0cef7d94cadb" goal = "_321f14a8-c7df-4824-b5f7-f792d08f4805_d75af802-b127-43b7-b3e4-29ee7397918b" startDate = "_2CDB81C9-F2A9-40CB-9936-636FBB279B4E_907de1a3-a21d-4a37-982b-0cef7d94cadb" vision = "_4195ef5d-a34b-49f3-98ad-9ec3a6ddc6d7_5683afb9-8cd3-447c-9628-7922063cf3c6" />
+  <updm:Exhibits base_Dependency = "_e925fdcc-bc1a-487b-be04-ba19d834fa9f" xmi:id = "_bc7999f2-9f8d-49e5-8e1a-c6a530fe17be_e925fdcc-bc1a-487b-be04-ba19d834fa9f" />
+  <updm:ISO8601DateTime base_LiteralString ="_907de1a3-a21d-4a37-982b-0cef7d94cadb" xmi:id="_2CDB81C9-F2A9-40CB-9936-636FBB279B4E_907de1a3-a21d-4a37-982b-0cef7d94cadb" />
+</xmi:XMI>

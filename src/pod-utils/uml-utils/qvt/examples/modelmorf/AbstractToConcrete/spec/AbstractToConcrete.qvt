@@ -1,0 +1,45 @@
+
+transformation AbstractToConcrete(uml1:UMLMM; uml2:UMLMM)
+{
+	key UMLMM::Type {name};
+	key UMLMM::Operation {name, class};
+	key UMLMM::Parameter {name, operation, type};
+
+	top relation AbstractClassToConcreteClass
+	{
+		t:UMLMM::Type;
+		acon, acopn:String;
+
+		domain uml1 
+		cc:Class
+		{
+			inheritsFrom = ac:Class 
+			{
+				isAbstract = true,
+				operation = aco:Operation 
+				{
+					name = acon,
+					parameter = acop:Parameter 
+					{
+						name = acopn,
+						type = t
+					}
+				}
+			}
+		};
+
+		enforce domain uml2 
+		cc:Class 
+		{
+			operation = cco:Operation 
+			{
+				name = acon,
+				parameter = ccop:Parameter 
+				{
+					name = acopn,
+					type = t
+				}
+			}
+		};
+	}
+}

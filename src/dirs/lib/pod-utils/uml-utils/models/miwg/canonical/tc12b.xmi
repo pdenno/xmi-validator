@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="A_TestCase12b">
+    <name>TestCase12b</name>
+    <packagedElement xmi:type="uml:Package" xmi:id="A_TestCase12b-Behavior">
+      <name>Behavior</name>
+      <packagedElement xmi:type="uml:Activity" xmi:id="A_TestCase12b-Behavior-Detect-Intruder">
+        <name>Detect Intruder</name>
+        <ownedParameter xmi:id="A_TestCase12b-Behavior-Detect-Intruder-Parameter1">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Parameter1_1-1">
+            <value>1</value>
+          </upperValue>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Parameter1_1-2">
+            <value>1</value>
+          </lowerValue>
+          <name>Parameter1</name>
+          <type xmi:idref="A_TestCase12b-Structure-Sensor-Input"/>
+          <isStream>true</isStream>
+        </ownedParameter>
+        <ownedParameter xmi:id="A_TestCase12b-Behavior-Detect-Intruder-Parameter2">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Parameter2_1-1">
+            <value>1</value>
+          </upperValue>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Parameter2_1-2">
+            <value>1</value>
+          </lowerValue>
+          <name>Parameter2</name>
+          <type xmi:idref="A_TestCase12b-Structure-Alarm-Signal"/>
+          <isStream>true</isStream>
+        </ownedParameter>
+        <node xmi:type="uml:CallBehaviorAction" xmi:id="A_Process-Signal">
+          <name>Process Signal</name>
+          <inPartition xmi:idref="B_ActivityPartition_TestCase12b.Behavior.Detect-Intruder_-2"/>
+          <argument xmi:type="uml:InputPin" xmi:id="A_in-2">
+            <name>in</name>
+            <incoming xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-1"/>
+            <type xmi:idref="A_TestCase12b-Structure-Sensor-Signal"/>
+            <upperBound xmi:type="uml:LiteralString" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Process-Signal.in_1-1">
+              <name>UpperBound</name>
+              <value>1</value>
+            </upperBound>
+          </argument>
+          <result xmi:type="uml:OutputPin" xmi:id="A_out-2">
+            <name>out</name>
+            <outgoing xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-2"/>
+            <type xmi:idref="A_TestCase12b-Structure-Alert"/>
+            <upperBound xmi:type="uml:LiteralString" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Process-Signal.out_1-1">
+              <name>UpperBound</name>
+              <value>1</value>
+            </upperBound>
+          </result>
+          <behavior xmi:idref="A_TestCase12b-Behavior-Process-Signal"/>
+        </node>
+        <node xmi:type="uml:AcceptEventAction" xmi:id="A_Reset">
+          <name>Reset</name>
+          <outgoing xmi:idref="B_ControlFlow_TestCase12b.Behavior.Detect-Intruder_-2"/>
+          <trigger xmi:id="B_Trigger_TestCase12b.Behavior.Detect-Intruder.Reset_-1">
+            <event xmi:idref="B_SignalEvent_TestCase12b.Behavior_-1"/>
+          </trigger>
+        </node>
+        <node xmi:type="uml:CallBehaviorAction" xmi:id="A_Sense-Input">
+          <name>Sense Input</name>
+          <incoming xmi:idref="B_ControlFlow_TestCase12b.Behavior.Detect-Intruder_-1"/>
+          <inPartition xmi:idref="B_ActivityPartition_TestCase12b.Behavior.Detect-Intruder_-3"/>
+          <argument xmi:type="uml:InputPin" xmi:id="A_in-1">
+            <name>in</name>
+            <incoming xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-3"/>
+            <type xmi:idref="A_TestCase12b-Structure-Sensor-Input"/>
+            <upperBound xmi:type="uml:LiteralString" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Sense-Input.in_1-1">
+              <name>UpperBound</name>
+              <value>1</value>
+            </upperBound>
+          </argument>
+          <result xmi:type="uml:OutputPin" xmi:id="A_out-1">
+            <name>out</name>
+            <outgoing xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-1"/>
+            <type xmi:idref="A_TestCase12b-Structure-Sensor-Signal"/>
+            <upperBound xmi:type="uml:LiteralString" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Sense-Input.out_1-1">
+              <name>UpperBound</name>
+              <value>1</value>
+            </upperBound>
+          </result>
+          <behavior xmi:idref="A_TestCase12b-Behavior-Sense-Input"/>
+        </node>
+        <node xmi:type="uml:AcceptEventAction" xmi:id="A_Set">
+          <name>Set</name>
+          <outgoing xmi:idref="B_ControlFlow_TestCase12b.Behavior.Detect-Intruder_-1"/>
+          <inPartition xmi:idref="B_ActivityPartition_TestCase12b.Behavior.Detect-Intruder_-3"/>
+          <trigger xmi:id="B_Trigger_TestCase12b.Behavior.Detect-Intruder.Set_-1">
+            <event xmi:idref="B_SignalEvent_TestCase12b.Behavior_-2"/>
+          </trigger>
+        </node>
+        <node xmi:type="uml:CallBehaviorAction" xmi:id="A_Set-Alarm">
+          <name>Set Alarm</name>
+          <inPartition xmi:idref="B_ActivityPartition_TestCase12b.Behavior.Detect-Intruder_-1"/>
+          <argument xmi:type="uml:InputPin" xmi:id="A_in-3">
+            <name>in</name>
+            <incoming xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-2"/>
+            <type xmi:idref="A_TestCase12b-Structure-Alert"/>
+            <upperBound xmi:type="uml:LiteralString" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Set-Alarm.in_1-1">
+              <name>UpperBound</name>
+              <value>1</value>
+            </upperBound>
+          </argument>
+          <result xmi:type="uml:OutputPin" xmi:id="A_out-3">
+            <name>out</name>
+            <outgoing xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-4"/>
+            <type xmi:idref="A_TestCase12b-Structure-Alarm-Signal"/>
+            <upperBound xmi:type="uml:LiteralString" xmi:id="L_TestCase12b.Behavior.Detect-Intruder.Set-Alarm.out_1-1">
+              <name>UpperBound</name>
+              <value>1</value>
+            </upperBound>
+          </result>
+          <behavior xmi:idref="A_TestCase12b-Behavior-Set-Alarm"/>
+        </node>
+        <node xmi:type="uml:ActivityParameterNode" xmi:id="B_ActivityParameterNode_TestCase12b.Behavior.Detect-Intruder_-1">
+          <name/>
+          <outgoing xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-3"/>
+          <type xmi:idref="A_TestCase12b-Structure-Sensor-Input"/>
+          <parameter xmi:idref="A_TestCase12b-Behavior-Detect-Intruder-Parameter1"/>
+        </node>
+        <node xmi:type="uml:ActivityParameterNode" xmi:id="B_ActivityParameterNode_TestCase12b.Behavior.Detect-Intruder_-2">
+          <name/>
+          <incoming xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-4"/>
+          <type xmi:idref="A_TestCase12b-Structure-Alarm-Signal"/>
+          <parameter xmi:idref="A_TestCase12b-Behavior-Detect-Intruder-Parameter2"/>
+        </node>
+        <node xmi:type="uml:FlowFinalNode" xmi:id="B_FlowFinalNode_TestCase12b.Behavior.Detect-Intruder_-1">
+          <incoming xmi:idref="B_ControlFlow_TestCase12b.Behavior.Detect-Intruder_-2"/>
+        </node>
+        <group xmi:type="uml:ActivityPartition" xmi:id="B_ActivityPartition_TestCase12b.Behavior.Detect-Intruder_-1">
+          <represents xmi:idref="A_TestCase12b-Structure-Alarm"/>
+          <node xmi:idref="A_Set-Alarm"/>
+        </group>
+        <group xmi:type="uml:ActivityPartition" xmi:id="B_ActivityPartition_TestCase12b.Behavior.Detect-Intruder_-2">
+          <represents xmi:idref="A_TestCase12b-Structure-Processor"/>
+          <node xmi:idref="A_Process-Signal"/>
+        </group>
+        <group xmi:type="uml:ActivityPartition" xmi:id="B_ActivityPartition_TestCase12b.Behavior.Detect-Intruder_-3">
+          <represents xmi:idref="A_TestCase12b-Structure-Sensor"/>
+          <node xmi:idref="A_Sense-Input"/>
+          <node xmi:idref="A_Set"/>
+        </group>
+        <group xmi:type="uml:InterruptibleActivityRegion" xmi:id="B_InterruptibleActivityRegion_TestCase12b.Behavior.Detect-Intruder_-1">
+          <node xmi:idref="A_Process-Signal"/>
+          <node xmi:idref="A_Reset"/>
+          <node xmi:idref="A_Sense-Input"/>
+          <node xmi:idref="A_Set-Alarm"/>
+          <interruptingEdge xmi:idref="B_ControlFlow_TestCase12b.Behavior.Detect-Intruder_-2"/>
+          <interruptingEdge xmi:idref="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-4"/>
+        </group>
+        <edge xmi:type="uml:ControlFlow" xmi:id="B_ControlFlow_TestCase12b.Behavior.Detect-Intruder_-1">
+          <target xmi:idref="A_Sense-Input"/>
+          <source xmi:idref="A_Set"/>
+        </edge>
+        <edge xmi:type="uml:ControlFlow" xmi:id="B_ControlFlow_TestCase12b.Behavior.Detect-Intruder_-2">
+          <target xmi:idref="B_FlowFinalNode_TestCase12b.Behavior.Detect-Intruder_-1"/>
+          <source xmi:idref="A_Reset"/>
+          <interrupts xmi:idref="B_InterruptibleActivityRegion_TestCase12b.Behavior.Detect-Intruder_-1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-1">
+          <target xmi:idref="A_in-2"/>
+          <source xmi:idref="A_out-1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-2">
+          <target xmi:idref="A_in-3"/>
+          <source xmi:idref="A_out-2"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-3">
+          <target xmi:idref="A_in-1"/>
+          <source xmi:idref="B_ActivityParameterNode_TestCase12b.Behavior.Detect-Intruder_-1"/>
+        </edge>
+        <edge xmi:type="uml:ObjectFlow" xmi:id="B_ObjectFlow_TestCase12b.Behavior.Detect-Intruder_-4">
+          <target xmi:idref="B_ActivityParameterNode_TestCase12b.Behavior.Detect-Intruder_-2"/>
+          <source xmi:idref="A_out-3"/>
+          <interrupts xmi:idref="B_InterruptibleActivityRegion_TestCase12b.Behavior.Detect-Intruder_-1"/>
+        </edge>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Activity" xmi:id="A_TestCase12b-Behavior-Process-Signal">
+        <name>Process Signal</name>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="A_TestCase12b-Behavior-Process-Signal-out">
+          <name>out</name>
+          <type xmi:idref="A_TestCase12b-Structure-Alert"/>
+          <direction>out</direction>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="A_TestCase12b-Behavior-Process-Signal-in">
+          <name>in</name>
+          <type xmi:idref="A_TestCase12b-Structure-Sensor-Signal"/>
+          <isStream>true</isStream>
+        </ownedParameter>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Activity" xmi:id="A_TestCase12b-Behavior-Sense-Input">
+        <name>Sense Input</name>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="A_TestCase12b-Behavior-Sense-Input-out">
+          <name>out</name>
+          <type xmi:idref="A_TestCase12b-Structure-Sensor-Signal"/>
+          <isStream>true</isStream>
+          <direction>out</direction>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="A_TestCase12b-Behavior-Sense-Input-in">
+          <name>in</name>
+          <type xmi:idref="A_TestCase12b-Structure-Sensor-Input"/>
+          <isStream>true</isStream>
+        </ownedParameter>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Activity" xmi:id="A_TestCase12b-Behavior-Set-Alarm">
+        <name>Set Alarm</name>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="A_TestCase12b-Behavior-Set-Alarm-out">
+          <name>out</name>
+          <type xmi:idref="A_TestCase12b-Structure-Alarm-Signal"/>
+          <isStream>true</isStream>
+          <direction>out</direction>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="A_TestCase12b-Behavior-Set-Alarm-in">
+          <name>in</name>
+          <type xmi:idref="A_TestCase12b-Structure-Alert"/>
+        </ownedParameter>
+      </packagedElement>
+      <packagedElement xmi:type="uml:SignalEvent" xmi:id="B_SignalEvent_TestCase12b.Behavior_-1">
+        <signal xmi:idref="A_TestCase12b-Structure-Reset"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:SignalEvent" xmi:id="B_SignalEvent_TestCase12b.Behavior_-2">
+        <signal xmi:idref="A_TestCase12b-Structure-Set"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="A_TestCase12b-Structure">
+      <name>Structure</name>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase12b-Structure-Alarm">
+        <name>Alarm</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase12b-Structure-Alarm-Signal">
+        <name>Alarm Signal</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase12b-Structure-Alert">
+        <name>Alert</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="A_TestCase12b-Structure-Association1">
+        <name>Association1</name>
+        <ownedEnd xmi:id="A_TestCase12b-Structure-Association1-">
+          <name/>
+          <type xmi:idref="A_TestCase12b-Structure-Detection-System"/>
+          <isUnique>false</isUnique>
+          <association xmi:idref="A_TestCase12b-Structure-Association1"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="A_TestCase12b-Structure-Detection-System-sensor"/>
+        <memberEnd xmi:idref="A_TestCase12b-Structure-Association1-"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="A_TestCase12b-Structure-Association2">
+        <name>Association2</name>
+        <ownedEnd xmi:id="A_TestCase12b-Structure-Association2-">
+          <name/>
+          <type xmi:idref="A_TestCase12b-Structure-Detection-System"/>
+          <isUnique>false</isUnique>
+          <association xmi:idref="A_TestCase12b-Structure-Association2"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="A_TestCase12b-Structure-Detection-System-processor"/>
+        <memberEnd xmi:idref="A_TestCase12b-Structure-Association2-"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="A_TestCase12b-Structure-Association3">
+        <name>Association3</name>
+        <ownedEnd xmi:id="A_TestCase12b-Structure-Association3-">
+          <name/>
+          <type xmi:idref="A_TestCase12b-Structure-Detection-System"/>
+          <isUnique>false</isUnique>
+          <association xmi:idref="A_TestCase12b-Structure-Association3"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="A_TestCase12b-Structure-Detection-System-alarm"/>
+        <memberEnd xmi:idref="A_TestCase12b-Structure-Association3-"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase12b-Structure-Detection-System">
+        <name>Detection System</name>
+        <ownedReception xmi:id="A_TestCase12b-Structure-Detection-System-Reset">
+          <name>Reset</name>
+          <signal xmi:idref="A_TestCase12b-Structure-Reset"/>
+        </ownedReception>
+        <ownedReception xmi:id="A_TestCase12b-Structure-Detection-System-Set">
+          <name>Set</name>
+          <signal xmi:idref="A_TestCase12b-Structure-Set"/>
+        </ownedReception>
+        <ownedOperation xmi:id="A_TestCase12b-Structure-Detection-System-detect-intruder">
+          <name>detect intruder</name>
+        </ownedOperation>
+        <ownedAttribute xmi:id="A_TestCase12b-Structure-Detection-System-sensor">
+          <name>sensor</name>
+          <type xmi:idref="A_TestCase12b-Structure-Sensor"/>
+          <association xmi:idref="A_TestCase12b-Structure-Association1"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="A_TestCase12b-Structure-Detection-System-processor">
+          <name>processor</name>
+          <type xmi:idref="A_TestCase12b-Structure-Processor"/>
+          <association xmi:idref="A_TestCase12b-Structure-Association2"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="A_TestCase12b-Structure-Detection-System-alarm">
+          <name>alarm</name>
+          <type xmi:idref="A_TestCase12b-Structure-Alarm"/>
+          <association xmi:idref="A_TestCase12b-Structure-Association3"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <isActive>true</isActive>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase12b-Structure-Processor">
+        <name>Processor</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Signal" xmi:id="A_TestCase12b-Structure-Reset">
+        <name>Reset</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase12b-Structure-Sensor">
+        <name>Sensor</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase12b-Structure-Sensor-Input">
+        <name>Sensor Input</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase12b-Structure-Sensor-Signal">
+        <name>Sensor Signal</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Signal" xmi:id="A_TestCase12b-Structure-Set">
+        <name>Set</name>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

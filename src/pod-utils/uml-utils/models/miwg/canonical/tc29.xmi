@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-29" xmi:uuid="725A27D7-D489-412E-9D09-C8A660132319">
+        <packagedElement xmi:id="Test-Case-29-C" xmi:uuid="725A27D7-D489-448A-995B-C8A6F5545AD0"
+            xmi:type="uml:Class">
+            <ownedBehavior xmi:id="Test-Case-29-C-C_Behavior"
+                xmi:uuid="725A27D7-D489-4094-9C02-C8A6716836D1" xmi:type="uml:Activity">
+                <node xmi:id="Test-Case-29-C-C_Behavior-Accept_Call"
+                    xmi:uuid="725A27D7-D489-4D14-92D7-C8A6E5769888" xmi:type="uml:AcceptCallAction">
+                    <result xmi:id="Test-Case-29-C-C_Behavior-Accept_Call-x"
+                        xmi:uuid="725A27D7-D489-4B85-91F0-C8A67DA6AD76" xmi:type="uml:OutputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                        <outgoing xmi:idref="Test-Case-29-C-C_Behavior-edge-5"/>
+                        <name>x</name>
+                        <visibility>public</visibility>
+                    </result>
+                    <trigger xmi:id="Test-Case-29-C-C_Behavior-Accept_Call-trigger"
+                        xmi:uuid="725A27D7-D489-487D-9301-C8A607A33966" xmi:type="uml:Trigger">
+                        <visibility>public</visibility>
+                        <event xmi:idref="Test-Case-29-packagedElement-4"/>
+                    </trigger>
+                    <returnInformation
+                        xmi:id="Test-Case-29-C-C_Behavior-Accept_Call-returnInformation"
+                        xmi:uuid="725A27D7-D489-44D7-9C7D-C8A65D95791C" xmi:type="uml:OutputPin">
+                        <outgoing xmi:idref="Test-Case-29-C-C_Behavior-edge-1"/>
+                        <name>returnInformation</name>
+                        <visibility>public</visibility>
+                    </returnInformation>
+                    <name>Accept Call</name>
+                    <visibility>public</visibility>
+                    <isUnmarshall>true</isUnmarshall>
+                </node>
+                <node xmi:id="Test-Case-29-C-C_Behavior-Reply_to_Call"
+                    xmi:uuid="725A27D7-D489-4EC8-9976-C8A67EACDDB4" xmi:type="uml:ReplyAction">
+                    <outgoing xmi:idref="Test-Case-29-C-C_Behavior-edge-2"/>
+                    <returnInformation
+                        xmi:id="Test-Case-29-C-C_Behavior-Reply_to_Call-returnInformation"
+                        xmi:uuid="725A27D7-D489-4F69-9BDA-C8A699EFE6D4" xmi:type="uml:InputPin">
+                        <incoming xmi:idref="Test-Case-29-C-C_Behavior-edge-1"/>
+                        <name>returnInformation</name>
+                        <visibility>public</visibility>
+                    </returnInformation>
+                    <replyValue xmi:id="Test-Case-29-C-C_Behavior-Reply_to_Call-replyValue"
+                        xmi:uuid="725A27D7-D489-490F-9381-C8A6A0CFE5C2" xmi:type="uml:InputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                        <incoming xmi:idref="Test-Case-29-C-C_Behavior-edge-5"/>
+                        <name>replyValue</name>
+                        <visibility>public</visibility>
+                    </replyValue>
+                    <name>Reply to Call</name>
+                    <visibility>public</visibility>
+                    <replyToCall xmi:idref="Test-Case-29-C-C_Behavior-Accept_Call-trigger"/>
+                </node>
+                <node xmi:id="Test-Case-29-C-C_Behavior-Accept_Signal"
+                    xmi:uuid="725A27D7-D489-42CD-9D68-C8A66E479C4A" xmi:type="uml:AcceptEventAction">
+                    <outgoing xmi:idref="Test-Case-29-C-C_Behavior-edge-4"/>
+                    <incoming xmi:idref="Test-Case-29-C-C_Behavior-edge-2"/>
+                    <result xmi:id="Test-Case-29-C-C_Behavior-Accept_Signal-result"
+                        xmi:uuid="725A27D7-D489-4855-9491-C8A6910A6C19" xmi:type="uml:OutputPin">
+                        <outgoing xmi:idref="Test-Case-29-C-C_Behavior-edge-3"/>
+                        <name>result</name>
+                        <visibility>public</visibility>
+                        <type xmi:idref="Test-Case-29-S"/>
+                    </result>
+                    <trigger xmi:id="Test-Case-29-C-C_Behavior-Accept_Signal-trigger"
+                        xmi:uuid="725A27D7-D489-4064-9C72-C8A684B0E100" xmi:type="uml:Trigger">
+                        <visibility>public</visibility>
+                        <event xmi:idref="Test-Case-29-packagedElement-5"/>
+                    </trigger>
+                    <name>Accept Signal</name>
+                    <visibility>public</visibility>
+                </node>
+                <node xmi:id="Test-Case-29-C-C_Behavior-Unmarshall"
+                    xmi:uuid="725A27D7-D489-4AAA-9414-C8A68D164C72" xmi:type="uml:UnmarshallAction">
+                    <result xmi:id="Test-Case-29-C-C_Behavior-Unmarshall-a"
+                        xmi:uuid="725A27D7-D489-4E35-9E82-C8A68670226C" xmi:type="uml:OutputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                        <lowerValue xmi:id="Test-Case-29-C-C_Behavior-Unmarshall-a-lowerValue"
+                            xmi:uuid="725A27D7-D489-443D-95F9-C8A658320ED1"
+                            xmi:type="uml:LiteralInteger"/>
+                        <name>a</name>
+                        <visibility>public</visibility>
+                    </result>
+                    <result xmi:id="Test-Case-29-C-C_Behavior-Unmarshall-b"
+                        xmi:uuid="725A27D7-D489-4747-912E-C8A68256FB2E" xmi:type="uml:OutputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                        <lowerValue xmi:id="Test-Case-29-C-C_Behavior-Unmarshall-b-lowerValue"
+                            xmi:uuid="725A27D7-D489-4549-9F2F-C8A67FD9B254"
+                            xmi:type="uml:LiteralInteger"/>
+                        <name>b</name>
+                        <visibility>public</visibility>
+                    </result>
+                    <object xmi:id="Test-Case-29-C-C_Behavior-Unmarshall-object"
+                        xmi:uuid="725A27D7-D489-4453-9F16-C8A6FEF83DAB" xmi:type="uml:InputPin">
+                        <incoming xmi:idref="Test-Case-29-C-C_Behavior-edge-3"/>
+                        <name>object</name>
+                        <visibility>public</visibility>
+                        <type xmi:idref="Test-Case-29-S"/>
+                    </object>
+                    <name>Unmarshall</name>
+                    <visibility>public</visibility>
+                    <unmarshallType xmi:idref="Test-Case-29-S"/>
+                </node>
+                <node xmi:id="Test-Case-29-C-C_Behavior-Accept_Any"
+                    xmi:uuid="725A27D7-D489-4254-984A-C8A628B11AB4" xmi:type="uml:AcceptEventAction">
+                    <incoming xmi:idref="Test-Case-29-C-C_Behavior-edge-4"/>
+                    <trigger xmi:id="Test-Case-29-C-C_Behavior-Accept_Any-trigger"
+                        xmi:uuid="725A27D7-D489-4CD9-947C-C8A6D9AD7DB5" xmi:type="uml:Trigger">
+                        <visibility>public</visibility>
+                        <event xmi:idref="Test-Case-29-packagedElement-6"/>
+                    </trigger>
+                    <name>Accept Any</name>
+                    <visibility>public</visibility>
+                </node>
+                <edge xmi:id="Test-Case-29-C-C_Behavior-edge-1"
+                    xmi:uuid="725A27D7-D489-429A-940C-C8A6EC678323" xmi:type="uml:ObjectFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-29-C-C_Behavior-Accept_Call-returnInformation"/>
+                    <target xmi:idref="Test-Case-29-C-C_Behavior-Reply_to_Call-returnInformation"/>
+                </edge>
+                <edge xmi:id="Test-Case-29-C-C_Behavior-edge-2"
+                    xmi:uuid="725A27D7-D489-4A58-9D62-C8A6882E31BD" xmi:type="uml:ControlFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-29-C-C_Behavior-Reply_to_Call"/>
+                    <target xmi:idref="Test-Case-29-C-C_Behavior-Accept_Signal"/>
+                </edge>
+                <edge xmi:id="Test-Case-29-C-C_Behavior-edge-3"
+                    xmi:uuid="725A27D7-D489-4EF1-9D64-C8A6647B394D" xmi:type="uml:ObjectFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-29-C-C_Behavior-Accept_Signal-result"/>
+                    <target xmi:idref="Test-Case-29-C-C_Behavior-Unmarshall-object"/>
+                </edge>
+                <edge xmi:id="Test-Case-29-C-C_Behavior-edge-4"
+                    xmi:uuid="725A27D7-D489-42EE-9AAE-C8A66F7B0B17" xmi:type="uml:ControlFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-29-C-C_Behavior-Accept_Signal"/>
+                    <target xmi:idref="Test-Case-29-C-C_Behavior-Accept_Any"/>
+                </edge>
+                <edge xmi:id="Test-Case-29-C-C_Behavior-edge-5"
+                    xmi:uuid="725A27D7-D489-43BA-93F4-C8A618F06AA1" xmi:type="uml:ObjectFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-29-C-C_Behavior-Accept_Call-x"/>
+                    <target xmi:idref="Test-Case-29-C-C_Behavior-Reply_to_Call-replyValue"/>
+                </edge>
+                <name>C_Behavior</name>
+            </ownedBehavior>
+            <ownedOperation xmi:id="Test-Case-29-C-op"
+                xmi:uuid="725A27D7-D489-4504-9D6E-C8A68C4B3534" xmi:type="uml:Operation">
+                <ownedParameter xmi:id="Test-Case-29-C-op-x"
+                    xmi:uuid="725A27D7-D489-4BB7-960A-C8A614466B3A" xmi:type="uml:Parameter">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <name>x</name>
+                    <visibility>public</visibility>
+                </ownedParameter>
+                <ownedParameter xmi:id="Test-Case-29-C-op-ownedParameter-2"
+                    xmi:uuid="725A27D7-D489-4BF9-9C0E-C8A6CAE84014" xmi:type="uml:Parameter">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <visibility>public</visibility>
+                    <direction>return</direction>
+                </ownedParameter>
+                <name>op</name>
+                <visibility>public</visibility>
+            </ownedOperation>
+            <name>C</name>
+            <isActive>true</isActive>
+            <classifierBehavior xmi:idref="Test-Case-29-C-C_Behavior"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-29-S" xmi:uuid="725A27D7-D489-47E3-9ABE-C8A6BE0717C6"
+            xmi:type="uml:Signal">
+            <ownedAttribute xmi:id="Test-Case-29-S-a"
+                xmi:uuid="725A27D7-D489-4230-9C29-C8A6DD899F5F" xmi:type="uml:Property">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <lowerValue xmi:id="Test-Case-29-S-a-lowerValue"
+                    xmi:uuid="725A27D7-D489-456F-94FC-C8A6EFE54266" xmi:type="uml:LiteralInteger"/>
+                <name>a</name>
+                <visibility>public</visibility>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-29-S-b"
+                xmi:uuid="725A27D7-D489-4293-9F5F-C8A6984D6180" xmi:type="uml:Property">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <lowerValue xmi:id="Test-Case-29-S-b-lowerValue"
+                    xmi:uuid="725A27D7-D489-4C0C-9FEB-C8A6AB3DE95D" xmi:type="uml:LiteralInteger"/>
+                <name>b</name>
+                <visibility>public</visibility>
+            </ownedAttribute>
+            <name>S</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-29-A" xmi:uuid="725A27D7-D489-4728-9141-C8A6CB578A1B"
+            xmi:type="uml:Activity">
+            <node xmi:id="Test-Case-29-A-Create_Object"
+                xmi:uuid="725A27D7-D489-431F-999D-C8A6DD468CDE" xmi:type="uml:CreateObjectAction">
+                <result xmi:id="Test-Case-29-A-Create_Object-result"
+                    xmi:uuid="725A27D7-D489-4D83-924F-C8A6D84B7C1C" xmi:type="uml:OutputPin">
+                    <outgoing xmi:idref="Test-Case-29-A-edge-1"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-29-C"/>
+                </result>
+                <name>Create Object</name>
+                <visibility>public</visibility>
+                <classifier xmi:idref="Test-Case-29-C"/>
+            </node>
+            <node xmi:id="Test-Case-29-A-node-2" xmi:uuid="725A27D7-D489-4205-98CD-C8A68DD17689"
+                xmi:type="uml:ForkNode">
+                <outgoing xmi:idref="Test-Case-29-A-edge-2"/>
+                <outgoing xmi:idref="Test-Case-29-A-edge-3"/>
+                <outgoing xmi:idref="Test-Case-29-A-edge-5"/>
+                <incoming xmi:idref="Test-Case-29-A-edge-1"/>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-29-A-Send_Signal"
+                xmi:uuid="725A27D7-D489-4865-9948-C8A6AD373D3E" xmi:type="uml:SendSignalAction">
+                <outgoing xmi:idref="Test-Case-29-A-edge-7"/>
+                <outgoing xmi:idref="Test-Case-29-A-edge-8"/>
+                <incoming xmi:idref="Test-Case-29-A-edge-6"/>
+                <argument xmi:id="Test-Case-29-A-Send_Signal-a"
+                    xmi:uuid="725A27D7-D489-4C1B-984D-C8A68EC7B498" xmi:type="uml:InputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <lowerValue xmi:id="Test-Case-29-A-Send_Signal-a-lowerValue"
+                        xmi:uuid="725A27D7-D489-4EE3-9B66-C8A64F5BE929"
+                        xmi:type="uml:LiteralInteger"/>
+                    <name>a</name>
+                    <visibility>public</visibility>
+                </argument>
+                <argument xmi:id="Test-Case-29-A-Send_Signal-b"
+                    xmi:uuid="725A27D7-D489-42A3-95F0-C8A6590F7993" xmi:type="uml:InputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <lowerValue xmi:id="Test-Case-29-A-Send_Signal-b-lowerValue"
+                        xmi:uuid="725A27D7-D489-4A43-9B0B-C8A6F93E1CC5"
+                        xmi:type="uml:LiteralInteger"/>
+                    <name>b</name>
+                    <visibility>public</visibility>
+                </argument>
+                <target xmi:id="Test-Case-29-A-Send_Signal-target"
+                    xmi:uuid="725A27D7-D489-4BBC-9DE8-C8A6E823F490" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-29-A-edge-2"/>
+                    <name>target</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-29-C"/>
+                </target>
+                <name>Send Signal</name>
+                <visibility>public</visibility>
+                <signal xmi:idref="Test-Case-29-S"/>
+            </node>
+            <node xmi:id="Test-Case-29-A-Send_Object"
+                xmi:uuid="725A27D7-D489-4080-900A-C8A6B1DF2117" xmi:type="uml:SendObjectAction">
+                <incoming xmi:idref="Test-Case-29-A-edge-7"/>
+                <target xmi:id="Test-Case-29-A-Send_Object-target"
+                    xmi:uuid="725A27D7-D489-40C7-90CB-C8A6B3FAEE42" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-29-A-edge-3"/>
+                    <name>target</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-29-C"/>
+                </target>
+                <request xmi:id="Test-Case-29-A-Send_Object-request"
+                    xmi:uuid="725A27D7-D489-4A0F-9754-C8A6DCD8F290" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-29-A-edge-4"/>
+                    <name>request</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-29-S"/>
+                </request>
+                <name>Send Object</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-29-A-Create_Signal"
+                xmi:uuid="725A27D7-D489-401D-9236-C8A6F32C6B84" xmi:type="uml:CreateObjectAction">
+                <result xmi:id="Test-Case-29-A-Create_Signal-result"
+                    xmi:uuid="725A27D7-D489-413F-9E1C-C8A692BA455B" xmi:type="uml:OutputPin">
+                    <outgoing xmi:idref="Test-Case-29-A-edge-4"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-29-S"/>
+                </result>
+                <name>Create Signal</name>
+                <visibility>public</visibility>
+                <classifier xmi:idref="Test-Case-29-S"/>
+            </node>
+            <node xmi:id="Test-Case-29-A-Start_Object"
+                xmi:uuid="725A27D7-D489-489E-9599-C8A656EFD2D1"
+                xmi:type="uml:StartObjectBehaviorAction">
+                <outgoing xmi:idref="Test-Case-29-A-edge-6"/>
+                <object xmi:id="Test-Case-29-A-Start_Object-object"
+                    xmi:uuid="725A27D7-D489-4B03-9ECB-C8A67E9B0994" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-29-A-edge-5"/>
+                    <name>object</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-29-C"/>
+                </object>
+                <name>Start Object</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-29-A-Broadcast_Signal"
+                xmi:uuid="725A27D7-D489-46ED-9DB6-C8A6A48DB359" xmi:type="uml:BroadcastSignalAction">
+                <incoming xmi:idref="Test-Case-29-A-edge-8"/>
+                <argument xmi:id="Test-Case-29-A-Broadcast_Signal-a"
+                    xmi:uuid="725A27D7-D489-47FF-9275-C8A6AB28086A" xmi:type="uml:InputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <lowerValue xmi:id="Test-Case-29-A-Broadcast_Signal-a-lowerValue"
+                        xmi:uuid="725A27D7-D489-409B-9555-C8A6A41A5CA7"
+                        xmi:type="uml:LiteralInteger"/>
+                    <name>a</name>
+                    <visibility>public</visibility>
+                </argument>
+                <argument xmi:id="Test-Case-29-A-Broadcast_Signal-b"
+                    xmi:uuid="725A27D7-D489-43EE-990F-C8A6F8EB3E90" xmi:type="uml:InputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <lowerValue xmi:id="Test-Case-29-A-Broadcast_Signal-b-lowerValue"
+                        xmi:uuid="725A27D7-D489-4E72-9BAA-C8A656AEE60E"
+                        xmi:type="uml:LiteralInteger"/>
+                    <name>b</name>
+                    <visibility>public</visibility>
+                </argument>
+                <name>Broadcast Signal</name>
+                <visibility>public</visibility>
+                <signal xmi:idref="Test-Case-29-S"/>
+            </node>
+            <edge xmi:id="Test-Case-29-A-edge-1" xmi:uuid="725A27D7-D489-42CC-9FE5-C8A6483444D7"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-29-A-Create_Object-result"/>
+                <target xmi:idref="Test-Case-29-A-node-2"/>
+            </edge>
+            <edge xmi:id="Test-Case-29-A-edge-2" xmi:uuid="725A27D7-D489-4524-9FC4-C8A6C938D166"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-29-A-node-2"/>
+                <target xmi:idref="Test-Case-29-A-Send_Signal-target"/>
+            </edge>
+            <edge xmi:id="Test-Case-29-A-edge-3" xmi:uuid="725A27D7-D489-4E48-9A90-C8A6B05D10AA"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-29-A-node-2"/>
+                <target xmi:idref="Test-Case-29-A-Send_Object-target"/>
+            </edge>
+            <edge xmi:id="Test-Case-29-A-edge-4" xmi:uuid="725A27D7-D489-4FCB-9AAD-C8A6D3845C0C"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-29-A-Create_Signal-result"/>
+                <target xmi:idref="Test-Case-29-A-Send_Object-request"/>
+            </edge>
+            <edge xmi:id="Test-Case-29-A-edge-5" xmi:uuid="725A27D7-D489-42E4-92C9-C8A6579F2A3A"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-29-A-node-2"/>
+                <target xmi:idref="Test-Case-29-A-Start_Object-object"/>
+            </edge>
+            <edge xmi:id="Test-Case-29-A-edge-6" xmi:uuid="725A27D7-D489-493B-9719-C8A6121791BC"
+                xmi:type="uml:ControlFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-29-A-Start_Object"/>
+                <target xmi:idref="Test-Case-29-A-Send_Signal"/>
+            </edge>
+            <edge xmi:id="Test-Case-29-A-edge-7" xmi:uuid="725A27D7-D489-42AD-9C05-C8A605F898FA"
+                xmi:type="uml:ControlFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-29-A-Send_Signal"/>
+                <target xmi:idref="Test-Case-29-A-Send_Object"/>
+            </edge>
+            <edge xmi:id="Test-Case-29-A-edge-8" xmi:uuid="725A27D7-D489-481B-9D2C-C8A6B6F88A93"
+                xmi:type="uml:ControlFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-29-A-Send_Signal"/>
+                <target xmi:idref="Test-Case-29-A-Broadcast_Signal"/>
+            </edge>
+            <name>A</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-29-packagedElement-4"
+            xmi:uuid="725A27D7-D489-404C-92AD-C8A603692BB2" xmi:type="uml:CallEvent">
+            <operation xmi:idref="Test-Case-29-C-op"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-29-packagedElement-5"
+            xmi:uuid="725A27D7-D489-4AAC-901C-C8A6943A5D3D" xmi:type="uml:SignalEvent">
+            <signal xmi:idref="Test-Case-29-S"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-29-packagedElement-6"
+            xmi:uuid="725A27D7-D489-4AB4-9B2C-C8A6822A9C5C" xmi:type="uml:AnyReceiveEvent"/>
+        <name>Test-Case-29</name>
+    </uml:Model>
+</xmi:XMI>

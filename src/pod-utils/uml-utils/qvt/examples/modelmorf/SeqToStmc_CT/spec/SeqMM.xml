@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="SeqMM"
+    name="SeqMM" uri="SeqMM">
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.Dummy" name="Dummy">
+    <ownedAttribute xmi:id="SeqMm.Dummy.hasClass" name="hasClass" upper="*" type="SeqMm.Class"
+        isComposite="true"/>
+    <ownedAttribute xmi:id="SeqMm.Dummy.hasInteraction" name="hasInteraction" upper="*"
+        type="SeqMm.Interaction" isComposite="true"/>
+    <ownedAttribute xmi:id="SeqMm.Dummy.containedState" name="containedState" upper="*"
+        type="SeqMm.State" isComposite="true"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.Interaction" name="Interaction">
+    <ownedAttribute xmi:id="SeqMm.Interaction.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMm.Interaction.lifeline" name="lifeline" upper="*"
+        type="SeqMm.LifeLine" isComposite="true" opposite="SeqMm.LifeLine.interaction"/>
+    <ownedAttribute xmi:id="SeqMm.Interaction.message" name="message" upper="*"
+        type="SeqMm.Message" isComposite="true" opposite="SeqMm.Message.interaction"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.LifeLine" name="LifeLine">
+    <ownedAttribute xmi:id="SeqMm.LifeLine.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMm.LifeLine.object" name="object" lower="1" type="SeqMm.Object"
+        opposite="SeqMm.Object.lifeline"/>
+    <ownedAttribute xmi:id="SeqMm.LifeLine.event" name="event" upper="*" type="SeqMm.MessageEvent"
+        isComposite="true" opposite="SeqMm.MessageEvent.lifeline"/>
+    <ownedAttribute xmi:id="SeqMm.LifeLine.state" name="state" upper="*" type="SeqMm.State"/>
+    <ownedAttribute xmi:id="SeqMm.LifeLine.interaction" name="interaction" lower="1"
+        type="SeqMm.Interaction" opposite="SeqMm.Interaction.lifeline"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.Message" name="Message">
+    <ownedAttribute xmi:id="SeqMm.Message.messageId" name="messageId">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMm.Message.interaction" name="interaction" lower="1"
+        type="SeqMm.Interaction" opposite="SeqMm.Interaction.message"/>
+    <ownedAttribute xmi:id="SeqMm.Message.event" name="event" lower="1" upper="*"
+        type="SeqMm.MessageEvent" opposite="SeqMm.MessageEvent.message"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.State" name="State">
+    <ownedAttribute xmi:id="SeqMm.State.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMm.State.messageevent" name="messageevent" upper="*"
+        type="SeqMm.MessageEvent" opposite="SeqMm.MessageEvent.state"/>
+    <ownedAttribute xmi:id="SeqMm.State.lifeline" name="lifeline" lower="1" upper="*"
+        type="SeqMm.LifeLine"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.Event" name="Event">
+    <ownedAttribute xmi:id="SeqMm.Event.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.MessageEvent" name="MessageEvent"
+      superClass="SeqMm.Event">
+    <ownedAttribute xmi:id="SeqMm.MessageEvent.type" name="type" type="SeqMm.MessageEventType"/>
+    <ownedAttribute xmi:id="SeqMm.MessageEvent.prev" name="prev" type="SeqMm.MessageEvent"/>
+    <ownedAttribute xmi:id="SeqMm.MessageEvent.next" name="next" type="SeqMm.MessageEvent"/>
+    <ownedAttribute xmi:id="SeqMm.MessageEvent.message" name="message" type="SeqMm.Message"
+        opposite="SeqMm.Message.event"/>
+    <ownedAttribute xmi:id="SeqMm.MessageEvent.lifeline" name="lifeline" lower="1"
+        type="SeqMm.LifeLine" opposite="SeqMm.LifeLine.event"/>
+    <ownedAttribute xmi:id="SeqMm.MessageEvent.state" name="state" type="SeqMm.State"
+        opposite="SeqMm.State.messageevent"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Enumeration" xmi:id="SeqMm.MessageEventType" name="MessageEventType">
+    <ownedLiteral xmi:id="SeqMm.MessageEventType.Send" name="Send"/>
+    <ownedLiteral xmi:id="SeqMm.MessageEventType.Receive" name="Receive">
+    </ownedLiteral>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.Class" name="Class">
+    <ownedAttribute xmi:id="SeqMm.Class.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMm.Class.object" name="object" upper="*" type="SeqMm.Object"
+        isComposite="true" opposite="SeqMm.Object.class"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="SeqMm.Object" name="Object">
+    <ownedAttribute xmi:id="SeqMm.Object.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMm.Object.class" name="class" lower="1" type="SeqMm.Class"
+        opposite="SeqMm.Class.object"/>
+    <ownedAttribute xmi:id="SeqMm.Object.lifeline" name="lifeline" type="SeqMm.LifeLine"
+        opposite="SeqMm.LifeLine.object"/>
+  </ownedMember>
+</Model>

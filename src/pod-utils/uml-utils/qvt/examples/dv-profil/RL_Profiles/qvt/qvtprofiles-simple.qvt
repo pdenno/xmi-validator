@@ -1,0 +1,15 @@
+/*
+ * This really simple sample generates a class in the target for  
+ * every stereotype in the source. Source and target are uml2 models, 
+ * stereotypes come from the "ProfileDef.uml". The Profile-model 
+ * must be declared within "first set of models".
+ */
+transformation QvtWithProfilesSimple ( source : uml, target : uml ) 
+{
+   top relation StereoTypes
+   {
+      stName : String;
+      checkonly domain source srctype : Stereotype { name = stName };
+      enforce   domain target dsttype : Class      { name = stName };
+   }
+}   

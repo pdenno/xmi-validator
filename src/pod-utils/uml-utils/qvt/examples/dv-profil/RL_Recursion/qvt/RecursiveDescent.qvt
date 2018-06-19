@@ -1,0 +1,23 @@
+transformation RecursiveDescent ( umlin : MyUML, umlout : MyUML ) 
+{
+   top relation MyPackage 
+   {
+      pName : String;
+      checkonly domain umlin pin  : Package { name = pName };
+      enforce   domain umlin pout : Package { name = pName };
+      where { MyClass ( pin, pout ); }
+   }
+
+   relation MyClass
+   {
+      checkonly domain umlin  pin  : Package { ownedElement = clsin  : Class {} };
+      enforce   domain umlout pout : Package { ownedElement = clsout : Class {name = clsin.name }};
+      where { MyAttribute ( clsin, clsout ); }
+   }
+ 
+   relation MyAttribute
+   {
+      checkonly domain umlin  clsin  : Class { attribute = attrin  : Attribute {} };
+      enforce   domain umlout clsout : Class { attribute = attrout : Attribute { name = attrin.name }};
+   }
+}

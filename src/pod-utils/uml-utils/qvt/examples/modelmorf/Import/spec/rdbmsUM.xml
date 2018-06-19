@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="rdbmsMM" xmi:id="_EO3UYCLSEduowZXuN9tCbA">
+  <hasSchema xmi:id="_E4sUgCLSEduowZXuN9tCbA" name="Company">
+    <hasTable xmi:id="_GAjUcCLSEduowZXuN9tCbA" name="Employee"/>
+    <hasTable xmi:id="_GOS1gCLSEduowZXuN9tCbA" name="Employer"/>
+  </hasSchema>
+</null:Dummy>

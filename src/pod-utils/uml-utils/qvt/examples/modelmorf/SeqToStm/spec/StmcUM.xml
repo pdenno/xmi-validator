@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:null="StmcMM" xmi:id="_xa7-oMSHEdqHq7v2OKDHfQ">
+  <containsStateMachine xmi:id="_yJa1QMSHEdqHq7v2OKDHfQ" name="Door">
+    <state xmi:id="_2hHOQMSHEdqHq7v2OKDHfQ" name="Opened" inTransition="_7ctlkMSHEdqHq7v2OKDHfQ _IY5vMMSIEdqHq7v2OKDHfQ" outTransition="_Ctd2YMSIEdqHq7v2OKDHfQ"/>
+    <state xmi:id="_3_bmYMSHEdqHq7v2OKDHfQ" name="Closed" inTransition="_Ctd2YMSIEdqHq7v2OKDHfQ" outTransition="_7ctlkMSHEdqHq7v2OKDHfQ"/>
+    <state xmi:id="_6mB1MMSHEdqHq7v2OKDHfQ" name="Init" outTransition="_IY5vMMSIEdqHq7v2OKDHfQ"/>
+    <transition xmi:id="_7ctlkMSHEdqHq7v2OKDHfQ" name="OpenDoor" toState="_2hHOQMSHEdqHq7v2OKDHfQ" fromState="_3_bmYMSHEdqHq7v2OKDHfQ">
+      <trigger xmi:id="_K8OAgMSIEdqHq7v2OKDHfQ" name="Open"/>
+      <action xsi:type="null:SendMsg" xmi:id="_MmTjwMSIEdqHq7v2OKDHfQ" name="OpenDoor" message="_0kGH8MSHEdqHq7v2OKDHfQ"/>
+    </transition>
+    <transition xmi:id="_Ctd2YMSIEdqHq7v2OKDHfQ" name="CloseDoor" guard="doorWay->isEmpty" toState="_3_bmYMSHEdqHq7v2OKDHfQ" fromState="_2hHOQMSHEdqHq7v2OKDHfQ">
+      <trigger xmi:id="_PQU6AMSIEdqHq7v2OKDHfQ" name="Close"/>
+      <action xsi:type="null:SendMsg" xmi:id="_Q3co0MSIEdqHq7v2OKDHfQ" name="CloseDoor" message="_zW58EMSHEdqHq7v2OKDHfQ"/>
+    </transition>
+    <transition xmi:id="_IY5vMMSIEdqHq7v2OKDHfQ" name="Create" toState="_2hHOQMSHEdqHq7v2OKDHfQ" fromState="_6mB1MMSHEdqHq7v2OKDHfQ"/>
+  </containsStateMachine>
+  <containsMessage xmi:id="_zW58EMSHEdqHq7v2OKDHfQ" messageId="CloseDoor"/>
+  <containsMessage xmi:id="_0kGH8MSHEdqHq7v2OKDHfQ" messageId="OpenDoor"/>
+</null:Dummy>

@@ -1,0 +1,61 @@
+transformation MyUml2Rdbm ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   top relation PackageToSchema 
+   {
+      packageName : String;
+      checkonly domain uml  pck : Package { name = packageName };
+      enforce   domain rdbm sma : Schema  { name = packageName };
+   }
+
+   top relation ClassToTable 
+   {
+	  className : String;
+	  
+	  checkonly domain uml cls : Class 
+	  {
+	    namespace = pck : Package { },
+	    kind      = 'persistent',
+	    name      = className
+	  };
+	  
+      enforce   domain rdbm tbl : Table
+      {
+	    schema   = sma : Schema {},
+	    name     = className
+      };
+
+ 	  when 	{ PackageToSchema   ( pck, sma ); }
+	  where { AttributeToColumn ( cls, tbl ); }
+   }
+
+   relation AttributeToColumn 
+   {
+	  checkonly domain uml  cls : Class { };
+	  enforce   domain rdbm tbl : Table { };
+	  where 
+	  {
+	    PrimitiveAttributeToColumn ( cls, tbl );
+	    SuperAttributeToColumn     ( cls, tbl );
+	  }
+   }
+
+   relation SuperAttributeToColumn 
+   {
+	  checkonly domain uml  cls : Class { general = supCls : Class {} };
+	  enforce   domain rdbm tbl : Table {};
+	  where { AttributeToColumn ( supCls, tbl ); }
+   }
+
+   relation PrimitiveAttributeToColumn 
+   {
+	  attributeName    : String;
+	  checkonly domain uml cls : Class 
+	  {
+	    attribute = attr : Attribute  { name = attributeName }
+	  };
+	  enforce domain rdbm tbl : Table 
+	  {
+	    column = col : Column { name = attributeName }
+	  };
+   }
+}

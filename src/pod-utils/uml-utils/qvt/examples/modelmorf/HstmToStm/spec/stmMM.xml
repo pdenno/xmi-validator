@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="stmMM_p"
+    name="stmMM_p" uri="stmMM_p">
+  <ownedType xmi:type="emof:Class" xmi:id="stmMM_p.State" name="State">
+    <ownedAttribute xmi:id="stmMM_p.State.outTrans" name="outTrans" upper="*" type="stmMM_p.Trans"
+        opposite="stmMM_p.Trans.fromState"/>
+    <ownedAttribute xmi:id="stmMM_p.State.inTrans" name="inTrans" upper="*" type="stmMM_p.Trans"
+        opposite="stmMM_p.Trans.toState"/>
+    <ownedAttribute xmi:id="stmMM_p.State.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="stmMM_p.Trans" name="Trans">
+    <ownedAttribute xmi:id="stmMM_p.Trans.fromState" name="fromState" lower="1" type="stmMM_p.State"
+        opposite="stmMM_p.State.outTrans"/>
+    <ownedAttribute xmi:id="stmMM_p.Trans.toState" name="toState" lower="1" type="stmMM_p.State"
+        opposite="stmMM_p.State.inTrans"/>
+    <ownedAttribute xmi:id="stmMM_p.Trans.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="stmMM_p.dummy" name="dummy">
+    <ownedAttribute xmi:id="stmMM_p.dummy.container_state" name="container_state"
+        upper="*" type="stmMM_p.State" isComposite="true"/>
+    <ownedAttribute xmi:id="stmMM_p.dummy.container_trans" name="container_trans"
+        upper="*" type="stmMM_p.Trans" isComposite="true"/>
+    <ownedAttribute xmi:id="stmMM_p.dummy.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+</emof:Package>

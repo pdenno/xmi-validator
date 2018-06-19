@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+         xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+   <uml:Model xmi:id="eee_1045467100313_135436_1" name="Variable">
+      <packagedElement xmi:type="uml:Activity" xmi:id="_17_0_6_12e503d9_1357154106598_403622_1675"
+                       name="A">
+         <variable xmi:type="uml:Variable" xmi:id="_17_0_6_12e503d9_1357154265076_642283_1738"
+                   name="Variable-1"
+                   visibility="public">
+            <type xmi:type="uml:PrimitiveType"
+                  href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+         </variable>
+      </packagedElement>
+   </uml:Model>
+</xmi:XMI>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:umldi="http://www.omg.org/spec/UML/20131001/UMLDI" xmlns:dc="http://www.omg.org/spec/DD/20131001/DC" xmlns:dg="http://www.omg.org/spec/DD/20131001/DG" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:OMGIssuesProfile="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+	<uml:Package xmi:type="uml:Package" xmi:id="_0" name="DC" URI="http://www.omg.org/spec/DD/20131001/DC">
+		<packageMerge xmi:type="uml:PackageMerge" xmi:id="_0-packageMerge">
+			<mergedPackage xmi:type="uml:Package" href="http://www.omg.org/spec/DD/20131001/DC.xmi#_0"/>
+		</packageMerge>
+		<umldi:Diagram xmi:type="umldi:UMLClassDiagram" xmi:id="_uml2.diagrams-_contents.0" name="Primitive Types">
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.0">
+				<modelElement xmi:type="uml:Package" href="http://www.omg.org/spec/DD/20131001/DC.xmi#_0"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.0" text="DC"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.0-_layoutConstraint" x="1585" y="2853" width="1953" height="1651"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.1">
+				<modelElement xmi:type="uml:Package" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#_0"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.1" text="PrimitiveTypes"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.1-_layoutConstraint" x="7608" y="3170" width="3205" height="1334"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.0-_edges.0" source="_uml2.diagrams-_contents.0-_children.0" target="_uml2.diagrams-_contents.0-_children.1">
+				<modelElement xmi:type="uml:PackageImport">
+					<modelElement xmi:type="uml:PackageImport" href="http://www.omg.org/spec/DD/20131001/DC.xmi#_packageImport.0"/>
+				</modelElement>
+			</ownedElement>
+		</umldi:Diagram>
+		<umldi:Diagram xmi:type="umldi:UMLClassDiagram" xmi:id="_uml2.diagrams-_contents.1" name="Layout Types">
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.0">
+				<modelElement xmi:type="uml:DataType" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Dimension"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.0" text="Dimension"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.0-_layoutConstraint" x="5706" y="317" width="2043" height="1509"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.0-_children.5">
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.0-_children.5-width" text="+ width : Real">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Dimension-width"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.0-_children.5-height" text="+ height : Real">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Dimension-height"/>
+					</elementInCompartment>
+				</compartment>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.1">
+				<modelElement xmi:type="uml:DataType" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Point"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.1" text="Point"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.1-_layoutConstraint" x="317" y="317" width="1884" height="1509"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.1-_children.5">
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.1-_children.5-x" text="+ x : Real = 0">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Point-x"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.1-_children.5-y" text="+ y : Real = 0">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Point-y"/>
+					</elementInCompartment>
+				</compartment>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.2">
+				<modelElement xmi:type="uml:DataType" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Bounds"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.2" text="Bounds"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.2-_layoutConstraint" x="2853" y="317" width="2043" height="2141"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.2-_children.5">
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.2-_children.5-x" text="+ x : Real = 0">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Bounds-x"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.2-_children.5-y" text="+ y : Real = 0">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Bounds-y"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.2-_children.5-width" text="+ width : Real">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Bounds-width"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.2-_children.5-height" text="+ height : Real">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Bounds-height"/>
+					</elementInCompartment>
+				</compartment>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.3">
+				<modelElement xmi:type="uml:Enumeration" href="http://www.omg.org/spec/DD/20131001/DC.xmi#AlignmentKind"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.3" text="AlignmentKind"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.3-_layoutConstraint" x="8559" y="317" width="2431" height="1825"/>
+				<ownedElement xmi:type="notation:SemanticListCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.3-_children.5" type="EnumerationCompartment"/>
+			</ownedElement>
+		</umldi:Diagram>
+		<umldi:Diagram xmi:type="umldi:UMLClassDiagram" xmi:id="_uml2.diagrams-_contents.2" name="Color Type">
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.2-_children.0">
+				<modelElement xmi:type="uml:DataType" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Color"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.2-_children.0" text="Color"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.2-_children.0-_layoutConstraint" x="317" y="317" width="2273" height="1825"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.2-_children.0-_children.5">
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.2-_children.0-_children.5-red" text="+ red : Integer">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Color-red"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.2-_children.0-_children.5-green" text="+ green : Integer">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Color-green"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.2-_children.0-_children.5-blue" text="+ blue : Integer">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DC.xmi#Color-blue"/>
+					</elementInCompartment>
+				</compartment>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.2-_children.1">
+				<modelElement xmi:type="uml:Enumeration" href="http://www.omg.org/spec/DD/20131001/DC.xmi#KnownColor"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.2-_children.1" text="KnownColor"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.2-_children.1-_layoutConstraint" x="3487" y="317" width="2272" height="6249"/>
+				<ownedElement xmi:type="notation:SemanticListCompartment" xmi:id="_uml2.diagrams-_contents.2-_children.1-_children.5" type="EnumerationCompartment"/>
+			</ownedElement>
+		</umldi:Diagram>
+	</uml:Package>
+</xmi:XMI>

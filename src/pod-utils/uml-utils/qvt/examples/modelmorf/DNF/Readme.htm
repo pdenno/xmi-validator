@@ -1,0 +1,287 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Readme_files/filelist.xml">
+<title>Transforming an arbitrary boolean expression to disjunctive normal form
+using Distribution Law and DeMorgan's Law (Demonstrate</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Azhar</o:Author>
+  <o:LastAuthor>Azhar</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>10</o:TotalTime>
+  <o:Created>2007-03-13T05:31:00Z</o:Created>
+  <o:LastSaved>2007-03-13T05:31:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>280</o:Words>
+  <o:Characters>1599</o:Characters>
+  <o:Company> TCS</o:Company>
+  <o:Lines>13</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>1963</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>7 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>19.05 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:40401080;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-292278676 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:468405110;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2124434646 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoBodyText>Transforming an arbitrary boolean expression to
+disjunctive normal form using Distribution Law and DeMorgan's Law (Demonstrates
+'in-place transformation' and 'extended collection pattern' features)</p>
+
+<p class=MsoBodyText2>------------------------------------------------------------------------------------------------------------------------------------<span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec’ contains:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Verdana'>DNFMM.xml : Expression meta
+model<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Verdana'>DNFUM.xml : A sample expression
+model<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Verdana'>DNF.qvt : QVT specification file
+to transform an arbitrary boolean expression to disjunctive normal form using
+Distribution Law and DeMorgan's Law<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Expression metamodel:<o:p></o:p></span></b></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Class
+     'Expr' is specialized by classes 'ExprTree', 'And', 'Or', 'Not' and
+     'Literal'.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Expr
+     has a self association 'expr' whose opposite is self association 'parent'.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>And
+     expression will be denoted by instance of 'And' with 2 Expr as its
+     operands associated with it with 'expr' association.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Or
+     expression will be denoted by instance of 'Or' with 2 Expr as its operands
+     associated with it with 'expr' association.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Not
+     expression will be denoted by instance of 'Not' with 1 Expr as its operand
+     associated with it with 'expr' association.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Literal
+     expression will be denoted by instance of 'Literal' with its name as value
+     of property 'name' of 'Literal'.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText3>See figure 'Meta Model for Expression for example DNF' in
+file DNF.pdf.</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The transformation DNF transforms an arbitrary boolean
+expression to disjunctive normal form using following laws:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Distribution
+     Laws :<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>X.(Y+Z)
+      = (X.Y) + (X.Z)<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>(X+Y).Z
+      = (X.Z) + (Y.Z)<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>DeMorgan's
+     Laws : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>~(X+Y)
+      = ~X.~Y<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>~(X.Y)
+      = ~X+~Y<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample expression model is given in file DNFUM.xml
+contains:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>(((a.~b)+~(c+d)).(~(e.f)+(~g+h)))+((i+j).(k.h))<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>To run this example execute the batch file ‘run.bat’ for
+windows or<span style="mso-spacerun: yes">  </span>the shell script ‘run.sh’
+for unix.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The generated expression model DNFUM.xml is expected to
+contain:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>(a.~b.~e)+(~c.~d.~e)+(a.~b.~f)+(~c.~d.~f)+(a.~b.~g)+(~c.~d.~g)+(a.~b.h+(~c.~d.h)+(k.h.i)+(k.h.j)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="ClassMM"
+    name="ClassMM" uri="ClassMM">
+  <ownedType xmi:type="emof:Class" xmi:id="ClassMM.dummy" name="dummy">
+    <ownedAttribute xmi:id="ClassMM.dummy.hasType" name="hasType" upper="*" type="ClassMM.Type"
+        isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="ClassMM.Type" name="Type" isAbstract="true">
+    <ownedAttribute xmi:id="ClassMM.Type.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="ClassMM.Class" name="Class" superClass="ClassMM.Type">
+    <ownedAttribute xmi:id="ClassMM.Class.isAbstract" name="isAbstract">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#Boolean"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ClassMM.Class.operation" name="operation" upper="*" type="ClassMM.Operation"
+        isComposite="true" opposite="ClassMM.Operation.class"/>
+    <ownedAttribute xmi:id="ClassMM.Class.inheritsFrom" name="inheritsFrom" type="ClassMM.Class"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="ClassMM.Operation" name="Operation">
+    <ownedAttribute xmi:id="ClassMM.Operation.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ClassMM.Operation.class" name="class" lower="1" type="ClassMM.Class"
+        opposite="ClassMM.Class.operation"/>
+    <ownedAttribute xmi:id="ClassMM.Operation.parameter" name="parameter" upper="*"
+        type="ClassMM.Parameter" isComposite="true" opposite="ClassMM.Parameter.operation"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="ClassMM.Parameter" name="Parameter">
+    <ownedAttribute xmi:id="ClassMM.Parameter.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ClassMM.Parameter.type" name="type" lower="1" type="ClassMM.Type"/>
+    <ownedAttribute xmi:id="ClassMM.Parameter.operation" name="operation" lower="1"
+        type="ClassMM.Operation" opposite="ClassMM.Operation.parameter"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="ClassMM.PrimitiveDataType" name="PrimitiveDataType"
+      superClass="ClassMM.Type"/>
+</emof:Package>

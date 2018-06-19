@@ -1,0 +1,51 @@
+/*
+ * ClassToTable mit inline object creation
+ */
+transformation uml2rdbm ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   top relation PackageToSchema 
+   {
+      packageName : String;
+      checkonly domain uml  packge : Package { name  = packageName };
+      enforce   domain rdbm schema : Schema  { name = packageName };
+      -- when {}
+      -- where {}
+   }
+
+   top relation ClassToTable
+   {
+      className : String;
+      checkonly domain uml  cls : Class  
+      { 
+         namespace = packge : Package {},
+         kind = 'persistent',
+         name = className 
+      };
+      enforce   domain rdbm tbl : Table 
+      { 
+         schema = schema : Schema {},
+         name   = className 
+      };
+      when  { PackageToSchema ( packge, schema ); }
+      -- where { AttributeToColumn (cls, tbl); }
+   }
+/*
+   top relation AssocToFKey
+   {
+      assocName : String;
+      checkonly domain uml  assoc : UmlAssociation { umlName  = assocName  };
+      enforce   domain rdbm fkey  : RdbmForeignKey { rdbmName = assocName  };
+      -- when {}
+      -- where {}
+   }   
+   
+   relation AttributeToColumn
+   {
+      attributeName : String;
+      checkonly domain uml  cls : UmlClass  { umlName = attributeName };
+      enforce   domain rdbm tbl : RdbmTable { rdbmName = attributeName};
+      -- when {}
+      -- where {}
+   }
+*/
+}

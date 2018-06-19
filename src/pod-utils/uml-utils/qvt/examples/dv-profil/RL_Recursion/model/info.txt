@@ -1,0 +1,4 @@
+Here you can find some metamodels as well, the simple ones (ecore representation). 
+You can work with them, yet mind that you have to take exactly the same metamodels for 
+for modeling and transformation (it's something like strict modeltype conformance). 
+  

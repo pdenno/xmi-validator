@@ -1,0 +1,553 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Readme_files/filelist.xml">
+<title>Mapping two object models</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Azhar</o:Author>
+  <o:LastAuthor>Azhar</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>56</o:TotalTime>
+  <o:Created>2007-03-13T05:30:00Z</o:Created>
+  <o:LastSaved>2007-03-13T05:30:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>666</o:Words>
+  <o:Characters>3799</o:Characters>
+  <o:Company> TCS</o:Company>
+  <o:Lines>31</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>4665</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ActiveWritingStyle Lang="EN-US" VendorID="64" DLLVersion="131077"
+   NLCheck="1">1</w:ActiveWritingStyle>
+  <w:DrawingGridHorizontalSpacing>7 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>19.05 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-font-kerning:0pt;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:96877262;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1782079572 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:281544676;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-653752118 67698693 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l2
+	{mso-list-id:340086279;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1489525682 67698693 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l3
+	{mso-list-id:957878152;
+	mso-list-type:hybrid;
+	mso-list-template-ids:857481846 67698693 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4
+	{mso-list-id:1194149177;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1591979594 67698693 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l5
+	{mso-list-id:1257902527;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-245173468 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l5:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoBodyText><b><span style='font-size:12.0pt'>Mapping two object
+models</span><o:p></o:p></b></p>
+
+<p class=MsoBodyText2>----------------------------------</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>This example checks if two object models are equivalent.
+It considers them equivalent if for each class in one model there exists a
+corresponding class in the other model with the same name and if the
+inheritance hierarchies of the two classes are the same. This example
+demonstrates the use of set pattern.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec’ contains :<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style='mso-tab-count:1'>          </span>ClassModelToClassModel.qvt
+: QVT specification file for mapping object models.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec/Example1’ contains :<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style='mso-tab-count:1'>          </span>ClassMM.xml
+: CLASS Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style='mso-tab-count:1'>          </span>ClassUM1.xml
+: A sample class model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style='mso-tab-count:1'>          </span>ClassUM2.xml
+: A sample class model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec/Example2’ contains :<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style='mso-tab-count:1'>          </span>ClassMM.xml
+: CLASS Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style='mso-tab-count:1'>          </span>ClassUM3.xml
+: A sample class model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style='mso-tab-count:1'>          </span>ClassUM4.xml
+: A sample class model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>CLASS metamodel:<o:p></o:p></span></b></p>
+
+<p class=MsoBodyText>See figure 'Simple CLASS Meta Model for example
+ClassModelToClassModel' in file ClassModelToClassModel.pdf</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Example1</h1>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>----------<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample source model is given in file ClassUM1.xml
+contains:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Class
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Polygon
+      : name='Polygon'; subs={Quadrilateral ,Triangle}; supers={}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Quadrilateral
+      : name='Quadrilateral'; subs={Rhombus ,Rectangle}; supers={Polygon}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Triangle
+      : name='Triangle'; subs={IsoscelesTriangle ,ScaleneTriangle};
+      supers={Polygon}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Rhombus
+      : name='Rhombus'; subs={Square}; supers={Quadrilateral}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Rectangle
+      : name='Rectangle'; subs={Square}; supers={Quadrilateral}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Square
+      : name='Square'; subs={}; supers={Rhombus ,Rectangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>IsoscelesTriangle
+      : name='IsoscelesTriangle'; subs={EquilateralTriangle}; supers={Triangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ScaleneTriangle
+      : name='ScaleneTriangle'; subs={}; supers={Triangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>EquilateralTriangle
+      : name='EquilateralTriangle'; subs={}; supers={IsoscelesTriangle}<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">     </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText>The sample target model is given in file ClassUM2.xml
+contains:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Class
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Polygon
+      : name='Polygon'; subs={Quadrilateral ,Triangle}; supers={}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Quadrilateral
+      : name='Quadrilateral'; subs={Rhombus ,Rectangle}; supers={Polygon}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Triangle
+      : name='Triangle'; subs={IsoscelesTriangle ,ScaleneTriangle};
+      supers={Polygon}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Rhombus
+      : name='Rhombus'; subs={Square}; supers={Quadrilateral}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Rectangle
+      : name='Rectangle'; subs={Square}; supers={Quadrilateral}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Square
+      : name='Square'; subs={}; supers={Rhombus ,Rectangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>IsoscelesTriangle
+      : name='IsoscelesTriangle'; subs={EquilateralTriangle}; supers={Triangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ScaleneTriangle
+      : name='ScaleneTriangle'; subs={}; supers={Triangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>EquilateralTriangle
+      : name='EquilateralTriangle'; subs={}; supers={IsoscelesTriangle}<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">     </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Here the source and target models are consistent with each
+other.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Example QVT file (ClassModelToClassModel.qvt) is run in
+checkonly mode in uml2 direction. The transformation checks the consistency
+between uml1 and uml2 models. Here the models are consistent.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>To run this example execute the batch file ‘run1.bat’ for
+windows or<span style="mso-spacerun: yes">  </span>the shell script ‘run1.sh’
+for unix.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Example2</h1>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>----------<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample source model is given in file ClassUM3.xml
+contains:<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo1;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Class : </p>
+
+<ul style='margin-top:0in' type=disc>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Polygon
+      : name='Polygon'; subs={Quadrilateral ,Triangle}; supers={}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Quadrilateral
+      : name='Quadrilateral'; subs={Rhombus ,Rectangle}; supers={Polygon}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Triangle
+      : name='Triangle'; subs={IsoscelesTriangle ,ScaleneTriangle};
+      supers={Polygon}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Rhombus
+      : name='Rhombus'; subs={Square}; supers={Quadrilateral}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Rectangle
+      : name='Rectangle'; subs={Square}; supers={Quadrilateral}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Square
+      : name='Square'; subs={}; supers={Rhombus ,Rectangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>IsoscelesTriangle
+      : name='IsoscelesTriangle'; subs={EquilateralTriangle}; supers={Triangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ScaleneTriangle
+      : name='ScaleneTriangle'; subs={}; supers={Triangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>EquilateralTriangle
+      : name='EquilateralTriangle'; subs={}; supers={IsoscelesTriangle}<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">     </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample target model is given in file ClassUM4.xml
+contains:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Class
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo6;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Polygon
+      : name='Polygon'; subs={Quadrilateral ,Triangle}; supers={}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo6;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Quadrilateral
+      : name='Quadrilateral'; subs={Rhombus ,Rectangle}; supers={Polygon}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo6;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Triangle
+      : name='Triangle'; subs={IsoscelesTriangle ,ScaleneTriangle};
+      supers={Polygon}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo6;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Rhombus
+      : name='Rhombus'; subs={Square}; supers={Quadrilateral}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo6;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Rectangle
+      : name='Rectangle'; subs={Square}; supers={Quadrilateral}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo6;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Square
+      : name='Square'; subs={}; supers={Rhombus ,Rectangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo6;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>IsoscelesTriangle
+      : name='IsoscelesTriangle'; subs={EquilateralTriangle}; supers={Triangle}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo6;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ScaleneTriangle
+      : name='ScaleneTriangle'; subs={}; supers={Triangle}<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">     </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Example QVT file (ClassModelToClassModel.qvt) is run in
+checkonly mode in uml2 direction. The transformation checks the consistency
+between uml1 and uml2 models. Here the models are not consistent hence the
+transformation will report inconsistencies.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>To run this example execute the batch file ‘run2.bat’ for
+windows or<span style="mso-spacerun: yes">  </span>the shell script ‘run2.sh’
+for unix.<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

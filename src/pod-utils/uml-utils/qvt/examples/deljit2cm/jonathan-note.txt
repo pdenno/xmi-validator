@@ -1,0 +1,158 @@
+  
+Jonathan,
+
+One thing we'd like is the ability to translate a QVT population into controlled natural language (see http://sites.google.com/site/controllednaturallanguage/ and http://en.wikipedia.org/wiki/Attempto_Controlled_English for example). 
+
+I can imagine the user starting from a MOSS message, say the DESADV message and selecting the ShipFromParty NAD (Name and Address) element. 
+
+http://localhost/moss/moss-views/msg-view?msg=DESADV&select=2100&open=2174*2193#2100
+
+(that URL *might* be the same in your system). 
+
+Note that ID 2100 is referenced in this URL. You can do (view::id2ctr :desadv 2100) to see it (numbering might be different) You can use (find-container nil :name "ShipFromParty_NAD" :msg-type :desadv) to see it in all cases.
+
+The EDI message schema are modeled as these container objects (think XML, as it might be conceived in 1980). 
+In the readers package do: (inspect *container-plans*) and pick one, dig down. There is a message-ctr containing the entire description. Its content slots can contain segm-ctr and sgrp-ctr objects. A segm-ctr can contain comp-ctrs and data-elements. The data-element objects are the information represented in the datamatrix (see http://syseng.nist.gov/moss/repository/data-matrix/pilot/data-matrix.ods (a spreadsheet). 
+
+...So on the one hand you have this EDI crap, on the other hand, our beautiful conceptual model.... back to the idea : I can imagine the user starting from a MOSS message, say the DESADV message and selecting the ShipFromParty NAD (Name and Address) element. He wants to know what that thing maps to. (I'm switching from DESADV to DELJIT in the following, since I see now that that is what I've written QVT for).  I see in the QVT:
+
+top relation shipFrom2Supplier
+ {
+    dunsID : String;
+    checkonly domain deljit sfParty:ShipFromParty_NAD { }; 
+    enforce domain cm supplier:Supplier { playedBy = :Party { partyID = :PartyID { idString=dunsID } } };
+
+    when  { dunsID = dunsIDfn(sfParty);  }
+    where { NAD2Role(sfParty, supplier); }
+ }
+
+So If I search the population resulting from deljit2cm.qvt, I'll should be able to find a object of type ShipFromPartyNAD...
+
+Since we added the model as a "user" it has no permanent status inside the system. I have to reach it this way:
+
+Change to the mofi package:
+
+(find-model :name "deljit2cm" :models (session-models *spare-session-vo*))
+(setq pop *)
+
+Relations is a good place to start:
+(remove-if-not #'(lambda (x) (typep x 'qvt::|Relation|)) (members pop))
+
+MOFI> (inspect *)
+
+#(<QVT::Relation shipTo2Consignee, id=10905> <QVT::Relation shipFrom2Supplier, id=10919> <QVT::Relation NAD2Role, id=10933>) is a (SIMPLE-VECTOR 3)
+0      <QVT::Relation shipTo2Consignee, id=10905>
+1      <QVT::Relation shipFrom2Supplier, id=10919>
+2      <QVT::Relation NAD2Role, id=10933>
+
+MOFI 33 : Inspect 1 > 1
+
+<QVT::Relation shipFrom2Supplier, id=10919> is a QVT::|Relation|
+isTopLevel          :TRUE
+when                <QVT::WhenExpression, id=10929>
+where               <QVT::WhereExpression, id=10931>
+variable            (#S(OCL:VAR-DECL :-NAME "dunsID" :-TYPE OCL:|String| :-INIT NIL))
+domain              (<deljit2cm:RelationDomain deljit:?sfParty (shipFrom2Supplier)> <deljit2cm:RelationDomain cm:?supplier (shipFrom2Supplier)>)
+overrides           NIL
+name                "shipFrom2Supplier"
+owner               <QVT::RelationalTransformation deljit2cm, id=10896>
+ownedElement        NIL
+of-model            #<Population deljit2cm (of QVT) members:75>
+defined-at          24
+token-position      NIL
+source-elem         NIL
+debug-id            10919
+
+MOFI 34 : Inspect 2 > domain
+
+(<deljit2cm:RelationDomain deljit:?sfParty (shipFrom2Supplier)> <deljit2cm:RelationDomain cm:?supplier (shipFrom2Supplier)>) is a LIST
+0      <deljit2cm:RelationDomain deljit:?sfParty (shipFrom2Supplier)>
+1      <deljit2cm:RelationDomain cm:?supplier (shipFrom2Supplier)>
+
+MOFI 35 : Inspect 3 > 0
+
+<deljit2cm:RelationDomain deljit:?sfParty (shipFrom2Supplier)> is a QVT::|RelationDomain|
+rootVariable                   QVT::|?sfParty|
+pattern                        <QVT::ObjectTemplateExp, id=10921>
+defaultAssignment              NIL
+operationalImplementation      NIL
+isCheckable                    :TRUE
+isEnforceable                  NIL
+typedModel                     #<Model DELJIT types:237>
+name                           NIL
+owner                          <QVT::Relation shipFrom2Supplier, id=10919>
+ownedElement                   NIL
+of-model                       #<Population deljit2cm (of QVT) members:75>
+defined-at                     27
+token-position                 NIL
+source-elem                    NIL
+debug-id                       10920
+
+MOFI 36 : Inspect 4 > pattern
+
+<QVT::ObjectTemplateExp, id=10921> is a QVT::|ObjectTemplateExp|
+referredClass       DELJIT:|ShipFromParty_NAD|
+part                NIL
+when                NIL
+bindsTo             QVT::|?sfParty|
+owner               <deljit2cm:RelationDomain deljit:?sfParty (shipFrom2Supplier)>
+ownedElement        NIL
+of-model            #<Population deljit2cm (of QVT) members:75>
+defined-at          27
+token-position      NIL
+source-elem         NIL
+debug-id            10921
+
+MOFI 37 : Inspect 5 > 
+
+OK... In this case at least, I can find the class named DELJIT:|ShipFromParty_NAD| in a relation, as an "isCheckable" domain. (That is, it is used as the source of mapping). The other domain in that relation is an "isEnforceable" domain, it is the target of mapping. (When we map, an instance in the source population matching the criteria of this relation will be used to create an instance in the target population (the CM) using this relation, and other relationss this one makes reference to.)
+
+From this with a bit of work, I can make the sentence:
+
+"A ShipFromParty in the DELJIT message is mapped to a Supplier in the MOSS CM."
+
+But we will probably want to know the details of this mapping. Let's assume for now that no matter what
+the user seeks to see, we will start our controlled English description at the level of a EDI Segment
+(segm-ctr). Maybe we can highlight the specific detail he asks for in a different color font of the
+text. 
+
+Hmmm... Now it is going to get a little strange. I'm not sure I want to stick with the design I have. The problem is, I've done some of the work of mapping already: ShipFromParty is a class that gets populated from a 'generic' NAD element, where there is a "segment group qualifier" I've done some mapping (or "interpretation") work without use of QVT. Let's address that, ad hoc, now:
+
+
+MOFI> (inspect (readers::find-container nil :name "ShipFromParty_NAD" :msg-type :deljit))
+
+....SG-QUALIFIERS            ((2 :NAD "3035=SF"))
+
+I think the next sentence should be something about this. Thus:
+
+"A ShipFromParty in the DELJIT message is mapped to a Supplier in the MOSS CM.
+The ShipFromParty is encoded as a NAD segment in segment group 2, where element 3035 is SF."
+
+And for good measure, you can do this (see views/edi-view.lisp edifact-code-dsp):
+
+(with-trie-db (:edifact)
+    (lt-query (?name ?desc)
+    	 `(and 
+	   (element.code-value-name 3035 "SF" ?name)
+	   (element.code-value-description 3035 "SF" ?desc))))
+
+(("Ship from" "Identification of the party from where goods will be or have been shipped."))
+
+Maybe for now we'll add a sentence about that. Maybe it would be better to have a link on "SF"
+But for now:
+
+"A ShipFromParty in the DELJIT message is mapped to a Supplier in the MOSS CM.
+The ShipFromParty is encoded as a NAD segment in segment group 2, where element 3035 is SF.
+EDIFACT describes SF code value of 3035 as: 'Ship From -- Identification of the party from where goods 
+will be or have been shipped.'"
+
+That might be all there is to it, if the user only wanted to know about the ShipFromParty, and not it's detail, like "party ID" and not "ShipFromPartyID" or ShipFromPartyAddress. A more complex mapping would have conditionals in it, but I'm going to have to think a bit about whether a re-organization around these conditionals (put the knowledge in the QVT, not in a tool that creates specialized EDI segment classes for qualifiers like SF) is useful. I hope there is enough here to get started. 
+
+
+(N.B. Some day soon, we may have multiple QVT files loaded.  Their organization won't be quite the way it is now, because currently I have far too many classes that each serve the same purpose, but for different messages. For example, why a separate ShipFromParty_NAD for each message? They are all the same. I'm going to someday write code to merge like classes.)
+
+
+
+
+
+

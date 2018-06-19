@@ -1,0 +1,51 @@
+/*
+ * ClassToTable mit inline object creation;
+ * Dies Beispiel erzeugt Tabellen in dem Zielschema, die mindestens
+ * schon ein identifizierendes Attrbut erhalten, welches als Promärschlüssel
+ * verwendet werden soll. Die Erzeugung des identifizierenden Column und
+ * des Primärschlüssels erfolgt mit Hilfe von Inline Objekt-Erzeugung. 
+ */
+transformation uml2rdbm ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   /* */
+   top relation PackageToSchema 
+   {
+      packageName : String;
+      checkonly domain uml  pck : Package { name = packageName };
+      enforce   domain rdbm sma : Schema  { name = packageName };
+   }
+
+    /* */
+   top relation ClassToTable
+   {
+      className : String;
+      
+      checkonly domain uml  cls : Class  
+      { 
+         namespace = pck : Package {},
+         kind = 'persistent',
+         name = className 
+      };
+      
+      enforce   domain rdbm tbl : Table 
+      { 
+         schema = sma : Schema {},
+         name   = className,
+          
+         -- inline Erzeugung des identifizierenden Columns
+         column     = cl : Column    
+         { 
+            name = className + '_ID',
+            type = 'Integer'
+         },
+
+         -- inline Erzeugung des Primärschlüssels 
+         primaryKey = k : PrimaryKey 
+         { 
+            name   = className + '_PK',
+            column = cl : Column {} 
+         }
+      };
+      when  { PackageToSchema ( pck, sma ); }
+   }
+}

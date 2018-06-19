@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="SeqMM" xmi:id="_IgIVYMSEEdqGdveKrY6NRA">
+  <hasInteraction xmi:id="_JG4MUMSEEdqGdveKrY6NRA" name="Door">
+    <lifeline xmi:id="_J8Xp4MSEEdqGdveKrY6NRA" name="Opened" state="_RjWpYMSEEdqGdveKrY6NRA">
+      <msgEvent xmi:id="_XtpBYMSEEdqGdveKrY6NRA" next="_Z66KMMSEEdqGdveKrY6NRA" message="_OEumYMSEEdqGdveKrY6NRA" state="_RjWpYMSEEdqGdveKrY6NRA"/>
+    </lifeline>
+    <lifeline xmi:id="_K2o5wMSEEdqGdveKrY6NRA" name="Closed" state="_UdBlMMSEEdqGdveKrY6NRA">
+      <msgEvent xmi:id="_Z66KMMSEEdqGdveKrY6NRA" type="Receive" prev="_XtpBYMSEEdqGdveKrY6NRA" message="_OEumYMSEEdqGdveKrY6NRA" state="_UdBlMMSEEdqGdveKrY6NRA"/>
+      <msgEvent xmi:id="_eCXu0MSEEdqGdveKrY6NRA" next="_fqFTgMSEEdqGdveKrY6NRA" message="_PT_14MSEEdqGdveKrY6NRA" state="_UdBlMMSEEdqGdveKrY6NRA"/>
+    </lifeline>
+    <lifeline xmi:id="_L2kFsMSEEdqGdveKrY6NRA" name="Locked" state="_WGh5oMSEEdqGdveKrY6NRA">
+      <msgEvent xmi:id="_fqFTgMSEEdqGdveKrY6NRA" type="Receive" prev="_eCXu0MSEEdqGdveKrY6NRA" message="_PT_14MSEEdqGdveKrY6NRA" state="_WGh5oMSEEdqGdveKrY6NRA"/>
+    </lifeline>
+    <message xmi:id="_OEumYMSEEdqGdveKrY6NRA" messageId="CloseDoor" event="_XtpBYMSEEdqGdveKrY6NRA _Z66KMMSEEdqGdveKrY6NRA"/>
+    <message xmi:id="_PT_14MSEEdqGdveKrY6NRA" messageId="LockDoor" event="_eCXu0MSEEdqGdveKrY6NRA _fqFTgMSEEdqGdveKrY6NRA"/>
+  </hasInteraction>
+  <containedState xmi:id="_RjWpYMSEEdqGdveKrY6NRA" name="Opened" messageevent="_XtpBYMSEEdqGdveKrY6NRA" lifeline="_J8Xp4MSEEdqGdveKrY6NRA"/>
+  <containedState xmi:id="_UdBlMMSEEdqGdveKrY6NRA" name="Closed" messageevent="_Z66KMMSEEdqGdveKrY6NRA _eCXu0MSEEdqGdveKrY6NRA" lifeline="_K2o5wMSEEdqGdveKrY6NRA"/>
+  <containedState xmi:id="_WGh5oMSEEdqGdveKrY6NRA" name="Locked" messageevent="_fqFTgMSEEdqGdveKrY6NRA" lifeline="_L2kFsMSEEdqGdveKrY6NRA"/>
+</null:Dummy>

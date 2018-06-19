@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
+	<uml:Profile xmi:type="uml:Profile" xmi:id="_0" name="OMGIssuesProfile" metamodelReference="_packageImport.1" URI="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+		<packageImport xmi:type="uml:PackageImport" xmi:id="_packageImport.0">
+			<importedPackage xmi:type="uml:Model" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#_0"/>
+		</packageImport>
+		<packageImport xmi:type="uml:PackageImport" xmi:id="_packageImport.1">
+			<importedPackage xmi:type="uml:Model" href="http://www.omg.org/spec/UML/20131001/UML.xmi#_0"/>
+		</packageImport>
+		<packagedElement xmi:type="uml:Stereotype" xmi:id="OMGIssueTag" name="OMGIssueTag">
+			<ownedAttribute xmi:type="uml:Property" xmi:id="OMGIssueTag-base_Element" name="base_Element" association="Element_OMGIssueTag">
+				<type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+			</ownedAttribute>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="OMGIssueTag-issueDetail" name="issueDetail" type="IssueDetail" aggregation="composite" association="_packagedElement.3">
+				<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="OMGIssueTag-issueDetail-_upperValue" value="*"/>
+				<lowerValue xmi:type="uml:LiteralInteger" xmi:id="OMGIssueTag-issueDetail-_lowerValue"/>
+			</ownedAttribute>
+		</packagedElement>
+		<packagedElement xmi:type="uml:Extension" xmi:id="Element_OMGIssueTag" name="Element_OMGIssueTag" memberEnd="Element_OMGIssueTag-extension_OMGIssueTag OMGIssueTag-base_Element">
+			<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Element_OMGIssueTag-extension_OMGIssueTag" name="extension_OMGIssueTag" type="OMGIssueTag" aggregation="composite" association="Element_OMGIssueTag"/>
+		</packagedElement>
+		<packagedElement xmi:type="uml:Class" xmi:id="IssueDetail" name="IssueDetail">
+			<ownedAttribute xmi:type="uml:Property" xmi:id="IssueDetail-number" name="number">
+				<type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer"/>
+			</ownedAttribute>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="IssueDetail-url" name="url">
+				<type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+			</ownedAttribute>
+			<ownedAttribute xmi:type="uml:Property" xmi:id="IssueDetail-text" name="text">
+				<type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+			</ownedAttribute>
+		</packagedElement>
+		<packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.3" memberEnd="OMGIssueTag-issueDetail _packagedElement.3-issueTag">
+			<ownedEnd xmi:type="uml:Property" xmi:id="_packagedElement.3-issueTag" name="issueTag" type="OMGIssueTag" association="_packagedElement.3"/>
+		</packagedElement>
+	</uml:Profile>
+	<mofext:Tag xmi:type="mofext:Tag" xmi:id="_1" name="org.omg.xmi.nsPrefix" value="OMGIssuesProfile" element="_0"/>
+</xmi:XMI>

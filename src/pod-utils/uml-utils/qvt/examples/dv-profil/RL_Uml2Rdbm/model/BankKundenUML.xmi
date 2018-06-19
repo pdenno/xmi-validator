@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MyUML:Package 
+xmi:version="2.0" 
+xmlns:xmi="http://www.omg.org/XMI" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:MyUML="urn:MyUML.ecore" 
+xsi:schemaLocation="urn:MyUML.ecore platform:/resource/metamodels/MyUML.ecore" 
+name="Bank" kind=""> 
+
+  <ownedElement xsi:type="MyUML:Association" 
+  name="Bank_Client" 
+  source="//@ownedElement.2" 
+  destination="//@ownedElement.3"/>
+
+  <ownedElement xsi:type="MyUML:Class" name="Address" kind="persistent">
+    <attribute name="street" type="//@ownedElement.5"/>
+    <attribute name="number" type="//@ownedElement.4"/>
+  </ownedElement>
+
+  <ownedElement xsi:type="MyUML:Class" name="Bank" kind="persistent">
+    <attribute name="name"    type="//@ownedElement.5"/>
+    <attribute name="adresse" type="//@ownedElement.1"/>
+  </ownedElement>
+
+  <ownedElement xsi:type="MyUML:Class" name="Client" kind="persistent">
+    <attribute name="name"          type="//@ownedElement.5"/>
+    <attribute name="countid"       type="//@ownedElement.4" kind="primary"/>
+    <attribute name="homeaddress"   type="//@ownedElement.1"/>
+    <attribute name="officeaddress" type="//@ownedElement.1"/>
+  </ownedElement>
+
+  <ownedElement xsi:type="MyUML:PrimitiveDataType" name="int"/>
+  <ownedElement xsi:type="MyUML:PrimitiveDataType" name="string"/>
+  
+</MyUML:Package>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmi:id="_Wg2cNL6GEd6I25e2ake-OQ" name="TestCase6">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Wg2cNr6GEd6I25e2ake-OQ" name="Interface2"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Wg2cN76GEd6I25e2ake-OQ" name="Power"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Wg2cOL6GEd6I25e2ake-OQ" name="Powertrain"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Wg2cOb6GEd6I25e2ake-OQ" name="Car">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cOr6GEd6I25e2ake-OQ" name="untypedPart" visibility="public" aggregation="composite"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cO76GEd6I25e2ake-OQ" name="engine2" visibility="public" type="_Wg2caL6GEd6I25e2ake-OQ" aggregation="composite"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cPL6GEd6I25e2ake-OQ" name="part2" visibility="public" type="_Wg2cbL6GEd6I25e2ake-OQ" aggregation="composite"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cPb6GEd6I25e2ake-OQ" name="part1" visibility="public" type="_Wg2cb76GEd6I25e2ake-OQ" aggregation="composite"/>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_Wg2cPr6GEd6I25e2ake-OQ" name="port" type="_Wg2cVL6GEd6I25e2ake-OQ" aggregation="composite"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cP76GEd6I25e2ake-OQ" name="test3" visibility="public" type="_Wg2ccr6GEd6I25e2ake-OQ" aggregation="composite"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cQL6GEd6I25e2ake-OQ" name="engine" visibility="public" type="_Wg2cXb6GEd6I25e2ake-OQ" aggregation="shared" association="_Wg2cZb6GEd6I25e2ake-OQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cQ76GEd6I25e2ake-OQ" name="rear" visibility="public" type="_Wg2cVr6GEd6I25e2ake-OQ" aggregation="composite" association="_Wg2cZL6GEd6I25e2ake-OQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wg2cRL6GEd6I25e2ake-OQ" value="2"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wg2cRb6GEd6I25e2ake-OQ" value="2"/>
+    </ownedAttribute>
+    <ownedConnector xmi:type="uml:Connector" xmi:id="_Wg2cRr6GEd6I25e2ake-OQ" name="a" type="_Wg2cZr6GEd6I25e2ake-OQ" >
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_Wg2cR76GEd6I25e2ake-OQ" role="_Wg2cQ76GEd6I25e2ake-OQ"/>
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_Wg2cSL6GEd6I25e2ake-OQ" role="_Wg2cQL6GEd6I25e2ake-OQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wg2cSb6GEd6I25e2ake-OQ" value="2"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wg2cSr6GEd6I25e2ake-OQ" value="2"/>
+      </end>
+    </ownedConnector>
+    <ownedConnector xmi:type="uml:Connector" xmi:id="_Wg2cS76GEd6I25e2ake-OQ" name="Connector1" >
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_Wg2cTL6GEd6I25e2ake-OQ" partWithPort="_Wg2cO76GEd6I25e2ake-OQ" role="_Wg2cab6GEd6I25e2ake-OQ"/>
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_Wg2cTb6GEd6I25e2ake-OQ" role="_Wg2cOr6GEd6I25e2ake-OQ"/>
+    </ownedConnector>
+    <ownedConnector xmi:type="uml:Connector" xmi:id="_Wg2cTr6GEd6I25e2ake-OQ" name="ball_socket_connector" >
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_Wg2cT76GEd6I25e2ake-OQ" partWithPort="_Wg2cPb6GEd6I25e2ake-OQ" role="_Wg2ccL6GEd6I25e2ake-OQ"/>
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_Wg2cUL6GEd6I25e2ake-OQ" partWithPort="_Wg2cPL6GEd6I25e2ake-OQ" role="_Wg2cbb6GEd6I25e2ake-OQ"/>
+    </ownedConnector>
+    <ownedConnector xmi:type="uml:Connector" xmi:id="_Wg2cUb6GEd6I25e2ake-OQ" name="Connector2" >
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_Wg2cUr6GEd6I25e2ake-OQ" role="_Wg2cPr6GEd6I25e2ake-OQ"/>
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_Wg2cU76GEd6I25e2ake-OQ" partWithPort="_Wg2cP76GEd6I25e2ake-OQ" role="_Wg2cc76GEd6I25e2ake-OQ"/>
+    </ownedConnector>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Wg2cVL6GEd6I25e2ake-OQ" name="Class1" clientDependency="_Wg2cVb6GEd6I25e2ake-OQ">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Wg2cVb6GEd6I25e2ake-OQ" supplier="_Wg2cNr6GEd6I25e2ake-OQ" client="_Wg2cVL6GEd6I25e2ake-OQ" contract="_Wg2cNr6GEd6I25e2ake-OQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Wg2cVr6GEd6I25e2ake-OQ" name="Wheel">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cWr6GEd6I25e2ake-OQ" name="engine" visibility="private" type="_Wg2cXb6GEd6I25e2ake-OQ" association="_Wg2cZr6GEd6I25e2ake-OQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Wg2cXb6GEd6I25e2ake-OQ" name="Engine">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Wg2cYb6GEd6I25e2ake-OQ" name="wheel" visibility="private" type="_Wg2cVr6GEd6I25e2ake-OQ" association="_Wg2cZr6GEd6I25e2ake-OQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wg2cYr6GEd6I25e2ake-OQ" value="2"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wg2cY76GEd6I25e2ake-OQ" value="2"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Wg2cZL6GEd6I25e2ake-OQ" memberEnd="_Wg2cQ76GEd6I25e2ake-OQ _Wg2cV76GEd6I25e2ake-OQ" navigableOwnedEnd="_Wg2cV76GEd6I25e2ake-OQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Wg2cV76GEd6I25e2ake-OQ" visibility="public" type="_Wg2cOb6GEd6I25e2ake-OQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Wg2cZb6GEd6I25e2ake-OQ" memberEnd="_Wg2cQL6GEd6I25e2ake-OQ _Wg2cXr6GEd6I25e2ake-OQ" navigableOwnedEnd="_Wg2cXr6GEd6I25e2ake-OQ">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Wg2cXr6GEd6I25e2ake-OQ" visibility="public" type="_Wg2cOb6GEd6I25e2ake-OQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Wg2cZr6GEd6I25e2ake-OQ" name="Axle" memberEnd="_Wg2cWr6GEd6I25e2ake-OQ _Wg2cYb6GEd6I25e2ake-OQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Wg2cZ76GEd6I25e2ake-OQ" supplier="_Wg2cN76GEd6I25e2ake-OQ" client="_Wg2car6GEd6I25e2ake-OQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Wg2caL6GEd6I25e2ake-OQ" name="TurboEngine">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_Wg2cab6GEd6I25e2ake-OQ" name="p" type="_Wg2car6GEd6I25e2ake-OQ" aggregation="composite"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_Wg2car6GEd6I25e2ake-OQ" name="Class1" clientDependency="_Wg2ca76GEd6I25e2ake-OQ _Wg2cZ76GEd6I25e2ake-OQ">
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Wg2ca76GEd6I25e2ake-OQ" supplier="_Wg2cOL6GEd6I25e2ake-OQ" client="_Wg2car6GEd6I25e2ake-OQ" contract="_Wg2cOL6GEd6I25e2ake-OQ"/>
+    </nestedClassifier>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Wg2cbL6GEd6I25e2ake-OQ" name="Test2">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_Wg2cbb6GEd6I25e2ake-OQ" name="p2" type="_Wg2cbr6GEd6I25e2ake-OQ" aggregation="composite"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_Wg2cbr6GEd6I25e2ake-OQ" name="Class1" clientDependency="_Wg2ccb6GEd6I25e2ake-OQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Wg2cb76GEd6I25e2ake-OQ" name="Test1">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_Wg2ccL6GEd6I25e2ake-OQ" name="p1" type="_Wg2cNr6GEd6I25e2ake-OQ" aggregation="composite"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Wg2ccb6GEd6I25e2ake-OQ" supplier="_Wg2cNr6GEd6I25e2ake-OQ" client="_Wg2cbr6GEd6I25e2ake-OQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Wg2ccr6GEd6I25e2ake-OQ" name="Test3">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_Wg2cc76GEd6I25e2ake-OQ" name="class1" type="_Wg2cdL6GEd6I25e2ake-OQ" aggregation="composite"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_Wg2cdL6GEd6I25e2ake-OQ" name="Class1" clientDependency="_Wg2cdb6GEd6I25e2ake-OQ">
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Wg2cdb6GEd6I25e2ake-OQ" supplier="_Wg2cNr6GEd6I25e2ake-OQ" client="_Wg2cdL6GEd6I25e2ake-OQ" contract="_Wg2cNr6GEd6I25e2ake-OQ"/>
+    </nestedClassifier>
+  </packagedElement>
+ </uml:Model>

@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-33" xmi:uuid="725A27D7-D490-48E4-9AEC-6B30A8B46B05">
+        <packagedElement xmi:id="Test-Case-33-A" xmi:uuid="725A27D7-D490-4F96-908B-6B30B75D0C16"
+            xmi:type="uml:Activity">
+            <node xmi:id="Test-Case-33-A-Create_Object"
+                xmi:uuid="725A27D7-D490-4F46-9040-6B3088753B98" xmi:type="uml:CreateObjectAction">
+                <result xmi:id="Test-Case-33-A-Create_Object-result"
+                    xmi:uuid="725A27D7-D490-420E-9631-6B30490575D4" xmi:type="uml:OutputPin">
+                    <outgoing xmi:idref="Test-Case-33-A-edge-1"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-33-C1"/>
+                </result>
+                <name>Create Object</name>
+                <visibility>public</visibility>
+                <classifier xmi:idref="Test-Case-33-C1"/>
+            </node>
+            <node xmi:id="Test-Case-33-A-node-2" xmi:uuid="725A27D7-D490-4542-9EED-6B30E3D94121"
+                xmi:type="uml:ForkNode">
+                <outgoing xmi:idref="Test-Case-33-A-edge-2"/>
+                <outgoing xmi:idref="Test-Case-33-A-edge-3"/>
+                <outgoing xmi:idref="Test-Case-33-A-edge-6"/>
+                <outgoing xmi:idref="Test-Case-33-A-edge-7"/>
+                <incoming xmi:idref="Test-Case-33-A-edge-1"/>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-33-A-Reclassify_Object"
+                xmi:uuid="725A27D7-D490-47C5-98C6-6B307CDDC409"
+                xmi:type="uml:ReclassifyObjectAction">
+                <outgoing xmi:idref="Test-Case-33-A-edge-5"/>
+                <incoming xmi:idref="Test-Case-33-A-edge-4"/>
+                <oldClassifier xmi:idref="Test-Case-33-C1"/>
+                <newClassifier xmi:idref="Test-Case-33-C2"/>
+                <newClassifier xmi:idref="Test-Case-33-C3"/>
+                <object xmi:id="Test-Case-33-A-Reclassify_Object-object"
+                    xmi:uuid="725A27D7-D490-4962-9B8D-6B30F51A5002" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-33-A-edge-2"/>
+                    <name>object</name>
+                    <visibility>public</visibility>
+                </object>
+                <name>Reclassify Object</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-33-A-Is_Directly_Classified"
+                xmi:uuid="725A27D7-D490-40CB-9413-6B300119B916"
+                xmi:type="uml:ReadIsClassifiedObjectAction">
+                <outgoing xmi:idref="Test-Case-33-A-edge-4"/>
+                <result xmi:id="Test-Case-33-A-Is_Directly_Classified-result"
+                    xmi:uuid="725A27D7-D490-4F8D-9E2A-6B30BCE96AF5" xmi:type="uml:OutputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                </result>
+                <object xmi:id="Test-Case-33-A-Is_Directly_Classified-object"
+                    xmi:uuid="725A27D7-D490-4DE7-95D3-6B30BF4AFF47" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-33-A-edge-3"/>
+                    <name>object</name>
+                    <visibility>public</visibility>
+                </object>
+                <name>Is Directly Classified</name>
+                <visibility>public</visibility>
+                <isDirect>true</isDirect>
+                <classifier xmi:idref="Test-Case-33-C1"/>
+            </node>
+            <node xmi:id="Test-Case-33-A-Is_Classified"
+                xmi:uuid="725A27D7-D490-4C01-917F-6B3089EAEB82"
+                xmi:type="uml:ReadIsClassifiedObjectAction">
+                <incoming xmi:idref="Test-Case-33-A-edge-5"/>
+                <result xmi:id="Test-Case-33-A-Is_Classified-result"
+                    xmi:uuid="725A27D7-D490-4CB4-9108-6B3090375030" xmi:type="uml:OutputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                </result>
+                <object xmi:id="Test-Case-33-A-Is_Classified-object"
+                    xmi:uuid="725A27D7-D490-449C-99BF-6B30993858D8" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-33-A-edge-6"/>
+                    <name>object</name>
+                    <visibility>public</visibility>
+                </object>
+                <name>Is Classified</name>
+                <visibility>public</visibility>
+                <classifier xmi:idref="Test-Case-33-C2"/>
+            </node>
+            <node xmi:id="Test-Case-33-A-Reduce" xmi:uuid="725A27D7-D490-4F3B-9312-6B30F6043A79"
+                xmi:type="uml:ReduceAction">
+                <result xmi:id="Test-Case-33-A-Reduce-result"
+                    xmi:uuid="725A27D7-D490-4A57-94B6-6B302DB29E72" xmi:type="uml:OutputPin">
+                    <name>result</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-33-C1"/>
+                </result>
+                <collection xmi:id="Test-Case-33-A-Reduce-collection"
+                    xmi:uuid="725A27D7-D490-4181-9487-6B3033AFEC41" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-33-A-edge-7"/>
+                    <upperValue xmi:id="Test-Case-33-A-Reduce-collection-upperValue"
+                        xmi:uuid="725A27D7-D490-40E4-96FB-6B304D9882E5"
+                        xmi:type="uml:LiteralUnlimitedNatural">
+                        <value>*</value>
+                    </upperValue>
+                    <lowerValue xmi:id="Test-Case-33-A-Reduce-collection-lowerValue"
+                        xmi:uuid="725A27D7-D490-431A-9C39-6B30C8D7038B"
+                        xmi:type="uml:LiteralUnlimitedNatural"/>
+                    <name>collection</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-33-C1"/>
+                </collection>
+                <name>Reduce</name>
+                <visibility>public</visibility>
+                <reducer xmi:idref="Test-Case-33-F"/>
+            </node>
+            <edge xmi:id="Test-Case-33-A-edge-1" xmi:uuid="725A27D7-D490-4D7A-9B89-6B30760A5803"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-33-A-Create_Object-result"/>
+                <target xmi:idref="Test-Case-33-A-node-2"/>
+            </edge>
+            <edge xmi:id="Test-Case-33-A-edge-2" xmi:uuid="725A27D7-D490-4674-9A8F-6B30F7A2B596"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-33-A-node-2"/>
+                <target xmi:idref="Test-Case-33-A-Reclassify_Object-object"/>
+            </edge>
+            <edge xmi:id="Test-Case-33-A-edge-3" xmi:uuid="725A27D7-D490-40AC-9887-6B3032CD88EF"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-33-A-node-2"/>
+                <target xmi:idref="Test-Case-33-A-Is_Directly_Classified-object"/>
+            </edge>
+            <edge xmi:id="Test-Case-33-A-edge-4" xmi:uuid="725A27D7-D490-46EC-9C21-6B30DF39CB7B"
+                xmi:type="uml:ControlFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-33-A-Is_Directly_Classified"/>
+                <target xmi:idref="Test-Case-33-A-Reclassify_Object"/>
+            </edge>
+            <edge xmi:id="Test-Case-33-A-edge-5" xmi:uuid="725A27D7-D490-44F5-9817-6B3043C89EDC"
+                xmi:type="uml:ControlFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-33-A-Reclassify_Object"/>
+                <target xmi:idref="Test-Case-33-A-Is_Classified"/>
+            </edge>
+            <edge xmi:id="Test-Case-33-A-edge-6" xmi:uuid="725A27D7-D490-4314-9F3E-6B30C762C92F"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-33-A-node-2"/>
+                <target xmi:idref="Test-Case-33-A-Is_Classified-object"/>
+            </edge>
+            <edge xmi:id="Test-Case-33-A-edge-7" xmi:uuid="725A27D7-D490-49B3-979E-6B30521CB8A3"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-33-A-node-2"/>
+                <target xmi:idref="Test-Case-33-A-Reduce-collection"/>
+            </edge>
+            <name>A</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-33-C1" xmi:uuid="725A27D7-D490-48B4-9CD6-6B3044FCEFA8"
+            xmi:type="uml:Class">
+            <name>C1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-33-C2" xmi:uuid="725A27D7-D490-4A28-9F4B-6B3061C2FDA5"
+            xmi:type="uml:Class">
+            <generalization xmi:id="Test-Case-33-C2-generalization"
+                xmi:uuid="725A27D7-D490-4E7D-9008-6B30EBBB0AED" xmi:type="uml:Generalization">
+                <general xmi:idref="Test-Case-33-C1"/>
+            </generalization>
+            <name>C2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-33-F" xmi:uuid="725A27D7-D490-47A1-9EEF-6B305053B23C"
+            xmi:type="uml:FunctionBehavior">
+            <ownedParameter xmi:id="Test-Case-33-F-x"
+                xmi:uuid="725A27D7-D490-486C-9786-6B3031FFBE3C" xmi:type="uml:Parameter">
+                <name>x</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-33-C1"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="Test-Case-33-F-y"
+                xmi:uuid="725A27D7-D490-4D9B-9CAA-6B30B41C44D5" xmi:type="uml:Parameter">
+                <name>y</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-33-C1"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="Test-Case-33-F-ownedParameter-3"
+                xmi:uuid="725A27D7-D490-418D-94CC-6B3048AEBE37" xmi:type="uml:Parameter">
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-33-C1"/>
+                <direction>return</direction>
+            </ownedParameter>
+            <name>F</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-33-C3" xmi:uuid="725A27D7-D490-49CD-9C0D-6B306F18D694"
+            xmi:type="uml:Class">
+            <name>C3</name>
+        </packagedElement>
+        <name>Test-Case-33</name>
+    </uml:Model>
+</xmi:XMI>

@@ -1,0 +1,24 @@
+transformation SimpleRecursion ( rdbm : MyRDBM  ) 
+{
+   top relation CreateSchema 
+   {
+      enforce   domain rdbm sma : Schema  
+      {
+         name = concatenation ( '' )  
+      };
+   }
+   
+	query concatenation ( prefix : String ) : String 
+	{
+      if   prefix = '' 
+      then concatenation ( 'Hallo' )
+      else if   prefix = 'Hallo'
+           then prefix + concatenation ( 'Welt' )
+           else if   prefix = 'HelloWelt'
+                then concatenation ( prefix )
+                else prefix
+                endif
+           endif
+      endif
+	}
+}

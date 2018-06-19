@@ -1,0 +1,53 @@
+transformation HelloOCL ( source : MyUML, target : MyRDBM  ) 
+{
+   top relation package2schema 
+   {
+      packageName: String;
+      classes : OrderedSet (Class);
+      cls : OrderedSet (String);
+       
+      checkonly domain source srcPkg : Package 
+      {
+         name = packageName,
+         ownedElement = classes 
+      };
+      
+      enforce   domain target tgtSma  : Schema  
+      { 
+         name  = packageName
+      };
+      
+      where 
+      {
+        cls = OrderedSet {'name1', 'name2'};
+        -- cls = classes->iterate ( c; s:String | getName(c,s));
+        -- classes->forAll ( cls, tbl : Table | mapClass (cls, tbl ) );
+        -- classes->forAll ( cls, tbl : Table | class2table(cls, tbl) or true);
+        -- classes->iterate ( cls; tbl : Table | class2table(cls, tbl) );
+        -- iterateClasses (classes);
+        -- class2table(cls, tbl);
+      }
+   }
+   relation class2table
+   {
+      className : String;
+      checkonly domain source cls : Class { name = className };
+      enforce   domain target tbl : Table { name = className };
+   }
+
+   query getName ( s1: String,s2 : String) : Boolean
+   {
+      s2 = s1 or true
+   }
+ 
+   query mapClass ( c : Class, t : Table) : Boolean
+   {
+      class2table(c, t) or true
+   }
+
+   query iterateClasses ( clss : OrderedSet (Class)) : Boolean
+   {
+      clss->iterate (cls : Class; tbl : Table | class2table(cls, tbl))
+      or true
+   }
+}

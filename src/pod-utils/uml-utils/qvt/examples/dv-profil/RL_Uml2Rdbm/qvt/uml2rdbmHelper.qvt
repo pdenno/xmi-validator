@@ -1,0 +1,24 @@
+/* */
+transformation uml2rdbmHelper ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   /* */
+   query PrimitiveTypeToSqlType (typename : String) : String 
+   {
+      if typename = 'INTEGER' 
+	  then 'Integer'
+	  else if typename = 'BOOLEAN' 
+	       then 'Boolean'
+	       else 'Varchar'
+	       endif
+	  endif
+   }
+
+   /* */
+   query ColumnNameWithPrefix (prefix:String, attrName:String) : String 
+   {
+      if   prefix = ''        
+      then attrName
+      else prefix + '_' + attrName  
+      endif
+   }
+}

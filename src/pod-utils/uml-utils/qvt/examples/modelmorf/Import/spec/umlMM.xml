@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="umlMM"
+    name="umlMM" uri="umlMM">
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.Dummy" name="Dummy">
+    <ownedAttribute xmi:id="umlMM.Dummy.hasPackage" name="hasPackage" upper="*" type="umlMM.Package"
+        isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.Package" name="Package">
+    <ownedAttribute xmi:id="umlMM.Package.name" name="name" isID="true">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM.Package.hasClass" name="hasClass" upper="*" type="umlMM.Class"
+        isComposite="true" opposite="umlMM.Class.hasPackage"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.Class" name="Class">
+    <ownedAttribute xmi:id="umlMM.Class.name" name="name" isID="true">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM.Class.hasPackage" name="hasPackage" lower="1" type="umlMM.Package"
+        opposite="umlMM.Package.hasClass"/>
+  </ownedType>
+</emof:Package>

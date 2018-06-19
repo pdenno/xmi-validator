@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:updm="http://www.omg.org/spec/UPDM/20120301">
+  <updm:Capability>
+    <base_Class xmi:idref="Test-Case-22-Capabilities-Dependent_Capability"/>
+  </updm:Capability>
+  <updm:Capability>
+    <base_Class xmi:idref="Test-Case-22-Capabilities-Distress_Signal_Monitoring"/>
+  </updm:Capability>
+  <updm:Capability>
+    <base_Class xmi:idref="Test-Case-22-Capabilities-Provider_Capability"/>
+  </updm:Capability>
+  <updm:Capability>
+    <base_Class xmi:idref="Test-Case-22-Capabilities-SAR"/>
+  </updm:Capability>
+  <updm:CapabilityProperty>
+    <base_Property xmi:idref="Test-Case-22-Capabilities-Provider_Capability-ownedProperty"/>
+    <minValue xmi:idref="Test-Case-22-Capabilities-packagedElement-7"/>
+    <maxValue xmi:idref="Test-Case-22-Capabilities-packagedElement-7"/>
+    <defaultValue xmi:idref="Test-Case-22-Capabilities-packagedElement-7"/>
+  </updm:CapabilityProperty>
+  <uml:Model xmi:id="Test-Case-22" xmi:uuid="725A27D7-D5A0-4631-97C9-E044D9105EC0" xmi:type="uml:Model">
+    <packagedElement xmi:id="Test-Case-22-Capabilities" xmi:uuid="725A27D7-D5A0-43EC-9F5A-E04438804A44" xmi:type="uml:Package">
+      <packagedElement xmi:id="Test-Case-22-Capabilities-Dependent_Capability" xmi:uuid="725A27D7-D5A0-44E5-9FB9-E04435A4F074" xmi:type="uml:Class">
+        <name>Dependent Capability</name>
+      </packagedElement>
+      <packagedElement xmi:id="Test-Case-22-Capabilities-packagedElement-2" xmi:uuid="725A27D7-D5A0-4D2A-9725-E04431E69644" xmi:type="uml:Dependency">
+        <supplier xmi:idref="Test-Case-22-Capabilities-Provider_Capability"/>
+        <client xmi:idref="Test-Case-22-Capabilities-Dependent_Capability"/>
+      </packagedElement>
+      <packagedElement xmi:id="Test-Case-22-Capabilities-Distress_Signal_Monitoring" xmi:uuid="725A27D7-D5A0-42F2-9BAB-E044B47C9D1A" xmi:type="uml:Class">
+        <name>Distress Signal Monitoring</name>
+      </packagedElement>
+      <packagedElement xmi:id="Test-Case-22-Capabilities-packagedElement-4" xmi:uuid="725A27D7-D5A0-474C-98DA-E044498F0C49" xmi:type="uml:Association">
+        <memberEnd xmi:idref="Test-Case-22-Capabilities-SAR-DSM"/>
+        <memberEnd xmi:idref="Test-Case-22-Capabilities-packagedElement-4-ownedEnd"/>
+        <ownedEnd xmi:id="Test-Case-22-Capabilities-packagedElement-4-ownedEnd" xmi:uuid="725A27D7-D5A0-4747-9FBF-E04460F7AF54" xmi:type="uml:Property">
+          <type xmi:idref="Test-Case-22-Capabilities-SAR"/>
+          <association xmi:idref="Test-Case-22-Capabilities-packagedElement-4"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="Test-Case-22-Capabilities-Provider_Capability" xmi:uuid="725A27D7-D5A0-44F6-9EE9-E0442B7F06AC" xmi:type="uml:Class">
+        <ownedAttribute xmi:id="Test-Case-22-Capabilities-Provider_Capability-ownedProperty" xmi:uuid="725A27D7-D5A0-41A9-9500-E04425B616B0" xmi:type="uml:Property">
+          <name>ownedProperty</name>
+        </ownedAttribute>
+        <name>Provider Capability</name>
+      </packagedElement>
+      <packagedElement xmi:id="Test-Case-22-Capabilities-SAR" xmi:uuid="725A27D7-D5A0-4870-948A-E044EC5DE157" xmi:type="uml:Class">
+        <ownedAttribute xmi:id="Test-Case-22-Capabilities-SAR-DSM" xmi:uuid="725A27D7-D5A0-472B-9EF8-E044EBA93CB0" xmi:type="uml:Property">
+          <type xmi:idref="Test-Case-22-Capabilities-Distress_Signal_Monitoring"/>
+          <name>DSM</name>
+          <association xmi:idref="Test-Case-22-Capabilities-packagedElement-4"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <name>SAR</name>
+      </packagedElement>
+      <packagedElement xmi:id="Test-Case-22-Capabilities-packagedElement-7" xmi:uuid="725A27D7-D5A0-44CF-9293-E044A43C7EB0" xmi:type="uml:LiteralUnlimitedNatural">
+      </packagedElement>
+      <name>Capabilities</name>
+    </packagedElement>
+    <profileApplication xmi:id="Test-Case-22-profileApplication" xmi:uuid="725A27D7-D5A0-427B-9EB0-E04449EB7E32" xmi:type="uml:ProfileApplication">
+      <appliedProfile href="http://www.omg.org/spec/UPDM/20120301/UPDM-Profile.xmi#UPDM"/>
+    </profileApplication>
+    <name>Test-Case-22</name>
+  </uml:Model>
+</xmi:XMI>

@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" 
+        xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" 
+        xmlns:cmof="http://schema.omg.org/spec/MOF/2.0/cmof.xml" 
+        xmlns:uml="http://www.omg.org/spec/UML/20090901" >
+<cmof:Package xmi:id="_0" name="SoaML" uri="http://www.omg.org/spec/SoaML/20120501">  
+ <ownedMember xmi:type="cmof:Package" xmi:id="SoaML-BMMIntegration" name="BMMIntegration">
+    <packageMerge xmi:type="cmof:PackageMerge" xmi:id="SoaML-BMMIntegration-_packageMerge.1">
+      <mergedPackage xmi:type="cmof:Package" href="http://www.omg.org/spec/BMM/20070801/07-08-05.xmi#_4ed88761-e311-4610-b784-a7844fd044e5"/>
+    </packageMerge>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-BMMIntegration-MotivationRealization" name="MotivationRealization">
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-BMMIntegration-MotivationRealization-implementingClassifier" name="implementingClassifier" visibility="public" association="SoaML-BMMIntegration-Association_01">
+        <type xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#CommonBehaviors-BasicBehaviors-BehavioredClassifier"/>
+        <subsettedProperty xmi:type="cmof:Property" xmi:idref="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Dependencies-Dependency-client"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-BMMIntegration-MotivationRealization-implementingClassifier-realizedMotivation" name="realizedMotivation" visibility="public" association="SoaML-BMMIntegration-Association_02">
+        <type xmi:type="cmof:Class" href="http://www.omg.org/spec/BMM/20070801/07-08-05.xmi#_4780fdc7-bc6c-461d-b655-b000ee1800c9"/>
+         <subsettedProperty xmi:type="cmof:Property" xmi:idref="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Dependencies-Dependency-supplier"/>
+      </ownedAttribute>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Dependencies-Realization"/>      
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Association" xmi:id="SoaML-BMMIntegration-Association_01" memberEnd="SoaML-BMMIntegration-Association_01-Property_01 SoaML-BMMIntegration-MotivationRealization-implementingClassifier">
+      <ownedEnd xmi:type="cmof:Property" xmi:id="SoaML-BMMIntegration-Association_01-Property_01" association="SoaML-BMMIntegration-Association_01" name="realization">
+        <type xmi:type="cmof:Class" xmi:idref="SoaML-BMMIntegration-MotivationRealization"/>
+        <subsettedProperty xmi:type="cmof:Property" xmi:idref="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Element-ownedElement"/>
+        <subsettedProperty xmi:type="cmof:Property" xmi:idref="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Dependencies-NamedElement-clientDependency"/>
+      </ownedEnd>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Association" xmi:id="SoaML-BMMIntegration-Association_02" memberEnd="SoaML-BMMIntegration-MotivationRealization-implementingClassifier-realizedMotivation SoaML-BMMIntegration-Association_02-End_01">
+      <ownedEnd xmi:type="cmof:Property" xmi:id="SoaML-BMMIntegration-Association_02-End_01" name="" visibility="private" type="SoaML-BMMIntegration-MotivationRealization" upper="*" lower="0" association="SoaML-BMMIntegration-Association_02"/>
+    </ownedMember>
+  </ownedMember>
+  <ownedMember xmi:type="cmof:Package" xmi:id="SoaML-P3" name="P3">
+    <packageMerge xmi:type="cmof:PackageMerge" xmi:id="SoaML-P3-_packageMerge.1" mergedPackage="SoaML-BMMIntegration"/>
+    <packageMerge xmi:type="cmof:PackageMerge" xmi:id="SoaML-P3-_packageMerge.2" mergedPackage="SoaML-P2"/>
+  </ownedMember>
+  <ownedMember xmi:type="cmof:Package" xmi:id="SoaML-P2" name="P2">
+    <packageMerge xmi:type="cmof:PackageMerge" xmi:id="SoaML-P2-_packageMerge.1">
+      <mergedPackage xmi:type="cmof:Package" href="http://www.omg.org/spec/UML/20090901/L3.cmof#_0"/>
+    </packageMerge>
+    <packageMerge xmi:type="cmof:PackageMerge" xmi:id="SoaML-P2-_packageMerge.2" mergedPackage="SoaML-Services"/>
+    <packageMerge xmi:type="cmof:PackageMerge" xmi:id="SoaML-P2-_packageMerge.3" mergedPackage="SoaML-Categorization"/>
+  </ownedMember>
+  <ownedMember xmi:type="cmof:Package" xmi:id="SoaML-Services" name="Services">
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Agent" name="Agent" superClass="SoaML-Services-Participant">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Agent-Comment" annotatedElement="SoaML-Services-Agent">
+        <body> 
+An Agent is a classification of autonomous entities that can adapt to and interact with their environment. It describes a set of agent instances that have features, constraints, and semantics in common. Agents in SoaML are also participants, providing and using services.
+Generalizes: Participant
+Description: In general, agents can be software agents, hardware agents, firmware agents, robotic agents, human agents, and so on. While software developers naturally think of IT systems as being constructed of only software agents, a combination of agent mechanisms might in fact be used from shop-floor manufacturing to warfare systems. 2
+These properties are mainly covered by a set of core aspects each focusing on different viewpoints of an agent system. Even if these aspects do not directly appear in the SoaML metamodel, we can relate them to SoaML-related concepts. Each aspect of an agent may be expressed as a services architecture.
+Depending on the viewpoint of an agent system, various aspects are prominent. Even if these aspects do not directly appear in the SoaML metamodel, we can relate them to SoaML-related concepts.
+Agent aspect – describes single autonomous entities and the capabilities each can possess to solve tasks within an agent system. In SoaML, the stereotype Agent describes a set of agent instances that provides particular service capabilities.
+Collaboration aspect – describes how single autonomous entities collaborate within the multiagent systems (MAS) and how complex organizational structures can be defined. In SoaML, a ServicesArchtiecture describes how aspects of agents interact for a purpose. Collaboration can involve situations such as cooperation and competition.
+Role aspect – covers feasible specializations and how they could be related to each role type. In SoaML, the concept of a role is especially used in the context ofservice contracts. Like in agent systems, the role type indicates which responsibilities an actor has to take on.
+Interaction aspect – describes how the interactions between autonomous entities or groups/organizations take place. Each interaction specification includes both the actors involved and the order which messages are exchanged between these actors in a protocol-like manner. In SoaML, contracts take the role of interaction protocols in agent systems. Like interaction protocols, a services contract takes a role centered view of the business requirements which makes it easier to bridge the gap between the process requirements and message exchange.
+Behavioral aspect – describes how plans are composed by complex control structures and simple atomic tasks such as sending a message and specifying information flows between those constructs. In SoaML, a ServiceInterface is a BehavioredClassifier and can thus contain ownedBehaviors that can be represented by UML2 Behaviours in the form of an Interaction, Activity, StateMachine, ProtocolStateMachine, or OpaqueBehavior.
+Organization/Group aspect – Agents can form social units called groups. A group can be formed to take advantage of the synergies of its members, resulting in an entity that enables products and processes that are not possible from any single individual.
+Attributes: No additional attributes.
+Associations: No additional associations.
+Constraints: The property isActive must always be true.
+Semantics: The purpose of an Agent to specify a classification of autonomous entities (agent instances) that can adapt to and interact with their environment, and to specify the features, constraints, and semantics that characterize those agent instances.
+Agents deployed for IT systems generally should have the following three important properties:
+Autonomous - is capable acting without direct external intervention. Agents have some degree of control over their internal state and can act based on their own experiences. They can also possess their own set of internal responsibilities and processing that enable them to act without any external choreography. As such, they can act in reactive and proactive ways. When an agent acts on behalf of (or as a proxy for) some person or thing, its autonomy is expected to embody the goals and policies of the entity that it represents. In UML terms, agents can have classifier behavior that governs the lifecycle of the agent.
+Interactive - communicates with the environment and other agents. Agents are interactive entities because they are capable of exchanging rich forms of messages with other entities in their environment. These messages can support requests for services and other kinds of resources, as well as event detection and notification. They can be synchronous or asynchronous in nature. The interaction can also be conversational in nature, such as negotiating contracts, marketplace-style bidding, or simply making a query. In the Woodridge-Jennings definition of agency, this property is referred to as social ability.
+Adaptive - capable of responding to other agents and/or its environment. Agents can react to messages and events and then respond in a timely and appropriate manner. Agents can be designed to make difficult decisions and even modify their behavior based on their experiences. They can learn and evolve. In the Woodridge-Jennings definition of agency, this property is referred to as reactivity and proactivity.
+Agent extends Participant with the ability to be active, participating components of a system. They are specialized because they have their own thread of control or lifecycle. Another way to think of agents is that they are “active participants” in an SOA system. Participants are Components whose capabilities and needs are static. In contrast, Agents are Participants whose needs and capabilities may change over time.
+In SoaML, Agent is a Participant (a subclass of Component). A Participant represents some concrete Component that provides and/or consumes services and is considered an active class (isActive=true). However, SoaML restricts the Participant’s classifier behavior to that of a constructor, not something that is intended to be long-running, or represent an “active” lifecycle. This is typical of most Web Services implementations as reflected in WS-* and SCA.
+Agents possess the capability to have services and Requests and can have internal structure and ports. They collaborate and interact with their environment. An Agent's classifierBehavior, if any, is treated as its life-cycle, or what defines its emergent or adaptive behavior.
+		</body>
+      </ownedComment>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Attachment" name="Attachment">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Attachment-Coment" annotatedElement="SoaML-Services-Attachment">
+        <body>
+A part of a Message that is attached to rather than contained in the message.
+Extends Metaclass: Property
+Description: An Attachment denotes some component of a messages which is an attachment to it (as opposed to a direct part of the message itself). In general this is not likely to be used greatly in higher level design activities, but for many processes attached data is important to differentiate from embedded message data. For example, a catalog service may return general product details as a part of the structured message but images as attachments to the message; this also allows us to denote that the encoding of the images is binary (as opposed to the textual encoding of the main message). Attachments may be used to indicate part of service data that can be separately accessed, reducing the data sent between consumers and providers unless it is needed.
+Attributes:
+encoding: String [0..1] Denotes the platform encoding mechanism to use in generating the schema for the message; examples might be SOAP-RPC, Doc-Literal, ASN.1, etc.
+mimeType: String [0..1] Denotes the iana MIME media type for the Attachment See: http://www.iana.org/assignments/media-types/.
+Associations: No additional associations
+Constraints: No additional constraints
+Semantics: In an SOA supporting some business, documents may represent legally binding artifacts defining obligations between an enterprise and its partners and clients. These documents must be defined in a first class way such that they are separable from the base message and have their own identity. The can be defined using a UML2 DataType or a MessageType. But sometimes it is necessary to treat the document as a possibly large, independent document that is exchanged as part of a message, and perhaps interchanged separately. A real-world example would be all of those advertisements that fall out of your telephone statement – they are attached to the message (in the same envelope) but not part of the statement.
+An Attachment extends Property to distinguish attachments owned by a MessageType from other ownedAttributes. The ownedAttributes of a MessageType must be either PrimitiveType or MessageType. The encoding of the information in a MessageType is specified by the encoding attribute. In distributed I.T. systems, it is often necessary to exchange large opaque documents in service data in order to support efficient data interchange. An Attachment allows portions of the information in a MessageType to be separated out and to have their own encoding and MIME type, and possibly interchanged on demand.
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Attachment-Encoding" name="encoding" visibility="public" lower="0">
+        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/Infrastructure.cmof#Core-PrimitiveTypes-String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Attachment-Mimetype" name="mimetype" visibility="public" lower="0">
+        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/Infrastructure.cmof#Core-PrimitiveTypes-String"/>
+      </ownedAttribute>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Property"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-MessageType" name="MessageType">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-MessageType-Comment" annotatedElement="SoaML-Services-MessageType">
+        <body>
+The specification of information exchanged between service consumers and providers.
+Extends Metaclass
+DataType
+Class
+Signal
+Description: A MessageType is a kind of value object that represents information exchanged between participant requests and services. This information consists of data passed into, and/or returned from the invocation of an operation or event signal defined in a service interface. A MessageType is in the domain or service-specific content and does not include header or other implementation or protocol-specific information.
+MessageTypes are used to aggregate inputs, outputs and exceptions to service operations as in WSDL. MessageTypes represent “pure data” that may be communicated between parties – it is then up to the parties, based on the SOA specification, to interpret this data and act accordingly. As “pure data” message types may not have dependencies on the environment, location or information system of either party – this restriction rules out many common implementation techniques such as “memory pointers”, which may be found inside of an application. Good design practices suggest that the content and structure of messages provide for rich interaction of the parties without unnecessarily coupling or restricting their behavior or internal concerns.
+The terms Data Transfer Object (DTO), Service Data Object (SDO) or value objects used in some technologies are similar in concept, though they tend to imply certain implementation techniques. A DTO represents data that can be freely exchanged between address spaces, and does not rely on specific location information to relate parts of the data. An SDO is a standard implementation of a DTO. A Value Object is a Class without identity and where equality is defined by value not reference. Also in the business world (or areas of business where EDI is commonplace) the term Document is frequently used. All these concepts can be represented by a MessageType.
+Note: MessageType should generally only be applied to DataType since it is intended have no identity. However, it is recognized that many existing models do not clearly distinguish identity, either mixing Class and DataType, or only using Class. Recognizing this, SoaML allows MessageType to be applied to Class as well as DataType. In this case, the identity implied by the Class is not considered in the MessageType. The Class is treated as if it were a DataType.
+Attributes: encoding: String [0..1] Specifies the encoding of the message payload.
+Associations: No additional associations
+Constraints:
+[1] MessageType cannot contain ownedOperations.
+[2] MessageType cannot contain ownedBehaviors.
+[3] All ownedAttributes must be Public.
+Semantics: MessageTypes represent service data exchanged between service consumers and providers. Service data is often a view (projections and selections) on information or domain class models representing the (often persistent) entity data used to implement service participants. MessageType encapsulates the inputs, outputs and exceptions of service operations into a type based on direction. A MessageType may contain attributes with isID set to true indicating the MessageType contains information that can be used to distinguish instances of the message payload. This information may be used to correlate long running conversations between service consumers and providers.
+A service Operation is any Operation of an Interface provided or required by a Service or Request. Service Operations may use two different parameter styles, document centered (or message centered) or RPC (Remote Procedure Call) centered. Document centered parameter style uses MessageType for ownedParameter types, and the Operation can have at most one in, one out, and one exception parameter (an out parameter with isException set to true). All parameters of such an operation must be typed by a MessageType. For RPC style operations, a service Operation may have any number of in, inout and out parameters, and may have a return parameter as in UML2. In this case, the parameter types are restricted to PrimitiveType or DataType. This ensures no service Operation makes any assumptions about the identity or location of any of its parameters. All service Operations use call-by-value semantics in which the ownedParameters are value objects or data transfer objects.
+It is the intent of message type that it represents data values that can be sent between participants. Where message types contain classes as attributes or aggregated associations the message type will contain a “copy by value” of the public state of the those objects. Where those objects contain references to other objects those references will, likewise, be converted to value data types.
+The way in which copy by value of an object is performed or how references are mapped to data types is platform technology dependent and not specified by SoaML.
+It is the intent of message type that it represents data values that can be sent between participants. Where message types contain classes as attributes or aggregated associations the message type will contain a “copy by value” of the public state of the those objects. Where those objects contain references to other objects those references will, likewise, be converted to value data types.
+The way in which copy by value of an object is performed or how references are mapped to data types is platform technology dependent and not specified by SoaML.
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-MessageType-Encoding" name="encoding" visibility="public" lower="0">
+        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/Infrastructure.cmof#Core-PrimitiveTypes-String"/>
+      </ownedAttribute>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-DataType"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Milestone" name="Milestone">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Milestone-Comment" annotatedElement="SoaML-Services-Milestone">
+        <body>
+A Milestone is a means for depicting progress in behaviors in order to analyze liveness. Milestones are particularly useful for behaviors that are long lasting or even infinite.
+Extends Metaclass: Comment
+Description: A Milestone depicts progress by defining a signal that is sent to an abstract observer. The signal contains an integer value that intuitively represents the amount of progress that has been achieved when passing a point attached to this Milestone.
+Provided that a SoaML specification is available it is possible to analyze a service behavior (a Participant or a ServiceContract) to determine properties of the progress value. Such analysis results could be e.g. that the progress value can never go beyond a certain value. This could then be interpreted as a measure of the potential worth of the analyzed behaviors. In situations where alternative service behaviors are considered as in Agent negotiations, such a progress measurement could be a useful criterion for the choice.
+Milestones can also be applied imperatively as specification of tracing information in a debugging or monitoring situation. The signal sent when the Milestone is encountered may contain arguments that can register any current values.
+Progress values may be interpreted ordinally in the sense that a progress value of 4 is higher than a progress value of 3. A reasonable interpretation would be that the higher the possible progress value, the better. Alternatively the progress values may be interpreted nominally as they may represent distinct reachable situations. In such a case the analysis would have to consider sets of reachable values. It would typically be a reasonable interpretation that reaching a superset of values would constitute better progress possibilities.
+Attributes: progress: Integer The progress measurement.
+Associations: 
+signal: Signal [0..1] A Signal associated with this Milestone
+value: Expression [*] Arguments of the signal when the Milestone is reached.
+Constraints: No new constraints.
+Semantics: A Milestone can be understood as a “mythical” Signal. A mythical Signal is a conceptual signal that is sent from the behavior every time a point connected to the Milestone is passed during execution. The signal is sent to a conceptual observer outside the system that is able to record the origin of the signal, the signal itself and its progress value.
+The signal is mythical in the sense that the sending of such signals may be omitted in implemented systems as they do not contribute to the functionality of the behavior. They may, however, be implemented if there is a need for run-time monitoring of the progress of the behavior.        
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Milestone-Progress" name="progress" visibility="public">
+        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/Infrastructure.cmof#Core-PrimitiveTypes-Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Milestone-Signal" name="signal" visibility="public" lower="0" association="SoaML-Services-Association_01">
+        <type xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#CommonBehaviors-Communications-Signal"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Milestone-Value" name="value" visibility="public" upper="*" lower="0" association="SoaML-Services-Association_02">
+        <type xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-ValueSpecification"/>
+      </ownedAttribute>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Comment"/>      
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Property" name="Property">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Property-Comment" annotatedElement="SoaML-Services-Property">
+        <body>
+The Property stereotype augments the standard UML Property with the ability to be distinguished as an identifying property meaning the property can be used to distinguish instances of the containing Classifier. This is also known as a “primary key”. In the context of SoaML the ID is used to distinguish the correlation identifier in a message.
+Extends Metaclass: Property
+Description: A property is a structural feature. It relates an instance of the class to a value or collection of values of the type of the feature. A property may be designated as an identifier property, a property that can be used to distinguish or identify instances of the containing classifier in distributed systems.
+Attributes: isID: Boolean [0..1] = false Indicates the property contributes to the identification of instances of the containing classifier.
+Associations: No additional associations.
+Constraints: No additional constraints
+Semantics: Instances of classes in UML have unique identity. How this identity is established, and in what context is not specified. Identity is often supported by an execution environment in which new instances are constructed and provided with a system-supplied identity such as a memory address. In distributed environments, identity is much more difficult to manage in an automated, predictable, efficient way. The same issue occurs when an instance of a Classifier must be persisted as some data source such as a table in a relational database. The identity of the Classifier must be maintained in the data source and restored when the instance is reactivated in some execution environment. The instance must be able to maintain its identity regardless of the execution environment in which it is activated. This identity is often used to maintain relationships between instances, and to identify targets for operation invocations and events.
+Ideally modelers would not be concerned with instance identity and persistence and distribution would be transparent at the level of abstraction supporting services modeling. Service models can certainly be created ignoring these concerns. However, persistence and distribution can have a significant impact on security, availability and performance making them concerns that often affect the design of a services architecture.
+SoaML extends UML2 Property, as does MOF2, with the ability to indicate an identifying property whose values can be used to uniquely distinguish instances of the containing Classifier. This moves the responsibility of maintaining identity from the underlying execution environment where it may be difficult to handle in an efficient way to the modeler. Often important business data can be used for identification purposes such as a social security number or purchase order id. By carrying identification information in properties, it is possible to freely exchange instances into and out of persistent stores and between services in an execution environment.
+A Classifier can have multiple properties with isID set to true with the set of such properties capable of identifying instance of the classifier. Compound identifiers can be created by using a Class or DataType to define a property with isID=true.
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Property-isID" name="isID" visibility="public" default="">
+        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/Infrastructure.cmof#Core-PrimitiveTypes-Boolean"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Capability" name="Capability">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Capability-Comment" annotatedElement="SoaML-Services-Capability">
+        <body>
+A Capability is the ability to act and produce an outcome that achieves a result. It can. Specify a general capability of a participant as well as the specific ability to provide a service.
+Extends Metaclass: Class
+Description: A Capability models the ability to act and produce an outcome that achieves a result that may provide a service specified by a ServiceContract or ServiceInterface irrespective of the Participant that might provide that service. A ServiceContract, alone, has no dependencies or expectation of how the capability is realized – thereby separating the concerns of “what” vs. “how”. The Capability may specify dependencies or internal process to detail how that capability is provided including dependencies on other Capabilities. Capabilities are shown in context using a service dependencies diagram.
+Attributes: No additional attributes.
+Associations: No additional Associations.
+Constraints: No additional constraints.
+Semantics: A Capability is the ability to act and produce an outcome that achieves a result. This element allows for the specification of capabilities and services without regard for the how a particular service might be implemented and subsequently offered to consumers by a Participant. It allows architects to analyze how services are related and how they might be combined to form some larger capability prior to allocation to a particular Participant.
+A Capability identifies or specifies a cohesive set of functions or capabilities that a service provided by one or more participants might offer. Capabilities are used to identify needed services, and to organize them into catalogues in order to communicate the needs and capabilities of a service area, whether that be business or technology focused, prior to allocating those services to particular Participants. For example, service capabilities could be organized into UML Packages to describe capabilities in some business competency or functional area. Capabilities can have usage dependencies with other Capabilities to show how these capabilities are related. Capabilities can realize ServiceInterface and so specify how those ServiceInterfaces are supported by a Participant. Capabilities can also be organized into architectural layers to support separation of concern within the resulting service architecture.
+Each capability may have owned behaviors that are methods of its provided Operations. These methods would be used to specify how the service capabilities might be implemented, and to identify other needed service capabilities. Figure 21 depicts the Capabilities that have been identified as needed for processing purchase orders.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Class"/>            
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Participant" name="Participant">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Participant-Comment" annotatedElement="SoaML-Services-Participant">
+        <body>
+A participant is the type of a provider and/or consumer of services. In the business domain a participant may be a person, organization or system. In the systems domain a participant may be a system, application or component.
+Extends Metaclass: Class
+Description: A Participant represents some (possibly concrete) party or component that provides and/or consumes services – participants may represent people, organizations or systems that provide and/or use services. A Participant is a service provider if it offers a service. A Participant is a service consumer if it uses a service – a participant may provide or consume any number of services. Service consumer and provider are roles Participants play: the role of providers in some services and consumers in others, depending on the capabilities they provide and the needs they have to carry out their capabilities. Since most consumers and providers have both services and requests, Participant is used to model both.
+Participants have ports. These ports may use the «Service» and «Request» stereotypes which are the interaction points where services are offered or consumed respectively. Internally a participant may specify a behavior, a business process or a more granular service contract as a Participant Architecture.
+A concrete Participant may participate in and/or adhere to any number of services architectures. A composite structure is generally used to define the concrete sub-components of the participant.
+The full scope of a SOA is realized when the relationship between participants is described using a services architecture. A services architecture shows how participants work together for a purpose, providing and using services.
+Attributes: No additional attributes.
+Associations: 
+Constraints:
+[1] A Participant cannot realize or use Interfaces directly; it must do so through service ports, which may be Service or Request.
+[2] Note that the technology implementation of a component implementing a participant is not bound by the above rule in the case of it’s internal technology implementation, the connections to a participant components “container” and other implementation components may or may not use services.
+Semantics: A Participant is an Agent, Person, Organization, Organizational Unit or Component that provides and/or consumes services through its service ports. It represents a component that (if not a specification or abstract) can be instantiated in some execution environment or organization and connected to other participants through ServiceChannels in order to provide its services. Participants may be organizations or individuals (at the business level) or system components or agents (at the I.T. level).
+A Participant implements each of its provided service operations. Provided services may be implemented either through delegation to its parts representing capabilities or resources required to perform the service or other participants having the required capabilities and resources, through requests for services from others, through the methods of the service operations provided by its owned behaviors, or through actions that respond to received events. The implementation of the service must be consistent with the operations, protocols and constraints of specified by the ServiceInterface.
+UML 2 provides three possible ways a Participant may implement a service operation:
+1.Method: A provided service operation may be the specification of an ownedBehavior of the Participant. The ownedBehavior is the method of the
+operation. When the operation is invoked by some other participant through a ServiceChannel connecting its Request to this Participant’s Service, the method is invoked and runs in order to provide the service. Any Behavior may be used as the method of an Operation including Interaction, Activity, StateMachine, ProtocolStateMachine, or OpaqueBehavior.
+2. Event Handling: A Participant may have already running ownedBehaviors These behaviors may have forked threads of control and may contain AcceptEventAction or AcceptCallAction. An AcceptEventAction allows the Participant to respond to a triggered SignalEvent. An AcceptCallAction allows the Participant to respond to a CallEvent. This allows Participants to control when they are willing to respond to an event or service request. Contrast with the method approach above for implementing a service operation where the consumer determines when the method will be invoked.
+3. Delegation: A Participant may delegate a service to a service provided by one of its parts, or to a user. A part of a participant may also delegate a Request to a Request of the containing participant. This allows participants to be composed of other participants or components, and control what services and Requests are exposed. Delegation is the pattern often used for legacy wrapping in services implementations.
+SoaML does not constrain how a particular participant implements its service operations. A single participant may mix delegation, method behaviors, and accept event actions to implement its services. A participant may also use different kinds of behavior to implement operations of the same service or interface provided through a service. Different concrete participants may realize or subclass the responsibilities of an abstract participant.
+Semantic Variation Points: Behavioral compatibility for a ComponentRealization is a semantic variation point. In general, the actions of methods implementing Operations in a realizing Participant should be invoked in the same order as those of its realized specification Participants if any. But how this is determined based on flow analysis is not specified.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Components-BasicComponents-Component"/>                
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Request" name="Request"  superClass="SoaML-Services-Port">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Request-Comment" annotatedElement="SoaML-Services-Request">
+        <body>
+A Request represents a feature of a Participant that is the consumption of a service by one participant provided by others using well-defined terms, conditions and interfaces. A Request designates ports that define the connection point through which a Participant meets its needs through the consumption of services provided by others.
+A request port is a “conjugate” port. This means that the provided and required interfaces of the port type are inverted; this creates a port that uses the port type rather than implementing the port type.
+Extends Metaclass: Port
+Description: A Request extends Port to specify a feature of a Participant that represents a service the Participant needs and consumes from other participants. The request is defined by a ServiceInterface. It is used by the Participant either through delegation from its parts or through actions in its methods. The request may be connected to a business MotivationalElement to indicate the intended goals the Participant wishes to achieve. There may be constraints associated with the request that define its nonfunctional characteristics or expected qualities of service. This information may be used by potential providers to determine if their service meets the participant’s needs.
+A Request may include the specification of the value required from another, and the request to obtain value from another. A Request is the visible point at which consumer requests are connected to service providers, and through which they interact in order to produce some real world effect.
+A Request may also be viewed as some need or set of related needs required by a consumer Participant and provided by some provider Participants that has some value, or achieves some objective of the connected parties. A Request is distinguished from a simple used Operation in that it may involve a conversation between the parties as specified by some communication protocol that is necessary to meet the needs.
+Request extends UML2 Port and changes how provided and required interfaces are interpreted by setting the ports isConjugated property to true. The capabilities consumed through the Request – its required interfaces – are derived from the interfaces realized by the service's ServiceInterface. The capabilities provided by a consumer in order to use the service – its provided interfaces -- are derived from the interfaces used by the service's ServiceInterface. These are the opposite of the provided and required interfaces of a Port or Service and indicate the use of a Service rather than the provision of a service. Since the provided and required interfaces are reversed, a request is the use of the service interface – or logically the conjugate type of the provider.
+Distinguishing requests and services allows the same ServiceInterface to be used to type both the consumer and provider ports. Any Request can connect to any Service as long as
+their types are compatible. Request and Service effectively give Ports a direction indicating whether the capabilities defined by a ServiceInterface are used or provided.
+Attributes: No new attributes.
+Associations: No new associations
+Constraints
+[1] The type of a Request must be a ServiceInterface or an Interface
+[2] The isConjugated property of a «Request» must be set to true
+Semantics: A Request represents an interaction point through which a consuming participant with needs interacts with a provider participant having compatible capabilities.
+A Request is typed by an Interface or ServiceInterface which completely characterizes specific needs of the owning Participant. This includes required interfaces which designate the needs of the Participant through this Request, and the provided interfaces which represent what the Participant is willing and able to do in order to use the required capabilities. It also includes any protocols the consuming Participant is able to follow in the use of the capabilities through the Request.
+If the type of a «Request» is a ServiceInterface, then the Request's provided Interfaces are the Interfaces used by the ServiceInterface while it’s required Interfaces are those realized by the ServiceInterface. If the type of a «Request» is a simple Interface, then the required interface is that Interface and the provided interfaces are those interfaces used be the simple interface, in any.
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Request-Protocol" name="protocol" visibility="public" type="SoaML-Services-ServiceInterface" lower="0" association="SoaML-Services-Association_03">
+        <redefinedProperty xmi:type="cmof:Property" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-TypedElement-type"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Service" name="Service" superClass="SoaML-Services-Port">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Service-Comment" annotatedElement="SoaML-Services-Service">
+        <body>
+A Service represents a feature of a Participant that is the offer of a service by one participant to others using well defined terms, conditions and interfaces. A Service designates a Port that defines the connection point through which a Participant offers its capabilities and provides a service to clients.
+Extends Metaclass: Port
+Description: A Service extends Port to specify a feature of a Participant that represents a service the Participant provides and offers for consumption by other participants. The service is defined by a ServiceInterface. It is implemented by the Participant either through delegation to its parts or through its methods. The service may be connected to a business MotivationalElement to indicate its intended value proposition. There may be constraints associated with the service that define its nonfunctional characteristics or warranted qualities of service. This information may be used by potential consumers to determine if the service meets their needs.
+A Service may include the specification of the value offered to another, and the offer to provide value to another. A Service is the visible point at which consumer requests are connected to providers and through which they interact in order to produce some real world effect.
+A Service may also be viewed as the offer of some service or set of related services provided by a provider Participant that, when consumed by some consumer Participants, has some value or achieves some objective of the connected parties. A service is distinguished from a simple Operation in that it may involve a conversation between the parties as specified by some communication protocol that is necessary to meet the common objective.
+The capabilities provided through the Service – its provided interfaces – are derived from the interfaces realized by the Service's ServiceInterface and further detained in the service contract. The capabilities required of consumers in order to use the Service -- its required interfaces – are derived from the interfaces used by the Service's ServiceInterface. These are the same as the provided and required interfaces of the Port that is extended by Service.
+Change the Semantics section of Service from:
+A Service represents an interaction point through which a providing Participant with capabilities to provide a service interacts with a consuming participant having compatible needs. It represents a part at the end of a ServiceChannel connection and the point through which a provider satisfies a request.
+A Service is typed by an Interface or ServiceInterface that, possibly together with a ServiceContract, completely characterizes specific capabilities of the producing and consuming participants’ responsibilities with respect to that service. This includes provided interfaces which designate the capabilities of the Participant through this Service, and the required interfaces which represent what the Participant is requires of consumers in order to use the provided capabilities. It also includes any protocols the providing Participant requires consumers to follow in the use of the capabilities of the Service.
+If the type of a Service is a ServiceInterface, then the Service's provided Interfaces are the Interfaces realized by the ServiceInterface while it’s required Interfaces are those used by
+the ServiceInterface. If the type of a Service is a simple Interface, then the provided interface is that Interface and there is no required Interface and no protocol. If the ServiceInterface or UML interface typing a service port is defined as a role within a ServiceContract – the service port (and participant) is bound by the semantics and constraints of that service contract.
+Attributes: No new attributes.
+Associations: No New associations.
+Constraints:
+[1] The type of a Service must be a ServiceInterface or an Interface
+[2] The direction property of a Service must be incoming
+Semantics: A Service represents a feature of a Participant through which a providing Participant with capabilities to provide a service interacts with one or more consuming participants having compatible needs. It represents a part at the end of a ServiceChannel connection and the point through which a provider satisfies a request.
+A Service is typed by an Interface or ServiceInterface that, possibly together with a ServiceContract, completely characterizes specific capabilities of the producing and consuming participants’ responsibilities with respect to that service. This includes provided interfaces which designate the capabilities of the Participant through this Service and the required interfaces which represent what the Participant requires of consumers in order to use the provided capabilities. It also includes any protocols the providing Participant requires consumers to follow in the use of the capabilities of the Service.
+If the type of a Service is a ServiceInterface, then the Service's provided Interfaces are the Interfaces realized by the ServiceInterface while it’s required Interfaces are those used by the ServiceInterface. If the type of a Service is a simple Interface, then the provided interface is that Interface and there is no required Interface and no protocol. If the ServiceInterface or UML interface typing a Service is defined as a role within a ServiceContract, then the Service (and participant) is bound by the semantics and constraints of that service contract.
+</body>
+      </ownedComment>
+      <ownedRule xmi:type="cmof:Constraint" xmi:id="SoaML-Services-Service-redefines_type" constrainedElement="SoaML-Services-Service-Protocol">
+        <specification xmi:type="cmof:OpaqueExpression" xmi:id="SoaML-Services-Service-redefines_type-Specification">
+          <body>redefines type</body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Service-Protocol" name="protocol" visibility="public" type="SoaML-Services-ServiceInterface" lower="0" association="SoaML-Services-Association_04">
+        <redefinedProperty xmi:type="cmof:Property" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-TypedElement-type"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-ServiceContract" name="ServiceContract" superClass="SoaML-Services-Collaboration">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-ServiceContract-Comment" annotatedElement="SoaML-Services-ServiceContract">
+        <body>
+ServiceContract is the formalization of a binding exchange of information, goods, or obligations between parties defining a service.
+Extends Metaclass: Collaboration
+Description: A ServiceContract is the specification of the agreement between providers and consumers of a service as to what information, products, assets, value and obligations will flow between the providers and consumers of that service – it specifies the service without regard for realization, capabilities or implementation. A ServiceContract does not require the specification of who, how or why any party will fulfill their obligations under that ServiceContract, thus providing for the loose coupling of the SOA paradigm. In most cases a ServiceContract will specify two roles (provider and consumer) – but other service roles may be specified as well. The ServiceContract may also own a behavior that specifies the sequencing of the exchanges between the parties as well as the resulting state and delivery of the capability. The owned behavior is the choreography of the
+service and may use any of the standard UML behaviors such as an interaction, timing, state or activity diagram.
+Enterprise services are frequently complex and nested (e.g., placing an order within the context of a long-term contract). A ServiceContract may use other nested ServiceContracts representing nested services as a CollaborationUse. Such a nested service is performed and completed within the context of the larger grained service that uses it. A ServiceContract using nested ServiceContracts is called a compound service contract.
+One ServiceContract may specialize another service contract using UML generalization. A specialized contract must comply with the more general contract but may restrict the behavior and/or operations used. A specialized contract may be used as a general contract or as a specific agreement between specific parties for their use of that service.
+A ServicesContract is used to model an agreement between two or more parties and may constrain the expected real world effects of a service. ServiceContracts can cover requirements, service interactions, quality of service agreements, interface and choreography agreements, and commercial agreements.
+Each service role in a service contract has a type, which must be a ServiceInterface or UML Interface or Class stereotyped as «Provider» or «Consumer». The ServiceContract is a binding agreement on entities that implement the service type. That is, any party that “plays a role” in a Service Contract is bound by the service agreement, exchange patterns, behavior and MessageType formats. Note that there are various ways to bind to or fulfill such an agreement, but compliance with the agreement is ultimately required to participate in the service. Due to the binding agreement, where the types of a service contract are used in a Service or Request no collaboration use is required.
+The Service contract is at the middle of the SoaML set of SOA architecture constructs. The highest level is described as a services architectures (at the community and participant levels) – were participants are working together using services. These services are then described by a ServiceContract. The details of that contract, as it relates to each participant, uses an Interface which in tern has operations that use the message data types that flow between participants. The service contract provides an explicit but high-level view of the service where the underlying details mat be hidden or exposed, based on the needs of stakeholders.
+A ServiceContract can be used in support of multiple architectural goals, including:
+1. As part of the Service Oriented Architecture (SOA), including services architectures, participant architectures, information models and business processes.
+2.Multiple views of complex systems
+A way of abstracting different aspects of services solutions
+Convey information to stakeholders and users of those services
+Highlight different subject areas of interest or concern
+3. Formalizing requirements and requirement fulfillment
+Without constraining the architecture for how those requirements might be realized
+Allowing for separation of concerns.
+4. Bridge between business process models and SOA solutions
+Separates the what from the how
+Formal link between service implementation and the contracts it fulfills with more semantics than just traceability
+5. Defining and using patterns of services
+6. Modeling the requirements for a service
+Modeling the roles the consumers and providers play, the interfaces they must provide and/or require, and behavioral constraints on the protocol for using the service.
+The foundation for formal Service Level Agreements
+7. Modeling the requirements for a collection of services or service participants
+Specifying what roles other service participants are expected to play and their interaction choreography in order to achieve some desired result including the implementation of a composite service
+8. Defining the choreography for a business process
+Attributes: No new attributes.
+Associations: No new associations.
+Constraints: If the CollaborationUse for a ServiceInterface in a services architecture has isStrict=true (the default), then the parts must be compatible with the roles they are bound to. For parts to be compatible with a role, one of the following must be true:
+1. The role and part have the same type,
+2. The part has a type that specializes the type of the role,
+3. The part has a type that realizes the type of the role, or
+4. The part has a type that contains at least the ownedAttributes and ownedOperations of the role. In general this is a special case of item 3 where the part has an Interface type that realizes another Interface.
+5. The type of each role in a service contract shall have a uses dependency to the type of all roles that role is connected to.
+Semantics: Each ServiceContract role has a type that must be a UML Interface or (in the case of a composite service contract) a ServiceInteface or Class. At least one such interface must be stereotyped as a «Provider» and one as a «Consumer». The ServiceContract is a binding agreement on participants that implements the service type. That is, any party that “plays a role” in a Service Contract is bound by the service agreement, interfaces, exchange patterns, behavior and Message formats. Note that there are various ways to bind to or fulfill such an agreement, but compliance with the agreement is ultimately required to participate in the service as a provider or consumer.
+ServiceContract shares all the semantics of UML2 Collaboration and extends those semantics by making the service contract binding on the types of the roles without a collaboration use being required. Any behavior specified as part of a ServiceContract is then a specification of how the parties that use that service must interact. By typing a port with an interface or class that is the type of a role in a ServiceContract, the participant agrees to abide by that contract.
+Where a ServiceInterface has a behavior and is also used as a type in a ServiceContract, the behavior of that ServiceInterface must comply with the service contract. However, common practice would be to specify a behavior in the service contract or service interface, not both.
+</body>
+      </ownedComment>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Port" name="Port">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Port-Comment" annotatedElement="SoaML-Services-Port">
+        <body>
+Extends UML Port with a means to indicate whether a Connection is required on this Port or not
+Extends Metaclass: Port
+Description: Port is extended with a connectorRequired property to indicate whether a connector is required on this port, or the containing classifier may be able to function without anything connected
+Attributes: connectorRequired: Boolean [0..1] = true Indicates whether a connector is required on this Port or not. The default value is true.
+Associations: No additional Associations.
+Constraints: No additional constraints.
+Semantics: Participants may provide many Services and have many Requests. A Participant may be able to function without all of its Services being used, and it may be able to function, perhaps with reduced qualities of service, without a services connected to all of its Requests. The property connectorRequired set to true on a Port indicates the Port must be connected to at least one Connector. This is used to indicate a Service port that must be used, or a Request port that must be satisfied. A Port with connectorRequired set to false indicates that no connection is required; the containing Component can function without interacting with another Component through that Port.
+More generally, when connectorRequired is set to true, then all instances of this Port must have a Connector or ServiceChannel connected. This is the default situation, and is the same as UML. If connectorRequired is set to false, then this is an indication that the containing classifier is able to function, perhaps with different qualities of service, or using a different implement, without any Connector connected to the part.
+Port::isService is a convention supported by UML that recognizes upward, client-facing services a component might have as distinguished from downward services or requests that are used for implementation purposes and are not intended to be of interest to perspective clients. It is used to distinguish ports that the consumers are expected to be interested in from those that are public, but are mostly concerned with the implementation of the component through interaction with lower-level service providers. All these ports are either service or request ports, but isService is intended to distinguish those that would be involved in a client-facing value chain, and not something that is about the implementation of the participant or something provided for the detailed implementation of some other participant.
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Port-connectorRequired" name="connectorRequired" visibility="public" default="">
+        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/Infrastructure.cmof#Core-PrimitiveTypes-Boolean"/>
+      </ownedAttribute>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-TypedElement"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-ServicesArchitecture" name="ServicesArchitecture"  superClass="SoaML-Services-Collaboration">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-ServicesArchitecture-Comment" annotatedElement="SoaML-Services-ServicesArchitecture">
+        <body>
+The high-level view of a Service Oriented Architecture that defines how a set of participants works together, forming a community, for some purpose by providing and using services.
+Extends Metaclass: Collaboration
+Description: A ServicesArchitecture (a SOA) describes how participants work together for a purpose by providing and using services expressed as service contracts. By expressing the use of services, the ServicesArchitecture implies some degree of knowledge of the dependencies between the participants in some context. Each use of a service in a ServicesArchitecture is represented by the use of a ServiceContract bound to the roles of participants in that architecture.
+Note that use of a ServicesArchitecture is optional but is recommended to show a high level view of how a set of Participants work together for some purpose. Where as simple services may not have any dependencies or links to a business process, enterprise services can often only be understood in context. The services architecture provides that context—and may also contain a behavior—which is the business process. The
+participant’s roles in a services architecture correspond to the swim lanes or pools in a business process.
+A ServicesArchitecture may be specified externally – in a “B2B” type collaboration where there is no controlling entity or as the ServicesArchitecture of a participant - under the control of a specific entity and/or business process. A “B2B” services architecture uses the «ServicesArchitecture» stereotype on a collaboration.
+A Participant may play a role in any number of services architecture thereby representing the role a participant plays and the requirements that each role places on the participant.
+Attributes: No new attributes.
+Associations: No new associations.
+Constraints: [1] The parts of a ServicesArchitecture must be typed by a Participant or capability. Each participant satisfying roles in a ServicesArchitecture shall have a port for each role binding attached to that participant. This port shall have a type compliant with the type of the role used in the ServiceContract.
+Semantics: Standard UML2 Collaboration semantics are augmented with the requirement that each participant used in a services architecture must have a port compliant with the ServiceContracts the participant provides or uses, which is modeled as a role binding to the use of a service contract.
+</body>
+      </ownedComment>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-ServiceInterface" name="ServiceInterface">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-ServiceInterface-Comment" annotatedElement="SoaML-Services-ServiceInterface">
+        <body>
+Provides the definition of a service. Defines the specification of a service interaction as the type of a «Service» or «Request» port.
+Extends Metaclass: Class
+Description: A ServiceInterface defines the interface and responsibilities of a participant to provide or consume a service. It is used as the type of a Service or Request Port. A ServiceInterface is the means for specifying how a participant is to interact to provide or consume a Service. A ServiceInterface may include specific protocols, commands and information exchange by which actions are initiated and the result of the real world effects are made available as specified through the functionality portion of a service. A ServiceInterface may address the concepts associated with ownership, ownership domains, actions communicated between legal peers, trust, business transactions, authority, delegation, etc.
+A Service port or Request port or role may be typed by either a ServiceInterface or a simple UML2 Interface. In the latter case, there is no protocol associated with the Service. Consumers simply invoke the operations of the Interface. A ServiceInterface may also specify various protocols for using the functional capabilities defined by the servicer interface. This provides reusable protocol definitions in different Participants providing or consuming the same Service.
+A ServiceInterface may specify “parts” and “owned behaviors” to further define the responsibilities of participants in the service. The parts of a ServiceInterface are typed by the Interfaces realized (provided) and used (required) by the ServiceInterface and represent the potential consumers and providers of the functional capabilities defined in those interfaces. The owned behaviors of the ServiceInterface specify how the functional capabilities are to be used by consumers and implemented by providers. A ServiceInterface therefore represents a formal agreement between consumer Requests and providers that may be used to match needs and capabilities.
+A service interface may it self have service ports or request ports that define more granular services that serve to make up a larger composite service. This allows “enterprise scale” services to be composed from multiple, smaller services between the same parties. Internal to a participant connections can be made for the entire service or any one of the sub-services, allowing delegation of responsibility for specific parts of the service contract.
+One or more ServiceInterfaces may also be combined in a ServiceContract which can further specify and constrain related services provided and consumed by Participants.
+Note: There is somewhat of a stylistic difference between specifying service roles and behavior inside of a service interface or in a service contract. In general the service contract is used for more involved services and where a service architecture is being defined, while “standalone” service interfaces may be used
+for context independent services. However there is some overlap in specification capability and either or both may be used in some cases.
+Attributes: No new attributes.
+Associations: No new associations.
+Constraints: [1] All parts of a ServiceInterface must be typed by the Interfaces realized or used by the ServiceInterface.
+Semantics: A ServiceInterface defines a semantic interface to a Service or Request. That is, it defines both the structural and behavioral semantics of the service necessary for consumers to determine if a service typed by a ServiceInterface meets their needs, and for consumers and providers to determine what to do to carry out the service. A ServiceInterface defines the information shown in Table 1.
+The semantics of a ServiceInterface are essentially the same as that for a UML2 Class which ServiceInterface extends. A ServiceInterface formalizes a pattern for using interfaces and behaviors, and the parts of a class to model interfaces to service protocol.
+Participants specify their needs with Request ports and their capabilities with Service ports. Services and Requests, like any part, are described by their type which is either an Interface or a ServiceInterface. A request port may be connected to a compatible Service port in an assembly of Participants through a ServiceChannel. These connected participants are the parts of the internal structure of some other Participant where they are assembled in a context for some purpose, often to implement another service, and often adhering to some ServicesArchitecture. ServiceChannel specifies the rules for compatibility between a Request and Service. Essentially they are compatible if the needs of the Request are met by the capabilities of the Service and they are both structurally and behaviorally compatible.
+A ServiceInterface specifies the receptions and operations it receives through InterfaceRealizations. A ServiceInterface can realize any number of Interfaces. Some platform specific models may restrict the number of realized interfaces to at most one. A ServiceInterface specifies its required needs through Usage dependences to Interfaces. These realizations and usages are used to derive the provided and required interfaces of Request and service ports typed by the ServiceInterface.
+The parts of a ServiceInterface are typed by the interfaces realized or used by the ServiceInterface. These parts (or roles) may be used in the ownedBehaviors to indicate how potential consumers and providers of the service are expected to interact. A ServiceInterface may specify communication protocols or behavioral rules describing how its capabilities and needs must be used. These protocols may be specified using any UML2 Behavior.
+A ServiceInterface may have ownedRules determine the successful accomplishment of its service goals. An ownedRule is a UML constraint within any namespace, such as a ServiceInterface.
+Semantic Variation Points: When the ownedRules of a ServiceInterface are evaluated to determine the successful accomplishment of its service goals is a semantic variation point. How the ownedBehaviors of a ServiceInterface are evaluated for conformance with behaviors of consuming and providing Participants is a semantic variation Point
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Class"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Collaboration" name="Collaboration">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Collaboration-Comment" annotatedElement="SoaML-Services-Collaboration">
+        <body>
+Collaboration is extended to indicate whether the role to part bindings of CollaborationUses typed by a Collaboration are strictly enforced or not.
+Extends Metaclass: Collaboration
+Description: A Collaboration, ServiceContract or ServicesArchitecture represents a pattern of interaction between roles. This interaction may be informal and loosly defined as in a requirements sketch. Or it may represent formal agreements or requirements that must be fulfilled exactly. A Collaboration’s isStrict property establishes the default value of the isStrict property for any CollaborationUse typed by the Collaboration.
+Note that as a ServiceContract is binding on the ServiceInterfaces named in that contract, a CollaborationUse is not required if the types are compatible.
+Attributes: isStrict: Boolean = true Indicates whether this Collaboration is intended to represent a strict pattern of interaction. Establishes the default value for any CollaborationUse typed by this Collaboration.
+Associations: No new associations.
+Constraints: No new constraints.
+Semantics: A Collaboration is a description of a pattern of interaction between roles responsible for providing operations whose use can be described by ownedBehaviors of the Collaboration. It is a description of possible structure and behavior that may be played by other parts of the model.
+A Collaboration may have isStrict=true indicating the collaboration represents a formal interaction between its roles that all parts playing those roles are intended to follow. If isStrict=false, then the collaboration represent and informal pattern of interaction that may be used to document the intended interaction between parts without specifically requiring parts bound to roles in CollaborationUses typed by the collaboration to be compatible. The isStrict property of a Collaboration establishes the default value for the isStrict property of all CollaborationUses typed by the Collaboration. A CollaborationUse may have this value changed to address particular situations.
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-Collaboration-isStrict" name="isStrict" visibility="public" default="">
+        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/Infrastructure.cmof#Core-PrimitiveTypes-Boolean"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-CollaborationUse" name="CollaborationUse">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-CollaborationUse-Comment" annotatedElement="SoaML-Services-CollaborationUse">
+        <body>
+CollaborationUse is extended to indicate whether the role to part bindings are strictly enforced or loose.
+Extends Metaclass: CollaborationUse
+Description: A CollaborationUse explicitly indicates the ability of an owning Classifier to fulfill a ServiceContract or adhere to a ServicesArchitecture. A Classifier may contain any number of CollaborationUses which indicate what it fulfills. The CollaborationUse has roleBindings that indicate what role each part in the owning Classifier plays. If the CollaborationUse is strict, then the parts must be compatible with the roles they are bound to, and the owning Classifier must have behaviors that are behaviorally compatible with the ownedBehavior of the CollaborationUse’s Collaboration type.
+Note that as a ServiceContract is binding on the ServiceInterfaces named in that contract, a CollaborationUse is not required if the types are compatible.
+Attributes: isStrict: Boolean Indicates whether this particular fulfillment is intended to be strict. A value of true indicates the roleBindings in the Fulfillment must be to compatible parts. A value of false indicates the modeler warrants the part is capable of playing the role even through the type may not be compatible. The default value is the value of the isStrict property of Collaboration used as the type of the CollaborationUse.
+Associations: No new associations.
+Constraints: No new constraints.
+Semantics: A CollaborationUse is a statement about the ability of a containing Classifier to provide or use capabilities, have structure, or behave in a manner consistent with that expressed in its Collaboration type. It is an assertion about the structure and behavior of the containing classifier and the suitability of its parts to play roles for a specific purpose. A
+CollaborationUse contains roleBindings that binds each of the roles of its Collaboration to a part of the containing Classifier. If the CollaborationUse has isStrict=true, then the parts must be compatible with the roles they are bound to. For parts to be compatible with a role, one of the following must be true:
+1. The role and part have the same type,
+2. The part has a type that specializes the type of the role,
+3. The part has a type that realizes the type of the role, or
+4. The part has a type that contains at least the ownedAttributes and ownedOperations of the role. In general this is a special case of item 3 where the part has an Interface type that realizes another Interface.
+Semantic Variation Points: Compliance between types named as roles in a collaboration use is a semantic variation point and will be determined by modelers or tools.
+</body>
+      </ownedComment>
+      <ownedAttribute xmi:type="cmof:Property" xmi:id="SoaML-Services-CollaborationUse-isStrict" name="isStrict" visibility="public" default="">
+        <type xmi:type="cmof:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/Infrastructure.cmof#Core-PrimitiveTypes-Boolean"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Association" xmi:id="SoaML-Services-Association_01" memberEnd="SoaML-Services-Milestone-Signal SoaML-Services-Association_01_End_01">
+      <ownedEnd xmi:type="cmof:Property" xmi:id="SoaML-Services-Association_01_End_01" name="" visibility="private" type="SoaML-Services-Milestone" upper="*" lower="0" association="SoaML-Services-Association_01"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Association" xmi:id="SoaML-Services-Association_02" memberEnd="SoaML-Services-Milestone-Value SoaML-Services-Association_02-End_01">
+      <ownedEnd xmi:type="cmof:Property" xmi:id="SoaML-Services-Association_02-End_01" name="" visibility="private" type="SoaML-Services-Milestone" upper="*" lower="0" association="SoaML-Services-Association_02"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-ServiceChannel" name="ServiceChannel">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-ServiceChannel-Comment" annotatedElement="SoaML-Services-ServiceChannel">
+        <body> 
+A communication path between Services and Requests within an architecture..
+Extends Metaclass: Connector
+Description: A ServiceChannel provides a communication path between consumer Requests and provider services.
+Attributes: No new attributes.
+Associations: No new associations.
+Constraints
+[1] One end of a ServiceChannel must be a Request and the other a Service in an architecture.
+[2] The Request and Service connected by a ServiceChannel must be compatible.
+[3] The contract Behavior for a ServiceChannel must be compatible with any protocols specified for the connected requests and Services.
+Semantics: A ServiceChannel is used to connect Requests of consumer Participants to Services of provider Participants at the ServiceChannel ends. A ServiceChannel enables communication between the Request and service.
+A Request specifies a Participant’s needs. A Service specifies a Participant’s services offered. The type of a Request or Service is a ServiceInterface or Interface that defines the needs and capabilities accessed by a Request through Service, and the protocols for using them. Loosely coupled systems imply that services should be designed with little or no knowledge about particular consumers. Consumers may have a very different view of what to do with a service based on what they are trying to accomplish. For example, a guitar can make a pretty effective paddle if that’s all you have and you’re stuck up a creek without one.
+Loose coupling allows reuse in different contexts, reduces the effect of change, and is the key enabler of agile solutions through an SOA. In services models, ServiceChannels connect consumers and providers and therefore define the coupling in the system. They isolate the dependencies between consuming and providing participants to particular Request/service interaction points. However, for services to be used properly, and for Requests to be fully satisfied, Requests must be connected to compatible Services. This does not mean the Request Port and Service Port must have the same type, or that their ServiceInterfaces must be derived from some agreed upon ServiceContract as this could create additional coupling between the consumer and provider. Such coupling would for example make it more difficult for a service to evolve to meet needs of other consumers, to satisfy different contracts, or to support different versions of the same request without changing the service it is connected to.
+Loosely coupled systems therefore require flexible compatibility across ServiceChannels. Compatibility can be established using UML2 specialization/generalization or realization rules. However, specialization/generalization, and to a lesser extent realization, are often impractical in environments where the classifiers are not all owned by the same organization. Both specialization and realization represent significant coupling between subclasses and realizing classifiers. If a superclass or realized class changes, then all the subclasses also automatically change while realizing classes must be examined to see if change is needed. This may be very undesirable if the subclasses are owned by another organization that is not in a position to synchronize its changes with the providers of other classifiers.
+A Request is compatible with, and may be connected to a Service though a ServiceChannel if:
+1. The Request and Service have the same type, either an Interface or ServiceInterface.
+2. The type of the Service is a specialization or realization of the type of the Request.
+3. The Request and Service have compatible needs and capabilities respectively. This means the Service must provide an Operation for every Operation used through the Request, the Request must provide an Operation for every Operation used through the Service, and the protocols for how the capabilities are compatible between the Request and Service.
+4. Any of the above are true for a subset of a ServiceInterface as defined by a port on that service interface.
+Semantic Variation Points
+Behavioral compatibility between Requests and Services is a semantic variation point.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Components-BasicComponents-Connector"/>        
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Association" xmi:id="SoaML-Services-Association_03" memberEnd="SoaML-Services-Request-Protocol SoaML-Services-Association_03-End_01">
+      <ownedEnd xmi:type="cmof:Property" xmi:id="SoaML-Services-Association_03-End_01" name="" visibility="private" type="SoaML-Services-Request" upper="*" lower="0" association="SoaML-Services-Association_03"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Association" xmi:id="SoaML-Services-Association_04" memberEnd="SoaML-Services-Service-Protocol SoaML-Services-Association_04-End_01">
+      <ownedEnd xmi:type="cmof:Property" xmi:id="SoaML-Services-Association_04-End_01" name="" visibility="private" type="SoaML-Services-Service" upper="*" lower="0" association="SoaML-Services-Association_04"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Consumer" name="Consumer">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Consumer-Comment" annotatedElement="SoaML-Services-Consumer">
+        <body>   
+Consumer models the type of a service consumer. A consumer is then used as the type of a role in a service contract and the type of a port on a participant.
+Extends Metaclass:
+Interface (in the case of a non composite service contract)
+Class (in the case of a composite service contract)
+Description: A «Consumer» models the interface provided by the consumer of a service. The consumer of the service receives the results of the service interaction. The consumer will normally be the one that initiates the service interaction. Consumer interfaces are used in as the type of a «ServiceContract» and are bound by the terms and conditions of that service contract.
+The «Consumer» is intended to be used as the port type of a participant that uses a service.
+Attributes: No additional attributes.
+Associations: No additional Associations.
+Constraints: The «Consumer» is bound by the constraints and behavior of the ServiceContract of which it is a type.
+Semantics: The concept of a provider and a consumer is central to the concept of a service oriented architecture. The consumer requests a service of the provider who then uses their capabilities to fulfill the service request and ultimately deliver value to the consumer. The interaction between the provider and consumer is governed by a «ServiceContract» where both parties are (directly or indirectly) bound by that contract.
+The consumer interface and therefore the consumer role combine to fully define a service from the perspective of the consumer.
+The consumer interface represents the operations and signals (if any) that the consumer will receive during the service interaction.
+The Consumer will also have a uses dependency on the provider interface, representing the fact that the consumer must call the provider.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Class"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Provider" name="Provider">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Provider-Comment" annotatedElement="SoaML-Services-Provider">
+        <body>     
+Provider models the type of a service provider in a consumer/provider relationship. A provider is then used as the type of a role in a service contract and the type of a port on a participant.
+Extends Metaclass: 
+Interface (in the case of a non composite service contract)
+Class (in the case of a composite service contract)
+Description: A «Provider» models the interface provided by the provider of a service. The provider of the service delivers the results of the service interaction. The provider will normally be the one that responds to the service interaction. Provider interfaces are used in as the type of a «ServiceContract» and are bound by the terms and conditions of that service contract.
+The «Provider» interface is intended to be used as the port type of a participant that provides a service.
+Attributes: No additional attributes.
+Associations: No additional Associations.
+Constraints: The «Provider» interface is bound by the constraints and behavior of the ServiceContract of which it is a type.
+Semantics: The concept of a provider and a consumer is central to the concept of a service oriented architecture. The consumer requests a service of the provider who then uses their capabilities to fulfill the service request and ultimately deliver value to the consumer. The interaction between the provider and consumer is governed by a «ServiceContract» where both parties are (directly or indirectly) bound by that contract.
+The provider interface and therefore the provider role combine to fully define a service from the perspective of the provider.
+The provider interface represents the operations and signals that the provider will receive during the service interaction.
+The Provider may also have a uses dependency on the consumer interface, representing the fact that the provider may call the consumer as part of a bi-directional interaction. These are also knows as “callbacks” in many technologies.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Class"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Services-Expose" name="Expose">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Services-Expose-Comment" annotatedElement="SoaML-Services-Expose">
+        <body>  
+An Expose dependency is use to indicate a Capability exposed through a ServiceInterface. The source of the Expose is the ServiceInterface, the target is the exposed Capability.
+Extends Metaclass: Dependency
+Description: The Expose dependency provides the ability to indicate what Capabilities that are required by or are provided by a participant should be exposed through a Service Interface.
+Attributes: No additional attributes.
+Associations: No additional associations.
+Constraints: No additional constraints.
+Semantics: A Capability represents something a Participant needs to have or be able to do in order to support a value proposition or achieve its goals, or something a Participant has that enables it to carry out its provided services. Capabilities may be used to identify services that are needed or to describe the operations that must be provided by one or more services. An Expose dependency is a relationship between a Service Interface and a Capability it exposes or that provides it. . This means that the exposing Service Interface provides operations and information consistent with the capabilities it exposes. This is not the same as realization. The Service Interface is not required to have the same operations and properties as the capabilities it exposes. It is possible that services supported by capabilities could be refactored to address commonality and variability across a number of exposed capabilities, or to address other SOA concerns not accounted for in the capabilities.
+Alternatively, Capabilities may realize ServiceInterfaces using standard UML Realization. This approach is somewhat different in that it says that the Service Interface is a “specification” and the Capability “implements” this specification. As with the Expose dependency, the Capability is not required to have the same operations or properties as the Service Interface it realizes.
+A Participant may have parts typed by Capabilities that indicate what the participant is able to do. Such a Participant may also Realize a set of Capabilities through its ownedBehaviors or through delegation to parts in its internal structure, or through delegation to requests for services from others. These capabilities may also be exposed by ServiceInterfaces used to specify the type of service ports through which the capabilities are accessed.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Dependencies-Dependency"/>
+    </ownedMember>
+  </ownedMember>
+  <ownedMember xmi:type="cmof:Package" xmi:id="SoaML-Categorization" name="Categorization">
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Categorization-Catalog" name="Catalog">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Categorization-Catalog-Comment" annotatedElement="SoaML-Categorization-Catalog">
+        <body> 
+Provides a means of classifying and organizing elements by categories for any purpose.
+Extends: Package
+Specializes: NoteDescriptor
+Description: A named collection of related elements, including other catalogs characterized by a specific set of categories. Applying a Category to an Element using a Categorization places that Element in the Catalog.
+Catalog is a RAS DescriptorGroup containing other Catalogs and/or Categories providing the mapping to RAS classification.
+Attributes: No additional attributes.
+Associations: No additional associations
+Constraints: [1] Catalogs can only contain Categories, CategoryValues or other Catalogs.
+Semantics: When a model Element is categorized with a Category or CategoryValue, it is effectively placed in the Catalog that contains that Category. In the case of classification by a CategoryValue, the Category is the classifier of the CategoryValue.
+The meaning of being categorized by a Category, and therefore placed in a Catalog is not specified by this submission. It can mean whatever the modeler wishes. That meaning might be suggested by the catalog and category name, the category’s attributes, and a category value’s attribute values. The same model element can be categorized many ways. The same category or category value may be used to categorize many model elements.   
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Package"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Categorization-Categorization" name="Categorization">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Categorization-Categorization-Comment" annotatedElement="SoaML-Categorization-Categorization">
+        <body> 
+Used to categorize an Element by a Category or CategoryValue
+Extends: Dependency
+Description: Categorization connects an Element to a Category or CategoryValue in order to categorize or classify that element. The Element then becomes a member of the Catalog that contains that Category. This allows Elements to be organized in many hierarchical Catalogs where each Catalog is described by a set of Categories.
+The source is any Element, the target is a Category or CategoryValue.
+Attributes: No additional attributes.
+Associations: No additional associations.
+Constraints: [1] The target of a Categorization must be either a Category or CategoryValue
+Semantics: The primary purpose of Category is to be able to provide information that characterizes an element by some domain of interest. Categorizing an element characterizes that element with that Category. What this means is derived from the meaning of the Category. The meaning of a Category is defined by its name, owned attributes, or constraints if any.
+Categorization of an element may be used to provide multiple orthogonal ways of organizing elements. UML currently provides a single mechanism for organizing model elements as PackagedElements in a Package. This is useful for namespace management and any other situations where it is necessary for an element to be in one and only one container at a time. But it is insufficient for organization across many different dimensions since a PackageableElement can only be contained in one Package. For example, model elements might also need to be organized by owner, location, cost gradient, time of production, status, portfolio, architectural layer, Web, tiers in an n-tiered application, physical boundary, service partitions, etc. Different classification hierarchies and Categories may be used to capture these concerns and be applied to elements to indicate orthogonal organizational strategies.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Dependencies-Dependency"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Categorization-Category" name="Category">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Categorization-Category-Comment" annotatedElement="SoaML-Categorization-Category">
+        <body>    
+A classification or division used to characterize the elements of a catalog and to categorize model elements.
+Generalizations: NodeDescriptor
+Description: A Category is a piece of information about an element. A Category has a name indicating what the information is about, and a set of attributes and constraints that characterize the Category. An Element may have many Categories, and the same Category can be applied to many Elements. Categories may be organized into Catalogs hierarchies.
+Attributes: No additional attributes.
+Associations: No additional associations
+Constraints: [1] A Category must be contained in a Catalog.
+Semantics: The meaning of a Category is not specified by SoaML. Instead it may be interpreted by the modeler, viewer of the model, or any other user for any purpose they wish. For example a Catalog hiearachy of Categories could be used to indicate shared characteristics used to group species. In this case the categorization might imply inheritance and the principle of common descent. Other categorizations could represent some other taxonomy such as ownership. In this case, the term categorization is intended to mean describing the characteristics of something, not necessarily an inheritance hierarchy. All instances having categorized by a Category have the characteristics of that Category.
+The characteristics of a Category are described by its attributes and constraints. ClassifierValues may be used to provide specific values for these attributes in order to more specifically categorize an element.
+A Category may have ownedRules representing Constraints that further characterize the category. The meaning of these constraints when an element is categorized by a Category is not specified.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" xmi:idref="SoaML-Categorization-NodeDescriptor"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Categorization-NodeDescriptor" name="NodeDescriptor">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Categorization-NodeDescriptor-Comment" annotatedElement="SoaML-Categorization-NodeDescriptor">
+        <body>      
+Description: A placeholder for a RAS NodeDescriptor.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Deployments-Artifacts-Artifact"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Categorization-CategoryValue" name="CategoryValue">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Categorization-CategoryValue-Comment" annotatedElement="SoaML-Categorization-CategoryValue">
+        <body>      
+Provides specific values for a Category to further categorize model elements.
+Generalizations: FreeFormValue
+Description: A CategoryValue provides values for the attributes of a Category. It may also be used to categorize model elements providing detailed information for the category.
+Attributes: No additional attributes.
+Associations: No additional associations
+Constraints: [1] The classifier for a CategoryValue must be a Category
+Semantics: The characteristics of a Category are described by its attributes and constraints. ClassifierValues may be used to provide specific values for these attributes in order to more specifically categorize an element.
+Categorizing an element with a CategoryValue categorizes the element by the Category that is the classifier of the CategoryValue.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" xmi:idref="SoaML-Categorization-FreeFormValue"/>
+    </ownedMember>
+    <ownedMember xmi:type="cmof:Class" xmi:id="SoaML-Categorization-FreeFormValue" name="FreeFormValue">
+      <ownedComment xmi:type="cmof:Comment" xmi:id="SoaML-Categorization-FreeFormValue-Comment" annotatedElement="SoaML-Categorization-FreeFormValue">
+        <body>      
+Description: A placeholder for a RAS FreeFormValue.
+</body>
+      </ownedComment>
+      <superClass xmi:type="cmof:Class" href="http://www.omg.org/spec/UML/20090901/Superstructure.cmof#Classes-Kernel-Property"/>
+    </ownedMember>
+  </ownedMember>
+</cmof:Package>
+</xmi:XMI>

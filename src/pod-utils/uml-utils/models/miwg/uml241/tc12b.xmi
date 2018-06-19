@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:id="_qcmmILQSEd-ZR7RPgU7rtg" name="TestCase12b">
+  <packagedElement xmi:type="uml:Package" xmi:id="_qcmmIbQSEd-ZR7RPgU7rtg" name="Structure">
+    <packagedElement xmi:type="uml:Class" xmi:id="_qcmmIrQSEd-ZR7RPgU7rtg" name="Detection System" isActive="true">
+      <ownedAttribute xmi:id="_qcmmI7QSEd-ZR7RPgU7rtg" name="sensor" type="_qcmmOLQSEd-ZR7RPgU7rtg" aggregation="composite" association="_qcmmL7QSEd-ZR7RPgU7rtg"/>
+      <ownedAttribute xmi:id="_qcmmJrQSEd-ZR7RPgU7rtg" name="processor" type="_qcmmObQSEd-ZR7RPgU7rtg" aggregation="composite" association="_qcmmMrQSEd-ZR7RPgU7rtg"/>
+      <ownedAttribute xmi:id="_qcmmKbQSEd-ZR7RPgU7rtg" name="alarm" type="_qcmmOrQSEd-ZR7RPgU7rtg" aggregation="composite" association="_qcmmNbQSEd-ZR7RPgU7rtg"/>
+      <ownedOperation xmi:id="_qcmmLLQSEd-ZR7RPgU7rtg" name="detect intruder" />
+      <ownedReception xmi:id="_qcmmLbQSEd-ZR7RPgU7rtg" name="Set" signal="_qcmmP7QSEd-ZR7RPgU7rtg"/>
+      <ownedReception xmi:id="_qcmmLrQSEd-ZR7RPgU7rtg" name="Reset" signal="_qcmmQLQSEd-ZR7RPgU7rtg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_qcmmL7QSEd-ZR7RPgU7rtg" name="Association1" memberEnd="_qcmmI7QSEd-ZR7RPgU7rtg _qcmmMLQSEd-ZR7RPgU7rtg">
+      <ownedEnd xmi:id="_qcmmMLQSEd-ZR7RPgU7rtg" name="" type="_qcmmIrQSEd-ZR7RPgU7rtg" isUnique="false" association="_qcmmL7QSEd-ZR7RPgU7rtg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_qcmmMrQSEd-ZR7RPgU7rtg" name="Association2" memberEnd="_qcmmJrQSEd-ZR7RPgU7rtg _qcmmM7QSEd-ZR7RPgU7rtg">
+      <ownedEnd xmi:id="_qcmmM7QSEd-ZR7RPgU7rtg" name="" type="_qcmmIrQSEd-ZR7RPgU7rtg" isUnique="false" association="_qcmmMrQSEd-ZR7RPgU7rtg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_qcmmNbQSEd-ZR7RPgU7rtg" name="Association3" memberEnd="_qcmmKbQSEd-ZR7RPgU7rtg _qcmmNrQSEd-ZR7RPgU7rtg">
+      <ownedEnd xmi:id="_qcmmNrQSEd-ZR7RPgU7rtg" name="" type="_qcmmIrQSEd-ZR7RPgU7rtg" isUnique="false" association="_qcmmNbQSEd-ZR7RPgU7rtg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qcmmOLQSEd-ZR7RPgU7rtg" name="Sensor"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qcmmObQSEd-ZR7RPgU7rtg" name="Processor"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qcmmOrQSEd-ZR7RPgU7rtg" name="Alarm"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qcmmO7QSEd-ZR7RPgU7rtg" name="Sensor Input"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qcmmPLQSEd-ZR7RPgU7rtg" name="Sensor Signal"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qcmmPbQSEd-ZR7RPgU7rtg" name="Alert"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qcmmPrQSEd-ZR7RPgU7rtg" name="Alarm Signal"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_qcmmP7QSEd-ZR7RPgU7rtg" name="Set"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_qcmmQLQSEd-ZR7RPgU7rtg" name="Reset"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_qcmmQbQSEd-ZR7RPgU7rtg" name="Behavior">
+    <packagedElement xmi:type="uml:Activity" xmi:id="_qcmmQrQSEd-ZR7RPgU7rtg" name="Detect Intruder">
+      <ownedParameter xmi:id="_qcmmQ7QSEd-ZR7RPgU7rtg" name="Parameter1" type="_qcmmO7QSEd-ZR7RPgU7rtg" isStream="true">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qcmmRLQSEd-ZR7RPgU7rtg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qcmmRbQSEd-ZR7RPgU7rtg" value="1"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_qcmmRrQSEd-ZR7RPgU7rtg" name="Parameter2" type="_qcmmPrQSEd-ZR7RPgU7rtg" isStream="true">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qcmmR7QSEd-ZR7RPgU7rtg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qcmmSLQSEd-ZR7RPgU7rtg" value="1"/>
+      </ownedParameter>
+      <node xmi:type="uml:AcceptEventAction" xmi:id="_qcmmSbQSEd-ZR7RPgU7rtg" name="Set" outgoing="_qcmmYbQSEd-ZR7RPgU7rtg" inPartition="_qcmmbbQSEd-ZR7RPgU7rtg">
+        <trigger xmi:id="_qcmmSrQSEd-ZR7RPgU7rtg" event="_qcmmcbQSEd-ZR7RPgU7rtg"/>
+      </node>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_qcmmS7QSEd-ZR7RPgU7rtg" name="Sense Input" incoming="_qcmmYbQSEd-ZR7RPgU7rtg" inPartition="_qcmmbbQSEd-ZR7RPgU7rtg" behavior="_BHYewdqQEd-8dry8mMKGdg">
+        <argument xmi:type="uml:InputPin" xmi:id="_qcmmTLQSEd-ZR7RPgU7rtg" name="in" incoming="_qcmmabQSEd-ZR7RPgU7rtg" type="_qcmmO7QSEd-ZR7RPgU7rtg">
+          <upperBound xmi:type="uml:LiteralString" xmi:id="_qcmmTbQSEd-ZR7RPgU7rtg" name="UpperBound" value="1"/>
+        </argument>
+        <result xmi:type="uml:OutputPin" xmi:id="_qcmmTrQSEd-ZR7RPgU7rtg" name="out" outgoing="_qcmmY7QSEd-ZR7RPgU7rtg" type="_qcmmPLQSEd-ZR7RPgU7rtg">
+          <upperBound xmi:type="uml:LiteralString" xmi:id="_qcmmT7QSEd-ZR7RPgU7rtg" name="UpperBound" value="1"/>
+        </result>
+      </node>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_qcmmULQSEd-ZR7RPgU7rtg" name="Process Signal" inPartition="_qcmmbrQSEd-ZR7RPgU7rtg" behavior="_BHYezNqQEd-8dry8mMKGdg">
+        <argument xmi:type="uml:InputPin" xmi:id="_qcmmUbQSEd-ZR7RPgU7rtg" name="in" incoming="_qcmmY7QSEd-ZR7RPgU7rtg" type="_qcmmPLQSEd-ZR7RPgU7rtg">
+          <upperBound xmi:type="uml:LiteralString" xmi:id="_qcmmUrQSEd-ZR7RPgU7rtg" name="UpperBound" value="1"/>
+        </argument>
+        <result xmi:type="uml:OutputPin" xmi:id="_qcmmU7QSEd-ZR7RPgU7rtg" name="out" outgoing="_qcmmZbQSEd-ZR7RPgU7rtg" type="_qcmmPbQSEd-ZR7RPgU7rtg">
+          <upperBound xmi:type="uml:LiteralString" xmi:id="_qcmmVLQSEd-ZR7RPgU7rtg" name="UpperBound" value="1"/>
+        </result>
+      </node>
+      <node xmi:type="uml:CallBehaviorAction" xmi:id="_qcmmVbQSEd-ZR7RPgU7rtg" name="Set Alarm" inPartition="_qcmmb7QSEd-ZR7RPgU7rtg" behavior="_BHYe0dqQEd-8dry8mMKGdg">
+        <argument xmi:type="uml:InputPin" xmi:id="_qcmmVrQSEd-ZR7RPgU7rtg" name="in" incoming="_qcmmZbQSEd-ZR7RPgU7rtg" type="_qcmmPbQSEd-ZR7RPgU7rtg">
+          <upperBound xmi:type="uml:LiteralString" xmi:id="_qcmmV7QSEd-ZR7RPgU7rtg" name="UpperBound" value="1"/>
+        </argument>
+        <result xmi:type="uml:OutputPin" xmi:id="_qcmmWLQSEd-ZR7RPgU7rtg" name="out" outgoing="_qcmmZ7QSEd-ZR7RPgU7rtg" type="_qcmmPrQSEd-ZR7RPgU7rtg">
+          <upperBound xmi:type="uml:LiteralString" xmi:id="_qcmmWbQSEd-ZR7RPgU7rtg" name="UpperBound" value="1"/>
+        </result>
+      </node>
+      <node xmi:type="uml:ActivityParameterNode" xmi:id="_qcmmWrQSEd-ZR7RPgU7rtg" name="" outgoing="_qcmmabQSEd-ZR7RPgU7rtg" type="_qcmmO7QSEd-ZR7RPgU7rtg" parameter="_qcmmQ7QSEd-ZR7RPgU7rtg"/>
+      <node xmi:type="uml:ActivityParameterNode" xmi:id="_qcmmXLQSEd-ZR7RPgU7rtg" name="" incoming="_qcmmZ7QSEd-ZR7RPgU7rtg" type="_qcmmPrQSEd-ZR7RPgU7rtg" parameter="_qcmmRrQSEd-ZR7RPgU7rtg"/>
+      <node xmi:type="uml:AcceptEventAction" xmi:id="_qcmmXrQSEd-ZR7RPgU7rtg" name="Reset" outgoing="_qcmma7QSEd-ZR7RPgU7rtg">
+        <trigger xmi:id="_qcmmX7QSEd-ZR7RPgU7rtg" event="_qcmmcrQSEd-ZR7RPgU7rtg"/>
+      </node>
+      <node xmi:type="uml:FlowFinalNode" xmi:id="_qcmmYLQSEd-ZR7RPgU7rtg" incoming="_qcmma7QSEd-ZR7RPgU7rtg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_qcmmYbQSEd-ZR7RPgU7rtg" source="_qcmmSbQSEd-ZR7RPgU7rtg" target="_qcmmS7QSEd-ZR7RPgU7rtg"/>
+      <edge xmi:type="uml:ObjectFlow" xmi:id="_qcmmY7QSEd-ZR7RPgU7rtg" source="_qcmmTrQSEd-ZR7RPgU7rtg" target="_qcmmUbQSEd-ZR7RPgU7rtg"/>
+      <edge xmi:type="uml:ObjectFlow" xmi:id="_qcmmZbQSEd-ZR7RPgU7rtg" source="_qcmmU7QSEd-ZR7RPgU7rtg" target="_qcmmVrQSEd-ZR7RPgU7rtg"/>
+      <edge xmi:type="uml:ObjectFlow" xmi:id="_qcmmZ7QSEd-ZR7RPgU7rtg" source="_qcmmWLQSEd-ZR7RPgU7rtg" target="_qcmmXLQSEd-ZR7RPgU7rtg" interrupts="_qcmmcLQSEd-ZR7RPgU7rtg"/>
+      <edge xmi:type="uml:ObjectFlow" xmi:id="_qcmmabQSEd-ZR7RPgU7rtg" source="_qcmmWrQSEd-ZR7RPgU7rtg" target="_qcmmTLQSEd-ZR7RPgU7rtg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_qcmma7QSEd-ZR7RPgU7rtg" source="_qcmmXrQSEd-ZR7RPgU7rtg" target="_qcmmYLQSEd-ZR7RPgU7rtg" interrupts="_qcmmcLQSEd-ZR7RPgU7rtg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_qcmmbbQSEd-ZR7RPgU7rtg" node="_qcmmSbQSEd-ZR7RPgU7rtg _qcmmS7QSEd-ZR7RPgU7rtg" represents="_qcmmOLQSEd-ZR7RPgU7rtg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_qcmmbrQSEd-ZR7RPgU7rtg" node="_qcmmULQSEd-ZR7RPgU7rtg" represents="_qcmmObQSEd-ZR7RPgU7rtg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_qcmmb7QSEd-ZR7RPgU7rtg" node="_qcmmVbQSEd-ZR7RPgU7rtg" represents="_qcmmOrQSEd-ZR7RPgU7rtg"/>
+      <group xmi:type="uml:InterruptibleActivityRegion" xmi:id="_qcmmcLQSEd-ZR7RPgU7rtg" node="_qcmmS7QSEd-ZR7RPgU7rtg _qcmmULQSEd-ZR7RPgU7rtg _qcmmVbQSEd-ZR7RPgU7rtg _qcmmXrQSEd-ZR7RPgU7rtg" interruptingEdge="_qcmmZ7QSEd-ZR7RPgU7rtg _qcmma7QSEd-ZR7RPgU7rtg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_qcmmcbQSEd-ZR7RPgU7rtg" signal="_qcmmP7QSEd-ZR7RPgU7rtg"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_qcmmcrQSEd-ZR7RPgU7rtg" signal="_qcmmQLQSEd-ZR7RPgU7rtg"/>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_BHYewdqQEd-8dry8mMKGdg" name="Sense Input">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_VZIj4tqUEd-8dry8mMKGdg" name="in" isStream="true" type="_qcmmO7QSEd-ZR7RPgU7rtg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_VZIj5dqUEd-8dry8mMKGdg" name="out" isStream="true" direction="out" type="_qcmmPLQSEd-ZR7RPgU7rtg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_BHYezNqQEd-8dry8mMKGdg" name="Process Signal">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_VZIj89qUEd-8dry8mMKGdg" isStream="true" name="in" type="_qcmmPLQSEd-ZR7RPgU7rtg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_VZIj9tqUEd-8dry8mMKGdg" name="out" direction="out" type="_qcmmPbQSEd-ZR7RPgU7rtg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_BHYe0dqQEd-8dry8mMKGdg" name="Set Alarm">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_VZIj_tqUEd-8dry8mMKGdg" name="in" type="_qcmmPbQSEd-ZR7RPgU7rtg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_VZIkAdqUEd-8dry8mMKGdg" isStream="true" name="out" direction="out" type="_qcmmPrQSEd-ZR7RPgU7rtg"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

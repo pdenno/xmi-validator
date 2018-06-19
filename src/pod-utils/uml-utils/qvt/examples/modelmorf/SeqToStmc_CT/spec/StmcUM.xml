@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="StmcMM" xmi:id="_UOGE0EPaEduLbeMAFHb3xA">
+  <containsStateMachine xmi:id="_WeKqAEPaEduLbeMAFHb3xA" name="ElevatorController" owner="_VQPeUEPaEduLbeMAFHb3xA">
+    <state xmi:id="_aA9RsESSEdudz8HXhU7k_Q" name="START" outTransition="_bBLYkESSEdudz8HXhU7k_Q"/>
+    <state xmi:id="_aSDBsESSEdudz8HXhU7k_Q" name="DoorOpened" inTransition="_bBLYkESSEdudz8HXhU7k_Q _b-3v4ESSEdudz8HXhU7k_Q" outTransition="_bX7EoESSEdudz8HXhU7k_Q"/>
+    <state xmi:id="_aeY0kESSEdudz8HXhU7k_Q" name="DoorClosed" inTransition="_bX7EoESSEdudz8HXhU7k_Q" outTransition="_bvQmkESSEdudz8HXhU7k_Q _b-3v4ESSEdudz8HXhU7k_Q"/>
+    <state xmi:id="_awhtcESSEdudz8HXhU7k_Q" name="DoorLocked" inTransition="_bvQmkESSEdudz8HXhU7k_Q"/>
+    <transition xmi:id="_bBLYkESSEdudz8HXhU7k_Q" name="SendOpenDoor" toState="_aSDBsESSEdudz8HXhU7k_Q" fromState="_aA9RsESSEdudz8HXhU7k_Q">
+      <event xmi:id="_dEcbYESTEdudz8HXhU7k_Q" name="SendOpenDoor"/>
+    </transition>
+    <transition xmi:id="_bX7EoESSEdudz8HXhU7k_Q" name="SendCloseDoor" toState="_aeY0kESSEdudz8HXhU7k_Q" fromState="_aSDBsESSEdudz8HXhU7k_Q">
+      <event xmi:id="_dWOH4ESTEdudz8HXhU7k_Q" name="SendCloseDoor"/>
+    </transition>
+    <transition xmi:id="_bvQmkESSEdudz8HXhU7k_Q" name="SendLockDoor" toState="_awhtcESSEdudz8HXhU7k_Q" fromState="_aeY0kESSEdudz8HXhU7k_Q">
+      <event xmi:id="_dlYlQESTEdudz8HXhU7k_Q" name="SendLockDoor"/>
+    </transition>
+    <transition xmi:id="_b-3v4ESSEdudz8HXhU7k_Q" name="SendOpenDoor" toState="_aSDBsESSEdudz8HXhU7k_Q" fromState="_aeY0kESSEdudz8HXhU7k_Q">
+      <event xmi:id="_d0jpsESTEdudz8HXhU7k_Q" name="SendOpenDoor"/>
+    </transition>
+  </containsStateMachine>
+  <containsStateMachine xmi:id="_wjBtQESOEdudz8HXhU7k_Q" name="Elevator" owner="_wRG20ESOEdudz8HXhU7k_Q">
+    <state xmi:id="_0hxawESOEdudz8HXhU7k_Q" name="START" outTransition="_1krCMESOEdudz8HXhU7k_Q"/>
+    <state xmi:id="_0u6e4ESOEdudz8HXhU7k_Q" name="DoorOpened" inTransition="_1krCMESOEdudz8HXhU7k_Q _2SNdoESOEdudz8HXhU7k_Q" outTransition="_10Wc8ESOEdudz8HXhU7k_Q"/>
+    <state xmi:id="_05qWUESOEdudz8HXhU7k_Q" name="DoorClosed" inTransition="_10Wc8ESOEdudz8HXhU7k_Q" outTransition="_2CiC4ESOEdudz8HXhU7k_Q _2SNdoESOEdudz8HXhU7k_Q"/>
+    <state xmi:id="_1HZ3YESOEdudz8HXhU7k_Q" name="DoorLocked" inTransition="_2CiC4ESOEdudz8HXhU7k_Q"/>
+    <transition xmi:id="_1krCMESOEdudz8HXhU7k_Q" name="ReceiveOpenDoor" toState="_0u6e4ESOEdudz8HXhU7k_Q" fromState="_0hxawESOEdudz8HXhU7k_Q">
+      <event xmi:id="_P20gUESPEdudz8HXhU7k_Q" name="ReceiveOpenDoor"/>
+    </transition>
+    <transition xmi:id="_10Wc8ESOEdudz8HXhU7k_Q" name="ReceiveCloseDoor" toState="_05qWUESOEdudz8HXhU7k_Q" fromState="_0u6e4ESOEdudz8HXhU7k_Q">
+      <event xmi:id="_QISq0ESPEdudz8HXhU7k_Q" name="ReceiveCloseDoor"/>
+    </transition>
+    <transition xmi:id="_2CiC4ESOEdudz8HXhU7k_Q" name="ReceiveLockDoor" toState="_1HZ3YESOEdudz8HXhU7k_Q" fromState="_05qWUESOEdudz8HXhU7k_Q">
+      <event xmi:id="_QisH0ESPEdudz8HXhU7k_Q" name="ReceiveLockDoor"/>
+    </transition>
+    <transition xmi:id="_2SNdoESOEdudz8HXhU7k_Q" name="ReceiveOpenDoor" toState="_0u6e4ESOEdudz8HXhU7k_Q" fromState="_05qWUESOEdudz8HXhU7k_Q">
+      <event xmi:id="_TxFWcESPEdudz8HXhU7k_Q" name="ReceiveOpenDoor"/>
+    </transition>
+  </containsStateMachine>
+  <hasClass xmi:id="_VQPeUEPaEduLbeMAFHb3xA" name="ElevatorController" stateMachine="_WeKqAEPaEduLbeMAFHb3xA"/>
+  <hasClass xmi:id="_wRG20ESOEdudz8HXhU7k_Q" name="Elevator" stateMachine="_wjBtQESOEdudz8HXhU7k_Q"/>
+</null:Dummy>

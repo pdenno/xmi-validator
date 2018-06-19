@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:StandardProfileL3="http://schema.omg.org/spec/UML/2.3/StandardProfileL3.xmi" xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile" xmlns:StandardProfileL2="http://schema.omg.org/spec/UML/2.3/StandardProfileL2.xmi" xmi:version="2.1">
+   <xmi:Documentation exporter="MagicDraw UML" exporterVersion="17.0"/>
+   <uml:Model xmi:id="eee_1045467100313_135436_1" name="Data" visibility="public" viewpoint="">
+      <packagedElement xmi:type="uml:Package" xmi:id="_17_0_1_2b2015d_1306394226031_527875_11953" name="OASIS" visibility="public">
+         <packagedElement xmi:type="uml:Package" xmi:id="_17_0_1_2b2015d_1304597998508_238918_11541" name="Templates" visibility="public">
+            <packagedElement xmi:type="uml:Package" xmi:id="_17_0_1_2b2015d_1304600133229_296407_11313" name="Organization" visibility="public">
+               <packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_2b2015d_1304601806934_707963_14198" name="Organization" visibility="public" isLeaf="false" isAbstract="false" isFinalSpecialization="false" isActive="false">
+                  <ownedRule xmi:type="uml:Constraint" xmi:id="_17_0_1_2b2015d_1304602389209_892028_14492" name="UniqueOrganization" visibility="public">
+                     <constrainedElement xmi:idref="_17_0_1_2b2015d_1304601806934_707963_14198"/>
+                     <specification xmi:type="uml:OpaqueExpression" xmi:id="_17_0_1_2b2015d_1304602389209_504906_14493" name="" visibility="public">
+                        <body>Organization::allInstance()-&gt;isUnique(Sequence{id,idClass})</body>
+                        <language>OCL2.0</language>
+                     </specification>
+                  </ownedRule>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_2b2015d_1304601911595_914819_14231" name="id" visibility="public" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite">
+                     <type xmi:type="uml:DataType" href="subset.xmi#STRING"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_2b2015d_1304601893842_893103_14227" name="idClass" visibility="public" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="none">
+                     <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Classifier"/>
+                     <defaultValue xmi:type="uml:InstanceValue" xmi:id="_17_0_1_2b2015d_1308302636353_561645_11636" name="" visibility="public" instance="_17_0_1_2b2015d_1308301738211_322632_10974"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_2b2015d_1307974150074_175388_10951" name="classifications" visibility="public" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="none">
+                     <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Classifier"/>
+                     <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_2b2015d_1307974171875_63145_10966" name="" visibility="public" value="*"/>
+                     <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_2b2015d_1307974171874_220204_10965" name="" visibility="public" value="0"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Port" xmi:id="_17_0_1_2b2015d_1304603286037_82419_14901" name="org" visibility="public" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite" isBehavior="false" isService="true" isConjugated="false">
+                     <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Organization"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_2b2015d_1307974250509_354911_10997" name="descriptions" visibility="public" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite">
+                     <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Description"/>
+                     <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_2b2015d_1307974270448_357265_11013" name="" visibility="public" value="*"/>
+                     <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_2b2015d_1307974270448_772944_11012" name="" visibility="public" value="0"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_2b2015d_1304604210134_303975_14997" name="organization" visibility="private" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite">
+                     <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Organization"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_2b2015d_1304604222131_182276_15015" name="identification" visibility="private" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite">
+                     <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Identification"/>
+                  </ownedAttribute>
+                  <ownedConnector xmi:type="uml:Connector" xmi:id="_17_0_1_2b2015d_1304604435227_680422_15109" name="" visibility="public" isLeaf="false" isStatic="false">
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_2b2015d_1304604435227_976190_15110" isOrdered="false" isUnique="true" role="_17_0_1_2b2015d_1304601911595_914819_14231"/>
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_2b2015d_1304604435227_429394_15111" isOrdered="false" isUnique="true">
+                        <role xmi:type="uml:Property" href="subset.xmi#_2_attr_Ap239Ap233Psm-Identification-identifier"/>
+                     </end>
+                  </ownedConnector>
+                  <ownedConnector xmi:type="uml:Connector" xmi:id="_17_0_1_2b2015d_1304604503664_983800_15143" name="" visibility="public" isLeaf="false" isStatic="false">
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_2b2015d_1304604503664_705286_15144" isOrdered="false" isUnique="true" role="_17_0_1_2b2015d_1304604210134_303975_14997"/>
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_2b2015d_1304604503664_698135_15145" isOrdered="false" isUnique="true" role="_17_0_1_2b2015d_1304603286037_82419_14901"/>
+                  </ownedConnector>
+                  <ownedConnector xmi:type="uml:Connector" xmi:id="_17_0_1_28b0143_1322063935666_394154_11171" name="" visibility="public" isLeaf="false" isStatic="false">
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_28b0143_1322063935666_725353_11172" isOrdered="false" isUnique="true" role="_17_0_1_2b2015d_1307974150074_175388_10951"/>
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_28b0143_1322063935666_938291_11173" isOrdered="false" isUnique="true">
+                        <role xmi:type="uml:Property" href="subset.xmi#_2_attr_Ap239Ap233Psm-Organization-classifiedBy"/>
+                     </end>
+                  </ownedConnector>
+                  <ownedConnector xmi:type="uml:Connector" xmi:id="_17_0_1_28b0143_1322063939641_574019_11195" name="" visibility="public" isLeaf="false" isStatic="false">
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_28b0143_1322063939641_746648_11196" isOrdered="false" isUnique="true" role="_17_0_1_2b2015d_1307974250509_354911_10997"/>
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_28b0143_1322063939642_309304_11197" isOrdered="false" isUnique="true">
+                        <role xmi:type="uml:Property" href="subset.xmi#_2_attr_Ap239Ap233Psm-Organization-descriptions"/>
+                     </end>
+                  </ownedConnector>
+                  <ownedConnector xmi:type="uml:Connector" xmi:id="_17_0_1_28b0143_1322063943818_959372_11219" name="" visibility="public" isLeaf="false" isStatic="false">
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_28b0143_1322063943818_70791_11220" isOrdered="false" isUnique="true">
+                        <role xmi:type="uml:Property" href="subset.xmi#_2_attr_Ap239Ap233Psm-Organization-identifications"/>
+                     </end>
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_28b0143_1322063943819_439117_11221" isOrdered="false" isUnique="true" role="_17_0_1_2b2015d_1304604222131_182276_15015"/>
+                  </ownedConnector>
+                  <ownedConnector xmi:type="uml:Connector" xmi:id="_17_0_1_28b0143_1322063947073_707246_11239" name="" visibility="public" isLeaf="false" isStatic="false">
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_28b0143_1322063947073_943763_11240" isOrdered="false" isUnique="true">
+                        <role xmi:type="uml:Property" href="subset.xmi#_2_attr_Ap239Ap233Psm-Identification-classifiedAs"/>
+                     </end>
+                     <end xmi:type="uml:ConnectorEnd" xmi:id="_17_0_1_28b0143_1322063947073_610683_11241" isOrdered="false" isUnique="true" role="_17_0_1_2b2015d_1304601893842_893103_14227"/>
+                  </ownedConnector>
+               </packagedElement>
+               <packagedElement xmi:type="uml:Package" xmi:id="_17_0_1_2b2015d_1308750916443_609915_11348" name="Constraints" visibility="public">
+                  <packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_2b2015d_1307974385091_829654_11074" name="CombineClasses" visibility="public" isLeaf="false" isAbstract="false" isFinalSpecialization="false" isActive="false">
+                     <ownedRule xmi:type="uml:Constraint" xmi:id="_17_0_1_2b2015d_1307974555646_3951_11135" name="combine" visibility="public">
+                        <constrainedElement xmi:idref="_17_0_1_2b2015d_1307974385091_829654_11074"/>
+                        <specification xmi:type="uml:OpaqueExpression" xmi:id="_17_0_1_2b2015d_1307974555647_58195_11136" name="" visibility="public">
+                           <body> combined=classes1-&gt;union(classes2, classes3, classes4)</body>
+                           <language>OCL2.0</language>
+                        </specification>
+                     </ownedRule>
+                     <ownedAttribute xmi:type="uml:Port" xmi:id="_17_0_1_2b2015d_1307974405724_143552_11098" name="classes1" visibility="private" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite" isBehavior="false" isService="true" isConjugated="false">
+                        <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Classifier"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_2b2015d_1307974424196_17787_11102" name="" visibility="public" value="*"/>
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_2b2015d_1307974424196_796561_11101" name="" visibility="public" value="0"/>
+                     </ownedAttribute>
+                     <ownedAttribute xmi:type="uml:Port" xmi:id="_17_0_1_2b2015d_1307974435429_277124_11103" name="classes2" visibility="private" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite" isBehavior="false" isService="true" isConjugated="false">
+                        <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Classifier"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_2b2015d_1307974435432_381235_11104" name="" visibility="public" value="*"/>
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_2b2015d_1307974435432_666803_11105" name="" visibility="public" value="0"/>
+                     </ownedAttribute>
+                     <ownedAttribute xmi:type="uml:Port" xmi:id="_17_0_1_2b2015d_1307974444886_624149_11108" name="classes3" visibility="private" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite" isBehavior="false" isService="true" isConjugated="false">
+                        <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Classifier"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_2b2015d_1307974444888_211096_11109" name="" visibility="public" value="*"/>
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_2b2015d_1307974444888_112681_11110" name="" visibility="public" value="0"/>
+                     </ownedAttribute>
+                     <ownedAttribute xmi:type="uml:Port" xmi:id="_17_0_1_2b2015d_1307974457994_484706_11113" name="classes4" visibility="private" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite" isBehavior="false" isService="true" isConjugated="false">
+                        <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Classifier"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_2b2015d_1307974457996_42377_11114" name="" visibility="public" value="*"/>
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_2b2015d_1307974457996_993519_11115" name="" visibility="public" value="0"/>
+                     </ownedAttribute>
+                     <ownedAttribute xmi:type="uml:Port" xmi:id="_17_0_1_2b2015d_1307974506739_329128_11118" name="combined" visibility="public" isLeaf="false" isStatic="false" isOrdered="false" isUnique="true" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="composite" isBehavior="false" isService="true" isConjugated="false">
+                        <type xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-Classifier"/>
+                        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_2b2015d_1307974506741_342266_11119" name="" visibility="public" value="*"/>
+                        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_2b2015d_1307974506741_265179_11120" name="" visibility="public" value="0"/>
+                     </ownedAttribute>
+                  </packagedElement>
+               </packagedElement>
+               <packagedElement xmi:type="uml:Package" xmi:id="_17_0_1_2b2015d_1308750937160_786072_11367" name="Instances" visibility="public">
+                  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_17_0_1_2b2015d_1308301738211_322632_10974" name="classCAGECode" visibility="public">
+                     <classifier xmi:type="uml:Class" href="subset.xmi#_Ap239Ap233Psm-ExternalOwlClass"/>
+                     <slot xmi:type="uml:Slot" xmi:id="_17_0_1_2b2015d_1308302170689_146085_10998">
+                        <definingFeature xmi:type="uml:Property" href="subset.xmi#_2_attr_Ap239Ap233Psm-ExternalOwlClass-class"/>
+                        <value xmi:type="uml:LiteralString" xmi:id="_17_0_1_2b2015d_1308302170744_263557_10999" name="" visibility="public" value="http://docs.oasis-open.org/plcs/plcs-psm-std-rdl#CAGE_code"/>
+                     </slot>
+                  </packagedElement>
+               </packagedElement>
+            </packagedElement>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Profile" href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+      <packagedElement xmi:type="uml:Package" href="UML_Standard_Profile.xml#magicdraw_uml_standard_profile_v_0001"/>
+      <packagedElement xmi:type="uml:Package" href="MD_customization_for_SysML.mdzip#_12_0EAPbeta_be00301_1156851270584_552173_1"/>
+      <packagedElement xmi:type="uml:Package" href="MD_customization_for_SysML.mdzip#_16_8beta_2104050f_1262918510515_114803_6875"/>
+      <packagedElement xmi:type="uml:Profile" href="Matrix_Templates_Profile.xml#_10_5_8f90291_1141412747796_552778_939"/>
+      <packagedElement xmi:type="uml:Package" href="subset.xmi#_0_SysMLfromEXPRESS"/>
+   </uml:Model>
+   <sysml:NestedConnectorEnd xmi:id="_17_0_1_2b2015d_1304604435242_54300_15115" base_ConnectorEnd="_17_0_1_2b2015d_1304604435227_429394_15111" propertyPath="_17_0_1_2b2015d_1304604222131_182276_15015"/>
+   <sysml:NestedConnectorEnd xmi:id="_17_0_1_28b0143_1322063935670_205790_11177" base_ConnectorEnd="_17_0_1_28b0143_1322063935666_938291_11173" propertyPath="_17_0_1_2b2015d_1304604210134_303975_14997"/>
+   <sysml:BindingConnector xmi:id="_17_0_1_28b0143_1322063935666_137964_11174" base_Connector="_17_0_1_28b0143_1322063935666_394154_11171"/>
+   <sysml:NestedConnectorEnd xmi:id="_17_0_1_28b0143_1322063939646_931692_11201" base_ConnectorEnd="_17_0_1_28b0143_1322063939642_309304_11197" propertyPath="_17_0_1_2b2015d_1304604210134_303975_14997"/>
+   <sysml:BindingConnector xmi:id="_17_0_1_28b0143_1322063947073_180531_11242" base_Connector="_17_0_1_28b0143_1322063947073_707246_11239"/>
+   <sysml:BindingConnector xmi:id="_17_0_1_2b2015d_1304604503664_517353_15146" base_Connector="_17_0_1_2b2015d_1304604503664_983800_15143"/>
+   <sysml:BindingConnector xmi:id="_17_0_1_28b0143_1322063943819_41317_11222" base_Connector="_17_0_1_28b0143_1322063943818_959372_11219"/>
+   <sysml:FlowPort xmi:id="_17_0_1_2b2015d_1304603286037_383323_14902" base_Port="_17_0_1_2b2015d_1304603286037_82419_14901" direction="out" isAtomic="true"/>
+   <sysml:ConstraintBlock xmi:id="_17_0_1_2b2015d_1307974385092_910642_11075" base_Class="_17_0_1_2b2015d_1307974385091_829654_11074"/>
+   <sysml:Block xmi:id="_17_0_1_2b2015d_1304601806934_808039_14199" base_Class="_17_0_1_2b2015d_1304601806934_707963_14198"/>
+   <sysml:NestedConnectorEnd xmi:id="_17_0_1_28b0143_1322063943823_586801_11225" base_ConnectorEnd="_17_0_1_28b0143_1322063943818_70791_11220" propertyPath="_17_0_1_2b2015d_1304604210134_303975_14997"/>
+   <sysml:NestedConnectorEnd xmi:id="_17_0_1_28b0143_1322063947077_122287_11245" base_ConnectorEnd="_17_0_1_28b0143_1322063947073_943763_11240" propertyPath="_17_0_1_2b2015d_1304604222131_182276_15015"/>
+   <sysml:BindingConnector xmi:id="_17_0_1_2b2015d_1304604435227_718809_15112" base_Connector="_17_0_1_2b2015d_1304604435227_680422_15109"/>
+   <sysml:BindingConnector xmi:id="_17_0_1_28b0143_1322063939642_708855_11198" base_Connector="_17_0_1_28b0143_1322063939641_574019_11195"/>
+</xmi:XMI>

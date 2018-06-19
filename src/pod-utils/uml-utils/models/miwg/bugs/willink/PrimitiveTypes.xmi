@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Package xmi:type="uml:Package" xmi:id="PrimitiveTypes" name="PrimitiveTypes" URI="http://www.omg.org/spec/QVT/20140401/PrimitiveTypes">
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="Boolean" name="Boolean"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="Integer" name="Integer"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="Real" name="Real"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="String" name="String"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="UnlimitedNatural" name="UnlimitedNatural"/>
+  </uml:Package>
+  <mofext:Tag xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" value="primitivetypes" element="PrimitiveTypes"/>
+</xmi:XMI>

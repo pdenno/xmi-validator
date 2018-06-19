@@ -1,0 +1,18 @@
+
+SCHEMA small;
+
+ENTITY Product_view_definition; END_ENTITY;
+
+
+ENTITY thing;
+  product_view_definition : Product_view_definition; 
+END_ENTITY;
+
+
+RULE document_definition_constraint FOR 
+(Product_view_definition);
+WHERE
+  WR1:  QUERY ( dd <* Product_view_definition | TRUE );
+END_RULE; 
+
+END_SCHEMA;

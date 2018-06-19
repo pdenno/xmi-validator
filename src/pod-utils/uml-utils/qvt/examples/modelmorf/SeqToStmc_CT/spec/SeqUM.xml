@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="SeqMM_CT" xmi:id="_4AJoYEPZEduLbeMAFHb3xA">
+  <hasClass xmi:id="_5znxIEPZEduLbeMAFHb3xA" name="ElevatorController">
+    <object xmi:id="_-YGB4EPZEduLbeMAFHb3xA" name="ElevatorController" lifeline="_B1pG0EPaEduLbeMAFHb3xA"/>
+  </hasClass>
+  <hasClass xmi:id="_6EKHgEPZEduLbeMAFHb3xA" name="Elevator">
+    <object xmi:id="_-nJKgEPZEduLbeMAFHb3xA" name="Elevator" lifeline="_CKWykEPaEduLbeMAFHb3xA"/>
+  </hasClass>
+  <hasInteraction xmi:id="_BDR1wEPaEduLbeMAFHb3xA" name="Elevator">
+    <lifeline xmi:id="_B1pG0EPaEduLbeMAFHb3xA" name="ElevatorController" object="_-YGB4EPZEduLbeMAFHb3xA">
+      <event xmi:id="_Ef8J4EPaEduLbeMAFHb3xA" name="SendOpenDoor"/>
+      <event xmi:id="_Ew7MMEPaEduLbeMAFHb3xA" name="SendCloseDoor"/>
+      <event xmi:id="_E9b-MEPaEduLbeMAFHb3xA" name="SendLockDoor"/>
+    </lifeline>
+    <lifeline xmi:id="_CKWykEPaEduLbeMAFHb3xA" name="Elevator" object="_-nJKgEPZEduLbeMAFHb3xA">
+      <event xmi:id="_FLclAEPaEduLbeMAFHb3xA" name="ReceiveOpenDoor" type="Receive"/>
+      <event xmi:id="_FX0NEEPaEduLbeMAFHb3xA" name="ReceiveCloseDoor" type="Receive"/>
+      <event xmi:id="_FkCEIEPaEduLbeMAFHb3xA" name="ReceiveLockDoor" type="Receive"/>
+    </lifeline>
+  </hasInteraction>
+</null:Dummy>

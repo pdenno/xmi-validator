@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="deMorgansLawMM"
+    name="deMorgansLawMM" uri="deMorgansLawMM">
+  <ownedType xmi:type="emof:Class" xmi:id="deMorgansLawMM.Expr" name="Expr" isAbstract="true">
+    <ownedAttribute xmi:id="deMorgansLawMM.Expr.expr" name="expr" upper="*" type="deMorgansLawMM.Expr"
+        opposite="deMorgansLawMM.Expr.parent"/>
+    <ownedAttribute xmi:id="deMorgansLawMM.Expr.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="deMorgansLawMM.Expr.parent" name="parent" upper="*" type="deMorgansLawMM.Expr"
+        opposite="deMorgansLawMM.Expr.expr"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="deMorgansLawMM.ExprTree" name="ExprTree"
+      superClass="deMorgansLawMM.Expr"/>
+  <ownedType xmi:type="emof:Class" xmi:id="deMorgansLawMM.And" name="And" superClass="deMorgansLawMM.Expr"/>
+  <ownedType xmi:type="emof:Class" xmi:id="deMorgansLawMM.Or" name="Or" superClass="deMorgansLawMM.Expr"/>
+  <ownedType xmi:type="emof:Class" xmi:id="deMorgansLawMM.Not" name="Not" superClass="deMorgansLawMM.Expr"/>
+  <ownedType xmi:type="emof:Class" xmi:id="deMorgansLawMM.Literal" name="Literal"
+      superClass="deMorgansLawMM.Expr"/>
+  <ownedType xmi:type="emof:Class" xmi:id="deMorgansLawMM.dummy" name="dummy">
+    <ownedAttribute xmi:id="deMorgansLawMM.dummy.hasExpr" name="hasExpr" upper="*"
+        type="deMorgansLawMM.Expr" isComposite="true"/>
+  </ownedType>
+</emof:Package>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:StandardProfileL2="http://schema.omg.org/spec/UML/2.3/StandardProfileL2.xmi" xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile">
+<uml:Model name="Data" xmi:id="_0_Data">
+<packagedElement xmi:type="uml:Package" xmi:id="_0_SysMLfromEXPRESS" name="SysMLfromEXPRESS">
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="BINARY" name="Binary" />
+<packagedElement xmi:type = "uml:Enumeration" xmi:id = "LOGICAL" name = "Logical">
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="TRUE" name="True" classifier="LOGICAL">
+<specification xmi:type="uml:LiteralInteger" xmi:id="TRUE_specification"/>
+</ownedLiteral>
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="FALSE" name="False" classifier="LOGICAL">
+<specification xmi:type="uml:LiteralInteger" xmi:id="FALSE_specification"/>
+</ownedLiteral>
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="UNKNOWN" name="Unknown" classifier="LOGICAL">
+<specification xmi:type="uml:LiteralInteger" xmi:id="UNKNOWN_specification"/>
+</ownedLiteral>
+</packagedElement>
+<packagedElement xmi:type = "uml:Package" xmi:id = "_1_Test" name = "Test">
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Test-x-ys" name="">
+<memberEnd xmi:idref="_2_attr_Test-x-ys"/>
+<memberEnd xmi:idref="_1_association_Test-x-ys-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Test-x-ys-end" type="_Test-x" association="_1_association_Test-x-ys">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Test-x-ys-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Test-x-ys-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Test-Y-ys" name="">
+<memberEnd xmi:idref="_2_attr_Test-Y-ys"/>
+<memberEnd xmi:idref="_1_association_Test-Y-ys-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Test-Y-ys-end" type="_Test-Y" association="_1_association_Test-Y-ys">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Test-Y-ys-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Test-Y-ys-upperValue" value="*"/>
+</ownedEnd>
+<generalization xmi:type="uml:Generalization" xmi:id="_2_general_Test-Y-ys" general="_1_association_Test-x-ys"/>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Test-x" name = "x" >
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Test-x-ys" name="ys"   type="_Test-Y"  association="_1_association_Test-x-ys">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Test-x-ys-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Test-x-ys-upperValue" value="5"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Test-x-s" name="s" 
+  >
+<type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#String" />	
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Test-x-s-lowerValue"/></ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Test-Y" name = "Y" >
+<generalization xmi:type="uml:Generalization" xmi:id="_2_supertype_Test-Y-x" general="_Test-x"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Test-Y-ys" name="ys"   type="_Test-Y"  association="_1_association_Test-Y-ys" redefinedProperty="_2_attr_Test-x-ys">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Test-Y-ys-lowerValue"  value="2"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Test-Y-ys-upperValue" value="2"/></ownedAttribute>
+</packagedElement>
+</packagedElement>
+<profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication0">
+<appliedProfile xmi:type="uml:Profile" href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0" />
+</profileApplication>
+</packagedElement>
+</uml:Model>
+<sysml:Block base_Class = "_Test-x" xmi:id = "_Test-x-Block"/>
+<sysml:Block base_Class = "_Test-Y" xmi:id = "_Test-Y-Block"/>
+<sysml:ValueType base_DataType = "LOGICAL" xmi:id = "LOGICAL_VT"/>
+<sysml:ValueType base_DataType = "BINARY" xmi:id = "BINARY_VT"/>
+</xmi:XMI>

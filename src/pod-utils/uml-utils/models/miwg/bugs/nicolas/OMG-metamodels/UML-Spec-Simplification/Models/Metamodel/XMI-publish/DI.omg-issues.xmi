@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:OMGIssuesProfile="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+	<uml:Package xmi:type="uml:Package" xmi:id="_0" name="DI" URI="http://www.omg.org/spec/DD/20131001/DI">
+		<packageMerge xmi:type="uml:PackageMerge" xmi:id="_0-packageMerge">
+			<mergedPackage xmi:type="uml:Package" href="http://www.omg.org/spec/DD/20131001/DI.xmi#_0"/>
+		</packageMerge>
+		<profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication.0">
+			<appliedProfile href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#_0"/>
+		</profileApplication>
+	</uml:Package>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_1">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Diagram-name"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_1-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::String" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_2">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Diagram-documentation"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_2-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::String" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_3">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Diagram-resolution"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_3-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Real" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_4">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DI.xmi#_0"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_4-_issueDetail.0" number="16907" text="Since DI uses UML::CommonStructure::Element instead of CMOF::Element, DI imports UML instead of CMOF" url="http://www.omg.org/issues/issue16907.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_5">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-modelElement"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_5-_issueDetail.0" number="16907" text="Use UML::CommonStructure::Element instead of CMOF::Element" url="http://www.omg.org/issues/issue16907.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+</xmi:XMI>

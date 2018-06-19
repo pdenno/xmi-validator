@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version = "2.1" xmlns:xmi = "http://schema.omg.org/spec/XMI/2.1" xmlns:uml = "http://schema.omg.org/spec/UML/2.1.1" xmlns:StandardProfileL2 = "http://schema.omg.org/spec/UML/2.1.1/StandardProfileL2.xmi" >
+  <documentation xmi:type = "xmi:Documentation">
+    <exporter>Artisan Studio</exporter>
+    <exporterVersion>7.2.9</exporterVersion>
+  </documentation>
+  <uml:Model name = "TestCase2" xmi:id = "_3eea2159-a291-4715-9ab9-2f819deef7b0">
+      <packagedElement xmi:type = "uml:Package" xmi:id = "_1c0fc8f3-390a-4562-a261-f8599f13348c" name = "Package2" visibility = "public">
+        <packagedElement xmi:type = "uml:PrimitiveType" xmi:id = "_2938919a-8c5e-4386-901f-9302f4941f65" name = "PrimitiveType1" visibility = "public">
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_33bacdbf-444e-4a28-8391-0847ecc52258" name = "AssociationClass1">
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_a1c7ea63-0ce8-4cd0-abb2-e59d125b22c5" name = "attribute1" type = "_2938919a-8c5e-4386-901f-9302f4941f65" visibility = "public" aggregation = "composite">
+            <upperValue xmi:type = "uml:LiteralUnlimitedNatural" xmi:id = "_a1c7ea63-0ce8-4cd0-abb2-e59d125b22c5upper" value = "*"/>
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_a1c7ea63-0ce8-4cd0-abb2-e59d125b22c5lower"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_e31fd5a0-a09f-4aed-bb18-eebc62f40ef4" name = "Class1">
+          <ownedOperation xmi:type = "uml:Operation" xmi:id = "_b03cac54-45c5-40b2-9095-73ea9d715ed0op" name = "operation1" visibility = "public">
+          </ownedOperation>
+          <ownedAttribute xmi:type = "uml:Property" xmi:id="_cbcdd980-f150-44ba-ad15-dcd89475c5e9" name = "end2" type = "_3b2c23f3-cc44-4ee3-92ef-aa97d16f22d8" visibility = "protected" association = "_9bf5db65-6857-4754-8e83-034df5044141">
+            <upperValue xmi:type = "uml:LiteralUnlimitedNatural" xmi:id = "_cbcdd980-f150-44ba-ad15-dcd89475c5e9upper" value = "*"/>
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_cbcdd980-f150-44ba-ad15-dcd89475c5e9lower"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_3b2c23f3-cc44-4ee3-92ef-aa97d16f22d8" name = "Class2">
+          <ownedOperation xmi:type = "uml:Operation" xmi:id = "_935330bd-27b6-4d03-9483-d0a9557ea0bdop" name = "operation2" visibility = "public">
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_3c55aceb-835c-4c68-ac31-35149cedbf6d" name = "Class4">
+          <ownedAttribute xmi:type = "uml:Property" xmi:id="_a3768944-0684-4beb-aa62-1d8808f53c12" name = "class2" type = "_3b2c23f3-cc44-4ee3-92ef-aa97d16f22d8" visibility = "private" association = "_8c1f6306-a5c7-44e7-937d-8d0c81285ecb">
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_a3768944-0684-4beb-aa62-1d8808f53c12lower"/>
+          </ownedAttribute>
+          <nestedClassifier xmi:type = "uml:Class" xmi:id = "_6fc7cec5-d603-4e0a-abd5-2c126ebb2cab" name = "NestedClass1" isAbstract = "FALSE" visibility = "private">
+          </nestedClassifier>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_dc273306-ea28-479e-a4bb-63ce0f44987c" name = "Class5">
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_7c17e0eb-0cd3-41c7-bfe9-01f6af66e18e" name = "readOnlyProperty" type = "_2938919a-8c5e-4386-901f-9302f4941f65" visibility = "private" isReadOnly = "true" aggregation = "composite">
+            <upperValue xmi:type = "uml:LiteralInteger" xmi:id = "_7c17e0eb-0cd3-41c7-bfe9-01f6af66e18eupper" value = "4"/>
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_7c17e0eb-0cd3-41c7-bfe9-01f6af66e18elower" value = "2"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_fba67724-e3a4-47b3-80d8-63b1e6ac3858" name = "redefinedProperty" visibility = "protected" aggregation = "composite">
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_fba67724-e3a4-47b3-80d8-63b1e6ac3858lower"/>
+            <type xmi:type = "uml:PrimitiveType" href = "http://schema.omg.org/spec/UML/2.1.1/uml.xml#Boolean"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_b0008cc1-c61b-4326-a551-11015d291b3b" name = "derivedProperty" visibility = "protected" aggregation = "composite">
+            <upperValue xmi:type = "uml:LiteralUnlimitedNatural" xmi:id = "_b0008cc1-c61b-4326-a551-11015d291b3bupper" value = "*"/>
+            <type xmi:type = "uml:PrimitiveType" href = "http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_7e3e4168-e079-4975-b4cb-33a0745f5a2f" name = "constrainedProperty" visibility = "public" aggregation = "composite">
+            <type xmi:type = "uml:PrimitiveType" href = "http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
+          </ownedAttribute>
+          <ownedOperation xmi:type = "uml:Operation" xmi:id = "_4057cddb-5153-4dde-b42f-3431f254259dop" name = "redefinedOperation" visibility = "public">
+          </ownedOperation>
+          <ownedOperation xmi:type = "uml:Operation" xmi:id = "_75cee773-8d27-46ec-b835-03bab54bdd5bop" name = "operation1" visibility = "protected">
+            <ownedParameter xmi:type = "uml:Parameter" xmi:id = "_75cee773-8d27-46ec-b835-03bab54bdd5breturn" direction = "return">
+              <type xmi:type = "uml:PrimitiveType" href = "http://schema.omg.org/spec/UML/2.1.1/uml.xml#Boolean">
+              </type>
+            </ownedParameter>
+            <ownedParameter xmi:type = "uml:Parameter" xmi:id = "_3289cfb9-06c0-4317-9ab4-c1fe7a19ccd5" name = "parameter1" direction = "inout" type = "_d347077b-8ed2-4750-b506-74c419e1cb25">
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type = "uml:Operation" xmi:id = "_0d89d13c-8829-409d-bd47-7c437f460fccop" name = "operation2" visibility = "private">
+            <ownedParameter xmi:type = "uml:Parameter" xmi:id = "_e01a1e77-a23d-42d6-9915-11c06a4d1eeb" name = "parameter1" defaultValue = "RED" type = "_295e0bcf-f6e2-43ca-82bb-40b0be165612">
+            </ownedParameter>
+          </ownedOperation>
+          <ownedAttribute xmi:type = "uml:Property" xmi:id="_8e936411-8ed5-4e4c-94e3-b9a095e3dab3" name = "nonUniqueEnd" type = "_dc273306-ea28-479e-a4bb-63ce0f44987c" visibility = "public" association = "_babc8a1e-ff04-4c1b-8126-8fb2f83d7c56" isUnique = "false">
+            <upperValue xmi:type = "uml:LiteralUnlimitedNatural" xmi:id = "_8e936411-8ed5-4e4c-94e3-b9a095e3dab3upper" value = "*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type = "uml:Property" xmi:id="_a10cd624-f528-45a2-b821-e13a2e6d89cc" name = "derivedEnd" type = "_dc273306-ea28-479e-a4bb-63ce0f44987c" visibility = "public" association = "_babc8a1e-ff04-4c1b-8126-8fb2f83d7c56">
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_a10cd624-f528-45a2-b821-e13a2e6d89cclower"/>
+          </ownedAttribute>
+          <ownedRule xmi:type = "uml:Constraint" xmi:id = "_7358d77e-87fa-4745-8944-aa557353fc82" name = "Constraint1" constrainedElement = "_dc273306-ea28-479e-a4bb-63ce0f44987c" visibility = "public">
+            <specification xmi:type = "uml:OpaqueExpression" xmi:id = "_7358d77e-87fa-4745-8944-aa557353fc82specification" body = "constrainedProperty &lt; 21">
+            </specification>
+          </ownedRule>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_902557db-5f42-4d01-bf24-504c2cf9d83c" name = "Class6">
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_f34f87bc-bc4c-4a06-a839-9bff6f9892f5" name = "redefiningProperty" visibility = "protected" aggregation = "composite">
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_f34f87bc-bc4c-4a06-a839-9bff6f9892f5lower"/>
+            <type xmi:type = "uml:PrimitiveType" href = "http://schema.omg.org/spec/UML/2.1.1/uml.xml#Boolean"/>
+          </ownedAttribute>
+          <generalization xmi:type = "uml:Generalization" xmi:id = "_7e35b841-e4df-4716-9c33-1827e9da8420" general = "_dc273306-ea28-479e-a4bb-63ce0f44987c">
+          </generalization>
+          <ownedOperation xmi:type = "uml:Operation" xmi:id = "_5447de30-65fb-4830-a34d-793950154a25op" name = "redefiningOperation" visibility = "public">
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_10d1fcee-b4cd-401f-9473-f21c46adc016" name = "Class7">
+          <generalization xmi:type = "uml:Generalization" xmi:id = "_3d70935c-d4c9-496e-83dd-0b6929b64089" general = "_dc273306-ea28-479e-a4bb-63ce0f44987c">
+          </generalization>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_24a50fe0-ba88-49b6-ae6d-724cd9d688b7" name = "Class8">
+          <generalization xmi:type = "uml:Generalization" xmi:id = "_0d90136b-fe47-4480-a629-09eee5986dde" general = "_dc273306-ea28-479e-a4bb-63ce0f44987c">
+          </generalization>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:DataType" xmi:id = "_d347077b-8ed2-4750-b506-74c419e1cb25" name = "DataType1">
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_de29fdae-7ac9-4cc1-9329-e252eaee5367" name = "attribute1" visibility = "public" aggregation = "composite">
+            <upperValue xmi:type = "uml:LiteralUnlimitedNatural" xmi:id = "_de29fdae-7ac9-4cc1-9329-e252eaee5367upper" value = "*"/>
+            <type xmi:type = "uml:PrimitiveType" href = "http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_4a669206-53cc-4af4-aaec-87c03787e02f" name = "attribute2" visibility = "private" aggregation = "composite">
+            <upperValue xmi:type = "uml:LiteralUnlimitedNatural" xmi:id = "_4a669206-53cc-4af4-aaec-87c03787e02fupper" value = "*"/>
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_4a669206-53cc-4af4-aaec-87c03787e02flower"/>
+            <type xmi:type = "uml:PrimitiveType" href = "http://schema.omg.org/spec/UML/2.1.1/uml.xml#Integer"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:AssociationClass" xmi:id = "_9bf5db65-6857-4754-8e83-034df5044141" name = "AssociationClass1" isAbstract = "FALSE" visibility = "public" memberEnd = "_aba52bac-7d2e-4f28-a3c2-e0d87488461a _cbcdd980-f150-44ba-ad15-dcd89475c5e9">
+          <ownedAttribute xmi:type = "uml:Property" xmi:id = "_a1c7ea63-0ce8-4cd0-abb2-e59d125b22c5" name = "attribute1" type = "_2938919a-8c5e-4386-901f-9302f4941f65" visibility = "public" aggregation = "composite">
+            <upperValue xmi:type = "uml:LiteralUnlimitedNatural" xmi:id = "_a1c7ea63-0ce8-4cd0-abb2-e59d125b22c5upper" value = "*"/>
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_a1c7ea63-0ce8-4cd0-abb2-e59d125b22c5lower"/>
+          </ownedAttribute>
+          <ownedEnd xmi:type = "uml:Property" xmi:id = "_aba52bac-7d2e-4f28-a3c2-e0d87488461a" name = "end1" type = "_e31fd5a0-a09f-4aed-bb18-eebc62f40ef4" visibility = "private" association = "_9bf5db65-6857-4754-8e83-034df5044141">
+            <upperValue xmi:type = "uml:LiteralInteger" xmi:id = "_aba52bac-7d2e-4f28-a3c2-e0d87488461aupper" value = "2"/>
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_aba52bac-7d2e-4f28-a3c2-e0d87488461alower" value = "2"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Interface" xmi:id = "_677c6956-d509-47ba-aa7e-741eadd69af3" name = "Interface1" isAbstract = "TRUE" visibility = "public">
+          <ownedOperation xmi:type = "uml:Operation" xmi:id = "_5fb630e6-6ff5-4147-8478-b2b85e5695ceop" name = "operation1" isAbstract = "true" visibility = "public">
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Package" xmi:id = "_10d1e18a-27c8-4f74-8918-5cc186470151" name = "MergedPackage" visibility = "public">
+          <packagedElement xmi:type = "uml:Class" xmi:id = "_cbfc4c5f-3100-42e6-8583-016f3d9525ea" name = "ClassA">
+          </packagedElement>
+          <packagedElement xmi:type = "uml:Class" xmi:id = "_fde05f44-c8dc-4d71-929e-b8f502abe840" name = "ClassB">
+            <generalization xmi:type = "uml:Generalization" xmi:id = "_706de5c7-d6de-4e55-a39b-80d9004ad38e" general = "_cbfc4c5f-3100-42e6-8583-016f3d9525ea">
+            </generalization>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Package" xmi:id = "_a9e7ac59-dd0b-4ed9-b521-0dee62242184" name = "ReceivingPackage" visibility = "private">
+          <packagedElement xmi:type = "uml:Class" xmi:id = "_80a269f8-a8dc-4d25-b11c-0fd64292d705" name = "ClassA">
+          </packagedElement>
+          <packagedElement xmi:type = "uml:Dependency" xmi:id = "_b89498b5-0788-40f0-83ad-622f8a265e43" name = "Dependency" client = "_a9e7ac59-dd0b-4ed9-b521-0dee62242184" supplier = "_10d1e18a-27c8-4f74-8918-5cc186470151">
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Enumeration" xmi:id = "_295e0bcf-f6e2-43ca-82bb-40b0be165612" name = "Enumeration1" visibility = "public">
+          <ownedLiteral xmi:id = "_ceb0ff48-1eb4-465d-806d-12ced15cfa6c" name = "RED">
+          </ownedLiteral>
+          <ownedLiteral xmi:id = "_768c3a13-a002-4ce9-9cc0-7ebf48390f71" name = "BLUE">
+          </ownedLiteral>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Association" xmi:id = "_babc8a1e-ff04-4c1b-8126-8fb2f83d7c56" name = "Associates" memberEnd = "_a10cd624-f528-45a2-b821-e13a2e6d89cc _8e936411-8ed5-4e4c-94e3-b9a095e3dab3">
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Association" xmi:id = "_8c1f6306-a5c7-44e7-937d-8d0c81285ecb" name = "Associates" memberEnd = "_841bd417-97b0-4e31-a3f4-b3bae0aa6d04 _a3768944-0684-4beb-aa62-1d8808f53c12">
+          <ownedEnd xmi:type = "uml:Property" xmi:id = "_841bd417-97b0-4e31-a3f4-b3bae0aa6d04" name = "class4" type = "_3c55aceb-835c-4c68-ac31-35149cedbf6d" visibility = "private" association = "_8c1f6306-a5c7-44e7-937d-8d0c81285ecb">
+            <lowerValue xmi:type = "uml:LiteralInteger" xmi:id = "_841bd417-97b0-4e31-a3f4-b3bae0aa6d04lower"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Dependency" xmi:id = "_75c12a38-8b43-4b6a-9303-6f437344f052" name = "Dependency" client = "_6fc7cec5-d603-4e0a-abd5-2c126ebb2cab" supplier = "_e31fd5a0-a09f-4aed-bb18-eebc62f40ef4">
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Usage" xmi:id = "_387d53dd-9978-4289-a5d7-d4ceb0214310" name = "Dependency" client = "_3b2c23f3-cc44-4ee3-92ef-aa97d16f22d8" supplier = "_677c6956-d509-47ba-aa7e-741eadd69af3">
+        </packagedElement>
+        <packagedElement xmi:type = "uml:InterfaceRealization" xmi:id = "_e823822e-cb10-4850-885e-495d87c9b2e1" name = "Dependency" supplier = "_677c6956-d509-47ba-aa7e-741eadd69af3" client = "_e31fd5a0-a09f-4aed-bb18-eebc62f40ef4" contract = "_677c6956-d509-47ba-aa7e-741eadd69af3" implementingClassifier = "_e31fd5a0-a09f-4aed-bb18-eebc62f40ef4">
+        </packagedElement>
+      </packagedElement>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication0">
+  <appliedProfile  xmi:type="uml:Profile" href="http://schema.omg.org/spec/UML/2.1.1/StandardProfileL2.xmi#_0"/>
+</profileApplication>
+  </uml:Model>
+</xmi:XMI>

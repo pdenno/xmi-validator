@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Package xmi:type="uml:Package" xmi:id="ImperativeOCL" name="ImperativeOCL" URI="http://www.omg.org/spec/QVT/20140401/ImperativeOCL">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="SeverityKind" name="SeverityKind">
+      <ownedLiteral xmi:id="error" name="error"/>
+      <ownedLiteral xmi:id="warning" name="warning"/>
+      <ownedLiteral xmi:id="fatal" name="fatal"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AltExp" name="AltExp">
+      <generalization xmi:id="G_AltExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="AltExp.body" name="body" aggregation="composite" association="A_AltExp.body_altBodyOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="AltExp.condition" name="condition" aggregation="composite" association="A_AltExp.condition_altCondOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AssertExp" name="AssertExp">
+      <generalization xmi:id="G_AssertExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="AssertExp.assertion" name="assertion" aggregation="composite" association="A_AssertExp.assertion_assertOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="AssertExp.log" name="log" type="LogExp" aggregation="composite" association="A_AssertExp.log_assertExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="AssertExp.severity" name="severity" visibility="public" type="SeverityKind">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:type="uml:InstanceValue" type="SeverityKind" instance="error"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AssignExp" name="AssignExp">
+      <generalization xmi:id="G_AssignExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="AssignExp.defaultValue" name="defaultValue" aggregation="composite" association="A_AssignExp.defaultValue_defaultOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="AssignExp.isReset" name="isReset" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="AssignExp.left" name="left" aggregation="composite" association="A_AssignExp.left_leftOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="AssignExp.value" name="value" isOrdered="true" aggregation="composite" association="A_AssignExp.value_valueOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="BlockExp" name="BlockExp">
+      <generalization xmi:id="G_BlockExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="BlockExp.body" name="body" isOrdered="true" aggregation="composite" association="A_BlockExp.body_blockOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="BreakExp" name="BreakExp">
+      <generalization xmi:id="G_BreakExp_ImperativeExpression" general="ImperativeExpression"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CatchExp" name="CatchExp">
+      <generalization xmi:id="G_CatchExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="CatchExp.body" name="body" isOrdered="true" aggregation="composite" association="A_CatchExp.body_catchExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="CatchExp.exception" name="exception" isOrdered="true" association="A_CatchExp.exception_catchExp">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Type"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="CatchExp.exceptionVariable" name="exceptionVariable" aggregation="composite" association="A_CatchExp.exceptionVariable_catchExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ComputeExp" name="ComputeExp">
+      <generalization xmi:id="G_ComputeExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="ComputeExp.body" name="body" aggregation="composite" association="A_ComputeExp.body_computeOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ComputeExp.returnedElement" name="returnedElement" aggregation="composite" association="A_ComputeExp.returnedElement_computeOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ContinueExp" name="ContinueExp">
+      <generalization xmi:id="G_ContinueExp_ImperativeExpression" general="ImperativeExpression"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="DictLiteralExp" name="DictLiteralExp">
+      <generalization xmi:id="G_DictLiteralExp_LiteralExp">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#LiteralExp"/>
+      </generalization>
+      <ownedAttribute xmi:id="DictLiteralExp.part" name="part" type="DictLiteralPart" aggregation="composite" association="A_DictLiteralExp.part_DictLiteralPart.partOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="DictLiteralPart" name="DictLiteralPart">
+      <generalization xmi:id="G_DictLiteralPart_Element">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Element"/>
+      </generalization>
+      <ownedAttribute xmi:id="DictLiteralPart.key" name="key" aggregation="composite" association="A_DictLiteralPart.key_keyOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="DictLiteralPart.partOwner" name="partOwner" type="DictLiteralExp" association="A_DictLiteralExp.part_DictLiteralPart.partOwner"/>
+      <ownedAttribute xmi:id="DictLiteralPart.value" name="value" aggregation="composite" association="A_DictLiteralPart.value_valOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="DictionaryType" name="DictionaryType">
+      <generalization xmi:id="G_DictionaryType_CollectionType">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#CollectionType"/>
+      </generalization>
+      <ownedAttribute xmi:id="DictionaryType.keyType" name="keyType" association="A_DictionaryType.keyType_keyDict">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Type"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ForExp" name="ForExp">
+      <generalization xmi:id="G_ForExp_ImperativeLoopExp" general="ImperativeLoopExp"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ImperativeExpression" name="ImperativeExpression" isAbstract="true">
+      <generalization xmi:id="G_ImperativeExpression_OclExpression">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ImperativeIterateExp" name="ImperativeIterateExp">
+      <generalization xmi:id="G_ImperativeIterateExp_ImperativeLoopExp" general="ImperativeLoopExp"/>
+      <ownedAttribute xmi:id="ImperativeIterateExp.target" name="target" aggregation="composite" association="A_ImperativeIterateExp.target_tgtOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ImperativeLoopExp" name="ImperativeLoopExp" isAbstract="true">
+      <generalization xmi:id="G_ImperativeLoopExp_ImperativeExpression" general="ImperativeExpression"/>
+      <generalization xmi:id="G_ImperativeLoopExp_LoopExp">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#LoopExp"/>
+      </generalization>
+      <ownedAttribute xmi:id="ImperativeLoopExp.condition" name="condition" aggregation="composite" association="A_ImperativeLoopExp.condition_loopCondOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="InstantiationExp" name="InstantiationExp">
+      <generalization xmi:id="G_InstantiationExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="InstantiationExp.argument" name="argument" isOrdered="true" aggregation="composite" association="A_InstantiationExp.argument_argOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="InstantiationExp.extent" name="extent" association="A_InstantiationExp.extent_instantiationExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="InstantiationExp.initializationOperation" name="initializationOperation" association="A_InstantiationExp.initializationOperation_instantiationExp">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Operation"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="InstantiationExp.instantiatedClass" name="instantiatedClass" association="A_InstantiationExp.instantiatedClass_instantiationExp">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ListLiteralExp" name="ListLiteralExp">
+      <generalization xmi:id="G_ListLiteralExp_LiteralExp">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#LiteralExp"/>
+      </generalization>
+      <ownedAttribute xmi:id="ListLiteralExp.element" name="element" isOrdered="true" aggregation="composite" association="A_ListLiteralExp.element_listLiteralExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ListType" name="ListType">
+      <generalization xmi:id="G_ListType_CollectionType">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#CollectionType"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="LogExp" name="LogExp">
+      <generalization xmi:id="G_LogExp_ImperativeExpression" general="ImperativeExpression"/>
+      <generalization xmi:id="G_LogExp_OperationCallExp">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#OperationCallExp"/>
+      </generalization>
+      <ownedAttribute xmi:id="LogExp.condition" name="condition" aggregation="composite" association="A_LogExp.condition_logOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="RaiseExp" name="RaiseExp">
+      <generalization xmi:id="G_RaiseExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="RaiseExp.argument" name="argument" aggregation="composite" association="A_RaiseExp.argument_raiseExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="RaiseExp.exception" name="exception" association="A_RaiseExp.exception_raiseExpression">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Type"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ReturnExp" name="ReturnExp">
+      <generalization xmi:id="G_ReturnExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="ReturnExp.value" name="value" aggregation="composite" association="A_ReturnExp.value_returnExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="SwitchExp" name="SwitchExp">
+      <generalization xmi:id="G_SwitchExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="SwitchExp.alternativePart" name="alternativePart" type="AltExp" isOrdered="true" aggregation="composite"
+          association="A_SwitchExp.alternativePart_altOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="SwitchExp.elsePart" name="elsePart" aggregation="composite" association="A_SwitchExp.elsePart_elsePartOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="TryExp" name="TryExp">
+      <generalization xmi:id="G_TryExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="TryExp.exceptClause" name="exceptClause" type="CatchExp" isOrdered="true" aggregation="composite" association="A_TryExp.exceptClause_exceptOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TryExp.tryBody" name="tryBody" isOrdered="true" aggregation="composite" association="A_TryExp.tryBody_tryBodyOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Typedef" name="Typedef">
+      <generalization xmi:id="G_Typedef_Class">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Class"/>
+      </generalization>
+      <ownedAttribute xmi:id="Typedef.base" name="base" association="A_Typedef.base_typedef">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Type"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Typedef.condition" name="condition" aggregation="composite" association="A_Typedef.condition_typedef">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="UnlinkExp" name="UnlinkExp">
+      <generalization xmi:id="G_UnlinkExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="UnlinkExp.item" name="item" aggregation="composite" association="A_UnlinkExp.item_itemUnlink">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UnlinkExp.target" name="target" aggregation="composite" association="A_UnlinkExp.target_tgtUnlink">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="VariableInitExp" name="VariableInitExp">
+      <generalization xmi:id="G_VariableInitExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="VariableInitExp.referredVariable" name="referredVariable" aggregation="composite" association="A_VariableInitExp.referredVariable_declaration">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="VariableInitExp.withResult" name="withResult" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:type="uml:LiteralBoolean">
+          <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="WhileExp" name="WhileExp">
+      <generalization xmi:id="G_WhileExp_ImperativeExpression" general="ImperativeExpression"/>
+      <ownedAttribute xmi:id="WhileExp.body" name="body" aggregation="composite" association="A_WhileExp.body_whileOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="WhileExp.condition" name="condition" aggregation="composite" association="A_WhileExp.condition_whileExpression">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_AltExp.body_altBodyOwner" name="A_AltExp.body_altBodyOwner" memberEnd="AltExp.body A_AltExp.body_altBodyOwner.altBodyOwner">
+      <ownedEnd xmi:id="A_AltExp.body_altBodyOwner.altBodyOwner" name="altBodyOwner" type="AltExp" association="A_AltExp.body_altBodyOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_AltExp.condition_altCondOwner" name="A_AltExp.condition_altCondOwner" memberEnd="AltExp.condition A_AltExp.condition_altCondOwner.altCondOwner">
+      <ownedEnd xmi:id="A_AltExp.condition_altCondOwner.altCondOwner" name="altCondOwner" type="AltExp" association="A_AltExp.condition_altCondOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_AssertExp.assertion_assertOwner" name="A_AssertExp.assertion_assertOwner" memberEnd="AssertExp.assertion A_AssertExp.assertion_assertOwner.assertOwner">
+      <ownedEnd xmi:id="A_AssertExp.assertion_assertOwner.assertOwner" name="assertOwner" type="AssertExp" association="A_AssertExp.assertion_assertOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_AssertExp.log_assertExp" name="A_AssertExp.log_assertExp" memberEnd="AssertExp.log A_AssertExp.log_assertExp.assertExp">
+      <ownedEnd xmi:id="A_AssertExp.log_assertExp.assertExp" name="assertExp" type="AssertExp" association="A_AssertExp.log_assertExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_AssignExp.defaultValue_defaultOwner" name="A_AssignExp.defaultValue_defaultOwner"
+        memberEnd="AssignExp.defaultValue A_AssignExp.defaultValue_defaultOwner.defaultOwner">
+      <ownedEnd xmi:id="A_AssignExp.defaultValue_defaultOwner.defaultOwner" name="defaultOwner" type="AssignExp" association="A_AssignExp.defaultValue_defaultOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_AssignExp.left_leftOwner" name="A_AssignExp.left_leftOwner" memberEnd="AssignExp.left A_AssignExp.left_leftOwner.leftOwner">
+      <ownedEnd xmi:id="A_AssignExp.left_leftOwner.leftOwner" name="leftOwner" type="AssignExp" association="A_AssignExp.left_leftOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_AssignExp.value_valueOwner" name="A_AssignExp.value_valueOwner" memberEnd="AssignExp.value A_AssignExp.value_valueOwner.valueOwner">
+      <ownedEnd xmi:id="A_AssignExp.value_valueOwner.valueOwner" name="valueOwner" type="AssignExp" association="A_AssignExp.value_valueOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_BlockExp.body_blockOwner" name="A_BlockExp.body_blockOwner" memberEnd="BlockExp.body A_BlockExp.body_blockOwner.blockOwner">
+      <ownedEnd xmi:id="A_BlockExp.body_blockOwner.blockOwner" name="blockOwner" type="BlockExp" association="A_BlockExp.body_blockOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_CatchExp.body_catchExp" name="A_CatchExp.body_catchExp" memberEnd="CatchExp.body A_CatchExp.body_catchExp.catchExp">
+      <ownedEnd xmi:id="A_CatchExp.body_catchExp.catchExp" name="catchExp" type="CatchExp" association="A_CatchExp.body_catchExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_CatchExp.exceptionVariable_catchExp" name="A_CatchExp.exceptionVariable_catchExp"
+        memberEnd="CatchExp.exceptionVariable A_CatchExp.exceptionVariable_catchExp.catchExp">
+      <ownedEnd xmi:id="A_CatchExp.exceptionVariable_catchExp.catchExp" name="catchExp" type="CatchExp" association="A_CatchExp.exceptionVariable_catchExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_CatchExp.exception_catchExp" name="A_CatchExp.exception_catchExp" memberEnd="CatchExp.exception A_CatchExp.exception_catchExp.catchExp">
+      <ownedEnd xmi:id="A_CatchExp.exception_catchExp.catchExp" name="catchExp" type="CatchExp" association="A_CatchExp.exception_catchExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ComputeExp.body_computeOwner" name="A_ComputeExp.body_computeOwner" memberEnd="ComputeExp.body A_ComputeExp.body_computeOwner.computeOwner">
+      <ownedEnd xmi:id="A_ComputeExp.body_computeOwner.computeOwner" name="computeOwner" type="ComputeExp" association="A_ComputeExp.body_computeOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ComputeExp.returnedElement_computeOwner" name="A_ComputeExp.returnedElement_computeOwner"
+        memberEnd="ComputeExp.returnedElement A_ComputeExp.returnedElement_computeOwner.computeOwner">
+      <ownedEnd xmi:id="A_ComputeExp.returnedElement_computeOwner.computeOwner" name="computeOwner" type="ComputeExp" association="A_ComputeExp.returnedElement_computeOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_DictLiteralExp.part_DictLiteralPart.partOwner" name="A_DictLiteralExp.part_DictLiteralPart.partOwner"
+        memberEnd="DictLiteralExp.part DictLiteralPart.partOwner"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_DictLiteralPart.key_keyOwner" name="A_DictLiteralPart.key_keyOwner" memberEnd="DictLiteralPart.key A_DictLiteralPart.key_keyOwner.keyOwner">
+      <ownedEnd xmi:id="A_DictLiteralPart.key_keyOwner.keyOwner" name="keyOwner" type="DictLiteralPart" association="A_DictLiteralPart.key_keyOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_DictLiteralPart.value_valOwner" name="A_DictLiteralPart.value_valOwner" memberEnd="DictLiteralPart.value A_DictLiteralPart.value_valOwner.valOwner">
+      <ownedEnd xmi:id="A_DictLiteralPart.value_valOwner.valOwner" name="valOwner" type="DictLiteralPart" association="A_DictLiteralPart.value_valOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_DictionaryType.keyType_keyDict" name="A_DictionaryType.keyType_keyDict" memberEnd="DictionaryType.keyType A_DictionaryType.keyType_keyDict.keyDict">
+      <ownedEnd xmi:id="A_DictionaryType.keyType_keyDict.keyDict" name="keyDict" type="DictionaryType" association="A_DictionaryType.keyType_keyDict">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ImperativeIterateExp.target_tgtOwner" name="A_ImperativeIterateExp.target_tgtOwner"
+        memberEnd="ImperativeIterateExp.target A_ImperativeIterateExp.target_tgtOwner.tgtOwner">
+      <ownedEnd xmi:id="A_ImperativeIterateExp.target_tgtOwner.tgtOwner" name="tgtOwner" type="ImperativeIterateExp" association="A_ImperativeIterateExp.target_tgtOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ImperativeLoopExp.condition_loopCondOwner" name="A_ImperativeLoopExp.condition_loopCondOwner"
+        memberEnd="ImperativeLoopExp.condition A_ImperativeLoopExp.condition_loopCondOwner.loopCondOwner">
+      <ownedEnd xmi:id="A_ImperativeLoopExp.condition_loopCondOwner.loopCondOwner" name="loopCondOwner" type="ImperativeLoopExp" association="A_ImperativeLoopExp.condition_loopCondOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_InstantiationExp.argument_argOwner" name="A_InstantiationExp.argument_argOwner"
+        memberEnd="InstantiationExp.argument A_InstantiationExp.argument_argOwner.argOwner">
+      <ownedEnd xmi:id="A_InstantiationExp.argument_argOwner.argOwner" name="argOwner" type="InstantiationExp" association="A_InstantiationExp.argument_argOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_InstantiationExp.extent_instantiationExp" name="A_InstantiationExp.extent_instantiationExp"
+        memberEnd="InstantiationExp.extent A_InstantiationExp.extent_instantiationExp.instantiationExp">
+      <ownedEnd xmi:id="A_InstantiationExp.extent_instantiationExp.instantiationExp" name="instantiationExp" type="InstantiationExp" association="A_InstantiationExp.extent_instantiationExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_InstantiationExp.initializationOperation_instantiationExp" name="A_InstantiationExp.initializationOperation_instantiationExp"
+        memberEnd="InstantiationExp.initializationOperation A_InstantiationExp.initializationOperation_instantiationExp.instantiationExp">
+      <ownedEnd xmi:id="A_InstantiationExp.initializationOperation_instantiationExp.instantiationExp" name="instantiationExp" type="InstantiationExp"
+          association="A_InstantiationExp.initializationOperation_instantiationExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_InstantiationExp.instantiatedClass_instantiationExp" name="A_InstantiationExp.instantiatedClass_instantiationExp"
+        memberEnd="InstantiationExp.instantiatedClass A_InstantiationExp.instantiatedClass_instantiationExp.instantiationExp">
+      <ownedEnd xmi:id="A_InstantiationExp.instantiatedClass_instantiationExp.instantiationExp" name="instantiationExp" type="InstantiationExp"
+          association="A_InstantiationExp.instantiatedClass_instantiationExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ListLiteralExp.element_listLiteralExp" name="A_ListLiteralExp.element_listLiteralExp"
+        memberEnd="ListLiteralExp.element A_ListLiteralExp.element_listLiteralExp.listLiteralExp">
+      <ownedEnd xmi:id="A_ListLiteralExp.element_listLiteralExp.listLiteralExp" name="listLiteralExp" type="ListLiteralExp" association="A_ListLiteralExp.element_listLiteralExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_LogExp.condition_logOwner" name="A_LogExp.condition_logOwner" memberEnd="LogExp.condition A_LogExp.condition_logOwner.logOwner">
+      <ownedEnd xmi:id="A_LogExp.condition_logOwner.logOwner" name="logOwner" type="LogExp" association="A_LogExp.condition_logOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_RaiseExp.argument_raiseExp" name="A_RaiseExp.argument_raiseExp" memberEnd="RaiseExp.argument A_RaiseExp.argument_raiseExp.raiseExp">
+      <ownedEnd xmi:id="A_RaiseExp.argument_raiseExp.raiseExp" name="raiseExp" type="RaiseExp" association="A_RaiseExp.argument_raiseExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_RaiseExp.exception_raiseExpression" name="A_RaiseExp.exception_raiseExpression"
+        memberEnd="RaiseExp.exception A_RaiseExp.exception_raiseExpression.raiseExpression">
+      <ownedEnd xmi:id="A_RaiseExp.exception_raiseExpression.raiseExpression" name="raiseExpression" type="RaiseExp" association="A_RaiseExp.exception_raiseExpression">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ReturnExp.value_returnExp" name="A_ReturnExp.value_returnExp" memberEnd="ReturnExp.value A_ReturnExp.value_returnExp.returnExp">
+      <ownedEnd xmi:id="A_ReturnExp.value_returnExp.returnExp" name="returnExp" type="ReturnExp" association="A_ReturnExp.value_returnExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_SwitchExp.alternativePart_altOwner" name="A_SwitchExp.alternativePart_altOwner"
+        memberEnd="SwitchExp.alternativePart A_SwitchExp.alternativePart_altOwner.altOwner">
+      <ownedEnd xmi:id="A_SwitchExp.alternativePart_altOwner.altOwner" name="altOwner" type="SwitchExp" association="A_SwitchExp.alternativePart_altOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_SwitchExp.elsePart_elsePartOwner" name="A_SwitchExp.elsePart_elsePartOwner"
+        memberEnd="SwitchExp.elsePart A_SwitchExp.elsePart_elsePartOwner.elsePartOwner">
+      <ownedEnd xmi:id="A_SwitchExp.elsePart_elsePartOwner.elsePartOwner" name="elsePartOwner" type="SwitchExp" association="A_SwitchExp.elsePart_elsePartOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_TryExp.exceptClause_exceptOwner" name="A_TryExp.exceptClause_exceptOwner" memberEnd="TryExp.exceptClause A_TryExp.exceptClause_exceptOwner.exceptOwner">
+      <ownedEnd xmi:id="A_TryExp.exceptClause_exceptOwner.exceptOwner" name="exceptOwner" type="TryExp" association="A_TryExp.exceptClause_exceptOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_TryExp.tryBody_tryBodyOwner" name="A_TryExp.tryBody_tryBodyOwner" memberEnd="TryExp.tryBody A_TryExp.tryBody_tryBodyOwner.tryBodyOwner">
+      <ownedEnd xmi:id="A_TryExp.tryBody_tryBodyOwner.tryBodyOwner" name="tryBodyOwner" type="TryExp" association="A_TryExp.tryBody_tryBodyOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Typedef.base_typedef" name="A_Typedef.base_typedef" memberEnd="Typedef.base A_Typedef.base_typedef.typedef">
+      <ownedEnd xmi:id="A_Typedef.base_typedef.typedef" name="typedef" type="Typedef" association="A_Typedef.base_typedef">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Typedef.condition_typedef" name="A_Typedef.condition_typedef" memberEnd="Typedef.condition A_Typedef.condition_typedef.typedef">
+      <ownedEnd xmi:id="A_Typedef.condition_typedef.typedef" name="typedef" type="Typedef" association="A_Typedef.condition_typedef">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_UnlinkExp.item_itemUnlink" name="A_UnlinkExp.item_itemUnlink" memberEnd="UnlinkExp.item A_UnlinkExp.item_itemUnlink.itemUnlink">
+      <ownedEnd xmi:id="A_UnlinkExp.item_itemUnlink.itemUnlink" name="itemUnlink" type="UnlinkExp" association="A_UnlinkExp.item_itemUnlink">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_UnlinkExp.target_tgtUnlink" name="A_UnlinkExp.target_tgtUnlink" memberEnd="UnlinkExp.target A_UnlinkExp.target_tgtUnlink.tgtUnlink">
+      <ownedEnd xmi:id="A_UnlinkExp.target_tgtUnlink.tgtUnlink" name="tgtUnlink" type="UnlinkExp" association="A_UnlinkExp.target_tgtUnlink">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_VariableInitExp.referredVariable_declaration" name="A_VariableInitExp.referredVariable_declaration"
+        memberEnd="VariableInitExp.referredVariable A_VariableInitExp.referredVariable_declaration.declaration">
+      <ownedEnd xmi:id="A_VariableInitExp.referredVariable_declaration.declaration" name="declaration" type="VariableInitExp" association="A_VariableInitExp.referredVariable_declaration">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_WhileExp.body_whileOwner" name="A_WhileExp.body_whileOwner" memberEnd="WhileExp.body A_WhileExp.body_whileOwner.whileOwner">
+      <ownedEnd xmi:id="A_WhileExp.body_whileOwner.whileOwner" name="whileOwner" type="WhileExp" association="A_WhileExp.body_whileOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_WhileExp.condition_whileExpression" name="A_WhileExp.condition_whileExpression"
+        memberEnd="WhileExp.condition A_WhileExp.condition_whileExpression.whileExpression">
+      <ownedEnd xmi:id="A_WhileExp.condition_whileExpression.whileExpression" name="whileExpression" type="WhileExp" association="A_WhileExp.condition_whileExpression">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+  </uml:Package>
+  <mofext:Tag xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" value="imperativeocl" element="ImperativeOCL"/>
+</xmi:XMI>

@@ -1,0 +1,442 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Readme_files/filelist.xml">
+<title>Transforming an UML model into a RDBMS model (Demonstrates
+'default_values' and 'opposite' feature)</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Azhar</o:Author>
+  <o:LastAuthor>Azhar</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>17</o:TotalTime>
+  <o:Created>2007-03-13T05:39:00Z</o:Created>
+  <o:LastSaved>2007-03-13T05:39:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>407</o:Words>
+  <o:Characters>2324</o:Characters>
+  <o:Company> TCS</o:Company>
+  <o:Lines>19</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2854</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>7 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>19.05 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-font-kerning:0pt;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:880243920;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1053443702 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:1295134471;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1190592654 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:2071885189;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1615348458 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoBodyText2>Transforming an UML model into a RDBMS model
+(Demonstrates 'default_values' and 'opposite' feature)<span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+
+<p class=MsoBodyText3>------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>This example demonstrates the use of 'default_values' and
+'opposite' constructs in qvt specification file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>'default_values' feature :</span></b><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'> This
+feature is used to specify a default value for a target domain variable when it
+does not get a binding from the evaluation of other relation expressions. This
+feature is relevant only for enforcement.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>'opposite' feature :</span></b><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'> 'opposite' is used to
+specify the non-navigable end of an association. e.g. UML Meta model has an
+association &quot;attribute&quot; from Class to Attribute, which is
+non-navigable in Class direction. In this case, opposite can be used as
+&quot;opposite(umlmm::Class.attribute)&quot; to navigate in Class direction.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Syntax : <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>&quot;opposite&quot; &quot;(&quot;
+&lt;fully-qualified-class-pathname&gt; &quot;.&quot; &lt;navigable-end&gt;
+&quot;)&quot;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec’ contains :<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>UmlToRel.qvt :
+QVT specification file for UmlToRel transformation.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec/Example1’ contains :<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>UmlMM.xml : UML
+Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>RelMM.xml :
+RDBMS Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>UmlUM1.xml : A
+sample UML model<span style='mso-tab-count:1'>         </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec/Example2’ contains :<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>UmlMM.xml : UML
+Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>RelMM.xml :
+RDBMS Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>RelUM2.xml : A
+sample RDBMS model<span style='mso-tab-count:1'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>UML metamodel:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>See figure 'Simple UML Meta Model for example UmlToRel' in
+file UmlToRel.pdf file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>RDBMS metamodel:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>See figure 'Simple RDBMS Meta Model for example UmlToRel'
+in file UmlToRel.pdf file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>This example maps classes of a simple UML model to tables
+of a simple RDBMS model &amp; vice versa. <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>A
+     class maps to a table.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Attributes
+     of the class map to columns of the table.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Example1 </h1>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>----------<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample UML model is given in file UmlUM1.xml file
+contains:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Class
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Employee
+      : name='Employee' ; attribute={Name, EmployeeNo, IsPermanent}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Attribute
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Name
+      : name='Name' ; type='String'<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>EmployeeNo
+      : name='EmployeeNo' ; type='Int'<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>IsPermanent
+      : name='IsPermanent' ; type='Binary'<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Example QVT file (UmlToRel.qvt) is run in enforce mode in
+rdbms direction. It enforces RDBMS model &amp; exports it in RelUM1.xml file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>To run this example execute the batch file ‘run1.bat’ for
+windows or<span style="mso-spacerun: yes">  </span>the shell script ‘run1.sh’
+for unix.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1>Example2 </h1>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>----------<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample RDBMS model is given in file RelUM2.xml file
+contains:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Table
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo3;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Company
+      : name='Company' ; column={Name, NoOfEmployees, IsMNC}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Column
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo3;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Name
+      : name='Name' ; dataType='Varchar'<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo3;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>NoOfEmployees
+      : name='NoOfEmployees' ; dataType='Number'<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo3;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>IsMNC
+      : name='IsMNC' ; dataType='Raw'<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Example QVT file (UmlToRel.qvt) is run in enforce mode in
+uml direction. It enforces UML model &amp; exports it in UmlUM2.xml file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>To run this example execute the batch file ‘run2.bat’ for
+windows or<span style="mso-spacerun: yes">  </span>the shell script ‘run2.sh’
+for unix.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

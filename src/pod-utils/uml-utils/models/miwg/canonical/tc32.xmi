@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-32" xmi:uuid="725A27D7-D48F-40AE-9C76-431FBADD1004">
+        <packagedElement xmi:id="Test-Case-32-Class-1"
+            xmi:uuid="725A27D7-D48F-48B2-96A9-431F66867682" xmi:type="uml:Class">
+            <name>Class-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-32-A" xmi:uuid="725A27D7-D48F-4C4E-9DD1-431F13D66797"
+            xmi:type="uml:Activity">
+            <node xmi:id="Test-Case-32-A-Create_Link_Object"
+                xmi:uuid="725A27D7-D48F-41F3-98BB-431F024A1A84"
+                xmi:type="uml:CreateLinkObjectAction">
+                <endData xmi:id="Test-Case-32-A-Create_Link_Object-endData-1"
+                    xmi:uuid="725A27D7-D48F-48D9-9432-431F419BE4E1"
+                    xmi:type="uml:LinkEndCreationData">
+                    <qualifier xmi:id="Test-Case-32-A-Create_Link_Object-endData-1-qualifier"
+                        xmi:uuid="725A27D7-D48F-4B22-9C03-431FFCC2ABE3"
+                        xmi:type="uml:QualifierValue">
+                        <qualifier xmi:idref="Test-Case-32-Association-Class-1-a-q"/>
+                        <value xmi:idref="Test-Case-32-A-Create_Link_Object-q"/>
+                    </qualifier>
+                    <value xmi:idref="Test-Case-32-A-Create_Link_Object-a"/>
+                    <end xmi:idref="Test-Case-32-Association-Class-1-a"/>
+                    <insertAt xmi:idref="Test-Case-32-A-Create_Link_Object-insertAt"/>
+                </endData>
+                <endData xmi:id="Test-Case-32-A-Create_Link_Object-endData-2"
+                    xmi:uuid="725A27D7-D48F-40A0-98D6-431FCB6FADAC"
+                    xmi:type="uml:LinkEndCreationData">
+                    <isReplaceAll>true</isReplaceAll>
+                    <value xmi:idref="Test-Case-32-A-Create_Link_Object-b"/>
+                    <end xmi:idref="Test-Case-32-Association-Class-1-b"/>
+                </endData>
+                <inputValue xmi:id="Test-Case-32-A-Create_Link_Object-b"
+                    xmi:uuid="725A27D7-D48F-42DA-9904-431FF5FD3478" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-32-A-edge-2"/>
+                    <name>b</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-32-Class-2"/>
+                </inputValue>
+                <inputValue xmi:id="Test-Case-32-A-Create_Link_Object-a"
+                    xmi:uuid="725A27D7-D48F-4089-9883-431F7D7F4B21" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-32-A-edge-1"/>
+                    <name>a</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-32-Class-1"/>
+                </inputValue>
+                <inputValue xmi:id="Test-Case-32-A-Create_Link_Object-q"
+                    xmi:uuid="725A27D7-D48F-45D8-99C4-431FC8BCCCC6" xmi:type="uml:InputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <incoming xmi:idref="Test-Case-32-A-edge-6"/>
+                    <name>q</name>
+                    <visibility>public</visibility>
+                </inputValue>
+                <inputValue xmi:id="Test-Case-32-A-Create_Link_Object-insertAt"
+                    xmi:uuid="725A27D7-D48F-4B9B-9782-431FFDABDF95" xmi:type="uml:InputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#UnlimitedNatural"/>
+                    <incoming xmi:idref="Test-Case-32-A-edge-7"/>
+                    <name>insertAt</name>
+                    <visibility>public</visibility>
+                </inputValue>
+                <result xmi:id="Test-Case-32-A-Create_Link_Object-result"
+                    xmi:uuid="725A27D7-D48F-4011-9C7E-431F4333F9A8" xmi:type="uml:OutputPin">
+                    <outgoing xmi:idref="Test-Case-32-A-edge-3"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-32-Association-Class-1"/>
+                </result>
+                <name>Create Link Object</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-32-A-Create_Object_1"
+                xmi:uuid="725A27D7-D48F-4511-99A6-431F7595E18F" xmi:type="uml:CreateObjectAction">
+                <result xmi:id="Test-Case-32-A-Create_Object_1-result"
+                    xmi:uuid="725A27D7-D48F-404E-9E4E-431F99421D01" xmi:type="uml:OutputPin">
+                    <outgoing xmi:idref="Test-Case-32-A-edge-1"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-32-Class-1"/>
+                </result>
+                <name>Create Object 1</name>
+                <visibility>public</visibility>
+                <classifier xmi:idref="Test-Case-32-Class-1"/>
+            </node>
+            <node xmi:id="Test-Case-32-A-Create_Object_2"
+                xmi:uuid="725A27D7-D48F-48F2-93A4-431F54F03C83" xmi:type="uml:CreateObjectAction">
+                <result xmi:id="Test-Case-32-A-Create_Object_2-result"
+                    xmi:uuid="725A27D7-D48F-4EDC-9FF5-431F5D51896E" xmi:type="uml:OutputPin">
+                    <outgoing xmi:idref="Test-Case-32-A-edge-2"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-32-Class-2"/>
+                </result>
+                <name>Create Object 2</name>
+                <visibility>public</visibility>
+                <classifier xmi:idref="Test-Case-32-Class-2"/>
+            </node>
+            <node xmi:id="Test-Case-32-A-node-4" xmi:uuid="725A27D7-D48F-4047-9357-431F2AEDB8CC"
+                xmi:type="uml:ForkNode">
+                <outgoing xmi:idref="Test-Case-32-A-edge-4"/>
+                <outgoing xmi:idref="Test-Case-32-A-edge-5"/>
+                <incoming xmi:idref="Test-Case-32-A-edge-3"/>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-32-A-Read_Link_Object_End"
+                xmi:uuid="725A27D7-D48F-4DFE-9755-431F0819D943"
+                xmi:type="uml:ReadLinkObjectEndAction">
+                <object xmi:id="Test-Case-32-A-Read_Link_Object_End-object"
+                    xmi:uuid="725A27D7-D48F-4DB8-9AFF-431FCAE3DC53" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-32-A-edge-4"/>
+                    <name>object</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-32-Association-Class-1"/>
+                </object>
+                <result xmi:id="Test-Case-32-A-Read_Link_Object_End-result"
+                    xmi:uuid="725A27D7-D48F-454E-910B-431F81D0C1CA" xmi:type="uml:OutputPin">
+                    <name>result</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-32-Class-1"/>
+                </result>
+                <name>Read Link Object End</name>
+                <visibility>public</visibility>
+                <end xmi:idref="Test-Case-32-Association-Class-1-a"/>
+            </node>
+            <node xmi:id="Test-Case-32-A-Read_Link_Object_End_Qualifier"
+                xmi:uuid="725A27D7-D48F-42D7-9181-431F7DEFA7E2"
+                xmi:type="uml:ReadLinkObjectEndQualifierAction">
+                <object xmi:id="Test-Case-32-A-Read_Link_Object_End_Qualifier-object"
+                    xmi:uuid="725A27D7-D48F-4634-9D8E-431FE7CF08CC" xmi:type="uml:InputPin">
+                    <incoming xmi:idref="Test-Case-32-A-edge-5"/>
+                    <name>object</name>
+                    <visibility>public</visibility>
+                    <type xmi:idref="Test-Case-32-Association-Class-1"/>
+                </object>
+                <result xmi:id="Test-Case-32-A-Read_Link_Object_End_Qualifier-result"
+                    xmi:uuid="725A27D7-D48F-46F5-9CAB-431F9782D7C2" xmi:type="uml:OutputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                </result>
+                <name>Read Link Object End Qualifier</name>
+                <visibility>public</visibility>
+                <qualifier xmi:idref="Test-Case-32-Association-Class-1-a-q"/>
+            </node>
+            <node xmi:id="Test-Case-32-A-Value_1_" xmi:uuid="725A27D7-D48F-40C8-9F4B-431F8757653A"
+                xmi:type="uml:ValueSpecificationAction">
+                <value xmi:id="Test-Case-32-A-Value_1_-value"
+                    xmi:uuid="725A27D7-D48F-46BD-9C4A-431F938021CC" xmi:type="uml:LiteralInteger">
+                    <value>1</value>
+                </value>
+                <result xmi:id="Test-Case-32-A-Value_1_-result"
+                    xmi:uuid="725A27D7-D48F-4DDC-974B-431F7273EC7D" xmi:type="uml:OutputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <outgoing xmi:idref="Test-Case-32-A-edge-6"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                </result>
+                <name>Value(1)</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-32-A-Value___" xmi:uuid="725A27D7-D48F-479F-90EE-431FCCEFE484"
+                xmi:type="uml:ValueSpecificationAction">
+                <value xmi:id="Test-Case-32-A-Value___-value"
+                    xmi:uuid="725A27D7-D48F-42B6-96FA-431F05ADFA99"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </value>
+                <result xmi:id="Test-Case-32-A-Value___-result"
+                    xmi:uuid="725A27D7-D48F-4080-9B27-431F852A20BF" xmi:type="uml:OutputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#UnlimitedNatural"/>
+                    <outgoing xmi:idref="Test-Case-32-A-edge-7"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                </result>
+                <name>Value(*)</name>
+                <visibility>public</visibility>
+            </node>
+            <edge xmi:id="Test-Case-32-A-edge-1" xmi:uuid="725A27D7-D48F-4861-9E50-431F08904A14"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-32-A-Create_Object_1-result"/>
+                <target xmi:idref="Test-Case-32-A-Create_Link_Object-a"/>
+            </edge>
+            <edge xmi:id="Test-Case-32-A-edge-2" xmi:uuid="725A27D7-D48F-49D0-9020-431FDB4D229E"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-32-A-Create_Object_2-result"/>
+                <target xmi:idref="Test-Case-32-A-Create_Link_Object-b"/>
+            </edge>
+            <edge xmi:id="Test-Case-32-A-edge-3" xmi:uuid="725A27D7-D48F-449D-938C-431FC6752203"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-32-A-Create_Link_Object-result"/>
+                <target xmi:idref="Test-Case-32-A-node-4"/>
+            </edge>
+            <edge xmi:id="Test-Case-32-A-edge-4" xmi:uuid="725A27D7-D48F-4849-9E51-431F2C40FA81"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-32-A-node-4"/>
+                <target xmi:idref="Test-Case-32-A-Read_Link_Object_End-object"/>
+            </edge>
+            <edge xmi:id="Test-Case-32-A-edge-5" xmi:uuid="725A27D7-D48F-4502-9F73-431F76A669ED"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-32-A-node-4"/>
+                <target xmi:idref="Test-Case-32-A-Read_Link_Object_End_Qualifier-object"/>
+            </edge>
+            <edge xmi:id="Test-Case-32-A-edge-6" xmi:uuid="725A27D7-D48F-4A69-99EF-431F95805B76"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-32-A-Value_1_-result"/>
+                <target xmi:idref="Test-Case-32-A-Create_Link_Object-q"/>
+            </edge>
+            <edge xmi:id="Test-Case-32-A-edge-7" xmi:uuid="725A27D7-D48F-4011-9BA4-431F02989EFF"
+                xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-32-A-Value___-result"/>
+                <target xmi:idref="Test-Case-32-A-Create_Link_Object-insertAt"/>
+            </edge>
+            <name>A</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-32-Class-2"
+            xmi:uuid="725A27D7-D48F-44F6-9371-431F06F8661F" xmi:type="uml:Class">
+            <name>Class-2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-32-Association-Class-1"
+            xmi:uuid="725A27D7-D48F-4B6C-96D2-431FE8512A8B" xmi:type="uml:AssociationClass">
+            <memberEnd xmi:idref="Test-Case-32-Association-Class-1-a"/>
+            <memberEnd xmi:idref="Test-Case-32-Association-Class-1-b"/>
+            <navigableOwnedEnd xmi:idref="Test-Case-32-Association-Class-1-a"/>
+            <navigableOwnedEnd xmi:idref="Test-Case-32-Association-Class-1-b"/>
+            <ownedEnd xmi:id="Test-Case-32-Association-Class-1-a"
+                xmi:uuid="725A27D7-D48F-4426-9C44-431F64B42B3D" xmi:type="uml:Property">
+                <qualifier xmi:id="Test-Case-32-Association-Class-1-a-q"
+                    xmi:uuid="725A27D7-D48F-454D-9C68-431F8E5A639D" xmi:type="uml:Property">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <name>q</name>
+                    <visibility>public</visibility>
+                </qualifier>
+                <upperValue xmi:id="Test-Case-32-Association-Class-1-a-upperValue"
+                    xmi:uuid="725A27D7-D48F-4916-9D06-431F1D6FBCB4"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <lowerValue xmi:id="Test-Case-32-Association-Class-1-a-lowerValue"
+                    xmi:uuid="725A27D7-D48F-4DB1-976B-431F6D52D349"
+                    xmi:type="uml:LiteralUnlimitedNatural"/>
+                <name>a</name>
+                <visibility>public</visibility>
+                <isOrdered>true</isOrdered>
+                <type xmi:idref="Test-Case-32-Class-1"/>
+                <association xmi:idref="Test-Case-32-Association-Class-1"/>
+            </ownedEnd>
+            <ownedEnd xmi:id="Test-Case-32-Association-Class-1-b"
+                xmi:uuid="725A27D7-D48F-447C-9242-431FDC25A2FC" xmi:type="uml:Property">
+                <name>b</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-32-Class-2"/>
+                <association xmi:idref="Test-Case-32-Association-Class-1"/>
+            </ownedEnd>
+            <name>Association-Class-1</name>
+        </packagedElement>
+        <name>Test-Case-32</name>
+    </uml:Model>
+</xmi:XMI>

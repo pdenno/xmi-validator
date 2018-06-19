@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile">
+  <uml:Model xmi:id="A_TestCase14">
+    <name>TestCase14</name>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="B_ProfileApplication_TestCase14_-1">
+      <appliedProfile href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+    </profileApplication>
+    <packagedElement xmi:type="uml:Package" xmi:id="A_TestCase14-Instances">
+      <name>Instances</name>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="A_TestCase14-Instances-analysis-Context">
+        <name>analysis Context</name>
+        <slot xmi:type="uml:Slot" xmi:id="B_Slot_TestCase14.Instances.analysis-Context_-1">
+          <value xmi:type="uml:InstanceValue" xmi:id="B_InstanceValue_TestCase14.Instances.analysis-Context_-1">
+            <instance xmi:idref="A_TestCase14-Instances-analysis-Context.sys"/>
+          </value>
+          <definingFeature xmi:idref="A_TestCase14-Parametrics-Analysis-Context-sys"/>
+        </slot>
+        <classifier xmi:idref="A_TestCase14-Parametrics-Analysis-Context"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="A_TestCase14-Instances-analysis-Context.sys">
+        <name>analysis Context.sys</name>
+        <slot xmi:type="uml:Slot" xmi:id="B_Slot_TestCase14.Instances.analysis-Context.sys_-1">
+          <value xmi:type="uml:InstanceValue" xmi:id="B_InstanceValue_TestCase14.Instances.analysis-Context.sys_-1">
+            <instance xmi:idref="A_TestCase14-Instances-analysis-Context.sys.c1"/>
+          </value>
+          <definingFeature xmi:idref="A_TestCase14-Parametrics-System-c1"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="B_Slot_TestCase14.Instances.analysis-Context.sys_-2">
+          <value xmi:type="uml:InstanceValue" xmi:id="B_InstanceValue_TestCase14.Instances.analysis-Context.sys_-2">
+            <instance xmi:idref="A_TestCase14-Instances-analysis-Context.sys.c2"/>
+          </value>
+          <definingFeature xmi:idref="A_TestCase14-Parametrics-System-c2"/>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="B_Slot_TestCase14.Instances.analysis-Context.sys_-3">
+          <value xmi:type="uml:LiteralString" xmi:id="L_TestCase14.Instances.analysis-Context.sys_30.0-1">
+            <value>30.0</value>
+          </value>
+          <definingFeature xmi:idref="A_TestCase14-Parametrics-System-m"/>
+        </slot>
+        <classifier xmi:idref="A_TestCase14-Parametrics-System"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="A_TestCase14-Instances-analysis-Context.sys.c1">
+        <name>analysis Context.sys.c1</name>
+        <slot xmi:type="uml:Slot" xmi:id="B_Slot_TestCase14.Instances.analysis-Context.sys.c1_-1">
+          <value xmi:type="uml:LiteralInteger" xmi:id="L_TestCase14.Instances.analysis-Context.sys.c1_20-1">
+            <value>20</value>
+          </value>
+          <definingFeature xmi:idref="A_TestCase14-Parametrics-Component1-m"/>
+        </slot>
+        <classifier xmi:idref="A_TestCase14-Parametrics-Component1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="A_TestCase14-Instances-analysis-Context.sys.c2">
+        <name>analysis Context.sys.c2</name>
+        <slot xmi:type="uml:Slot" xmi:id="B_Slot_TestCase14.Instances.analysis-Context.sys.c2_-1">
+          <value xmi:type="uml:LiteralString" xmi:id="L_TestCase14.Instances.analysis-Context.sys.c2_20-1">
+            <value>20</value>
+          </value>
+          <definingFeature xmi:idref="A_TestCase14-Parametrics-Component2-m"/>
+        </slot>
+        <classifier xmi:idref="A_TestCase14-Parametrics-Component2"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="A_TestCase14-Parametrics">
+      <name>Parametrics</name>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase14-Parametrics-Analysis-Context">
+        <name>Analysis Context</name>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-1">
+          <visibility>public</visibility>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-1">
+            <role xmi:idref="A_TestCase14-Parametrics-Component1-m"/>
+          </end>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-4">
+            <role xmi:idref="A_TestCase14-Parametrics-Total-Mass-m1"/>
+            <partWithPort xmi:idref="A_TestCase14-Parametrics-Analysis-Context-tm"/>
+          </end>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-2">
+          <visibility>public</visibility>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-2">
+            <role xmi:idref="A_TestCase14-Parametrics-Component2-m"/>
+          </end>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-5">
+            <role xmi:idref="A_TestCase14-Parametrics-Total-Mass-m2"/>
+            <partWithPort xmi:idref="A_TestCase14-Parametrics-Analysis-Context-tm"/>
+          </end>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-3">
+          <visibility>public</visibility>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-3">
+            <role xmi:idref="A_TestCase14-Parametrics-System-m"/>
+          </end>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-6">
+            <role xmi:idref="A_TestCase14-Parametrics-Total-Mass-mt"/>
+            <partWithPort xmi:idref="A_TestCase14-Parametrics-Analysis-Context-tm"/>
+          </end>
+        </ownedConnector>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-Analysis-Context-tm">
+          <visibility>private</visibility>
+          <name>tm</name>
+          <type xmi:idref="A_TestCase14-Parametrics-Total-Mass"/>
+          <association xmi:idref="B_Association_TestCase14.Parametrics_-2"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-Analysis-Context-sys">
+          <visibility>private</visibility>
+          <name>sys</name>
+          <type xmi:idref="A_TestCase14-Parametrics-System"/>
+          <association xmi:idref="B_Association_TestCase14.Parametrics_-1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase14-Parametrics-Component1">
+        <name>Component1</name>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-Component1-m">
+          <visibility>private</visibility>
+          <name>m</name>
+          <type xmi:idref="A_TestCase14-Parametrics-kg"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase14-Parametrics-Component2">
+        <name>Component2</name>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-Component2-m">
+          <visibility>private</visibility>
+          <name>m</name>
+          <type xmi:idref="A_TestCase14-Parametrics-kg"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="A_TestCase14-Parametrics-Mass">
+        <name>Mass</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase14-Parametrics-System">
+        <name>System</name>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-System-c1">
+          <visibility>private</visibility>
+          <name>c1</name>
+          <type xmi:idref="A_TestCase14-Parametrics-Component1"/>
+          <association xmi:idref="B_Association_TestCase14.Parametrics_-3"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-System-c2">
+          <visibility>private</visibility>
+          <name>c2</name>
+          <type xmi:idref="A_TestCase14-Parametrics-Component2"/>
+          <association xmi:idref="B_Association_TestCase14.Parametrics_-4"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-System-m">
+          <visibility>private</visibility>
+          <name>m</name>
+          <type xmi:idref="A_TestCase14-Parametrics-kg"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="A_TestCase14-Parametrics-Total-Mass">
+        <name>Total Mass</name>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="A_TestCase14-Parametrics-Total-Mass-unnamed1">
+          <name>unnamed1</name>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="B_OpaqueExpression_TestCase14.Parametrics.Total-Mass.unnamed1_-1">
+            <body>mt = m1 + m2</body>
+          </specification>
+          <constrainedElement xmi:idref="A_TestCase14-Parametrics-Total-Mass"/>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-Total-Mass-mt">
+          <visibility>private</visibility>
+          <name>mt</name>
+          <type xmi:idref="A_TestCase14-Parametrics-kg"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-Total-Mass-m1">
+          <visibility>private</visibility>
+          <name>m1</name>
+          <type xmi:idref="A_TestCase14-Parametrics-kg"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="A_TestCase14-Parametrics-Total-Mass-m2">
+          <visibility>private</visibility>
+          <name>m2</name>
+          <type xmi:idref="A_TestCase14-Parametrics-kg"/>
+          <aggregation>composite</aggregation>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="A_TestCase14-Parametrics-kg">
+        <name>kg</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="A_TestCase14-Parametrics-kilogram">
+        <name>kilogram</name>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="B_Association_TestCase14.Parametrics_-1">
+        <ownedEnd xmi:type="uml:Property" xmi:id="B_Property_TestCase14.Parametrics.._-1">
+          <visibility>private</visibility>
+          <type xmi:idref="A_TestCase14-Parametrics-Analysis-Context"/>
+          <association xmi:idref="B_Association_TestCase14.Parametrics_-1"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="B_Property_TestCase14.Parametrics.._-1"/>
+        <memberEnd xmi:idref="A_TestCase14-Parametrics-Analysis-Context-sys"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="B_Association_TestCase14.Parametrics_-2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="B_Property_TestCase14.Parametrics.._-2">
+          <visibility>private</visibility>
+          <type xmi:idref="A_TestCase14-Parametrics-Analysis-Context"/>
+          <association xmi:idref="B_Association_TestCase14.Parametrics_-2"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="B_Property_TestCase14.Parametrics.._-2"/>
+        <memberEnd xmi:idref="A_TestCase14-Parametrics-Analysis-Context-tm"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="B_Association_TestCase14.Parametrics_-3">
+        <ownedEnd xmi:type="uml:Property" xmi:id="B_Property_TestCase14.Parametrics.._-3">
+          <visibility>private</visibility>
+          <type xmi:idref="A_TestCase14-Parametrics-System"/>
+          <association xmi:idref="B_Association_TestCase14.Parametrics_-3"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="B_Property_TestCase14.Parametrics.._-3"/>
+        <memberEnd xmi:idref="A_TestCase14-Parametrics-System-c1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="B_Association_TestCase14.Parametrics_-4">
+        <ownedEnd xmi:type="uml:Property" xmi:id="B_Property_TestCase14.Parametrics.._-4">
+          <visibility>private</visibility>
+          <type xmi:idref="A_TestCase14-Parametrics-System"/>
+          <association xmi:idref="B_Association_TestCase14.Parametrics_-4"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="B_Property_TestCase14.Parametrics.._-4"/>
+        <memberEnd xmi:idref="A_TestCase14-Parametrics-System-c2"/>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+  <sysml:BindingConnector xmi:id="B_BindingConnector_B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-1">
+    <base_Connector xmi:idref="B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-1"/>
+  </sysml:BindingConnector>
+  <sysml:BindingConnector xmi:id="B_BindingConnector_B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-2">
+    <base_Connector xmi:idref="B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-2"/>
+  </sysml:BindingConnector>
+  <sysml:BindingConnector xmi:id="B_BindingConnector_B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-3">
+    <base_Connector xmi:idref="B_Connector---BindingConnector--_TestCase14.Parametrics.Analysis-Context_-3"/>
+  </sysml:BindingConnector>
+  <sysml:Block xmi:id="B_Block_A_TestCase14-Parametrics-Analysis-Context_-1">
+    <base_Class xmi:idref="A_TestCase14-Parametrics-Analysis-Context"/>
+  </sysml:Block>
+  <sysml:Block xmi:id="B_Block_A_TestCase14-Parametrics-Component1_-1">
+    <base_Class xmi:idref="A_TestCase14-Parametrics-Component1"/>
+  </sysml:Block>
+  <sysml:Block xmi:id="B_Block_A_TestCase14-Parametrics-Component2_-1">
+    <base_Class xmi:idref="A_TestCase14-Parametrics-Component2"/>
+  </sysml:Block>
+  <sysml:Block xmi:id="B_Block_A_TestCase14-Parametrics-System_-1">
+    <base_Class xmi:idref="A_TestCase14-Parametrics-System"/>
+  </sysml:Block>
+  <sysml:ConstraintBlock xmi:id="B_ConstraintBlock_A_TestCase14-Parametrics-Total-Mass_-1">
+    <base_Class xmi:idref="A_TestCase14-Parametrics-Total-Mass"/>
+  </sysml:ConstraintBlock>
+  <sysml:ConstraintProperty xmi:id="B_ConstraintProperty_A_TestCase14-Parametrics-Analysis-Context-tm_-1">
+    <base_Property xmi:idref="A_TestCase14-Parametrics-Analysis-Context-tm"/>
+  </sysml:ConstraintProperty>
+  <sysml:NestedConnectorEnd xmi:id="B_NestedConnectorEnd_B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-1">
+    <propertyPath xmi:idref="A_TestCase14-Parametrics-Analysis-Context-sys"/>
+    <propertyPath xmi:idref="A_TestCase14-Parametrics-System-c1"/>
+    <base_ConnectorEnd xmi:idref="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-1"/>
+  </sysml:NestedConnectorEnd>
+  <sysml:NestedConnectorEnd xmi:id="B_NestedConnectorEnd_B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-2">
+    <propertyPath xmi:idref="A_TestCase14-Parametrics-Analysis-Context-sys"/>
+    <propertyPath xmi:idref="A_TestCase14-Parametrics-System-c2"/>
+    <base_ConnectorEnd xmi:idref="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-2"/>
+  </sysml:NestedConnectorEnd>
+  <sysml:NestedConnectorEnd xmi:id="B_NestedConnectorEnd_B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-3">
+    <propertyPath xmi:idref="A_TestCase14-Parametrics-Analysis-Context-sys"/>
+    <base_ConnectorEnd xmi:idref="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-3"/>
+  </sysml:NestedConnectorEnd>
+  <sysml:NestedConnectorEnd xmi:id="B_NestedConnectorEnd_B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-4">
+    <propertyPath xmi:idref="A_TestCase14-Parametrics-Analysis-Context-tm"/>
+    <base_ConnectorEnd xmi:idref="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-4"/>
+  </sysml:NestedConnectorEnd>
+  <sysml:NestedConnectorEnd xmi:id="B_NestedConnectorEnd_B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-5">
+    <propertyPath xmi:idref="A_TestCase14-Parametrics-Analysis-Context-tm"/>
+    <base_ConnectorEnd xmi:idref="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-5"/>
+  </sysml:NestedConnectorEnd>
+  <sysml:NestedConnectorEnd xmi:id="B_NestedConnectorEnd_B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-6">
+    <propertyPath xmi:idref="A_TestCase14-Parametrics-Analysis-Context-tm"/>
+    <base_ConnectorEnd xmi:idref="B_ConnectorEnd---NestedConnectorEnd--_TestCase14.Parametrics.Analysis-Context.._-6"/>
+  </sysml:NestedConnectorEnd>
+  <sysml:QuantityKind xmi:id="B_QuantityKind_A_TestCase14-Parametrics-Mass_-1">
+    <base_InstanceSpecification xmi:idref="A_TestCase14-Parametrics-Mass"/>
+  </sysml:QuantityKind>
+  <sysml:Unit xmi:id="B_Unit_A_TestCase14-Parametrics-kilogram_-1">
+    <quantityKind xmi:idref="A_TestCase14-Parametrics-Mass"/>
+    <base_InstanceSpecification xmi:idref="A_TestCase14-Parametrics-kilogram"/>
+  </sysml:Unit>
+  <sysml:ValueType xmi:id="B_ValueType_A_TestCase14-Parametrics-kg_-1">
+    <unit xmi:idref="A_TestCase14-Parametrics-kilogram"/>
+    <base_DataType xmi:idref="A_TestCase14-Parametrics-kg"/>
+  </sysml:ValueType>
+</xmi:XMI>

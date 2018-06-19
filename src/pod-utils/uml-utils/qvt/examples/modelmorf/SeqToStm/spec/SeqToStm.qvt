@@ -1,0 +1,96 @@
+
+transformation SeqToStm(seqDgm: SeqMM; stm: StmcMM)
+{
+     key StmcMM::StateMachine{name};
+     key StmcMM::State{name,owner};
+     key StmcMM::Transition{name,owner,fromState,toState};
+     key StmcMM::SendMsg{message};
+     key StmcMM::Message{messageId};
+
+
+     top relation InteractionToStateMachine
+     {
+          sn: String;
+
+          domain seqDgm i:Interaction {name = sn};
+          enforce domain stm s:StateMachine {name = sn};
+     }
+
+     top relation StateToState
+     {
+          sn: String;
+
+          domain seqDgm 
+          st1:State 
+          {
+               name = sn,
+               lifeline = l:LifeLine{interaction = i:Interaction{}}
+          };
+
+          enforce domain stm 
+          st2:State 
+          {
+               name = sn,
+               owner = s:StateMachine{}
+          };
+
+          when
+          {
+               InteractionToStateMachine(i, s);
+          }
+     }
+
+     top relation MessageToTransition
+     {
+          mid: String;
+
+          domain seqDgm 
+          m1:Message 
+          {
+               messageId = mid,
+               event = send:MessageEvent {type = 'Send', state = ist1:State{}},
+               event = receive:MessageEvent {type = 'Receive', state = ist2:State{}},
+               interaction = i:Interaction{}
+          };
+
+          enforce domain stm 
+          tr:Transition
+          {
+               name = mid,
+               fromState = fst:State{},
+               toState = tst:State{},
+               action = sm:SendMsg {message = m2:Message{messageId = mid}},
+               owner = s:StateMachine{}
+          };
+
+          when
+          {
+               InteractionToStateMachine(i, s);
+               StateToState(ist1, fst);
+               StateToState(ist2, tst);
+          }
+     }
+
+     top relation MessageSequenceToTransitionSequence
+     {
+          domain seqDgm 
+          ev1:MessageEvent 
+          {
+               type = 'Receive',
+               message = m1:Message{},
+               next = ev2:MessageEvent{type='Send', message=m2:Message{}}
+          };
+
+          enforce domain stm 
+          tr1:Transition
+          {
+               toState = tst:State{outTransition = tr2:Transition{}}
+          };
+
+          when
+          {
+               MessageToTransition(m1, tr1);
+               MessageToTransition(m2, tr2);
+          }
+     }
+}

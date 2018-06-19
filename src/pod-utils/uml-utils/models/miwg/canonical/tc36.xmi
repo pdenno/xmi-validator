@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <sysml:Block xmi:id="_-Block-3" xmi:uuid="725A27D7-D4C3-4867-9FF5-E65AA54D73C6">
+        <base_Class xmi:idref="Test-Case-36-Block-2"/>
+    </sysml:Block>
+    <sysml:Block xmi:id="_-Block-1" xmi:uuid="725A27D7-D4C3-495D-9632-E65AD1F4310F">
+        <base_Class xmi:idref="Test-Case-36-Block-1"/>
+    </sysml:Block>
+    <sysml:Block xmi:id="_-Block-4" xmi:uuid="725A27D7-D4C3-4D46-91EB-E65A76AFCF13">
+        <base_Class xmi:idref="Test-Case-36-Block-3"/>
+    </sysml:Block>
+    <sysml:Block xmi:id="_-Block-2" xmi:uuid="725A27D7-D4C3-4DF8-9261-E65A6294A07A">
+        <base_Class xmi:idref="Test-Case-36-Block-4"/>
+    </sysml:Block>
+    <sysml:ConnectorProperty xmi:id="_-ConnectorProperty"
+        xmi:uuid="725A27D7-D4C3-4FEB-9727-E65A04B94EB1">
+        <base_Property xmi:idref="Test-Case-36-Block-4-part-3"/>
+        <connector xmi:idref="Test-Case-36-Block-4-connector-1"/>
+    </sysml:ConnectorProperty>
+    <sysml:DistributedProperty xmi:id="_-DistributedProperty"
+        xmi:uuid="725A27D7-D4C3-4342-9218-E65AB15B0A3F">
+        <base_Property xmi:idref="Test-Case-36-Block-4-distributed-property"/>
+    </sysml:DistributedProperty>
+    <uml:Model xmi:id="Test-Case-36" xmi:uuid="725A27D7-D4C3-4BD3-9DAB-E65AC1868178">
+        <profileApplication xmi:id="Test-Case-36-profileApplication"
+            xmi:uuid="725A27D7-D4C3-41C9-9568-E65A507E6661" xmi:type="uml:ProfileApplication">
+            <appliedProfile href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+        </profileApplication>
+        <packagedElement href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+        <packagedElement xmi:id="Test-Case-36-Block-4"
+            xmi:uuid="725A27D7-D4C3-4581-964A-E65A00EA906D" xmi:type="uml:Class">
+            <ownedAttribute xmi:id="Test-Case-36-Block-4-distributed-property"
+                xmi:uuid="725A27D7-D4C3-442F-9FE1-E65A0FD79B88" xmi:type="uml:Property">
+                <name>distributed-property</name>
+                <visibility>public</visibility>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-36-Block-4-part-1"
+                xmi:uuid="725A27D7-D4C3-418E-9C46-E65A91B632E9" xmi:type="uml:Property">
+                <name>part-1</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-36-Block-1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-36-Block-4-part-2"
+                xmi:uuid="725A27D7-D4C3-4ECD-90FD-E65AAC961B73" xmi:type="uml:Property">
+                <name>part-2</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-36-Block-2"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-36-Block-4-part-3"
+                xmi:uuid="725A27D7-D4C3-41B7-98A9-E65AB87ECE37" xmi:type="uml:Property">
+                <name>part-3</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+            </ownedAttribute>
+            <ownedConnector xmi:id="Test-Case-36-Block-4-connector-1"
+                xmi:uuid="725A27D7-D4C3-4FE3-9F94-E65A18D4E05F" xmi:type="uml:Connector">
+                <end xmi:id="Test-Case-36-Block-4-connector-1-end-1"
+                    xmi:uuid="725A27D7-D4C3-40EC-9E85-E65AD32CD630" xmi:type="uml:ConnectorEnd">
+                    <role xmi:idref="Test-Case-36-Block-4-part-1"/>
+                </end>
+                <end xmi:id="Test-Case-36-Block-4-connector-1-end-2"
+                    xmi:uuid="725A27D7-D4C3-4D25-9D65-E65ABF41412A" xmi:type="uml:ConnectorEnd">
+                    <role xmi:idref="Test-Case-36-Block-4-part-2"/>
+                </end>
+                <name>connector-1</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-36-Block-3"/>
+            </ownedConnector>
+            <name>Block-4</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-36-Block-1"
+            xmi:uuid="725A27D7-D4C3-4C49-992D-E65AB74A08E1" xmi:type="uml:Class">
+            <name>Block-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-36-Block-2"
+            xmi:uuid="725A27D7-D4C3-4673-924A-E65A07813FA5" xmi:type="uml:Class">
+            <name>Block-2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-36-Block-3"
+            xmi:uuid="725A27D7-D4C3-4DC6-9A67-E65A51EBBF77" xmi:type="uml:AssociationClass">
+            <memberEnd xmi:idref="Test-Case-36-Block-3-end-2"/>
+            <memberEnd xmi:idref="Test-Case-36-Block-3-end-1"/>
+            <navigableOwnedEnd xmi:idref="Test-Case-36-Block-3-end-1"/>
+            <navigableOwnedEnd xmi:idref="Test-Case-36-Block-3-end-2"/>
+            <ownedEnd xmi:id="Test-Case-36-Block-3-end-1"
+                xmi:uuid="725A27D7-D4C3-4B0E-97F9-E65AD350EE97" xmi:type="uml:Property">
+                <name>end-1</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-36-Block-1"/>
+                <association xmi:idref="Test-Case-36-Block-3"/>
+            </ownedEnd>
+            <ownedEnd xmi:id="Test-Case-36-Block-3-end-2"
+                xmi:uuid="725A27D7-D4C3-45B7-9AAD-E65AED75428F" xmi:type="uml:Property">
+                <name>end-2</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-36-Block-2"/>
+                <association xmi:idref="Test-Case-36-Block-3"/>
+            </ownedEnd>
+            <ownedAttribute xmi:id="Test-Case-36-Block-3-link-end-1"
+                xmi:uuid="725A27D7-D4C3-4179-980F-E65AB09AC293" xmi:type="uml:Property">
+                <name>link-end-1</name>
+                <isUnique>false</isUnique>
+                <type xmi:idref="Test-Case-36-Block-1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-36-Block-3-link-end-2"
+                xmi:uuid="725A27D7-D4C3-472F-9659-E65A4BAB6656" xmi:type="uml:Property">
+                <name>link-end-2</name>
+                <isUnique>false</isUnique>
+                <type xmi:idref="Test-Case-36-Block-2"/>
+            </ownedAttribute>
+            <ownedConnector xmi:id="Test-Case-36-Block-3-ownedConnector"
+                xmi:uuid="725A27D7-D4C3-40CD-9C48-E65AD076CA0E" xmi:type="uml:Connector">
+                <end xmi:id="Test-Case-36-Block-3-ownedConnector-end-1"
+                    xmi:uuid="725A27D7-D4C3-474D-99FD-E65A14BD8C0B" xmi:type="uml:ConnectorEnd">
+                    <role xmi:idref="Test-Case-36-Block-3-link-end-1"/>
+                </end>
+                <end xmi:id="Test-Case-36-Block-3-ownedConnector-end-2"
+                    xmi:uuid="725A27D7-D4C3-4C65-97A7-E65A3E795E60" xmi:type="uml:ConnectorEnd">
+                    <role xmi:idref="Test-Case-36-Block-3-link-end-2"/>
+                </end>
+                <visibility>public</visibility>
+            </ownedConnector>
+            <name>Block-3</name>
+        </packagedElement>
+        <name>Test-Case-36</name>
+    </uml:Model>
+    <sysml:ParticipantProperty xmi:id="_-ParticipantProperty-1"
+        xmi:uuid="725A27D7-D4C3-4718-970E-E65AFABAE5B4">
+        <base_Property xmi:idref="Test-Case-36-Block-3-link-end-1"/>
+        <end xmi:idref="Test-Case-36-Block-3-end-1"/>
+    </sysml:ParticipantProperty>
+    <sysml:ParticipantProperty xmi:id="_-ParticipantProperty-2"
+        xmi:uuid="725A27D7-D4C3-4F90-9344-E65AEEF1EE34">
+        <base_Property xmi:idref="Test-Case-36-Block-3-link-end-2"/>
+        <end xmi:idref="Test-Case-36-Block-3-end-2"/>
+    </sysml:ParticipantProperty>
+</xmi:XMI>

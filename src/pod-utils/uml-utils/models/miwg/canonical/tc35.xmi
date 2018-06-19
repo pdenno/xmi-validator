@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <sysml:Block xmi:id="_-Block-2" xmi:uuid="725A27D7-D4C3-4624-9F9C-E57304B87C49">
+        <base_Class xmi:idref="Test-Case-35-Package-1-Block-2"/>
+    </sysml:Block>
+    <sysml:Block xmi:id="_-Block-1" xmi:uuid="725A27D7-D4C3-48A6-9ADC-E57385E68083">
+        <base_Class xmi:idref="Test-Case-35-Package-1-Block-3"/>
+    </sysml:Block>
+    <sysml:Block xmi:id="_-Block-3" xmi:uuid="725A27D7-D4C3-48DD-9F92-E573E7A888F0">
+        <base_Class xmi:idref="Test-Case-35-Package-1-Block-1"/>
+    </sysml:Block>
+    <sysml:Conform xmi:id="_-Conform-2" xmi:uuid="725A27D7-D4C3-4303-9A14-E573DD906DDE">
+        <base_Dependency xmi:idref="Test-Case-35-View-2-packagedElement"/>
+    </sysml:Conform>
+    <sysml:Conform xmi:id="_-Conform-1" xmi:uuid="725A27D7-D4C3-4B7A-9FA0-E5732CE0B177">
+        <base_Dependency xmi:idref="Test-Case-35-View-1-packagedElement"/>
+    </sysml:Conform>
+    <uml:Model xmi:id="Test-Case-35" xmi:uuid="725A27D7-D4C3-49E7-9D6D-E5736763846F">
+        <profileApplication xmi:id="Test-Case-35-profileApplication"
+            xmi:uuid="725A27D7-D4C3-4F42-9A76-E573F716A090" xmi:type="uml:ProfileApplication">
+            <appliedProfile href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+        </profileApplication>
+        <packagedElement href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+        <packagedElement xmi:id="Test-Case-35-Viewpoint-1"
+            xmi:uuid="725A27D7-D4C3-49BC-9383-E573A58D7D99" xmi:type="uml:Class">
+            <name>Viewpoint-1</name>
+            <isAbstract>true</isAbstract>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-35-View-1"
+            xmi:uuid="725A27D7-D4C3-4A22-9589-E573BD1EAEA9" xmi:type="uml:Package">
+            <ownedComment xmi:id="Test-Case-35-View-1-ownedComment"
+                xmi:uuid="725A27D7-D4C3-4101-9ACA-E5731D846CA4" xmi:type="uml:Comment">
+                <body>This comment is owned by View-1</body>
+            </ownedComment>
+            <packageImport xmi:id="Test-Case-35-View-1-packageImport"
+                xmi:uuid="725A27D7-D4C3-4255-964C-E573AA70C4F7" xmi:type="uml:PackageImport">
+                <importedPackage xmi:idref="Test-Case-35-Package-1"/>
+            </packageImport>
+            <packagedElement xmi:id="Test-Case-35-View-1-packagedElement"
+                xmi:uuid="725A27D7-D4C3-4459-9ECC-E57387F0B7E4" xmi:type="uml:Dependency">
+                <supplier xmi:idref="Test-Case-35-Viewpoint-1"/>
+                <client xmi:idref="Test-Case-35-View-1"/>
+            </packagedElement>
+            <name>View-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-35-View-2"
+            xmi:uuid="725A27D7-D4C3-42D7-9E3D-E573A01C5BFC" xmi:type="uml:Package">
+            <elementImport xmi:id="Test-Case-35-View-2-elementImport-1"
+                xmi:uuid="725A27D7-D4C3-48D8-9B1C-E573E5A05AD9" xmi:type="uml:ElementImport">
+                <importedElement xmi:idref="Test-Case-35-Package-1-Block-2"/>
+            </elementImport>
+            <elementImport xmi:id="Test-Case-35-View-2-elementImport-2"
+                xmi:uuid="725A27D7-D4C3-4FF3-9264-E573A8FCB9E2" xmi:type="uml:ElementImport">
+                <importedElement xmi:idref="Test-Case-35-Package-1-Block-3"/>
+            </elementImport>
+            <ownedRule xmi:id="Test-Case-35-View-2-Constraint-1"
+                xmi:uuid="725A27D7-D4C3-43A4-9E81-E573BEAED517" xmi:type="uml:Constraint">
+                <constrainedElement xmi:idref="Test-Case-35-View-2"/>
+                <specification xmi:id="Test-Case-35-View-2-Constraint-1-specification"
+                    xmi:uuid="725A27D7-D4C3-4FF8-904A-E573D7B95309" xmi:type="uml:OpaqueExpression">
+                    <body>This constraint is owned by View-2.</body>
+                </specification>
+                <name>Constraint-1</name>
+            </ownedRule>
+            <packagedElement xmi:id="Test-Case-35-View-2-packagedElement"
+                xmi:uuid="725A27D7-D4C3-46AD-98AE-E573202F9826" xmi:type="uml:Dependency">
+                <supplier xmi:idref="Test-Case-35-Viewpoint-1"/>
+                <client xmi:idref="Test-Case-35-View-2"/>
+            </packagedElement>
+            <name>View-2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-35-Package-1"
+            xmi:uuid="725A27D7-D4C3-4532-903B-E57395806647" xmi:type="uml:Package">
+            <packagedElement xmi:id="Test-Case-35-Package-1-Block-1"
+                xmi:uuid="725A27D7-D4C3-41B7-9D68-E5736B8E0A69" xmi:type="uml:Class">
+                <name>Block-1</name>
+            </packagedElement>
+            <packagedElement xmi:id="Test-Case-35-Package-1-Block-2"
+                xmi:uuid="725A27D7-D4C3-40A3-963B-E57378D5D729" xmi:type="uml:Class">
+                <name>Block-2</name>
+            </packagedElement>
+            <packagedElement xmi:id="Test-Case-35-Package-1-Block-3"
+                xmi:uuid="725A27D7-D4C3-412B-9A0A-E573E87F2583" xmi:type="uml:Class">
+                <name>Block-3</name>
+            </packagedElement>
+            <name>Package-1</name>
+        </packagedElement>
+        <name>Test-Case-35</name>
+    </uml:Model>
+    <sysml:View xmi:id="_-View-2" xmi:uuid="725A27D7-D4C3-454B-9DEE-E57376368BB9">
+        <base_Package xmi:idref="Test-Case-35-View-1"/>
+    </sysml:View>
+    <sysml:View xmi:id="_-View-1" xmi:uuid="725A27D7-D4C3-48C8-9201-E573089D7EE2">
+        <base_Package xmi:idref="Test-Case-35-View-2"/>
+    </sysml:View>
+    <sysml:Viewpoint xmi:id="_-Viewpoint" xmi:uuid="725A27D7-D4C3-4D36-9C6C-E573EBB07B7E">
+        <methods>Test</methods>
+        <languages>SysML</languages>
+        <concerns>Create SysML tools</concerns>
+        <concerns>Interchange SysML models</concerns>
+        <stakeholders>SysML vendors</stakeholders>
+        <stakeholders>SysML modelers</stakeholders>
+        <base_Class xmi:idref="Test-Case-35-Viewpoint-1"/>
+        <purpose>To test viewpoint interchange</purpose>
+    </sysml:Viewpoint>
+</xmi:XMI>

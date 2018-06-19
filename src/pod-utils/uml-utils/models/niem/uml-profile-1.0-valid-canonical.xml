@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+  <uml:Profile xmi:id="UML_Profile_for_NIEM" xmi:uuid="3724df3a-5654-4a9a-b0b2-b4339d6bd0d8">
+    <name>UML Profile for NIEM</name>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCSCType" xmi:uuid="00e777c6-3e7a-4b81-95f8-fd33ffa94cdf" xmi:type="uml:Stereotype">
+      <name>NIEMCSCType</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-base" xmi:uuid="31f3eb4e-1d96-441b-a3b5-52f771c601ad" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>base</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-base-lowerValue" xmi:uuid="d662c76f-c3f0-4789-9beb-647144b7e122" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-definition" xmi:uuid="eb8ff2cb-bb26-46a7-8957-332b031d4cf0" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>definition</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-definition-lowerValue" xmi:uuid="33b31721-c675-4663-8fd3-353078e452f6" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-fractionDigits" xmi:uuid="2ef432ba-26df-46d3-9f7d-1754114f1c0c" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>fractionDigits</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-fractionDigits-lowerValue" xmi:uuid="7fe1bfaa-3240-4e54-9e9d-88f1f3b5de01" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-maxExclusive" xmi:uuid="f09917ad-9f08-40b8-b24b-5d61fcfa322f" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>maxExclusive</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-maxExclusive-lowerValue" xmi:uuid="855bdcee-df27-429e-97d7-154422e0c87f" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-maxInclusive" xmi:uuid="ad240839-b20c-41cc-ab3f-28a4d142aebb" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>maxInclusive</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-maxInclusive-lowerValue" xmi:uuid="6d7a5533-04d1-4bde-b77f-5744a7a336dd" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-minExclusive" xmi:uuid="df0e1492-bfcb-48f4-a1fd-a69e077ce523" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>minExclusive</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-minExclusive-lowerValue" xmi:uuid="dce403a7-dc25-4d96-b5df-dae53bffd745" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-minInclusive" xmi:uuid="6e64aef2-0f1f-4e86-9ebb-ffdb05c4d528" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>minInclusive</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-minInclusive-lowerValue" xmi:uuid="8c19f3c6-525c-4011-a68b-978f315e88b3" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-pattern" xmi:uuid="ed7e8f7b-65c6-491b-b4d8-1bb26e4fdcc6" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>pattern</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-pattern-lowerValue" xmi:uuid="1076d6c3-cb85-4038-89bd-89c63c9c5570" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-totalDigits" xmi:uuid="e8530e75-188d-4fc3-8cf1-f4cbfdae2497" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>totalDigits</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-totalDigits-lowerValue" xmi:uuid="565d0a56-2ee0-4da3-b9e4-b5f8f86158fe" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-whiteSpace" xmi:uuid="9b281b85-5294-4611-8182-b169d13cb1b8" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>whiteSpace</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-whiteSpace-lowerValue" xmi:uuid="92c0bbc8-d4f0-407e-a557-26c4a7272f04" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-simple" xmi:uuid="4fa6094e-bee9-4d93-b587-ad0a44b9ba20" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>simple</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-simple-lowerValue" xmi:uuid="b4aa0175-1db2-45d0-9f9e-39c79277e6c7" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-length" xmi:uuid="7f3f375c-66b2-482c-8061-19637eaec69a" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>length</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-length-lowerValue" xmi:uuid="92a0b21d-65c5-4dfd-8370-e48b9ebf809c" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-maxLength" xmi:uuid="a8f174f2-8a87-4a44-b14a-f45b13d23e41" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>maxLength</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-maxLength-lowerValue" xmi:uuid="a2666c57-b802-44d4-8fd4-04d1fcd5f158" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-minLength" xmi:uuid="50bd7b76-c749-480c-9043-2ddd9df325ff" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>minLength</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCSCType-minLength-lowerValue" xmi:uuid="c2e9b2aa-94d3-44cf-befb-53fd68a07b34" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCSCType-base_DataType" xmi:uuid="4a02bcca-03dd-48d7-a3bc-ac61c8ab7b93" xmi:type="uml:Property">
+        <name>base_DataType</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#DataType"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMCSCType_Extends_DataType"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMMetadataApplication" xmi:uuid="0178701d-75e8-48a5-82e5-d7e29e5160d0" xmi:type="uml:Stereotype">
+      <name>NIEMMetadataApplication</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMMetadataApplication-base_Dependency" xmi:uuid="d9d51205-a078-44bb-a2db-c06846feadc5" xmi:type="uml:Property">
+        <name>base_Dependency</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Dependency"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMMetadataApplication_Extends_Dependency"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMObjectType" xmi:uuid="04277bd0-a023-4041-8bc2-2275c9f2b5ee" xmi:type="uml:Stereotype">
+      <name>NIEMObjectType</name>
+      <generalization xmi:id="UML_Profile_for_NIEM-NIEMObjectType-generalization" xmi:uuid="de845fea-325d-4f4c-a6e2-d5ad137c3d4a" xmi:type="uml:Generalization">
+        <general xmi:idref="UML_Profile_for_NIEM-NIEMCCCType"/>
+      </generalization>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMObjectType-base_Class" xmi:uuid="d3e3c5df-4a9e-46fd-a2a9-59b07050740b" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMObjectType_Extends_Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty" xmi:uuid="07ce00e3-b1d4-4942-99d8-945d70cb03cd" xmi:type="uml:Stereotype">
+      <name>NIEMExternalProperty</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty-namespace" xmi:uuid="3b68e6a8-e361-41d2-86bf-4a5565c7960d" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>namespace</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty-namespace-lowerValue" xmi:uuid="436be4db-7a38-4119-96c6-793c1fd75f9d" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty-isElement" xmi:uuid="e5e12e67-1b9b-44b6-bf51-87106d79777d" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>isElement</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty-isElement-lowerValue" xmi:uuid="50acc79d-560d-4d05-a666-677ce993ced9" xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty-isElement-defaultValue" xmi:uuid="197eb7f2-a9d6-46dc-8ac9-2e1ee3bca034" xmi:type="uml:LiteralString">
+          <value>true</value>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty-base_Property" xmi:uuid="e6effe37-548f-4bb8-8ed2-8d68bea242d4" xmi:type="uml:Property">
+        <name>base_Property</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMExternalProperty_Extends_Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMAugmentationType" xmi:uuid="0b9153d7-a217-4522-9696-785ca52fa959" xmi:type="uml:Stereotype">
+      <name>NIEMAugmentationType</name>
+      <generalization xmi:id="UML_Profile_for_NIEM-NIEMAugmentationType-generalization" xmi:uuid="2fdcc9cb-fa84-4cc8-99ff-58350705cf3a" xmi:type="uml:Generalization">
+        <general xmi:idref="UML_Profile_for_NIEM-NIEMCCCType"/>
+      </generalization>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMAugmentationType-base_Class" xmi:uuid="d3be459e-d6c9-468d-a8e1-c848df186a89" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMAugmentationType_Extends_Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCCCType" xmi:uuid="1944f8f3-7533-4efd-82f6-1bc430b9dc87" xmi:type="uml:Stereotype">
+      <name>NIEMCCCType</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCCCType-base_Class" xmi:uuid="7ca5c470-7eac-439f-8a09-51a6abf06a65" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMCCCType_Extends_Class"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCCCType-definition" xmi:uuid="cfb3b270-27b8-4ffb-8deb-d40fe40d17e6" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>definition</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCCCType-definition-lowerValue" xmi:uuid="67af2e5e-2e36-471a-9918-a350ae5e515d" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMAdapterType" xmi:uuid="28d3ed7b-c2ca-4d06-a865-96967e4b4996" xmi:type="uml:Stereotype">
+      <name>NIEMAdapterType</name>
+      <generalization xmi:id="UML_Profile_for_NIEM-NIEMAdapterType-generalization" xmi:uuid="45b3b6d4-a078-4c1f-a2e4-42e15445f800" xmi:type="uml:Generalization">
+        <general xmi:idref="UML_Profile_for_NIEM-NIEMCCCType"/>
+      </generalization>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMAdapterType-base_Class" xmi:uuid="2389f034-2c3e-4048-9a92-79a7992ae329" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMAdapterType_Extends_Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMPropertyValueCodeType" xmi:uuid="3343d7f6-8361-4261-a8d1-a2511658ada1" xmi:type="uml:Enumeration">
+      <name>NIEMPropertyValueCodeType</name>
+      <ownedLiteral xmi:id="UML_Profile_for_NIEM-NIEMPropertyValueCodeType-referenceMayBeContent" xmi:uuid="5a31b0ab-ad43-4e7f-9aa3-f5a8ac328d99" xmi:type="uml:EnumerationLiteral">
+        <name>referenceMayBeContent</name>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="UML_Profile_for_NIEM-NIEMPropertyValueCodeType-content" xmi:uuid="3e54dfa7-1c3f-43de-908a-b5de1bb580c4" xmi:type="uml:EnumerationLiteral">
+        <name>content</name>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="UML_Profile_for_NIEM-NIEMPropertyValueCodeType-contentMayBeReference" xmi:uuid="a9a312a2-e3b8-4a39-9754-9c82e63e44f1" xmi:type="uml:EnumerationLiteral">
+        <name>contentMayBeReference</name>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="UML_Profile_for_NIEM-NIEMPropertyValueCodeType-reference" xmi:uuid="d14d555a-c2d4-454c-b64d-c7204dda2e0a" xmi:type="uml:EnumerationLiteral">
+        <name>reference</name>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMAssociationType" xmi:uuid="5597158c-10e7-4212-9227-bdd59a5dd087" xmi:type="uml:Stereotype">
+      <name>NIEMAssociationType</name>
+      <generalization xmi:id="UML_Profile_for_NIEM-NIEMAssociationType-generalization" xmi:uuid="fe51322f-e13f-4f32-bed8-c09eff0e1961" xmi:type="uml:Generalization">
+        <general xmi:idref="UML_Profile_for_NIEM-NIEMCCCType"/>
+      </generalization>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMAssociationType-base_Class" xmi:uuid="657ce885-6a55-495c-891a-3c9fc4a374fe" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMAssociationType_Extends_Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMSimpleType" xmi:uuid="67f43d1e-1571-4640-aaae-2876a87668cd" xmi:type="uml:Stereotype">
+      <name>NIEMSimpleType</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-fractionDigits" xmi:uuid="5fa1724c-f2fa-45ae-be50-4b6cf9311913" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>fractionDigits</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-fractionDigits-lowerValue" xmi:uuid="116245c0-5f93-42c4-9f53-c85f26ce2edb" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-whiteSpace" xmi:uuid="fd953b6c-b2f1-4d9b-9589-a47a22e589e2" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>whiteSpace</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-whiteSpace-lowerValue" xmi:uuid="97756afd-33ff-46ca-b86d-14eb08f21eb3" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-minExclusive" xmi:uuid="c2520cc2-29d4-4146-bc3f-ff94424061eb" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>minExclusive</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-minExclusive-lowerValue" xmi:uuid="99d93053-c4b5-41f0-87aa-550aecb75914" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-length" xmi:uuid="2bea7889-4f93-47bb-afe5-d796110f32c8" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>length</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-length-lowerValue" xmi:uuid="7ff82013-ada2-4ca3-8b97-ad01fa4805ef" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-maxLength" xmi:uuid="800aecb9-b114-49be-9299-4ae0faed3094" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>maxLength</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-maxLength-lowerValue" xmi:uuid="4b3f4dac-a065-45d2-9b3b-bd9883b531e6" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-minLength" xmi:uuid="1f879fbf-df86-4db0-8867-f4c19adbad41" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>minLength</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-minLength-lowerValue" xmi:uuid="7668824d-50fa-4f23-815e-54c7d7704197" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-base_DataType" xmi:uuid="2ceaf319-7169-46c3-8f13-d4fa140d59e1" xmi:type="uml:Property">
+        <name>base_DataType</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#DataType"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMSimpleType_Extends_DataType"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-definition" xmi:uuid="538d3af2-1b7f-46b9-a212-332fe091820f" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>definition</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-definition-lowerValue" xmi:uuid="4b654b32-f0c8-49b2-b1aa-e74b92fcb353" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-maxExclusive" xmi:uuid="8a1dac61-5304-405a-af54-279ee5ecb8a2" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>maxExclusive</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-maxExclusive-lowerValue" xmi:uuid="76fb0187-e3d1-47e9-bcc7-5f71f2533edc" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-maxInclusive" xmi:uuid="2e65a1f5-c8f1-4428-9bc0-4d1fa604cc6b" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>maxInclusive</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-maxInclusive-lowerValue" xmi:uuid="b9e79933-6c9d-46c3-bef2-8d6370449af0" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-minInclusive" xmi:uuid="11529203-e422-4bf0-b8dc-d4d453d016ef" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>minInclusive</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-minInclusive-lowerValue" xmi:uuid="756f66b9-6537-4b2c-a5e0-3f21159e9218" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-pattern" xmi:uuid="6a6963d8-b7e3-44f1-98d1-20edf62b1653" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>pattern</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-pattern-lowerValue" xmi:uuid="b0bdbb11-a4c9-4df8-9cb9-9673fb1e535d" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-base" xmi:uuid="464c89a2-c64b-48c1-86e8-299515f33b5c" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>base</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-base-lowerValue" xmi:uuid="d6d0a2c4-b74d-47f9-832d-4321fd093627" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-totalDigits" xmi:uuid="24cdec32-f319-4c5b-a811-2e2917c7b324" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>totalDigits</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMSimpleType-totalDigits-lowerValue" xmi:uuid="46e14830-d126-434f-a3c9-812fed710228" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMProperty_Extends_Property" xmi:uuid="725A27D7-D1E2-4054-90D9-D3DCD1BE3062" xmi:type="uml:Extension">
+      <name>NIEMProperty Extends Property</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMProperty_Extends_Property-niemproperty"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMProperty-base_Property"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMProperty_Extends_Property-niemproperty" xmi:uuid="725A27D7-D1E2-4732-9E5B-D3DC6A12F66B" xmi:type="uml:ExtensionEnd">
+        <name>niemproperty</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMProperty"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMSimpleType_Extends_DataType" xmi:uuid="725A27D7-D1E2-42F5-97EF-D3DCDB9FA645" xmi:type="uml:Extension">
+      <name>NIEMSimpleType Extends DataType</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMSimpleType_Extends_DataType-niemsimpletype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMSimpleType-base_DataType"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMSimpleType_Extends_DataType-niemsimpletype" xmi:uuid="725A27D7-D1E2-4916-9793-D3DC4942FD9F" xmi:type="uml:ExtensionEnd">
+        <name>niemsimpletype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMSimpleType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMTopLevel_Extends_Class" xmi:uuid="725A27D7-D1E2-44EC-9726-D3DCC6D3742F" xmi:type="uml:Extension">
+      <name>NIEMTopLevel Extends Class</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMTopLevel_Extends_Class-niemtoplevel"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMTopLevel-base_Class"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMTopLevel_Extends_Class-niemtoplevel" xmi:uuid="725A27D7-D1E2-4350-993A-D3DCFA47A961" xmi:type="uml:ExtensionEnd">
+        <name>niemtoplevel</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMTopLevel"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMAugmentationType_Extends_Class" xmi:uuid="725A27D7-D1E2-44F5-93C8-D3DCC27F89A8" xmi:type="uml:Extension">
+      <name>NIEMAugmentationType Extends Class</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMAugmentationType_Extends_Class-niemaugmentationtype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMAugmentationType-base_Class"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMAugmentationType_Extends_Class-niemaugmentationtype" xmi:uuid="725A27D7-D1E2-43C7-92B2-D3DCA7B2FAEE" xmi:type="uml:ExtensionEnd">
+        <name>niemaugmentationtype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMAugmentationType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMObjectType_Extends_Class" xmi:uuid="725A27D7-D1E2-460E-9DAA-D3DCF5FA41CD" xmi:type="uml:Extension">
+      <name>NIEMObjectType Extends Class</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMObjectType_Extends_Class-niemobjecttype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMObjectType-base_Class"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMObjectType_Extends_Class-niemobjecttype" xmi:uuid="725A27D7-D1E2-4735-9100-D3DC281A5B14" xmi:type="uml:ExtensionEnd">
+        <name>niemobjecttype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMObjectType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMMetadataType_Extends_Class" xmi:uuid="725A27D7-D1E2-478A-9CC4-D3DCD32E26C5" xmi:type="uml:Extension">
+      <name>NIEMMetadataType Extends Class</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMMetadataType_Extends_Class-niemmetadatatype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMMetadataType-base_Class"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMMetadataType_Extends_Class-niemmetadatatype" xmi:uuid="725A27D7-D1E2-49EB-9141-D3DCC1FE13C8" xmi:type="uml:ExtensionEnd">
+        <name>niemmetadatatype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMMetadataType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCSCType_Extends_DataType" xmi:uuid="725A27D7-D1E2-47BD-9D63-D3DCECF06BA0" xmi:type="uml:Extension">
+      <name>NIEMCSCType Extends DataType</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCSCType_Extends_DataType-niemcsctype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCSCType-base_DataType"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMCSCType_Extends_DataType-niemcsctype" xmi:uuid="725A27D7-D1E2-4FFF-9E7F-D3DC09F0B0A3" xmi:type="uml:ExtensionEnd">
+        <name>niemcsctype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMCSCType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCodeValue_Extends_EnumerationLiteral" xmi:uuid="725A27D7-D1E2-47DD-9EA1-D3DC808CCEA7" xmi:type="uml:Extension">
+      <name>NIEMCodeValue Extends EnumerationLiteral</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCodeValue_Extends_EnumerationLiteral-niemcodevalue"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCodeValue-base_EnumerationLiteral"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMCodeValue_Extends_EnumerationLiteral-niemcodevalue" xmi:uuid="725A27D7-D1E2-4436-9C11-D3DC4EF4E91C" xmi:type="uml:ExtensionEnd">
+        <name>niemcodevalue</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMCodeValue"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCodeSimpleType_Extends_Enumeration" xmi:uuid="725A27D7-D1E2-49AE-9D8E-D3DC8E150E74" xmi:type="uml:Extension">
+      <name>NIEMCodeSimpleType Extends Enumeration</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCodeSimpleType_Extends_Enumeration-niemcodesimpletype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCodeSimpleType-base_Enumeration"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMCodeSimpleType_Extends_Enumeration-niemcodesimpletype" xmi:uuid="725A27D7-D1E2-4846-9068-D3DC75A43DD0" xmi:type="uml:ExtensionEnd">
+        <name>niemcodesimpletype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMCodeSimpleType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMAssociationType_Extends_Class" xmi:uuid="725A27D7-D1E2-4A15-90C1-D3DCFEEE3D40" xmi:type="uml:Extension">
+      <name>NIEMAssociationType Extends Class</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMAssociationType_Extends_Class-niemassociationtype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMAssociationType-base_Class"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMAssociationType_Extends_Class-niemassociationtype" xmi:uuid="725A27D7-D1E2-44A1-9CB6-D3DC36350711" xmi:type="uml:ExtensionEnd">
+        <name>niemassociationtype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMAssociationType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCCCType_Extends_Class" xmi:uuid="725A27D7-D1E2-4A1E-9DB8-D3DC2418180C" xmi:type="uml:Extension">
+      <name>NIEMCCCType Extends Class</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCCCType_Extends_Class-niemccctype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCCCType-base_Class"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMCCCType_Extends_Class-niemccctype" xmi:uuid="725A27D7-D1E2-46E1-9271-D3DC1CB13468" xmi:type="uml:ExtensionEnd">
+        <name>niemccctype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMCCCType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMNamespace_Extends_Package" xmi:uuid="725A27D7-D1E2-4B3E-9EAC-D3DC321E5DFB" xmi:type="uml:Extension">
+      <name>NIEMNamespace Extends Package</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMNamespace_Extends_Package-niemnamespace"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMNamespace-base_Package"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMNamespace_Extends_Package-niemnamespace" xmi:uuid="725A27D7-D1E2-4678-9FC6-D3DCBC79A84B" xmi:type="uml:ExtensionEnd">
+        <name>niemnamespace</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMNamespace"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMAdapterType_Extends_Class" xmi:uuid="725A27D7-D1E2-4BB5-9461-D3DCC999F2FE" xmi:type="uml:Extension">
+      <name>NIEMAdapterType Extends Class</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMAdapterType_Extends_Class-niemadaptertype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMAdapterType-base_Class"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMAdapterType_Extends_Class-niemadaptertype" xmi:uuid="725A27D7-D1E2-4112-9039-D3DC0B8CBF7F" xmi:type="uml:ExtensionEnd">
+        <name>niemadaptertype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMAdapterType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCodeType_Extends_Enumeration" xmi:uuid="725A27D7-D1E2-4C34-9D7A-D3DCD77D72B6" xmi:type="uml:Extension">
+      <name>NIEMCodeType Extends Enumeration</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCodeType_Extends_Enumeration-niemcodetype"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMCodeType-base_Enumeration"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMCodeType_Extends_Enumeration-niemcodetype" xmi:uuid="725A27D7-D1E2-4B5A-9A9B-D3DC63A81CA4" xmi:type="uml:ExtensionEnd">
+        <name>niemcodetype</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMCodeType"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMMetadataApplication_Extends_Dependency" xmi:uuid="725A27D7-D1E2-4C71-97F5-D3DC6F188FC7" xmi:type="uml:Extension">
+      <name>NIEMMetadataApplication Extends Dependency</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMMetadataApplication_Extends_Dependency-niemmetadataapplication"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMMetadataApplication-base_Dependency"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMMetadataApplication_Extends_Dependency-niemmetadataapplication" xmi:uuid="725A27D7-D1E2-412D-91CE-D3DC6350120F" xmi:type="uml:ExtensionEnd">
+        <name>niemmetadataapplication</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMMetadataApplication"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty_Extends_Property" xmi:uuid="725A27D7-D1E2-4EDE-9E3E-D3DCD10DEBBB" xmi:type="uml:Extension">
+      <name>NIEMExternalProperty Extends Property</name>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMExternalProperty_Extends_Property-niemexternalproperty"/>
+      <memberEnd xmi:idref="UML_Profile_for_NIEM-NIEMExternalProperty-base_Property"/>
+      <ownedEnd xmi:id="UML_Profile_for_NIEM-NIEMExternalProperty_Extends_Property-niemexternalproperty" xmi:uuid="725A27D7-D1E2-44DB-99FF-D3DCD8C53285" xmi:type="uml:ExtensionEnd">
+        <name>niemexternalproperty</name>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMExternalProperty"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMNamespace" xmi:uuid="8b04199e-3ffc-497e-9896-cb3b10945935" xmi:type="uml:Stereotype">
+      <name>NIEMNamespace</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMNamespace-version" xmi:uuid="637bbf06-48fa-4266-b03f-e7d611416a23" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>version</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMNamespace-version-lowerValue" xmi:uuid="08c5560c-99c9-4fa2-8c38-0dcff04e092a" xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:id="UML_Profile_for_NIEM-NIEMNamespace-version-defaultValue" xmi:uuid="e9fbdb5a-0170-4c45-92ae-8836c342cfb2" xmi:type="uml:LiteralString">
+          <value>1</value>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMNamespace-base_Package" xmi:uuid="4f246def-80c0-44b8-8f57-edd24c6cf9a4" xmi:type="uml:Property">
+        <name>base_Package</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Package"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMNamespace_Extends_Package"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMNamespace-definition" xmi:uuid="31abbf21-6867-499d-beea-c836accbda15" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>definition</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMNamespace-definition-lowerValue" xmi:uuid="bde1f02a-0d46-4bac-8084-6bfd299937a3" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMNamespace-namespace" xmi:uuid="a94f47d4-485f-4801-ae37-24107ebd43e3" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>namespace</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMNamespace-namespace-lowerValue" xmi:uuid="24f029ca-16ab-49da-995d-07ddc3422614" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMNamespace-isConformant" xmi:uuid="e2dc133e-ef59-41b3-a36b-fc948e0ce31c" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>isConformant</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMNamespace-isConformant-lowerValue" xmi:uuid="9b33e4ea-20a2-4100-9b70-c812d08f6df5" xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:id="UML_Profile_for_NIEM-NIEMNamespace-isConformant-defaultValue" xmi:uuid="852c7d9a-7274-48a2-bbe6-2f355760e844" xmi:type="uml:LiteralString">
+          <value>true</value>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCodeSimpleType" xmi:uuid="8fa7ae16-18ad-4d99-bb62-4dd0a18b1a4c" xmi:type="uml:Stereotype">
+      <name>NIEMCodeSimpleType</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeSimpleType-base" xmi:uuid="cedcb746-f680-479d-9475-49c9cc684f1f" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>base</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCodeSimpleType-base-lowerValue" xmi:uuid="267f9d5a-44f3-422d-bc69-0bb9912ff4c0" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeSimpleType-definition" xmi:uuid="9fa64aab-5a99-484b-a8bd-b620f58e42dd" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>definition</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCodeSimpleType-definition-lowerValue" xmi:uuid="0a17d269-d75f-4920-9d42-34f7ae16c0db" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeSimpleType-base_Enumeration" xmi:uuid="32b9cb30-b489-40dc-8bb5-a85eafff848a" xmi:type="uml:Property">
+        <name>base_Enumeration</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Enumeration"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMCodeSimpleType_Extends_Enumeration"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMTopLevel" xmi:uuid="ab83a997-21d6-4954-9310-ac4f4e66219c" xmi:type="uml:Stereotype">
+      <name>NIEMTopLevel</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMTopLevel-base_Class" xmi:uuid="50ec65d3-990e-45c4-93e4-b757d260e883" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMTopLevel_Extends_Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCodeType" xmi:uuid="b0577b85-3293-4357-a4e2-58920aa2f3c2" xmi:type="uml:Stereotype">
+      <name>NIEMCodeType</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeType-base_Enumeration" xmi:uuid="03c5262c-f138-4d65-bc88-b7393e321978" xmi:type="uml:Property">
+        <name>base_Enumeration</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Enumeration"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMCodeType_Extends_Enumeration"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeType-base" xmi:uuid="8b4a7cb8-de9b-46d5-8bf9-395933fc3460" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>base</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCodeType-base-lowerValue" xmi:uuid="dc1295d5-fef7-4329-b32e-daae0e063fab" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeType-definition" xmi:uuid="3f00ee7e-88bc-4dc3-bb15-6ca9f2b08d9c" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>definition</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCodeType-definition-lowerValue" xmi:uuid="c4cc430b-27ca-4d89-b683-85347f85b8e5" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeType-simple" xmi:uuid="f6a4c7b1-42fb-42f8-a8eb-67aefd204e65" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>simple</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCodeType-simple-lowerValue" xmi:uuid="14543c9c-2ea6-4f51-bbfd-9d9bd00040e9" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMProperty" xmi:uuid="b94ac46c-8bbb-4c8b-9a26-608f355ece12" xmi:type="uml:Stereotype">
+      <name>NIEMProperty</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-augmentedTypeName" xmi:uuid="24a891f2-5d93-407f-a849-8c22f29198ef" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>augmentedTypeName</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-augmentedTypeNamespace" xmi:uuid="33a6edf1-64e9-43b4-9b09-dd4c451b9d43" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>augmentedTypeNamespace</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-base_Property" xmi:uuid="8637279e-8748-4916-b9fd-ea1f6b990195" xmi:type="uml:Property">
+        <name>base_Property</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMProperty_Extends_Property"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-definition" xmi:uuid="b0de9bc1-21c1-466e-9d4e-ff3239a19e22" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>definition</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-definition-lowerValue" xmi:uuid="a85e8112-bfac-4cfb-ad24-82b4a14f086b" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-isElement" xmi:uuid="cc9d9f7c-aeba-46d1-86cb-105482bec006" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>isElement</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-isElement-lowerValue" xmi:uuid="f3028b76-c079-4848-bdba-8127375c1289" xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-isElement-defaultValue" xmi:uuid="a0d0aec0-4d1e-4bac-a29c-42c5ab7d7b7d" xmi:type="uml:LiteralString">
+          <value>true</value>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-value" xmi:uuid="fc92c2a1-d31d-43ed-b87c-0494b4532f38" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>value</name>
+        <type xmi:idref="UML_Profile_for_NIEM-NIEMPropertyValueCodeType"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-value-lowerValue" xmi:uuid="a45b20a3-b423-4273-b141-ec0c353ccc6f" xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-value-defaultValue" xmi:uuid="9cb58f03-4ddc-4547-b36f-a39fb22fd433" xmi:type="uml:InstanceValue">
+          <instance xmi:idref="UML_Profile_for_NIEM-NIEMPropertyValueCodeType-contentMayBeReference"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-namespace" xmi:uuid="ef60fc66-6cb5-4575-8e36-24e0f2a561df" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>namespace</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-namespace-lowerValue" xmi:uuid="b79aa5b7-bfad-45fa-9d42-947064227555" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-substitutionGroupNamespace" xmi:uuid="6b3436da-095b-4d52-bd11-929931dd244d" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>substitutionGroupNamespace</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-substitutionGroupNamespace-lowerValue" xmi:uuid="2db89497-73e1-4153-a4d0-217f51604898" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-substitutionGroupName" xmi:uuid="f02ea2cb-3ae5-4f62-8087-af2fb86d84aa" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>substitutionGroupName</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-substitutionGroupName-lowerValue" xmi:uuid="e73bba7a-c8a1-43c2-86c4-ba098af251fb" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMProperty-nillable" xmi:uuid="73e62790-65b6-4b13-87c4-06daf47aa13a" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>nillable</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+        <defaultValue xmi:id="UML_Profile_for_NIEM-NIEMProperty-nillable-defaultValue" xmi:uuid="2d9e4af7-b993-4911-bfc9-0bb020930a3a" xmi:type="uml:LiteralString">
+          <value>false</value>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMCodeValue" xmi:uuid="f78feff2-f387-402b-8916-16b04cb6a7ad" xmi:type="uml:Stereotype">
+      <name>NIEMCodeValue</name>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeValue-base_EnumerationLiteral" xmi:uuid="a735e777-89f6-4008-a867-5e2f492c4dcb" xmi:type="uml:Property">
+        <name>base_EnumerationLiteral</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#EnumerationLiteral"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMCodeValue_Extends_EnumerationLiteral"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMCodeValue-definition" xmi:uuid="a7b0e34a-c8d3-496f-8ca3-d30dfdd65710" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>definition</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+        <lowerValue xmi:id="UML_Profile_for_NIEM-NIEMCodeValue-definition-lowerValue" xmi:uuid="a09dab82-b69c-4e71-aa4e-50793b7df114" xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="UML_Profile_for_NIEM-NIEMMetadataType" xmi:uuid="f9b5f092-67a0-4a51-97b1-59a0ab3c1d9a" xmi:type="uml:Stereotype">
+      <name>NIEMMetadataType</name>
+      <generalization xmi:id="UML_Profile_for_NIEM-NIEMMetadataType-generalization" xmi:uuid="16619e87-e1e7-4020-9408-e156026f8960" xmi:type="uml:Generalization">
+        <general xmi:idref="UML_Profile_for_NIEM-NIEMCCCType"/>
+      </generalization>
+      <ownedAttribute xmi:id="UML_Profile_for_NIEM-NIEMMetadataType-base_Class" xmi:uuid="c46fd2d0-9a7e-4b26-9fc3-7e91cd5aaa38" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="UML_Profile_for_NIEM-NIEMMetadataType_Extends_Class"/>
+      </ownedAttribute>
+    </packagedElement>
+  </uml:Profile>
+</xmi:XMI>

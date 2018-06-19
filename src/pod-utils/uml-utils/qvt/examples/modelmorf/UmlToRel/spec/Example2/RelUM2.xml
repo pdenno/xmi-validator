@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="relMM2" xmi:id="_Tf-DQEFYEdugSZM5vDFlcg">
+  <hasTable xmi:id="_3OWLQEFYEdugSZM5vDFlcg" name="Company">
+    <column xmi:id="_3mIZIEFYEdugSZM5vDFlcg" name="Name" dataType="Varchar"/>
+    <column xmi:id="_35TMwEFYEdugSZM5vDFlcg" name="NoOfEmployees" dataType="Number"/>
+    <column xmi:id="_4K_ZsEFYEdugSZM5vDFlcg" name="IsMNC" dataType="Raw"/>
+  </hasTable>
+</null:Dummy>

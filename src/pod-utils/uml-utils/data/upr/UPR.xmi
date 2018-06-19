@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
+  <uml:Profile xmi:id="UPR" URI="http://www.omg.org/spec/ROSETTA/20170805/Profile" name="UPR">
+    <metamodelReference xmi:id="UPR._packageImport.UML" xmi:type="uml:PackageImport">
+      <importedPackage href="http://www.omg.org/spec/UML/20131001/UML.xmi#_0"/>
+    </metamodelReference>
+    <packageImport xmi:idref="UPR._packageImport.UML"/>
+    <packageImport xmi:id="UPR._packageImport.PrimitiveTypes" xmi:type="uml:PackageImport">
+      <importedPackage href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#_0"/>
+    </packageImport>
+    <packagedElement xmi:id="UPR.DesignConstraints" xmi:type="uml:Package" URI="http://www.omg.org/spec/MARS/20170805/ROSETTA" name="Design Constraints">
+      <packagedElement xmi:id="UPR.DesignConstraint" xmi:type="uml:Stereotype" name="DesignConstraint">
+        <generalization xmi:id="UPR.DesignConstraint._generalization.UPR.UPRConstraint" xmi:type="uml:Generalization">
+          <general xmi:idref="UPR.UPRConstraint"/>
+        </generalization>
+        <ownedAttribute xmi:id="UPR.DesignConstraint.dcID" xmi:type="uml:Property" isID="true" name="dcID">
+          <ownedComment xmi:id="UPR.DesignConstraint.dcID._comment0" xmi:type="uml:Comment" body="This attribute represents the unique Identification Number of a Design Constraint."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="UPR.DesignConstraint._comment0" xmi:type="uml:Comment" body="The DesignConstraint stereotype specializes the UPRConstraint stereotype for specifying a Design Constraint."/>
+        <ownedOperation xmi:id="UPR.DesignConstraint.constrainedClass_" xmi:type="uml:Operation" isQuery="true" name="constrainedClass">
+          <bodyCondition xmi:id="UPR.DesignConstraint.constrainedClass_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.DesignConstraint.constrainedClass_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.base_Constraint.constrainedElement-&amp;gt;at(1).oclAsType(UML::Class)" language="OCL" name="specification"/>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.DesignConstraint.constrainedClass_.result" xmi:type="uml:Parameter" direction="return" effect="read" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.DesignConstraint.constrainedClass_._rule.body_condition"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="UPR.DesignConstraint.constrainedUseCase_" xmi:type="uml:Operation" isQuery="true" name="constrainedUseCase">
+          <bodyCondition xmi:id="UPR.DesignConstraint.constrainedUseCase_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.DesignConstraint.constrainedUseCase_._rule.body_condition.specification0" xmi:type="uml:OpaqueExpression" body="self.base_Constraint.constrainedElement-&amp;gt;at(1).oclAsType(UML::UseCase)" name=""/>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.DesignConstraint.constrainedUseCase_.result" xmi:type="uml:Parameter" direction="return" effect="read" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#UseCase"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.DesignConstraint.constrainedUseCase_._rule.body_condition"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.ELMtoELMSensitivity" xmi:type="uml:Stereotype" name="ELMtoELMSensitivity">
+        <generalization xmi:id="UPR.ELMtoELMSensitivity._generalization.UPR.Sensitivity" xmi:type="uml:Generalization">
+          <general xmi:idref="UPR.Sensitivity"/>
+        </generalization>
+        <ownedComment xmi:id="UPR.ELMtoELMSensitivity._comment0" xmi:type="uml:Comment" body="The ELMtoELMSensitivity stereotype extends the UML Dependency to model a sensitivity-based relation between two NamedElements."/>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.DCtoELMSensitivity" xmi:type="uml:Stereotype" name="DCtoELMSensitivity">
+        <generalization xmi:id="UPR.DCtoELMSensitivity._generalization.UPR.Sensitivity" xmi:type="uml:Generalization">
+          <general xmi:idref="UPR.Sensitivity"/>
+        </generalization>
+        <ownedComment xmi:id="UPR.DCtoELMSensitivity._comment0" xmi:type="uml:Comment" body="The DCtoELMSensitivity stereotype extends the UML Dependency to model a sensitivity-based relation between a DesignConstraint and a NamedElement. "/>
+        <ownedRule xmi:id="UPR.DCtoELMSensitivity._rule.client_designconstraint" xmi:type="uml:Constraint" name="client_designconstraint">
+          <ownedComment xmi:id="UPR.DCtoELMSensitivity._rule.client_designconstraint._comment0" xmi:type="uml:Comment" body="The client shall have the ConstrainedObjective stereotype applied"/>
+          <specification xmi:id="UPR.DCtoELMSensitivity._rule.client_designconstraint.specification" xmi:type="uml:OpaqueExpression" body="DesignConstraint.allInstances().base_Constraint-&amp;gt;includesAll(self.base_Dependency.client)
+" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.DCtoDCSensitivity" xmi:type="uml:Stereotype" name="DCtoDCSensitivity">
+        <generalization xmi:id="UPR.DCtoDCSensitivity._generalization.UPR.Sensitivity" xmi:type="uml:Generalization">
+          <general xmi:idref="UPR.Sensitivity"/>
+        </generalization>
+        <ownedComment xmi:id="UPR.DCtoDCSensitivity._comment0" xmi:type="uml:Comment" body="The DCtoDCSensitivity stereotype extends the UML Dependency to model a sensitivity-based relation between two DesignConstraints. "/>
+        <ownedRule xmi:id="UPR.DCtoDCSensitivity._rule.client_and_supplier_designconstraints" xmi:type="uml:Constraint" name="client_and_supplier_designconstraints">
+          <ownedComment xmi:id="UPR.DCtoDCSensitivity._rule.client_and_supplier_designconstraints._comment0" xmi:type="uml:Comment" body="Both the client and the supplier shall have the DesignConstraint stereotype applied"/>
+          <specification 
+          xmi:id="UPR.DCtoDCSensitivity._rule.client_and_supplier_designconstraints.specification" xmi:type="uml:OpaqueExpression" body="DesignConstraint.allInstances().base_Constraint-&amp;gt;includesAll(self.base_Dependency.client-&amp;gt;union(self.base_Dependency.supplier))
+" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+</specification>
+        </ownedRule>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="UPR.Foundations" xmi:type="uml:Package" URI="" name="Foundations">
+      <packagedElement xmi:id="UPR.UPRConstraint" xmi:type="uml:Stereotype" isAbstract="true" name="UPRConstraint">
+        <ownedAttribute xmi:id="UPR.UPRConstraint.base_Constraint" xmi:type="uml:Property" name="base_Constraint">
+          <association xmi:idref="UPR.E_UPRConstraint_Constraint"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Constraint"/>
+        </ownedAttribute>
+        <ownedComment 
+        xmi:id="UPR.UPRConstraint._comment0" xmi:type="uml:Comment" body="An UPR constraint stereotype extends the UML Constraint metaclass which is used for specifying either Design Constraint or range for Design Variables. The specification of this constraint shall be the symbol defining the operator. Note that the ROSETTA library provides a set of predefined operators.">
+</ownedComment>
+        <ownedOperation xmi:id="UPR.UPRConstraint.name_" xmi:type="uml:Operation" isQuery="true" name="name">
+          <bodyCondition xmi:id="UPR.UPRConstraint.name_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.UPRConstraint.name_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.base_Constraint.name" language="OCL" name="specification"/>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.UPRConstraint.name_.result" xmi:type="uml:Parameter" direction="return" effect="read" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.UPRConstraint.name_._rule.body_condition"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="UPR.UPRConstraint.value_" xmi:type="uml:Operation" isQuery="true" name="value">
+          <bodyCondition xmi:id="UPR.UPRConstraint.value_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.UPRConstraint.value_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.base_Constraint.constrainedElement-&amp;gt;at(2).oclAsType(UML::ValueSpecification)" language="OCL" name="specification"/>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.UPRConstraint.value_.result" xmi:type="uml:Parameter" direction="return" effect="read" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ValueSpecification"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.UPRConstraint.value_._rule.body_condition"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="UPR.UPRConstraint.comparisonOperator_" xmi:type="uml:Operation" isQuery="true" name="comparisonOperator">
+          <bodyCondition xmi:id="UPR.UPRConstraint.comparisonOperator_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification 
+            xmi:id="UPR.UPRConstraint.comparisonOperator_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="ROSETTA::Operators::OperatorSemantics.allInstances()-&amp;gt;any(o | o.notation.symbol()-&amp;gt;includes(self.base_Constraint.specification.stringValue()))" language="OCL" name="specification">
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.UPRConstraint.comparisonOperator_.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result"/>
+          <ownedRule xmi:idref="UPR.UPRConstraint.comparisonOperator_._rule.body_condition"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="UPR.UPRConstraint.evaluate_" xmi:type="uml:Operation" isQuery="true" name="evaluate">
+          <bodyCondition xmi:id="UPR.UPRConstraint.evaluate_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.UPRConstraint.evaluate_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.comparisonOperator.applyTo(self.base_Constraint)" language="OCL" name="specification">
+              <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+            </specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.UPRConstraint.evaluate_.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.UPRConstraint.evaluate_._rule.body_condition"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="UPR.UPRConstraint.constrainedProperty_" xmi:type="uml:Operation" isQuery="true" name="constrainedProperty">
+          <ownedParameter xmi:id="UPR.UPRConstraint.constrainedProperty_.result" xmi:type="uml:Parameter" direction="return" effect="read" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+          </ownedParameter>
+          <ownedRule xmi:id="UPR.UPRConstraint.constrainedProperty_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.UPRConstraint.constrainedProperty_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.base_Constraint.constrainedElement-&amp;gt;at(1).oclAsType(UML::Property)" language="OCL" name="specification"/>
+          </ownedRule>
+        </ownedOperation>
+        <ownedRule xmi:id="UPR.UPRConstraint._rule.two_constrained_elements" xmi:type="uml:Constraint" name="two_constrained_elements">
+          <ownedComment xmi:id="UPR.UPRConstraint._rule.two_constrained_elements._comment0" xmi:type="uml:Comment" body="A DesignConstraint constraint shall have 2 constrained elements"/>
+          <specification xmi:id="UPR.UPRConstraint._rule.two_constrained_elements.specification" xmi:type="uml:OpaqueExpression" body="self.base_Constraint.constrainedElement-&amp;gt;size()=2" language="OCL" name="specification"/>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.Sensitivity" xmi:type="uml:Stereotype" isAbstract="true" name="Sensitivity">
+        <ownedAttribute xmi:id="UPR.Sensitivity.correlationStrength" xmi:type="uml:Property" name="correlationStrength">
+          <lowerValue xmi:id="UPR.Sensitivity.correlationStrength.lowerValue0" xmi:type="uml:LiteralInteger" name=""/>
+          <ownedComment xmi:id="UPR.Sensitivity.correlationStrength._comment0" xmi:type="uml:Comment" body="Represent dependency through a subjective weight that measures the correlation strength"/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+          <upperValue xmi:id="UPR.Sensitivity.correlationStrength.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" name="" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="UPR.Sensitivity.analyticEquation" xmi:type="uml:Property" name="analyticEquation">
+          <lowerValue xmi:id="UPR.Sensitivity.analyticEquation.lowerValue0" xmi:type="uml:LiteralInteger" name=""/>
+          <ownedComment xmi:id="UPR.Sensitivity.analyticEquation._comment0" xmi:type="uml:Comment" body="Represent dependency through an Analytic Equation "/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          <upperValue xmi:id="UPR.Sensitivity.analyticEquation.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" name="" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="UPR.Sensitivity.dataSourceType" xmi:type="uml:Property" name="dataSourceType">
+          <ownedComment xmi:id="UPR.Sensitivity.dataSourceType._comment0" xmi:type="uml:Comment" body="Represent the data source (DSTypeKind enumeration) used to specify Sensitivity"/>
+          <type xmi:idref="UPR_dataType.DSTypeKind"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="UPR.Sensitivity.base_Dependency" xmi:type="uml:Property" name="base_Dependency">
+          <association xmi:idref="UPR.E_Sensitivity_Dependency"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Dependency"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="UPR.Sensitivity._comment0" xmi:type="uml:Comment" body="The Sensitivity abstract stereotype extends the UML Dependency to model a sensitivity- between two NamedElement"/>
+        <ownedRule xmi:id="UPR.Sensitivity._rule.either_correlation_or_analyticequation" xmi:type="uml:Constraint" name="either_correlation_or_analyticequation">
+          <ownedComment xmi:id="UPR.Sensitivity._rule.either_correlation_or_analyticequation._comment0" xmi:type="uml:Comment" body="The stereotype cannot have CorrelationStrength attribute and analyticEquation attribute simultaneously"/>
+          <specification xmi:id="UPR.Sensitivity._rule.either_correlation_or_analyticequation.specification" xmi:type="uml:OpaqueExpression" body="not (self.correlationStrength-&amp;gt;notEmpty() and self.analyticEquation -&amp;gt;notEmpty())" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="UPR.Sensitivity._rule.is_binary" xmi:type="uml:Constraint" name="is_binary">
+          <ownedComment xmi:id="UPR.Sensitivity._rule.is_binary._comment0" xmi:type="uml:Comment" body="A Sensitivity is a binary relationship"/>
+          <specification xmi:id="UPR.Sensitivity._rule.is_binary.specification" xmi:type="uml:OpaqueExpression" body="self.base_Dependency.supplier-&amp;gt;size() = 1 and self.base_Dependency.client-&amp;gt;size() = 1" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="UPR_dataType.DSTypeKind" xmi:type="uml:Enumeration" name="DSTypeKind">
+        <ownedLiteral xmi:id="UPR.estimated" xmi:type="uml:EnumerationLiteral" name="estimated">
+          <ownedComment xmi:id="UPR.estimated._comment0" xmi:type="uml:Comment" body="Specifies that the attribute owned by the sensitivity stereotype is an estimated value based on subjective decision."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="UPR.derived" xmi:type="uml:EnumerationLiteral" name="derived">
+          <ownedComment xmi:id="UPR.derived._comment0" xmi:type="uml:Comment" body="Specifies that the attribute owned by the sensitivity stereotype is derived from objective (mathematical) relation such as Analytic Equations (but not necessarily)."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="UPR.implied" xmi:type="uml:EnumerationLiteral" name="implied">
+          <ownedComment xmi:id="UPR.implied._comment0" xmi:type="uml:Comment" body="Specifies that the attribute owned by the sensitivity stereotype is an implied value determined from the transformation, RT-B."/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.E_UPRConstraint_Constraint" xmi:type="uml:Extension" name="E_UPRConstraint_Constraint">
+        <memberEnd xmi:idref="UPR.UPRConstraint.base_Constraint"/>
+        <memberEnd xmi:idref="UPR.E_UPRConstraint_Constraint.extension_UPRConstraint"/>
+        <navigableOwnedEnd xmi:idref="UPR.E_UPRConstraint_Constraint.extension_UPRConstraint"/>
+        <ownedEnd xmi:id="UPR.E_UPRConstraint_Constraint.extension_UPRConstraint" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_UPRConstraint">
+          <association xmi:idref="UPR.E_UPRConstraint_Constraint"/>
+          <lowerValue xmi:id="UPR.E_UPRConstraint_Constraint.extension_UPRConstraint.lowerValue0" xmi:type="uml:LiteralInteger" name=""/>
+          <type xmi:idref="UPR.UPRConstraint"/>
+          <upperValue xmi:id="UPR.E_UPRConstraint_Constraint.extension_UPRConstraint.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" name="" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.E_Sensitivity_Dependency" xmi:type="uml:Extension" name="E_Sensitivity_Dependency">
+        <memberEnd xmi:idref="UPR.Sensitivity.base_Dependency"/>
+        <memberEnd xmi:idref="UPR.E_Sensitivity_Dependency.extension_Sensitivity"/>
+        <navigableOwnedEnd xmi:idref="UPR.E_Sensitivity_Dependency.extension_Sensitivity"/>
+        <ownedEnd xmi:id="UPR.E_Sensitivity_Dependency.extension_Sensitivity" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_Sensitivity">
+          <association xmi:idref="UPR.E_Sensitivity_Dependency"/>
+          <lowerValue xmi:id="UPR.E_Sensitivity_Dependency.extension_Sensitivity.lowerValue0" xmi:type="uml:LiteralInteger" name=""/>
+          <type xmi:idref="UPR.Sensitivity"/>
+          <upperValue xmi:id="UPR.E_Sensitivity_Dependency.extension_Sensitivity.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" name="" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="UPR.Operators" xmi:type="uml:Package" URI="" name="Operators">
+      <packagedElement xmi:id="UPR.E_ComparisonOperator_LiteralString" xmi:type="uml:Extension" name="E_ComparisonOperator_LiteralString">
+        <memberEnd xmi:idref="UPR.ComparisonOperator.base_LiteralString"/>
+        <memberEnd xmi:idref="UPR.E_ComparisonOperator_LiteralString.extension_ComparisonOperator"/>
+        <navigableOwnedEnd xmi:idref="UPR.E_ComparisonOperator_LiteralString.extension_ComparisonOperator"/>
+        <ownedEnd xmi:id="UPR.E_ComparisonOperator_LiteralString.extension_ComparisonOperator" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_ComparisonOperator">
+          <association xmi:idref="UPR.E_ComparisonOperator_LiteralString"/>
+          <lowerValue xmi:id="UPR.E_ComparisonOperator_LiteralString.extension_ComparisonOperator.lowerValue0" xmi:type="uml:LiteralInteger" name=""/>
+          <type xmi:idref="UPR.ComparisonOperator"/>
+          <upperValue xmi:id="UPR.E_ComparisonOperator_LiteralString.extension_ComparisonOperator.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" name="" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="UPR." xmi:type="uml:Association" name="">
+        <memberEnd xmi:idref="UPR.ComparisonOperator.semantics"/>
+        <memberEnd xmi:idref="UPR.OperatorSemantics.notation"/>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.Operators.Library" xmi:type="uml:Package" URI="" name="Library">
+        <packagedElement xmi:id="UPR.Operators.Library.neq_operator" xmi:type="uml:LiteralString" name="neq_operator" value="!=">
+          <ownedComment xmi:id="UPR.Operators.Library.neq_operator._comment0" xmi:type="uml:Comment" body="Defines a &amp;quot;not equal to&amp;quot; operator"/>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.NEQ_Operator" xmi:type="uml:Class" name="NEQ_Operator">
+          <generalization xmi:id="UPR.NEQ_Operator._generalization.UPR.OperatorSemanticsClass" xmi:type="uml:Generalization">
+            <general xmi:idref="UPR.OperatorSemanticsClass"/>
+          </generalization>
+          <ownedComment xmi:id="UPR.NEQ_Operator._comment0" xmi:type="uml:Comment" body="This class defines the semantics for a &amp;quot;not equal to&amp;quot; relationship"/>
+          <ownedOperation xmi:id="UPR.NEQ_Operator.applyTo_Element_Element" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+            <bodyCondition xmi:id="UPR.NEQ_Operator.applyTo_Element_Element._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+              <specification 
+              xmi:id="UPR.NEQ_Operator.applyTo_Element_Element._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="if (x.oclIsKindOf(Real) and y.oclIsKindOf(Real)) then
+	x.oclAsType(Real) &amp;lt;&amp;gt; y.oclAsType(Real)
+else
+	OclInvalid
+endif" language="OCL" name="specification">
+</specification>
+            </bodyCondition>
+            <ownedParameter xmi:id="UPR.NEQ_Operator.applyTo_Element_Element.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+              <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.NEQ_Operator.applyTo_Element_Element.x" xmi:type="uml:Parameter" effect="read" name="x">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.NEQ_Operator.applyTo_Element_Element.y" xmi:type="uml:Parameter" effect="read" name="y">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedRule xmi:idref="UPR.NEQ_Operator.applyTo_Element_Element._rule.body_condition"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.GTE_Operator" xmi:type="uml:Class" name="GTE_Operator">
+          <generalization xmi:id="UPR.GTE_Operator._generalization.UPR.OperatorSemanticsClass" xmi:type="uml:Generalization">
+            <general xmi:idref="UPR.OperatorSemanticsClass"/>
+          </generalization>
+          <ownedComment xmi:id="UPR.GTE_Operator._comment0" xmi:type="uml:Comment" body="This class defines the semantics for a &amp;quot;greater than or equal to&amp;quot; relationship"/>
+          <ownedOperation xmi:id="UPR.GTE_Operator.applyTo_Element_Element" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+            <bodyCondition xmi:id="UPR.GTE_Operator.applyTo_Element_Element._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+              <specification xmi:id="UPR.GTE_Operator.applyTo_Element_Element._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="if (x.oclIsKindOf(Real) and y.oclIsKindOf(Real)) then x.oclAsType(Real) &amp;gt;= y.oclAsType(Real) else OclInvalid endif" language="OCL" name="specification"/>
+            </bodyCondition>
+            <ownedParameter xmi:id="UPR.GTE_Operator.applyTo_Element_Element.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+              <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.GTE_Operator.applyTo_Element_Element.x" xmi:type="uml:Parameter" effect="read" name="x">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.GTE_Operator.applyTo_Element_Element.y" xmi:type="uml:Parameter" effect="read" name="y">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedRule xmi:idref="UPR.GTE_Operator.applyTo_Element_Element._rule.body_condition"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.LTE_Operator" xmi:type="uml:Class" name="LTE_Operator">
+          <generalization xmi:id="UPR.LTE_Operator._generalization.UPR.OperatorSemanticsClass" xmi:type="uml:Generalization">
+            <general xmi:idref="UPR.OperatorSemanticsClass"/>
+          </generalization>
+          <ownedComment xmi:id="UPR.LTE_Operator._comment0" xmi:type="uml:Comment" body="This class defines the semantics for a &amp;quot;lower than or equal to&amp;quot; relationship"/>
+          <ownedOperation xmi:id="UPR.LTE_Operator.applyTo_Element_Element" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+            <bodyCondition xmi:id="UPR.LTE_Operator.applyTo_Element_Element._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+              <specification xmi:id="UPR.LTE_Operator.applyTo_Element_Element._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="if (x.oclIsKindOf(Real) and y.oclIsKindOf(Real)) then x.oclAsType(Real) &amp;lt;= y.oclAsType(Real) else OclInvalid endif" language="OCL" name="specification"/>
+            </bodyCondition>
+            <ownedParameter xmi:id="UPR.LTE_Operator.applyTo_Element_Element.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+              <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.LTE_Operator.applyTo_Element_Element.x" xmi:type="uml:Parameter" effect="read" name="x">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.LTE_Operator.applyTo_Element_Element.y" xmi:type="uml:Parameter" effect="read" name="y">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedRule xmi:idref="UPR.LTE_Operator.applyTo_Element_Element._rule.body_condition"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.Operators.Library.eq_operator" xmi:type="uml:LiteralString" name="eq_operator" value="=">
+          <ownedComment xmi:id="UPR.Operators.Library.eq_operator._comment0" xmi:type="uml:Comment" body="Defines an &amp;quot;equal to&amp;quot; operator"/>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.EQ_Operator" xmi:type="uml:Class" name="EQ_Operator">
+          <generalization xmi:id="UPR.EQ_Operator._generalization.UPR.OperatorSemanticsClass" xmi:type="uml:Generalization">
+            <general xmi:idref="UPR.OperatorSemanticsClass"/>
+          </generalization>
+          <ownedComment xmi:id="UPR.EQ_Operator._comment0" xmi:type="uml:Comment" body="This class defines the semantics for an &amp;quot;equal to&amp;quot; relationship"/>
+          <ownedOperation xmi:id="UPR.EQ_Operator.applyTo_Element_Element" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+            <bodyCondition xmi:id="UPR.EQ_Operator.applyTo_Element_Element._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+              <specification xmi:id="UPR.EQ_Operator.applyTo_Element_Element._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="if (x.oclIsKindOf(Real) and y.oclIsKindOf(Real)) then x.oclAsType(Real) = y.oclAsType(Real) else OclInvalid endif" language="OCL" name="specification"/>
+            </bodyCondition>
+            <ownedParameter xmi:id="UPR.EQ_Operator.applyTo_Element_Element.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+              <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.EQ_Operator.applyTo_Element_Element.x" xmi:type="uml:Parameter" effect="read" name="x">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.EQ_Operator.applyTo_Element_Element.y" xmi:type="uml:Parameter" effect="read" name="y">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedRule xmi:idref="UPR.EQ_Operator.applyTo_Element_Element._rule.body_condition"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.GT_Operator" xmi:type="uml:Class" name="GT_Operator">
+          <generalization xmi:id="UPR.GT_Operator._generalization.UPR.OperatorSemanticsClass" xmi:type="uml:Generalization">
+            <general xmi:idref="UPR.OperatorSemanticsClass"/>
+          </generalization>
+          <ownedComment xmi:id="UPR.GT_Operator._comment0" xmi:type="uml:Comment" body="This class defines the semantics for a &amp;quot;greater than&amp;quot; relationship"/>
+          <ownedOperation xmi:id="UPR.GT_Operator.applyTo_Element_Element" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+            <bodyCondition xmi:id="UPR.GT_Operator.applyTo_Element_Element._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+              <specification xmi:id="UPR.GT_Operator.applyTo_Element_Element._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="if (x.oclIsKindOf(Real) and y.oclIsKindOf(Real)) then x.oclAsType(Real) &amp;gt; y.oclAsType(Real) else OclInvalid endif" language="OCL" name="specification"/>
+            </bodyCondition>
+            <ownedParameter xmi:id="UPR.GT_Operator.applyTo_Element_Element.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+              <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.GT_Operator.applyTo_Element_Element.x" xmi:type="uml:Parameter" effect="read" name="x">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.GT_Operator.applyTo_Element_Element.y" xmi:type="uml:Parameter" effect="read" name="y">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedRule xmi:idref="UPR.GT_Operator.applyTo_Element_Element._rule.body_condition"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.Operators.Library.lte_operator" xmi:type="uml:LiteralString" name="lte_operator" value="&amp;lt;=">
+          <ownedComment xmi:id="UPR.Operators.Library.lte_operator._comment0" xmi:type="uml:Comment" body="Defines a &amp;quot;lower than or equal to&amp;quot; operator"/>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.Operators.Library.gte_operator" xmi:type="uml:LiteralString" name="gte_operator" value="&amp;gt;=">
+          <ownedComment xmi:id="UPR.Operators.Library.gte_operator._comment0" xmi:type="uml:Comment" body="Defines a &amp;quot;greater than&amp;quot; operator"/>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.Operators.Library.lt_operator" xmi:type="uml:LiteralString" name="lt_operator" value="&amp;lt;">
+          <ownedComment xmi:id="UPR.Operators.Library.lt_operator._comment0" xmi:type="uml:Comment" body="Defines a &amp;quot;lower than&amp;quot; operator"/>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.LT_Operator" xmi:type="uml:Class" name="LT_Operator">
+          <generalization xmi:id="UPR.LT_Operator._generalization.UPR.OperatorSemanticsClass" xmi:type="uml:Generalization">
+            <general xmi:idref="UPR.OperatorSemanticsClass"/>
+          </generalization>
+          <ownedComment xmi:id="UPR.LT_Operator._comment0" xmi:type="uml:Comment" body="This class defines the semantics for a &amp;quot;lower than&amp;quot; relationship"/>
+          <ownedOperation xmi:id="UPR.LT_Operator.applyTo_Element_Element" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+            <bodyCondition xmi:id="UPR.LT_Operator.applyTo_Element_Element._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+              <specification xmi:id="UPR.LT_Operator.applyTo_Element_Element._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="if (x.oclIsKindOf(Real) and y.oclIsKindOf(Real)) then
+	x.oclAsType(Real) &amp;lt; y.oclAsType(Real)
+else
+	OclInvalid
+endif" language="OCL" name="specification">
+                <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+              </specification>
+            </bodyCondition>
+            <ownedParameter xmi:id="UPR.LT_Operator.applyTo_Element_Element.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+              <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.LT_Operator.applyTo_Element_Element.x" xmi:type="uml:Parameter" effect="read" name="x">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="UPR.LT_Operator.applyTo_Element_Element.y" xmi:type="uml:Parameter" effect="read" name="y">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            </ownedParameter>
+            <ownedRule xmi:idref="UPR.LT_Operator.applyTo_Element_Element._rule.body_condition"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:id="UPR.Operators.Library.gt_operator" xmi:type="uml:LiteralString" name="gt_operator" value="&amp;gt;">
+          <ownedComment xmi:id="UPR.Operators.Library.gt_operator._comment0" xmi:type="uml:Comment" body="Defines a &amp;quot;greater than&amp;quot; operator"/>
+        </packagedElement>
+        <profileApplication xmi:id="UPR.Operators.Library._profileApplication.UPR" xmi:type="uml:ProfileApplication">
+          <appliedProfile xmi:idref="UPR"/>
+        </profileApplication>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.E_OperatorSemantics_Class" xmi:type="uml:Extension" name="E_OperatorSemantics_Class">
+        <memberEnd xmi:idref="UPR.OperatorSemantics.base_Class"/>
+        <memberEnd xmi:idref="UPR.E_OperatorSemantics_Class.extension_OperatorSemantics"/>
+        <navigableOwnedEnd xmi:idref="UPR.E_OperatorSemantics_Class.extension_OperatorSemantics"/>
+        <ownedEnd xmi:id="UPR.E_OperatorSemantics_Class.extension_OperatorSemantics" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_OperatorSemantics">
+          <association xmi:idref="UPR.E_OperatorSemantics_Class"/>
+          <lowerValue xmi:id="UPR.E_OperatorSemantics_Class.extension_OperatorSemantics.lowerValue0" xmi:type="uml:LiteralInteger" name=""/>
+          <type xmi:idref="UPR.OperatorSemantics"/>
+          <upperValue xmi:id="UPR.E_OperatorSemantics_Class.extension_OperatorSemantics.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" name="" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.OperatorSemanticsClass" xmi:type="uml:Class" isAbstract="true" name="OperatorSemanticsClass">
+        <ownedComment xmi:id="UPR.OperatorSemanticsClass._comment0" xmi:type="uml:Comment" body="Provide a abstract base class for defining teh semantics of a ComparisonOperator"/>
+        <ownedOperation xmi:id="UPR.OperatorSemanticsClass.applyTo_Element_Element" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+          <ownedComment xmi:id="UPR.OperatorSemanticsClass.applyTo_Element_Element._comment0" xmi:type="uml:Comment" body="This operation is used for specifying how the result of the comparison shall be computed"/>
+          <ownedParameter xmi:id="UPR.OperatorSemanticsClass.applyTo_Element_Element.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="UPR.OperatorSemanticsClass.applyTo_Element_Element.x" xmi:type="uml:Parameter" effect="read" name="x">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="UPR.OperatorSemanticsClass.applyTo_Element_Element.y" xmi:type="uml:Parameter" effect="read" name="y">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.OperatorSemantics" xmi:type="uml:Stereotype" name="OperatorSemantics">
+        <ownedAttribute xmi:id="UPR.OperatorSemantics.notation" xmi:type="uml:Property" name="notation">
+          <association xmi:idref="UPR."/>
+          <lowerValue xmi:id="UPR.OperatorSemantics.notation.lowerValue0" xmi:type="uml:LiteralInteger" name=""/>
+          <type xmi:idref="UPR.ComparisonOperator"/>
+          <upperValue xmi:id="UPR.OperatorSemantics.notation.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" name="" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="UPR.OperatorSemantics.base_Class" xmi:type="uml:Property" name="base_Class">
+          <association xmi:idref="UPR.E_OperatorSemantics_Class"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+        </ownedAttribute>
+        <ownedComment 
+        xmi:id="UPR.OperatorSemantics._comment0" xmi:type="uml:Comment" body="An OperatorSemantics stereotype is applied on a Class that can be used for specifying the semantics of a ComparisonOperator a UPRConstraints can refer to. Typically the Base Class is a specialization of the OperatorSemanticsClass">
+</ownedComment>
+        <ownedOperation xmi:id="UPR.OperatorSemantics.applyTo_Element_Element" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+          <bodyCondition xmi:id="UPR.OperatorSemantics.applyTo_Element_Element._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.OperatorSemantics.applyTo_Element_Element._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.base_Class.oclAsType(OperatorSemanticsClass).applyTo(x, y)" language="OCL" name="specification"/>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.OperatorSemantics.applyTo_Element_Element.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="UPR.OperatorSemantics.applyTo_Element_Element.x" xmi:type="uml:Parameter" effect="read" name="x">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="UPR.OperatorSemantics.applyTo_Element_Element.y" xmi:type="uml:Parameter" effect="read" name="y">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.OperatorSemantics.applyTo_Element_Element._rule.body_condition"/>
+        </ownedOperation>
+        <ownedRule xmi:id="UPR.OperatorSemantics._rule.has_applyto_operation" xmi:type="uml:Constraint" name="has_applyto_operation">
+          <specification xmi:id="UPR.OperatorSemantics._rule.has_applyto_operation.specification" xmi:type="uml:OpaqueExpression" body="self.base_Class.oclIsKindOf(OperatorSemanticsClass)" language="OCL" name="specification"/>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="UPR.ComparisonOperator" xmi:type="uml:Stereotype" name="ComparisonOperator">
+        <ownedAttribute xmi:id="UPR.ComparisonOperator.semantics" xmi:type="uml:Property" name="semantics">
+          <association xmi:idref="UPR."/>
+          <type xmi:idref="UPR.OperatorSemantics"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="UPR.ComparisonOperator.base_LiteralString" xmi:type="uml:Property" name="base_LiteralString">
+          <association xmi:idref="UPR.E_ComparisonOperator_LiteralString"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#LiteralString"/>
+        </ownedAttribute>
+        <ownedComment 
+        xmi:id="UPR.ComparisonOperator._comment0" xmi:type="uml:Comment" body="A ComparisonOperator stereotype allows defining a logical operator that can be used with UPRConstraints in order to quantify a relationship between a variable and a specific value. The Literal String that this stereotype extends defines the symbol to use in order to refer to that operator. The semantics defined it is specified through the semantics attributes of the stereotype">
+</ownedComment>
+        <ownedOperation xmi:id="UPR.ComparisonOperator.symbol_" xmi:type="uml:Operation" isQuery="true" name="symbol">
+          <bodyCondition xmi:id="UPR.ComparisonOperator.symbol_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.ComparisonOperator.symbol_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.base_LiteralString.value" language="OCL" name="specification"/>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.ComparisonOperator.symbol_.result" xmi:type="uml:Parameter" direction="return" effect="read" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.ComparisonOperator.symbol_._rule.body_condition"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="UPR.ComparisonOperator.applyTo_UPRConstraint" xmi:type="uml:Operation" isQuery="true" name="applyTo">
+          <bodyCondition xmi:id="UPR.ComparisonOperator.applyTo_UPRConstraint._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.ComparisonOperator.applyTo_UPRConstraint._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.applyTo(c.base_Constraint.constrainedElement-&amp;gt;at(1), c.base_Constraint.constrainedElement-&amp;gt;at(2))" language="OCL" name="specification">
+              <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+            </specification>
+          </bodyCondition>
+          <ownedComment xmi:id="UPR.ComparisonOperator.applyTo_UPRConstraint._comment0" xmi:type="uml:Comment" body="This operation evaluates an UPRConstraint base on the semantics specified for that operator"/>
+          <ownedParameter xmi:id="UPR.ComparisonOperator.applyTo_UPRConstraint.result" xmi:type="uml:Parameter" direction="return" effect="create" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="UPR.ComparisonOperator.applyTo_UPRConstraint.c" xmi:type="uml:Parameter" effect="read" name="c">
+            <type xmi:idref="UPR.UPRConstraint"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.ComparisonOperator.applyTo_UPRConstraint._rule.body_condition"/>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="UPR.RelationalStructureandDesign" xmi:type="uml:Package" URI="" name="Relational Structure and Design">
+      <packageImport xmi:id="UPR.RelationalStructureandDesign._packageImport.UPR.DesignVariables" xmi:type="uml:PackageImport">
+        <importedPackage xmi:idref="UPR.DesignVariables"/>
+      </packageImport>
+      <packageImport xmi:id="UPR.RelationalStructureandDesign._packageImport.UPR.DesignConstraints" xmi:type="uml:PackageImport">
+        <importedPackage xmi:idref="UPR.DesignConstraints"/>
+      </packageImport>
+      <packagedElement xmi:id="UPR.DCtoDVSensitivity" xmi:type="uml:Stereotype" name="DCtoDVSensitivity">
+        <generalization xmi:id="UPR.DCtoDVSensitivity._generalization.UPR.Sensitivity" xmi:type="uml:Generalization">
+          <general xmi:idref="UPR.Sensitivity"/>
+        </generalization>
+        <ownedAttribute xmi:id="UPR.DCtoDVSensitivity.dataSourceType" xmi:type="uml:Property" isDerived="true" name="dataSourceType">
+          <ownedComment xmi:id="UPR.DCtoDVSensitivity.dataSourceType._comment0" xmi:type="uml:Comment" body="Represent the data source (DSTypeKind enumeration) used to specify Sensitivity"/>
+          <redefinedProperty xmi:idref="UPR.Sensitivity.dataSourceType"/>
+          <type xmi:idref="UPR_dataType.DSTypeKind"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="UPR.DCtoDVSensitivity._comment0" xmi:type="uml:Comment" body="The DCtoDVSensitivity stereotype extends the UML Dependency to model a sensitivity-based relation between a DesignConstraint and a DesignVariable."/>
+        <ownedRule xmi:id="UPR.DCtoDVSensitivity._rule.client_designconstraint" xmi:type="uml:Constraint" name="client_designconstraint">
+          <ownedComment xmi:id="UPR.DCtoDVSensitivity._rule.client_designconstraint._comment0" xmi:type="uml:Comment" body="The client shall have the DesignConstraint stereotype applied"/>
+          <specification xmi:id="UPR.DCtoDVSensitivity._rule.client_designconstraint.specification" xmi:type="uml:OpaqueExpression" body="DesignConstraint.allInstances().base_Constraint-&amp;gt;includesAll(self.base_Dependency.client)
+" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="UPR.DCtoDVSensitivity._rule.supplier_designvariable" xmi:type="uml:Constraint" name="supplier_designvariable">
+          <ownedComment xmi:id="UPR.DCtoDVSensitivity._rule.supplier_designvariable._comment0" xmi:type="uml:Comment" body="The supplier shall have the DesignVariable stereotype applied"/>
+          <specification xmi:id="UPR.DCtoDVSensitivity._rule.supplier_designvariable.specification" xmi:type="uml:OpaqueExpression" body="DesignVariable.allInstances().base_IntervalConstraint-&amp;gt;includesAll(self.base_Dependency.supplier)" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="UPR.DCtoDVSensitivity._rule.analyticequation_only" xmi:type="uml:Constraint" name="analyticequation_only">
+          <ownedComment xmi:id="UPR.DCtoDVSensitivity._rule.analyticequation_only._comment0" xmi:type="uml:Comment" body="Only analyticEquation attribute is allowed for DCtoDVSensitivity specification."/>
+          <specification xmi:id="UPR.DCtoDVSensitivity._rule.analyticequation_only.specification" xmi:type="uml:OpaqueExpression" body="self.analyticEquation-&amp;gt;notEmpty()" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="UPR.DesignVariables" xmi:type="uml:Package" URI="" name="Design Variables">
+      <packagedElement xmi:id="UPR.DesignVariable" xmi:type="uml:Stereotype" name="DesignVariable">
+        <generalization xmi:id="UPR.DesignVariable._generalization.UPR.UPRConstraint" xmi:type="uml:Generalization">
+          <general xmi:idref="UPR.UPRConstraint"/>
+        </generalization>
+        <ownedAttribute xmi:id="UPR.DesignVariable.dvID" xmi:type="uml:Property" isID="true" name="dvID">
+          <ownedComment xmi:id="UPR.DesignVariable.dvID._comment0" xmi:type="uml:Comment" body="This attribute represents the unique Identification Number of a Design Variable."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="UPR.DesignVariable.initialDesign" xmi:type="uml:Property" name="initialDesign">
+          <ownedComment xmi:id="UPR.DesignVariable.initialDesign._comment0" xmi:type="uml:Comment" body="This attribute represents the initial design choice for the Design Variable."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ValueSpecification"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="UPR.DesignVariable.kind" xmi:type="uml:Property" name="kind">
+          <ownedComment xmi:id="UPR.DesignVariable.kind._comment0" xmi:type="uml:Comment" body="This attribute represents the kind of range, i.e. designRange or feasibleRange, being specified for the Design Variable"/>
+          <type xmi:idref="UPR_dataType.RangeKind"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="UPR.DesignVariable._comment0" xmi:type="uml:Comment" body="The DesignVariable stereotype specializes the UPRConstraint stereotype for specifying the initial design, Design Range and Feasible Range for a Design Variable."/>
+        <ownedOperation xmi:id="UPR.DesignVariable.constrainedState_" xmi:type="uml:Operation" isQuery="true" name="constrainedState">
+          <bodyCondition xmi:id="UPR.DesignVariable.constrainedState_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.DesignVariable.constrainedState_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.base_Constraint.constrainedElement-&amp;gt;at(1).oclAsType(UML::State)" language="OCL" name="specification"/>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.DesignVariable.constrainedState_.result" xmi:type="uml:Parameter" direction="return" effect="read" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#State"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.DesignVariable.constrainedState_._rule.body_condition"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="UPR.DesignVariable.constrainedAction_" xmi:type="uml:Operation" isQuery="true" name="constrainedAction">
+          <bodyCondition xmi:id="UPR.DesignVariable.constrainedAction_._rule.body_condition" xmi:type="uml:Constraint" name="body_condition">
+            <specification xmi:id="UPR.DesignVariable.constrainedAction_._rule.body_condition.specification" xmi:type="uml:OpaqueExpression" body="self.base_Constraint.constrainedElement-&amp;gt;at(1).oclAsType(UML::Action)" language="OCL" name="specification"/>
+          </bodyCondition>
+          <ownedParameter xmi:id="UPR.DesignVariable.constrainedAction_.result" xmi:type="uml:Parameter" direction="return" effect="read" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Action"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="UPR.DesignVariable.constrainedAction_._rule.body_condition"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="UPR_dataType.RangeKind" xmi:type="uml:Enumeration" name="RangeKind">
+        <ownedLiteral xmi:id="UPR.designRange" xmi:type="uml:EnumerationLiteral" name="designRange">
+          <ownedComment xmi:id="UPR.designRange._comment0" xmi:type="uml:Comment" body="Indicates that the range specified for the Design Variable belongs to the Design Range"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="UPR.feasibleRange" xmi:type="uml:EnumerationLiteral" name="feasibleRange">
+          <ownedComment xmi:id="UPR.feasibleRange._comment0" xmi:type="uml:Comment" body="Indicates that the range specified for the Design Variable belongs to the Feasible Range"/>
+        </ownedLiteral>
+      </packagedElement>
+    </packagedElement>
+  </uml:Profile>
+  <mofext:Tag xmi:id="UPR_mofTag0" xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" element="UPR"/>
+</xmi:XMI>

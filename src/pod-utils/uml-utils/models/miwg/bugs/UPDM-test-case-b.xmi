@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version = "2.1" xmlns:xmi = "http://schema.omg.org/spec/XMI/2.1" xmlns:uml = "http://www.omg.org/spec/UML/20090901" xmlns:updm="http://www.omg.org/spec/UPDM/20120301" xmlns:sysml = "http://www.omg.org/spec/SysML/20100301/SysML-profile" >
+  <uml:Model name = "UPDM_TestCaseB" xmi:id = "_3ad43977-076a-40f9-a3ec-1404e7285f9f">
+      <packagedElement xmi:type = "uml:Package" xmi:id = "_c5bb19c7-1f81-453b-83d9-b4a8dcfe6b90" name = "Architectural Description1">
+        <packagedElement xmi:type = "uml:DataType" xmi:id = "_bf2f12ed-78ff-4863-8a9b-07bfbba6aac9" name = "Information Element1">
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_933dd6d3-8302-4186-8fd1-8087b5a47b4d" name = "Performer1">
+          <ownedAttribute xmi:type = "uml:Property" xmi:id="_79f634b9-a961-43c7-9339-13d0c45d2eb2" name = "Performer Role2" type = "_4f1b2c35-a6cc-476f-9ed0-afde9f8edd36" visibility = "private" aggregation = "composite" association = "_32bbffa3-b817-47fc-9ab5-bc01fee004a5">
+          </ownedAttribute>
+          <ownedAttribute xmi:type = "uml:Property" xmi:id="_a02e4640-069a-4bfd-b0ee-314acc448490" name = "Performer Role3" type = "_b9981f22-ce37-478f-879e-163f6de4ed03" visibility = "private" aggregation = "composite" association = "_cb7bea4b-a1d0-4cac-bb01-61534d1581ad">
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_4f1b2c35-a6cc-476f-9ed0-afde9f8edd36" name = "Performer2">
+          <ownedAttribute xmi:type = "uml:Port" xmi:id = "_1ceeca93-94d9-4ee4-b5b2-2812b771919a" name = "out" type = "_bf2f12ed-78ff-4863-8a9b-07bfbba6aac9" aggregation = "composite">
+          </ownedAttribute>
+          <ownedConnector xmi:type = "uml:Connector" xmi:id = "_e23defa9-4b88-478a-b422-f14f08cdbd49" name = "Needline">
+            <end xmi:type = "uml:ConnectorEnd" xmi:id = "_eeef27ad-5858-439c-b891-db1c931c3b22" partWithPort = "_79f634b9-a961-43c7-9339-13d0c45d2eb2" role = "_1ceeca93-94d9-4ee4-b5b2-2812b771919a">
+            </end>
+            <end xmi:type = "uml:ConnectorEnd" xmi:id = "_4f79d0b0-e01e-46ef-be9a-cf492a95a67d" partWithPort = "_a02e4640-069a-4bfd-b0ee-314acc448490" role = "_0522170f-f2cf-4967-91a4-3bc2467b0564">
+            </end>
+          </ownedConnector>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Class" xmi:id = "_b9981f22-ce37-478f-879e-163f6de4ed03" name = "Performer3">
+          <ownedAttribute xmi:type = "uml:Port" xmi:id = "_0522170f-f2cf-4967-91a4-3bc2467b0564" name = "in" type = "_bf2f12ed-78ff-4863-8a9b-07bfbba6aac9" aggregation = "composite">
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Association" xmi:id = "_cb7bea4b-a1d0-4cac-bb01-61534d1581ad" memberEnd = "_79171eef-efaa-45d5-881c-295411fa7377 _a02e4640-069a-4bfd-b0ee-314acc448490">
+          <ownedEnd xmi:type = "uml:Property" xmi:id = "_79171eef-efaa-45d5-881c-295411fa7377" type = "_933dd6d3-8302-4186-8fd1-8087b5a47b4d" visibility = "private" association = "_cb7bea4b-a1d0-4cac-bb01-61534d1581ad">
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:Association" xmi:id = "_32bbffa3-b817-47fc-9ab5-bc01fee004a5" memberEnd = "_65f8e063-fbd7-4ace-a74f-e816d2fc61af _79f634b9-a961-43c7-9339-13d0c45d2eb2">
+          <ownedEnd xmi:type = "uml:Property" xmi:id = "_65f8e063-fbd7-4ace-a74f-e816d2fc61af" type = "_933dd6d3-8302-4186-8fd1-8087b5a47b4d" visibility = "private" association = "_32bbffa3-b817-47fc-9ab5-bc01fee004a5">
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type = "uml:InformationFlow" xmi:id = "_1d1bf412-7a90-4d2a-85dd-901f5ec4d6ee" name = "Information Exchange1" realizingConnector = "_e23defa9-4b88-478a-b422-f14f08cdbd49" conveyed = "_bf2f12ed-78ff-4863-8a9b-07bfbba6aac9" informationSource = "_1ceeca93-94d9-4ee4-b5b2-2812b771919a" informationTarget = "_0522170f-f2cf-4967-91a4-3bc2467b0564">
+        </packagedElement>
+      </packagedElement>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication0">
+        <appliedProfile  xmi:type="uml:Profile" href="http://www.omg.org/spec/UPDM/20120301/UPDM-Profile.xmi#UPDM"/> 
+      </profileApplication>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication1">
+        <appliedProfile  xmi:type="uml:Profile" href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+      </profileApplication>
+  </uml:Model>
+    <updm:ArchitecturalDescription base_Package = "_c5bb19c7-1f81-453b-83d9-b4a8dcfe6b90" xmi:id = "_9f238edc-7dd6-4347-bead-44aa3ea41ce4_c5bb19c7-1f81-453b-83d9-b4a8dcfe6b90" viewpoint = "" purpose = "" recommendations = "" assumptionAndConstraint = "" creatingOrganization = "" summaryOfFindings = "" toBe = "false" toolsUsed = "" architect = "" architectureFramework = "DoDAF" />
+    <updm:ExchangeElement base_DataType = "_bf2f12ed-78ff-4863-8a9b-07bfbba6aac9" xmi:id = "_a7ae3934-6829-4996-a3f8-5ca9d63c0e91_bf2f12ed-78ff-4863-8a9b-07bfbba6aac9" />
+    <sysml:Block base_Class = "_933dd6d3-8302-4186-8fd1-8087b5a47b4d" xmi:id = "_830e357d-4657-41af-bfbf-f45d6e34953b_933dd6d3-8302-4186-8fd1-8087b5a47b4d" />
+    <updm:Performer base_Class = "_933dd6d3-8302-4186-8fd1-8087b5a47b4d" xmi:id = "_25f00ab6-cb36-45d9-9154-959a7aacdb34_933dd6d3-8302-4186-8fd1-8087b5a47b4d" />
+    <sysml:Block base_Class = "_4f1b2c35-a6cc-476f-9ed0-afde9f8edd36" xmi:id = "_830e357d-4657-41af-bfbf-f45d6e34953b_4f1b2c35-a6cc-476f-9ed0-afde9f8edd36" />
+    <updm:Performer base_Class = "_4f1b2c35-a6cc-476f-9ed0-afde9f8edd36" xmi:id = "_25f00ab6-cb36-45d9-9154-959a7aacdb34_4f1b2c35-a6cc-476f-9ed0-afde9f8edd36" />
+    <sysml:FlowPort base_Port = "_1ceeca93-94d9-4ee4-b5b2-2812b771919a" xmi:id = "_034e0055-5318-4da9-a50c-ffde5177b47b_1ceeca93-94d9-4ee4-b5b2-2812b771919a" direction = "out" />
+    <updm:NodePort base_Port = "_1ceeca93-94d9-4ee4-b5b2-2812b771919a" xmi:id = "_5035d62c-c89b-420d-978d-1d5be3e01434_1ceeca93-94d9-4ee4-b5b2-2812b771919a" />
+    <updm:Needline base_Connector = "_e23defa9-4b88-478a-b422-f14f08cdbd49" xmi:id = "_4e03ad4c-64f8-4099-9027-18a40093e6f0_e23defa9-4b88-478a-b422-f14f08cdbd49" />
+    <sysml:NestedConnectorEnd base_ConnectorEnd = "_eeef27ad-5858-439c-b891-db1c931c3b22" xmi:id = "_58ccbcf0-d8ab-463c-bbb2-49b993801293_eeef27ad-5858-439c-b891-db1c931c3b22" propertyPath = "_79f634b9-a961-43c7-9339-13d0c45d2eb2" />
+    <sysml:NestedConnectorEnd base_ConnectorEnd = "_4f79d0b0-e01e-46ef-be9a-cf492a95a67d" xmi:id = "_58ccbcf0-d8ab-463c-bbb2-49b993801293_4f79d0b0-e01e-46ef-be9a-cf492a95a67d" propertyPath = "_a02e4640-069a-4bfd-b0ee-314acc448490" />
+    <sysml:Block base_Class = "_b9981f22-ce37-478f-879e-163f6de4ed03" xmi:id = "_830e357d-4657-41af-bfbf-f45d6e34953b_b9981f22-ce37-478f-879e-163f6de4ed03" />
+    <updm:Performer base_Class = "_b9981f22-ce37-478f-879e-163f6de4ed03" xmi:id = "_25f00ab6-cb36-45d9-9154-959a7aacdb34_b9981f22-ce37-478f-879e-163f6de4ed03" />
+    <sysml:FlowPort base_Port = "_0522170f-f2cf-4967-91a4-3bc2467b0564" xmi:id = "_034e0055-5318-4da9-a50c-ffde5177b47b_0522170f-f2cf-4967-91a4-3bc2467b0564" direction = "in" />
+    <updm:NodePort base_Port = "_0522170f-f2cf-4967-91a4-3bc2467b0564" xmi:id = "_5035d62c-c89b-420d-978d-1d5be3e01434_0522170f-f2cf-4967-91a4-3bc2467b0564" />
+    <updm:NodeRole base_Property = "_a02e4640-069a-4bfd-b0ee-314acc448490" xmi:id = "_e725c82e-84e0-4b76-b135-a77862e86a39_a02e4640-069a-4bfd-b0ee-314acc448490" />
+    <updm:NodeRole base_Property = "_79f634b9-a961-43c7-9339-13d0c45d2eb2" xmi:id = "_e725c82e-84e0-4b76-b135-a77862e86a39_79f634b9-a961-43c7-9339-13d0c45d2eb2" />
+    <updm:OperationalExchange base_InformationFlow = "_1d1bf412-7a90-4d2a-85dd-901f5ec4d6ee" xmi:id = "_e83a1422-473a-4bb0-8682-1e46aff79628_1d1bf412-7a90-4d2a-85dd-901f5ec4d6ee" />
+    <sysml:ItemFlow base_InformationFlow = "_1d1bf412-7a90-4d2a-85dd-901f5ec4d6ee" xmi:id = "_77501e26-1562-4bb2-aae6-d82e10750515_1d1bf412-7a90-4d2a-85dd-901f5ec4d6ee" />
+</xmi:XMI>

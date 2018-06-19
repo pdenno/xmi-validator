@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:OMGIssuesProfile="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+	<uml:Package xmi:type="uml:Package" xmi:id="_0" name="DG" URI="http://www.omg.org/spec/DD/20131001/DG">
+		<packageMerge xmi:type="uml:PackageMerge" xmi:id="_0-packageMerge">
+			<mergedPackage xmi:type="uml:Package" href="http://www.omg.org/spec/DD/20131001/DG.xmi#_0"/>
+		</packageMerge>
+		<profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication.0">
+			<appliedProfile href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#_0"/>
+		</profileApplication>
+	</uml:Package>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_1">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Image-source"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_1-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::String" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_2">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-fontName"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_2-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::String" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_3">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Text-data"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_3-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::String" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_4">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#EllipticalArcTo-isLargeArc"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_4-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Boolean" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_5">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#EllipticalArcTo-isSweep"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_5-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Boolean" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_6">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Image-isAspectRatioPreserved"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_6-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Boolean" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_7">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#PathCommand-isRelative"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_7-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Boolean" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_8">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-fontBold"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_8-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Boolean" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_9">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-fontItalic"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_9-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Boolean" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_10">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-fontStrikeThrough"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_10-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Boolean" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_11">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-fontUnderline"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_11-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Boolean" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_12">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Circle-radius"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_13">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#LinearGradient-x1"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_13-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Real" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_14">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#LinearGradient-x2"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_14-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Real" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_15">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#LinearGradient-y1"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_15-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Real" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_16">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#LinearGradient-y2"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_16-_issueDetail.0" number="17453" text="typed by PrimitiveTypes::Real" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_17">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#RadialGradient-centerX"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_18">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#RadialGradient-centerY"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_19">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#RadialGradient-focusX"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_20">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#RadialGradient-focusY"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_21">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#RadialGradient-radius"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_22">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Rectangle-cornerRadius"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_23">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-fillOpacity"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_24">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-fontSize"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_25">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-strokeDashLength"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_26">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-strokeOpacity"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_27">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Style-strokeWidth"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_28">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#EllipticalArcTo-rotation"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_29">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#GradientStop-offset"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_30">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#GradientStop-opacity"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_31">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Matrix-a"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_32">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Matrix-b"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_33">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Matrix-c"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_34">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Matrix-d"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_35">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Matrix-e"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_36">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Matrix-f"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_37">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Rotate-angle"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_38">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Skew-angleX"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_39">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Skew-angleY"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_40">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Translate-deltaX"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_41">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Translate-deltaY"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_42">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Scale-factorX"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_42-_issueDetail.0" number="17453" text="Change type from DC::Real to PrimitiveTypes::Real" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_43">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/DD/20131001/DG.xmi#Scale-factorY"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_43-_issueDetail.0" number="17453" text="Change type from DC::Real to PrimitiveTypes::Real" url="http://www.omg.org/issues/issue17453.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+</xmi:XMI>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:id="_wxxNoAnKEd-7q9fQ6Ry6CA" name="TestCase7">
+  <packagedElement xmi:type="uml:Class" xmi:id="_wxxNoQnKEd-7q9fQ6Ry6CA" name="protocolClass">
+    <ownedBehavior xmi:type="uml:ProtocolStateMachine" xmi:id="_wxxNognKEd-7q9fQ6Ry6CA" name="protocolStateMachine">
+      <region xmi:type="uml:Region" xmi:id="_wxxNownKEd-7q9fQ6Ry6CA">
+        <subvertex xmi:type="uml:State" xmi:id="_wxxNpAnKEd-7q9fQ6Ry6CA" name="State2"/>
+        <subvertex xmi:type="uml:State" xmi:id="_wxxNpQnKEd-7q9fQ6Ry6CA" name="State1"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_wxxNpgnKEd-7q9fQ6Ry6CA" name="Initial"/>
+        <subvertex xmi:type="uml:FinalState" xmi:id="_wxxNpwnKEd-7q9fQ6Ry6CA" name="FinalState"/>
+        <transition xmi:type="uml:Transition" xmi:id="_wxxNqAnKEd-7q9fQ6Ry6CA" target="_wxxNpwnKEd-7q9fQ6Ry6CA" source="_wxxNpAnKEd-7q9fQ6Ry6CA"/>
+        <transition xmi:type="uml:ProtocolTransition" xmi:id="_wxxNqQnKEd-7q9fQ6Ry6CA" guard="_wxxNqgnKEd-7q9fQ6Ry6CA" target="_wxxNpAnKEd-7q9fQ6Ry6CA" source="_wxxNpQnKEd-7q9fQ6Ry6CA" postCondition="_wxxNrAnKEd-7q9fQ6Ry6CA" preCondition="_wxxNqgnKEd-7q9fQ6Ry6CA">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_wxxNqgnKEd-7q9fQ6Ry6CA" constrainedElement="_wxxNqQnKEd-7q9fQ6Ry6CA">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_wxxNqwnKEd-7q9fQ6Ry6CA" body="Condition1"/>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_wxxNrAnKEd-7q9fQ6Ry6CA" constrainedElement="_wxxNqQnKEd-7q9fQ6Ry6CA">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_wxxNrQnKEd-7q9fQ6Ry6CA" body="Condition2"/>
+          </ownedRule>
+          <trigger xmi:type="uml:Trigger" xmi:id="_wxxNrgnKEd-7q9fQ6Ry6CA" event="_wxxNsQnKEd-7q9fQ6Ry6CA"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_wxxNrwnKEd-7q9fQ6Ry6CA" target="_wxxNpQnKEd-7q9fQ6Ry6CA" source="_wxxNpgnKEd-7q9fQ6Ry6CA"/>
+      </region>
+    </ownedBehavior>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_wxxNsAnKEd-7q9fQ6Ry6CA" name="referredOperation" visibility="public"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:CallEvent" xmi:id="_wxxNsQnKEd-7q9fQ6Ry6CA" operation="_wxxNsAnKEd-7q9fQ6Ry6CA"/>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_wxxNsgnKEd-7q9fQ6Ry6CA" name="compositeStateMachine">
+    <region xmi:type="uml:Region" xmi:id="_wxxNswnKEd-7q9fQ6Ry6CA">
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_wxxNtAnKEd-7q9fQ6Ry6CA" name="initial"/>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxNtQnKEd-7q9fQ6Ry6CA" name="state1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxNtgnKEd-7q9fQ6Ry6CA" name="compositeState">
+        <region xmi:type="uml:Region" xmi:id="_wxxNtwnKEd-7q9fQ6Ry6CA" name="Region">
+          <subvertex xmi:type="uml:State" xmi:id="_wxxNuAnKEd-7q9fQ6Ry6CA" name="state2"/>
+          <subvertex xmi:type="uml:State" xmi:id="_wxxNuQnKEd-7q9fQ6Ry6CA" name="state3"/>
+          <transition xmi:type="uml:Transition" xmi:id="_wxxNugnKEd-7q9fQ6Ry6CA" target="_wxxNuQnKEd-7q9fQ6Ry6CA" source="_wxxNuAnKEd-7q9fQ6Ry6CA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_wxxNuwnKEd-7q9fQ6Ry6CA" target="_wxxNxwnKEd-7q9fQ6Ry6CA" source="_wxxNuQnKEd-7q9fQ6Ry6CA"/>
+        </region>
+        <region xmi:type="uml:Region" xmi:id="_wxxNvAnKEd-7q9fQ6Ry6CA" name="Region1">
+          <subvertex xmi:type="uml:State" xmi:id="_wxxNvQnKEd-7q9fQ6Ry6CA" name="state4"/>
+          <subvertex xmi:type="uml:State" xmi:id="_wxxNvgnKEd-7q9fQ6Ry6CA" name="state5"/>
+          <transition xmi:type="uml:Transition" xmi:id="_wxxNvwnKEd-7q9fQ6Ry6CA" target="_wxxNvgnKEd-7q9fQ6Ry6CA" source="_wxxNvQnKEd-7q9fQ6Ry6CA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_wxxNwAnKEd-7q9fQ6Ry6CA" target="_wxxNxwnKEd-7q9fQ6Ry6CA" source="_wxxNvgnKEd-7q9fQ6Ry6CA"/>
+        </region>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxNwQnKEd-7q9fQ6Ry6CA" name="state6"/>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxNwgnKEd-7q9fQ6Ry6CA" name="subMachineState" submachine="_wxxN1QnKEd-7q9fQ6Ry6CA">
+        <connection xmi:type="uml:ConnectionPointReference" xmi:id="_wxxNwwnKEd-7q9fQ6Ry6CA" name="enter1" entry="_wxxN4AnKEd-7q9fQ6Ry6CA"/>
+        <connection xmi:type="uml:ConnectionPointReference" xmi:id="_wxxNxAnKEd-7q9fQ6Ry6CA" name="enter2" entry="_wxxN4QnKEd-7q9fQ6Ry6CA"/>
+        <connection xmi:type="uml:ConnectionPointReference" xmi:id="_wxxNxQnKEd-7q9fQ6Ry6CA" name="exit1" exit="_wxxN4gnKEd-7q9fQ6Ry6CA"/>
+        <connection xmi:type="uml:ConnectionPointReference" xmi:id="_wxxNxgnKEd-7q9fQ6Ry6CA" name="exit2" exit="_wxxN4wnKEd-7q9fQ6Ry6CA"/>
+      </subvertex>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_wxxNxwnKEd-7q9fQ6Ry6CA" name="join" kind="join"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_wxxNyAnKEd-7q9fQ6Ry6CA" name="fork" kind="fork"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_wxxNyQnKEd-7q9fQ6Ry6CA" name="finalState"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxNygnKEd-7q9fQ6Ry6CA" target="_wxxNtQnKEd-7q9fQ6Ry6CA" source="_wxxNtAnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxNywnKEd-7q9fQ6Ry6CA" target="_wxxNyAnKEd-7q9fQ6Ry6CA" source="_wxxNtQnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxNzAnKEd-7q9fQ6Ry6CA" target="_wxxNwwnKEd-7q9fQ6Ry6CA" source="_wxxNtQnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxNzQnKEd-7q9fQ6Ry6CA" target="_wxxNwQnKEd-7q9fQ6Ry6CA" source="_wxxNtgnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxNzgnKEd-7q9fQ6Ry6CA" target="_wxxNyQnKEd-7q9fQ6Ry6CA" source="_wxxNwQnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxNzwnKEd-7q9fQ6Ry6CA" target="_wxxNxAnKEd-7q9fQ6Ry6CA" source="_wxxNwQnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN0AnKEd-7q9fQ6Ry6CA" target="_wxxNtQnKEd-7q9fQ6Ry6CA" source="_wxxNxQnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN0QnKEd-7q9fQ6Ry6CA" target="_wxxNwQnKEd-7q9fQ6Ry6CA" source="_wxxNxgnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN0gnKEd-7q9fQ6Ry6CA" target="_wxxNwQnKEd-7q9fQ6Ry6CA" source="_wxxNxwnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN0wnKEd-7q9fQ6Ry6CA" target="_wxxNuAnKEd-7q9fQ6Ry6CA" source="_wxxNyAnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN1AnKEd-7q9fQ6Ry6CA" target="_wxxNvQnKEd-7q9fQ6Ry6CA" source="_wxxNyAnKEd-7q9fQ6Ry6CA"/>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_wxxN1QnKEd-7q9fQ6Ry6CA" name="subStateMachine" submachineState="_wxxNwgnKEd-7q9fQ6Ry6CA">
+    <region xmi:type="uml:Region" xmi:id="_wxxN1gnKEd-7q9fQ6Ry6CA">
+      <subvertex xmi:type="uml:State" xmi:id="_wxxN1wnKEd-7q9fQ6Ry6CA" name="state7"/>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxN2AnKEd-7q9fQ6Ry6CA" name="state8"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_wxxN2QnKEd-7q9fQ6Ry6CA" name="Junction" kind="junction"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN2gnKEd-7q9fQ6Ry6CA" target="_wxxN1wnKEd-7q9fQ6Ry6CA" source="_wxxN4AnKEd-7q9fQ6Ry6CA" kind="local"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN2wnKEd-7q9fQ6Ry6CA" target="_wxxN2AnKEd-7q9fQ6Ry6CA" source="_wxxN4QnKEd-7q9fQ6Ry6CA" kind="local"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN3AnKEd-7q9fQ6Ry6CA" target="_wxxN2QnKEd-7q9fQ6Ry6CA" source="_wxxN1wnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN3QnKEd-7q9fQ6Ry6CA" target="_wxxN4wnKEd-7q9fQ6Ry6CA" source="_wxxN2AnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN3gnKEd-7q9fQ6Ry6CA" target="_wxxN2QnKEd-7q9fQ6Ry6CA" source="_wxxN2AnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN3wnKEd-7q9fQ6Ry6CA" target="_wxxN4gnKEd-7q9fQ6Ry6CA" source="_wxxN2QnKEd-7q9fQ6Ry6CA"/>
+    </region>
+    <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_wxxN4AnKEd-7q9fQ6Ry6CA" name="enter1" kind="entryPoint"/>
+    <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_wxxN4QnKEd-7q9fQ6Ry6CA" name="enter2" kind="entryPoint"/>
+    <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_wxxN4gnKEd-7q9fQ6Ry6CA" name="exit1" kind="exitPoint"/>
+    <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_wxxN4wnKEd-7q9fQ6Ry6CA" name="exit2" kind="exitPoint"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_wxxN5AnKEd-7q9fQ6Ry6CA" name="simpleStateMachine">
+    <region xmi:type="uml:Region" xmi:id="_wxxN5QnKEd-7q9fQ6Ry6CA">
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_wxxN5gnKEd-7q9fQ6Ry6CA" name="initial"/>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxN5wnKEd-7q9fQ6Ry6CA" name="state_0">
+        <entry xmi:type="uml:Activity" xmi:id="_wxxN6AnKEd-7q9fQ6Ry6CA" name="opaqueEntryBehavior"/>
+        <exit xmi:type="uml:Activity" xmi:id="_wxxN6QnKEd-7q9fQ6Ry6CA" name="opaqueExitBehavior"/>
+        <doActivity xmi:type="uml:Activity" xmi:id="_wxxN6gnKEd-7q9fQ6Ry6CA" name="opaqueDoBehavior"/>
+      </subvertex>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_wxxN6wnKEd-7q9fQ6Ry6CA" name="choice" kind="choice"/>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxN7AnKEd-7q9fQ6Ry6CA" name="state_1"/>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxN7QnKEd-7q9fQ6Ry6CA" name="state_2"/>
+      <subvertex xmi:type="uml:State" xmi:id="_wxxN7gnKEd-7q9fQ6Ry6CA" name="state_3"/>
+      <subvertex xmi:type="uml:FinalState" xmi:id="_wxxN7wnKEd-7q9fQ6Ry6CA" name="finalState"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN8AnKEd-7q9fQ6Ry6CA" target="_wxxN5wnKEd-7q9fQ6Ry6CA" source="_wxxN5gnKEd-7q9fQ6Ry6CA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN8QnKEd-7q9fQ6Ry6CA" target="_wxxN6wnKEd-7q9fQ6Ry6CA" source="_wxxN5wnKEd-7q9fQ6Ry6CA">
+        <trigger xmi:type="uml:Trigger" xmi:id="_wxxN8gnKEd-7q9fQ6Ry6CA" event="_wxxOBQnKEd-7q9fQ6Ry6CA"/>
+      </transition>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN8wnKEd-7q9fQ6Ry6CA" guard="_wxxN9AnKEd-7q9fQ6Ry6CA" target="_wxxN7AnKEd-7q9fQ6Ry6CA" source="_wxxN6wnKEd-7q9fQ6Ry6CA">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_wxxN9AnKEd-7q9fQ6Ry6CA" constrainedElement="_wxxN8wnKEd-7q9fQ6Ry6CA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_wxxN9QnKEd-7q9fQ6Ry6CA" body="x&lt;0"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN9gnKEd-7q9fQ6Ry6CA" guard="_wxxN9wnKEd-7q9fQ6Ry6CA" target="_wxxN7QnKEd-7q9fQ6Ry6CA" source="_wxxN6wnKEd-7q9fQ6Ry6CA">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_wxxN9wnKEd-7q9fQ6Ry6CA" constrainedElement="_wxxN9gnKEd-7q9fQ6Ry6CA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_wxxN-AnKEd-7q9fQ6Ry6CA" body="else"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN-QnKEd-7q9fQ6Ry6CA" guard="_wxxN-gnKEd-7q9fQ6Ry6CA" target="_wxxN7gnKEd-7q9fQ6Ry6CA" source="_wxxN6wnKEd-7q9fQ6Ry6CA">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_wxxN-gnKEd-7q9fQ6Ry6CA" constrainedElement="_wxxN-QnKEd-7q9fQ6Ry6CA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_wxxN-wnKEd-7q9fQ6Ry6CA" body="x>0"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN_AnKEd-7q9fQ6Ry6CA" guard="_wxxN_QnKEd-7q9fQ6Ry6CA" target="_wxxN7wnKEd-7q9fQ6Ry6CA" source="_wxxN7AnKEd-7q9fQ6Ry6CA">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_wxxN_QnKEd-7q9fQ6Ry6CA" constrainedElement="_wxxN_AnKEd-7q9fQ6Ry6CA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_wxxN_gnKEd-7q9fQ6Ry6CA" body="x==0"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxN_wnKEd-7q9fQ6Ry6CA" guard="_wxxN_QnKEd-7q9fQ6Ry6Cz" target="_wxxN7AnKEd-7q9fQ6Ry6CA" source="_wxxN7AnKEd-7q9fQ6Ry6CA">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_wxxN_QnKEd-7q9fQ6Ry6Cz" constrainedElement="_wxxN_wnKEd-7q9fQ6Ry6CA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_wxxN_gnKEd-7q9fQ6Ry6Cz" body="x!=0"/>
+        </ownedRule>
+      </transition>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxOAAnKEd-7q9fQ6Ry6CA" target="_wxxN7wnKEd-7q9fQ6Ry6CA" source="_wxxN7QnKEd-7q9fQ6Ry6CA">
+        <effect xmi:type="uml:OpaqueBehavior" xmi:id="_wxxOAQnKEd-7q9fQ6Ry6CA" body="opaqueBehavior"/>
+      </transition>
+      <transition xmi:type="uml:Transition" xmi:id="_wxxOAgnKEd-7q9fQ6Ry6CA" guard="_wxxOAwnKEd-7q9fQ6Ry6CA" target="_wxxN7wnKEd-7q9fQ6Ry6CA" source="_wxxN7gnKEd-7q9fQ6Ry6CA">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_wxxOAwnKEd-7q9fQ6Ry6CA" constrainedElement="_wxxOAgnKEd-7q9fQ6Ry6CA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_wxxOBAnKEd-7q9fQ6Ry6CA" body="x&lt;0"/>
+        </ownedRule>
+      </transition>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:ChangeEvent" xmi:id="_wxxOBQnKEd-7q9fQ6Ry6CA">
+    <changeExpression xmi:type="uml:OpaqueExpression" xmi:id="_wxxOBgnKEd-7q9fQ6Ry6CA" body="x!=-1"/>
+  </packagedElement>
+</uml:Model>

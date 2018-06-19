@@ -1,0 +1,108 @@
+/*
+ * Auflösung von Assoziationen - hier mittels einer Assoziationstabelle.
+ * Attribute von Klassen und Datentypen werden bis auf weiteres ignoriert.
+ */
+transformation uml2rdbm ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   /* */
+   top relation PackageToSchema 
+   {
+      packageName : String;
+      checkonly domain uml  pck : Package { name = packageName };
+      enforce   domain rdbm sma : Schema  { name = packageName };
+   }
+
+   /* */
+   top relation ClassToTable
+   {
+      className : String;
+
+      checkonly domain uml  cls : Class  
+      { 
+         namespace = pck : Package {},
+         kind      = 'persistent',
+         name      = className 
+      };
+      
+      enforce   domain rdbm tbl : Table 
+      { 
+         schema = sma : Schema {},
+         name   = className,
+
+         -- inline Erzeugung des Identifikators
+         column = col : Column 
+         {
+            name = className + '_ID',
+            type = 'Integer'
+         },
+
+         -- inline Erzeugung des Primärschlüssels 
+         primaryKey    = pKey : PrimaryKey    
+         { 
+            name   = className + '_PK', 
+            column = col : Column {}
+         }
+      };
+      
+      when  { PackageToSchema ( pck, sma ); }
+   }
+
+   /* */
+   top relation AssocToTable 
+   {
+	  associationName  : String;
+	  sourceClassName  : String;
+	  destClassName    : String;
+	  srcTbl,  dstTbl  : Table;
+	  srcPKey, dstPKey : PrimaryKey;
+	  
+	  checkonly domain uml a : Association 
+	  {
+	    namespace   = pckg : Package {},
+	    name        = associationName,
+	    
+	    -- Ermittlung der beteiligten Klassen und deren Eigenschaften
+	    source      = srcCls : Class { kind = 'persistent', name = sourceClassName },
+	    destination = dstCls : Class { kind = 'persistent', name = destClassName   }
+	  };
+	  
+	  enforce domain rdbm tab : Table 
+	  {
+	    schema      = sma : Schema {},
+	    name        = associationName,  
+
+	    -- Referenzierung der Source-Tabelle
+        column      = col1  : Column { name = sourceClassName, type = 'Integer' },
+        foreignKey  = fKey1 : ForeignKey 
+        { 
+           name     = sourceClassName + '_FK', 
+           column   = col1 : Column {}, 
+           owner    = tab, 
+           refersTo = srcPKey
+       },
+
+	    -- Referenzierung der Destination-Tabelle
+        column      = col2  : Column  { name = destClassName, type = 'Integer'  },
+        foreignKey  = fKey2: ForeignKey 
+        {
+           name     = destClassName + '_FK',   
+           column   = col2 : Column {}, 
+           owner    = tab, 
+           refersTo = dstPKey
+        }
+	  };
+ 
+	  when 
+	  {
+	    PackageToSchema ( pckg,   sma    );
+	    ClassToTable    ( srcCls, srcTbl );
+	    ClassToTable    ( dstCls, dstTbl );
+	  }
+
+	  where 
+	  {
+	    srcPKey = srcTbl.primaryKey.first();
+	    dstPKey = dstTbl.primaryKey.first();
+	  }
+	}
+}

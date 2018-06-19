@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="umlMM2" xmi:id="_VIMQMEFWEdugSZM5vDFlcg">
+  <hasClass xmi:id="_VzvHkEFWEdugSZM5vDFlcg" name="Employee">
+    <attribute xmi:id="_WOyr4EFWEdugSZM5vDFlcg" name="Name" type="String"/>
+    <attribute xmi:id="_KiOFIEFYEdugSZM5vDFlcg" name="EmployeeNo" type="Int"/>
+    <attribute xmi:id="_K4EZUEFYEdugSZM5vDFlcg" name="IsPermanent" type="Binary"/>
+  </hasClass>
+</null:Dummy>

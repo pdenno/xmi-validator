@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MyUML:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MyUML="urn:MyUML.ecore" xsi:schemaLocation="urn:MyUML.ecore ../../metamodels/MyUML.ecore" name="Bank">
+  <ownedElement xsi:type="MyUML:PrimitiveDataType" name="int"/>
+  <ownedElement xsi:type="MyUML:PrimitiveDataType" name="string"/>
+  <ownedElement xsi:type="MyUML:Class" name="Client" kind="Persistent" specific="//@ownedElement.3">
+    <attribute name="name" type="//@ownedElement.1"/>
+  </ownedElement>
+  <ownedElement xsi:type="MyUML:Class" name="Person" kind="Persistent" general="//@ownedElement.2" specific="//@ownedElement.4">
+    <attribute name="alter" kind="" type="//@ownedElement.0"/>
+  </ownedElement>
+  <ownedElement xsi:type="MyUML:Class" name="NatPers" kind="Persistent" general="//@ownedElement.3">
+    <attribute name="Ehestand" kind="" type="//@ownedElement.1"/>
+  </ownedElement>
+</MyUML:Package>

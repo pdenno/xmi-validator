@@ -1,0 +1,77 @@
+transformation SeqToStmc(seqDgm:SeqMM, stmc:StmcMM)
+{
+	top relation LifeLineToStateMachine
+	{
+		cn:String;
+
+		enforce domain seqDgm // pod added enforce
+		l:LifeLine
+		{ object = o:Object { class = c1:Class { name = cn } } 	};
+
+		checkonly domain stmc 
+		s:StateMachine
+		{ owner = c2:Class { name = cn } };
+
+		where
+		{ LLEventSeqToSMStatePath(l, s); }
+	}
+
+	relation LLEventSeqToSMStatePath
+	{
+		en:String;
+		restEvSeq:Sequence(SeqMM::MessageEvent);
+
+		enforce domain seqDgm  // pod added enforce
+		ll:LifeLine
+		{ event = es:Sequence(MessageEvent) { e1:MessageEvent{name = en} ++ restEvSeq } };
+
+		checkonly domain stmc 
+		sm:StateMachine
+		{ state = s1:State { outTransition = tr:Transition { event = e:Event { name = en },
+								     toState = s2:State{} } }
+		};
+
+		where
+		{ EventSeqToStatePath(restEvSeq, s2); }
+	}
+
+	relation EventSeqToStatePath
+	{
+ 	        enforce domain seqDgm  // pod added enforce
+		es:Sequence(MessageEvent) { };
+
+		checkonly domain stmc 
+		fs:State{};
+
+		where
+		{ EventSeqToStatePathImm(es, fs) or EventSeqToStatePathTrans(es, fs); }
+	}
+
+	relation EventSeqToStatePathImm
+	{
+		en:String;
+		restEvSeq:Sequence(SeqMM::MessageEvent);
+
+		enforce domain seqDgm  // pod added enforce
+		es:Sequence(MessageEvent) 
+                { e1:MessageEvent{name = en} ++ restEvSeq };
+	
+		checkonly domain stmc 
+		fs:State
+		{ outTransition = tr:Transition { event = e2:Event { name = en }, toState = ts:State{} } };
+
+		where 
+		{ EventSeqToStatePath(restEvSeq, ts); }
+	}
+		
+	relation EventSeqToStatePathTrans
+	{
+	        enforce domain seqDgm // pod added enforce
+		es:Sequence(MessageEvent) { };
+
+		checkonly domain stmc 
+		fs:State { outTransition = tr:Transition { toState=ts:State{} } };
+
+		where 
+		{ EventSeqToStatePath(es, ts); } }
+}

@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20110701"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:uml="http://www.omg.org/spec/UML/20110701"
+         xmlns:BPMNProfile="http://www.omg.org/spec/BPMNProfile/20121112/">
+   <uml:Package xmi:id="def"
+                xmi:uuid="http://www.example.org/Processes/sellerProcess#def"
+                xmi:type="uml:Package">
+      <packageImport xmi:id="d1e2"
+                     xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e2"
+                     xmi:type="uml:PackageImport"/>
+      <packageImport xmi:id="d1e3"
+                     xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e3"
+                     xmi:type="uml:PackageImport"/>
+      <packagedElement xmi:id="sellerCollab"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#sellerCollab"
+                       xmi:type="uml:Collaboration">
+         <ownedAttribute xmi:id="seller"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#seller"
+                         xmi:type="uml:Property">
+            <name xmi:type="uml:String">Seller</name>
+            <type xmi:idref="seller_class"/>
+         </ownedAttribute>
+         <ownedAttribute xmi:id="buyer"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#buyer"
+                         xmi:type="uml:Property">
+            <name xmi:type="uml:String">Buyer</name>
+            <type xmi:idref="buyer_class"/>
+         </ownedAttribute>
+         <ownedAttribute xmi:id="shipper"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#shipper"
+                         xmi:type="uml:Property">
+            <name xmi:type="uml:String">Shipper</name>
+            <type xmi:idref="shipper_class"/>
+         </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="conversationQuoteRequest"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationQuoteRequest"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="buyer"/>
+         <informationSource xmi:idref="sendQuote"/>
+         <informationSource xmi:idref="sendFault"/>
+         <informationTarget xmi:idref="receiveQuoteRequest"/>
+         <informationTarget xmi:idref="buyer"/>
+         <informationTarget xmi:idref="receiveOrderRequest"/>
+         <conveyed xmi:idref="conversationQuoteRequest_conveyed"/>
+      </packagedElement>
+      <packagedElement xmi:id="correlQuote"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#correlQuote"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Quote Correlation Key</name>
+         <generalization xmi:id="d1e29"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e29"
+                         xmi:type="uml:Generalization">
+            <general xmi:idref="propQuoteID_class"/>
+         </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="conversationOrderHandling"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationOrderHandling"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="buyer"/>
+         <informationSource xmi:idref="sendOrderResponse"/>
+         <informationTarget xmi:idref="receiveOrderRequest"/>
+         <informationTarget xmi:idref="buyer"/>
+         <conveyed xmi:idref="conversationOrderHandling_conveyed"/>
+      </packagedElement>
+      <packagedElement xmi:id="correlOrder"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#correlOrder"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Order Correlation Key</name>
+         <generalization xmi:id="d1e38"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e38"
+                         xmi:type="uml:Generalization">
+            <general xmi:idref="propCustomerID_class"/>
+         </generalization>
+         <generalization xmi:id="d1e40"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e40"
+                         xmi:type="uml:Generalization">
+            <general xmi:idref="propOrderID_class"/>
+         </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="conversationShipmentRequest"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationShipmentRequest"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="sendShippingRequest"/>
+         <informationSource xmi:idref="shipper"/>
+         <informationTarget xmi:idref="shipper"/>
+         <informationTarget xmi:idref="receiveShippingConfirmation"/>
+         <conveyed xmi:idref="conversationShipmentRequest_conveyed"/>
+      </packagedElement>
+      <packagedElement xmi:id="correlShipment"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#correlShipment"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Shipment Correlation Key</name>
+         <generalization xmi:id="d1e48"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e48"
+                         xmi:type="uml:Generalization">
+            <general xmi:idref="propOrderID_class"/>
+         </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="propQuoteID_class"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#propQuoteID_class"
+                       xmi:type="uml:Class">
+         <ownedAttribute xmi:id="propQuoteID"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#propQuoteID"
+                         xmi:type="uml:Property">
+            <name xmi:type="uml:String">Property Quote ID</name>
+         </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="d1e143"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e143"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e144"/>
+         <supplier xmi:idref="msgRFQ"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e144"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e144"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/request/quoteID</body>
+      </packagedElement>
+      <packagedElement xmi:id="d1e146"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e146"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e147"/>
+         <supplier xmi:idref="msgQuote"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e147"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e147"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/response/quoteID</body>
+      </packagedElement>
+      <packagedElement xmi:id="d1e149"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e149"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e150"/>
+         <supplier xmi:idref="msgFault"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e150"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e150"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/fault/quoteID</body>
+      </packagedElement>
+      <packagedElement xmi:id="d1e152"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e152"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e153"/>
+         <supplier xmi:idref="msgOrderData"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e153"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e153"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/priceQuotationRef</body>
+      </packagedElement>
+      <packagedElement xmi:id="propCustomerID_class"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#propCustomerID_class"
+                       xmi:type="uml:Class">
+         <ownedAttribute xmi:id="propCustomerID"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#propCustomerID"
+                         xmi:type="uml:Property">
+            <name xmi:type="uml:String">Property Customer ID</name>
+         </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="d1e156"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e156"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e157"/>
+         <supplier xmi:idref="msgOrderData"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e157"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e157"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/customer/id</body>
+      </packagedElement>
+      <packagedElement xmi:id="d1e159"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e159"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e160"/>
+         <supplier xmi:idref="msgOrderConfirmation"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e160"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e160"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/customerID</body>
+      </packagedElement>
+      <packagedElement xmi:id="propOrderID_class"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#propOrderID_class"
+                       xmi:type="uml:Class">
+         <ownedAttribute xmi:id="propOrderID"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#propOrderID"
+                         xmi:type="uml:Property">
+            <name xmi:type="uml:String">Property Order ID</name>
+         </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="d1e163"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e163"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e164"/>
+         <supplier xmi:idref="msgOrderData"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e164"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e164"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/order/orderID</body>
+      </packagedElement>
+      <packagedElement xmi:id="d1e166"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e166"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e167"/>
+         <supplier xmi:idref="msgOrderConfirmation"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e167"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e167"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/order/orderID</body>
+      </packagedElement>
+      <packagedElement xmi:id="d1e169"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e169"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e170"/>
+         <supplier xmi:idref="msgShippingData"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e170"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e170"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/order/orderID</body>
+      </packagedElement>
+      <packagedElement xmi:id="d1e172"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e172"
+                       xmi:type="uml:Dependency">
+         <client xmi:idref="d1e173"/>
+         <supplier xmi:idref="msgShippingConfirmation"/>
+      </packagedElement>
+      <packagedElement xmi:id="d1e173"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e173"
+                       xmi:type="uml:OpaqueExpression">
+         <body xmi:type="uml:String">/order/orderID</body>
+      </packagedElement>
+      <packagedElement xmi:id="sellerServiceInterface"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#sellerServiceInterface"
+                       xmi:type="uml:Interface">
+         <name xmi:type="uml:String">Seller Service Interface</name>
+         <ownedOperation xmi:id="requestQuoteOp"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#requestQuoteOp"
+                         xmi:type="uml:Operation">
+            <visibility xmi:type="uml:VisibilityKind">public</visibility>
+            <name xmi:type="uml:String">Request Quote Operation</name>
+            <raisedException xmi:idref="msgFault"/>
+            <ownedParameter xmi:id="d1e52"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e52"
+                            xmi:type="uml:Parameter">
+               <type xmi:idref="msgRFQ"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="d1e54"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e54"
+                            xmi:type="uml:Parameter">
+               <direction xmi:type="uml:ParameterDirectionKind">out</direction>
+               <type xmi:idref="msgQuote"/>
+            </ownedParameter>
+         </ownedOperation>
+         <ownedOperation xmi:id="orderOp"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#orderOp"
+                         xmi:type="uml:Operation">
+            <visibility xmi:type="uml:VisibilityKind">public</visibility>
+            <name xmi:type="uml:String">Order Operation</name>
+            <ownedParameter xmi:id="d1e59"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e59"
+                            xmi:type="uml:Parameter">
+               <type xmi:idref="msgOrderData"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="d1e61"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e61"
+                            xmi:type="uml:Parameter">
+               <direction xmi:type="uml:ParameterDirectionKind">out</direction>
+               <type xmi:idref="msgOrderConfirmation"/>
+            </ownedParameter>
+         </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="shipperServiceInterface"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#shipperServiceInterface"
+                       xmi:type="uml:Interface">
+         <name xmi:type="uml:String">Shipper Service Interface</name>
+         <ownedOperation xmi:id="requestShippingOp"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#requestShippingOp"
+                         xmi:type="uml:Operation">
+            <visibility xmi:type="uml:VisibilityKind">public</visibility>
+            <name xmi:type="uml:String">Request Shipping Operation</name>
+            <ownedParameter xmi:id="d1e65"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e65"
+                            xmi:type="uml:Parameter">
+               <type xmi:idref="msgShippingData"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="d1e67"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e67"
+                            xmi:type="uml:Parameter">
+               <direction xmi:type="uml:ParameterDirectionKind">out</direction>
+               <type xmi:idref="msgShippingConfirmation"/>
+            </ownedParameter>
+         </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="itemRFQMessage"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#itemRFQMessage"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="itemQuoteMessage"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#itemQuoteMessage"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="itemFaultMessage"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#itemFaultMessage"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="itemOrderRequest"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#itemOrderRequest"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="itemOrderResponse"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#itemOrderResponse"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="itemShippingRequest"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#itemShippingRequest"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="itemShippingResponse"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#itemShippingResponse"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="msgRFQ"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#msgRFQ"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">RFQ Message</name>
+      </packagedElement>
+      <packagedElement xmi:id="msgQuote"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#msgQuote"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Quote Message</name>
+      </packagedElement>
+      <packagedElement xmi:id="msgFault"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#msgFault"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Fault Message</name>
+      </packagedElement>
+      <packagedElement xmi:id="msgOrderData"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#msgOrderData"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Order Data Message</name>
+      </packagedElement>
+      <packagedElement xmi:id="msgOrderConfirmation"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#msgOrderConfirmation"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Order Confirmation Message</name>
+      </packagedElement>
+      <packagedElement xmi:id="msgShippingData"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#msgShippingData"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Shipping Data Message</name>
+      </packagedElement>
+      <packagedElement xmi:id="msgShippingConfirmation"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#msgShippingConfirmation"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">Shipping Confirmation Message</name>
+      </packagedElement>
+      <packagedElement xmi:id="theSeller"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#theSeller"
+                       xmi:type="uml:InstanceSpecification">
+         <name xmi:type="uml:String">The Seller</name>
+         <classifier xmi:idref="seller_class"/>
+      </packagedElement>
+      <packagedElement xmi:id="aBuyer"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#aBuyer"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">A Buyer</name>
+      </packagedElement>
+      <packagedElement xmi:id="aShipper"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#aShipper"
+                       xmi:type="uml:Class">
+         <name xmi:type="uml:String">A Shipper</name>
+      </packagedElement>
+      <packagedElement xmi:id="sellerProcess"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#sellerProcess"
+                       xmi:type="uml:Activity">
+         <name xmi:type="uml:String">Seller process</name>
+         <node xmi:id="end1"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#end1"
+               xmi:type="uml:FlowFinalNode"/>
+         <node xmi:id="end2"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#end2"
+               xmi:type="uml:FlowFinalNode"/>
+         <node xmi:id="eventWait"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#eventWait"
+               xmi:type="uml:ForkNode"/>
+         <node xmi:id="eventWait_initialnode"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#eventWait_initialnode"
+               xmi:type="uml:InitialNode">
+            <outgoing xmi:idref="eventWait_from_initialnode"/>
+         </node>
+         <edge xmi:id="eventWait_from_initialnode"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#eventWait_from_initialnode"
+               xmi:type="uml:ControlFlow">
+            <source xmi:idref="eventWait_initialnode"/>
+            <target xmi:idref="eventWait"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <node xmi:id="decision1"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#decision1"
+               xmi:type="uml:DecisionNode">
+            <outgoing xmi:idref="decision1_to_decision"/>
+         </node>
+         <edge xmi:id="decision1_to_decision"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#decision1_to_decision"
+               xmi:type="uml:ControlFlow">
+            <source xmi:idref="decision1"/>
+            <target xmi:idref="decision1_decision"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <node xmi:id="decision1_decision"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#decision1_decision"
+               xmi:type="uml:DecisionNode">
+            <incoming xmi:idref="decision1_to_decision"/>
+            <outgoing xmi:idref="decision1_to_fork"/>
+            <outgoing xmi:idref="noQuote"/>
+         </node>
+         <edge xmi:id="decision1_to_fork"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#decision1_to_fork"
+               xmi:type="uml:ControlFlow">
+            <source xmi:idref="decision1_decision"/>
+            <target xmi:idref="decision1_fork"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <node xmi:id="decision1_fork"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#decision1_fork"
+               xmi:type="uml:ForkNode">
+            <incoming xmi:idref="decision1_to_fork"/>
+            <outgoing xmi:idref="quote"/>
+         </node>
+         <node xmi:id="timeout"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#timeout"
+               xmi:type="uml:AcceptEventAction">
+            <trigger xmi:id="timeout_timer_trigger"
+                     xmi:uuid="http://www.example.org/Processes/sellerProcess#timeout_timer_trigger"
+                     xmi:type="uml:Trigger">
+               <event xmi:idref="timeout_timer"/>
+            </trigger>
+         </node>
+         <node xmi:id="receiveQuoteRequest"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#receiveQuoteRequest"
+               xmi:type="uml:AcceptEventAction">
+            <name xmi:type="uml:String">Receive Quote Request</name>
+            <trigger xmi:id="d1e108"
+                     xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e108"
+                     xmi:type="uml:Trigger">
+               <event xmi:idref="requestQuoteOp_callevent"/>
+            </trigger>
+         </node>
+         <node xmi:id="receiveNewQuoteRequest"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#receiveNewQuoteRequest"
+               xmi:type="uml:AcceptEventAction">
+            <name xmi:type="uml:String">Receive New Quote</name>
+            <trigger xmi:id="d1e109"
+                     xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e109"
+                     xmi:type="uml:Trigger">
+               <event xmi:idref="requestQuoteOp_callevent"/>
+            </trigger>
+         </node>
+         <node xmi:id="receiveOrderRequest"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#receiveOrderRequest"
+               xmi:type="uml:AcceptEventAction">
+            <name xmi:type="uml:String">Receive Order Request</name>
+            <trigger xmi:id="d1e110"
+                     xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e110"
+                     xmi:type="uml:Trigger">
+               <event xmi:idref="orderOp_callevent"/>
+            </trigger>
+         </node>
+         <node xmi:id="receiveShippingConfirmation"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#receiveShippingConfirmation"
+               xmi:type="uml:AcceptEventAction">
+            <name xmi:type="uml:String">Receive Shipping Confirmation</name>
+            <trigger xmi:id="d1e111"
+                     xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e111"
+                     xmi:type="uml:Trigger">
+               <event xmi:idref="requestShippingOp_callevent"/>
+            </trigger>
+         </node>
+         <node xmi:id="sendQuote"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#sendQuote"
+               xmi:type="uml:CallOperationAction">
+            <operation xmi:idref="requestQuoteOp"/>
+            <target xmi:id="d1e112_target"
+                    xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e112_target"
+                    xmi:type="uml:InputPin">
+               <upperBound xmi:type="uml:LiteralUnlimitedNatural">*</upperBound>
+            </target>
+            <name xmi:type="uml:String">Send Quote</name>
+            <incoming xmi:idref="quote"/>
+         </node>
+         <node xmi:id="sendFault"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#sendFault"
+               xmi:type="uml:CallOperationAction">
+            <operation xmi:idref="requestQuoteOp"/>
+            <target xmi:id="d1e116_target"
+                    xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e116_target"
+                    xmi:type="uml:InputPin">
+               <upperBound xmi:type="uml:LiteralUnlimitedNatural">*</upperBound>
+            </target>
+            <name xmi:type="uml:String">Send Fault</name>
+            <incoming xmi:idref="noQuote"/>
+         </node>
+         <node xmi:id="sendOrderResponse"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#sendOrderResponse"
+               xmi:type="uml:CallOperationAction">
+            <operation xmi:idref="orderOp"/>
+            <target xmi:id="d1e119_target"
+                    xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e119_target"
+                    xmi:type="uml:InputPin">
+               <upperBound xmi:type="uml:LiteralUnlimitedNatural">*</upperBound>
+            </target>
+            <name xmi:type="uml:String">Send Order Response</name>
+         </node>
+         <node xmi:id="sendShippingRequest"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#sendShippingRequest"
+               xmi:type="uml:CallOperationAction">
+            <operation xmi:idref="requestShippingOp"/>
+            <target xmi:id="d1e120_target"
+                    xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e120_target"
+                    xmi:type="uml:InputPin">
+               <upperBound xmi:type="uml:LiteralUnlimitedNatural">*</upperBound>
+            </target>
+            <name xmi:type="uml:String">Send Shipping Request</name>
+         </node>
+         <node xmi:id="fork"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#fork"
+               xmi:type="uml:JoinNode">
+            <joinSpec xmi:type="uml:LiteralString">and</joinSpec>
+         </node>
+         <node xmi:id="join"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#join"
+               xmi:type="uml:JoinNode">
+            <joinSpec xmi:type="uml:LiteralString">and</joinSpec>
+         </node>
+         <edge xmi:id="d1e121"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e121"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="decision1"/>
+            <source xmi:idref="receiveQuoteRequest"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="quote"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#quote"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="sendQuote"/>
+            <source xmi:idref="decision1_fork"/>
+            <guard xmi:id="d1e123"
+                   xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e123"
+                   xmi:type="uml:OpaqueExpression">
+               <body xmi:type="uml:String">Quote available and okay.</body>
+            </guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="noQuote"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#noQuote"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="sendFault"/>
+            <source xmi:idref="decision1_decision"/>
+            <guard xmi:type="uml:LiteralBoolean">else</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e126"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e126"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="eventWait"/>
+            <source xmi:idref="sendQuote"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e127"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e127"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="decision1"/>
+            <source xmi:idref="receiveNewQuoteRequest"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e128"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e128"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="eventWait"/>
+            <source xmi:idref="sendFault"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e130"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e130"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="receiveNewQuoteRequest"/>
+            <source xmi:idref="eventWait"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e132"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e132"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="receiveOrderRequest"/>
+            <source xmi:idref="eventWait"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e133"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e133"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="timeout"/>
+            <source xmi:idref="eventWait"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e134"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e134"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="end1"/>
+            <source xmi:idref="timeout"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e135"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e135"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="fork"/>
+            <source xmi:idref="receiveOrderRequest"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e136"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e136"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="sendOrderResponse"/>
+            <source xmi:idref="fork"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e137"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e137"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="sendShippingRequest"/>
+            <source xmi:idref="fork"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e138"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e138"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="join"/>
+            <source xmi:idref="sendOrderResponse"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e139"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e139"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="receiveShippingConfirmation"/>
+            <source xmi:idref="sendShippingRequest"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e140"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e140"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="join"/>
+            <source xmi:idref="receiveShippingConfirmation"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <edge xmi:id="d1e141"
+               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e141"
+               xmi:type="uml:ControlFlow">
+            <target xmi:idref="end2"/>
+            <source xmi:idref="join"/>
+            <guard xmi:type="uml:LiteralBoolean">true</guard>
+            <weight xmi:type="uml:LiteralUnlimitedNatural">1</weight>
+         </edge>
+         <group xmi:id="eventWait_interruptibleregion"
+                xmi:uuid="http://www.example.org/Processes/sellerProcess#eventWait_interruptibleregion"
+                xmi:type="uml:InterruptibleActivityRegion">
+            <node xmi:idref="receiveNewQuoteRequest"/>
+            <node xmi:idref="receiveOrderRequest"/>
+            <node xmi:idref="timeout"/>
+            <interruptingEdge xmi:idref="d1e127"/>
+            <interruptingEdge xmi:idref="d1e134"/>
+            <interruptingEdge xmi:idref="d1e135"/>
+         </group>
+      </packagedElement>
+      <packagedElement xmi:id="timeout_timer"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#timeout_timer"
+                       xmi:type="uml:ChangeEvent">
+         <changeExpression xmi:id="timeout_timer_uml:OpaqueExpression"
+                           xmi:uuid="http://www.example.org/Processes/sellerProcess#timeout_timer_uml:OpaqueExpression"
+                           xmi:type="uml:OpaqueExpression">
+            <body xmi:type="uml:String">BPMNTimerEvent</body>
+            <language xmi:type="uml:String">BPMNProfile</language>
+         </changeExpression>
+      </packagedElement>
+      <packagedElement xmi:id="mf1"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#mf1"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="buyer"/>
+         <informationTarget xmi:idref="receiveQuoteRequest"/>
+         <conveyed xmi:idref="msgRFQ"/>
+      </packagedElement>
+      <packagedElement xmi:id="mf2"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#mf2"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="sendQuote"/>
+         <informationTarget xmi:idref="buyer"/>
+         <conveyed xmi:idref="msgQuote"/>
+      </packagedElement>
+      <packagedElement xmi:id="mf3"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#mf3"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="sendFault"/>
+         <informationTarget xmi:idref="buyer"/>
+         <conveyed xmi:idref="msgFault"/>
+      </packagedElement>
+      <packagedElement xmi:id="mf4"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#mf4"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="buyer"/>
+         <informationTarget xmi:idref="receiveOrderRequest"/>
+         <conveyed xmi:idref="msgOrderData"/>
+      </packagedElement>
+      <packagedElement xmi:id="mf5"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#mf5"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="sendOrderResponse"/>
+         <informationTarget xmi:idref="buyer"/>
+         <conveyed xmi:idref="msgOrderConfirmation"/>
+      </packagedElement>
+      <packagedElement xmi:id="mf6"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#mf6"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="sendShippingRequest"/>
+         <informationTarget xmi:idref="shipper"/>
+         <conveyed xmi:idref="msgShippingData"/>
+      </packagedElement>
+      <packagedElement xmi:id="mf7"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#mf7"
+                       xmi:type="uml:InformationFlow">
+         <informationSource xmi:idref="shipper"/>
+         <informationTarget xmi:idref="receiveShippingConfirmation"/>
+         <conveyed xmi:idref="msgShippingConfirmation"/>
+      </packagedElement>
+      <packagedElement xmi:id="seller_class"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#seller_class"
+                       xmi:type="uml:Class">
+         <classifierBehavior xmi:idref="sellerProcess"/>
+         <interfaceRealization xmi:id="d1e6"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e6"
+                               xmi:type="uml:InterfaceRealization">
+            <contract xmi:idref="sellerServiceInterface"/>
+         </interfaceRealization>
+      </packagedElement>
+      <packagedElement xmi:id="buyer_class"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#buyer_class"
+                       xmi:type="uml:Class">
+         <generalization xmi:id="d1e87"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e87"
+                         xmi:type="uml:Generalization">
+            <general xmi:idref="aBuyer"/>
+         </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="shipper_class"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#shipper_class"
+                       xmi:type="uml:Class">
+         <generalization xmi:id="d1e90"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e90"
+                         xmi:type="uml:Generalization">
+            <general xmi:idref="aShipper"/>
+         </generalization>
+         <interfaceRealization xmi:id="d1e10"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e10"
+                               xmi:type="uml:InterfaceRealization">
+            <contract xmi:idref="shipperServiceInterface"/>
+         </interfaceRealization>
+      </packagedElement>
+      <packagedElement xmi:id="conversationQuoteRequest_conveyed"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationQuoteRequest_conveyed"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="conversationOrderHandling_conveyed"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationOrderHandling_conveyed"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="conversationShipmentRequest_conveyed"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationShipmentRequest_conveyed"
+                       xmi:type="uml:Class"/>
+      <packagedElement xmi:id="requestQuoteOp_callevent"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#requestQuoteOp_callevent"
+                       xmi:type="uml:CallEvent">
+         <operation xmi:idref="requestQuoteOp"/>
+      </packagedElement>
+      <packagedElement xmi:id="orderOp_callevent"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#orderOp_callevent"
+                       xmi:type="uml:CallEvent">
+         <operation xmi:idref="orderOp"/>
+      </packagedElement>
+      <packagedElement xmi:id="requestShippingOp_callevent"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#requestShippingOp_callevent"
+                       xmi:type="uml:CallEvent">
+         <operation xmi:idref="requestShippingOp"/>
+      </packagedElement>
+      <profileApplication xmi:id="d1e1"
+                          xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e1"
+                          xmi:type="uml:ProfileApplication">
+         <appliedProfile xmi:type="uml:Profile"
+                         isStrict="true"
+                         href="http://www.omg.org/spec/BPMNProfile/20121112/BPMNProfile.xmi#BPMNProfile"/>
+      </profileApplication>
+   </uml:Package>
+   <!-- Applied Stereotypes --><BPMNProfile:Definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                            xmlns:myData="http://www.example.org/Messages"
+                            xmlns:tns="http://www.example.org/Processes/sellerProcess"
+                            xmi:id="def_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#def_stereotype"
+                            xmi:type="BPMNProfile:Definitions">
+      <base_Package xmlns="" xmi:idref="def"/>
+      <targetNamespace xmlns="" xmi:type="uml:LiteralString">http://www.example.org/Processes/sellerProcess</targetNamespace>
+      <expressionLanguage xmlns="" xmi:type="uml:String">http://www.w3.org/1999/XPath</expressionLanguage>
+      <typeLanguage xmlns="" xmi:type="uml:String">http://www.w3.org/2001/XMLSchema</typeLanguage>
+   </BPMNProfile:Definitions>
+   <BPMNProfile:Import xmi:id="d1e2_stereotype"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e2_stereotype"
+                       xmi:type="BPMNProfile:Import">
+      <base_PackageImport xmi:idref="d1e2"/>
+      <location href="DataDefinitions.xsd"/>
+      <importType xmi:type="uml:LiteralString">http://www.w3.org/2001/XMLSchema</importType>
+      <namespace xmi:type="uml:LiteralString">http://www.example.org/Messages</namespace>
+   </BPMNProfile:Import>
+   <BPMNProfile:Import xmi:id="d1e3_stereotype"
+                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e3_stereotype"
+                       xmi:type="BPMNProfile:Import">
+      <base_PackageImport xmi:idref="d1e3"/>
+      <location href="Interfaces.wsdl"/>
+      <importType xmi:type="uml:LiteralString">http://schemas.xmlsoap.org/wsdl/</importType>
+      <namespace xmi:type="uml:LiteralString">http://www.example.org/Messages</namespace>
+   </BPMNProfile:Import>
+   <BPMNProfile:BPMNCollaboration xmi:id="sellerCollab_stereotype"
+                                  xmi:uuid="http://www.example.org/Processes/sellerProcess#sellerCollab_stereotype"
+                                  xmi:type="BPMNProfile:BPMNCollaboration">
+      <base_Collaboration xmi:idref="sellerCollab"/>
+      <messageFlows xmi:idref="mf1_stereotype"/>
+      <messageFlows xmi:idref="mf2_stereotype"/>
+      <messageFlows xmi:idref="mf3_stereotype"/>
+      <messageFlows xmi:idref="mf4_stereotype"/>
+      <messageFlows xmi:idref="mf5_stereotype"/>
+      <messageFlows xmi:idref="mf6_stereotype"/>
+      <messageFlows xmi:idref="mf7_stereotype"/>
+      <conversations xmi:idref="conversationQuoteRequest_stereotype"/>
+      <conversations xmi:idref="conversationOrderHandling_stereotype"/>
+      <conversations xmi:idref="conversationShipmentRequest_stereotype"/>
+   </BPMNProfile:BPMNCollaboration>
+   <BPMNProfile:Participant xmi:id="seller_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#seller_stereotype"
+                            xmi:type="BPMNProfile:Participant">
+      <base_Property xmi:idref="seller"/>
+   </BPMNProfile:Participant>
+   <BPMNProfile:Participant xmi:id="buyer_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#buyer_stereotype"
+                            xmi:type="BPMNProfile:Participant">
+      <base_Property xmi:idref="buyer"/>
+   </BPMNProfile:Participant>
+   <BPMNProfile:Participant xmi:id="shipper_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#shipper_stereotype"
+                            xmi:type="BPMNProfile:Participant">
+      <base_Property xmi:idref="shipper"/>
+   </BPMNProfile:Participant>
+   <BPMNProfile:MessageFlow xmi:id="mf1_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#mf1_stereotype"
+                            xmi:type="BPMNProfile:MessageFlow">
+      <base_InformationFlow xmi:idref="mf1"/>
+   </BPMNProfile:MessageFlow>
+   <BPMNProfile:MessageFlow xmi:id="mf2_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#mf2_stereotype"
+                            xmi:type="BPMNProfile:MessageFlow">
+      <base_InformationFlow xmi:idref="mf2"/>
+   </BPMNProfile:MessageFlow>
+   <BPMNProfile:MessageFlow xmi:id="mf3_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#mf3_stereotype"
+                            xmi:type="BPMNProfile:MessageFlow">
+      <base_InformationFlow xmi:idref="mf3"/>
+   </BPMNProfile:MessageFlow>
+   <BPMNProfile:MessageFlow xmi:id="mf4_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#mf4_stereotype"
+                            xmi:type="BPMNProfile:MessageFlow">
+      <base_InformationFlow xmi:idref="mf4"/>
+   </BPMNProfile:MessageFlow>
+   <BPMNProfile:MessageFlow xmi:id="mf5_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#mf5_stereotype"
+                            xmi:type="BPMNProfile:MessageFlow">
+      <base_InformationFlow xmi:idref="mf5"/>
+   </BPMNProfile:MessageFlow>
+   <BPMNProfile:MessageFlow xmi:id="mf6_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#mf6_stereotype"
+                            xmi:type="BPMNProfile:MessageFlow">
+      <base_InformationFlow xmi:idref="mf6"/>
+   </BPMNProfile:MessageFlow>
+   <BPMNProfile:MessageFlow xmi:id="mf7_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#mf7_stereotype"
+                            xmi:type="BPMNProfile:MessageFlow">
+      <base_InformationFlow xmi:idref="mf7"/>
+   </BPMNProfile:MessageFlow>
+   <BPMNProfile:Conversation xmi:id="conversationQuoteRequest_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationQuoteRequest_stereotype"
+                             xmi:type="BPMNProfile:Conversation">
+      <base_InformationFlow xmi:idref="conversationQuoteRequest"/>
+      <messageFlowRef xmi:idref="mf1_stereotype"/>
+      <messageFlowRef xmi:idref="mf2_stereotype"/>
+      <messageFlowRef xmi:idref="mf3_stereotype"/>
+      <messageFlowRef xmi:idref="mf4_stereotype"/>
+      <correlationKeys xmi:idref="correlQuote_stereotype"/>
+   </BPMNProfile:Conversation>
+   <BPMNProfile:CorrelationKey xmi:id="correlQuote_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#correlQuote_stereotype"
+                               xmi:type="BPMNProfile:CorrelationKey">
+      <base_Class xmi:idref="correlQuote"/>
+   </BPMNProfile:CorrelationKey>
+   <BPMNProfile:Conversation xmi:id="conversationOrderHandling_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationOrderHandling_stereotype"
+                             xmi:type="BPMNProfile:Conversation">
+      <base_InformationFlow xmi:idref="conversationOrderHandling"/>
+      <messageFlowRef xmi:idref="mf4_stereotype"/>
+      <messageFlowRef xmi:idref="mf5_stereotype"/>
+      <correlationKeys xmi:idref="correlOrder_stereotype"/>
+   </BPMNProfile:Conversation>
+   <BPMNProfile:CorrelationKey xmi:id="correlOrder_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#correlOrder_stereotype"
+                               xmi:type="BPMNProfile:CorrelationKey">
+      <base_Class xmi:idref="correlOrder"/>
+   </BPMNProfile:CorrelationKey>
+   <BPMNProfile:Conversation xmi:id="conversationShipmentRequest_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#conversationShipmentRequest_stereotype"
+                             xmi:type="BPMNProfile:Conversation">
+      <base_InformationFlow xmi:idref="conversationShipmentRequest"/>
+      <messageFlowRef xmi:idref="mf6_stereotype"/>
+      <messageFlowRef xmi:idref="mf7_stereotype"/>
+      <correlationKeys xmi:idref="correlShipment_stereotype"/>
+   </BPMNProfile:Conversation>
+   <BPMNProfile:CorrelationKey xmi:id="correlShipment_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#correlShipment_stereotype"
+                               xmi:type="BPMNProfile:CorrelationKey">
+      <base_Class xmi:idref="correlShipment"/>
+   </BPMNProfile:CorrelationKey>
+   <BPMNProfile:CorrelationProperty xmi:id="propQuoteID_stereotype"
+                                    xmi:uuid="http://www.example.org/Processes/sellerProcess#propQuoteID_stereotype"
+                                    xmi:type="BPMNProfile:CorrelationProperty">
+      <base_Property xmi:idref="propQuoteID"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e143_stereotype"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e146_stereotype"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e149_stereotype"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e152_stereotype"/>
+   </BPMNProfile:CorrelationProperty>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e143_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e143_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e143"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e144_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e144_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e144"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e146_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e146_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e146"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e147_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e147_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e147"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e149_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e149_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e149"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e150_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e150_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e150"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e152_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e152_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e152"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e153_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e153_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e153"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationProperty xmi:id="propCustomerID_stereotype"
+                                    xmi:uuid="http://www.example.org/Processes/sellerProcess#propCustomerID_stereotype"
+                                    xmi:type="BPMNProfile:CorrelationProperty">
+      <base_Property xmi:idref="propCustomerID"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e156_stereotype"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e159_stereotype"/>
+   </BPMNProfile:CorrelationProperty>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e156_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e156_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e156"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e157_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e157_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e157"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e159_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e159_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e159"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e160_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e160_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e160"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationProperty xmi:id="propOrderID_stereotype"
+                                    xmi:uuid="http://www.example.org/Processes/sellerProcess#propOrderID_stereotype"
+                                    xmi:type="BPMNProfile:CorrelationProperty">
+      <base_Property xmi:idref="propOrderID"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e163_stereotype"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e166_stereotype"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e169_stereotype"/>
+      <correlationPropertyRetrievalExpression xmi:idref="d1e172_stereotype"/>
+   </BPMNProfile:CorrelationProperty>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e163_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e163_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e163"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e164_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e164_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e164"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e166_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e166_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e166"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e167_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e167_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e167"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e169_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e169_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e169"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e170_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e170_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e170"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:CorrelationPropertyRetrievalExpression xmi:id="d1e172_stereotype"
+                                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e172_stereotype"
+                                                       xmi:type="BPMNProfile:CorrelationPropertyRetrievalExpression">
+      <base_Dependency xmi:idref="d1e172"/>
+   </BPMNProfile:CorrelationPropertyRetrievalExpression>
+   <BPMNProfile:FormalExpression xmi:id="d1e173_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e173_stereotype"
+                                 xmi:type="BPMNProfile:FormalExpression">
+      <base_OpaqueExpression xmi:idref="d1e173"/>
+   </BPMNProfile:FormalExpression>
+   <BPMNProfile:BPMNInterface xmi:id="sellerServiceInterface_stereotype"
+                              xmi:uuid="http://www.example.org/Processes/sellerProcess#sellerServiceInterface_stereotype"
+                              xmi:type="BPMNProfile:BPMNInterface">
+      <base_Interface xmi:idref="sellerServiceInterface"/>
+   </BPMNProfile:BPMNInterface>
+   <BPMNProfile:BPMNOperation xmi:id="requestQuoteOp_stereotype"
+                              xmi:uuid="http://www.example.org/Processes/sellerProcess#requestQuoteOp_stereotype"
+                              xmi:type="BPMNProfile:BPMNOperation">
+      <base_Operation xmi:idref="requestQuoteOp"/>
+   </BPMNProfile:BPMNOperation>
+   <BPMNProfile:BPMNOperation xmi:id="orderOp_stereotype"
+                              xmi:uuid="http://www.example.org/Processes/sellerProcess#orderOp_stereotype"
+                              xmi:type="BPMNProfile:BPMNOperation">
+      <base_Operation xmi:idref="orderOp"/>
+   </BPMNProfile:BPMNOperation>
+   <BPMNProfile:BPMNInterface xmi:id="shipperServiceInterface_stereotype"
+                              xmi:uuid="http://www.example.org/Processes/sellerProcess#shipperServiceInterface_stereotype"
+                              xmi:type="BPMNProfile:BPMNInterface">
+      <base_Interface xmi:idref="shipperServiceInterface"/>
+   </BPMNProfile:BPMNInterface>
+   <BPMNProfile:BPMNOperation xmi:id="requestShippingOp_stereotype"
+                              xmi:uuid="http://www.example.org/Processes/sellerProcess#requestShippingOp_stereotype"
+                              xmi:type="BPMNProfile:BPMNOperation">
+      <base_Operation xmi:idref="requestShippingOp"/>
+   </BPMNProfile:BPMNOperation>
+   <BPMNProfile:ItemDefinition xmi:id="itemRFQMessage_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#itemRFQMessage_stereotype"
+                               xmi:type="bpmn:itemDefinition">
+      <base_Class xmi:idref="itemRFQMessage"/>
+      <structureRef xmi:type="uml:String" href="http://www.example.org/Messages/rfqRequest"/>
+   </BPMNProfile:ItemDefinition>
+   <BPMNProfile:ItemDefinition xmi:id="itemQuoteMessage_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#itemQuoteMessage_stereotype"
+                               xmi:type="bpmn:itemDefinition">
+      <base_Class xmi:idref="itemQuoteMessage"/>
+      <structureRef xmi:type="uml:String"
+                    href="http://www.example.org/Messages/rfqResponse"/>
+   </BPMNProfile:ItemDefinition>
+   <BPMNProfile:ItemDefinition xmi:id="itemFaultMessage_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#itemFaultMessage_stereotype"
+                               xmi:type="bpmn:itemDefinition">
+      <base_Class xmi:idref="itemFaultMessage"/>
+      <structureRef xmi:type="uml:String" href="http://www.example.org/Messages/rfqFault"/>
+   </BPMNProfile:ItemDefinition>
+   <BPMNProfile:ItemDefinition xmi:id="itemOrderRequest_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#itemOrderRequest_stereotype"
+                               xmi:type="bpmn:itemDefinition">
+      <base_Class xmi:idref="itemOrderRequest"/>
+      <structureRef xmi:type="uml:String"
+                    href="http://www.example.org/Messages/orderRequest"/>
+   </BPMNProfile:ItemDefinition>
+   <BPMNProfile:ItemDefinition xmi:id="itemOrderResponse_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#itemOrderResponse_stereotype"
+                               xmi:type="bpmn:itemDefinition">
+      <base_Class xmi:idref="itemOrderResponse"/>
+      <structureRef xmi:type="uml:String"
+                    href="http://www.example.org/Messages/orderResponse"/>
+   </BPMNProfile:ItemDefinition>
+   <BPMNProfile:ItemDefinition xmi:id="itemShippingRequest_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#itemShippingRequest_stereotype"
+                               xmi:type="bpmn:itemDefinition">
+      <base_Class xmi:idref="itemShippingRequest"/>
+      <structureRef xmi:type="uml:String"
+                    href="http://www.example.org/Messages/shippingRequest"/>
+   </BPMNProfile:ItemDefinition>
+   <BPMNProfile:ItemDefinition xmi:id="itemShippingResponse_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#itemShippingResponse_stereotype"
+                               xmi:type="bpmn:itemDefinition">
+      <base_Class xmi:idref="itemShippingResponse"/>
+      <structureRef xmi:type="uml:String"
+                    href="http://www.example.org/Messages/shippingResponse"/>
+   </BPMNProfile:ItemDefinition>
+   <BPMNProfile:Message xmi:id="msgRFQ_stereotype"
+                        xmi:uuid="http://www.example.org/Processes/sellerProcess#msgRFQ_stereotype"
+                        xmi:type="BPMNProfile:Message">
+      <base_Class xmi:idref="msgRFQ"/>
+      <itemRef xmi:idref="itemRFQMessage_stereotype"/>
+   </BPMNProfile:Message>
+   <BPMNProfile:Message xmi:id="msgQuote_stereotype"
+                        xmi:uuid="http://www.example.org/Processes/sellerProcess#msgQuote_stereotype"
+                        xmi:type="BPMNProfile:Message">
+      <base_Class xmi:idref="msgQuote"/>
+      <itemRef xmi:idref="itemQuoteMessage_stereotype"/>
+   </BPMNProfile:Message>
+   <BPMNProfile:Message xmi:id="msgFault_stereotype"
+                        xmi:uuid="http://www.example.org/Processes/sellerProcess#msgFault_stereotype"
+                        xmi:type="BPMNProfile:Message">
+      <base_Class xmi:idref="msgFault"/>
+      <itemRef xmi:idref="itemFaultMessage_stereotype"/>
+   </BPMNProfile:Message>
+   <BPMNProfile:Message xmi:id="msgOrderData_stereotype"
+                        xmi:uuid="http://www.example.org/Processes/sellerProcess#msgOrderData_stereotype"
+                        xmi:type="BPMNProfile:Message">
+      <base_Class xmi:idref="msgOrderData"/>
+      <itemRef xmi:idref="itemOrderRequest_stereotype"/>
+   </BPMNProfile:Message>
+   <BPMNProfile:Message xmi:id="msgOrderConfirmation_stereotype"
+                        xmi:uuid="http://www.example.org/Processes/sellerProcess#msgOrderConfirmation_stereotype"
+                        xmi:type="BPMNProfile:Message">
+      <base_Class xmi:idref="msgOrderConfirmation"/>
+      <itemRef xmi:idref="itemOrderResponse_stereotype"/>
+   </BPMNProfile:Message>
+   <BPMNProfile:Message xmi:id="msgShippingData_stereotype"
+                        xmi:uuid="http://www.example.org/Processes/sellerProcess#msgShippingData_stereotype"
+                        xmi:type="BPMNProfile:Message">
+      <base_Class xmi:idref="msgShippingData"/>
+      <itemRef xmi:idref="itemShippingRequest_stereotype"/>
+   </BPMNProfile:Message>
+   <BPMNProfile:Message xmi:id="msgShippingConfirmation_stereotype"
+                        xmi:uuid="http://www.example.org/Processes/sellerProcess#msgShippingConfirmation_stereotype"
+                        xmi:type="BPMNProfile:Message">
+      <base_Class xmi:idref="msgShippingConfirmation"/>
+      <itemRef xmi:idref="itemShippingResponse_stereotype"/>
+   </BPMNProfile:Message>
+   <BPMNProfile:PartnerEntity xmi:id="theSeller_stereotype"
+                              xmi:uuid="http://www.example.org/Processes/sellerProcess#theSeller_stereotype"
+                              xmi:type="bpmn:partnerEntity">
+      <base_InstanceSpecification xmi:idref="theSeller"/>
+   </BPMNProfile:PartnerEntity>
+   <BPMNProfile:PartnerRole xmi:id="aBuyer_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#aBuyer_stereotype"
+                            xmi:type="bpmn:partnerRole">
+      <base_Class xmi:idref="aBuyer"/>
+   </BPMNProfile:PartnerRole>
+   <BPMNProfile:PartnerRole xmi:id="aShipper_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#aShipper_stereotype"
+                            xmi:type="bpmn:partnerRole">
+      <base_Class xmi:idref="aShipper"/>
+   </BPMNProfile:PartnerRole>
+   <BPMNProfile:BPMNProcess xmi:id="sellerProcess_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#sellerProcess_stereotype"
+                            xmi:type="BPMNProfile:BPMNProcess">
+      <base_Activity xmi:idref="sellerProcess"/>
+      <definitionalCollaborationRef xmi:idref="sellerCollab_stereotype"/>
+   </BPMNProfile:BPMNProcess>
+   <BPMNProfile:EndEvent xmi:id="end1_stereotype"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#end1_stereotype"
+                         xmi:type="BPMNProfile:EndEvent">
+      <base_FlowfinalNode xmi:idref="end1"/>
+   </BPMNProfile:EndEvent>
+   <BPMNProfile:EndEvent xmi:id="end2_stereotype"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#end2_stereotype"
+                         xmi:type="BPMNProfile:EndEvent">
+      <base_FlowfinalNode xmi:idref="end2"/>
+   </BPMNProfile:EndEvent>
+   <BPMNProfile:EventBasedGateway xmi:id="eventWait_stereotype"
+                                  xmi:uuid="http://www.example.org/Processes/sellerProcess#eventWait_stereotype"
+                                  xmi:type="BPMNProfile:EventBasedGateway">
+      <base_ForkNode xmi:idref="eventWait"/>
+      <gatewayDirection xmi:type="BPMNProfile:GatewayDirection">Mixed</gatewayDirection>
+   </BPMNProfile:EventBasedGateway>
+   <BPMNProfile:ExclusiveGateway xmi:id="decision1_stereotype"
+                                 xmi:uuid="http://www.example.org/Processes/sellerProcess#decision1_stereotype"
+                                 xmi:type="BPMNProfile:ExclusiveGateway">
+      <base_DecisionNode xmi:idref="decision1"/>
+      <default xmi:idref="noQuote"/>
+      <gatewayDirection xmi:type="BPMNProfile:GatewayDirection">Mixed</gatewayDirection>
+   </BPMNProfile:ExclusiveGateway>
+   <BPMNProfile:IntermediateCatchEvent xmi:id="timeout_stereotype"
+                                       xmi:uuid="http://www.example.org/Processes/sellerProcess#timeout_stereotype"
+                                       xmi:type="BPMNProfile:IntermediateCatchEvent">
+      <base_AcceptEventAction xmi:idref="timeout"/>
+      <eventDefinitions xmi:idref="timeout_timer_stereotype"/>
+   </BPMNProfile:IntermediateCatchEvent>
+   <BPMNProfile:TimerEventDefinition xmi:id="timeout_timer_stereotype"
+                                     xmi:uuid="http://www.example.org/Processes/sellerProcess#timeout_timer_stereotype"
+                                     xmi:type="BPMNProfile:TimerEventDefinition">
+      <base_ChangeEvent xmi:idref="timeout_timer"/>
+      <timeDate xmi:type="uml:LiteralString">PD4h</timeDate>
+   </BPMNProfile:TimerEventDefinition>
+   <BPMNProfile:ParallelGateway xmi:id="fork_stereotype"
+                                xmi:uuid="http://www.example.org/Processes/sellerProcess#fork_stereotype"
+                                xmi:type="BPMNProfile:ParallelGateway">
+      <base_JoinNode xmi:idref="fork"/>
+      <gatewayDirection xmi:type="BPMNProfile:GatewayDirection">Diverging</gatewayDirection>
+   </BPMNProfile:ParallelGateway>
+   <BPMNProfile:ParallelGateway xmi:id="join_stereotype"
+                                xmi:uuid="http://www.example.org/Processes/sellerProcess#join_stereotype"
+                                xmi:type="BPMNProfile:ParallelGateway">
+      <base_JoinNode xmi:idref="join"/>
+      <gatewayDirection xmi:type="BPMNProfile:GatewayDirection">Converging</gatewayDirection>
+   </BPMNProfile:ParallelGateway>
+   <BPMNProfile:ReceiveTask xmi:id="receiveQuoteRequest_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#receiveQuoteRequest_stereotype"
+                            xmi:type="BPMNProfile:ReceiveTask">
+      <base_AcceptEventAction xmi:idref="receiveQuoteRequest"/>
+      <instantiate xmi:type="uml:LiteralBoolean">true</instantiate>
+      <messageRef xmi:idref="msgRFQ_stereotype"/>
+   </BPMNProfile:ReceiveTask>
+   <BPMNProfile:ReceiveTask xmi:id="receiveNewQuoteRequest_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#receiveNewQuoteRequest_stereotype"
+                            xmi:type="BPMNProfile:ReceiveTask">
+      <base_AcceptEventAction xmi:idref="receiveNewQuoteRequest"/>
+      <messageRef xmi:idref="msgRFQ_stereotype"/>
+   </BPMNProfile:ReceiveTask>
+   <BPMNProfile:ReceiveTask xmi:id="receiveOrderRequest_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#receiveOrderRequest_stereotype"
+                            xmi:type="BPMNProfile:ReceiveTask">
+      <base_AcceptEventAction xmi:idref="receiveOrderRequest"/>
+      <messageRef xmi:idref="msgOrderData_stereotype"/>
+   </BPMNProfile:ReceiveTask>
+   <BPMNProfile:ReceiveTask xmi:id="receiveShippingConfirmation_stereotype"
+                            xmi:uuid="http://www.example.org/Processes/sellerProcess#receiveShippingConfirmation_stereotype"
+                            xmi:type="BPMNProfile:ReceiveTask">
+      <base_AcceptEventAction xmi:idref="receiveShippingConfirmation"/>
+      <messageRef xmi:idref="msgShippingConfirmation_stereotype"/>
+   </BPMNProfile:ReceiveTask>
+   <BPMNProfile:SendTask xmi:id="sendQuote_stereotype"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#sendQuote_stereotype"
+                         xmi:type="BPMNProfile:SendTask">
+      <base_CallOperationAction xmi:idref="sendQuote"/>
+      <messageRef xmi:idref="msgQuote_stereotype"/>
+   </BPMNProfile:SendTask>
+   <BPMNProfile:SendTask xmi:id="sendFault_stereotype"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#sendFault_stereotype"
+                         xmi:type="BPMNProfile:SendTask">
+      <base_CallOperationAction xmi:idref="sendFault"/>
+      <messageRef xmi:idref="msgFault_stereotype"/>
+   </BPMNProfile:SendTask>
+   <BPMNProfile:SendTask xmi:id="sendOrderResponse_stereotype"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#sendOrderResponse_stereotype"
+                         xmi:type="BPMNProfile:SendTask">
+      <base_CallOperationAction xmi:idref="sendOrderResponse"/>
+      <messageRef xmi:idref="msgOrderConfirmation_stereotype"/>
+   </BPMNProfile:SendTask>
+   <BPMNProfile:SendTask xmi:id="sendShippingRequest_stereotype"
+                         xmi:uuid="http://www.example.org/Processes/sellerProcess#sendShippingRequest_stereotype"
+                         xmi:type="BPMNProfile:SendTask">
+      <base_CallOperationAction xmi:idref="sendShippingRequest"/>
+      <messageRef xmi:idref="msgShippingData_stereotype"/>
+   </BPMNProfile:SendTask>
+   <BPMNProfile:SequenceFlow xmi:id="d1e121_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e121_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e121"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="quote_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#quote_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="quote"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:BPMNExpression xmi:id="d1e123_stereotype"
+                               xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e123_stereotype"
+                               xmi:type="BPMNProfile:BPMNExpression">
+      <base_OpaqueExpression xmi:idref="d1e123"/>
+   </BPMNProfile:BPMNExpression>
+   <BPMNProfile:SequenceFlow xmi:id="noQuote_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#noQuote_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="noQuote"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e126_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e126_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e126"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e127_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e127_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e127"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e128_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e128_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e128"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e130_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e130_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e130"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e132_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e132_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e132"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e133_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e133_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e133"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e134_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e134_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e134"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e135_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e135_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e135"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e136_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e136_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e136"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e137_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e137_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e137"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e138_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e138_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e138"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e139_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e139_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e139"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e140_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e140_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e140"/>
+   </BPMNProfile:SequenceFlow>
+   <BPMNProfile:SequenceFlow xmi:id="d1e141_stereotype"
+                             xmi:uuid="http://www.example.org/Processes/sellerProcess#d1e141_stereotype"
+                             xmi:type="BPMNProfile:SequenceFlow">
+      <base_ControlFlow xmi:idref="d1e141"/>
+   </BPMNProfile:SequenceFlow>
+</xmi:XMI>

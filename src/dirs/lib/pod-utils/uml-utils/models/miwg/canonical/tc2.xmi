@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="TestCase2" xmi:uuid="725A27D7-D1E1-4B6B-9F2B-B51E03C6FC41">
+    <name>TestCase2</name>
+    <packagedElement xmi:id="TestCase2-Package2" xmi:uuid="725A27D7-D1E1-44C8-968C-B51E83ABEA79" xmi:type="uml:Package">
+      <name>Package2</name>
+      <packagedElement xmi:id="TestCase2-Package2-Class8" xmi:uuid="725A27D7-D1E1-4004-9AA0-B51E0A3B4EF1" xmi:type="uml:Class">
+        <name>Class8</name>
+        <generalization xmi:id="TestCase2-Package2-Class8-generalization" xmi:uuid="725A27D7-D1E1-4B7E-979C-B51E85A13E85" xmi:type="uml:Generalization">
+          <generalizationSet xmi:idref="TestCase2-Package2-GeneralizationSet1"/>
+          <general xmi:idref="TestCase2-Package2-Class5"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-Interface1" xmi:uuid="725A27D7-D1E1-4093-935F-B51E7FC0A6B0" xmi:type="uml:Interface">
+        <name>Interface1</name>
+        <ownedOperation xmi:id="TestCase2-Package2-Interface1-operation1" xmi:uuid="725A27D7-D1E1-4C68-91F4-B51E713D3603" xmi:type="uml:Operation">
+          <visibility>public</visibility>
+          <name>operation1</name>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-GeneralizationSet1" xmi:uuid="725A27D7-D1E1-4117-9156-B51E3A136F95" xmi:type="uml:GeneralizationSet">
+        <name>GeneralizationSet1</name>
+        <generalization xmi:idref="TestCase2-Package2-Class7-generalization"/>
+        <generalization xmi:idref="TestCase2-Package2-Class8-generalization"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-Enumeration1" xmi:uuid="725A27D7-D1E1-426C-90FC-B51E9517041A" xmi:type="uml:Enumeration">
+        <name>Enumeration1</name>
+        <ownedLiteral xmi:id="TestCase2-Package2-Enumeration1-BLUE" xmi:uuid="725A27D7-D1E1-438C-9482-B51EA902C27B" xmi:type="uml:EnumerationLiteral">
+          <name>BLUE</name>
+          <classifier xmi:idref="TestCase2-Package2-Enumeration1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="TestCase2-Package2-Enumeration1-RED" xmi:uuid="725A27D7-D1E1-4D3A-95F1-B51E78EA5EB9" xmi:type="uml:EnumerationLiteral">
+          <name>RED</name>
+          <classifier xmi:idref="TestCase2-Package2-Enumeration1"/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-AssociationClass1" xmi:uuid="725A27D7-D1E1-42F2-9328-B51E59010AAC" xmi:type="uml:AssociationClass">
+        <name>AssociationClass1</name>
+        <ownedEnd xmi:id="TestCase2-Package2-AssociationClass1-end1" xmi:uuid="725A27D7-D1E1-40A5-994B-B51ECE1A9FBA" xmi:type="uml:Property">
+          <visibility>private</visibility>
+          <name>end1</name>
+          <type xmi:idref="TestCase2-Package2-Class1"/>
+          <upperValue xmi:id="TestCase2-Package2-AssociationClass1-end1-upperValue" xmi:uuid="725A27D7-D1E1-4B96-9A2A-B51E97007786" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>2</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase2-Package2-AssociationClass1-end1-lowerValue" xmi:uuid="725A27D7-D1E1-41DE-9BB0-B51EA850E2DF" xmi:type="uml:LiteralInteger">
+            <value>2</value>
+          </lowerValue>
+          <association xmi:idref="TestCase2-Package2-AssociationClass1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="TestCase2-Package2-AssociationClass1-end2" xmi:uuid="725A27D7-D1E1-41DC-91E9-B51E409EE36A" xmi:type="uml:Property">
+          <visibility>protected</visibility>
+          <name>end2</name>
+          <type xmi:idref="TestCase2-Package2-Class2"/>
+          <upperValue xmi:id="TestCase2-Package2-AssociationClass1-end2-upperValue" xmi:uuid="725A27D7-D1E1-42D9-9D12-B51EDD42D1E9" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>*</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase2-Package2-AssociationClass1-end2-lowerValue" xmi:uuid="725A27D7-D1E1-4BA9-93C6-B51E6B7FEFBD" xmi:type="uml:LiteralInteger"/>
+          <association xmi:idref="TestCase2-Package2-AssociationClass1"/>
+        </ownedEnd>
+        <navigableOwnedEnd xmi:idref="TestCase2-Package2-AssociationClass1-end2"/>
+        <memberEnd xmi:idref="TestCase2-Package2-AssociationClass1-end2"/>
+        <memberEnd xmi:idref="TestCase2-Package2-AssociationClass1-end1"/>
+        <ownedAttribute xmi:id="TestCase2-Package2-AssociationClass1-attribute1" xmi:uuid="725A27D7-D1E1-4966-9DFC-B51E3E011F00" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>attribute1</name>
+          <type xmi:idref="TestCase2-Package2-PrimitiveType1"/>
+          <upperValue xmi:id="TestCase2-Package2-AssociationClass1-attribute1-upperValue" xmi:uuid="725A27D7-D1E1-409B-9B38-B51E7AF1BEF2" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>*</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase2-Package2-AssociationClass1-attribute1-lowerValue" xmi:uuid="725A27D7-D1E1-4BAC-9B3E-B51EBFFB7F81" xmi:type="uml:LiteralInteger"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-packagedElement-19" xmi:uuid="725A27D7-D1E1-4314-9832-B51E65140971" xmi:type="uml:Dependency">
+        <supplier xmi:idref="TestCase2-Package2-Class1"/>
+        <client xmi:idref="TestCase2-Package2-Class4-NestedClass1"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-Class1" xmi:uuid="725A27D7-D1E1-4331-900B-B51EE6C1EE19" xmi:type="uml:Class">
+        <name>Class1</name>
+        <clientDependency xmi:idref="TestCase2-Package2-Class1-interfaceRealization"/>
+        <interfaceRealization xmi:id="TestCase2-Package2-Class1-interfaceRealization" xmi:uuid="725A27D7-D1E1-4079-9657-B51E3E382CB8" xmi:type="uml:InterfaceRealization">
+          <supplier xmi:idref="TestCase2-Package2-Interface1"/>
+          <client xmi:idref="TestCase2-Package2-Class1"/>
+          <contract xmi:idref="TestCase2-Package2-Interface1"/>
+        </interfaceRealization>
+        <ownedOperation xmi:id="TestCase2-Package2-Class1-operation1" xmi:uuid="725A27D7-D1E1-4129-9C96-B51E31AAE4C9" xmi:type="uml:Operation">
+          <visibility>public</visibility>
+          <name>operation1</name>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-PrimitiveType1" xmi:uuid="725A27D7-D1E1-435E-9A24-B51E278F00B9" xmi:type="uml:PrimitiveType">
+        <name>PrimitiveType1</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-Class4" xmi:uuid="725A27D7-D1E1-448D-9408-B51EAAFBDD33" xmi:type="uml:Class">
+        <name>Class4</name>
+        <nestedClassifier xmi:id="TestCase2-Package2-Class4-NestedClass1" xmi:uuid="725A27D7-D1E1-4147-9AA7-B51EFA38ACCC" xmi:type="uml:Class">
+          <name>NestedClass1</name>
+          <clientDependency xmi:idref="TestCase2-Package2-packagedElement-19"/>
+          <visibility>private</visibility>
+        </nestedClassifier>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-Class5" xmi:uuid="725A27D7-D1E1-44AF-98CC-B51E9F8549CF" xmi:type="uml:Class">
+        <name>Class5</name>
+        <ownedRule xmi:id="TestCase2-Package2-Class5-Constraint1" xmi:uuid="725A27D7-D1E1-44D3-95EF-B51EBF825A6B" xmi:type="uml:Constraint">
+          <name>Constraint1</name>
+          <specification xmi:id="TestCase2-Package2-Class5-Constraint1-specification" xmi:uuid="725A27D7-D1E1-4944-9D92-B51E9DB8E59B" xmi:type="uml:OpaqueExpression">
+            <language>OCL</language>
+            <body>constrainedProperty &gt; 21</body>
+          </specification>
+          <constrainedElement xmi:idref="TestCase2-Package2-Class5"/>
+        </ownedRule>
+        <ownedOperation xmi:id="TestCase2-Package2-Class5-redefinedOperation" xmi:uuid="725A27D7-D1E1-4602-9F8F-B51E19501E21" xmi:type="uml:Operation">
+          <visibility>public</visibility>
+          <name>redefinedOperation</name>
+        </ownedOperation>
+        <ownedOperation xmi:id="TestCase2-Package2-Class5-operation1" xmi:uuid="725A27D7-D1E1-4225-9DB6-B51E536960F6" xmi:type="uml:Operation">
+          <visibility>protected</visibility>
+          <name>operation1</name>
+          <ownedParameter xmi:id="TestCase2-Package2-Class5-operation1-parameter1" xmi:uuid="725A27D7-D1E1-4649-917B-B51E2C7E1EA9" xmi:type="uml:Parameter">
+            <name>parameter1</name>
+            <type xmi:idref="TestCase2-Package2-DataType1"/>
+            <direction>inout</direction>
+          </ownedParameter>
+          <ownedParameter xmi:id="TestCase2-Package2-Class5-operation1-ownedParameter-1" xmi:uuid="725A27D7-D1E1-4CB1-9BEF-B51EC147B56D" xmi:type="uml:Parameter">
+            <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+            <direction>return</direction>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="TestCase2-Package2-Class5-operation2" xmi:uuid="725A27D7-D1E1-4056-9716-B51E1EBE1967" xmi:type="uml:Operation">
+          <visibility>private</visibility>
+          <name>operation2</name>
+          <ownedParameter xmi:id="TestCase2-Package2-Class5-operation2-parameter1" xmi:uuid="725A27D7-D1E1-4339-901E-B51E2DAB2AEF" xmi:type="uml:Parameter">
+            <name>parameter1</name>
+            <type xmi:idref="TestCase2-Package2-Enumeration1"/>
+            <defaultValue xmi:id="TestCase2-Package2-Class5-operation2-parameter1-defaultValue" xmi:uuid="725A27D7-D1E1-464D-9C09-B51EBBD75703" xmi:type="uml:InstanceValue">
+              <type xmi:idref="TestCase2-Package2-Enumeration1"/>
+              <instance xmi:idref="TestCase2-Package2-Enumeration1-RED"/>
+            </defaultValue>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedAttribute xmi:id="TestCase2-Package2-Class5-readOnlyProperty" xmi:uuid="725A27D7-D1E1-4470-95F5-B51EDEEF8005" xmi:type="uml:Property">
+          <visibility>private</visibility>
+          <name>readOnlyProperty</name>
+          <type xmi:idref="TestCase2-Package2-PrimitiveType1"/>
+          <upperValue xmi:id="TestCase2-Package2-Class5-readOnlyProperty-upperValue" xmi:uuid="725A27D7-D1E1-436B-9CA5-B51EAE390491" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>4</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase2-Package2-Class5-readOnlyProperty-lowerValue" xmi:uuid="725A27D7-D1E1-4E88-96EB-B51EA74F1AA2" xmi:type="uml:LiteralInteger">
+            <value>2</value>
+          </lowerValue>
+          <isReadOnly>true</isReadOnly>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase2-Package2-Class5-redefinedProperty" xmi:uuid="725A27D7-D1E1-4BEC-91A1-B51E77079955" xmi:type="uml:Property">
+          <visibility>protected</visibility>
+          <name>redefinedProperty</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+          <lowerValue xmi:id="TestCase2-Package2-Class5-redefinedProperty-lowerValue" xmi:uuid="725A27D7-D1E1-4EDA-94EB-B51EF7BEC7C1" xmi:type="uml:LiteralInteger"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase2-Package2-Class5-derivedProperty" xmi:uuid="725A27D7-D1E1-47CD-94DE-B51E2A53A1F4" xmi:type="uml:Property">
+          <visibility>protected</visibility>
+          <name>derivedProperty</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+          <upperValue xmi:id="TestCase2-Package2-Class5-derivedProperty-upperValue" xmi:uuid="725A27D7-D1E1-4442-9392-B51E8FFA0B00" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>*</value>
+          </upperValue>
+          <isOrdered>true</isOrdered>
+          <isDerived>true</isDerived>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase2-Package2-Class5-nonUniqueEnd" xmi:uuid="725A27D7-D1E1-408F-957C-B51E68B22C24" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>nonUniqueEnd</name>
+          <type xmi:idref="TestCase2-Package2-Class5"/>
+          <upperValue xmi:id="TestCase2-Package2-Class5-nonUniqueEnd-upperValue" xmi:uuid="725A27D7-D1E1-4AFF-93B9-B51EAFB0CDC3" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>*</value>
+          </upperValue>
+          <isUnique>false</isUnique>
+          <association xmi:idref="TestCase2-Package2-packagedElement-15"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase2-Package2-Class5-constrainedProperty" xmi:uuid="725A27D7-D1E1-48C6-989C-B51EA9B234C0" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>constrainedProperty</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase2-Package2-Class5-derivedEnd" xmi:uuid="725A27D7-D1E1-47BC-9CEB-B51ECC6B809B" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>derivedEnd</name>
+          <type xmi:idref="TestCase2-Package2-Class5"/>
+          <lowerValue xmi:id="TestCase2-Package2-Class5-derivedEnd-lowerValue" xmi:uuid="725A27D7-D1E1-47C6-95DC-B51E1F441A31" xmi:type="uml:LiteralInteger"/>
+          <isDerived>true</isDerived>
+          <association xmi:idref="TestCase2-Package2-packagedElement-15"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-Class2" xmi:uuid="725A27D7-D1E1-480B-9120-B51E4C1C53F0" xmi:type="uml:Class">
+        <name>Class2</name>
+        <clientDependency xmi:idref="TestCase2-Package2-packagedElement-9"/>
+        <ownedOperation xmi:id="TestCase2-Package2-Class2-operation2" xmi:uuid="725A27D7-D1E1-44DC-94D2-B51EF9AEEC62" xmi:type="uml:Operation">
+          <visibility>public</visibility>
+          <name>operation2</name>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-packagedElement-15" xmi:uuid="725A27D7-D1E1-487D-968B-B51E26260F9F" xmi:type="uml:Association">
+        <memberEnd xmi:idref="TestCase2-Package2-Class5-derivedEnd"/>
+        <memberEnd xmi:idref="TestCase2-Package2-Class5-nonUniqueEnd"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-MergedPackage" xmi:uuid="725A27D7-D1E1-48A8-977B-B51E6A863952" xmi:type="uml:Package">
+        <name>MergedPackage</name>
+        <packagedElement xmi:id="TestCase2-Package2-MergedPackage-ClassB" xmi:uuid="725A27D7-D1E1-47AC-965D-B51E1F3F55A1" xmi:type="uml:Class">
+          <name>ClassB</name>
+          <generalization xmi:id="TestCase2-Package2-MergedPackage-ClassB-generalization" xmi:uuid="725A27D7-D1E1-40E0-9AD2-B51E119378A9" xmi:type="uml:Generalization">
+            <general xmi:idref="TestCase2-Package2-MergedPackage-ClassA"/>
+          </generalization>
+        </packagedElement>
+        <packagedElement xmi:id="TestCase2-Package2-MergedPackage-ClassA" xmi:uuid="725A27D7-D1E1-4E17-9F41-B51EF9E70399" xmi:type="uml:Class">
+          <name>ClassA</name>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-Class7" xmi:uuid="725A27D7-D1E1-4953-9F69-B51E272010A4" xmi:type="uml:Class">
+        <name>Class7</name>
+        <generalization xmi:id="TestCase2-Package2-Class7-generalization" xmi:uuid="725A27D7-D1E1-407A-941D-B51EB361F750" xmi:type="uml:Generalization">
+          <generalizationSet xmi:idref="TestCase2-Package2-GeneralizationSet1"/>
+          <general xmi:idref="TestCase2-Package2-Class5"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-ReceivingPackage" xmi:uuid="725A27D7-D1E1-497A-9BFE-B51E0F2309E6" xmi:type="uml:Package">
+        <name>ReceivingPackage</name>
+        <visibility>private</visibility>
+        <packagedElement xmi:id="TestCase2-Package2-ReceivingPackage-ClassA" xmi:uuid="725A27D7-D1E1-45D4-97D2-B51EBA9DD8AC" xmi:type="uml:Class">
+          <name>ClassA</name>
+        </packagedElement>
+        <packageMerge xmi:id="TestCase2-Package2-ReceivingPackage-packageMerge" xmi:uuid="725A27D7-D1E1-44C3-9EDC-B51E452C55B7" xmi:type="uml:PackageMerge">
+          <mergedPackage xmi:idref="TestCase2-Package2-MergedPackage"/>
+        </packageMerge>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-Class6" xmi:uuid="725A27D7-D1E1-49C3-928A-B51EE384D045" xmi:type="uml:Class">
+        <name>Class6</name>
+        <generalization xmi:id="TestCase2-Package2-Class6-generalization" xmi:uuid="725A27D7-D1E1-4113-9C32-B51EF154FBC7" xmi:type="uml:Generalization">
+          <general xmi:idref="TestCase2-Package2-Class5"/>
+        </generalization>
+        <ownedOperation xmi:id="TestCase2-Package2-Class6-redefiningOperation" xmi:uuid="725A27D7-D1E1-4D08-9DCD-B51EA94E9338" xmi:type="uml:Operation">
+          <visibility>public</visibility>
+          <name>redefiningOperation</name>
+          <redefinedOperation xmi:idref="TestCase2-Package2-Class5-redefinedOperation"/>
+        </ownedOperation>
+        <ownedAttribute xmi:id="TestCase2-Package2-Class6-redefiningProperty" xmi:uuid="725A27D7-D1E1-4998-9F6E-B51EAD1E140F" xmi:type="uml:Property">
+          <visibility>protected</visibility>
+          <name>redefiningProperty</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+          <lowerValue xmi:id="TestCase2-Package2-Class6-redefiningProperty-lowerValue" xmi:uuid="725A27D7-D1E1-4300-9A4C-B51EBC510BD7" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="TestCase2-Package2-Class5-redefinedProperty"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-DataType1" xmi:uuid="725A27D7-D1E1-4C4F-9E7B-B51EEC4F2837" xmi:type="uml:DataType">
+        <name>DataType1</name>
+        <ownedAttribute xmi:id="TestCase2-Package2-DataType1-attribute2" xmi:uuid="725A27D7-D1E1-438A-9D9A-B51E4934A050" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>attribute2</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+          <upperValue xmi:id="TestCase2-Package2-DataType1-attribute2-upperValue" xmi:uuid="725A27D7-D1E1-4146-91D7-B51E97C1BB3F" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>*</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase2-Package2-DataType1-attribute2-lowerValue" xmi:uuid="725A27D7-D1E1-4395-95E4-B51E4653462F" xmi:type="uml:LiteralInteger"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase2-Package2-DataType1-attribute1" xmi:uuid="725A27D7-D1E1-466E-9D84-B51E2D06FA9C" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>attribute1</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+          <upperValue xmi:id="TestCase2-Package2-DataType1-attribute1-upperValue" xmi:uuid="725A27D7-D1E1-451B-9795-B51EA1E4E7D1" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>*</value>
+          </upperValue>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-packagedElement-9" xmi:uuid="725A27D7-D1E1-4E68-9565-B51E3C0F24F6" xmi:type="uml:Usage">
+        <supplier xmi:idref="TestCase2-Package2-Interface1"/>
+        <client xmi:idref="TestCase2-Package2-Class2"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase2-Package2-packagedElement-10" xmi:uuid="725A27D7-D1E1-4FF8-9316-B51E54358EB9" xmi:type="uml:Association">
+        <ownedEnd xmi:id="TestCase2-Package2-packagedElement-10-ownedEnd-1" xmi:uuid="725A27D7-D1E1-486C-97B3-B51E465CBCF9" xmi:type="uml:Property">
+          <visibility>private</visibility>
+          <name>class4</name>
+          <type xmi:idref="TestCase2-Package2-Class4"/>
+          <lowerValue xmi:id="TestCase2-Package2-packagedElement-10-ownedEnd-1-lowerValue" xmi:uuid="725A27D7-D1E1-4054-99DE-B51EC8554E91" xmi:type="uml:LiteralInteger"/>
+          <qualifier xmi:id="TestCase2-Package2-packagedElement-10-ownedEnd-1-qualifier" xmi:uuid="725A27D7-D1E1-4AAF-935F-B51E31A727A2" xmi:type="uml:Property">
+            <name>aQualifier</name>
+            <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+            <upperValue xmi:id="TestCase2-Package2-packagedElement-10-ownedEnd-1-qualifier-upperValue" xmi:uuid="725A27D7-D1E1-47D2-9550-B51EBFD779A8" xmi:type="uml:LiteralUnlimitedNatural">
+              <value>*</value>
+            </upperValue>
+            <associationEnd xmi:idref="TestCase2-Package2-packagedElement-10-ownedEnd-1"/>
+          </qualifier>
+          <association xmi:idref="TestCase2-Package2-packagedElement-10"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="TestCase2-Package2-packagedElement-10-ownedEnd-2" xmi:uuid="725A27D7-D1E1-44D6-920F-B51E559B71E1" xmi:type="uml:Property">
+          <visibility>private</visibility>
+          <name>class2</name>
+          <type xmi:idref="TestCase2-Package2-Class2"/>
+          <lowerValue xmi:id="TestCase2-Package2-packagedElement-10-ownedEnd-2-lowerValue" xmi:uuid="725A27D7-D1E1-48A6-9EBF-B51E4DF6757E" xmi:type="uml:LiteralInteger"/>
+          <association xmi:idref="TestCase2-Package2-packagedElement-10"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="TestCase2-Package2-packagedElement-10-ownedEnd-2"/>
+        <memberEnd xmi:idref="TestCase2-Package2-packagedElement-10-ownedEnd-1"/>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

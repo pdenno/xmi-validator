@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/2.1.0/UML ../../metamodels/UML.ecore" xmi:id="_9pZQkNvXEdyWqeUWor4agw" name="Bank">
+  <packagedElement xmi:type="uml:Class" xmi:id="_84XKYNsVEdyqF95GK9LwKQ" name="Bank">
+    <ownedAttribute xmi:id="_Cn1cYNsbEdyqF95GK9LwKQ" name="name" type="_2KDs4PDuEdyntOhP9nuIaw" aggregation="composite"/>
+    <ownedAttribute xmi:id="_L_5_ANsbEdyqF95GK9LwKQ" name="address" aggregation="composite"/>
+    <ownedOperation xmi:id="_pAULsOuZEdy9XfSdmqRgoA" name="getBank">
+      <ownedParameter xmi:id="_GrvWgPDvEdyntOhP9nuIaw" type="_84XKYNsVEdyqF95GK9LwKQ" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-RoDYNsVEdyqF95GK9LwKQ" name="Kunde">
+    <ownedAttribute xmi:id="_OwoaMNsbEdyqF95GK9LwKQ" name="name" type="_2KDs4PDuEdyntOhP9nuIaw" aggregation="composite"/>
+    <ownedAttribute xmi:id="_Q95jANsbEdyqF95GK9LwKQ" name="countid" type="_3ZCBcPDuEdyntOhP9nuIaw" aggregation="composite"/>
+    <ownedAttribute xmi:id="_VZBDcNsbEdyqF95GK9LwKQ" name="homeaddress" aggregation="composite"/>
+    <ownedAttribute xmi:id="_X3t6gNsbEdyqF95GK9LwKQ" name="officeaddress" aggregation="composite"/>
+    <ownedOperation xmi:id="_-iQFAO98Edyewp6csEHKNA" name="getKunde">
+      <ownedParameter xmi:id="_H5h_UPDvEdyntOhP9nuIaw" type="_-RoDYNsVEdyqF95GK9LwKQ" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_BAju0NsWEdyqF95GK9LwKQ" name="Bank_Kunde" memberEnd="_BAju0dsWEdyqF95GK9LwKQ _BAju1NsWEdyqF95GK9LwKQ">
+    <ownedEnd xmi:id="_BAju0dsWEdyqF95GK9LwKQ" name="kunde" type="_-RoDYNsVEdyqF95GK9LwKQ" association="_BAju0NsWEdyqF95GK9LwKQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BAju09sWEdyqF95GK9LwKQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BAju0tsWEdyqF95GK9LwKQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_BAju1NsWEdyqF95GK9LwKQ" name="bank" type="_84XKYNsVEdyqF95GK9LwKQ" association="_BAju0NsWEdyqF95GK9LwKQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BAju1tsWEdyqF95GK9LwKQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BAju1dsWEdyqF95GK9LwKQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_2KDs4PDuEdyntOhP9nuIaw" name="String"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_3ZCBcPDuEdyntOhP9nuIaw" name="Integer"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_zD55kPHFEdyKU4G7QMG9kQ" name="Adresse">
+    <ownedAttribute xmi:id="_dyf24NsbEdyqF95GK9LwKQ" name="street" type="_2KDs4PDuEdyntOhP9nuIaw" aggregation="composite"/>
+    <ownedAttribute xmi:id="_gGn1oNsbEdyqF95GK9LwKQ" name="number" type="_3ZCBcPDuEdyntOhP9nuIaw" aggregation="composite"/>
+    <ownedOperation xmi:id="_Bc9ioO99Edyewp6csEHKNA" name="getAdresse">
+      <ownedParameter xmi:id="_DupTQPDvEdyntOhP9nuIaw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+</uml:Model>

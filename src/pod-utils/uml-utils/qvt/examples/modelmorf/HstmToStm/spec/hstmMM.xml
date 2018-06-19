@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="hstmMM_p"
+    name="hstmMM_p" uri="hstmMM_p">
+  <ownedType xmi:type="emof:Class" xmi:id="hstmMM_p.State" name="State">
+    <ownedAttribute xmi:id="hstmMM_p.State.containsState" name="containsState" upper="*"
+        type="hstmMM_p.State" opposite="hstmMM_p.State.containedInState"/>
+    <ownedAttribute xmi:id="hstmMM_p.State.containedInState" name="containedInState"
+        type="hstmMM_p.State" opposite="hstmMM_p.State.containsState"/>
+    <ownedAttribute xmi:id="hstmMM_p.State.outTrans" name="outTrans" upper="*" type="hstmMM_p.Trans"
+        opposite="hstmMM_p.Trans.fromState"/>
+    <ownedAttribute xmi:id="hstmMM_p.State.inTrans" name="inTrans" upper="*" type="hstmMM_p.Trans"
+        opposite="hstmMM_p.Trans.toState"/>
+    <ownedAttribute xmi:id="hstmMM_p.State.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="hstmMM_p.Trans" name="Trans">
+    <ownedAttribute xmi:id="hstmMM_p.Trans.fromState" name="fromState" lower="1" type="hstmMM_p.State"
+        opposite="hstmMM_p.State.outTrans"/>
+    <ownedAttribute xmi:id="hstmMM_p.Trans.toState" name="toState" lower="1" type="hstmMM_p.State"
+        opposite="hstmMM_p.State.inTrans"/>
+    <ownedAttribute xmi:id="hstmMM_p.Trans.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="hstmMM_p.dummy" name="dummy">
+    <ownedAttribute xmi:id="hstmMM_p.dummy.contains_state" name="contains_state" upper="*"
+        type="hstmMM_p.State" isComposite="true"/>
+    <ownedAttribute xmi:id="hstmMM_p.dummy.conatains_trans" name="conatains_trans"
+        upper="*" type="hstmMM_p.Trans" isComposite="true"/>
+    <ownedAttribute xmi:id="hstmMM_p.dummy.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+</emof:Package>

@@ -1,0 +1,51 @@
+/*
+ * This example transformation script generates for every <<persistent>>
+ * class a new class in an uml target model. 
+ * The source metamodel is UML2, passed through the QVT metamodel list. 
+ * The target metamodel is UML2 as well , passed through the QVT metamodel 
+ * list, too. 
+ * The Profile is "ProfileDef.uml", that is passed through the "first 
+ * set of models". 
+ * The souce model is first set of models as well.
+ * The target model is second set of models.
+ */
+transformation QvtWithProfiles ( source : uml, target : uml ) 
+{
+   top relation Classes
+   {
+      className : String;
+      st        : Stereotype;
+
+      checkonly domain source srcCls : Class 
+      { 
+         
+         name  = className
+      };
+      enforce   domain target dstcls : Class 
+      {
+         name  = className
+      };
+      when
+      {
+         -- retrieve a stereotype with name 'persistent' 
+         st  = getStereotype ( 'persistent' );
+         
+         -- Is this stereotype applied to the current class?
+         srcCls.isStereotypeApplied(st);
+      }
+   }
+
+   -- delivers the first occurrence of the named stereotype 
+   query getStereotype ( stName : String ) : Stereotype 
+   {
+      Stereotype.allInstances()->select
+         (x : uml::Stereotype | x.name = stName)->asSequence()->first()
+   } 
+
+   -- delivers all occurrences of the named stereotype 
+   query getStereotypes ( stName : String ) : Sequence(Stereotype) 
+   {
+      Stereotype.allInstances()->select
+         (x : uml::Stereotype | x.name = stName)->asSequence()
+   } 
+}   

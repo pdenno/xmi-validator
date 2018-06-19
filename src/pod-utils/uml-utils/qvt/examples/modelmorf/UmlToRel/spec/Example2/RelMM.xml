@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="relMM2"
+    name="relMM2" uri="relMM2">
+  <ownedType xmi:type="emof:Class" xmi:id="relMM2.Dummy" name="Dummy">
+    <ownedAttribute xmi:id="relMM2.Dummy.hasTable" name="hasTable" upper="*" type="relMM2.Table"
+        isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="relMM2.Table" name="Table">
+    <ownedAttribute xmi:id="relMM2.Table.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="relMM2.Table.column" name="column" upper="*" type="relMM2.Column"
+        isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="relMM2.Column" name="Column">
+    <ownedAttribute xmi:id="relMM2.Column.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="relMM2.Column.dataType" name="dataType">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+</emof:Package>

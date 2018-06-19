@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+         xmlns:uml="http://www.omg.org/spec/UML/20110701"
+         xmlns:bpmnprofile="http://www.omg.org/spec/BPMNProfile/20120220"
+         xmi:version="2.1">
+   <uml:Package xmi:type="uml:Package" xmi:id="def">
+      <packageImport xmi:id="importd1e3">
+         <importedPackage href="DataDefinitions.xsd"/>
+      </packageImport>
+      <packageImport xmi:id="importd1e4">
+         <importedPackage href="Interfaces.wsdl"/>
+      </packageImport>
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="sellerCollab">
+         <ownedAttribute xmi:type="uml:Property"
+                         xmi:id="seller"
+                         name="Seller"
+                         type="seller_class"/>
+         <ownedAttribute xmi:type="uml:Property"
+                         xmi:id="buyer"
+                         name="Buyer"
+                         type="buyer_class"/>
+         <ownedAttribute xmi:type="uml:Property"
+                         xmi:id="shipper"
+                         name="Shipper"
+                         type="shipper_class"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="conversationQuoteRequest"/>
+      <packagedElement xmi:type="uml:Class"
+                       xmi:id="correlQuote"
+                       name="Quote Correlation Key">
+         <generalization general="tns:propQuoteID"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="conversationOrderHandling"/>
+      <packagedElement xmi:type="uml:Class"
+                       xmi:id="correlOrder"
+                       name="Order Correlation Key">
+         <generalization general="tns:propCustomerID"/>
+         <generalization general="tns:propOrderID"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="conversationShipmentRequest"/>
+      <packagedElement xmi:type="uml:Class"
+                       xmi:id="correlShipment"
+                       name="Shipment Correlation Key">
+         <generalization general="tns:propOrderID"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="propQuoteID">
+         <ownedAttribute xmi:type="uml:Property"
+                         xmi:id="propQuoteID"
+                         name="Property Quote ID"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e159"
+                       client="messagePathd1e160"
+                       supplier="tns:msgRFQ"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e160">/request/quoteID</packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e162"
+                       client="messagePathd1e163"
+                       supplier="tns:msgQuote"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e163">/response/quoteID</packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e165"
+                       client="messagePathd1e166"
+                       supplier="tns:msgFault"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e166">/fault/quoteID</packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e168"
+                       client="messagePathd1e169"
+                       supplier="tns:msgOrderData"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e169">/priceQuotationRef</packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="propCustomerID">
+         <ownedAttribute xmi:type="uml:Property"
+                         xmi:id="propCustomerID"
+                         name="Property Customer ID"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e172"
+                       client="messagePathd1e173"
+                       supplier="tns:msgOrderData"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e173">/customer/id</packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e175"
+                       client="messagePathd1e176"
+                       supplier="tns:msgOrderConfirmation"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e176">/customerID</packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="propOrderID">
+         <ownedAttribute xmi:type="uml:Property"
+                         xmi:id="propOrderID"
+                         name="Property Order ID"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e179"
+                       client="messagePathd1e180"
+                       supplier="tns:msgOrderData"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e180">/order/orderID</packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e182"
+                       client="messagePathd1e183"
+                       supplier="tns:msgOrderConfirmation"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e183">/order/orderID</packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e185"
+                       client="messagePathd1e186"
+                       supplier="tns:msgShippingData"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e186">/order/orderID</packagedElement>
+      <packagedElement xmi:type="uml:Dependency"
+                       xmi:id="correlationPropertyRetrievalExpressiond1e188"
+                       client="messagePathd1e189"
+                       supplier="tns:msgShippingConfirmation"/>
+      <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="messagePathd1e189">/order/orderID</packagedElement>
+      <packagedElement xmi:type="uml:Interface"
+                       xmi:id="sellerServiceInterface"
+                       name="Seller Service Interface">
+         <ownedOperation xmi:type="uml:Operation"
+                         xmi:id="requestQuoteOp"
+                         name="Request Quote Operation"
+                         raisedException="tns:msgFault">
+            <ownedParameter direction="in" type="tns:msgRFQ"/>
+            <ownedParameter direction="out" type="tns:msgQuote"/>
+         </ownedOperation>
+         <ownedOperation xmi:type="uml:Operation" xmi:id="orderOp" name="Order Operation">
+            <ownedParameter direction="in" type="tns:msgOrderData"/>
+            <ownedParameter direction="out" type="tns:msgOrderConfirmation"/>
+         </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface"
+                       xmi:id="shipperServiceInterface"
+                       name="Shipper Service Interface">
+         <ownedOperation xmi:type="uml:Operation"
+                         xmi:id="requestShippingOp"
+                         name="Request Shipping Operation">
+            <ownedParameter direction="in" type="tns:msgShippingData"/>
+            <ownedParameter direction="out" type="tns:msgShippingConfirmation"/>
+         </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="itemRFQMessage"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="itemQuoteMessage"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="itemFaultMessage"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="itemOrderRequest"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="itemOrderResponse"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="itemShippingRequest"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="itemShippingResponse"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="msgRFQ" name="RFQ Message"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="msgQuote" name="Quote Message"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="msgFault" name="Fault Message"/>
+      <packagedElement xmi:type="uml:Class"
+                       xmi:id="msgOrderData"
+                       name="Order Data Message"/>
+      <packagedElement xmi:type="uml:Class"
+                       xmi:id="msgOrderConfirmation"
+                       name="Order Confirmation Message"/>
+      <packagedElement xmi:type="uml:Class"
+                       xmi:id="msgShippingData"
+                       name="Shipping Data Message"/>
+      <packagedElement xmi:type="uml:Class"
+                       xmi:id="msgShippingConfirmation"
+                       name="Shipping Confirmation Message"/>
+      <packagedElement xmi:type="uml:InstanceSpecification"
+                       xmi:id="theSeller"
+                       name="The Seller"
+                       classifier="tns:seller"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="aBuyer" name="A Buyer"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="aShipper" name="A Shipper"/>
+      <packagedElement xmi:type="uml:Activity"
+                       xmi:id="sellerProcess"
+                       name="Seller process">
+         <node xmi:type="uml:FlowFinalNode"
+               xmi:id="end1"
+               incoming="sequenceFlowd1e149"/>
+         <node xmi:type="uml:FlowFinalNode"
+               xmi:id="end2"
+               incoming="sequenceFlowd1e157"/>
+         <node xmi:type="uml:ForkNode"
+               xmi:id="eventWait"
+               outgoing="sequenceFlowd1e144 sequenceFlowd1e145 sequenceFlowd1e146"
+               incoming="sequenceFlowd1e138 sequenceFlowd1e141"/>
+         <group xmi:type="uml:InterruptibleActivityRegion"
+                xmi:id="eventWait_interruptibleregion"
+                node="receiveNewQuoteRequest receiveOrderRequest timeout"
+                interruptingEdge="sequenceFlowd1e139 sequenceFlowd1e149 sequenceFlowd1e150"/>
+         <node xmi:type="uml:DecisionNode"
+               xmi:id="decision1"
+               outgoing="decision1_to_decision"
+               incoming="sequenceFlowd1e131 sequenceFlowd1e139"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="decision1_to_decision"
+               source="decision1"
+               target="decision1_decision"/>
+         <node xmi:type="uml:DecisionNode"
+               xmi:id="decision1_decision"
+               incoming="decision1_to_decision"
+               outgoing="decision1_to_fork noQuote"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="decision1_to_fork"
+               source="decision1_decision"
+               target="decision1_fork"/>
+         <node xmi:type="uml:ForkNode"
+               xmi:id="decision1_fork"
+               incoming="decision1_to_fork"
+               outgoing="quote"/>
+         <node xmi:type="uml:AcceptEventAction"
+               xmi:id="timeout"
+               outgoing="sequenceFlowd1e149"
+               incoming="sequenceFlowd1e146"/>
+         <node xmi:type="uml:JoinNode"
+               joinSpec="and"
+               xmi:id="fork"
+               outgoing="sequenceFlowd1e151 sequenceFlowd1e152"
+               incoming="sequenceFlowd1e150"/>
+         <node xmi:type="uml:JoinNode"
+               joinSpec="and"
+               xmi:id="join"
+               outgoing="sequenceFlowd1e157"
+               incoming="sequenceFlowd1e153 sequenceFlowd1e156"/>
+         <node xmi:type="uml:AcceptEventAction"
+               xmi:id="receiveQuoteRequest"
+               name="Receive Quote Request"
+               outgoing="sequenceFlowd1e131">
+            <trigger xmi:type="uml:Trigger" event="tns:requestQuoteOp_callevent"/>
+         </node>
+         <node xmi:type="uml:AcceptEventAction"
+               xmi:id="receiveNewQuoteRequest"
+               name="Receive New Quote"
+               outgoing="sequenceFlowd1e139"
+               incoming="sequenceFlowd1e144">
+            <trigger xmi:type="uml:Trigger" event="tns:requestQuoteOp_callevent"/>
+         </node>
+         <node xmi:type="uml:AcceptEventAction"
+               xmi:id="receiveOrderRequest"
+               name="Receive Order Request"
+               outgoing="sequenceFlowd1e150"
+               incoming="sequenceFlowd1e145">
+            <trigger xmi:type="uml:Trigger" event="tns:orderOp_callevent"/>
+         </node>
+         <node xmi:type="uml:AcceptEventAction"
+               xmi:id="receiveShippingConfirmation"
+               name="Receive Shipping Confirmation"
+               outgoing="sequenceFlowd1e156"
+               incoming="sequenceFlowd1e154">
+            <trigger xmi:type="uml:Trigger" event="tns:requestShippingOp_callevent"/>
+         </node>
+         <node xmi:type="uml:CallOperationAction"
+               xmi:id="sendQuote"
+               name="Send Quote"
+               outgoing="sequenceFlowd1e138"
+               incoming="quote"
+               operation="tns:requestQuoteOp"/>
+         <node xmi:type="uml:CallOperationAction"
+               xmi:id="sendFault"
+               name="Send Fault"
+               outgoing="sequenceFlowd1e141"
+               incoming="noQuote"
+               operation="tns:requestQuoteOp"/>
+         <node xmi:type="uml:CallOperationAction"
+               xmi:id="sendOrderResponse"
+               name="Send Order Response"
+               outgoing="sequenceFlowd1e153"
+               incoming="sequenceFlowd1e151"
+               operation="tns:orderOp"/>
+         <node xmi:type="uml:CallOperationAction"
+               xmi:id="sendShippingRequest"
+               name="Send Shipping Request"
+               outgoing="sequenceFlowd1e154"
+               incoming="sequenceFlowd1e152"
+               operation="tns:requestShippingOp"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e131"
+               target="decision1"
+               source="receiveQuoteRequest"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="quote"
+               target="sendQuote"
+               source="decision1_fork">
+            <guard xmi:type="uml:OpaqueExpression"
+                   xmi:id="conditionExpressiond1e135"
+                   body="Quote available and okay."/>
+         </edge>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="noQuote"
+               target="sendFault"
+               source="decision1_decision">
+            <guard xmi:type="uml:OpaqueExpression" body="else"/>
+            <guard xmi:type="uml:OpaqueExpression" body="else"/>
+         </edge>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e138"
+               target="eventWait"
+               source="sendQuote"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e139"
+               target="decision1"
+               source="receiveNewQuoteRequest"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e141"
+               target="eventWait"
+               source="sendFault"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e144"
+               target="receiveNewQuoteRequest"
+               source="eventWait"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e145"
+               target="receiveOrderRequest"
+               source="eventWait"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e146"
+               target="timeout"
+               source="eventWait"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e149"
+               target="end1"
+               source="timeout"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e150"
+               target="fork"
+               source="receiveOrderRequest"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e151"
+               target="sendOrderResponse"
+               source="fork"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e152"
+               target="sendShippingRequest"
+               source="fork"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e153"
+               target="join"
+               source="sendOrderResponse"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e154"
+               target="receiveShippingConfirmation"
+               source="sendShippingRequest"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e156"
+               target="join"
+               source="receiveShippingConfirmation"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="sequenceFlowd1e157"
+               target="end2"
+               source="join"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:ChangeEvent" xmi:id="timeout_timer">
+         <changeExpression xmi:type="OpaqueExpression"
+                           body="BPMNTimerEvent"
+                           language="BPMNProfile"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InformationFlow"
+                       xmi:id="mf1"
+                       informationSource="tns:buyer"
+                       informationTarget="tns:receiveQuoteRequest"
+                       conveyed="tns:msgRFQ"/>
+      <packagedElement xmi:type="uml:InformationFlow"
+                       xmi:id="mf2"
+                       informationSource="tns:sendQuote"
+                       informationTarget="tns:buyer"
+                       conveyed="tns:msgQuote"/>
+      <packagedElement xmi:type="uml:InformationFlow"
+                       xmi:id="mf3"
+                       informationSource="tns:sendFault"
+                       informationTarget="tns:buyer"
+                       conveyed="tns:msgFault"/>
+      <packagedElement xmi:type="uml:InformationFlow"
+                       xmi:id="mf4"
+                       informationSource="tns:buyer"
+                       informationTarget="tns:receiveOrderRequest"
+                       conveyed="tns:msgOrderData"/>
+      <packagedElement xmi:type="uml:InformationFlow"
+                       xmi:id="mf5"
+                       informationSource="tns:sendOrderResponse"
+                       informationTarget="tns:buyer"
+                       conveyed="tns:msgOrderConfirmation"/>
+      <packagedElement xmi:type="uml:InformationFlow"
+                       xmi:id="mf6"
+                       informationSource="tns:sendShippingRequest"
+                       informationTarget="tns:shipper"
+                       conveyed="tns:msgShippingData"/>
+      <packagedElement xmi:type="uml:InformationFlow"
+                       xmi:id="mf7"
+                       informationSource="tns:shipper"
+                       informationTarget="tns:receiveShippingConfirmation"
+                       conveyed="tns:msgShippingConfirmation"/>
+      <packagedElement xmi:type="uml:Class"
+                       xmi:id="seller_class"
+                       classifierBehavior="tns:sellerProcess">
+         <interfaceRealization xmi:type="InterfaceRealization" contract="tns:sellerServiceInterface"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="buyer_class">
+         <generalization general="aBuyer"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="shipper_class">
+         <generalization general="aShipper"/>
+         <interfaceRealization xmi:type="InterfaceRealization" contract="tns:shipperServiceInterface"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:CallEvent"
+                       xmi:id="tns:requestQuoteOp_callevent"
+                       operation="tns:requestQuoteOp"/>
+      <packagedElement xmi:type="uml:CallEvent"
+                       xmi:id="tns:orderOp_callevent"
+                       operation="tns:orderOp"/>
+      <packagedElement xmi:type="uml:CallEvent"
+                       xmi:id="tns:requestShippingOp_callevent"
+                       operation="tns:requestShippingOp"/>
+      <profileApplication>
+         <appliedProfile href="http://www.omg.org/spec/BPMNProfile/20120220/BPMNProfileXMI/BPMNProfile.xmi"/>
+      </profileApplication>
+   </uml:Package>
+   <!-- Applied Stereotypes --><bpmnprofile:Definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                            xmlns:myData="http://www.example.org/Messages"
+                            xmlns:tns="http://www.example.org/Processes/sellerProcess"
+                            xmi:id="d1e1"
+                            base_Package="def"
+                            targetNamespace="http://www.example.org/Processes/sellerProcess"
+                            expressionLanguage="http://www.w3.org/1999/XPath"
+                            typeLanguage="http://www.w3.org/2001/XMLSchema"/>
+   <bpmnprofile:Import xmi:id="d1e2"
+                       base_PackageImport="importd1e3"
+                       importType="http://www.w3.org/2001/XMLSchema"
+                       namespace="http://www.example.org/Messages"/>
+   <bpmnprofile:Import xmi:id="d1e3"
+                       base_PackageImport="importd1e4"
+                       importType="http://schemas.xmlsoap.org/wsdl/"
+                       namespace="http://www.example.org/Messages"/>
+   <bpmnprofile:BPMNCollaboration xmi:id="d1e4"
+                                  base_Collaboration="sellerCollab"
+                                  messageFlows="mf1 mf2 mf3 mf4 mf5 mf6 mf7"
+                                  conversations="conversationQuoteRequest conversationOrderHandling conversationShipmentRequest"/>
+   <bpmnprofile:Participant xmi:id="d1e5"
+                            base_Property="seller"
+                            interfaceRef="tns:sellerServiceInterface"/>
+   <bpmnprofile:Participant xmi:id="d1e8" base_Property="buyer"/>
+   <bpmnprofile:Participant xmi:id="d1e9"
+                            base_Property="shipper"
+                            interfaceRef="tns:shipperServiceInterface"/>
+   <bpmnprofile:MessageFlow xmi:id="d1e12" base_InformationFlow="mf1"/>
+   <bpmnprofile:MessageFlow xmi:id="d1e13" base_InformationFlow="mf2"/>
+   <bpmnprofile:MessageFlow xmi:id="d1e14" base_InformationFlow="mf3"/>
+   <bpmnprofile:MessageFlow xmi:id="d1e15" base_InformationFlow="mf4"/>
+   <bpmnprofile:MessageFlow xmi:id="d1e16" base_InformationFlow="mf5"/>
+   <bpmnprofile:MessageFlow xmi:id="d1e17" base_InformationFlow="mf6"/>
+   <bpmnprofile:MessageFlow xmi:id="d1e18" base_InformationFlow="mf7"/>
+   <bpmnprofile:Conversation xmi:id="d1e19"
+                             base_InformationFlow="conversationQuoteRequest"
+                             messageFlowRefs="tns:mf1 tns:mf2 tns:mf3 tns:mf4"
+                             correlationKeys="correlQuote"/>
+   <bpmnprofile:CorrelationKey xmi:id="d1e28" base_Class="correlQuote"/>
+   <bpmnprofile:Conversation xmi:id="d1e32"
+                             base_InformationFlow="conversationOrderHandling"
+                             messageFlowRefs="tns:mf4 tns:mf5"
+                             correlationKeys="correlOrder"/>
+   <bpmnprofile:CorrelationKey xmi:id="d1e37" base_Class="correlOrder"/>
+   <bpmnprofile:Conversation xmi:id="d1e42"
+                             base_InformationFlow="conversationShipmentRequest"
+                             messageFlowRefs="tns:mf6 tns:mf7"
+                             correlationKeys="correlShipment"/>
+   <bpmnprofile:CorrelationKey xmi:id="d1e47" base_Class="correlShipment"/>
+   <bpmnprofile:CorrelationProperty xmi:id="d1e202"
+                                    base_Property="propQuoteID"
+                                    correlationPropertyRetrievalExpression="correlationPropertyRetrievalExpressiond1e159 correlationPropertyRetrievalExpressiond1e162 correlationPropertyRetrievalExpressiond1e165 correlationPropertyRetrievalExpressiond1e168"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e203"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e159"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e204" base_OpaqueExpression="messagePathd1e160"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e206"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e162"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e207" base_OpaqueExpression="messagePathd1e163"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e209"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e165"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e210" base_OpaqueExpression="messagePathd1e166"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e212"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e168"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e213" base_OpaqueExpression="messagePathd1e169"/>
+   <bpmnprofile:CorrelationProperty xmi:id="d1e215"
+                                    base_Property="propCustomerID"
+                                    correlationPropertyRetrievalExpression="correlationPropertyRetrievalExpressiond1e172 correlationPropertyRetrievalExpressiond1e175"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e216"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e172"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e217" base_OpaqueExpression="messagePathd1e173"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e219"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e175"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e220" base_OpaqueExpression="messagePathd1e176"/>
+   <bpmnprofile:CorrelationProperty xmi:id="d1e222"
+                                    base_Property="propOrderID"
+                                    correlationPropertyRetrievalExpression="correlationPropertyRetrievalExpressiond1e179 correlationPropertyRetrievalExpressiond1e182 correlationPropertyRetrievalExpressiond1e185 correlationPropertyRetrievalExpressiond1e188"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e223"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e179"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e224" base_OpaqueExpression="messagePathd1e180"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e226"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e182"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e227" base_OpaqueExpression="messagePathd1e183"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e229"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e185"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e230" base_OpaqueExpression="messagePathd1e186"/>
+   <bpmnprofile:CorrelationPropertyRetrievalExpression xmi:id="d1e232"
+                                                       base_Dependency="correlationPropertyRetrievalExpressiond1e188"/>
+   <bpmnprofile:FormalExpression xmi:id="d1e233" base_OpaqueExpression="messagePathd1e189"/>
+   <bpmnprofile:BPMNInterface xmi:id="d1e50" base_Interface="sellerServiceInterface"/>
+   <bpmnprofile:BPMNOperation xmi:id="d1e51" base_Operation="requestQuoteOp"/>
+   <bpmnprofile:BPMNOperation xmi:id="d1e58" base_Operation="orderOp"/>
+   <bpmnprofile:BPMNInterface xmi:id="d1e63" base_Interface="shipperServiceInterface"/>
+   <bpmnprofile:BPMNOperation xmi:id="d1e64" base_Operation="requestShippingOp"/>
+   <bpmnprofile:ItemDefinition xmi:id="myData:rfqRequest" base_Class="itemRFQMessage"/>
+   <bpmnprofile:ItemDefinition xmi:id="myData:rfqResponse" base_Class="itemQuoteMessage"/>
+   <bpmnprofile:ItemDefinition xmi:id="myData:rfqFault" base_Class="itemFaultMessage"/>
+   <bpmnprofile:ItemDefinition xmi:id="myData:orderRequest" base_Class="itemOrderRequest"/>
+   <bpmnprofile:ItemDefinition xmi:id="myData:orderResponse" base_Class="itemOrderResponse"/>
+   <bpmnprofile:ItemDefinition xmi:id="myData:shippingRequest" base_Class="itemShippingRequest"/>
+   <bpmnprofile:ItemDefinition xmi:id="myData:shippingResponse" base_Class="itemShippingResponse"/>
+   <bpmnprofile:Message xmi:id="d1e77" base_Class="msgRFQ" itemRef="tns:itemRFQMessage"/>
+   <bpmnprofile:Message xmi:id="d1e78" base_Class="msgQuote" itemRef="tns:itemQuoteMessage"/>
+   <bpmnprofile:Message xmi:id="d1e79" base_Class="msgFault" itemRef="tns:itemFaultMessage"/>
+   <bpmnprofile:Message xmi:id="d1e80"
+                        base_Class="msgOrderData"
+                        itemRef="tns:itemOrderRequest"/>
+   <bpmnprofile:Message xmi:id="d1e81"
+                        base_Class="msgOrderConfirmation"
+                        itemRef="tns:itemOrderResponse"/>
+   <bpmnprofile:Message xmi:id="d1e82"
+                        base_Class="msgShippingData"
+                        itemRef="tns:itemShippingRequest"/>
+   <bpmnprofile:Message xmi:id="d1e83"
+                        base_Class="msgShippingConfirmation"
+                        itemRef="tns:itemShippingResponse"/>
+   <bpmnprofile:PartnerEntity xmi:id="d1e84" base_InstanceSpecification="theSeller"/>
+   <bpmnprofile:PartnerRole xmi:id="d1e87" base_Class="aBuyer"/>
+   <bpmnprofile:PartnerRole xmi:id="d1e90" base_Class="aShipper"/>
+   <bpmnprofile:BPMNProcess xmi:id="d1e94"
+                            base_Activity="sellerProcess"
+                            definitionalCollaborationRef="tns:sellerCollab"/>
+   <bpmnprofile:EndEvent xmi:id="d1e95" base_FlowfinalNode="end1"/>
+   <bpmnprofile:EndEvent xmi:id="d1e98" base_FlowfinalNode="end2"/>
+   <bpmnprofile:EventBasedGateway xmi:id="d1e179" base_ForkNode="eventWait" gatewayDirection="Mixed"/>
+   <bpmnprofile:ExclusiveGateway xmi:id="d1e101"
+                                 base_DecisionNode="decision1"
+                                 default="noQuote"
+                                 gatewayDirection="Mixed"/>
+   <bpmnprofile:IntermediateCatchEvent xmi:id="d1e110"
+                                       base_AcceptEventAction="timeout"
+                                       eventDefinitions="timeout_timer"/>
+   <bpmnprofile:TimerEventDefinition xmi:id="d1e115" timeDate="PD4h" base_ChangeEvent="timeout_timer"/>
+   <bpmnprofile:ParallelGateway xmi:id="d1e118" base_JoinNode="fork" gatewayDirection="Diverging"/>
+   <bpmnprofile:ParallelGateway xmi:id="d1e125" base_JoinNode="join" gatewayDirection="Converging"/>
+   <bpmnprofile:ReceiveTask xmi:id="d1e132"
+                            base_AcceptEventAction="receiveQuoteRequest"
+                            instantiate="true"
+                            messageRef="tns:msgRFQ"/>
+   <bpmnprofile:ReceiveTask xmi:id="d1e135"
+                            base_AcceptEventAction="receiveNewQuoteRequest"
+                            messageRef="tns:msgRFQ"/>
+   <bpmnprofile:ReceiveTask xmi:id="d1e140"
+                            base_AcceptEventAction="receiveOrderRequest"
+                            messageRef="tns:msgOrderData"/>
+   <bpmnprofile:ReceiveTask xmi:id="d1e145"
+                            base_AcceptEventAction="receiveShippingConfirmation"
+                            messageRef="tns:msgShippingConfirmation"/>
+   <bpmnprofile:SendTask xmi:id="d1e150"
+                         base_CallOperationAction="sendQuote"
+                         messageRef="tns:msgQuote"/>
+   <bpmnprofile:SendTask xmi:id="d1e156"
+                         base_CallOperationAction="sendFault"
+                         messageRef="tns:msgFault"/>
+   <bpmnprofile:SendTask xmi:id="d1e161"
+                         base_CallOperationAction="sendOrderResponse"
+                         messageRef="tns:msgOrderConfirmation"/>
+   <bpmnprofile:SendTask xmi:id="d1e166"
+                         base_CallOperationAction="sendShippingRequest"
+                         messageRef="tns:msgShippingData"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e171" base_ControlFlow="sequenceFlowd1e131"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e172" base_ControlFlow="quote"/>
+   <bpmnprofile:BPMNExpression xmi:id="d1e173" base_OpaqueExpression="conditionExpressiond1e135"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e175" base_ControlFlow="noQuote"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e176" base_ControlFlow="sequenceFlowd1e138"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e177" base_ControlFlow="sequenceFlowd1e139"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e178" base_ControlFlow="sequenceFlowd1e141"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e190" base_ControlFlow="sequenceFlowd1e144"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e192" base_ControlFlow="sequenceFlowd1e145"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e193" base_ControlFlow="sequenceFlowd1e146"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e194" base_ControlFlow="sequenceFlowd1e149"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e195" base_ControlFlow="sequenceFlowd1e150"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e196" base_ControlFlow="sequenceFlowd1e151"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e197" base_ControlFlow="sequenceFlowd1e152"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e198" base_ControlFlow="sequenceFlowd1e153"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e199" base_ControlFlow="sequenceFlowd1e154"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e200" base_ControlFlow="sequenceFlowd1e156"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e201" base_ControlFlow="sequenceFlowd1e157"/>
+</xmi:XMI>

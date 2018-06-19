@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<rdbmsMM:dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rdbmsMM="rdbmsMM" xmi:id="rdbmsMM.dummy.18643ce956ebac45-eff98fad1d81a72b" name="">
+  <containsSchema xmi:id="rdbmsMM.Schema.84c05df198bb8018-a3ff01dcb7bbc37e" name="Company">
+    <table xmi:id="rdbmsMM.Table.203ebaf195afd73003f57b1a31af0785d32f04244ed10950b5c5f7a45c85f3f0" name="Employer" hasForeignKey="rdbmsMM.ForeignKey.13c9c4ca75d6520f40b2797a0bacd1d3c460165814228fd23484388a117de941">
+      <column xmi:id="rdbmsMM.Column.656f8a8a2dc28e31b542464e34be648be97aa0f8132a1a70549a477a1db10490" name="Employer_tid" type="NUMBER" hasKey="rdbmsMM.Key.a0cd29364e18b3204a70a3120c8a049403fce4ad1b662b573025a230e095ebb3"/>
+      <column xmi:id="rdbmsMM.Column.019ea593a85167b487686e48e56f4cf86ba31b0e84411c988d088307969157a4" name="Age" type="NUMBER"/>
+      <column xmi:id="rdbmsMM.Column.58b270c04b03185d589b8ccf32f6050083efda06c959b6e45cb00b05b4142d2c" name="Name" type="VARCHAR"/>
+      <column xmi:id="rdbmsMM.Column.a001ccf6f4bc924dcdc41b81757c1916a0c40bff1718b1ccf29b7dd82aaa30e1" name="Employer_employs_Employee_tid" type="NUMBER" hasForeignKey="rdbmsMM.ForeignKey.13c9c4ca75d6520f40b2797a0bacd1d3c460165814228fd23484388a117de941"/>
+      <hasKey xmi:id="rdbmsMM.Key.a0cd29364e18b3204a70a3120c8a049403fce4ad1b662b573025a230e095ebb3" name="Employer_pk" column="rdbmsMM.Column.656f8a8a2dc28e31b542464e34be648be97aa0f8132a1a70549a477a1db10490"/>
+    </table>
+    <table xmi:id="rdbmsMM.Table.ed5acb19e0c67462f4eefea06bfd42a8602c8e19a45f0270dbd7399a25e7ca59" name="Employee">
+      <column xmi:id="rdbmsMM.Column.cdaff1178001dab60866106a1cc19c4a8b36a02411966b0dcd482f0563e9f2f0" name="Employee_tid" type="NUMBER" hasKey="rdbmsMM.Key.667b87691fcac76878582d896ddc32360b5c56de7d49a83b1190b78904ff9cdc"/>
+      <column xmi:id="rdbmsMM.Column.e70dcde9885520bd3cd5bcd4050739fb69edbe58aa2785b382bb383aea415e93" name="_Info_EmployeeNo" type="NUMBER"/>
+      <column xmi:id="rdbmsMM.Column.104a538af5bae0199e83ef9edeb810af3009060d17f7501b690837642ffdf013" name="Name" type="VARCHAR"/>
+      <hasKey xmi:id="rdbmsMM.Key.667b87691fcac76878582d896ddc32360b5c56de7d49a83b1190b78904ff9cdc" name="Employee_pk" column="rdbmsMM.Column.cdaff1178001dab60866106a1cc19c4a8b36a02411966b0dcd482f0563e9f2f0" referedBy="rdbmsMM.ForeignKey.13c9c4ca75d6520f40b2797a0bacd1d3c460165814228fd23484388a117de941"/>
+    </table>
+    <foreignKey xmi:id="rdbmsMM.ForeignKey.13c9c4ca75d6520f40b2797a0bacd1d3c460165814228fd23484388a117de941" name="Employer_employs_Employee" refersTo="rdbmsMM.Key.667b87691fcac76878582d896ddc32360b5c56de7d49a83b1190b78904ff9cdc" owner="rdbmsMM.Table.203ebaf195afd73003f57b1a31af0785d32f04244ed10950b5c5f7a45c85f3f0" column="rdbmsMM.Column.a001ccf6f4bc924dcdc41b81757c1916a0c40bff1718b1ccf29b7dd82aaa30e1"/>
+  </containsSchema>
+</rdbmsMM:dummy>

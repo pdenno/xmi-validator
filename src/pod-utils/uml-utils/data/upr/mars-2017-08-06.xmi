@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:SysML="http://www.omg.org/spec/SysML/20161101/SysML">
+  <uml:Profile xmi:id="ROSETTA" URI="http://www.omg.org/spec/MARS/20170805/ROSETTA" name="ROSETTA">
+    <metamodelReference xmi:id="ROSETTA._packageImport.UML" xmi:type="uml:PackageImport">
+      <importedPackage href="http://www.omg.org/spec/UML/20131001/UML.xmi#_0"/>
+    </metamodelReference>
+    <packageImport xmi:idref="ROSETTA._packageImport.UML"/>
+    <packagedElement xmi:id="ROSETTA.ConstrainedObjectives" xmi:type="uml:Package" URI="http://www.omg.org/spec/MARS/20170805/ROSETTA" name="Constrained Objectives">
+      <packageImport xmi:id="ROSETTA.ConstrainedObjectives._packageImport.SysML" xmi:type="uml:PackageImport">
+        <importedPackage href="http://www.omg.org/spec/SysML/20161101/SysML.xmi#SysML"/>
+      </packageImport>
+      <packagedElement xmi:id="ROSETTA.ELMtoELMSensitivity" xmi:type="uml:Stereotype" name="ELMtoELMSensitivity">
+        <generalization xmi:id="ROSETTA.ELMtoELMSensitivity._generalization.ROSETTA.Sensitivity" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.Sensitivity"/>
+        </generalization>
+        <ownedComment xmi:id="ROSETTA.ELMtoELMSensitivity._comment0" xmi:type="uml:Comment" body="The ELMtoELMSensitivity stereotype extends the UML Dependency to model a sensitivity-based relation between two NamedElements."/>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.Sensitivity" xmi:type="uml:Stereotype" isAbstract="true" name="Sensitivity">
+        <ownedAttribute xmi:id="ROSETTA.Sensitivity.CorrelationStrength" xmi:type="uml:Property" name="CorrelationStrength">
+          <lowerValue xmi:id="ROSETTA.Sensitivity.CorrelationStrength.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="ROSETTA.Sensitivity.CorrelationStrength._comment0" xmi:type="uml:Comment" body="Represent dependency through a subjective weight that measures the correlation strength"/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+          <upperValue xmi:id="ROSETTA.Sensitivity.CorrelationStrength.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.Sensitivity.RSE" xmi:type="uml:Property" name="RSE">
+          <lowerValue xmi:id="ROSETTA.Sensitivity.RSE.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="ROSETTA.Sensitivity.RSE._comment0" xmi:type="uml:Comment" body="Represent dependency through a normalized sensitivity calculation."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          <upperValue xmi:id="ROSETTA.Sensitivity.RSE.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.Sensitivity.DataSourceType" xmi:type="uml:Property" name="DataSourceType">
+          <type xmi:idref="ROSETTA_dataType.DSType"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.Sensitivity.base_Dependency" xmi:type="uml:Property" name="base_Dependency">
+          <association xmi:idref="ROSETTA.E_Sensitivity_Dependency1"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Dependency"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="ROSETTA.Sensitivity._comment0" xmi:type="uml:Comment" body="The Sensitivity abstract stereotype extends the UML Dependency to model a sensitivity- between two NamedElement"/>
+        <ownedRule xmi:id="ROSETTA.Sensitivity._rule.either_correlation_or_rse" xmi:type="uml:Constraint" name="either_correlation_or_rse">
+          <ownedComment xmi:id="ROSETTA.Sensitivity._rule.either_correlation_or_rse._comment0" xmi:type="uml:Comment" body="The stereotype cannot have CorrelationStrength attribute and RSE attribute simultaneously"/>
+          <specification xmi:id="ROSETTA.Sensitivity._rule.either_correlation_or_rse.specification" xmi:type="uml:OpaqueExpression" body="not (self.CorrelationStrength-&amp;gt;isEmpty() and self.RSE -&amp;gt;isEmpty())" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="ROSETTA.Sensitivity._rule.is_binary" xmi:type="uml:Constraint" name="is_binary">
+          <ownedComment xmi:id="ROSETTA.Sensitivity._rule.is_binary._comment0" xmi:type="uml:Comment" body="A Sentitivity is a binary relationship"/>
+          <specification xmi:id="ROSETTA.Sensitivity._rule.is_binary.specification" xmi:type="uml:OpaqueExpression" body="self.base_Dependency.supplier-&amp;gt;size() = 1 and self.base_Dependency.client-&amp;gt;size() = 1" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.E_Sensitivity_Dependency1" xmi:type="uml:Extension" name="E_Sensitivity_Dependency1">
+        <memberEnd xmi:idref="ROSETTA.E_Sensitivity_Dependency1.extension_Sensitivity"/>
+        <memberEnd xmi:idref="ROSETTA.Sensitivity.base_Dependency"/>
+        <ownedEnd xmi:id="ROSETTA.E_Sensitivity_Dependency1.extension_Sensitivity" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_Sensitivity">
+          <association xmi:idref="ROSETTA.E_Sensitivity_Dependency1"/>
+          <type xmi:idref="ROSETTA.Sensitivity"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.E_ConstrainedObjectiveForClass_Class1" xmi:type="uml:Extension" name="E_ConstrainedObjectiveForClass_Class1">
+        <memberEnd xmi:idref="ROSETTA.E_ConstrainedObjectiveForClass_Class1.extension_ConstrainedObjectiveForClass"/>
+        <memberEnd xmi:idref="ROSETTA.ConstrainedObjectiveForClass.base_Class"/>
+        <ownedEnd xmi:id="ROSETTA.E_ConstrainedObjectiveForClass_Class1.extension_ConstrainedObjectiveForClass" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_ConstrainedObjectiveForClass">
+          <association xmi:idref="ROSETTA.E_ConstrainedObjectiveForClass_Class1"/>
+          <type xmi:idref="ROSETTA.ConstrainedObjectiveForClass"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.E_ConstrainedObjectiveForUseCase_UseCase1" xmi:type="uml:Extension" name="E_ConstrainedObjectiveForUseCase_UseCase1">
+        <memberEnd xmi:idref="ROSETTA.E_ConstrainedObjectiveForUseCase_UseCase1.extension_ConstrainedObjectiveForUseCase"/>
+        <memberEnd xmi:idref="ROSETTA.ConstrainedObjectiveForUseCase.base_UseCase"/>
+        <ownedEnd xmi:id="ROSETTA.E_ConstrainedObjectiveForUseCase_UseCase1.extension_ConstrainedObjectiveForUseCase" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_ConstrainedObjectiveForUseCase">
+          <association xmi:idref="ROSETTA.E_ConstrainedObjectiveForUseCase_UseCase1"/>
+          <type xmi:idref="ROSETTA.ConstrainedObjectiveForUseCase"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.E_ConstrainedObjective_NamedElement1" xmi:type="uml:Extension" name="E_ConstrainedObjective_NamedElement1">
+        <memberEnd xmi:idref="ROSETTA.E_ConstrainedObjective_NamedElement1.extension_ConstrainedObjective"/>
+        <memberEnd xmi:idref="ROSETTA.ConstrainedObjective.base_NamedElement"/>
+        <ownedEnd xmi:id="ROSETTA.E_ConstrainedObjective_NamedElement1.extension_ConstrainedObjective" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_ConstrainedObjective">
+          <association xmi:idref="ROSETTA.E_ConstrainedObjective_NamedElement1"/>
+          <type xmi:idref="ROSETTA.ConstrainedObjective"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.COtoCOSensitivity" xmi:type="uml:Stereotype" name="COtoCOSensitivity">
+        <generalization xmi:id="ROSETTA.COtoCOSensitivity._generalization.ROSETTA.Sensitivity" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.Sensitivity"/>
+        </generalization>
+        <ownedComment xmi:id="ROSETTA.COtoCOSensitivity._comment0" xmi:type="uml:Comment" body="The COtoCOSensitivity stereotype extends the UML Dependency to model a sensitivity-based relation between two ConstrainedObjectives. "/>
+        <ownedRule xmi:id="ROSETTA.COtoCOSensitivity._rule.client_and_supplier_constrainedobjectives" xmi:type="uml:Constraint" name="client_and_supplier_constrainedobjectives">
+          <ownedComment xmi:id="ROSETTA.COtoCOSensitivity._rule.client_and_supplier_constrainedobjectives._comment0" xmi:type="uml:Comment" body="Both the client and the supplier shall have the ConstrainedObjective stereotype applied"/>
+          <specification 
+          xmi:id="ROSETTA.COtoCOSensitivity._rule.client_and_supplier_constrainedobjectives.specification" xmi:type="uml:OpaqueExpression" body="ConstrainedObjective.allInstances().base_NamedElement-&amp;gt;includesAll(self.base_Dependency.client-&amp;gt;union(self.base_Dependency.supplier))
+" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+</specification>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.ConstrainedObjectiveForUseCase" xmi:type="uml:Stereotype" name="ConstrainedObjectiveForUseCase">
+        <generalization xmi:id="ROSETTA.ConstrainedObjectiveForUseCase._generalization.ROSETTA.ConstrainedObjective" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.ConstrainedObjective"/>
+        </generalization>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjectiveForUseCase.base_UseCase" xmi:type="uml:Property" name="base_UseCase">
+          <association xmi:idref="ROSETTA.E_ConstrainedObjectiveForUseCase_UseCase1"/>
+          <redefinedProperty xmi:idref="ROSETTA.ConstrainedObjective.base_NamedElement"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#UseCase"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="ROSETTA.ConstrainedObjectiveForUseCase._comment0" xmi:type="uml:Comment" body="The ConstrainedObjectiveforUseCase stereotype extends the UML UseCase to parameterizes a text-based UseCase into a Constrained Objective."/>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.ConstrainedObjective" xmi:type="uml:Stereotype" isAbstract="true" name="ConstrainedObjective">
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjective.COVID" xmi:type="uml:Property" isID="true" name="COVID">
+          <ownedComment xmi:id="ROSETTA.ConstrainedObjective.COVID._comment0" xmi:type="uml:Comment" body="This attribute represents the unique Identification Number of a Constrained Objective."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjective.ConstrainedObjectiveName" xmi:type="uml:Property" name="ConstrainedObjectiveName">
+          <ownedComment xmi:id="ROSETTA.ConstrainedObjective.ConstrainedObjectiveName._comment0" xmi:type="uml:Comment" body="This attribute represents the name of the Constrained Objective."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjective.ConstrainedObjectiveType" xmi:type="uml:Property" name="ConstrainedObjectiveType">
+          <ownedComment xmi:id="ROSETTA.ConstrainedObjective.ConstrainedObjectiveType._comment0" xmi:type="uml:Comment" body="This attribute represents the base dimension or type by which the quantity dimension or type of the Constrained Objective is created."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjective.ConstrainedObjectiveValue" xmi:type="uml:Property" name="ConstrainedObjectiveValue">
+          <ownedComment xmi:id="ROSETTA.ConstrainedObjective.ConstrainedObjectiveValue._comment0" xmi:type="uml:Comment" body="This attribute represents the constrained value of the Constrained Objective."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjective.OperatorKind" xmi:type="uml:Property" name="OperatorKind">
+          <ownedComment xmi:id="ROSETTA.ConstrainedObjective.OperatorKind._comment0" xmi:type="uml:Comment" body="This attribute represents the exact mathematical relation between the ConstrainedObjective and the constrained value by using symbols included in the OperatorType enumeration."/>
+          <type xmi:idref="ROSETTA_dataType.OperatorType"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjective.operatortype" xmi:type="uml:Property" name="operatortype">
+          <type xmi:idref="ROSETTA_dataType.OperatorType"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjective.base_NamedElement" xmi:type="uml:Property" name="base_NamedElement">
+          <association xmi:idref="ROSETTA.E_ConstrainedObjective_NamedElement1"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="ROSETTA.ConstrainedObjective._comment0" xmi:type="uml:Comment" body="The ConstrainedObjective stereotype extends the UML Class and UseCase metaclass to include five attributes that parameterizes a text-based model element into a Constrained Objective."/>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.COtoELMSensitivity" xmi:type="uml:Stereotype" name="COtoELMSensitivity">
+        <generalization xmi:id="ROSETTA.COtoELMSensitivity._generalization.ROSETTA.Sensitivity" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.Sensitivity"/>
+        </generalization>
+        <ownedComment xmi:id="ROSETTA.COtoELMSensitivity._comment0" xmi:type="uml:Comment" body="The COtoELMSensitivity stereotype extends the UML Dependency to model a sensitivity-based relation between a ConstrainedObjective and a NamedElement. "/>
+        <ownedRule xmi:id="ROSETTA.COtoELMSensitivity._rule.client_constrainedobjective" xmi:type="uml:Constraint" name="client_constrainedobjective">
+          <ownedComment xmi:id="ROSETTA.COtoELMSensitivity._rule.client_constrainedobjective._comment0" xmi:type="uml:Comment" body="The client shall have the ConstrainedObjective stereotype applied"/>
+          <specification xmi:id="ROSETTA.COtoELMSensitivity._rule.client_constrainedobjective.specification" xmi:type="uml:OpaqueExpression" body="ConstrainedObjective.allInstances().base_NamedElement-&amp;gt;includesAll(self.base_Dependency.client)
+" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA_dataType.DSType" xmi:type="uml:Enumeration" name="DSType">
+        <ownedLiteral xmi:id="ROSETTA.Estimated" xmi:type="uml:EnumerationLiteral" name="Estimated">
+          <ownedComment xmi:id="ROSETTA.Estimated._comment0" xmi:type="uml:Comment" body="Specifies that the attribute owned by the sensitivity stereotype is an estimated value based on subjective decision."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="ROSETTA.Derived" xmi:type="uml:EnumerationLiteral" name="Derived">
+          <ownedComment xmi:id="ROSETTA.Derived._comment0" xmi:type="uml:Comment" body="Specifies that the attribute owned by the sensitivity stereotype is derived from objective (mathematical) relation such as RSE (but not necessarily)."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="ROSETTA.Implied" xmi:type="uml:EnumerationLiteral" name="Implied">
+          <ownedComment xmi:id="ROSETTA.Implied._comment0" xmi:type="uml:Comment" body="Specifies that the attribute owned by the sensitivity stereotype is an implied value determined from the transformation, RT-U."/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA_dataType.OperatorType" xmi:type="uml:Enumeration" name="OperatorType">
+        <ownedComment xmi:id="ROSETTA_dataType.OperatorType._comment0" xmi:type="uml:Comment" body="OperatorType is an enumeration type that defines literals used to specify the mathematical symbols used to represent mathematical inequalities and equalities."/>
+        <ownedLiteral xmi:id="ROSETTA.&amp;gt;" xmi:type="uml:EnumerationLiteral" name="&amp;gt;">
+          <ownedComment xmi:id="ROSETTA._g._comment0" xmi:type="uml:Comment" body="Represents “greater than” type of inequality."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="ROSETTA.&amp;gt;=" xmi:type="uml:EnumerationLiteral" name="&amp;gt;=">
+          <ownedComment xmi:id="ROSETTA._g_e._comment0" xmi:type="uml:Comment" body="Represents “greater than or eaqual to” type of inequality."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="ROSETTA.&amp;lt;" xmi:type="uml:EnumerationLiteral" name="&amp;lt;">
+          <ownedComment xmi:id="ROSETTA._l._comment0" xmi:type="uml:Comment" body="Represents “less than” type of inequality."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="ROSETTA.&amp;lt;=" xmi:type="uml:EnumerationLiteral" name="&amp;lt;=">
+          <ownedComment xmi:id="ROSETTA._l_e._comment0" xmi:type="uml:Comment" body="Represents “less than or equal to” type of inequality."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="ROSETTA.=" xmi:type="uml:EnumerationLiteral" name="=">
+          <ownedComment xmi:id="ROSETTA._e._comment0" xmi:type="uml:Comment" body="Represents equality."/>
+        </ownedLiteral>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.ConstrainedObjectiveForClass" xmi:type="uml:Stereotype" name="ConstrainedObjectiveForClass">
+        <generalization xmi:id="ROSETTA.ConstrainedObjectiveForClass._generalization.ROSETTA.ConstrainedObjective" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.ConstrainedObjective"/>
+        </generalization>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjectiveForClass.base_Class" xmi:type="uml:Property" name="base_Class">
+          <association xmi:idref="ROSETTA.E_ConstrainedObjectiveForClass_Class1"/>
+          <redefinedProperty xmi:idref="ROSETTA.ConstrainedObjective.base_NamedElement"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="ROSETTA.ConstrainedObjectiveForClass._comment0" xmi:type="uml:Comment" body="The ConstrainedObjectiveforUseCase stereotype extends the UML Class to parameterizes a text-based Class into a Constrained Objective."/>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.ConstrainedObjectiveForRequirement" xmi:type="uml:Stereotype" name="ConstrainedObjectiveForRequirement">
+        <generalization xmi:id="ROSETTA.ConstrainedObjectiveForRequirement._generalization.ROSETTA.ConstrainedObjective" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.ConstrainedObjective"/>
+        </generalization>
+        <ownedAttribute xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement" xmi:type="uml:Property" isDerived="true" name="constrained_requirement">
+          <lowerValue xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement.lowerValue0" xmi:type="uml:LiteralInteger" value="1"/>
+          <ownedComment xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement._comment0" xmi:type="uml:Comment" body="The ConstrainedObjective parameterizes Requirement to specify mathematical meaning of a text-based requirement model."/>
+          <type href="http://www.omg.org/spec/SysML/20161101/SysML.xmi#SysML.AbstractRequirement"/>
+          <upperValue xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="1"/>
+        </ownedAttribute>
+        <ownedComment 
+        xmi:id="ROSETTA.ConstrainedObjectiveForRequirement._comment0" xmi:type="uml:Comment" body="The ConstrainedObjectiveforRequirement stereotype extends elements with any subtype of the abstract SysML::AbstractRequirement applied to parameterizes a text-based Requirement into a Constrained Objective">
+</ownedComment>
+        <ownedOperation xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement_" xmi:type="uml:Operation" name="constrained_requirement">
+          <bodyCondition xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement_._rule.derive_constrained_requirement" xmi:type="uml:Constraint" name="derive_constrained_requirement">
+            <specification xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement_._rule.derive_constrained_requirement.specification" xmi:type="uml:OpaqueExpression" body="self.base_NamedElement.oclAsType(SysML::AbstractRequirement)" language="OCL" name="specification">
+              <type href="http://www.omg.org/spec/SysML/20161101/SysML.xmi#SysML.AbstractRequirement"/>
+            </specification>
+          </bodyCondition>
+          <ownedComment xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement_._comment0" xmi:type="uml:Comment" body="constrained_requirement derived value"/>
+          <ownedParameter xmi:id="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement_.return" xmi:type="uml:Parameter" direction="_return" effect="read" name="return">
+            <type href="http://www.omg.org/spec/SysML/20161101/SysML.xmi#SysML.AbstractRequirement"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="ROSETTA.ConstrainedObjectiveForRequirement.constrained_requirement_._rule.derive_constrained_requirement"/>
+        </ownedOperation>
+        <ownedRule xmi:id="ROSETTA.ConstrainedObjectiveForRequirement._rule.extends_requirement" xmi:type="uml:Constraint" name="extends_requirement">
+          <ownedComment xmi:id="ROSETTA.ConstrainedObjectiveForRequirement._rule.extends_requirement._comment0" xmi:type="uml:Comment" body="ConstrainedObjectiveForRequirement can only extend named elements with the SysML::AbstractRequirement applied"/>
+          <specification xmi:id="ROSETTA.ConstrainedObjectiveForRequirement._rule.extends_requirement.specification" xmi:type="uml:OpaqueExpression" body="SysML::AbstractRequirement.allInstances().base_NamedElement-&amp;gt;includes(self.base_NamedElement)
+" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="ROSETTA.DesignParameters" xmi:type="uml:Package" name="Design Parameters">
+      <packagedElement xmi:id="ROSETTA.DesignParameter" xmi:type="uml:Stereotype" isAbstract="true" name="DesignParameter">
+        <ownedAttribute xmi:id="ROSETTA.DesignParameter.DPID" xmi:type="uml:Property" isID="true" name="DPID">
+          <ownedComment xmi:id="ROSETTA.DesignParameter.DPID._comment0" xmi:type="uml:Comment" body="This attribute represents the unique Identification Number of a Design Parameter."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameter.DesignParameterName" xmi:type="uml:Property" name="DesignParameterName">
+          <ownedComment xmi:id="ROSETTA.DesignParameter.DesignParameterName._comment0" xmi:type="uml:Comment" body="This attribute represents the name of the Design Parameter."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameter.DesignParameterType" xmi:type="uml:Property" name="DesignParameterType">
+          <ownedComment xmi:id="ROSETTA.DesignParameter.DesignParameterType._comment0" xmi:type="uml:Comment" body="This attribute represents the base dimension or type by which the quantity dimension or type of the Design Parameter is created."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameter.DesignParameterLowerValue" xmi:type="uml:Property" name="DesignParameterLowerValue">
+          <ownedComment xmi:id="ROSETTA.DesignParameter.DesignParameterLowerValue._comment0" xmi:type="uml:Comment" body="This attribute represents the lower bound of the robust design range of the Design Parameter."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameter.DesignParameterUpperValue" xmi:type="uml:Property" name="DesignParameterUpperValue">
+          <ownedComment xmi:id="ROSETTA.DesignParameter.DesignParameterUpperValue._comment0" xmi:type="uml:Comment" body="This attribute represents the upper bound of the robust design range of the Design Parameter."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameter.InitialDesign" xmi:type="uml:Property" name="InitialDesign">
+          <ownedComment xmi:id="ROSETTA.DesignParameter.InitialDesign._comment0" xmi:type="uml:Comment" body="This attribute represents the initial design choice for the Design Parameter."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameter.Operator" xmi:type="uml:Property" name="Operator">
+          <defaultValue xmi:id="ROSETTA.DesignParameter.Operator.default_value" xmi:type="uml:LiteralString" name="default_value" value="&amp;lt;="/>
+          <ownedComment xmi:id="ROSETTA.DesignParameter.Operator._comment0" xmi:type="uml:Comment" body="This attribute represents the mathematical symbol needed to specify the boundary of the robust design range for the Design Parameter. The default string for Operator is &amp;lt;=."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameter.base_NamedElement" xmi:type="uml:Property" name="base_NamedElement">
+          <association xmi:idref="ROSETTA.E_DesignParameter_NamedElement1"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="ROSETTA.DesignParameter._comment0" xmi:type="uml:Comment" body="The DesignParameter stereotype extends the UML Property, CallBehaviorAction, and State metaclass to include seven attributes that parameterizes a text-based model element into a Design Parameter."/>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.E_DesignParameterForState_State1" xmi:type="uml:Extension" name="E_DesignParameterForState_State1">
+        <memberEnd xmi:idref="ROSETTA.E_DesignParameterForState_State1.extension_DesignParameterForState"/>
+        <memberEnd xmi:idref="ROSETTA.DesignParameterForState.base_State"/>
+        <ownedEnd xmi:id="ROSETTA.E_DesignParameterForState_State1.extension_DesignParameterForState" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_DesignParameterForState">
+          <association xmi:idref="ROSETTA.E_DesignParameterForState_State1"/>
+          <type xmi:idref="ROSETTA.DesignParameterForState"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.DesignParameterForState" xmi:type="uml:Stereotype" name="DesignParameterForState">
+        <generalization xmi:id="ROSETTA.DesignParameterForState._generalization.ROSETTA.DesignParameter" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.DesignParameter"/>
+        </generalization>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameterForState.base_State" xmi:type="uml:Property" name="base_State">
+          <association xmi:idref="ROSETTA.E_DesignParameterForState_State1"/>
+          <redefinedProperty xmi:idref="ROSETTA.DesignParameter.base_NamedElement"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#State"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.DesignParameterForAction" xmi:type="uml:Stereotype" name="DesignParameterForAction">
+        <generalization xmi:id="ROSETTA.DesignParameterForAction._generalization.ROSETTA.DesignParameter" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.DesignParameter"/>
+        </generalization>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameterForAction.base_Action" xmi:type="uml:Property" name="base_Action">
+          <association xmi:idref="ROSETTA.E_DesignParameterForAction_Action1"/>
+          <redefinedProperty xmi:idref="ROSETTA.DesignParameter.base_NamedElement"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Action"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.E_DesignParameter_NamedElement1" xmi:type="uml:Extension" name="E_DesignParameter_NamedElement1">
+        <memberEnd xmi:idref="ROSETTA.E_DesignParameter_NamedElement1.extension_DesignParameter"/>
+        <memberEnd xmi:idref="ROSETTA.DesignParameter.base_NamedElement"/>
+        <ownedEnd xmi:id="ROSETTA.E_DesignParameter_NamedElement1.extension_DesignParameter" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_DesignParameter">
+          <association xmi:idref="ROSETTA.E_DesignParameter_NamedElement1"/>
+          <type xmi:idref="ROSETTA.DesignParameter"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.E_DesignParameterForAction_Action1" xmi:type="uml:Extension" name="E_DesignParameterForAction_Action1">
+        <memberEnd xmi:idref="ROSETTA.E_DesignParameterForAction_Action1.extension_DesignParameterForAction"/>
+        <memberEnd xmi:idref="ROSETTA.DesignParameterForAction.base_Action"/>
+        <ownedEnd xmi:id="ROSETTA.E_DesignParameterForAction_Action1.extension_DesignParameterForAction" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_DesignParameterForAction">
+          <association xmi:idref="ROSETTA.E_DesignParameterForAction_Action1"/>
+          <type xmi:idref="ROSETTA.DesignParameterForAction"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.E_DesignParameterForProperty_Property1" xmi:type="uml:Extension" name="E_DesignParameterForProperty_Property1">
+        <memberEnd xmi:idref="ROSETTA.E_DesignParameterForProperty_Property1.extension_DesignParameterForProperty"/>
+        <memberEnd xmi:idref="ROSETTA.DesignParameterForProperty.base_Property"/>
+        <ownedEnd xmi:id="ROSETTA.E_DesignParameterForProperty_Property1.extension_DesignParameterForProperty" xmi:type="uml:ExtensionEnd" aggregation="composite" name="extension_DesignParameterForProperty">
+          <association xmi:idref="ROSETTA.E_DesignParameterForProperty_Property1"/>
+          <type xmi:idref="ROSETTA.DesignParameterForProperty"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="ROSETTA.DesignParameterForProperty" xmi:type="uml:Stereotype" name="DesignParameterForProperty">
+        <generalization xmi:id="ROSETTA.DesignParameterForProperty._generalization.ROSETTA.DesignParameter" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.DesignParameter"/>
+        </generalization>
+        <ownedAttribute xmi:id="ROSETTA.DesignParameterForProperty.base_Property" xmi:type="uml:Property" name="base_Property">
+          <association xmi:idref="ROSETTA.E_DesignParameterForProperty_Property1"/>
+          <redefinedProperty xmi:idref="ROSETTA.DesignParameter.base_NamedElement"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="ROSETTA.RelationalStructureandDesign" xmi:type="uml:Package" name="Relational Structure and Design">
+      <packageImport xmi:id="ROSETTA.RelationalStructureandDesign._packageImport.ROSETTA.DesignParameters" xmi:type="uml:PackageImport">
+        <importedPackage xmi:idref="ROSETTA.DesignParameters"/>
+      </packageImport>
+      <packageImport xmi:id="ROSETTA.RelationalStructureandDesign._packageImport.ROSETTA.ConstrainedObjectives" xmi:type="uml:PackageImport">
+        <importedPackage xmi:idref="ROSETTA.ConstrainedObjectives"/>
+      </packageImport>
+      <packagedElement xmi:id="ROSETTA.COtoDPSensitivity" xmi:type="uml:Stereotype" name="COtoDPSensitivity">
+        <generalization xmi:id="ROSETTA.COtoDPSensitivity._generalization.ROSETTA.Sensitivity" xmi:type="uml:Generalization">
+          <general xmi:idref="ROSETTA.Sensitivity"/>
+        </generalization>
+        <ownedAttribute xmi:id="ROSETTA.COtoDPSensitivity.DataSourceType" xmi:type="uml:Property" isDerived="true" name="DataSourceType">
+          <redefinedProperty xmi:idref="ROSETTA.Sensitivity.DataSourceType"/>
+          <type xmi:idref="ROSETTA_dataType.DSType"/>
+        </ownedAttribute>
+        <ownedRule xmi:id="ROSETTA.COtoDPSensitivity._rule.client_constrainedobjective" xmi:type="uml:Constraint" name="client_constrainedobjective">
+          <ownedComment xmi:id="ROSETTA.COtoDPSensitivity._rule.client_constrainedobjective._comment0" xmi:type="uml:Comment" body="The client shall have the ConstrainedObjective stereotype applied"/>
+          <specification xmi:id="ROSETTA.COtoDPSensitivity._rule.client_constrainedobjective.specification" xmi:type="uml:OpaqueExpression" body="ConstrainedObjective.allInstances().base_NamedElement-&amp;gt;includesAll(self.base_Dependency.client)
+" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="ROSETTA.COtoDPSensitivity._rule.supplier_designparameter" xmi:type="uml:Constraint" name="supplier_designparameter">
+          <ownedComment xmi:id="ROSETTA.COtoDPSensitivity._rule.supplier_designparameter._comment0" xmi:type="uml:Comment" body="The client shall have the ConstrainedObjective stereotype applied"/>
+          <specification xmi:id="ROSETTA.COtoDPSensitivity._rule.supplier_designparameter.specification" xmi:type="uml:OpaqueExpression" body="DesignParameter.allInstances().base_NamedElement-&amp;gt;includesAll(self.base_Dependency.client)" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="ROSETTA.COtoDPSensitivity._rule.rse_only" xmi:type="uml:Constraint" name="rse_only">
+          <ownedComment xmi:id="ROSETTA.COtoDPSensitivity._rule.rse_only._comment0" xmi:type="uml:Comment" body="The client shall have the ConstrainedObjective stereotype applied"/>
+          <specification xmi:id="ROSETTA.COtoDPSensitivity._rule.rse_only.specification" xmi:type="uml:OpaqueExpression" body="self.RSE-&amp;gt;notEmpty()" language="OCL" name="specification">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+          </specification>
+        </ownedRule>
+      </packagedElement>
+    </packagedElement>
+  </uml:Profile>
+  <mofext:Tag xmi:id="ROSETTA_mofTag0" xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" element="ROSETTA"/>
+</xmi:XMI>

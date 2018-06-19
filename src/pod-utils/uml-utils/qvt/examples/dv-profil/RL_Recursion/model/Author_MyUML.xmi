@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI 
+xmi:version="2.0" 
+xmlns:xmi="http://www.omg.org/XMI" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:MyUML="urn:MyUML.ecore" 
+xsi:schemaLocation="urn:MyUML.ecore ../../metamodels/MyUML.ecore">
+  <MyUML:Package name="Author" kind="">
+    <ownedElement xsi:type="MyUML:Class" name="Author" kind="Persistent" specific="/0/@ownedElement.1">
+      <attribute name="name" type="/0/@ownedElement.3"/>
+      <attribute name="prename" type="/0/@ownedElement.3"/>
+    </ownedElement>
+    <ownedElement xsi:type="MyUML:Class" name="SpecialAuthor" kind="Persistent" general="/0/@ownedElement.0">
+      <attribute name="title" type="/0/@ownedElement.3"/>
+    </ownedElement>
+    <ownedElement xsi:type="MyUML:PrimitiveDataType" name="INTEGER" kind=""/>
+    <ownedElement xsi:type="MyUML:PrimitiveDataType" name="STRING" kind=""/>
+  </MyUML:Package>
+</xmi:XMI>

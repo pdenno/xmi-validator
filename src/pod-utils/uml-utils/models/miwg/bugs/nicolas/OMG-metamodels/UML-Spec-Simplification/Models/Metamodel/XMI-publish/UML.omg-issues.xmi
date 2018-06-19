@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:OMGIssuesProfile="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+	<uml:Package xmi:type="uml:Package" xmi:id="_0" name="UML" URI="http://www.omg.org/spec/UML/20131001">
+		<packageMerge xmi:type="uml:PackageMerge" xmi:id="_0-packageMerge">
+			<mergedPackage xmi:type="uml:Package" href="http://www.omg.org/spec/UML/20131001/UML.xmi#_0"/>
+		</packageMerge>
+		<profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication.0">
+			<appliedProfile href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#_0"/>
+		</profileApplication>
+	</uml:Package>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_2">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ActivityEdge-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_2-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_3">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ActivityNode-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_3-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_3-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_4">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#DecisionNode-two_input_parameters"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_4-_issueDetail.0" number="18570" text="Replace decisionInputBehavior by decisionInput" url="http://www.omg.org/issues/issue18570.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_5">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Activity-structuredNode"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_5-_issueDetail.0" number="18948" text="Mark readOnly = false" url="http://www.omg.org/issues/uml25-ftf.html#Issue18948"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_6">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_input_action-action"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_6-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_6-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_7">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_output_action-action"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_7-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_7-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_8">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Action-allOwnedNodes"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_8-_issueDetail.0" number="18789" text="Delete invalid redefinition" url="http://www.omg.org/issues/issue18789.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_9">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#InformationFlow-sources_and_targets_kind"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_9-_issueDetail.0" number="18415" text="Sources and targets" url=""/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_9-_issueDetail.1" number="18792" text="Correct OCL" url="http://www.omg.org/issues/issue18792.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_10">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Lifeline-selector_int_or_string"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_10-_issueDetail.0" number="13653" text="Lifeline identity for InteractionUse" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue13653"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_11">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Lifeline-interaction_uses_share_lifeline"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_11-_issueDetail.0" number="13653" text="Lifeline identity for InteractionUse" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue13653"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_12">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#InteractionUse-all_lifelines"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_12-_issueDetail.0" number="13653" text="Lifeline identity for InteractionUse" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue13653"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_13">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Message-sending_receiving_message_event"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_13-_issueDetail.0" number="18465" text="incorrect use of oclKindOf()-&gt;notEmpty() " url="http://www.omg.org/issues/uml25-ftf.open.html#Issue18465"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_14">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Message-signature_is_signal"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_14-_issueDetail.0" number="18465" text="incorrect use of oclKindOf()-&gt;notEmpty() " url="http://www.omg.org/issues/uml25-ftf.open.html#Issue18465"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_14-_issueDetail.1" number="18545" text="Inherit attributes" url="http://www.omg.org/issues/uml25-ftf.html#Issue18545"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_15">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Message-signature_is_operation_request"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_15-_issueDetail.0" number="18465" text="incorrect use of oclKindOf()-&gt;notEmpty()" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue18465"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_16">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Message-signature_is_operation_reply"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_16-_issueDetail.0" number="18465" text="incorrect use of oclKindOf()-&gt;notEmpty()" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue18465"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_17">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Gate-isInsideCF"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_17-_issueDetail.0" number="18528" text="Gate name distinguishability" url="http://www.omg.org/issues/uml25-ftf.html#Issue18528"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_18">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Gate-isDistinguishableFrom"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_18-_issueDetail.0" number="18528" text="Gate name distinguishability" url="http://www.omg.org/issues/uml25-ftf.html#Issue18528"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_19">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Gate-formal_gate_distinguishable"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_19-_issueDetail.0" number="18528" text="Gate name distinguishability" url="http://www.omg.org/issues/uml25-ftf.html#Issue18528"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_19-_issueDetail.1" number="18793" text="Correct documentation" url="http://www.omg.org/issues/issue18793.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_20">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Gate-actual_gate_distinguishable"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_20-_issueDetail.0" number="18528" text="Gate name distinguishability" url="http://www.omg.org/issues/uml25-ftf.html#Issue18528"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_20-_issueDetail.1" number="18793" text="Correct documentation" url="http://www.omg.org/issues/issue18793.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_21">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Gate-getOperand"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_21-_issueDetail.0" number="18528" text="Gate name distringuishability" url="http://www.omg.org/issues/uml25-ftf.html#Issue18528"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_21-_issueDetail.1" number="18793" text="Correct type" url="http://www.omg.org/issues/issue18793.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_22">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Gate-outside_cf_gate_distinguishable"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_22-_issueDetail.0" number="18528" text="Gate name distinguishability" url="http://www.omg.org/issues/uml25-ftf.html#Issue18528"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_22-_issueDetail.1" number="18793" text="Correct documentation" url="http://www.omg.org/issues/issue18793.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_23">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Gate-inside_cf_gate_distinguishable"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_23-_issueDetail.0" number="18528" text="Gate name distinguishability" url="http://www.omg.org/issues/uml25-ftf.html#Issue18528"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_23-_issueDetail.1" number="18793" text="Correct documentation" url="http://www.omg.org/issues/issue18793.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_24">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Message-messageKind"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_24-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_25">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Actor-associations"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_25-_issueDetail.0" number="10780" text="Replace Actor constraint" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue10780"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_26">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#UseCase"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_26-_issueDetail.0" number="18726" text="Use case description" url="http://www.omg.org/issues/uml25-ftf.html#Issue18726"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_27">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#UseCase-subject"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_27-_issueDetail.0" number="18726" text="Use case description" url="http://www.omg.org/issues/uml25-ftf.html#Issue18726"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_28">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#State"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_28-_issueDetail.0" number="17990" text="Delete sentences related to &#34;hidden&#34;" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue17990"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_29">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#State-isSubmachineState"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_29-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_30">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#State-isSimple"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_30-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_31">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#State-isOrthogonal"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_31-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_32">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#State-isComposite"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_32-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_33">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Region-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_33-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_34">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#State-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_34-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_35">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#StateMachine-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_35-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_36">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Transition-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_36-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_37">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#StateMachine-isRedefinitionContextValid"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_37-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_37-_issueDetail.1" number="18810" text="Avoid covariant parameters" url="http://www.omg.org/issues/issue18810.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_38">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#State-isRedefinitionContextValid"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_38-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_38-_issueDetail.1" number="18810" text="Avoid covariant parameters" url="http://www.omg.org/issues/issue18810.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_39">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Region-isRedefinitionContextValid"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_39-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_39-_issueDetail.1" number="18810" text="Avoid covariant parameters" url="http://www.omg.org/issues/issue18810.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_40">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#State-isSimple.1"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_40-_issueDetail.0" number="12915" text="Missing constraint in isSimple()" url="http://www.omg.org/issues/issue12915.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_41">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_extendedRegion_region-region"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_41-_issueDetail.0" number="18455" text="Multiplicity of redefining states" url="http://www.omg.org/issues/issue18455.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_42">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_redefinedState_state-state"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_42-_issueDetail.0" number="18455" text="Multiplicity of redefining states" url="http://www.omg.org/issues/issue18455.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_43">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_redefinedTransition_transition-transition"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_43-_issueDetail.0" number="18455" text="Multiplicity of redefining states" url="http://www.omg.org/issues/issue18455.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_44">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_extendedStateMachine_stateMachine-stateMachine"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_44-_issueDetail.0" number="18455" text="Multiplicity of redefining states" url="http://www.omg.org/issues/issue18455.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_45">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#PseudostateKind"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_45-_issueDetail.0" number="17978" text="Remove redundant documentation from literals" url="http://www.omg.org/issues/issue17978.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_46">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_redefinitionContext_region-region"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_46-_issueDetail.0" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_47">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_redefinitionContext_state-state"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_47-_issueDetail.0" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_48">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_redefinitionContext_transition-transition"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_48-_issueDetail.0" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_49">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ExtensionEnd-lower"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_49-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_50">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Extension-isRequired"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_50-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_51">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Stereotype-base_property_multiplicity_multiple_extension"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_51-_issueDetail.0" number="13482" text="Stereotypes extending multiple metaclasses" url="http://www.omg.org/issues/issue13482.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_52">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Stereotype-base_property_multiplicity_single_extension"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_52-_issueDetail.0" number="13482" text="Stereotypes extending multiple metaclasses" url="http://www.omg.org/issues/issue13482.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_53">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Stereotype-base_property_upper_bound"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_53-_issueDetail.0" number="13482" text="Stereotypes extending multiple metaclasses" url="http://www.omg.org/issues/issue13482.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_54">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Association-binary_associations"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_54-_issueDetail.0" number="18228" text="Change OCL" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue18228"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_55">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_55-_issueDetail.0" number="18544" text="Delete inherit() operation" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue18544"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_56">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class-nestedClassifier"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_56-_issueDetail.0" number="14023" text="Clarify nestedClassifier" url="http://www.omg.org/issues/uml2-rtf.html#Issue14023"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_57">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ConnectableElement-end"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_57-_issueDetail.0" number="18140" text="isOrdered to false" url="http://www.omg.org/issues/uml25-ftf.html#Issue18140"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_58">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#StructuredClassifier-allRoles"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_58-_issueDetail.0" number="18697" text="Connectors and roles" url="http://www.omg.org/issues/uml25-ftf.html#Issue18697"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_58-_issueDetail.1" number="18790" text="Correct errors in 18697" url="http://www.omg.org/issues/uml25-ftf.html#Issue18790"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_59">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Connector-roles"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_59-_issueDetail.0" number="18697" text="Connectors and roles" url="http://www.omg.org/issues/uml25-ftf.html#Issue18697"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_60">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Collaboration-collaborationRole"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_60-_issueDetail.0" number="18697" text="Connectors and roles" url="http://www.omg.org/issues/uml25-ftf.html#Issue18697"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_61">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_role_structuredClassifier-structuredClassifier"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_61-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_61-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_62">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Association-endType.1"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_62-_issueDetail.0" number="18788" text="endType inconsistency" url="http://www.omg.org/issues/uml25-ftf.html#Issue18788"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_63">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Association-endType"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_63-_issueDetail.0" number="18788" text="endType inconsistency" url="http://www.omg.org/issues/uml25-ftf.html#Issue18788"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_64">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Association-ends_must_be_typed"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_64-_issueDetail.0" number="18788" text="endType inconsistency" url="http://www.omg.org/issues/uml25-ftf.html#Issue18788"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_65">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Dependency"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_65-_issueDetail.0" number="17806" text="Reword Dependency description" url="http://www.omg.org/issues/uml25-ftf.html#Issue17806"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_66">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement-clientDependency"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_66-_issueDetail.0" number="15056" text="Make clientDependency derived" url="http://www.omg.org/issues/uml2-rtf.html#Issue15056"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_67">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement-clientDependency.1"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_67-_issueDetail.0" number="15056" text="Make clientDependency derived" url="http://www.omg.org/issues/uml2-rtf.html#Issue15056"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_67-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_68">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-upper"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_68-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_68-_issueDetail.1" number="13992" text="lowerBound/upperBound constraints and derivations wrong" url="http://www.omg.org/issues/issue13992.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_69">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-lower"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_69-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_69-_issueDetail.1" number="13992" text="lowerBound/upperBound constraints and derivations wrong" url="http://www.omg.org/issues/issue13992.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_70">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_source_directedRelationship-directedRelationship"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_70-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_70-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_71">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_target_directedRelationship-directedRelationship"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_71-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_71-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_72">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_member_memberNamespace-memberNamespace"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_72-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_72-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_73">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_relatedElement_relationship-relationship"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_73-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_73-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_74">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement-allNamespaces"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_74-_issueDetail.0" number="14065" text="Semantics of multiple parents" url="http://www.omg.org/issues/uml2-rtf.html#Issue14065"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_75">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-compatibleWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_75-_issueDetail.0" number="15499" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15499"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_76">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ParameterableElement-isCompatibleWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_76-_issueDetail.0" number="12250" text="formal definitions of ’isCompatibleWith’ (pages 622, 647, 649)" url="http://www.omg.org/issues/issue12250.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_77">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-lowerBound"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_77-_issueDetail.0" number="13992" text="lowerBound/upperBound constraints and derivations wrong" url="http://www.omg.org/issues/issue13992.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_78">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-upperBound"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_78-_issueDetail.0" number="13992" text="lowerBound/upperBound constraints and derivations wrong" url="http://www.omg.org/issues/issue13992.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_79">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-lower_ge_0"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_79-_issueDetail.0" number="13992" text="lowerBound/upperBound constraints and derivations wrong" url="http://www.omg.org/issues/issue13992.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_80">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-upper_ge_lower"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_80-_issueDetail.0" number="13992" text="lowerBound/upperBound constraints and derivations wrong" url="http://www.omg.org/issues/issue13992.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_81">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-lower_is_integer"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_81-_issueDetail.0" number="17583" text="Clarification on the semantics of Multiplicities" url="http://www.omg.org/issues/issue17583.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_82">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#MultiplicityElement-upper_is_unlimitedNatural"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_82-_issueDetail.0" number="17583" text="Clarification on the semantics of Multiplicities" url="http://www.omg.org/issues/issue17583.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_83">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Namespace-importMembers"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_83-_issueDetail.0" number="17608" text="&#34;Same name&#34; vs. &#34;indistinguishable name&#34;" url="http://www.omg.org/issues/issue17608.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_84">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ElementImport"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_84-_issueDetail.0" number="17610" text="ElementImport semantics" url="http://www.omg.org/issues/issue17610.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_85">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement-allOwningPackages"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_85-_issueDetail.0" number="17810" text="Sentence difficult to read" url="http://www.omg.org/issues/issue17810.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_86">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#DataType-ownedAttribute"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_86-_issueDetail.0" number="12839" text="Correct capitalization of attributes" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue12839"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_87">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Enumeration-immutable"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_87-_issueDetail.0" number="8274" text="Enumeration attributes" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue8274"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_88">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#DataType"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_88-_issueDetail.0" number="18544" text="Delete inherit() operation" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue18544"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_89">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property-isAttribute"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_89-_issueDetail.0" number="11120" text="Delete unnecessary argument" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue11120"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_90">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property-binding_to_attribute"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_90-_issueDetail.0" number="11120" text="Remove argument from isAttribute" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue11120"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_91">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation-lower.1"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_91-_issueDetail.0" number="12267" text="Change to &#34;has no value&#34;." url="http://www.omg.org/issues/uml2-rtf.open.html#Issue12267"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_92">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation-type.1"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_92-_issueDetail.0" number="12267" text="Change to &#34;has no value&#34;" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue12267"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_93">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation-upper.1"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_93-_issueDetail.0" number="12267" text="Change to &#34;has no value&#34;" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue12267"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_94">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_94-_issueDetail.0" number="15781" text="Delete isReadOnly" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue15781"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_94-_issueDetail.1" number="9822" text="Delete Property::default and default()" url="http://www.omg.org/issues/uml2-rtf.html#Issue9822"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_95">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#StructuralFeature-isReadOnly"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_95-_issueDetail.0" number="15781" text="Change text" url="http://www.omg.org/issues/uml2-rtf.open.html#Issue15781"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_96">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#CallConcurrencyKind"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_96-_issueDetail.0" number="17915" text="Change textual specification for literals" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue17915"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_97">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_97-_issueDetail.0" number="17917" text="Object -&gt; instance" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue17917"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_97-_issueDetail.1" number="17918" text="Delete confusing text" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue17918"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_98">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property-defaultValue"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_98-_issueDetail.0" number="17917" text="Object -&gt; instance" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue17917"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_99">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier-isAbstract"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_99-_issueDetail.0" number="17919" text="Change textual specification for isAbstract" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue17919"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_100">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#GeneralizationSet"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_100-_issueDetail.0" number="17922" text="Delete complete_and_disjoint" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue17922"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_101">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier-inherit"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_101-_issueDetail.0" number="18544" text="Change logic of inherit() operation" url="http://www.omg.org/issues/uml25-ftf.open.html#Issue18544"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_102">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Feature-featuringClassifier"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_102-_issueDetail.0" number="12275" text="Change multiplicity" url="http://www.omg.org/issues/uml2-rtf.html#Issue12275"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_103">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Parameter-object_effect"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_103-_issueDetail.0" number="17584" text="Semantics of parameters" url="http://www.omg.org/issues/uml25-ftf.html#Issue17584"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_104">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ParameterEffectKind"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_104-_issueDetail.0" number="17584" text="Semantics of parameters" url="http://www.omg.org/issues/uml25-ftf.html#Issue17584"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_105">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation-upper"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_105-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_106">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation-lower"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_106-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_107">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation-isUnique"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_107-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_108">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation-isOrdered"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_108-_issueDetail.0" number="15668" text="Remove default value" url="http://www.omg.org/issues/uml2-rtf.html#Issue15668"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_109">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_attribute_classifier-classifier"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_109-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_109-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_110">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_redefinedElement_redefinableElement-redefinableElement"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_110-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_110-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_111">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#A_redefinitionContext_redefinableElement-redefinableElement"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_111-_issueDetail.0" number="17172" text="Make derived union" url="http://www.omg.org/issues/uml2-rtf.html#Issue17172"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_111-_issueDetail.1" number="18873" text="Validation error" url="http://www.omg.org/issues/issue18873.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_112">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property-isCompatibleWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_112-_issueDetail.0" number="17600" text="Fix typo" url="http://www.omg.org/issues/uml25-ftf.html#Issue17600"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_112-_issueDetail.1" number="12250" text="formal definitions of ’isCompatibleWith’ (pages 622, 647, 649)" url="http://www.omg.org/issues/issue12250.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_113">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#RedefinableTemplateSignature-extendedSignature"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_113-_issueDetail.0" number="14065" text="Semantics of multiple parents" url="http://www.omg.org/issues/uml2-rtf.html#Issue14065"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_114">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#RedefinableTemplateSignature-inheritedParameter"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_114-_issueDetail.0" number="14065" text="Semantics of multiple parents" url="http://www.omg.org/issues/uml2-rtf.html#Issue14065"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_115">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_115-_issueDetail.0" number="15499" text="isCompatibleWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15499"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_115-_issueDetail.1" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_116">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_116-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_117">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#RedefinableElement-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_117-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_118">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#RedefinableTemplateSignature-isConsistentWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_118-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_119">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#RedefinableElement-isRedefinitionContextValid"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_119-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_120">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#RedefinableElement-redefinition_consistent"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_120-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_121">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#RedefinableElement-non_leaf_redefinition"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_121-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_122">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#RedefinableElement-redefinition_context_valid"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_122-_issueDetail.0" number="15500" text="isConsistentWith()" url="http://www.omg.org/issues/uml2-rtf.html#Issue15500"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_123">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ParameterDirectionKind"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_123-_issueDetail.0" number="17891" text="Match documentation to spec" url="http://www.omg.org/issues/uml25-ftf.html#Issue17891"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_124">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier-hasVisibilityOf"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_124-_issueDetail.0" number="18177" text="Meaning of inheritedMember" url="http://www.omg.org/issues/uml25-ftf.html#Issue18177"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_125">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier-allFeatures"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_125-_issueDetail.0" number="18177" text="Meaning of inheritedMember" url="http://www.omg.org/issues/uml25-ftf.html#Issue18177"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_126">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier-allSlottableFeatures"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_126-_issueDetail.0" number="18177" text="Meaning of inheritedMember" url="http://www.omg.org/issues/uml25-ftf.html#Issue18177"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_127">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#InstanceSpecification-structural_feature"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_127-_issueDetail.0" number="18177" text="Meaning of inheritedMember" url="http://www.omg.org/issues/uml25-ftf.html#Issue18177"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_128">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#InstanceSpecification-defining_feature"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_128-_issueDetail.0" number="18177" text="Meaning of inheritedMember" url="http://www.omg.org/issues/uml25-ftf.html#Issue18177"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_129">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#BehavioralFeature-isDistinguishableFrom"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_129-_issueDetail.0" number="18727" text="isDistinguishableFrom criteria" url="http://www.omg.org/issues/uml25-ftf.html#Issue18727"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_130">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property-subsettingContext"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_130-_issueDetail.0" number="18788" text="Inconsistent endType" url="http://www.omg.org/issues/uml25-ftf.html#Issue18788"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_131">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier-conformsTo"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_131-_issueDetail.0" number="18810" text="Avoid covariant parameters" url="http://www.omg.org/issues/issue18810.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_132">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#ValueSpecification-isCompatibleWith"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_132-_issueDetail.0" number="17600" text="Fix typo" url="http://www.omg.org/issues/uml25-ftf.html#Issue17600"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_132-_issueDetail.1" number="12250" text="formal definitions of ’isCompatibleWith’ (pages 622, 647, 649)" url="http://www.omg.org/issues/issue12250.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_133">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#StringExpression-subExpression"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_133-_issueDetail.0" number="7882" text="UML2 Super / Templates / ordering of subExpressions" url="http://www.omg.org/issues/issue7882.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_134">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#StringExpression-owningExpression"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_134-_issueDetail.0" number="7882" text="UML2 Super / Templates / ordering of subExpressions" url="http://www.omg.org/issues/issue7882.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_135">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#DurationObservation-event"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_135-_issueDetail.0" number="17466" text="Make DurationObservation::event ordered" url="http://www.omg.org/issues/issue17466.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+	<OMGIssuesProfile:OMGIssueTag xmlns:OMGIssuesProfile="http://www.omg.org/smsc/OMGIssuesProfile/20131001" xmi:type="OMGIssuesProfile:OMGIssueTag" xmi:id="_136">
+		<base_Element xmi:type="uml:Element" href="http://www.omg.org/spec/UML/20131001/UML.xmi#OpaqueExpression"/>
+		<issueDetail xmi:type="OMGIssuesProfile:IssueDetail" xmi:id="_136-_issueDetail.0" number="17856" text="Change documentation Set-&gt;List" url="http://www.omg.org/issues/issue17856.txt"/>
+	</OMGIssuesProfile:OMGIssueTag>
+</xmi:XMI>

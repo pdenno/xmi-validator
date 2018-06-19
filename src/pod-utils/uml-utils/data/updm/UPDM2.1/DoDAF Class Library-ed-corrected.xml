@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version = "2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901"
+         xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+         xmlns:StandardProfileL2="http://www.omg.org/spec/UML/20090901/StandardProfileL2"
+         xmlns:updm="http://www.omg.org/spec/UPDM/20121004">
+   <uml:Model xmi:type="uml:Model" xmi:id="30a5241c-fbef-11e1-a364-456a62c2a10f"
+              name="DoDAF Class Library">
+         <ownedComment xmi:type="uml:Comment" xmi:id="3546bfad-fbef-11e1-a364-456a62c2a10f"
+                       body="A library of Measurements, MeasurementSets and SecurityAttributesGroup, derived from DoDAF.">
+            <annotatedElement xmi:idref="30a5241c-fbef-11e1-a364-456a62c2a10f"/>
+         </ownedComment>
+         <packagedElement xmi:type="uml:DataType" xmi:id="31880a50-fbef-11e1-a364-456a62c2a10f"
+                          name="SecurityAttributes">
+            <ownedComment xmi:type="uml:Comment" xmi:id="304c5608-fbef-11e1-a364-456a62c2a10f"
+                          body="W3C XML Schema for the Intelligence Community Metadata Standard for Information Security Marking (IC-ISM), which is part of the IC standards for Information Assurance.">
+               <annotatedElement xmi:idref="31880a50-fbef-11e1-a364-456a62c2a10f"/>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f13aea3-fbef-11e1-a364-456a62c2a10f"
+                            name="classification"
+                            visibility="private"
+                            type="311d13be-fbef-11e1-a364-456a62c2a10f"
+                            association="31a2bd95-fbef-11e1-a364-456a62c2a10f"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="322ed166-fbef-11e1-a364-456a62c2a10f"
+                            name="dateOfExemptedSource"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="340b5952-fbef-11e1-a364-456a62c2a10f"
+                            name="typeOfExemptedSource"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f35dc5e-fbef-11e1-a364-456a62c2a10f"
+                            name="nonICmarkings"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="344889b5-fbef-11e1-a364-456a62c2a10f"
+                            name="declassException"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="320fff10-fbef-11e1-a364-456a62c2a10f"
+                            name="declassEvent"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="333237bc-fbef-11e1-a364-456a62c2a10f"
+                            name="declassDate"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="30dc39ab-fbef-11e1-a364-456a62c2a10f"
+                            name="derivedFrom"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="339147eb-fbef-11e1-a364-456a62c2a10f"
+                            name="classifiedBy"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="31f63514-fbef-11e1-a364-456a62c2a10f"
+                            name="FGIsourceProtected"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="300c3f65-fbef-11e1-a364-456a62c2a10f"
+                            name="FGIsourceOpen"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="33340c96-fbef-11e1-a364-456a62c2a10f"
+                            name="DisseminationControls"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f0c5b4a-fbef-11e1-a364-456a62c2a10f"
+                            name="DeclassManualReview"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="339984c2-fbef-11e1-a364-456a62c2a10f"
+                            name="ownerProducer"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="3150315f-fbef-11e1-a364-456a62c2a10f"
+                            name="classificationReason"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="3102ad81-fbef-11e1-a364-456a62c2a10f"
+                            name="SCIControls"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="32d2b280-fbef-11e1-a364-456a62c2a10f"
+                            name="SARIdentifier"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="30d49920-fbef-11e1-a364-456a62c2a10f"
+                            name="releasableTo"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:DataType" xmi:id="35350c76-fbef-11e1-a364-456a62c2a10f"
+                          name="CommunicationsLinkProperties">
+            <ownedComment xmi:type="uml:Comment" xmi:id="3528fedc-fbef-11e1-a364-456a62c2a10f"
+                          body="Properties detailing aspects of Resource Interfaces.">
+               <annotatedElement xmi:idref="35350c76-fbef-11e1-a364-456a62c2a10f"/>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="351d8c89-fbef-11e1-a364-456a62c2a10f"
+                            name="capacity"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="342bd971-fbef-11e1-a364-456a62c2a10f"
+                            name="infrastructureTechnology"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Enumeration" xmi:id="311d13be-fbef-11e1-a364-456a62c2a10f"
+                          name="ClassificationType">
+            <ownedComment xmi:type="uml:Comment" xmi:id="33dc0c61-fbef-11e1-a364-456a62c2a10f"
+                          body="Enumeration of types of security classification, derived from DoDAF.">
+               <annotatedElement xmi:idref="311d13be-fbef-11e1-a364-456a62c2a10f"/>
+            </ownedComment>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="34e1206b-fbef-11e1-a364-456a62c2a10f"
+                          name="C">
+               <ownedComment xmi:type="uml:Comment" xmi:id="350a2b85-fbef-11e1-a364-456a62c2a10f"
+                             body="Confidential">
+                  <annotatedElement xmi:idref="34e1206b-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="305667b6-fbef-11e1-a364-456a62c2a10f"
+                          name="CTS">
+               <ownedComment xmi:type="uml:Comment" xmi:id="32b89a65-fbef-11e1-a364-456a62c2a10f"
+                             body="COSMIC TOP SECRET">
+                  <annotatedElement xmi:idref="305667b6-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="331d01e4-fbef-11e1-a364-456a62c2a10f"
+                          name="CTS-B">
+               <ownedComment xmi:type="uml:Comment" xmi:id="331401b6-fbef-11e1-a364-456a62c2a10f"
+                             body="COSMIC TOP SECRET - BOHEMIA">
+                  <annotatedElement xmi:idref="331d01e4-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="3144e720-fbef-11e1-a364-456a62c2a10f"
+                          name="CTS-BALK">
+               <ownedComment xmi:type="uml:Comment" xmi:id="3071df74-fbef-11e1-a364-456a62c2a10f"
+                             body="COSMIC TOP SECRET - BALK">
+                  <annotatedElement xmi:idref="3144e720-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="2f6c2e86-fbef-11e1-a364-456a62c2a10f"
+                          name="CTSA">
+               <ownedComment xmi:type="uml:Comment" xmi:id="308873f3-fbef-11e1-a364-456a62c2a10f"
+                             body="COSMIC TOP SECRET ATOMAL">
+                  <annotatedElement xmi:idref="2f6c2e86-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="35aa8b01-fbef-11e1-a364-456a62c2a10f"
+                          name="NC">
+               <ownedComment xmi:type="uml:Comment" xmi:id="3504adf7-fbef-11e1-a364-456a62c2a10f"
+                             body="NATO Confidential">
+                  <annotatedElement xmi:idref="35aa8b01-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="325433c7-fbef-11e1-a364-456a62c2a10f"
+                          name="NCA">
+               <ownedComment xmi:type="uml:Comment" xmi:id="332147df-fbef-11e1-a364-456a62c2a10f"
+                             body="NATO Confidential Atomal">
+                  <annotatedElement xmi:idref="325433c7-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="2f50dedd-fbef-11e1-a364-456a62c2a10f"
+                          name="NR">
+               <ownedComment xmi:type="uml:Comment" xmi:id="350486e5-fbef-11e1-a364-456a62c2a10f"
+                             body="NATO Restricted  (similar to US For Official Use only)">
+                  <annotatedElement xmi:idref="2f50dedd-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="31c7aab6-fbef-11e1-a364-456a62c2a10f"
+                          name="NS">
+               <ownedComment xmi:type="uml:Comment" xmi:id="346e3a3c-fbef-11e1-a364-456a62c2a10f"
+                             body="NATO Secret">
+                  <annotatedElement xmi:idref="31c7aab6-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="3380f454-fbef-11e1-a364-456a62c2a10f"
+                          name="NS-A">
+               <ownedComment xmi:type="uml:Comment" xmi:id="2f7b7187-fbef-11e1-a364-456a62c2a10f"
+                             body="NATO Atomal">
+                  <annotatedElement xmi:idref="3380f454-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="32ccbebd-fbef-11e1-a364-456a62c2a10f"
+                          name="NS-S">
+               <ownedComment xmi:type="uml:Comment" xmi:id="3106a559-fbef-11e1-a364-456a62c2a10f"
+                             body="NATO Secret">
+                  <annotatedElement xmi:idref="32ccbebd-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="342809ac-fbef-11e1-a364-456a62c2a10f"
+                          name="NSAT">
+               <ownedComment xmi:type="uml:Comment" xmi:id="309b60a6-fbef-11e1-a364-456a62c2a10f"
+                             body="NATO Secret Atomal">
+                  <annotatedElement xmi:idref="342809ac-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="3098ef82-fbef-11e1-a364-456a62c2a10f"
+                          name="NU">
+               <ownedComment xmi:type="uml:Comment" xmi:id="34700f17-fbef-11e1-a364-456a62c2a10f"
+                             body="NATO Unclassified">
+                  <annotatedElement xmi:idref="3098ef82-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="31045b48-fbef-11e1-a364-456a62c2a10f"
+                          name="R">
+               <ownedComment xmi:type="uml:Comment" xmi:id="33d2bd41-fbef-11e1-a364-456a62c2a10f"
+                             body="Restricted Data (RD) US Nuclear Information OR FOR OFFICIAL USE ONLY">
+                  <annotatedElement xmi:idref="31045b48-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="31a5f212-fbef-11e1-a364-456a62c2a10f"
+                          name="S">
+               <ownedComment xmi:type="uml:Comment" xmi:id="34ed2e08-fbef-11e1-a364-456a62c2a10f"
+                             body="Secret">
+                  <annotatedElement xmi:idref="31a5f212-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="353f1f23-fbef-11e1-a364-456a62c2a10f"
+                          name="TS">
+               <ownedComment xmi:type="uml:Comment" xmi:id="3584653b-fbef-11e1-a364-456a62c2a10f"
+                             body="Top Secret">
+                  <annotatedElement xmi:idref="353f1f23-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="33a40c9d-fbef-11e1-a364-456a62c2a10f"
+                          name="U">
+               <ownedComment xmi:type="uml:Comment" xmi:id="302964d3-fbef-11e1-a364-456a62c2a10f"
+                             body="Unclassified">
+                  <annotatedElement xmi:idref="33a40c9d-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+            </ownedLiteral>
+         </packagedElement>
+         <packagedElement xmi:type="uml:DataType" xmi:id="2ffcfd5e-fbef-11e1-a364-456a62c2a10f"
+                          name="InformationAssuranceProperties">
+            <ownedComment xmi:type="uml:Comment" xmi:id="31631d27-fbef-11e1-a364-456a62c2a10f"
+                          body="Properties indicating the assurance of a piece of information.">
+               <annotatedElement xmi:idref="2ffcfd5e-fbef-11e1-a364-456a62c2a10f"/>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f498b7d-fbef-11e1-a364-456a62c2a10f"
+                            name="accessControl"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="2f2317c7-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="331f4bf4-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="31f3c3f4-fbef-11e1-a364-456a62c2a10f"
+                            name="availability"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="33724d88-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="35a22619-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="338846bd-fbef-11e1-a364-456a62c2a10f"
+                            name="confidentiality"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="333d33da-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="311c023f-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="324e18ef-fbef-11e1-a364-456a62c2a10f"
+                            name="disseminationControl"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="2f17f49d-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="310c22e3-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="31ac821c-fbef-11e1-a364-456a62c2a10f"
+                            name="integrity"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="30bacf24-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="326a05eb-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="327e5145-fbef-11e1-a364-456a62c2a10f"
+                            name="nonRepudiationConsumer"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="34664a8d-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="2ff8422d-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="302b60bf-fbef-11e1-a364-456a62c2a10f"
+                            name="nonRepudiationProducer"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="30ed9ebf-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="352a376e-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:DataType" xmi:id="35952e0d-fbef-11e1-a364-456a62c2a10f"
+                          name="InformationElementProperties">
+            <ownedComment xmi:type="uml:Comment" xmi:id="30624f3c-fbef-11e1-a364-456a62c2a10f"
+                          body="Predefined additional DoDAF properties for InformationElement.">
+               <annotatedElement xmi:idref="35952e0d-fbef-11e1-a364-456a62c2a10f"/>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="331030f0-fbef-11e1-a364-456a62c2a10f"
+                            name="accuracy"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="34180437-fbef-11e1-a364-456a62c2a10f"
+                             body="Accuracy">
+                  <annotatedElement xmi:idref="331030f0-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="345ef823-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="35b6718c-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2face148-fbef-11e1-a364-456a62c2a10f"
+                            name="language"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="3517248f-fbef-11e1-a364-456a62c2a10f"
+                             body="Language">
+                  <annotatedElement xmi:idref="2face148-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="332f2a51-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="2f3037d5-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="3264393a-fbef-11e1-a364-456a62c2a10f"
+                            name="scope"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="2f220649-fbef-11e1-a364-456a62c2a10f"
+                             body="Scope">
+                  <annotatedElement xmi:idref="3264393a-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="31b38760-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="34f51dba-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="3471bcdd-fbef-11e1-a364-456a62c2a10f"
+                            name="content"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="354b2cbb-fbef-11e1-a364-456a62c2a10f"
+                             body="Content">
+                  <annotatedElement xmi:idref="3471bcdd-fbef-11e1-a364-456a62c2a10f"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="351772b3-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="30f98543-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:DataType" xmi:id="30ab8d0c-fbef-11e1-a364-456a62c2a10f"
+                          name="DataElementProperties">
+            <ownedComment xmi:type="uml:Comment" xmi:id="2fd1a74c-fbef-11e1-a364-456a62c2a10f"
+                          body="Properties detailing the aspects of a DataElement.">
+               <annotatedElement xmi:idref="30ab8d0c-fbef-11e1-a364-456a62c2a10f"/>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="3163b971-fbef-11e1-a364-456a62c2a10f"
+                            name="accuracy"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f9f7439-fbef-11e1-a364-456a62c2a10f"
+                            name="scope"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="35584bd2-fbef-11e1-a364-456a62c2a10f"
+                            name="content"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f799caf-fbef-11e1-a364-456a62c2a10f"
+                            name="formatType"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="30ea1c1d-fbef-11e1-a364-456a62c2a10f"
+                            name="mediaType"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="34d42782-fbef-11e1-a364-456a62c2a10f"
+                            name="unitOfMeasurement"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="31a2bd95-fbef-11e1-a364-456a62c2a10f">
+            <memberEnd xmi:idref="3572b20a-fbef-11e1-a364-456a62c2a10f"/>
+            <memberEnd xmi:idref="2f13aea3-fbef-11e1-a364-456a62c2a10f"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="3572b20a-fbef-11e1-a364-456a62c2a10f"
+                      visibility="private"
+                      type="31880a50-fbef-11e1-a364-456a62c2a10f"
+                      association="31a2bd95-fbef-11e1-a364-456a62c2a10f"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:DataType" xmi:id="33e11596-fbef-11e1-a364-456a62c2a10f"
+                          name="ExchangeProperties">
+            <ownedComment xmi:type="uml:Comment" xmi:id="3131ac4d-fbef-11e1-a364-456a62c2a10f"
+                          body="Properties detailing aspects of exchange for Operational Exchange and/or Resource Interaction.">
+               <annotatedElement xmi:idref="33e11596-fbef-11e1-a364-456a62c2a10f"/>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2fbdaa0e-fbef-11e1-a364-456a62c2a10f"
+                            name="accountability"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3160fa2a-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3406c62f-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="32aa42b9-fbef-11e1-a364-456a62c2a10f"
+                            name="interoperabilityLevelAchievable"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="32175177-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="32b36afb-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f8a6575-fbef-11e1-a364-456a62c2a10f"
+                            name="classification"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3443805c-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3459c7bb-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="34031c7a-fbef-11e1-a364-456a62c2a10f"
+                            name="classificationCaveat"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="32dee72c-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="300b2de8-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="3288ff3c-fbef-11e1-a364-456a62c2a10f"
+                            name="criticality"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="32c014df-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3134b9b8-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="34b4dffb-fbef-11e1-a364-456a62c2a10f"
+                            name="periodicity"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="35b475a0-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="331efdd0-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="31108fee-fbef-11e1-a364-456a62c2a10f"
+                            name="protectionDuration"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="31b227bc-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="303ec1bc-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="339edc3f-fbef-11e1-a364-456a62c2a10f"
+                            name="protectionSuspenseCalendarDate"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="33683bdd-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="34d9cd17-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f632e5b-fbef-11e1-a364-456a62c2a10f"
+                            name="protectionTypeName"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="32d4ae6c-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="334571b0-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="30673080-fbef-11e1-a364-456a62c2a10f"
+                            name="timeliness"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="34020afc-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="30d02c12-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="359729f9-fbef-11e1-a364-456a62c2a10f"
+                            name="transactionType"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3206fde0-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3307a509-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f4aeb1d-fbef-11e1-a364-456a62c2a10f"
+                            name="protectionDurationCode"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="32048cbd-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3446dbec-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f677456-fbef-11e1-a364-456a62c2a10f"
+                            name="releasability"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="303bdb67-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="2f35b54d-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f824eb6-fbef-11e1-a364-456a62c2a10f"
+                            name="size"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="348d0c90-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="333433a8-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="357c758d-fbef-11e1-a364-456a62c2a10f"
+                            name="throughput"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="338427d2-fbef-11e1-a364-456a62c2a10f"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="3504d508-fbef-11e1-a364-456a62c2a10f"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:DataType" xmi:id="31ffab7a-fbef-11e1-a364-456a62c2a10f"
+                          name="OperationalActivityProperties">
+            <ownedComment xmi:type="uml:Comment" xmi:id="3235134f-fbef-11e1-a364-456a62c2a10f"
+                          body="Properties detailing aspects OperationalActivities.">
+               <annotatedElement xmi:idref="31ffab7a-fbef-11e1-a364-456a62c2a10f"/>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="2f7ef426-fbef-11e1-a364-456a62c2a10f"
+                            name="cost"
+                            visibility="private">
+               <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+            </ownedAttribute>
+         </packagedElement>
+         <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication0">
+        	<appliedProfile xmi:type="uml:Profile" href="http://www.omg.org/spec/UPDM/20121004/UPDM-Profile.xmi#UPDM"/>
+         </profileApplication>
+   </uml:Model>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107789_207540_2602"
+                     base_Property="339984c2-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107743_805243_2581"
+                     base_Property="3163b971-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:MeasurementSet xmi:id="_17_0_2_7d40257_1350290131682_873628_2698"
+                     base_DataType="31880a50-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107739_98960_2579"
+                     base_Property="2f799caf-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107746_577879_2582"
+                     base_Property="2fbdaa0e-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107726_427245_2573"
+                     base_Property="2f632e5b-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107793_245012_2604"
+                     base_Property="35584bd2-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107806_746556_2610"
+                     base_Property="34031c7a-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107795_859570_2605"
+                     base_Property="2f9f7439-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:MeasurementSet xmi:id="_17_0_2_7d40257_1350290131678_995010_2697"
+                     base_DataType="35952e0d-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107737_651394_2578"
+                     base_Property="2f824eb6-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107748_946895_2583"
+                     base_Property="33340c96-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:MeasurementSet xmi:id="_17_0_2_7d40257_1350290131668_374166_2694"
+                     base_DataType="33e11596-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107730_21849_2575"
+                     base_Property="2f8a6575-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107782_105295_2599"
+                     base_Property="2f498b7d-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107728_102357_2574"
+                     base_Property="333237bc-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107815_324685_2614"
+                     base_Property="2f7ef426-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107804_683322_2609"
+                     base_Property="3471bcdd-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107791_155470_2603"
+                     base_Property="357c758d-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107779_297707_2598"
+                     base_Property="324e18ef-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107797_772393_2606"
+                     base_Property="34d42782-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:MeasurementSet xmi:id="_17_0_2_7d40257_1350290131664_169735_2693"
+                     base_DataType="30ab8d0c-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107757_10189_2587"
+                     base_Property="359729f9-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107819_851964_2616"
+                     base_Property="3288ff3c-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107763_87627_2590"
+                     base_Property="2f677456-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107696_35070_2566"
+                     base_Property="30dc39ab-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107777_762183_2597"
+                     base_Property="2f4aeb1d-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107716_685356_2569"
+                     base_Property="327e5145-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107802_637257_2608"
+                     base_Property="30ea1c1d-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:MeasurementSet xmi:id="_17_0_2_7d40257_1350290131671_420554_2695"
+                     base_DataType="2ffcfd5e-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107810_872848_2612"
+                     base_Property="30d49920-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107767_670360_2592"
+                     base_Property="3102ad81-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107769_153354_2593"
+                     base_Property="339147eb-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107817_94846_2615"
+                     base_Property="31f63514-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107822_955013_2617"
+                     base_Property="322ed166-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107705_420805_2567"
+                     base_Property="340b5952-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107722_331052_2571"
+                     base_Property="34b4dffb-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107732_442854_2576"
+                     base_Property="3150315f-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107787_850605_2601"
+                     base_Property="2f0c5b4a-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107719_767840_2570"
+                     base_Property="31ac821c-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107775_805654_2596"
+                     base_Property="320fff10-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107808_821417_2611"
+                     base_Property="2face148-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107813_132515_2613"
+                     base_Property="338846bd-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107750_714795_2584"
+                     base_Property="2f35dc5e-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107755_4962_2586"
+                     base_Property="300c3f65-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107741_201582_2580"
+                     base_Property="32aa42b9-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107713_26591_2568"
+                     base_Property="31f3c3f4-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107765_63625_2591"
+                     base_Property="2f13aea3-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107773_770365_2595"
+                     base_Property="344889b5-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107724_704213_2572"
+                     base_Property="351d8c89-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107735_97136_2577"
+                     base_Property="31108fee-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:MeasurementSet xmi:id="_17_0_2_7d40257_1350290063193_334241_2199"
+                     base_DataType="35350c76-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107824_505645_2618"
+                     base_Property="3264393a-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107759_49044_2588"
+                     base_Property="30673080-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107753_1863_2585"
+                     base_Property="339edc3f-fbef-11e1-a364-456a62c2a10f"/>
+   <StandardProfileL2:ModelLibrary xmi:id="356125f5-fbef-11e1-a364-456a62c2a10f"
+                                   base_Package="30a5241c-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107761_867672_2589"
+                     base_Property="32d2b280-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:MeasurementSet xmi:id="_17_0_2_7d40257_1350290131675_816739_2696"
+                     base_DataType="31ffab7a-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107771_569959_2594"
+                     base_Property="302b60bf-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107785_605443_2600"
+                     base_Property="331030f0-fbef-11e1-a364-456a62c2a10f"/>
+   <updm:Measurement xmi:id="_17_0_2_7d40257_1350290107800_400321_2607"
+                     base_Property="342bd971-fbef-11e1-a364-456a62c2a10f"/>
+</xmi:XMI>

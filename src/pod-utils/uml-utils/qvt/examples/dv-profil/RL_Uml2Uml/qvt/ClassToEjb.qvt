@@ -1,0 +1,248 @@
+/*
+   This is the complete UML2EJB from the "QVT - Operational Mappings" book. 
+   The comments are in German - nevermind.
+
+  Generierung von EJB SessionsBeans auf der Basis eines UML-Klassendiagramms.
+  Zunächst wird das Quellmodell so übernommen, wie es ist, mit allen 
+  Klassen, Assoziationen, Datentypen etc. 
+  Jede Klasse des Klassendiagramms wird zu einer SessionBean konvertiert mit 
+  allen Methoden (-rümpfen) und getter und setter für jedes Attribut. Das kann 
+  man mit entsprechenden Merkmalen (Stereotypen) differenzieren in SessionBeans 
+  und EntityBeans (was hier nicht getan wird). Grundsätzlich wird angenommen, 
+  dass die Attribute der Quellklassen 'private' sind. (Dies Merkmal wird ignoriert.)  
+  Für jede Klasse wird ein Home- und Remote-Interface generiert.   
+  
+  Relations in der Reihenfolge ihrer Spezifikation: 
+    (top) Model
+    Packages
+    Datatypes
+    Classes
+    Attributes
+    Operations
+    EjbOperations
+    Associations
+    AssociationEnds
+ */
+transformation ClassToEjb ( source : uml, target : uml ) 
+{
+   /*
+      Das Model ist das oberste Package des UML-Modells. Alle anderen Elemente 	
+      - hier Packages, Classes, Associations, Datatypes - befinden sich darin.
+    */
+   top relation Model
+   {
+      modelName : String;
+      checkonly domain source src : uml::Model { name = modelName };
+      enforce   domain target dst : uml::Model { name = modelName };
+      where 
+      { 
+         Packages     ( src, dst ); 
+         Datatypes    ( src, dst ); 
+         Classes      ( src, dst ); 
+         Associations ( src, dst ); 
+      } 
+   }
+
+   /*
+      Im Rahmen der SessionBean-Transformation werden Packages nicht weiter
+      behandelt, außer dass es sie gbt und dass in ihnen weitere Elemente
+      liegen können - hier Packages, Classes, Associations. 
+      Es wird angenommen, dass in tiefer liegenden Packages keine DataTypes 
+      mehr deklariert werden. Das entspricht natürlich nicht der Realität, 
+      soweit sie durch das UML-Metamodell spezifiziert ist. 
+    */
+   relation Packages
+   {
+      packageName : String;
+
+      checkonly domain source srcPkg : uml::Package 
+      {
+         packagedElement = srcP : Package { name = packageName }
+      };
+
+      enforce   domain target dstPkg : uml::Package 
+      {
+         packagedElement = dstP : Package { name = packageName }
+      };
+ 
+      where 
+      { 
+         Packages     ( srcP, dstP ); 
+         Classes      ( srcP, dstP ); 
+         Associations ( srcP, dstP ); 
+      } 
+   }
+
+   /*
+      Übernahme der Datatypes von dem Quellmodell ins Zielmodell.
+      Es wird angenommen, dass alle Datatype-Deklarationen oben im
+      Modell-Package stattfinden.
+    */
+   relation Datatypes
+   {
+      datatypeName : String;
+      checkonly domain source src : uml::Package 
+      {
+         packagedElement = srcDt:DataType { name = datatypeName }
+      };
+      enforce   domain target dst : uml::Package 
+      {
+         packagedElement = dstDt:DataType { name = datatypeName }
+      }; 
+   }
+
+   /*
+      Classes werden schon etwas komplex behandelt; für jede Klasse soll 
+      eine SessionBean genereiert werden mit allen Bean-Methoden. Für die 
+      Klasse selbst werden zwei weitere Methoden deklariert, eine get und 
+      set für die Klasse. Diese Methoden sollen die allgemeinen Business-
+      Methoden repräsentieren. 
+    */
+   relation Classes
+   {
+      className : String;
+
+      checkonly domain source src : uml::Package 
+      { 
+         packagedElement = srcCls:Class { name = className }
+      };
+
+      enforce   domain target dst : uml::Package 
+      { 
+         -- Generieren der neuen SessionBean-Klasse mit ihrem generellen
+         -- getter und setter.
+         packagedElement = dstCls : Class     
+         {
+            name = className,
+            ownedOperation = setCls : Operation { name = 'set' + name }, 
+            ownedOperation = getCls : Operation { name = 'get' + name } 
+         },
+
+         -- Generieren des Home-Interfaces.
+         packagedElement = hIfc   : Interface 
+         {
+            name = className + 'Home',
+            ownedOperation = create : Operation { name = 'create' }
+         },
+         
+         -- Generieren des Remote-Interfaces, in dem die Business-Methoden
+         -- angeboten werden. 
+         packagedElement = rIfc   : Interface 
+         {
+            name = className + 'Remote',
+            ownedOperation = setBO : Operation { name = 'set' + className },
+            ownedOperation = getBO : Operation { name = 'get' + className }
+         }
+         
+      };
+
+      where
+      {
+         -- interne Klassen werden nicht behandelt
+         Attributes    ( srcCls, dstCls );
+         Operations    ( srcCls, dstCls );
+         EjbOperations ( dstCls ); -- keine Inline Objekterzeugung, sondern 'Exline'
+      }
+    }
+
+   /*
+      Die Attribute sollen so aus dem Quellmodell ins Zielmodell übernommen 
+      werden, wie sie sind. Für jedes Attribut wird inline eine getter- und 
+      eine setter-Methode generiert.
+    */
+   relation Attributes
+   {
+      atName : String;
+      atType : DataType;
+      checkonly domain source ic : Class 
+      { 
+         ownedAttribute = iprop : Property { name = atName, type = atType } 
+      }; 
+      enforce   domain target oc : Class 
+      { 
+         ownedAttribute = oprop   : Property  { name = atName, type = atType }, 
+         ownedOperation = setprop : Operation { name = 'set' + atName }, 
+         ownedOperation = getprop : Operation { name = 'get' + atName, type = atType } 
+      }; 
+   }
+
+   /*
+      Die werden so übernommen, wie sie sind. Im Grunde genommen handelt es
+      sich bei diese Methoden um die Business-Methoden der Bean. 
+    */
+   relation Operations
+   {
+      oName : String;
+      checkonly domain source ic : Class 
+      { 
+         ownedOperation = iop : Operation { name = oName } 
+      }; 
+      enforce   domain target oc : Class 
+      { 
+         ownedOperation = oop : Operation { name = oName }
+      }; 
+   }
+   
+   /*
+    */
+   relation EjbOperations
+   {
+      enforce   domain target oc : Class 
+      { 
+         ownedOperation = setSessionContext : Operation { name = 'setSessionContext' }, 
+         ownedOperation = ejbCreate         : Operation { name = 'ejbCreate' }, 
+         ownedOperation = ejbPostCreate     : Operation { name = 'ejbPostCreate' }, 
+         ownedOperation = ejbActivate       : Operation { name = 'ejbActivate' }, 
+         ownedOperation = ejbPassivate      : Operation { name = 'ejbPassivate' }, 
+         ownedOperation = ejbRemove         : Operation { name = 'ejbRemove' } 
+      }; 
+   }
+
+   /*
+    */
+   relation Associations
+   {
+      associationName : String;
+      checkonly domain source src : uml::Package 
+      { 
+         packagedElement = srcAss : uml::Association { name = associationName }
+      };
+      enforce   domain target dst : uml::Package 
+      { 
+         packagedElement = dstAss : uml::Association { name = associationName }
+      };
+      where {AssociationEnds(srcAss, dstAss);}
+   }
+   
+   /*
+    */
+   relation AssociationEnds
+   {
+      assocEndName : String;
+      assocEndType : DataType;
+
+      checkonly domain source src : uml::Association 
+      { 
+            ownedEnd = soe : Property 
+            {
+               name = assocEndName,
+               type = assocEndType
+               -- upperValue =  : ValueSpecification {}
+               -- lowerValue =  : ValueSpecification {}
+               
+            }
+      };
+      enforce   domain target dst : uml::Association 
+      { 
+            ownedEnd = toe : Property 
+            {
+               name = assocEndName,
+               type = assocEndType
+               -- upperValue =  : ValueSpecification {}
+               -- lowerValue =  : ValueSpecification {}
+               
+            }
+      };
+   }
+}
+   

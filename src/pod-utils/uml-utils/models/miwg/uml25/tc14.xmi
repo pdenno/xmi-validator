@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+        xmlns:uml="http://www.omg.org/spec/UML/20131001"
+        xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile" xmi:version="2.1">
+        <uml:Model xmi:id="eee_1045467100313_135436_1" name="TestCase14">
+                <packagedElement xmi:type="uml:Package"
+                        xmi:id="_17_0_b0002e1_1291543796515_438851_11097" name="Parametrics">
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_17_0_b0002e1_1291543784402_324640_10937" name="Component1">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543784407_409885_10947" name="m"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291543784404_339864_10939"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_17_0_b0002e1_1291543784404_293883_10940"
+                                name="Analysis Context">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543832578_660571_11103" name="sys"
+                                        visibility="private"
+                                        type="_17_0_b0002e1_1291543784401_111344_10936"
+                                        association="_17_0_b0002e1_1291543832578_54888_11102"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291544890111_174240_11563" name="tm"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291544747980_863028_11516"
+                                        association="_17_0_b0002e1_1291544890111_649766_11562"/>
+                                <ownedConnector xmi:type="uml:Connector"
+                                        xmi:id="_17_0_b0002e1_1291545086566_324976_11776"
+                                        visibility="public">
+                                        <end xmi:type="uml:ConnectorEnd"
+                                                xmi:id="_17_0_b0002e1_1291545086566_201231_11777"
+                                                role="_17_0_b0002e1_1291544760065_703618_11540"
+                                                partWithPort="_17_0_b0002e1_1291544890111_174240_11563"/>
+                                        <end xmi:type="uml:ConnectorEnd"
+                                                xmi:id="_17_0_b0002e1_1291545086566_445618_11778"
+                                                role="_17_0_b0002e1_1291543784407_879431_10945"/>
+                                </ownedConnector>
+                                <ownedConnector xmi:type="uml:Connector"
+                                        xmi:id="_17_0_b0002e1_1291545109052_263022_11796"
+                                        visibility="public">
+                                        <end xmi:type="uml:ConnectorEnd"
+                                                xmi:id="_17_0_b0002e1_1291545109052_255200_11797"
+                                                role="_17_0_b0002e1_1291544767316_877786_11546"
+                                                partWithPort="_17_0_b0002e1_1291544890111_174240_11563"/>
+                                        <end xmi:type="uml:ConnectorEnd"
+                                                xmi:id="_17_0_b0002e1_1291545109052_706115_11798"
+                                                role="_17_0_b0002e1_1291543784408_110948_10949"/>
+                                </ownedConnector>
+                                <ownedConnector xmi:type="uml:Connector"
+                                        xmi:id="_17_0_b0002e1_1291545119497_171192_11817"
+                                        visibility="public">
+                                        <end xmi:type="uml:ConnectorEnd"
+                                                xmi:id="_17_0_b0002e1_1291545119497_323996_11818"
+                                                role="_17_0_b0002e1_1291544764673_760279_11543"
+                                                partWithPort="_17_0_b0002e1_1291544890111_174240_11563"/>
+                                        <end xmi:type="uml:ConnectorEnd"
+                                                xmi:id="_17_0_b0002e1_1291545119497_169696_11819"
+                                                role="_17_0_b0002e1_1291543784407_409885_10947"/>
+                                </ownedConnector>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:DataType"
+                                xmi:id="_17_0_b0002e1_1291543784404_339864_10939" name="kg"/>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_17_0_b0002e1_1291543784401_111344_10936" name="System">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543784406_263735_10943" name="c1"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291543784402_324640_10937"
+                                        association="_17_0_b0002e1_1291543784405_951203_10941"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543784406_984220_10944" name="c2"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291543784403_154542_10938"
+                                        association="_17_0_b0002e1_1291543784405_286920_10942"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543784407_879431_10945" name="m"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291543784404_339864_10939"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_17_0_b0002e1_1291543784403_154542_10938" name="Component2">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543784408_110948_10949" name="m"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291543784404_339864_10939"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Association"
+                                xmi:id="_17_0_b0002e1_1291543784405_951203_10941">
+                                <memberEnd xmi:idref="_17_0_b0002e1_1291543784406_263735_10943"/>
+                                <memberEnd xmi:idref="_17_0_b0002e1_1291543784408_324794_10954"/>
+                                <ownedEnd xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543784408_324794_10954"
+                                        visibility="private"
+                                        type="_17_0_b0002e1_1291543784401_111344_10936"
+                                        association="_17_0_b0002e1_1291543784405_951203_10941"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Association"
+                                xmi:id="_17_0_b0002e1_1291543784405_286920_10942">
+                                <memberEnd xmi:idref="_17_0_b0002e1_1291543784406_984220_10944"/>
+                                <memberEnd xmi:idref="_17_0_b0002e1_1291543784408_561655_10955"/>
+                                <ownedEnd xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543784408_561655_10955"
+                                        visibility="private"
+                                        type="_17_0_b0002e1_1291543784401_111344_10936"
+                                        association="_17_0_b0002e1_1291543784405_286920_10942"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Association"
+                                xmi:id="_17_0_b0002e1_1291543832578_54888_11102">
+                                <memberEnd xmi:idref="_17_0_b0002e1_1291543832578_660571_11103"/>
+                                <memberEnd xmi:idref="_17_0_b0002e1_1291543832579_726435_11104"/>
+                                <ownedEnd xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291543832579_726435_11104"
+                                        visibility="private"
+                                        type="_17_0_b0002e1_1291543784404_293883_10940"
+                                        association="_17_0_b0002e1_1291543832578_54888_11102"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_17_0_b0002e1_1291544747980_863028_11516" name="Total Mass">
+                                <ownedRule xmi:type="uml:Constraint"
+                                        xmi:id="_17_0_b0002e1_1291544848239_333907_11554"
+                                        name="unnamed1">
+                                        <constrainedElement
+                                                xmi:idref="_17_0_b0002e1_1291544747980_863028_11516"/>
+                                        <specification xmi:type="uml:OpaqueExpression"
+                                                xmi:id="_17_0_b0002e1_1291544848249_675608_11555">
+                                                <body>mt = m1 + m2</body>
+                                        </specification>
+                                </ownedRule>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291544760065_703618_11540" name="mt"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291543784404_339864_10939"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291544764673_760279_11543" name="m1"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291543784404_339864_10939"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291544767316_877786_11546" name="m2"
+                                        visibility="private" aggregation="composite"
+                                        type="_17_0_b0002e1_1291543784404_339864_10939"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Association"
+                                xmi:id="_17_0_b0002e1_1291544890111_649766_11562">
+                                <memberEnd xmi:idref="_17_0_b0002e1_1291544890111_174240_11563"/>
+                                <memberEnd xmi:idref="_17_0_b0002e1_1291544890111_323583_11564"/>
+                                <ownedEnd xmi:type="uml:Property"
+                                        xmi:id="_17_0_b0002e1_1291544890111_323583_11564"
+                                        visibility="private"
+                                        type="_17_0_b0002e1_1291543784404_293883_10940"
+                                        association="_17_0_b0002e1_1291544890111_649766_11562"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:InstanceSpecification"
+                                xmi:id="_17_0_b0002e1_1291638147280_19288_13238" name="Mass"/>
+                        <packagedElement xmi:type="uml:InstanceSpecification"
+                                xmi:id="_17_0_b0002e1_1291638195026_567981_13256" name="kilogram"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package"
+                        xmi:id="_17_0_b0002e1_1291546410140_358528_11917" name="Instances">
+                        <packagedElement xmi:type="uml:InstanceSpecification"
+                                xmi:id="_17_0_b0002e1_1291546422636_782764_11940"
+                                name="analysis Context">
+                                <classifier xmi:idref="_17_0_b0002e1_1291543784404_293883_10940"/>
+                                <slot xmi:type="uml:Slot"
+                                        xmi:id="_17_0_b0002e1_1291546422637_599878_11942"
+                                        definingFeature="_17_0_b0002e1_1291543832578_660571_11103">
+                                        <value xmi:type="uml:InstanceValue"
+                                                xmi:id="_17_0_b0002e1_1291546422637_816667_11943"
+                                                instance="_17_0_b0002e1_1291546422637_954548_11941"
+                                        />
+                                </slot>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:InstanceSpecification"
+                                xmi:id="_17_0_b0002e1_1291546422637_954548_11941"
+                                name="analysis Context.sys">
+                                <classifier xmi:idref="_17_0_b0002e1_1291543784401_111344_10936"/>
+                                <slot xmi:type="uml:Slot"
+                                        xmi:id="_17_0_b0002e1_1291546422638_368777_11945"
+                                        definingFeature="_17_0_b0002e1_1291543784406_263735_10943">
+                                        <value xmi:type="uml:InstanceValue"
+                                                xmi:id="_17_0_b0002e1_1291546422639_509354_11946"
+                                                instance="_17_0_b0002e1_1291546422638_132120_11944"
+                                        />
+                                </slot>
+                                <slot xmi:type="uml:Slot"
+                                        xmi:id="_17_0_b0002e1_1291546422640_201173_11948"
+                                        definingFeature="_17_0_b0002e1_1291543784406_984220_10944">
+                                        <value xmi:type="uml:InstanceValue"
+                                                xmi:id="_17_0_b0002e1_1291546422640_46749_11949"
+                                                instance="_17_0_b0002e1_1291546422639_905270_11947"
+                                        />
+                                </slot>
+                                <slot xmi:type="uml:Slot"
+                                        xmi:id="_17_0_b0002e1_1291546422640_999984_11950"
+                                        definingFeature="_17_0_b0002e1_1291543784407_879431_10945">
+                                        <value xmi:type="uml:LiteralString"
+                                                xmi:id="_17_0_b0002e1_1291546566513_243018_11969"
+                                                value="30.0"/>
+                                </slot>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:InstanceSpecification"
+                                xmi:id="_17_0_b0002e1_1291546422638_132120_11944"
+                                name="analysis Context.sys.c1">
+                                <classifier xmi:idref="_17_0_b0002e1_1291543784402_324640_10937"/>
+                                <slot xmi:type="uml:Slot"
+                                        xmi:id="_17_0_b0002e1_1291546422640_776807_11953"
+                                        definingFeature="_17_0_b0002e1_1291543784407_409885_10947">
+                                        <value xmi:type="uml:LiteralInteger"
+                                                xmi:id="_17_0_b0002e1_1291547304163_979003_13113"
+                                                value="20"/>
+                                </slot>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:InstanceSpecification"
+                                xmi:id="_17_0_b0002e1_1291546422639_905270_11947"
+                                name="analysis Context.sys.c2">
+                                <classifier xmi:idref="_17_0_b0002e1_1291543784403_154542_10938"/>
+                                <slot xmi:type="uml:Slot"
+                                        xmi:id="_17_0_b0002e1_1291546422640_995593_11952"
+                                        definingFeature="_17_0_b0002e1_1291543784408_110948_10949">
+                                        <value xmi:type="uml:LiteralString"
+                                                xmi:id="_17_0_b0002e1_1291546566513_859203_11968"
+                                                value="20"/>
+                                </slot>
+                        </packagedElement>
+                </packagedElement>
+                <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_WEZg4MS7Ed-Mdez391WBpQ">
+                        <appliedProfile xmi:type="uml:Profile" href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+                </profileApplication>
+        </uml:Model>
+        <sysml:QuantityKind xmi:id="_17_0_b0002e1_1291638147280_236115_13239"
+                base_InstanceSpecification="_17_0_b0002e1_1291638147280_19288_13238"/>
+        <sysml:ConstraintProperty xmi:id="_17_0_b0002e1_1291544890134_237276_11571"
+                base_Property="_17_0_b0002e1_1291544890111_174240_11563"/>
+        <sysml:BindingConnector xmi:id="_17_0_b0002e1_1291545119497_644305_11820"
+                base_Connector="_17_0_b0002e1_1291545119497_171192_11817"/>
+        <sysml:Block xmi:id="_17_0_b0002e1_1291543784407_727541_10946"
+                base_Class="_17_0_b0002e1_1291543784401_111344_10936"/>
+        <sysml:Block xmi:id="_17_0_b0002e1_1291543784407_954253_10948"
+                base_Class="_17_0_b0002e1_1291543784402_324640_10937"/>
+        <sysml:ConstraintBlock xmi:id="_17_0_b0002e1_1291544747980_588332_11517"
+                base_Class="_17_0_b0002e1_1291544747980_863028_11516"/>
+        <sysml:BindingConnector xmi:id="_17_0_b0002e1_1291545109052_391616_11799"
+                base_Connector="_17_0_b0002e1_1291545109052_263022_11796"/>
+        <sysml:ValueType xmi:id="_17_0_b0002e1_1291543784408_998686_10951"
+                base_DataType="_17_0_b0002e1_1291543784404_339864_10939"
+                unit="_17_0_b0002e1_1291638195026_567981_13256">
+        </sysml:ValueType>
+        <sysml:NestedConnectorEnd xmi:id="_17_0_b0002e1_1291545086577_783822_11785"
+                base_ConnectorEnd="_17_0_b0002e1_1291545086566_445618_11778"
+                propertyPath="_17_0_b0002e1_1291543832578_660571_11103"/>
+        <sysml:NestedConnectorEnd xmi:id="_17_0_b0002e1_1291545086575_445673_11782"
+                base_ConnectorEnd="_17_0_b0002e1_1291545086566_201231_11777"
+                propertyPath="_17_0_b0002e1_1291544890111_174240_11563"/>
+        <sysml:NestedConnectorEnd xmi:id="_17_0_b0002e1_1291545109060_732366_11802"
+                base_ConnectorEnd="_17_0_b0002e1_1291545109052_255200_11797"
+                propertyPath="_17_0_b0002e1_1291544890111_174240_11563"/>
+        <sysml:NestedConnectorEnd xmi:id="_17_0_b0002e1_1291545119507_782946_11826"
+                base_ConnectorEnd="_17_0_b0002e1_1291545119497_169696_11819"
+                propertyPath="_17_0_b0002e1_1291543832578_660571_11103 _17_0_b0002e1_1291543784406_263735_10943"/>
+        <sysml:Unit xmi:id="_17_0_b0002e1_1291638195027_676209_13257"
+                base_InstanceSpecification="_17_0_b0002e1_1291638195026_567981_13256"
+                quantityKind="_17_0_b0002e1_1291638147280_19288_13238"/>
+        <sysml:NestedConnectorEnd xmi:id="_17_0_b0002e1_1291545119505_804902_11823"
+                base_ConnectorEnd="_17_0_b0002e1_1291545119497_323996_11818"
+                propertyPath="_17_0_b0002e1_1291544890111_174240_11563"/>
+        <sysml:Block xmi:id="_17_0_b0002e1_1291543784408_869505_10950"
+                base_Class="_17_0_b0002e1_1291543784403_154542_10938"/>
+        <sysml:Block xmi:id="_17_0_b0002e1_1291543784408_147245_10953"
+                base_Class="_17_0_b0002e1_1291543784404_293883_10940"/>
+        <sysml:BindingConnector xmi:id="_17_0_b0002e1_1291545086566_308444_11779"
+                base_Connector="_17_0_b0002e1_1291545086566_324976_11776"/>
+        <sysml:NestedConnectorEnd xmi:id="_17_0_b0002e1_1291545109063_385981_11805"
+                base_ConnectorEnd="_17_0_b0002e1_1291545109052_706115_11798"
+                propertyPath="_17_0_b0002e1_1291543832578_660571_11103 _17_0_b0002e1_1291543784406_984220_10944"
+        />
+</xmi:XMI>

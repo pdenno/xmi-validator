@@ -1,0 +1,111 @@
+/*
+ *  Dies Beispiel (example 1) generiert Schemas und Tabelle.
+ *  Zu den Tabellen werden mit Inline Objekterzeugung eine
+ *  zusätzliche identifizierende Spalte hinzugefügt und ein 
+ *  Primärschlüssel, der diese Spalte referenziert.
+ *  SimpleUML und SimpleRDBMS müssen als Metamodelle referenziert
+ *  sein. 
+ */
+transformation uml2rdbm_1 ( uml : MyUML, rdbms : MyRDBM ) 
+{
+   -- Relation zur Erzeugung von Schemas auf der Basis von Packages
+   top relation PackageToSchema 
+   {
+      packageName : String;
+      checkonly domain uml   pckge  : Package { name = packageName };
+      enforce   domain rdbms scheme : Schema  { name = packageName };
+   }
+
+   -- Relation zur Erzeugung von Tabellen auf der Basis von Classes
+	top relation ClassToTable 
+	{
+	  className : String;
+      prefix    : String;
+	  
+      -- Classes werden nur behandelt, wenn sie das Merkmal persistent haben.
+	  checkonly domain uml cls : Class 
+	  {
+	    namespace = pckge : Package { },
+	    kind      = 'Persistent',
+	    name      = className
+	  };
+	  
+      enforce   domain rdbms tbl : Table
+      {
+	    schema   = scheme : Schema {},
+	    name     = className,
+
+        -- inline Pattern zur Erzeugung der indentifizierenden Spalte
+	    column   = col : Column 
+	    {
+	      name   = className + '_tid',
+	      type   = 'NUMBER'
+	    },
+	    
+        -- inline Pattern zur Erzeugung des PrimaryKeys
+	    primaryKey = pKey : PrimaryKey 
+	    {
+    	  name   = className + '_pk', 
+	      column = col
+	    }
+      };
+ 	  when 	{ PackageToSchema ( pckge, scheme); }
+	  where 
+	  {
+	    prefix = className;
+	    AttributeToColumn ( cls, tbl, prefix);
+	  }
+	}
+
+   relation AttributeToColumn 
+   { 
+      columnName: String;
+      checkonly domain uml   c   : Class { };
+      enforce   domain rdbms t   : Table { };
+      primitive domain    prefix : String;
+      where 
+      {
+	     PrimitiveAttributeToColumn ( c, t, prefix );
+       }
+   }
+
+   relation PrimitiveAttributeToColumn 
+   { 
+	  attrName  : String;
+	  packName  : String;
+	  className : String;
+	  
+	  checkonly domain uml c : Class 
+	  {
+	    attribute = a : Attribute 
+	    {
+	      name = attrName,
+	      type = p : PrimitiveDataType 
+	      {
+	        name = packName
+	      }
+	    }
+	  };
+	  
+	  enforce domain rdbms t : Table 
+	  {
+	    column = cl : Column 
+	    {
+	      name = className,
+	      type = 'NUMBER'
+	    }
+	  };
+	  
+	  primitive domain prefix : String;
+	  
+	  where 
+	  {
+	    className = if prefix = '' then
+	      attrName
+	    else
+	      prefix + '_' + attrName
+	    endif;
+	  }
+   }
+
+}

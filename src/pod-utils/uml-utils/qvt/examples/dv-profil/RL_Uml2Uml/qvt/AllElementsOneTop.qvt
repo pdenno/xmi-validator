@@ -1,0 +1,135 @@
+/*
+ * UML to UML transformation with one top level relation and recursive descent.
+ */
+
+transformation UmlToUml ( source : uml, target : uml ) 
+{
+   top relation Model
+   {
+      modelName : String;
+      checkonly domain source src : uml::Model 
+      { 
+         name = modelName 
+      };
+      enforce   domain target dst : uml::Model 
+      {
+         name = modelName 
+      };
+      where 
+      { 
+         Packages     ( src, dst ); 
+         Classes      ( src, dst ); 
+         Interfaces   ( src, dst ); 
+         Datatypes    ( src, dst ); 
+         Associations ( src, dst ); 
+      } 
+   }
+
+   relation Packages
+   {
+      packageName : String;
+
+      checkonly domain source srcPkg : uml::Package 
+      {
+         packagedElement = srcP : Package { name = packageName }
+      };
+      enforce   domain target dstPkg : uml::Package 
+      {
+         packagedElement = dstP : Package { name = packageName }
+      };
+ 
+      where 
+      { 
+         Packages     ( srcP, dstP ); 
+         Classes      ( srcP, dstP ); 
+         Interfaces   ( srcP, dstP ); 
+         Datatypes    ( srcP, dstP ); 
+         Associations ( srcP, dstP ); 
+      } 
+   }
+
+   relation Classes
+   {
+      className : String;
+      checkonly domain source src : uml::Package 
+      { 
+         packagedElement = srcCls:Class { name = className }
+      };
+      enforce   domain target dst : uml::Package 
+      { 
+         packagedElement = dstCls:Class { name = className }
+      };
+      where
+      {
+         Attributes ( srcCls, dstCls );
+         Operations ( srcCls, dstCls );
+      }
+    }
+
+   relation Interfaces
+   {
+      interfaceName : String;
+      checkonly domain source src : uml::Package 
+      { 
+         packagedElement = srcIfc : Interface { name = interfaceName }
+      };
+      enforce   domain target dst : uml::Package 
+      { 
+         packagedElement = dstIfc : Interface { name = interfaceName }
+      };
+   }
+
+   relation Datatypes
+   {
+      datatypeName : String;
+      checkonly domain source src : uml::Package 
+      {
+         packagedElement = srcDt:DataType { name = datatypeName }
+      };
+      enforce   domain target dst : uml::Package 
+      {
+         packagedElement = dstDt:DataType { name = datatypeName }
+      }; 
+   }
+
+   relation Associations
+   {
+      associationName : String;
+      checkonly domain source src : uml::Package 
+      { 
+         packagedElement = srcAss:Association { name = associationName }
+      };
+      enforce   domain target dst : uml::Package 
+      { 
+         packagedElement = dstAss:Association { name = associationName }
+      };
+   }
+   
+   relation Attributes
+   {
+      atName : String;
+      checkonly domain source ic : Class 
+      { 
+         ownedAttribute = ip : Property { name = atName } 
+      }; 
+      enforce   domain target oc : Class 
+      { 
+         ownedAttribute = op : Property { name = atName } 
+      }; 
+   }
+
+   relation Operations
+   {
+      oName : String;
+      checkonly domain source ic : Class 
+      { 
+         ownedOperation = ip : Operation { name = oName } 
+      }; 
+      enforce   domain target oc : Class 
+      { 
+         ownedOperation = op : Operation { name = oName } 
+      }; 
+   }
+   
+}
+   

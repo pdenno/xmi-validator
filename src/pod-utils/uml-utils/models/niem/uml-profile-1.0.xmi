@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.3" xmi:version="2.1">
+	<xmi:Documentation contact="www.altova.com" exporter="Altova UModel2011" exporterVersion="8"/>
+	<uml:Package xmi:id="U00000001-7510-11d9-86f2-000476a22f44" xmi:uuid="00000001-7510-11d9-86f2-000476a22f44" name="Root">
+		<packagedElement xmi:type="uml:Package" xmi:id="U00000003-7510-11d9-86f2-000476a22f44" xmi:uuid="00000003-7510-11d9-86f2-000476a22f44" name="Component View"/>
+		<packagedElement xmi:type="uml:Profile" xmi:id="U3724df3a-5654-4a9a-b0b2-b4339d6bd0d8" xmi:uuid="3724df3a-5654-4a9a-b0b2-b4339d6bd0d8" name="UML Profile for NIEM">
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U8b04199e-3ffc-497e-9896-cb3b10945935" xmi:uuid="8b04199e-3ffc-497e-9896-cb3b10945935" name="NIEMNamespace">
+				<style fillcolor="white" headercolor="black" headergradientbegin="white" headergradientend="white"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U31abbf21-6867-499d-beea-c836accbda15" xmi:uuid="31abbf21-6867-499d-beea-c836accbda15" name="definition" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ubde1f02a-0d46-4bac-8084-6bfd299937a3" xmi:uuid="bde1f02a-0d46-4bac-8084-6bfd299937a3" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U3e848de0-84c4-4293-9f39-d6045fc18e0a" xmi:uuid="3e848de0-84c4-4293-9f39-d6045fc18e0a" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ua94f47d4-485f-4801-ae37-24107ebd43e3" xmi:uuid="a94f47d4-485f-4801-ae37-24107ebd43e3" name="namespace" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U24f029ca-16ab-49da-995d-07ddc3422614" xmi:uuid="24f029ca-16ab-49da-995d-07ddc3422614" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U40a8ac26-f8a2-456e-91dd-87a4800d4b47" xmi:uuid="40a8ac26-f8a2-456e-91dd-87a4800d4b47" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ue2dc133e-ef59-41b3-a36b-fc948e0ce31c" xmi:uuid="e2dc133e-ef59-41b3-a36b-fc948e0ce31c" name="isConformant" visibility="public" type="Ud2085278-beca-47b4-a04b-24e4563b51e6">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U9b33e4ea-20a2-4100-9b70-c812d08f6df5" xmi:uuid="9b33e4ea-20a2-4100-9b70-c812d08f6df5" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U16555102-5479-4439-87e1-3741ba63d877" xmi:uuid="16555102-5479-4439-87e1-3741ba63d877" value="1"/>
+					<defaultValue xmi:type="uml:LiteralString" xmi:id="U852c7d9a-7274-48a2-bbe6-2f355760e844" xmi:uuid="852c7d9a-7274-48a2-bbe6-2f355760e844" value="true"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U637bbf06-48fa-4266-b03f-e7d611416a23" xmi:uuid="637bbf06-48fa-4266-b03f-e7d611416a23" name="version" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U08c5560c-99c9-4fa2-8c38-0dcff04e092a" xmi:uuid="08c5560c-99c9-4fa2-8c38-0dcff04e092a" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Uab0bbbf2-83bb-4685-816e-b6a9198ab3e5" xmi:uuid="ab0bbbf2-83bb-4685-816e-b6a9198ab3e5" value="1"/>
+					<defaultValue xmi:type="uml:LiteralString" xmi:id="Ue9fbdb5a-0170-4c45-92ae-8836c342cfb2" xmi:uuid="e9fbdb5a-0170-4c45-92ae-8836c342cfb2" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U4f246def-80c0-44b8-8f57-edd24c6cf9a4" xmi:uuid="4f246def-80c0-44b8-8f57-edd24c6cf9a4" name="base_Package"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U67f43d1e-1571-4640-aaae-2876a87668cd" xmi:uuid="67f43d1e-1571-4640-aaae-2876a87668cd" name="NIEMSimpleType">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U538d3af2-1b7f-46b9-a212-332fe091820f" xmi:uuid="538d3af2-1b7f-46b9-a212-332fe091820f" name="definition" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U4b654b32-f0c8-49b2-b1aa-e74b92fcb353" xmi:uuid="4b654b32-f0c8-49b2-b1aa-e74b92fcb353" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U0d124bc8-8b71-4334-b0de-ef131b9f98e9" xmi:uuid="0d124bc8-8b71-4334-b0de-ef131b9f98e9" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U8a1dac61-5304-405a-af54-279ee5ecb8a2" xmi:uuid="8a1dac61-5304-405a-af54-279ee5ecb8a2" name="maxExclusive" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U76fb0187-e3d1-47e9-bcc7-5f71f2533edc" xmi:uuid="76fb0187-e3d1-47e9-bcc7-5f71f2533edc" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U080521cf-8b8d-40a3-98a2-a1f9d5e97b36" xmi:uuid="080521cf-8b8d-40a3-98a2-a1f9d5e97b36" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U2e65a1f5-c8f1-4428-9bc0-4d1fa604cc6b" xmi:uuid="2e65a1f5-c8f1-4428-9bc0-4d1fa604cc6b" name="maxInclusive" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ub9e79933-6c9d-46c3-bef2-8d6370449af0" xmi:uuid="b9e79933-6c9d-46c3-bef2-8d6370449af0" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U151fe1c5-19b8-4537-9470-3b2cdfe11ead" xmi:uuid="151fe1c5-19b8-4537-9470-3b2cdfe11ead" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U11529203-e422-4bf0-b8dc-d4d453d016ef" xmi:uuid="11529203-e422-4bf0-b8dc-d4d453d016ef" name="minInclusive" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U756f66b9-6537-4b2c-a5e0-3f21159e9218" xmi:uuid="756f66b9-6537-4b2c-a5e0-3f21159e9218" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U96f7e822-e384-450f-8c24-48911ee155da" xmi:uuid="96f7e822-e384-450f-8c24-48911ee155da" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U6a6963d8-b7e3-44f1-98d1-20edf62b1653" xmi:uuid="6a6963d8-b7e3-44f1-98d1-20edf62b1653" name="pattern" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ub0bdbb11-a4c9-4df8-9cb9-9673fb1e535d" xmi:uuid="b0bdbb11-a4c9-4df8-9cb9-9673fb1e535d" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U0661dce8-0889-4828-acb1-a057244bcf35" xmi:uuid="0661dce8-0889-4828-acb1-a057244bcf35" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U464c89a2-c64b-48c1-86e8-299515f33b5c" xmi:uuid="464c89a2-c64b-48c1-86e8-299515f33b5c" name="base" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ud6d0a2c4-b74d-47f9-832d-4321fd093627" xmi:uuid="d6d0a2c4-b74d-47f9-832d-4321fd093627" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ub4557bd7-2c12-41d1-ab15-8eb7855fb473" xmi:uuid="b4557bd7-2c12-41d1-ab15-8eb7855fb473" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U24cdec32-f319-4c5b-a811-2e2917c7b324" xmi:uuid="24cdec32-f319-4c5b-a811-2e2917c7b324" name="totalDigits" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U46e14830-d126-434f-a3c9-812fed710228" xmi:uuid="46e14830-d126-434f-a3c9-812fed710228" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U602b136c-7515-4c4e-b5c1-27c57ba8c874" xmi:uuid="602b136c-7515-4c4e-b5c1-27c57ba8c874" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U5fa1724c-f2fa-45ae-be50-4b6cf9311913" xmi:uuid="5fa1724c-f2fa-45ae-be50-4b6cf9311913" name="fractionDigits" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U116245c0-5f93-42c4-9f53-c85f26ce2edb" xmi:uuid="116245c0-5f93-42c4-9f53-c85f26ce2edb" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U32abdacd-7c61-425c-aa89-8174759d6ba7" xmi:uuid="32abdacd-7c61-425c-aa89-8174759d6ba7" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ufd953b6c-b2f1-4d9b-9589-a47a22e589e2" xmi:uuid="fd953b6c-b2f1-4d9b-9589-a47a22e589e2" name="whiteSpace" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U97756afd-33ff-46ca-b86d-14eb08f21eb3" xmi:uuid="97756afd-33ff-46ca-b86d-14eb08f21eb3" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U6664c218-d813-427c-8356-317414df0325" xmi:uuid="6664c218-d813-427c-8356-317414df0325" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uc2520cc2-29d4-4146-bc3f-ff94424061eb" xmi:uuid="c2520cc2-29d4-4146-bc3f-ff94424061eb" name="minExclusive" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U99d93053-c4b5-41f0-87aa-550aecb75914" xmi:uuid="99d93053-c4b5-41f0-87aa-550aecb75914" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ueb4290d5-3452-4e8a-8d01-d2f3779c89ae" xmi:uuid="eb4290d5-3452-4e8a-8d01-d2f3779c89ae" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U2bea7889-4f93-47bb-afe5-d796110f32c8" xmi:uuid="2bea7889-4f93-47bb-afe5-d796110f32c8" name="length" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U7ff82013-ada2-4ca3-8b97-ad01fa4805ef" xmi:uuid="7ff82013-ada2-4ca3-8b97-ad01fa4805ef" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U8e5603ea-a3bf-4f4d-b9b3-679411e0b569" xmi:uuid="8e5603ea-a3bf-4f4d-b9b3-679411e0b569" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U800aecb9-b114-49be-9299-4ae0faed3094" xmi:uuid="800aecb9-b114-49be-9299-4ae0faed3094" name="maxLength" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U4b3f4dac-a065-45d2-9b3b-bd9883b531e6" xmi:uuid="4b3f4dac-a065-45d2-9b3b-bd9883b531e6" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ufe6407b8-65c7-4178-9e0a-3cefd5774bbc" xmi:uuid="fe6407b8-65c7-4178-9e0a-3cefd5774bbc" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U1f879fbf-df86-4db0-8867-f4c19adbad41" xmi:uuid="1f879fbf-df86-4db0-8867-f4c19adbad41" name="minLength" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U7668824d-50fa-4f23-815e-54c7d7704197" xmi:uuid="7668824d-50fa-4f23-815e-54c7d7704197" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U9a5458b5-8522-4c29-a7d4-1bf80e311588" xmi:uuid="9a5458b5-8522-4c29-a7d4-1bf80e311588" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U2ceaf319-7169-46c3-8f13-d4fa140d59e1" xmi:uuid="2ceaf319-7169-46c3-8f13-d4fa140d59e1" name="base_DataType"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ub0577b85-3293-4357-a4e2-58920aa2f3c2" xmi:uuid="b0577b85-3293-4357-a4e2-58920aa2f3c2" name="NIEMCodeType">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U8b4a7cb8-de9b-46d5-8bf9-395933fc3460" xmi:uuid="8b4a7cb8-de9b-46d5-8bf9-395933fc3460" name="base" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Udc1295d5-fef7-4329-b32e-daae0e063fab" xmi:uuid="dc1295d5-fef7-4329-b32e-daae0e063fab" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ua4f75656-6081-43ff-9a4b-e194e2eae6f9" xmi:uuid="a4f75656-6081-43ff-9a4b-e194e2eae6f9" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U3f00ee7e-88bc-4dc3-bb15-6ca9f2b08d9c" xmi:uuid="3f00ee7e-88bc-4dc3-bb15-6ca9f2b08d9c" name="definition" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Uc4cc430b-27ca-4d89-b683-85347f85b8e5" xmi:uuid="c4cc430b-27ca-4d89-b683-85347f85b8e5" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U8d0ec1f9-3dc1-4f78-a3c6-9435f17cf48a" xmi:uuid="8d0ec1f9-3dc1-4f78-a3c6-9435f17cf48a" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uf6a4c7b1-42fb-42f8-a8eb-67aefd204e65" xmi:uuid="f6a4c7b1-42fb-42f8-a8eb-67aefd204e65" name="simple" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U14543c9c-2ea6-4f51-bbfd-9d9bd00040e9" xmi:uuid="14543c9c-2ea6-4f51-bbfd-9d9bd00040e9" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U33083835-d225-4a35-98a4-920630ba617e" xmi:uuid="33083835-d225-4a35-98a4-920630ba617e" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U03c5262c-f138-4d65-bc88-b7393e321978" xmi:uuid="03c5262c-f138-4d65-bc88-b7393e321978" name="base_Enumeration"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uf78feff2-f387-402b-8916-16b04cb6a7ad" xmi:uuid="f78feff2-f387-402b-8916-16b04cb6a7ad" name="NIEMCodeValue">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ua7b0e34a-c8d3-496f-8ca3-d30dfdd65710" xmi:uuid="a7b0e34a-c8d3-496f-8ca3-d30dfdd65710" name="definition" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ua09dab82-b69c-4e71-aa4e-50793b7df114" xmi:uuid="a09dab82-b69c-4e71-aa4e-50793b7df114" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U963cd350-9f15-4318-802e-b0ceb8354ec2" xmi:uuid="963cd350-9f15-4318-802e-b0ceb8354ec2" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ua735e777-89f6-4008-a867-5e2f492c4dcb" xmi:uuid="a735e777-89f6-4008-a867-5e2f492c4dcb" name="base_EnumerationLiteral"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U00e777c6-3e7a-4b81-95f8-fd33ffa94cdf" xmi:uuid="00e777c6-3e7a-4b81-95f8-fd33ffa94cdf" name="NIEMCSCType">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U31f3eb4e-1d96-441b-a3b5-52f771c601ad" xmi:uuid="31f3eb4e-1d96-441b-a3b5-52f771c601ad" name="base" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ud662c76f-c3f0-4789-9beb-647144b7e122" xmi:uuid="d662c76f-c3f0-4789-9beb-647144b7e122" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U4a391efb-885c-4ff1-a310-2f02eeff4876" xmi:uuid="4a391efb-885c-4ff1-a310-2f02eeff4876" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ueb8ff2cb-bb26-46a7-8957-332b031d4cf0" xmi:uuid="eb8ff2cb-bb26-46a7-8957-332b031d4cf0" name="definition" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U33b31721-c675-4663-8fd3-353078e452f6" xmi:uuid="33b31721-c675-4663-8fd3-353078e452f6" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ud56fed6f-923e-4a55-9d3d-ff7e36d5f2d0" xmi:uuid="d56fed6f-923e-4a55-9d3d-ff7e36d5f2d0" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U2ef432ba-26df-46d3-9f7d-1754114f1c0c" xmi:uuid="2ef432ba-26df-46d3-9f7d-1754114f1c0c" name="fractionDigits" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U7fe1bfaa-3240-4e54-9e9d-88f1f3b5de01" xmi:uuid="7fe1bfaa-3240-4e54-9e9d-88f1f3b5de01" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ubb7d76d7-03d9-42d5-a7bd-2138de3dfd74" xmi:uuid="bb7d76d7-03d9-42d5-a7bd-2138de3dfd74" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uf09917ad-9f08-40b8-b24b-5d61fcfa322f" xmi:uuid="f09917ad-9f08-40b8-b24b-5d61fcfa322f" name="maxExclusive" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U855bdcee-df27-429e-97d7-154422e0c87f" xmi:uuid="855bdcee-df27-429e-97d7-154422e0c87f" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U8c9d2e67-05c3-449e-b3f8-3585cbcc8596" xmi:uuid="8c9d2e67-05c3-449e-b3f8-3585cbcc8596" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uad240839-b20c-41cc-ab3f-28a4d142aebb" xmi:uuid="ad240839-b20c-41cc-ab3f-28a4d142aebb" name="maxInclusive" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U6d7a5533-04d1-4bde-b77f-5744a7a336dd" xmi:uuid="6d7a5533-04d1-4bde-b77f-5744a7a336dd" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U4b44c53b-5ba0-451c-866e-683beafffd70" xmi:uuid="4b44c53b-5ba0-451c-866e-683beafffd70" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Udf0e1492-bfcb-48f4-a1fd-a69e077ce523" xmi:uuid="df0e1492-bfcb-48f4-a1fd-a69e077ce523" name="minExclusive" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Udce403a7-dc25-4d96-b5df-dae53bffd745" xmi:uuid="dce403a7-dc25-4d96-b5df-dae53bffd745" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U5566535c-4746-4d66-85bf-b43e87f888f1" xmi:uuid="5566535c-4746-4d66-85bf-b43e87f888f1" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U6e64aef2-0f1f-4e86-9ebb-ffdb05c4d528" xmi:uuid="6e64aef2-0f1f-4e86-9ebb-ffdb05c4d528" name="minInclusive" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U8c19f3c6-525c-4011-a68b-978f315e88b3" xmi:uuid="8c19f3c6-525c-4011-a68b-978f315e88b3" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U36d14d43-15ee-43dc-ab99-2e4e27af6a69" xmi:uuid="36d14d43-15ee-43dc-ab99-2e4e27af6a69" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ued7e8f7b-65c6-491b-b4d8-1bb26e4fdcc6" xmi:uuid="ed7e8f7b-65c6-491b-b4d8-1bb26e4fdcc6" name="pattern" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U1076d6c3-cb85-4038-89bd-89c63c9c5570" xmi:uuid="1076d6c3-cb85-4038-89bd-89c63c9c5570" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U5a0ecc5e-be14-4b34-9941-2efdf1e302df" xmi:uuid="5a0ecc5e-be14-4b34-9941-2efdf1e302df" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ue8530e75-188d-4fc3-8cf1-f4cbfdae2497" xmi:uuid="e8530e75-188d-4fc3-8cf1-f4cbfdae2497" name="totalDigits" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U565d0a56-2ee0-4da3-b9e4-b5f8f86158fe" xmi:uuid="565d0a56-2ee0-4da3-b9e4-b5f8f86158fe" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U327bd18b-1062-41d9-8af9-1f6d782afde7" xmi:uuid="327bd18b-1062-41d9-8af9-1f6d782afde7" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U9b281b85-5294-4611-8182-b169d13cb1b8" xmi:uuid="9b281b85-5294-4611-8182-b169d13cb1b8" name="whiteSpace" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U92c0bbc8-d4f0-407e-a557-26c4a7272f04" xmi:uuid="92c0bbc8-d4f0-407e-a557-26c4a7272f04" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ubd184207-4d80-4653-a77b-c3845fb62692" xmi:uuid="bd184207-4d80-4653-a77b-c3845fb62692" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U4fa6094e-bee9-4d93-b587-ad0a44b9ba20" xmi:uuid="4fa6094e-bee9-4d93-b587-ad0a44b9ba20" name="simple" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ub4aa0175-1db2-45d0-9f9e-39c79277e6c7" xmi:uuid="b4aa0175-1db2-45d0-9f9e-39c79277e6c7" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ue0c58942-3837-48a9-9c86-e0650c8011c8" xmi:uuid="e0c58942-3837-48a9-9c86-e0650c8011c8" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U7f3f375c-66b2-482c-8061-19637eaec69a" xmi:uuid="7f3f375c-66b2-482c-8061-19637eaec69a" name="length" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U92a0b21d-65c5-4dfd-8370-e48b9ebf809c" xmi:uuid="92a0b21d-65c5-4dfd-8370-e48b9ebf809c" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ubd3baf83-2ff3-41af-a5f3-047474bd17cb" xmi:uuid="bd3baf83-2ff3-41af-a5f3-047474bd17cb" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ua8f174f2-8a87-4a44-b14a-f45b13d23e41" xmi:uuid="a8f174f2-8a87-4a44-b14a-f45b13d23e41" name="maxLength" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ua2666c57-b802-44d4-8fd4-04d1fcd5f158" xmi:uuid="a2666c57-b802-44d4-8fd4-04d1fcd5f158" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U198ea9e9-fe84-41d4-ba9c-69b13f4e4d1e" xmi:uuid="198ea9e9-fe84-41d4-ba9c-69b13f4e4d1e" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U50bd7b76-c749-480c-9043-2ddd9df325ff" xmi:uuid="50bd7b76-c749-480c-9043-2ddd9df325ff" name="minLength" visibility="public" type="Ua6ec818c-a325-4a87-84b1-fc925a510fd3">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Uc2e9b2aa-94d3-44cf-befb-53fd68a07b34" xmi:uuid="c2e9b2aa-94d3-44cf-befb-53fd68a07b34" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U9505f59e-c356-43f9-b334-cff62445f4af" xmi:uuid="9505f59e-c356-43f9-b334-cff62445f4af" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U4a02bcca-03dd-48d7-a3bc-ac61c8ab7b93" xmi:uuid="4a02bcca-03dd-48d7-a3bc-ac61c8ab7b93" name="base_DataType"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U1944f8f3-7533-4efd-82f6-1bc430b9dc87" xmi:uuid="1944f8f3-7533-4efd-82f6-1bc430b9dc87" name="NIEMCCCType">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ucfb3b270-27b8-4ffb-8deb-d40fe40d17e6" xmi:uuid="cfb3b270-27b8-4ffb-8deb-d40fe40d17e6" name="definition" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U67af2e5e-2e36-471a-9918-a350ae5e515d" xmi:uuid="67af2e5e-2e36-471a-9918-a350ae5e515d" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U27935642-f603-4625-a570-96d2e753de51" xmi:uuid="27935642-f603-4625-a570-96d2e753de51" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U7ca5c470-7eac-439f-8a09-51a6abf06a65" xmi:uuid="7ca5c470-7eac-439f-8a09-51a6abf06a65" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ub94ac46c-8bbb-4c8b-9a26-608f355ece12" xmi:uuid="b94ac46c-8bbb-4c8b-9a26-608f355ece12" name="NIEMProperty">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ub0de9bc1-21c1-466e-9d4e-ff3239a19e22" xmi:uuid="b0de9bc1-21c1-466e-9d4e-ff3239a19e22" name="definition" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ua85e8112-bfac-4cfb-ad24-82b4a14f086b" xmi:uuid="a85e8112-bfac-4cfb-ad24-82b4a14f086b" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U15de1473-40be-404e-b9a8-e30658ca91c6" xmi:uuid="15de1473-40be-404e-b9a8-e30658ca91c6" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ucc9d9f7c-aeba-46d1-86cb-105482bec006" xmi:uuid="cc9d9f7c-aeba-46d1-86cb-105482bec006" name="isElement" visibility="public" type="Ud2085278-beca-47b4-a04b-24e4563b51e6">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Uf3028b76-c079-4848-bdba-8127375c1289" xmi:uuid="f3028b76-c079-4848-bdba-8127375c1289" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ud8d4c82d-b5eb-4e54-a078-31bc4b760eac" xmi:uuid="d8d4c82d-b5eb-4e54-a078-31bc4b760eac" value="1"/>
+					<defaultValue xmi:type="uml:LiteralString" xmi:id="Ua0d0aec0-4d1e-4bac-a29c-42c5ab7d7b7d" xmi:uuid="a0d0aec0-4d1e-4bac-a29c-42c5ab7d7b7d" value="true"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ufc92c2a1-d31d-43ed-b87c-0494b4532f38" xmi:uuid="fc92c2a1-d31d-43ed-b87c-0494b4532f38" name="value" visibility="public" type="U3343d7f6-8361-4261-a8d1-a2511658ada1">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ua45b20a3-b423-4273-b141-ec0c353ccc6f" xmi:uuid="a45b20a3-b423-4273-b141-ec0c353ccc6f" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U6f410855-290c-44e4-a576-666187943de3" xmi:uuid="6f410855-290c-44e4-a576-666187943de3" value="1"/>
+					<defaultValue xmi:type="uml:InstanceValue" xmi:id="U9cb58f03-4ddc-4547-b36f-a39fb22fd433" xmi:uuid="9cb58f03-4ddc-4547-b36f-a39fb22fd433" instance="Ua9a312a2-e3b8-4a39-9754-9c82e63e44f1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uef60fc66-6cb5-4575-8e36-24e0f2a561df" xmi:uuid="ef60fc66-6cb5-4575-8e36-24e0f2a561df" name="namespace" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ub79aa5b7-bfad-45fa-9d42-947064227555" xmi:uuid="b79aa5b7-bfad-45fa-9d42-947064227555" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ua3258598-013f-4601-bd28-d97e36e33bc9" xmi:uuid="a3258598-013f-4601-bd28-d97e36e33bc9" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U6b3436da-095b-4d52-bd11-929931dd244d" xmi:uuid="6b3436da-095b-4d52-bd11-929931dd244d" name="substitutionGroupNamespace" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U2db89497-73e1-4153-a4d0-217f51604898" xmi:uuid="2db89497-73e1-4153-a4d0-217f51604898" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U2a1c72b2-3f06-4201-86b0-a33d480af64b" xmi:uuid="2a1c72b2-3f06-4201-86b0-a33d480af64b" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uf02ea2cb-3ae5-4f62-8087-af2fb86d84aa" xmi:uuid="f02ea2cb-3ae5-4f62-8087-af2fb86d84aa" name="substitutionGroupName" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="Ue73bba7a-c8a1-43c2-86c4-ba098af251fb" xmi:uuid="e73bba7a-c8a1-43c2-86c4-ba098af251fb" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Udbc473ec-e67b-4b9e-bb09-28a9fdb62f6c" xmi:uuid="dbc473ec-e67b-4b9e-bb09-28a9fdb62f6c" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U73e62790-65b6-4b13-87c4-06daf47aa13a" xmi:uuid="73e62790-65b6-4b13-87c4-06daf47aa13a" name="nillable" visibility="public" type="Ud2085278-beca-47b4-a04b-24e4563b51e6">
+					<defaultValue xmi:type="uml:LiteralString" xmi:id="U2d9e4af7-b993-4911-bfc9-0bb020930a3a" xmi:uuid="2d9e4af7-b993-4911-bfc9-0bb020930a3a" value="false"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U24a891f2-5d93-407f-a849-8c22f29198ef" xmi:uuid="24a891f2-5d93-407f-a849-8c22f29198ef" name="augmentedTypeName" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U33a6edf1-64e9-43b4-9b09-dd4c451b9d43" xmi:uuid="33a6edf1-64e9-43b4-9b09-dd4c451b9d43" name="augmentedTypeNamespace" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U8637279e-8748-4916-b9fd-ea1f6b990195" xmi:uuid="8637279e-8748-4916-b9fd-ea1f6b990195" name="base_Property"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U0178701d-75e8-48a5-82e5-d7e29e5160d0" xmi:uuid="0178701d-75e8-48a5-82e5-d7e29e5160d0" name="NIEMMetadataApplication">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ud9d51205-a078-44bb-a2db-c06846feadc5" xmi:uuid="d9d51205-a078-44bb-a2db-c06846feadc5" name="base_Dependency"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Enumeration" xmi:id="U3343d7f6-8361-4261-a8d1-a2511658ada1" xmi:uuid="3343d7f6-8361-4261-a8d1-a2511658ada1" name="NIEMPropertyValueCodeType">
+				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="U3e54dfa7-1c3f-43de-908a-b5de1bb580c4" xmi:uuid="3e54dfa7-1c3f-43de-908a-b5de1bb580c4" name="content"/>
+				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="Ua9a312a2-e3b8-4a39-9754-9c82e63e44f1" xmi:uuid="a9a312a2-e3b8-4a39-9754-9c82e63e44f1" name="contentMayBeReference"/>
+				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="Ud14d555a-c2d4-454c-b64d-c7204dda2e0a" xmi:uuid="d14d555a-c2d4-454c-b64d-c7204dda2e0a" name="reference"/>
+				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="U5a31b0ab-ad43-4e7f-9aa3-f5a8ac328d99" xmi:uuid="5a31b0ab-ad43-4e7f-9aa3-f5a8ac328d99" name="referenceMayBeContent"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U8fa7ae16-18ad-4d99-bb62-4dd0a18b1a4c" xmi:uuid="8fa7ae16-18ad-4d99-bb62-4dd0a18b1a4c" name="NIEMCodeSimpleType">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ucedcb746-f680-479d-9475-49c9cc684f1f" xmi:uuid="cedcb746-f680-479d-9475-49c9cc684f1f" name="base" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U267f9d5a-44f3-422d-bc69-0bb9912ff4c0" xmi:uuid="267f9d5a-44f3-422d-bc69-0bb9912ff4c0" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U8bd546c2-b22b-4c5f-a3a8-459ed50a8041" xmi:uuid="8bd546c2-b22b-4c5f-a3a8-459ed50a8041" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U9fa64aab-5a99-484b-a8bd-b620f58e42dd" xmi:uuid="9fa64aab-5a99-484b-a8bd-b620f58e42dd" name="definition" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U0a17d269-d75f-4920-9d42-34f7ae16c0db" xmi:uuid="0a17d269-d75f-4920-9d42-34f7ae16c0db" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ua5b37b6a-0484-4df6-bf34-09a09fa4f22f" xmi:uuid="a5b37b6a-0484-4df6-bf34-09a09fa4f22f" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U32b9cb30-b489-40dc-8bb5-a85eafff848a" xmi:uuid="32b9cb30-b489-40dc-8bb5-a85eafff848a" name="base_Enumeration"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U04277bd0-a023-4041-8bc2-2275c9f2b5ee" xmi:uuid="04277bd0-a023-4041-8bc2-2275c9f2b5ee" name="NIEMObjectType">
+				<generalization xmi:type="uml:Generalization" xmi:id="Ude845fea-325d-4f4c-a6e2-d5ad137c3d4a" xmi:uuid="de845fea-325d-4f4c-a6e2-d5ad137c3d4a" general="U1944f8f3-7533-4efd-82f6-1bc430b9dc87"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ud3e3c5df-4a9e-46fd-a2a9-59b07050740b" xmi:uuid="d3e3c5df-4a9e-46fd-a2a9-59b07050740b" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U5597158c-10e7-4212-9227-bdd59a5dd087" xmi:uuid="5597158c-10e7-4212-9227-bdd59a5dd087" name="NIEMAssociationType">
+				<generalization xmi:type="uml:Generalization" xmi:id="Ufe51322f-e13f-4f32-bed8-c09eff0e1961" xmi:uuid="fe51322f-e13f-4f32-bed8-c09eff0e1961" general="U1944f8f3-7533-4efd-82f6-1bc430b9dc87"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U657ce885-6a55-495c-891a-3c9fc4a374fe" xmi:uuid="657ce885-6a55-495c-891a-3c9fc4a374fe" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uf9b5f092-67a0-4a51-97b1-59a0ab3c1d9a" xmi:uuid="f9b5f092-67a0-4a51-97b1-59a0ab3c1d9a" name="NIEMMetadataType">
+				<generalization xmi:type="uml:Generalization" xmi:id="U16619e87-e1e7-4020-9408-e156026f8960" xmi:uuid="16619e87-e1e7-4020-9408-e156026f8960" general="U1944f8f3-7533-4efd-82f6-1bc430b9dc87"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uc46fd2d0-9a7e-4b26-9fc3-7e91cd5aaa38" xmi:uuid="c46fd2d0-9a7e-4b26-9fc3-7e91cd5aaa38" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U0b9153d7-a217-4522-9696-785ca52fa959" xmi:uuid="0b9153d7-a217-4522-9696-785ca52fa959" name="NIEMAugmentationType">
+				<generalization xmi:type="uml:Generalization" xmi:id="U2fdcc9cb-fa84-4cc8-99ff-58350705cf3a" xmi:uuid="2fdcc9cb-fa84-4cc8-99ff-58350705cf3a" general="U1944f8f3-7533-4efd-82f6-1bc430b9dc87"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ud3be459e-d6c9-468d-a8e1-c848df186a89" xmi:uuid="d3be459e-d6c9-468d-a8e1-c848df186a89" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U28d3ed7b-c2ca-4d06-a865-96967e4b4996" xmi:uuid="28d3ed7b-c2ca-4d06-a865-96967e4b4996" name="NIEMAdapterType">
+				<generalization xmi:type="uml:Generalization" xmi:id="U45b3b6d4-a078-4c1f-a2e4-42e15445f800" xmi:uuid="45b3b6d4-a078-4c1f-a2e4-42e15445f800" general="U1944f8f3-7533-4efd-82f6-1bc430b9dc87"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U2389f034-2c3e-4048-9a92-79a7992ae329" xmi:uuid="2389f034-2c3e-4048-9a92-79a7992ae329" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U07ce00e3-b1d4-4942-99d8-945d70cb03cd" xmi:uuid="07ce00e3-b1d4-4942-99d8-945d70cb03cd" name="NIEMExternalProperty">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U3b68e6a8-e361-41d2-86bf-4a5565c7960d" xmi:uuid="3b68e6a8-e361-41d2-86bf-4a5565c7960d" name="namespace" visibility="public" type="U58247fa9-1ecb-4c73-a169-16e51c26ba9c">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U436be4db-7a38-4119-96c6-793c1fd75f9d" xmi:uuid="436be4db-7a38-4119-96c6-793c1fd75f9d" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="Ue9ef10ae-22b1-4642-9450-8e27689adbba" xmi:uuid="e9ef10ae-22b1-4642-9450-8e27689adbba" value="1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ue5e12e67-1b9b-44b6-bf51-87106d79777d" xmi:uuid="e5e12e67-1b9b-44b6-bf51-87106d79777d" name="isElement" visibility="public" type="Ud2085278-beca-47b4-a04b-24e4563b51e6">
+					<lowerValue xmi:type="uml:LiteralString" xmi:id="U50acc79d-560d-4d05-a666-677ce993ced9" xmi:uuid="50acc79d-560d-4d05-a666-677ce993ced9" value="0"/>
+					<upperValue xmi:type="uml:LiteralString" xmi:id="U7802e7f6-c40e-422d-baa8-dd7ea74bf5fe" xmi:uuid="7802e7f6-c40e-422d-baa8-dd7ea74bf5fe" value="1"/>
+					<defaultValue xmi:type="uml:LiteralString" xmi:id="U197eb7f2-a9d6-46dc-8ac9-2e1ee3bca034" xmi:uuid="197eb7f2-a9d6-46dc-8ac9-2e1ee3bca034" value="true"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ue6effe37-548f-4bb8-8ed2-8d68bea242d4" xmi:uuid="e6effe37-548f-4bb8-8ed2-8d68bea242d4" name="base_Property"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uab83a997-21d6-4954-9310-ac4f4e66219c" xmi:uuid="ab83a997-21d6-4954-9310-ac4f4e66219c" name="NIEMTopLevel">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U50ec65d3-990e-45c4-93e4-b757d260e883" xmi:uuid="50ec65d3-990e-45c4-93e4-b757d260e883" name="base_Class"/>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement xmi:type="uml:Profile" xmi:id="U00000101-7510-11d9-86f2-000476a22f44" xmi:uuid="00000101-7510-11d9-86f2-000476a22f44" name="UML Standard Profile">
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U7102e796-9086-47f5-96b0-853473b344a9" xmi:uuid="7102e796-9086-47f5-96b0-853473b344a9" name="auxiliary">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ua1a3f0ea-7c2e-4c19-b5a1-a9886bece8d8" xmi:uuid="a1a3f0ea-7c2e-4c19-b5a1-a9886bece8d8" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ucc85566d-9b9f-4404-b1d3-fcaeac14f007" xmi:uuid="cc85566d-9b9f-4404-b1d3-fcaeac14f007" name="focus">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U4bccd5b3-0a4b-4df8-9d62-5053b2b3a910" xmi:uuid="4bccd5b3-0a4b-4df8-9d62-5053b2b3a910" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U395b4ae5-a69c-4c59-853b-179159fb157f" xmi:uuid="395b4ae5-a69c-4c59-853b-179159fb157f" name="implementationClass">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U97b4a66e-f383-42eb-b544-04688e2276e4" xmi:uuid="97b4a66e-f383-42eb-b544-04688e2276e4" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U27f6d8f0-ff91-40bb-88d1-1c19b1996f9a" xmi:uuid="27f6d8f0-ff91-40bb-88d1-1c19b1996f9a" name="metaClass">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ua1d76f16-8d8a-4c4c-8c19-dd7e0bd998ea" xmi:uuid="a1d76f16-8d8a-4c4c-8c19-dd7e0bd998ea" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U623be4f7-5916-4a61-ba05-9360d99411f6" xmi:uuid="623be4f7-5916-4a61-ba05-9360d99411f6" name="type">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U1cbee74b-c5e0-4702-b818-64f87729ce85" xmi:uuid="1cbee74b-c5e0-4702-b818-64f87729ce85" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uc81f06ba-a02c-4503-b7c4-7d211bb24151" xmi:uuid="c81f06ba-a02c-4503-b7c4-7d211bb24151" name="utility">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U5d9eb795-dd69-4412-8457-83e59b1cfd33" xmi:uuid="5d9eb795-dd69-4412-8457-83e59b1cfd33" name="base_Class"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U213e087a-e0af-4f0b-b3ed-7ca66cfe6bc8" xmi:uuid="213e087a-e0af-4f0b-b3ed-7ca66cfe6bc8" name="realization">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U63431cec-1836-4805-b005-c1d0f602f18b" xmi:uuid="63431cec-1836-4805-b005-c1d0f602f18b" name="base_Classifier"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uaf9ee301-6580-4698-8588-edc55612de9e" xmi:uuid="af9ee301-6580-4698-8588-edc55612de9e" name="specification">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U34852402-9f7b-4a7a-950f-2ae0734e5c99" xmi:uuid="34852402-9f7b-4a7a-950f-2ae0734e5c99" name="base_Classifier"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ua9a2213c-138b-42bf-a391-62eb56ef4d01" xmi:uuid="a9a2213c-138b-42bf-a391-62eb56ef4d01" name="buildComponent">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U5cd85303-e748-4505-92c5-d40363e3043b" xmi:uuid="5cd85303-e748-4505-92c5-d40363e3043b" name="base_Component"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ue6564679-08c9-4712-bb21-2f4214099ea2" xmi:uuid="e6564679-08c9-4712-bb21-2f4214099ea2" name="implement">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U36aa489e-39bd-43ed-90de-8ff735d8b0dd" xmi:uuid="36aa489e-39bd-43ed-90de-8ff735d8b0dd" name="base_Component"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ue32cb3a2-f562-4eea-9a74-5d42b99978df" xmi:uuid="e32cb3a2-f562-4eea-9a74-5d42b99978df" name="entity">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Udb7e2ddd-8b81-4e1e-a413-e3f5fcb006ac" xmi:uuid="db7e2ddd-8b81-4e1e-a413-e3f5fcb006ac" name="base_Component"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ud3921205-ea20-495a-8981-552ffc8609f5" xmi:uuid="d3921205-ea20-495a-8981-552ffc8609f5" name="process">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ud748cb5f-f3e6-4654-85f6-17200216710a" xmi:uuid="d748cb5f-f3e6-4654-85f6-17200216710a" name="base_Component"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U4a7dec1e-8017-488c-95f0-a9331f5a0018" xmi:uuid="4a7dec1e-8017-488c-95f0-a9331f5a0018" name="service">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U4e1f6034-fbf8-4028-92c2-852517227600" xmi:uuid="4e1f6034-fbf8-4028-92c2-852517227600" name="base_Component"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uc4c620e3-f772-4f0d-b2c9-e1e8c5b7eb81" xmi:uuid="c4c620e3-f772-4f0d-b2c9-e1e8c5b7eb81" name="subsystem">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ucce026a4-af11-4e6a-a26d-c0f3285a58b6" xmi:uuid="cce026a4-af11-4e6a-a26d-c0f3285a58b6" name="base_Component"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U5921c9f8-bc2e-4521-98b2-bc3620333fd9" xmi:uuid="5921c9f8-bc2e-4521-98b2-bc3620333fd9" name="call">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U524e240d-92b9-4c70-baba-696e64c09576" xmi:uuid="524e240d-92b9-4c70-baba-696e64c09576" name="base_Usage"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U36659676-56d8-4075-b6cb-4cf00a524bce" xmi:uuid="36659676-56d8-4075-b6cb-4cf00a524bce" name="create">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U6d6022ef-7fc9-4085-90a2-d5e71641e04c" xmi:uuid="6d6022ef-7fc9-4085-90a2-d5e71641e04c" name="base_Usage"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uf265048e-9234-4f06-b730-249b0ea7f047" xmi:uuid="f265048e-9234-4f06-b730-249b0ea7f047" name="instantiate">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U57dc65f0-be86-4429-99df-e6907a5ca409" xmi:uuid="57dc65f0-be86-4429-99df-e6907a5ca409" name="base_Usage"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U32fb35f2-18cd-4988-adb0-25370005c3fa" xmi:uuid="32fb35f2-18cd-4988-adb0-25370005c3fa" name="responsibility">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ub82db800-cfb4-4478-ab79-bc0a7228de6c" xmi:uuid="b82db800-cfb4-4478-ab79-bc0a7228de6c" name="base_Usage"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U03e401fe-5469-4287-bea2-1f0a0601853a" xmi:uuid="03e401fe-5469-4287-bea2-1f0a0601853a" name="send">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U7bb345fe-3fc5-47df-bbdf-f68fd445aa11" xmi:uuid="7bb345fe-3fc5-47df-bbdf-f68fd445aa11" name="base_Usage"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uf203a045-6784-4264-81d9-ef269f5099e0" xmi:uuid="f203a045-6784-4264-81d9-ef269f5099e0" name="create">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ubd973b39-29f2-4119-96e8-d610e69b0a85" xmi:uuid="bd973b39-29f2-4119-96e8-d610e69b0a85" name="base_BehavioralFeature"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ub6742a98-4fe3-4fc8-97ab-b9d1d487ad86" xmi:uuid="b6742a98-4fe3-4fc8-97ab-b9d1d487ad86" name="destroy">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ua9d749a7-be10-49fb-9f10-435725644b6a" xmi:uuid="a9d749a7-be10-49fb-9f10-435725644b6a" name="base_BehavioralFeature"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U5930e49d-13a3-4774-ac66-6f20ecb1fad0" xmi:uuid="5930e49d-13a3-4774-ac66-6f20ecb1fad0" name="derive">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ue287cf85-2d68-43c9-a9ca-95049bdb6049" xmi:uuid="e287cf85-2d68-43c9-a9ca-95049bdb6049" name="base_Abstraction"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U44835db1-381b-4fac-b645-2f016c7f8240" xmi:uuid="44835db1-381b-4fac-b645-2f016c7f8240" name="refine">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U6a6aaea8-a110-44a3-9490-e8df4c63285a" xmi:uuid="6a6aaea8-a110-44a3-9490-e8df4c63285a" name="base_Abstraction"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ubae7a31a-f663-4fd2-bd8f-09212363b118" xmi:uuid="bae7a31a-f663-4fd2-bd8f-09212363b118" name="trace">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U183e6a76-03d3-4cd7-97b3-3b0e1331d5c7" xmi:uuid="183e6a76-03d3-4cd7-97b3-3b0e1331d5c7" name="base_Abstraction"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ud92c58de-1049-4bea-a0c9-d65bef0ac403" xmi:uuid="d92c58de-1049-4bea-a0c9-d65bef0ac403" name="framework">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Ube43d695-94d8-4bcb-abea-b17ea174882a" xmi:uuid="be43d695-94d8-4bcb-abea-b17ea174882a" name="base_Package"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Ua9fb8788-2c54-49f7-a6d6-83ed8b2fcf22" xmi:uuid="a9fb8788-2c54-49f7-a6d6-83ed8b2fcf22" name="modelLibrary">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uc4a83392-f545-459a-964b-6b70591fa9be" xmi:uuid="c4a83392-f545-459a-964b-6b70591fa9be" name="base_Package"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U92778327-c425-44a1-994b-57dcdc92819d" xmi:uuid="92778327-c425-44a1-994b-57dcdc92819d" name="document">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U9f5092a7-3962-490b-9860-294bd46690cb" xmi:uuid="9f5092a7-3962-490b-9860-294bd46690cb" name="base_Artifact"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Uf47aaecd-7572-4af3-bd89-fe569d6969c3" xmi:uuid="f47aaecd-7572-4af3-bd89-fe569d6969c3" name="executable">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uc052df30-9ccf-4ed3-84ca-5a794f89b549" xmi:uuid="c052df30-9ccf-4ed3-84ca-5a794f89b549" name="base_Artifact"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U488427f5-2318-4cff-8cff-e194a8a77301" xmi:uuid="488427f5-2318-4cff-8cff-e194a8a77301" name="file">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U9206439e-63be-400c-8d9f-1bec22201e25" xmi:uuid="9206439e-63be-400c-8d9f-1bec22201e25" name="base_Artifact"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U018e035c-52ba-4443-b72c-3c98091fefe7" xmi:uuid="018e035c-52ba-4443-b72c-3c98091fefe7" name="library">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U29554ae4-3e6f-49fb-b831-df664b178f2e" xmi:uuid="29554ae4-3e6f-49fb-b831-df664b178f2e" name="base_Artifact"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U75bd2bb0-8d7e-4562-8577-d0c804f38863" xmi:uuid="75bd2bb0-8d7e-4562-8577-d0c804f38863" name="script">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="Uf2ac0fd2-127b-49d2-ba63-df7ac8465d8c" xmi:uuid="f2ac0fd2-127b-49d2-ba63-df7ac8465d8c" name="base_Artifact"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U7b176056-50f2-47c2-a2aa-505ec0012533" xmi:uuid="7b176056-50f2-47c2-a2aa-505ec0012533" name="source">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U5990ec7a-6120-4d1a-bece-ac754d738b7b" xmi:uuid="5990ec7a-6120-4d1a-bece-ac754d738b7b" name="base_Artifact"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="Udad020af-9237-4bcc-b5fb-66fad263c109" xmi:uuid="dad020af-9237-4bcc-b5fb-66fad263c109" name="metamodel">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U2d1b40fb-c40f-41ed-95ed-6e1a53e14acf" xmi:uuid="2d1b40fb-c40f-41ed-95ed-6e1a53e14acf" name="base_Model"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="U193b445e-39bf-4a4f-afb1-0085d59e064d" xmi:uuid="193b445e-39bf-4a4f-afb1-0085d59e064d" name="systemModel">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="U03292d4b-ec4f-4e1e-a186-dd376ca39015" xmi:uuid="03292d4b-ec4f-4e1e-a186-dd376ca39015" name="base_Model"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="Ua6ec818c-a325-4a87-84b1-fc925a510fd3" xmi:uuid="a6ec818c-a325-4a87-84b1-fc925a510fd3" name="Integer"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="Ud2085278-beca-47b4-a04b-24e4563b51e6" xmi:uuid="d2085278-beca-47b4-a04b-24e4563b51e6" name="Boolean"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="U58247fa9-1ecb-4c73-a169-16e51c26ba9c" xmi:uuid="58247fa9-1ecb-4c73-a169-16e51c26ba9c" name="String"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="Ue21c2932-4193-4b78-babc-5af5b6779e66" xmi:uuid="e21c2932-4193-4b78-babc-5af5b6779e66" name="UnlimitedNatural"/>
+		</packagedElement>
+	</uml:Package>
+</xmi:XMI>

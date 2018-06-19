@@ -1,0 +1,1947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20110701"
+         xmlns:mofext="http://www.omg.org/spec/MOF/20110701"
+         xmlns:uml="http://www.omg.org/spec/UML/20110701">
+   <uml:Profile URI="http://www.omg.org/spec/SysML/20110919/SysML" xmi:type="uml:Profile"
+                xmi:id="_OMG_SysML_20110919_SysML__0"
+                name="SysML"
+                visibility="public">
+      <metamodelReference xmi:idref="_OMG_SysML_20110919_SysML_packageImport.0"/>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_OMG_SysML_20110919_SysML_packageImport.0">
+         <importedPackage href="http://www.omg.org/spec/UML/20110701/UML.xmi#_0"/>
+      </packageImport>
+      <packageImport xmi:type="uml:PackageImport" xmi:id="_OMG_SysML_20110919_SysML_packageImport.1">
+         <importedPackage href="http://www.omg.org/spec/UML/20110701/StandardProfileL2.xmi#_0"/>
+      </packageImport>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows"
+                       name="Ports&amp;Flows">
+         <packageImport xmi:type="uml:PackageImport"
+                        xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-packageImport.0"
+                        importedPackage="_OMG_SysML_20110919_SysML_Blocks"/>
+         <packagedElement xmi:type="uml:Enumeration"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection"
+                          name="FlowDirection">
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection-in"
+                          name="in"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection"/>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection-out"
+                          name="out"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection"/>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection-inout"
+                          name="inout"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection"/>
+            </ownedLiteral>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FullPort"
+                          name="FullPort">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FullPort-base_Port"
+                            name="base_Port"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_FullPort">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Port"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ProxyPort"
+                          name="ProxyPort">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ProxyPort-base_Port"
+                            name="base_Port"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_ProxyPort">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Port"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_FullPort"
+                          name="E_base_Port_extension_FullPort">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FullPort-base_Port"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_FullPort-extension_FullPort"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_FullPort-extension_FullPort"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_FullPort-extension_FullPort"
+                      name="extension_FullPort"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FullPort"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_FullPort">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_FullPort-extension_FullPort-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_ProxyPort"
+                          name="E_base_Port_extension_ProxyPort">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ProxyPort-base_Port"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_ProxyPort-extension_ProxyPort"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_ProxyPort-extension_ProxyPort"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_ProxyPort-extension_ProxyPort"
+                      name="extension_ProxyPort"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ProxyPort"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_ProxyPort">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Port_extension_ProxyPort-extension_ProxyPort-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowProperty"
+                          name="FlowProperty">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowProperty-direction"
+                            name="direction"
+                            visibility="public"
+                            type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection"/>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowProperty-base_Property"
+                            name="base_Property"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Property_extension_FlowProperty">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Property"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ItemFlow"
+                          name="ItemFlow">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ItemFlow-itemProperty"
+                            name="itemProperty"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Property"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ItemFlow-itemProperty-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ItemFlow-base_InformationFlow"
+                            name="base_InformationFlow"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InformationFlow_extension_ItemFlow">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#InformationFlow"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InterfaceBlock"
+                          name="InterfaceBlock">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InterfaceBlock-generalization.0"
+                            general="_OMG_SysML_20110919_SysML_Blocks-Block"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InvocationOnNestedPortAction"
+                          name="InvocationOnNestedPortAction">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InvocationOnNestedPortAction-base_InvocationAction"
+                            name="base_InvocationAction"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InvocationAction_extension_InvocationOnNestedPortAction">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#InvocationAction"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InvocationOnNestedPortAction-onNestedPort"
+                            name="onNestedPort"
+                            visibility="public"
+                            isOrdered="true"
+                            isUnique="false"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_invocationOnNestedPortAction_onNestedPort">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Port"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InvocationOnNestedPortAction-onNestedPort-upperValue"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-TriggerOnNestedPort"
+                          name="TriggerOnNestedPort">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-TriggerOnNestedPort-base_Trigger"
+                            name="base_Trigger"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Trigger_extension_TriggerOnNestedPort">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Trigger"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-TriggerOnNestedPort-onNestedPort"
+                            name="onNestedPort"
+                            visibility="public"
+                            isOrdered="true"
+                            isUnique="false"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_triggerOnNestedPort_onNestedPort">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Port"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-TriggerOnNestedPort-onNestedPort-upperValue"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-AcceptChangeStructuralFeatureEventAction"
+                          name="AcceptChangeStructuralFeatureEventAction">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-AcceptChangeStructuralFeatureEventAction-base_AcceptEventAction"
+                            name="base_AcceptEventAction"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_AcceptEventAction_extension_AcceptChangeStructuralFeatureEventAction">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#AcceptEventAction"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ChangeStructuralFeatureEvent"
+                          name="ChangeStructuralFeatureEvent">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ChangeStructuralFeatureEvent-base_ChangeEvent"
+                            name="base_ChangeEvent"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_ChangeEvent_extension_ChangeStructuralFeatureEvent">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ChangeEvent"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ChangeStructuralFeatureEvent-structuralFeature"
+                            name="structuralFeature"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_changeStructuralFeatureEvent_structuralFeature">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#StructuralFeature"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-DirectedFeature"
+                          name="DirectedFeature">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-DirectedFeature-featureDirection"
+                            name="featureDirection"
+                            visibility="public"
+                            type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FeatureDirection"/>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-DirectedFeature-base_Feature"
+                            name="base_Feature"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Feature_extension_DirectedFeature">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Feature"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Enumeration"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FeatureDirection"
+                          name="FeatureDirection">
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FeatureDirection-provided"
+                          name="provided"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FeatureDirection"/>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FeatureDirection-required"
+                          name="required"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FeatureDirection"/>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FeatureDirection-providedRequired"
+                          name="providedRequired"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FeatureDirection"/>
+            </ownedLiteral>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InformationFlow_extension_ItemFlow"
+                          name="E_base_InformationFlow_extension_ItemFlow">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ItemFlow-base_InformationFlow"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InformationFlow_extension_ItemFlow-extension_ItemFlow"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InformationFlow_extension_ItemFlow-extension_ItemFlow"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InformationFlow_extension_ItemFlow-extension_ItemFlow"
+                      name="extension_ItemFlow"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ItemFlow"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InformationFlow_extension_ItemFlow">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InformationFlow_extension_ItemFlow-extension_ItemFlow-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_AcceptEventAction_extension_AcceptChangeStructuralFeatureEventAction"
+                          name="E_base_AcceptEventAction_extension_AcceptChangeStructuralFeatureEventAction">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-AcceptChangeStructuralFeatureEventAction-base_AcceptEventAction"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_AcceptEventAction_extension_AcceptChangeStructuralFeatureEventAction-extension_AcceptChangeStructuralFeatureEventAction"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_AcceptEventAction_extension_AcceptChangeStructuralFeatureEventAction-extension_AcceptChangeStructuralFeatureEventAction"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_AcceptEventAction_extension_AcceptChangeStructuralFeatureEventAction-extension_AcceptChangeStructuralFeatureEventAction"
+                      name="extension_AcceptChangeStructuralFeatureEventAction"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-AcceptChangeStructuralFeatureEventAction"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_AcceptEventAction_extension_AcceptChangeStructuralFeatureEventAction">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_AcceptEventAction_extension_AcceptChangeStructuralFeatureEventAction-extension_AcceptChangeStructuralFeatureEventAction-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_ChangeEvent_extension_ChangeStructuralFeatureEvent"
+                          name="E_base_ChangeEvent_extension_ChangeStructuralFeatureEvent">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ChangeStructuralFeatureEvent-base_ChangeEvent"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_ChangeEvent_extension_ChangeStructuralFeatureEvent-extension_ChangeStructuralFeatureEvent"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_ChangeEvent_extension_ChangeStructuralFeatureEvent-extension_ChangeStructuralFeatureEvent"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_ChangeEvent_extension_ChangeStructuralFeatureEvent-extension_ChangeStructuralFeatureEvent"
+                      name="extension_ChangeStructuralFeatureEvent"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ChangeStructuralFeatureEvent"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_ChangeEvent_extension_ChangeStructuralFeatureEvent">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_ChangeEvent_extension_ChangeStructuralFeatureEvent-extension_ChangeStructuralFeatureEvent-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_changeStructuralFeatureEvent_structuralFeature"
+                          name="A_changeStructuralFeatureEvent_structuralFeature">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_changeStructuralFeatureEvent_structuralFeature-changeStructuralFeatureEvent"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ChangeStructuralFeatureEvent-structuralFeature"/>
+            <ownedEnd xmi:type="uml:Property"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_changeStructuralFeatureEvent_structuralFeature-changeStructuralFeatureEvent"
+                      name="changeStructuralFeatureEvent"
+                      visibility="public"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-ChangeStructuralFeatureEvent"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_changeStructuralFeatureEvent_structuralFeature">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_changeStructuralFeatureEvent_structuralFeature-changeStructuralFeatureEvent-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_changeStructuralFeatureEvent_structuralFeature-changeStructuralFeatureEvent-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Feature_extension_DirectedFeature"
+                          name="E_base_Feature_extension_DirectedFeature">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-DirectedFeature-base_Feature"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Feature_extension_DirectedFeature-extension_DirectedFeature"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Feature_extension_DirectedFeature-extension_DirectedFeature"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Feature_extension_DirectedFeature-extension_DirectedFeature"
+                      name="extension_DirectedFeature"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-DirectedFeature"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Feature_extension_DirectedFeature">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Feature_extension_DirectedFeature-extension_DirectedFeature-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InvocationAction_extension_InvocationOnNestedPortAction"
+                          name="E_base_InvocationAction_extension_InvocationOnNestedPortAction">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InvocationOnNestedPortAction-base_InvocationAction"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InvocationAction_extension_InvocationOnNestedPortAction-extension_InvocationOnNestedPortAction"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InvocationAction_extension_InvocationOnNestedPortAction-extension_InvocationOnNestedPortAction"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InvocationAction_extension_InvocationOnNestedPortAction-extension_InvocationOnNestedPortAction"
+                      name="extension_InvocationOnNestedPortAction"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InvocationOnNestedPortAction"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InvocationAction_extension_InvocationOnNestedPortAction">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_InvocationAction_extension_InvocationOnNestedPortAction-extension_InvocationOnNestedPortAction-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Trigger_extension_TriggerOnNestedPort"
+                          name="E_base_Trigger_extension_TriggerOnNestedPort">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-TriggerOnNestedPort-base_Trigger"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Trigger_extension_TriggerOnNestedPort-extension_TriggerOnNestedPort"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Trigger_extension_TriggerOnNestedPort-extension_TriggerOnNestedPort"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Trigger_extension_TriggerOnNestedPort-extension_TriggerOnNestedPort"
+                      name="extension_TriggerOnNestedPort"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-TriggerOnNestedPort"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Trigger_extension_TriggerOnNestedPort">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Trigger_extension_TriggerOnNestedPort-extension_TriggerOnNestedPort-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_invocationOnNestedPortAction_onNestedPort"
+                          name="A_invocationOnNestedPortAction_onNestedPort">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_invocationOnNestedPortAction_onNestedPort-invocationOnNestedPortAction"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InvocationOnNestedPortAction-onNestedPort"/>
+            <ownedEnd xmi:type="uml:Property"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_invocationOnNestedPortAction_onNestedPort-invocationOnNestedPortAction"
+                      name="invocationOnNestedPortAction"
+                      visibility="public"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-InvocationOnNestedPortAction"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_invocationOnNestedPortAction_onNestedPort">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_invocationOnNestedPortAction_onNestedPort-invocationOnNestedPortAction-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_invocationOnNestedPortAction_onNestedPort-invocationOnNestedPortAction-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_triggerOnNestedPort_onNestedPort"
+                          name="A_triggerOnNestedPort_onNestedPort">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_triggerOnNestedPort_onNestedPort-triggerOnNestedPort"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-TriggerOnNestedPort-onNestedPort"/>
+            <ownedEnd xmi:type="uml:Property"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_triggerOnNestedPort_onNestedPort-triggerOnNestedPort"
+                      name="triggerOnNestedPort"
+                      visibility="public"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-TriggerOnNestedPort"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_triggerOnNestedPort_onNestedPort">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_triggerOnNestedPort_onNestedPort-triggerOnNestedPort-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-A_triggerOnNestedPort_onNestedPort-triggerOnNestedPort-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Property_extension_FlowProperty"
+                          name="E_base_Property_extension_FlowProperty">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowProperty-base_Property"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Property_extension_FlowProperty-extension_FlowProperty"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Property_extension_FlowProperty-extension_FlowProperty"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Property_extension_FlowProperty-extension_FlowProperty"
+                      name="extension_FlowProperty"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowProperty"
+                      association="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Property_extension_FlowProperty">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Ports_u0026Flows-E_base_Property_extension_FlowProperty-extension_FlowProperty-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements"
+                       name="DeprecatedElements">
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowPort"
+                          name="FlowPort">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowPort-isAtomic"
+                            name="isAtomic"
+                            visibility="public"
+                            isDerived="true">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowPort-direction"
+                            name="direction"
+                            visibility="public"
+                            type="_OMG_SysML_20110919_SysML_Ports_u0026Flows-FlowDirection"/>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowPort-base_Port"
+                            name="base_Port"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Port_extension_">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Port"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Port_extension_"
+                          name="E_base_Port_extension_">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowPort-base_Port"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Port_extension_-extension_FlowPort"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Port_extension_-extension_FlowPort"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Port_extension_-extension_FlowPort"
+                      name="extension_FlowPort"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowPort"
+                      association="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Port_extension_">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Port_extension_-extension_FlowPort-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowSpecification"
+                          name="FlowSpecification">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowSpecification-base_Interface"
+                            name="base_Interface"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Interface_extension_">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Interface"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Interface_extension_"
+                          name="E_base_Interface_extension_">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowSpecification-base_Interface"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Interface_extension_-extension_FlowSpecification"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Interface_extension_-extension_FlowSpecification"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Interface_extension_-extension_FlowSpecification"
+                      name="extension_FlowSpecification"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_DeprecatedElements-FlowSpecification"
+                      association="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Interface_extension_">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_DeprecatedElements-E_base_Interface_extension_-extension_FlowSpecification-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_Allocations"
+                       name="Allocations">
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Allocations-AllocateActivityPartition"
+                          name="AllocateActivityPartition">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Allocations-AllocateActivityPartition-base_ActivityPartition"
+                            name="base_ActivityPartition"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Allocations-E_extension_AllocateActivityPartition_base_ActivityPartition">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ActivityPartition"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocate"
+                          name="Allocate">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocate-base_Abstraction"
+                            name="base_Abstraction"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocate_base_Abstraction">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Abstraction"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocated"
+                          name="Allocated">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocated-allocatedFrom"
+                            name="allocatedFrom"
+                            visibility="public"
+                            isDerived="true">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#NamedElement"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocated-allocatedFrom-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocated-allocatedFrom-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocated-allocatedTo"
+                            name="allocatedTo"
+                            visibility="public"
+                            isDerived="true">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#NamedElement"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocated-allocatedTo-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocated-allocatedTo-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Allocations-Allocated-base_NamedElement"
+                            name="base_NamedElement"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocated_base_NamedElement">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#NamedElement"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_AllocateActivityPartition_base_ActivityPartition"
+                          name="E_extension_AllocateActivityPartition_base_ActivityPartition">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-E_extension_AllocateActivityPartition_base_ActivityPartition-extension_AllocateActivityPartition"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-AllocateActivityPartition-base_ActivityPartition"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-E_extension_AllocateActivityPartition_base_ActivityPartition-extension_AllocateActivityPartition"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_AllocateActivityPartition_base_ActivityPartition-extension_AllocateActivityPartition"
+                      name="extension_AllocateActivityPartition"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Allocations-AllocateActivityPartition"
+                      association="_OMG_SysML_20110919_SysML_Allocations-E_extension_AllocateActivityPartition_base_ActivityPartition">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_AllocateActivityPartition_base_ActivityPartition-extension_AllocateActivityPartition-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocate_base_Abstraction"
+                          name="E_extension_Allocate_base_Abstraction">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocate_base_Abstraction-extension_Allocate"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-Allocate-base_Abstraction"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocate_base_Abstraction-extension_Allocate"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocate_base_Abstraction-extension_Allocate"
+                      name="extension_Allocate"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Allocations-Allocate"
+                      association="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocate_base_Abstraction">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocate_base_Abstraction-extension_Allocate-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocated_base_NamedElement"
+                          name="E_extension_Allocated_base_NamedElement">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocated_base_NamedElement-extension_Allocated"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-Allocated-base_NamedElement"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocated_base_NamedElement-extension_Allocated"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocated_base_NamedElement-extension_Allocated"
+                      name="extension_Allocated"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Allocations-Allocated"
+                      association="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocated_base_NamedElement">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Allocations-E_extension_Allocated_base_NamedElement-extension_Allocated-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_Blocks" name="Blocks">
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-DistributedProperty"
+                          name="DistributedProperty">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-DistributedProperty-base_Property"
+                            name="base_Property"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_DistributedProperty_base_Property">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Property"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-PropertySpecificType"
+                          name="PropertySpecificType">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-PropertySpecificType-base_Classifier"
+                            name="base_Classifier"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_PropertySpecificType_base_Classifier">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Classifier"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-ParticipantProperty"
+                          name="ParticipantProperty">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-ParticipantProperty-end"
+                            name="end"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Property"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-ParticipantProperty-base_Property"
+                            name="base_Property"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_ParticipantProperty_base_Property">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Property"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype" xmi:id="_OMG_SysML_20110919_SysML_Blocks-ValueType"
+                          name="ValueType">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-ValueType-quantityKind"
+                            name="quantityKind"
+                            visibility="public"
+                            type="_OMG_SysML_20110919_SysML_Blocks-QuantityKind"
+                            association="_OMG_SysML_20110919_SysML_Blocks-A_valueType_quantityKind">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-ValueType-quantityKind-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-ValueType-unit"
+                            name="unit"
+                            visibility="public"
+                            type="_OMG_SysML_20110919_SysML_Blocks-Unit"
+                            association="_OMG_SysML_20110919_SysML_Blocks-A_valueType_unit">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-ValueType-unit-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-ValueType-base_DataType"
+                            name="base_DataType"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_ValueType_base_DataType">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#DataType"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-QuantityKind"
+                          name="QuantityKind">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-QuantityKind-symbol"
+                            name="symbol"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-QuantityKind-symbol-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-QuantityKind-description"
+                            name="description"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-QuantityKind-description-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-QuantityKind-definitionURI"
+                            name="definitionURI"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-QuantityKind-definitionURI-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-QuantityKind-base_InstanceSpecification"
+                            name="base_InstanceSpecification"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_QuantityKind_base_InstanceSpecification">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#InstanceSpecification"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype" xmi:id="_OMG_SysML_20110919_SysML_Blocks-Block"
+                          name="Block">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-Block-isEncapsulated"
+                            name="isEncapsulated"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Boolean"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-Block-isEncapsulated-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-Block-base_Class"
+                            name="base_Class"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_Block_base_Class">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Class"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-ConnectorProperty"
+                          name="ConnectorProperty">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-ConnectorProperty-connector"
+                            name="connector"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Connector"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-ConnectorProperty-base_Property"
+                            name="base_Property"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_ConnectorProperty_base_Property">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Property"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype" xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit"
+                          name="Unit">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-quantityKind"
+                            name="quantityKind"
+                            visibility="public"
+                            type="_OMG_SysML_20110919_SysML_Blocks-QuantityKind"
+                            association="_OMG_SysML_20110919_SysML_Blocks-A_unit_quantityKind">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-quantityKind-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-symbol"
+                            name="symbol"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-symbol-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-description"
+                            name="description"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-description-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-definitionURI"
+                            name="definitionURI"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-definitionURI-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-Unit-base_InstanceSpecification"
+                            name="base_InstanceSpecification"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_base_InstanceSpecification_extension_Unit">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#InstanceSpecification"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-NestedConnectorEnd"
+                          name="NestedConnectorEnd">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-NestedConnectorEnd-propertyPath"
+                            name="propertyPath"
+                            visibility="public"
+                            isOrdered="true"
+                            isUnique="false">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Property"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-NestedConnectorEnd-propertyPath-upperValue"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-NestedConnectorEnd-base_ConnectorEnd"
+                            name="base_ConnectorEnd"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_NestedConnectorEnd_base_ConnectorEnd">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ConnectorEnd"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-BindingConnector"
+                          name="BindingConnector">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Blocks-BindingConnector-base_Connector"
+                            name="base_Connector"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Blocks-E_extension_BindingConnector_base_Connector">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Connector"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_valueType_unit"
+                          name="A_valueType_unit">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-A_valueType_unit-valueType"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-ValueType-unit"/>
+            <ownedEnd xmi:type="uml:Property"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_valueType_unit-valueType"
+                      name="valueType"
+                      visibility="public"
+                      type="_OMG_SysML_20110919_SysML_Blocks-ValueType"
+                      association="_OMG_SysML_20110919_SysML_Blocks-A_valueType_unit">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_valueType_unit-valueType-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_valueType_unit-valueType-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_valueType_quantityKind"
+                          name="A_valueType_quantityKind">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-A_valueType_quantityKind-valueType"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-ValueType-quantityKind"/>
+            <ownedEnd xmi:type="uml:Property"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_valueType_quantityKind-valueType"
+                      name="valueType"
+                      visibility="public"
+                      type="_OMG_SysML_20110919_SysML_Blocks-ValueType"
+                      association="_OMG_SysML_20110919_SysML_Blocks-A_valueType_quantityKind">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_valueType_quantityKind-valueType-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_valueType_quantityKind-valueType-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_unit_quantityKind"
+                          name="A_unit_quantityKind">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-A_unit_quantityKind-unit"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-Unit-quantityKind"/>
+            <ownedEnd xmi:type="uml:Property"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_unit_quantityKind-unit"
+                      name="unit"
+                      visibility="public"
+                      type="_OMG_SysML_20110919_SysML_Blocks-Unit"
+                      association="_OMG_SysML_20110919_SysML_Blocks-A_unit_quantityKind">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_unit_quantityKind-unit-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-A_unit_quantityKind-unit-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_Block_base_Class"
+                          name="E_extension_Block_base_Class">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_Block_base_Class-extension_Block"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-Block-base_Class"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_Block_base_Class-extension_Block"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_Block_base_Class-extension_Block"
+                      name="extension_Block"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-Block"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_Block_base_Class">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_Block_base_Class-extension_Block-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_PropertySpecificType_base_Classifier"
+                          name="E_extension_PropertySpecificType_base_Classifier">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_PropertySpecificType_base_Classifier-extension_PropertySpecificType"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-PropertySpecificType-base_Classifier"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_PropertySpecificType_base_Classifier-extension_PropertySpecificType"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_PropertySpecificType_base_Classifier-extension_PropertySpecificType"
+                      name="extension_PropertySpecificType"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-PropertySpecificType"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_PropertySpecificType_base_Classifier">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_PropertySpecificType_base_Classifier-extension_PropertySpecificType-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_NestedConnectorEnd_base_ConnectorEnd"
+                          name="E_extension_NestedConnectorEnd_base_ConnectorEnd">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_NestedConnectorEnd_base_ConnectorEnd-extension_NestedConnectorEnd"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-NestedConnectorEnd-base_ConnectorEnd"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_NestedConnectorEnd_base_ConnectorEnd-extension_NestedConnectorEnd"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_NestedConnectorEnd_base_ConnectorEnd-extension_NestedConnectorEnd"
+                      name="extension_NestedConnectorEnd"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-NestedConnectorEnd"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_NestedConnectorEnd_base_ConnectorEnd">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_NestedConnectorEnd_base_ConnectorEnd-extension_NestedConnectorEnd-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_BindingConnector_base_Connector"
+                          name="E_extension_BindingConnector_base_Connector">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_BindingConnector_base_Connector-extension_BindingConnector"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-BindingConnector-base_Connector"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_BindingConnector_base_Connector-extension_BindingConnector"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_BindingConnector_base_Connector-extension_BindingConnector"
+                      name="extension_BindingConnector"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-BindingConnector"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_BindingConnector_base_Connector">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_BindingConnector_base_Connector-extension_BindingConnector-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ValueType_base_DataType"
+                          name="E_extension_ValueType_base_DataType">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_ValueType_base_DataType-extension_ValueType"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-ValueType-base_DataType"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_ValueType_base_DataType-extension_ValueType"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ValueType_base_DataType-extension_ValueType"
+                      name="extension_ValueType"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-ValueType"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_ValueType_base_DataType">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ValueType_base_DataType-extension_ValueType-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_base_InstanceSpecification_extension_Unit"
+                          name="E_base_InstanceSpecification_extension_Unit">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-Unit-base_InstanceSpecification"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_base_InstanceSpecification_extension_Unit-extension_Unit"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_base_InstanceSpecification_extension_Unit-extension_Unit"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_base_InstanceSpecification_extension_Unit-extension_Unit"
+                      name="extension_Unit"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-Unit"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_base_InstanceSpecification_extension_Unit">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_base_InstanceSpecification_extension_Unit-extension_Unit-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_QuantityKind_base_InstanceSpecification"
+                          name="E_extension_QuantityKind_base_InstanceSpecification">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_QuantityKind_base_InstanceSpecification-extension_QuantityKind"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-QuantityKind-base_InstanceSpecification"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_QuantityKind_base_InstanceSpecification-extension_QuantityKind"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_QuantityKind_base_InstanceSpecification-extension_QuantityKind"
+                      name="extension_QuantityKind"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-QuantityKind"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_QuantityKind_base_InstanceSpecification">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_QuantityKind_base_InstanceSpecification-extension_QuantityKind-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_DistributedProperty_base_Property"
+                          name="E_extension_DistributedProperty_base_Property">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_DistributedProperty_base_Property-extension_DistributedProperty"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-DistributedProperty-base_Property"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_DistributedProperty_base_Property-extension_DistributedProperty"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_DistributedProperty_base_Property-extension_DistributedProperty"
+                      name="extension_DistributedProperty"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-DistributedProperty"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_DistributedProperty_base_Property">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_DistributedProperty_base_Property-extension_DistributedProperty-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ParticipantProperty_base_Property"
+                          name="E_extension_ParticipantProperty_base_Property">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_ParticipantProperty_base_Property-extension_ParticipantProperty"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-ParticipantProperty-base_Property"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_ParticipantProperty_base_Property-extension_ParticipantProperty"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ParticipantProperty_base_Property-extension_ParticipantProperty"
+                      name="extension_ParticipantProperty"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-ParticipantProperty"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_ParticipantProperty_base_Property">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ParticipantProperty_base_Property-extension_ParticipantProperty-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ConnectorProperty_base_Property"
+                          name="E_extension_ConnectorProperty_base_Property">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_ConnectorProperty_base_Property-extension_ConnectorProperty"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-ConnectorProperty-base_Property"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Blocks-E_extension_ConnectorProperty_base_Property-extension_ConnectorProperty"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ConnectorProperty_base_Property-extension_ConnectorProperty"
+                      name="extension_ConnectorProperty"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Blocks-ConnectorProperty"
+                      association="_OMG_SysML_20110919_SysML_Blocks-E_extension_ConnectorProperty_base_Property">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Blocks-E_extension_ConnectorProperty_base_Property-extension_ConnectorProperty-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks"
+                       name="ConstraintBlocks">
+         <packageImport xmi:type="uml:PackageImport"
+                        xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks-packageImport.0"
+                        importedPackage="_OMG_SysML_20110919_SysML_Blocks"/>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks-ConstraintBlock"
+                          name="ConstraintBlock">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks-ConstraintBlock-generalization.0"
+                            isSubstitutable="false"
+                            general="_OMG_SysML_20110919_SysML_Blocks-Block"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks-ConstraintProperty"
+                          name="ConstraintProperty">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks-ConstraintProperty-base_Property"
+                            name="base_Property"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_ConstraintBlocks-E_extension_ConstraintProperty_base_Property">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Property"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks-E_extension_ConstraintProperty_base_Property"
+                          name="E_extension_ConstraintProperty_base_Property">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ConstraintBlocks-E_extension_ConstraintProperty_base_Property-extension_ConstraintProperty"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ConstraintBlocks-ConstraintProperty-base_Property"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_ConstraintBlocks-E_extension_ConstraintProperty_base_Property-extension_ConstraintProperty"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks-E_extension_ConstraintProperty_base_Property-extension_ConstraintProperty"
+                      name="extension_ConstraintProperty"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_ConstraintBlocks-ConstraintProperty"
+                      association="_OMG_SysML_20110919_SysML_ConstraintBlocks-E_extension_ConstraintProperty_base_Property">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_ConstraintBlocks-E_extension_ConstraintProperty_base_Property-extension_ConstraintProperty-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_Requirements"
+                       name="Requirements">
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement"
+                          name="Requirement">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-text"
+                            name="text"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-id"
+                            name="id"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-derived"
+                            name="derived"
+                            visibility="public"
+                            isDerived="true"
+                            type="_OMG_SysML_20110919_SysML_Requirements-Requirement">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-derived-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-derived-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-derivedFrom"
+                            name="derivedFrom"
+                            visibility="public"
+                            isDerived="true"
+                            type="_OMG_SysML_20110919_SysML_Requirements-Requirement">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-derivedFrom-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-derivedFrom-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-satisfiedBy"
+                            name="satisfiedBy"
+                            visibility="public"
+                            isDerived="true">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#NamedElement"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-satisfiedBy-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-satisfiedBy-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-refinedBy"
+                            name="refinedBy"
+                            visibility="public"
+                            isDerived="true">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#NamedElement"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-refinedBy-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-refinedBy-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-tracedTo"
+                            name="tracedTo"
+                            visibility="public"
+                            isDerived="true">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#NamedElement"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-tracedTo-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-tracedTo-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-verifiedBy"
+                            name="verifiedBy"
+                            visibility="public"
+                            isDerived="true">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#NamedElement"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-verifiedBy-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-verifiedBy-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-master"
+                            name="master"
+                            visibility="public"
+                            isDerived="true"
+                            type="_OMG_SysML_20110919_SysML_Requirements-Requirement">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-master-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Requirement-base_Class"
+                            name="base_Class"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Requirements-E_base_Class_extension_Requirement">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Class"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-Verify"
+                          name="Verify">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Verify-generalization.0"
+                            isSubstitutable="false">
+               <general href="http://www.omg.org/spec/UML/20110701/StandardProfileL2.xmi#Trace"/>
+            </generalization>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-TestCase"
+                          name="TestCase">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-TestCase-base_Operation"
+                            name="base_Operation"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Requirements-E_base_Operation_extension_TestCase">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Operation"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-TestCase-base_Behavior"
+                            name="base_Behavior"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Requirements-E_base_Behavior_extension_TestCase">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Behavior"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-Satisfy"
+                          name="Satisfy">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Satisfy-generalization.0">
+               <general href="http://www.omg.org/spec/UML/20110701/StandardProfileL2.xmi#Trace"/>
+            </generalization>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Enumeration"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-VerdictKind"
+                          name="VerdictKind">
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-VerdictKind-pass"
+                          name="pass"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Requirements-VerdictKind"/>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-VerdictKind-fail"
+                          name="fail"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Requirements-VerdictKind"/>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-VerdictKind-inconclusive"
+                          name="inconclusive"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Requirements-VerdictKind"/>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-VerdictKind-error"
+                          name="error"
+                          visibility="public">
+               <classifier xmi:idref="_OMG_SysML_20110919_SysML_Requirements-VerdictKind"/>
+            </ownedLiteral>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated"
+                          name="RequirementRelated">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-tracedFrom"
+                            name="tracedFrom"
+                            visibility="public"
+                            isDerived="true"
+                            type="_OMG_SysML_20110919_SysML_Requirements-Requirement">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-tracedFrom-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-tracedFrom-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-satisfies"
+                            name="satisfies"
+                            visibility="public"
+                            isDerived="true"
+                            type="_OMG_SysML_20110919_SysML_Requirements-Requirement">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-satisfies-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-satisfies-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-refines"
+                            name="refines"
+                            visibility="public"
+                            isDerived="true"
+                            type="_OMG_SysML_20110919_SysML_Requirements-Requirement">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-refines-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-refines-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-verifies"
+                            name="verifies"
+                            visibility="public"
+                            isDerived="true"
+                            type="_OMG_SysML_20110919_SysML_Requirements-Requirement">
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-verifies-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-verifies-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-base_NamedElement"
+                            name="base_NamedElement"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Requirements-E_base_NamedElement_extension_RequirementRelated">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#NamedElement"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-DeriveReqt"
+                          name="DeriveReqt">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-DeriveReqt-generalization.0"
+                            isSubstitutable="false">
+               <general href="http://www.omg.org/spec/UML/20110701/StandardProfileL2.xmi#Trace"/>
+            </generalization>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype" xmi:id="_OMG_SysML_20110919_SysML_Requirements-Copy"
+                          name="Copy">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_OMG_SysML_20110919_SysML_Requirements-Copy-generalization.0"
+                            isSubstitutable="false">
+               <general href="http://www.omg.org/spec/UML/20110701/StandardProfileL2.xmi#Trace"/>
+            </generalization>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Class_extension_Requirement"
+                          name="E_base_Class_extension_Requirement">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-Requirement-base_Class"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-E_base_Class_extension_Requirement-extension_Requirement"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-E_base_Class_extension_Requirement-extension_Requirement"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Class_extension_Requirement-extension_Requirement"
+                      name="extension_Requirement"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Requirements-Requirement"
+                      association="_OMG_SysML_20110919_SysML_Requirements-E_base_Class_extension_Requirement">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Class_extension_Requirement-extension_Requirement-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Operation_extension_TestCase"
+                          name="E_base_Operation_extension_TestCase">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-TestCase-base_Operation"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-E_base_Operation_extension_TestCase-extension_TestCase"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-E_base_Operation_extension_TestCase-extension_TestCase"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Operation_extension_TestCase-extension_TestCase"
+                      name="extension_TestCase"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Requirements-TestCase"
+                      association="_OMG_SysML_20110919_SysML_Requirements-E_base_Operation_extension_TestCase">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Operation_extension_TestCase-extension_TestCase-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Behavior_extension_TestCase"
+                          name="E_base_Behavior_extension_TestCase">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-TestCase-base_Behavior"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-E_base_Behavior_extension_TestCase-extension_TestCase"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-E_base_Behavior_extension_TestCase-extension_TestCase"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Behavior_extension_TestCase-extension_TestCase"
+                      name="extension_TestCase"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Requirements-TestCase"
+                      association="_OMG_SysML_20110919_SysML_Requirements-E_base_Behavior_extension_TestCase">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_Behavior_extension_TestCase-extension_TestCase-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_NamedElement_extension_RequirementRelated"
+                          name="E_base_NamedElement_extension_RequirementRelated">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated-base_NamedElement"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-E_base_NamedElement_extension_RequirementRelated-extension_RequirementRelated"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Requirements-E_base_NamedElement_extension_RequirementRelated-extension_RequirementRelated"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_NamedElement_extension_RequirementRelated-extension_RequirementRelated"
+                      name="extension_RequirementRelated"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Requirements-RequirementRelated"
+                      association="_OMG_SysML_20110919_SysML_Requirements-E_base_NamedElement_extension_RequirementRelated">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Requirements-E_base_NamedElement_extension_RequirementRelated-extension_RequirementRelated-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_Activities"
+                       name="Activities">
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-Probability"
+                          name="Probability">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Probability-probability"
+                            name="probability"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ValueSpecification"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Probability-base_ActivityEdge"
+                            name="base_ActivityEdge"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ActivityEdge">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ActivityEdge"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Probability-base_ParameterSet"
+                            name="base_ParameterSet"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ParameterSet">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ParameterSet"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-Optional"
+                          name="Optional">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Optional-base_Parameter"
+                            name="base_Parameter"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_Optional_base_Parameter">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Parameter"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-NoBuffer"
+                          name="NoBuffer">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-NoBuffer-base_ObjectNode"
+                            name="base_ObjectNode"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_NoBuffer_base_ObjectNode">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ObjectNode"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype" xmi:id="_OMG_SysML_20110919_SysML_Activities-Rate"
+                          name="Rate">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_OMG_SysML_20110919_SysML_Activities-Rate-rate"
+                            name="rate"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#InstanceSpecification"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Rate-base_Parameter"
+                            name="base_Parameter"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_Parameter">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Parameter"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Rate-base_ActivityEdge"
+                            name="base_ActivityEdge"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_ActivityEdge">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ActivityEdge"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-ControlOperator"
+                          name="ControlOperator">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-ControlOperator-base_Behavior"
+                            name="base_Behavior"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Behavior">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Behavior"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-ControlOperator-base_Operation"
+                            name="base_Operation"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Operation">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Operation"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-Continuous"
+                          name="Continuous">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Continuous-generalization.0"
+                            isSubstitutable="false"
+                            general="_OMG_SysML_20110919_SysML_Activities-Rate"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-Overwrite"
+                          name="Overwrite">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Overwrite-base_ObjectNode"
+                            name="base_ObjectNode"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_Activities-E_extension_Overwrite_base_ObjectNode">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#ObjectNode"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-Discrete"
+                          name="Discrete">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_OMG_SysML_20110919_SysML_Activities-Discrete-generalization.0"
+                            isSubstitutable="false"
+                            general="_OMG_SysML_20110919_SysML_Activities-Rate"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Optional_base_Parameter"
+                          name="E_extension_Optional_base_Parameter">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Optional_base_Parameter-extension_Optional"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-Optional-base_Parameter"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Optional_base_Parameter-extension_Optional"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Optional_base_Parameter-extension_Optional"
+                      name="extension_Optional"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-Optional"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_Optional_base_Parameter">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Optional_base_Parameter-extension_Optional-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_Parameter"
+                          name="E_extension_Rate_base_Parameter">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_Parameter-extension_Rate"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-Rate-base_Parameter"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_Parameter-extension_Rate"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_Parameter-extension_Rate"
+                      name="extension_Rate"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-Rate"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_Parameter">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_Parameter-extension_Rate-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_ActivityEdge"
+                          name="E_extension_Rate_base_ActivityEdge">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_ActivityEdge-extension_Rate"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-Rate-base_ActivityEdge"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_ActivityEdge-extension_Rate"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_ActivityEdge-extension_Rate"
+                      name="extension_Rate"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-Rate"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_ActivityEdge">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Rate_base_ActivityEdge-extension_Rate-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ActivityEdge"
+                          name="E_extension_Probability_base_ActivityEdge">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ActivityEdge-extension_Probability"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-Probability-base_ActivityEdge"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ActivityEdge-extension_Probability"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ActivityEdge-extension_Probability"
+                      name="extension_Probability"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-Probability"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ActivityEdge">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ActivityEdge-extension_Probability-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ParameterSet"
+                          name="E_extension_Probability_base_ParameterSet">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ParameterSet-extension_Probability"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-Probability-base_ParameterSet"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ParameterSet-extension_Probability"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ParameterSet-extension_Probability"
+                      name="extension_Probability"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-Probability"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ParameterSet">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Probability_base_ParameterSet-extension_Probability-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Behavior"
+                          name="E_extension_ControlOperator_base_Behavior">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Behavior-extension_ControlOperator"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-ControlOperator-base_Behavior"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Behavior-extension_ControlOperator"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Behavior-extension_ControlOperator"
+                      name="extension_ControlOperator"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-ControlOperator"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Behavior">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Behavior-extension_ControlOperator-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Operation"
+                          name="E_extension_ControlOperator_base_Operation">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Operation-extension_ControlOperator"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-ControlOperator-base_Operation"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Operation-extension_ControlOperator"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Operation-extension_ControlOperator"
+                      name="extension_ControlOperator"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-ControlOperator"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Operation">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_ControlOperator_base_Operation-extension_ControlOperator-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_NoBuffer_base_ObjectNode"
+                          name="E_extension_NoBuffer_base_ObjectNode">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_NoBuffer_base_ObjectNode-extension_NoBuffer"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-NoBuffer-base_ObjectNode"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_NoBuffer_base_ObjectNode-extension_NoBuffer"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_NoBuffer_base_ObjectNode-extension_NoBuffer"
+                      name="extension_NoBuffer"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-NoBuffer"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_NoBuffer_base_ObjectNode">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_NoBuffer_base_ObjectNode-extension_NoBuffer-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Overwrite_base_ObjectNode"
+                          name="E_extension_Overwrite_base_ObjectNode">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Overwrite_base_ObjectNode-extension_Overwrite"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-Overwrite-base_ObjectNode"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_Activities-E_extension_Overwrite_base_ObjectNode-extension_Overwrite"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Overwrite_base_ObjectNode-extension_Overwrite"
+                      name="extension_Overwrite"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_Activities-Overwrite"
+                      association="_OMG_SysML_20110919_SysML_Activities-E_extension_Overwrite_base_ObjectNode">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_Activities-E_extension_Overwrite_base_ObjectNode-extension_Overwrite-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_ModelElements"
+                       name="ModelElements">
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint"
+                          name="Viewpoint">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-stakeholders"
+                            name="stakeholders"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-stakeholders-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-stakeholders-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-languages"
+                            name="languages"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-languages-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-languages-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-methods"
+                            name="methods"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-methods-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-methods-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-purpose"
+                            name="purpose"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-concerns"
+                            name="concerns"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-concerns-upperValue"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-concerns-lowerValue"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-base_Class"
+                            name="base_Class"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Class_extension_Viewpoint">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Class"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Rationale"
+                          name="Rationale">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Rationale-base_Comment"
+                            name="base_Comment"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Rationale">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Comment"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Conform"
+                          name="Conform">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Conform-base_Dependency"
+                            name="base_Dependency"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Dependency_extension_Conform">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Dependency"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype" xmi:id="_OMG_SysML_20110919_SysML_ModelElements-View"
+                          name="View">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-View-viewPoint"
+                            name="viewPoint"
+                            visibility="public"
+                            isDerived="true"
+                            type="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint"/>
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-View-base_Package"
+                            name="base_Package"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Package_extension_View">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Package"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Stereotype"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Problem"
+                          name="Problem">
+            <ownedAttribute xmi:type="uml:Property"
+                            xmi:id="_OMG_SysML_20110919_SysML_ModelElements-Problem-base_Comment"
+                            name="base_Comment"
+                            visibility="public"
+                            association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Problem">
+               <type href="http://www.omg.org/spec/UML/20110701/UML.xmi#Comment"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Dependency_extension_Conform"
+                          name="E_base_Dependency_extension_Conform">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-Conform-base_Dependency"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Dependency_extension_Conform-extension_Conform"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Dependency_extension_Conform-extension_Conform"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Dependency_extension_Conform-extension_Conform"
+                      name="extension_Conform"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_ModelElements-Conform"
+                      association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Dependency_extension_Conform">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Dependency_extension_Conform-extension_Conform-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Class_extension_Viewpoint"
+                          name="E_base_Class_extension_Viewpoint">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint-base_Class"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Class_extension_Viewpoint-extension_Viewpoint"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Class_extension_Viewpoint-extension_Viewpoint"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Class_extension_Viewpoint-extension_Viewpoint"
+                      name="extension_Viewpoint"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_ModelElements-Viewpoint"
+                      association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Class_extension_Viewpoint">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Class_extension_Viewpoint-extension_Viewpoint-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Package_extension_View"
+                          name="E_base_Package_extension_View">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-View-base_Package"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Package_extension_View-extension_View"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Package_extension_View-extension_View"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Package_extension_View-extension_View"
+                      name="extension_View"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_ModelElements-View"
+                      association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Package_extension_View">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Package_extension_View-extension_View-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Rationale"
+                          name="E_base_Comment_extension_Rationale">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-Rationale-base_Comment"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Rationale-extension_Rationale"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Rationale-extension_Rationale"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Rationale-extension_Rationale"
+                      name="extension_Rationale"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_ModelElements-Rationale"
+                      association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Rationale">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Rationale-extension_Rationale-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Extension"
+                          xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Problem"
+                          name="E_base_Comment_extension_Problem">
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-Problem-base_Comment"/>
+            <memberEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Problem-extension_Problem"/>
+            <navigableOwnedEnd xmi:idref="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Problem-extension_Problem"/>
+            <ownedEnd xmi:type="uml:ExtensionEnd"
+                      xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Problem-extension_Problem"
+                      name="extension_Problem"
+                      visibility="public"
+                      aggregation="composite"
+                      type="_OMG_SysML_20110919_SysML_ModelElements-Problem"
+                      association="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Problem">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_OMG_SysML_20110919_SysML_ModelElements-E_base_Comment_extension_Problem-extension_Problem-lowerValue"/>
+            </ownedEnd>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_OMG_SysML_20110919_SysML_Libraries"
+                       name="Libraries">
+         <profileApplication xmi:type="uml:ProfileApplication"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-profileApplication.0"
+                             appliedProfile="_OMG_SysML_20110919_SysML__0"/>
+         <packagedElement xmi:type="uml:Package"
+                          xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes"
+                          name="PrimitiveValueTypes">
+            <packagedElement xmi:type="uml:DataType"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Real"
+                             name="Real">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Real-generalization.0"
+                               general="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Number"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:DataType"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Number"
+                             name="Number"
+                             isAbstract="true"/>
+            <packagedElement xmi:type="uml:DataType"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Boolean"
+                             name="Boolean"/>
+            <packagedElement xmi:type="uml:DataType"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Integer"
+                             name="Integer">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Integer-generalization.0"
+                               general="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Number"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:DataType"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-String"
+                             name="String"/>
+            <packagedElement xmi:type="uml:DataType"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Complex"
+                             name="Complex">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Complex-generalization.0"
+                               general="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Number"/>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Complex-realPart"
+                               name="realPart"
+                               visibility="public"
+                               type="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Real"/>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Complex-imaginaryPart"
+                               name="imaginaryPart"
+                               visibility="public"
+                               type="_OMG_SysML_20110919_SysML_Libraries-PrimitiveValueTypes-Real"/>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package"
+                          xmi:id="_OMG_SysML_20110919_SysML_Libraries-ControlValues"
+                          name="ControlValues">
+            <packagedElement xmi:type="uml:Enumeration"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-ControlValues-ControlValue"
+                             name="ControlValue">
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-ControlValues-ControlValue-disable"
+                             name="disable"
+                             visibility="public">
+                  <classifier xmi:idref="_OMG_SysML_20110919_SysML_Libraries-ControlValues-ControlValue"/>
+               </ownedLiteral>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="_OMG_SysML_20110919_SysML_Libraries-ControlValues-ControlValue-enable"
+                             name="enable"
+                             visibility="public">
+                  <classifier xmi:idref="_OMG_SysML_20110919_SysML_Libraries-ControlValues-ControlValue"/>
+               </ownedLiteral>
+            </packagedElement>
+         </packagedElement>
+      </packagedElement>
+   </uml:Profile>
+   <mofext:Tag xmi:type="mofext:Tag" xmi:id="_OMG_SysML_20110919_SysML__2"
+               name="org.omg.xmi.nsPrefix"
+               value="SysML"
+               element="_OMG_SysML_20110919_SysML__0"/>
+</xmi:XMI>

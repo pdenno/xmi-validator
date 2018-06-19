@@ -1,0 +1,13 @@
+
+transformation UmlToRdbms_2(uml:umlMM; rdbms:rdbmsMM)
+{
+	relation PackageToSchema
+	{
+		n : String;
+		
+		enforce domain uml c2:Package { name = n };
+		
+		enforce domain rdbms t2:Schema { name = n };
+	}
+}
+

@@ -1,0 +1,79 @@
+
+transformation deljit2cm (deljit:DELJIT, cm:MOSScm)
+{
+ key Party(partyID);
+ key Consignee(playedBy);
+ key Supplier(playedBy);
+ key PartyID(idString);
+ key Facility(locationAddress); 
+ key LocationStyleStreet(city); // This one is bogus (and temporary).
+
+// If you don't specify the relationship among identity conditions here,
+// it is going to use whatever Consignee it finds, not just the one with this DUNS.
+top relation shipTo2Consignee
+ {
+    dunsID : String;
+    checkonly domain deljit stParty:ShipToParty_NAD { };
+     enforce domain cm consignee:Consignee { playedBy = :Party { partyID = :PartyID { idString=dunsID } } };
+
+    when  { dunsID = dunsIDfn(stParty);   } // NAD2dunsID(stParty,dusnID);
+    where { NAD2Role(stParty, consignee); }
+ }
+
+
+top relation shipFrom2Supplier
+ {
+    dunsID : String;
+    checkonly domain deljit sfParty:ShipFromParty_NAD { }; 
+    enforce domain cm supplier:Supplier { playedBy = :Party { partyID = :PartyID { idString=dunsID } } };
+
+    when  { dunsID = dunsIDfn(sfParty);  }
+    where { NAD2Role(sfParty, supplier); }
+ }
+
+// COPY NAD segment information to the argument party.
+relation NAD2Role
+ {
+    partyID, cityName, nadCity, partyName : String;
+    checkonly domain deljit nad 
+     :SegmentContainer 
+	{ ownedElement = :Set(Container) {
+           // partyID = C082.E3039
+	    :CompositeContainer
+	    {  compositeName = MOSSCompositeNumber::C082,
+               ownedElement  = :Set(Container)
+ 	        { partyIdElem :ElementContainer{ elementName = MOSSElementNumber::E3039 } } }, 
+            // partyName = C082.E3036
+            :CompositeContainer
+	    {  compositeName = MOSSCompositeNumber::C080,
+               ownedElement = :Set(Container)
+	        { partyNameElem :ElementContainer { elementName = MOSSElementNumber::E3036 } } }, 
+            // cityName = E3164
+	    cityNameElem:ElementContainer { elementName = MOSSElementNumber::E3164 } } };
+
+
+    enforce domain cm role  
+     :Role  { playedBy = :Party { name     = partyName,
+		 	          partyID  = :PartyID  { idString = partyID }, 
+			          facility = :Facility { locationAddress = 
+							  :LocationStyleStreet { city = cityName } } } };
+  where 
+      { partyName = partyNameElem.value;
+        partyID   = partyIdElem.value;
+        cityName  = cityNameElem.value;
+   }
+ }   
+
+
+function dunsIDfn (nad : SegmentContainer) : String
+  {
+     nad.ownedElement
+	 ->any( c | c.oclIsKindOf(CompositeContainer) and
+    		    c.compositeName = MOSSCompositeNumber::C082).ownedElement
+	 ->any( e | e.oclIsKindOf(ElementContainer) and
+		    e.elementName = MOSSElementNumber::E3039).value
+  }
+
+}
+	    
+

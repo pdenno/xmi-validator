@@ -1,0 +1,24 @@
+
+transformation deljit2cm (dj:DELJIT, cm:MOSScm)
+{
+ key Party(partyID);
+ key Consignee(playedBy);
+ key PartyID(idString);
+
+top relation DELJITtoMOSScm
+ {
+    // Of course, diving downward like this isn't reasonable structure for a 
+    // realistic mapping, but this isn't meant to be a realistic mapping.
+    id : String; 
+    // ShipToPartyID is, essentially, a TDED element.
+    checkonly domain dj djID    : ShipToPartyID { }; 
+//  enforce   domain cm stParty : Consignee { playedBy=p:Party {partyID=pid:PartyID { idString=id } } };
+    enforce   domain cm stParty : Consignee { playedBy= :Party {partyID=   :PartyID { idString=id } } };
+
+  where {
+      id = djID.value;
+  }
+ }    
+
+}
+

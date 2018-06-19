@@ -1,0 +1,31 @@
+transformation relationablauf ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   top relation PackageToSchema 
+   {
+      pName : String;
+      checkonly domain uml  pck : Package 
+      {
+         name = pName 
+      };
+      enforce   domain rdbm sma : Schema  
+      {
+         name = pName 
+      };
+   }
+
+   top relation ClassToTable
+   {
+      cName : String;
+      checkonly domain uml  cls : Class  
+      { 
+         namespace = ns : Package {}, 
+         name      = cName 
+      };
+      enforce   domain rdbm tbl : Table 
+      {
+         schema = sma : Schema {}, 
+         name   = cName 
+      };
+      when { PackageToSchema ( ns, sma );  }
+   }
+}

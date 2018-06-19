@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Package xmi:type="uml:Package" xmi:id="QVTOperational" name="QVTOperational" URI="http://www.omg.org/spec/QVT/20140401/QVTOperational">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="DirectionKind" name="DirectionKind">
+      <ownedLiteral xmi:id="in" name="in"/>
+      <ownedLiteral xmi:id="inout" name="inout"/>
+      <ownedLiteral xmi:id="out" name="out"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="ImportKind" name="ImportKind">
+      <ownedLiteral xmi:id="extension" name="extension"/>
+      <ownedLiteral xmi:id="access" name="access"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Constructor" name="Constructor">
+      <generalization xmi:id="G_Constructor_ImperativeOperation" general="ImperativeOperation"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ConstructorBody" name="ConstructorBody">
+      <generalization xmi:id="G_ConstructorBody_OperationBody" general="OperationBody"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ContextualProperty" name="ContextualProperty">
+      <generalization xmi:id="G_ContextualProperty_Property">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Property"/>
+      </generalization>
+      <ownedAttribute xmi:id="ContextualProperty.context" name="context" association="A_ContextualProperty.context_contextualProperty">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Class"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ContextualProperty.initExpression" name="initExpression" aggregation="composite" association="A_ContextualProperty.initExpression_ownerProperty">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ContextualProperty.overridden" name="overridden" association="A_ContextualProperty.overridden_overriding">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Property"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="EntryOperation" name="EntryOperation">
+      <generalization xmi:id="G_EntryOperation_ImperativeOperation" general="ImperativeOperation"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Helper" name="Helper">
+      <generalization xmi:id="G_Helper_ImperativeOperation" general="ImperativeOperation"/>
+      <ownedAttribute xmi:id="Helper.isQuery" name="isQuery" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ImperativeCallExp" name="ImperativeCallExp">
+      <generalization xmi:id="G_ImperativeCallExp_ImperativeExpression">
+        <general xmi:type="uml:Class" href="ImperativeOCL.xmi#ImperativeExpression"/>
+      </generalization>
+      <generalization xmi:id="G_ImperativeCallExp_OperationCallExp">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#OperationCallExp"/>
+      </generalization>
+      <ownedAttribute xmi:id="ImperativeCallExp.isVirtual" name="isVirtual" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" value="true">
+          <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ImperativeOperation" name="ImperativeOperation">
+      <generalization xmi:id="G_ImperativeOperation_Operation">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Operation"/>
+      </generalization>
+      <ownedAttribute xmi:id="ImperativeOperation.body" name="body" type="OperationBody" aggregation="composite" association="A_ImperativeOperation.body_OperationBody.operation">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ImperativeOperation.context" name="context" type="VarParameter" aggregation="composite" association="A_ImperativeOperation.context_VarParameter.ctxOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ImperativeOperation.isBlackbox" name="isBlackbox" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ImperativeOperation.overridden" name="overridden" type="ImperativeOperation" association="A_ImperativeOperation.overridden_overriding">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ImperativeOperation.result" name="result" type="VarParameter" isOrdered="true" aggregation="composite" association="A_ImperativeOperation.result_VarParameter.resOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Library" name="Library">
+      <generalization xmi:id="G_Library_Module" general="Module"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="MappingBody" name="MappingBody">
+      <generalization xmi:id="G_MappingBody_OperationBody" general="OperationBody"/>
+      <ownedAttribute xmi:id="MappingBody.endSection" name="endSection" isOrdered="true" aggregation="composite" association="A_MappingBody.endSection_endOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="MappingBody.initSection" name="initSection" isOrdered="true" aggregation="composite" association="A_MappingBody.initSection_initOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="MappingCallExp" name="MappingCallExp">
+      <generalization xmi:id="G_MappingCallExp_ImperativeCallExp" general="ImperativeCallExp"/>
+      <ownedAttribute xmi:id="MappingCallExp.isStrict" name="isStrict" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="MappingOperation" name="MappingOperation">
+      <generalization xmi:id="G_MappingOperation_ImperativeOperation" general="ImperativeOperation"/>
+      <ownedAttribute xmi:id="MappingOperation.disjunct" name="disjunct" type="MappingOperation" isOrdered="true" association="A_MappingOperation.disjunct_disjuncter">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="MappingOperation.inherited" name="inherited" type="MappingOperation" isOrdered="true" association="A_MappingOperation.inherited_inheriting">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="MappingOperation.merged" name="merged" type="MappingOperation" isOrdered="true" association="A_MappingOperation.merged_merging">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="MappingOperation.refinedRelation" name="refinedRelation" association="A_MappingOperation.refinedRelation_refiningOperation">
+        <type xmi:type="uml:Class" href="QVTRelation.xmi#Relation"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="MappingOperation.when" name="when" aggregation="composite" association="A_MappingOperation.when_whenOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="MappingOperation.where" name="where" aggregation="composite" association="A_MappingOperation.where_whereOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="MappingParameter" name="MappingParameter">
+      <generalization xmi:id="G_MappingParameter_VarParameter" general="VarParameter"/>
+      <ownedAttribute xmi:id="MappingParameter.extent" name="extent" type="ModelParameter" association="A_MappingParameter.extent_mappingParameter">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="MappingParameter.referredDomain" name="referredDomain" association="A_MappingParameter.referredDomain_referringParameter">
+        <type xmi:type="uml:Class" href="QVTRelation.xmi#RelationDomain"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ModelParameter" name="ModelParameter">
+      <generalization xmi:id="G_ModelParameter_VarParameter" general="VarParameter"/>
+      <ownedAttribute xmi:id="ModelParameter.module" name="module" type="OperationalTransformation" association="A_ModelParameter.module_OperationalTransformation.modelParameter"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ModelType" name="ModelType">
+      <generalization xmi:id="G_ModelType_Class">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Class"/>
+      </generalization>
+      <ownedAttribute xmi:id="ModelType.additionalCondition" name="additionalCondition" isOrdered="true" aggregation="composite" association="A_ModelType.additionalCondition_condOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ModelType.conformanceKind" name="conformanceKind" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:type="uml:LiteralString" value="effective">
+          <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#String"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ModelType.metamodel" name="metamodel" isOrdered="true" association="A_ModelType.metamodel_modelType">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Package"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Module" name="Module">
+      <generalization xmi:id="G_Module_Class">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Class"/>
+      </generalization>
+      <generalization xmi:id="G_Module_Package">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Package"/>
+      </generalization>
+      <ownedAttribute xmi:id="Module.configProperty" name="configProperty" isOrdered="true" association="A_Module.configProperty_module">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Property"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Module.entry" name="entry" type="EntryOperation" association="A_Module.entry_entryContext">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Module.isBlackbox" name="isBlackbox" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Module.moduleImport" name="moduleImport" type="ModuleImport" isOrdered="true" aggregation="composite" association="A_Module.moduleImport_ModuleImport.module">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Module.ownedTag" name="ownedTag" isOrdered="true" aggregation="composite" association="A_Module.ownedTag_owner">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Tag"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Module.ownedVariable" name="ownedVariable" aggregation="composite" association="A_Module.ownedVariable_variableOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Module.usedModelType" name="usedModelType" type="ModelType" isOrdered="true" association="A_Module.usedModelType_module">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ModuleImport" name="ModuleImport">
+      <generalization xmi:id="G_ModuleImport_Element">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Element"/>
+      </generalization>
+      <ownedAttribute xmi:id="ModuleImport.binding" name="binding" type="ModelType" isOrdered="true" association="A_ModuleImport.binding_moduleImport">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ModuleImport.importedModule" name="importedModule" type="Module" association="A_ModuleImport.importedModule_importingElement"/>
+      <ownedAttribute xmi:id="ModuleImport.kind" name="kind" visibility="public" type="ImportKind">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ModuleImport.module" name="module" type="Module" association="A_Module.moduleImport_ModuleImport.module">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ObjectExp" name="ObjectExp">
+      <generalization xmi:id="G_ObjectExp_InstantiationExp">
+        <general xmi:type="uml:Class" href="ImperativeOCL.xmi#InstantiationExp"/>
+      </generalization>
+      <ownedAttribute xmi:id="ObjectExp.body" name="body" type="ConstructorBody" aggregation="composite" association="A_ObjectExp.body_objectExp"/>
+      <ownedAttribute xmi:id="ObjectExp.referredObject" name="referredObject" association="A_ObjectExp.referredObject_objectExpression">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="OperationBody" name="OperationBody">
+      <generalization xmi:id="G_OperationBody_Element">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Element"/>
+      </generalization>
+      <ownedAttribute xmi:id="OperationBody.content" name="content" isOrdered="true" aggregation="composite" association="A_OperationBody.content_contentOwner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OperationBody.operation" name="operation" type="ImperativeOperation" association="A_ImperativeOperation.body_OperationBody.operation">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OperationBody.variable" name="variable" aggregation="composite" association="A_OperationBody.variable_opBody">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="OperationalTransformation" name="OperationalTransformation">
+      <generalization xmi:id="G_OperationalTransformation_Module" general="Module"/>
+      <ownedAttribute xmi:id="OperationalTransformation.intermediateClass" name="intermediateClass" isOrdered="true" association="A_OperationalTransformation.intermediateClass_transfClient">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Class"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OperationalTransformation.intermediateProperty" name="intermediateProperty" isOrdered="true" association="A_OperationalTransformation.intermediateProperty_transfClient">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Property"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OperationalTransformation.modelParameter" name="modelParameter" type="ModelParameter" isOrdered="true" aggregation="composite"
+          association="A_ModelParameter.module_OperationalTransformation.modelParameter">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OperationalTransformation.refined" name="refined" association="A_OperationalTransformation.refined_refinement">
+        <type xmi:type="uml:Class" href="QVTRelation.xmi#RelationalTransformation"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OperationalTransformation.relation" name="relation" isOrdered="true" aggregation="composite" association="A_OperationalTransformation.relation_owner">
+        <type xmi:type="uml:Class" href="QVTRelation.xmi#Relation"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ResolveExp" name="ResolveExp">
+      <generalization xmi:id="G_ResolveExp_CallExp">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#CallExp"/>
+      </generalization>
+      <generalization xmi:id="G_ResolveExp_ImperativeExpression">
+        <general xmi:type="uml:Class" href="ImperativeOCL.xmi#ImperativeExpression"/>
+      </generalization>
+      <ownedAttribute xmi:id="ResolveExp.condition" name="condition" aggregation="composite" association="A_ResolveExp.condition_resolveExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ResolveExp.isDeferred" name="isDeferred" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ResolveExp.isInverse" name="isInverse" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ResolveExp.one" name="one" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ResolveExp.target" name="target" aggregation="composite" association="A_ResolveExp.target_resolveExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ResolveInExp" name="ResolveInExp">
+      <generalization xmi:id="G_ResolveInExp_ResolveExp" general="ResolveExp"/>
+      <ownedAttribute xmi:id="ResolveInExp.inMapping" name="inMapping" type="MappingOperation" association="A_ResolveInExp.inMapping_resolveExpression">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="VarParameter" name="VarParameter">
+      <generalization xmi:id="G_VarParameter_Parameter">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Parameter"/>
+      </generalization>
+      <generalization xmi:id="G_VarParameter_Variable">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+      </generalization>
+      <ownedAttribute xmi:id="VarParameter.ctxOwner" name="ctxOwner" type="ImperativeOperation" association="A_ImperativeOperation.context_VarParameter.ctxOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="VarParameter.kind" name="kind" visibility="public" type="DirectionKind">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="VarParameter.resOwner" name="resOwner" type="ImperativeOperation" association="A_ImperativeOperation.result_VarParameter.resOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ContextualProperty.context_contextualProperty" name="A_ContextualProperty.context_contextualProperty"
+        memberEnd="ContextualProperty.context A_ContextualProperty.context_contextualProperty.contextualProperty">
+      <ownedEnd xmi:id="A_ContextualProperty.context_contextualProperty.contextualProperty" name="contextualProperty" type="ContextualProperty"
+          association="A_ContextualProperty.context_contextualProperty">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ContextualProperty.initExpression_ownerProperty" name="A_ContextualProperty.initExpression_ownerProperty"
+        memberEnd="ContextualProperty.initExpression A_ContextualProperty.initExpression_ownerProperty.ownerProperty">
+      <ownedEnd xmi:id="A_ContextualProperty.initExpression_ownerProperty.ownerProperty" name="ownerProperty" type="ContextualProperty"
+          association="A_ContextualProperty.initExpression_ownerProperty">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ContextualProperty.overridden_overriding" name="A_ContextualProperty.overridden_overriding"
+        memberEnd="ContextualProperty.overridden A_ContextualProperty.overridden_overriding.overriding">
+      <ownedEnd xmi:id="A_ContextualProperty.overridden_overriding.overriding" name="overriding" type="ContextualProperty" association="A_ContextualProperty.overridden_overriding">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ImperativeOperation.body_OperationBody.operation" name="A_ImperativeOperation.body_OperationBody.operation"
+        memberEnd="ImperativeOperation.body OperationBody.operation"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ImperativeOperation.context_VarParameter.ctxOwner" name="A_ImperativeOperation.context_VarParameter.ctxOwner"
+        memberEnd="ImperativeOperation.context VarParameter.ctxOwner"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ImperativeOperation.overridden_overriding" name="A_ImperativeOperation.overridden_overriding"
+        memberEnd="ImperativeOperation.overridden A_ImperativeOperation.overridden_overriding.overriding">
+      <ownedEnd xmi:id="A_ImperativeOperation.overridden_overriding.overriding" name="overriding" type="ImperativeOperation" association="A_ImperativeOperation.overridden_overriding">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ImperativeOperation.result_VarParameter.resOwner" name="A_ImperativeOperation.result_VarParameter.resOwner"
+        memberEnd="ImperativeOperation.result VarParameter.resOwner"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingBody.endSection_endOwner" name="A_MappingBody.endSection_endOwner" memberEnd="MappingBody.endSection A_MappingBody.endSection_endOwner.endOwner">
+      <ownedEnd xmi:id="A_MappingBody.endSection_endOwner.endOwner" name="endOwner" type="MappingBody" association="A_MappingBody.endSection_endOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingBody.initSection_initOwner" name="A_MappingBody.initSection_initOwner"
+        memberEnd="MappingBody.initSection A_MappingBody.initSection_initOwner.initOwner">
+      <ownedEnd xmi:id="A_MappingBody.initSection_initOwner.initOwner" name="initOwner" type="MappingBody" association="A_MappingBody.initSection_initOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingOperation.disjunct_disjuncter" name="A_MappingOperation.disjunct_disjuncter"
+        memberEnd="MappingOperation.disjunct A_MappingOperation.disjunct_disjuncter.disjuncter">
+      <ownedEnd xmi:id="A_MappingOperation.disjunct_disjuncter.disjuncter" name="disjuncter" type="MappingOperation" association="A_MappingOperation.disjunct_disjuncter">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingOperation.inherited_inheriting" name="A_MappingOperation.inherited_inheriting"
+        memberEnd="MappingOperation.inherited A_MappingOperation.inherited_inheriting.inheriting">
+      <ownedEnd xmi:id="A_MappingOperation.inherited_inheriting.inheriting" name="inheriting" type="MappingOperation" association="A_MappingOperation.inherited_inheriting">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingOperation.merged_merging" name="A_MappingOperation.merged_merging" memberEnd="MappingOperation.merged A_MappingOperation.merged_merging.merging">
+      <ownedEnd xmi:id="A_MappingOperation.merged_merging.merging" name="merging" type="MappingOperation" association="A_MappingOperation.merged_merging">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingOperation.refinedRelation_refiningOperation" name="A_MappingOperation.refinedRelation_refiningOperation"
+        memberEnd="MappingOperation.refinedRelation A_MappingOperation.refinedRelation_refiningOperation.refiningOperation">
+      <ownedEnd xmi:id="A_MappingOperation.refinedRelation_refiningOperation.refiningOperation" name="refiningOperation" type="MappingOperation"
+          association="A_MappingOperation.refinedRelation_refiningOperation">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingOperation.when_whenOwner" name="A_MappingOperation.when_whenOwner" memberEnd="MappingOperation.when A_MappingOperation.when_whenOwner.whenOwner">
+      <ownedEnd xmi:id="A_MappingOperation.when_whenOwner.whenOwner" name="whenOwner" type="MappingOperation" association="A_MappingOperation.when_whenOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingOperation.where_whereOwner" name="A_MappingOperation.where_whereOwner"
+        memberEnd="MappingOperation.where A_MappingOperation.where_whereOwner.whereOwner">
+      <ownedEnd xmi:id="A_MappingOperation.where_whereOwner.whereOwner" name="whereOwner" type="MappingOperation" association="A_MappingOperation.where_whereOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingParameter.extent_mappingParameter" name="A_MappingParameter.extent_mappingParameter"
+        memberEnd="MappingParameter.extent A_MappingParameter.extent_mappingParameter.mappingParameter">
+      <ownedEnd xmi:id="A_MappingParameter.extent_mappingParameter.mappingParameter" name="mappingParameter" type="MappingParameter" association="A_MappingParameter.extent_mappingParameter">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_MappingParameter.referredDomain_referringParameter" name="A_MappingParameter.referredDomain_referringParameter"
+        memberEnd="MappingParameter.referredDomain A_MappingParameter.referredDomain_referringParameter.referringParameter">
+      <ownedEnd xmi:id="A_MappingParameter.referredDomain_referringParameter.referringParameter" name="referringParameter" type="MappingParameter"
+          association="A_MappingParameter.referredDomain_referringParameter">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ModelParameter.module_OperationalTransformation.modelParameter" name="A_ModelParameter.module_OperationalTransformation.modelParameter"
+        memberEnd="OperationalTransformation.modelParameter ModelParameter.module"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ModelType.additionalCondition_condOwner" name="A_ModelType.additionalCondition_condOwner"
+        memberEnd="ModelType.additionalCondition A_ModelType.additionalCondition_condOwner.condOwner">
+      <ownedEnd xmi:id="A_ModelType.additionalCondition_condOwner.condOwner" name="condOwner" type="ModelType" association="A_ModelType.additionalCondition_condOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ModelType.metamodel_modelType" name="A_ModelType.metamodel_modelType" memberEnd="ModelType.metamodel A_ModelType.metamodel_modelType.modelType">
+      <ownedEnd xmi:id="A_ModelType.metamodel_modelType.modelType" name="modelType" type="ModelType" association="A_ModelType.metamodel_modelType">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Module.configProperty_module" name="A_Module.configProperty_module" memberEnd="Module.configProperty A_Module.configProperty_module.module">
+      <ownedEnd xmi:id="A_Module.configProperty_module.module" name="module" type="Module" association="A_Module.configProperty_module">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Module.entry_entryContext" name="A_Module.entry_entryContext" memberEnd="Module.entry A_Module.entry_entryContext.entryContext">
+      <ownedEnd xmi:id="A_Module.entry_entryContext.entryContext" name="entryContext" type="Module" association="A_Module.entry_entryContext">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Module.moduleImport_ModuleImport.module" name="A_Module.moduleImport_ModuleImport.module"
+        memberEnd="Module.moduleImport ModuleImport.module"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Module.ownedTag_owner" name="A_Module.ownedTag_owner" memberEnd="Module.ownedTag A_Module.ownedTag_owner.owner">
+      <ownedEnd xmi:id="A_Module.ownedTag_owner.owner" name="owner" type="Module" association="A_Module.ownedTag_owner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Module.ownedVariable_variableOwner" name="A_Module.ownedVariable_variableOwner"
+        memberEnd="Module.ownedVariable A_Module.ownedVariable_variableOwner.variableOwner">
+      <ownedEnd xmi:id="A_Module.ownedVariable_variableOwner.variableOwner" name="variableOwner" type="Module" association="A_Module.ownedVariable_variableOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Module.usedModelType_module" name="A_Module.usedModelType_module" memberEnd="Module.usedModelType A_Module.usedModelType_module.module">
+      <ownedEnd xmi:id="A_Module.usedModelType_module.module" name="module" type="Module" association="A_Module.usedModelType_module">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ModuleImport.binding_moduleImport" name="A_ModuleImport.binding_moduleImport"
+        memberEnd="ModuleImport.binding A_ModuleImport.binding_moduleImport.moduleImport">
+      <ownedEnd xmi:id="A_ModuleImport.binding_moduleImport.moduleImport" name="moduleImport" type="ModuleImport" association="A_ModuleImport.binding_moduleImport">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ModuleImport.importedModule_importingElement" name="A_ModuleImport.importedModule_importingElement"
+        memberEnd="ModuleImport.importedModule A_ModuleImport.importedModule_importingElement.importingElement">
+      <ownedEnd xmi:id="A_ModuleImport.importedModule_importingElement.importingElement" name="importingElement" type="ModuleImport" association="A_ModuleImport.importedModule_importingElement">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ObjectExp.body_objectExp" name="A_ObjectExp.body_objectExp" memberEnd="ObjectExp.body A_ObjectExp.body_objectExp.objectExp">
+      <ownedEnd xmi:id="A_ObjectExp.body_objectExp.objectExp" name="objectExp" type="ObjectExp" association="A_ObjectExp.body_objectExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ObjectExp.referredObject_objectExpression" name="A_ObjectExp.referredObject_objectExpression"
+        memberEnd="ObjectExp.referredObject A_ObjectExp.referredObject_objectExpression.objectExpression">
+      <ownedEnd xmi:id="A_ObjectExp.referredObject_objectExpression.objectExpression" name="objectExpression" type="ObjectExp" association="A_ObjectExp.referredObject_objectExpression">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_OperationBody.content_contentOwner" name="A_OperationBody.content_contentOwner"
+        memberEnd="OperationBody.content A_OperationBody.content_contentOwner.contentOwner">
+      <ownedEnd xmi:id="A_OperationBody.content_contentOwner.contentOwner" name="contentOwner" type="OperationBody" association="A_OperationBody.content_contentOwner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_OperationBody.variable_opBody" name="A_OperationBody.variable_opBody" memberEnd="OperationBody.variable A_OperationBody.variable_opBody.opBody">
+      <ownedEnd xmi:id="A_OperationBody.variable_opBody.opBody" name="opBody" type="OperationBody" association="A_OperationBody.variable_opBody">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_OperationalTransformation.intermediateClass_transfClient" name="A_OperationalTransformation.intermediateClass_transfClient"
+        memberEnd="OperationalTransformation.intermediateClass A_OperationalTransformation.intermediateClass_transfClient.transfClient">
+      <ownedEnd xmi:id="A_OperationalTransformation.intermediateClass_transfClient.transfClient" name="transfClient" type="OperationalTransformation"
+          association="A_OperationalTransformation.intermediateClass_transfClient">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_OperationalTransformation.intermediateProperty_transfClient" name="A_OperationalTransformation.intermediateProperty_transfClient"
+        memberEnd="OperationalTransformation.intermediateProperty A_OperationalTransformation.intermediateProperty_transfClient.transfClient">
+      <ownedEnd xmi:id="A_OperationalTransformation.intermediateProperty_transfClient.transfClient" name="transfClient" type="OperationalTransformation"
+          association="A_OperationalTransformation.intermediateProperty_transfClient">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_OperationalTransformation.refined_refinement" name="A_OperationalTransformation.refined_refinement"
+        memberEnd="OperationalTransformation.refined A_OperationalTransformation.refined_refinement.refinement">
+      <ownedEnd xmi:id="A_OperationalTransformation.refined_refinement.refinement" name="refinement" type="OperationalTransformation"
+          association="A_OperationalTransformation.refined_refinement">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_OperationalTransformation.relation_owner" name="A_OperationalTransformation.relation_owner"
+        memberEnd="OperationalTransformation.relation A_OperationalTransformation.relation_owner.owner">
+      <ownedEnd xmi:id="A_OperationalTransformation.relation_owner.owner" name="owner" type="OperationalTransformation" association="A_OperationalTransformation.relation_owner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ResolveExp.condition_resolveExp" name="A_ResolveExp.condition_resolveExp" memberEnd="ResolveExp.condition A_ResolveExp.condition_resolveExp.resolveExp">
+      <ownedEnd xmi:id="A_ResolveExp.condition_resolveExp.resolveExp" name="resolveExp" type="ResolveExp" association="A_ResolveExp.condition_resolveExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ResolveExp.target_resolveExp" name="A_ResolveExp.target_resolveExp" memberEnd="ResolveExp.target A_ResolveExp.target_resolveExp.resolveExp">
+      <ownedEnd xmi:id="A_ResolveExp.target_resolveExp.resolveExp" name="resolveExp" type="ResolveExp" association="A_ResolveExp.target_resolveExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ResolveInExp.inMapping_resolveExpression" name="A_ResolveInExp.inMapping_resolveExpression"
+        memberEnd="ResolveInExp.inMapping A_ResolveInExp.inMapping_resolveExpression.resolveExpression">
+      <ownedEnd xmi:id="A_ResolveInExp.inMapping_resolveExpression.resolveExpression" name="resolveExpression" type="ResolveInExp" association="A_ResolveInExp.inMapping_resolveExpression">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+  </uml:Package>
+  <mofext:Tag xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" value="qvtoperational" element="QVTOperational"/>
+</xmi:XMI>

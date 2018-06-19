@@ -1,0 +1,72 @@
+
+transformation deljit2cm (deljit:DELJIT, cm:MOSScm)
+{
+ key Party(partyID);
+ key Consignee(playedBy);
+ key PartyID(idString);
+ key Facility(locationAddress); 
+ key LocationStyleStreet(city); // This one is bogus (and temporary).
+
+// If you don't specify the relationship among identity conditions here,
+// it is going to use whatever Consignee it finds, not just the one with this DUNS.
+top relation shipTo2Consignee
+ {
+    dunsID : String;
+    checkonly domain deljit stParty:ShipToParty_NAD 
+       { ownedElement = :Set(Container) 
+	   { :CompositeContainer
+	    {  compositeName = MOSSCompositeNumber::C082,
+               ownedElement  = :Set(Container)
+	       { :ElementContainer{ elementName = MOSSElementNumber::E3039, 
+			            value = dunsID } } } } };
+    enforce domain cm consignee:Consignee { playedBy = :Party { partyID = :PartyID { idString=dunsID } } };
+    where { NAD2Role(stParty, consignee); }
+ }
+
+// LATE:  I think I can write a dunsIDfn that does the navigation above. 
+//        It would be placed in the WHERE dunsID = dunsIDFn(stParty); 
+//        ??? It might actually have to be a relation in the WHEN ???
+
+
+//top relation shipFrom2Supplier
+// {
+//    checkonly domain deljit sfParty :ShipFromParty_NAD { }; 
+//    enforce   domain cm supplier    :Supplier { };
+//
+//    where { NAD2Role(sfParty, supplier); }
+// }
+
+// COPY NAD segment information to the argument party.
+relation NAD2Role
+ {
+    partyID, cityName, nadCity, partyName : String;
+    checkonly domain deljit nad 
+     :SegmentContainer 
+	{ ownedElement = :Set(Container) {
+           // partyID = C082.E3039
+	    :CompositeContainer
+	    {  compositeName = MOSSCompositeNumber::C082,
+               ownedElement  = :Set(Container)
+ 	        { partyIdElem :ElementContainer{ elementName = MOSSElementNumber::E3039 } } }, 
+            // partyName = C082.E3036
+            :CompositeContainer
+	    {  compositeName = MOSSCompositeNumber::C080,
+               ownedElement = :Set(Container)
+	        { partyNameElem :ElementContainer { elementName = MOSSElementNumber::E3036 } } }, 
+            // cityName = E3164
+	    cityNameElem:ElementContainer { elementName = MOSSElementNumber::E3164 } } };
+
+
+    enforce domain cm role  
+     :Role  { playedBy = :Party { name     = partyName,
+		 	          partyID  = :PartyID  { idString = partyID }, 
+			          facility = :Facility { locationAddress = 
+							  :LocationStyleStreet { city = cityName } } } };
+  where 
+      { partyName = partyNameElem.value;
+        partyID   = partyIdElem.value;
+        cityName  = cityNameElem.value;
+   }
+ }   
+}
+

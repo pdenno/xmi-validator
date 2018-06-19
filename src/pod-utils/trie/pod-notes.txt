@@ -1,0 +1,14 @@
+
+TODO:
+
+2008-07-12: Some sort of reasoning needed, at least generalization. 
+            Example in edifact/x12 code: I'd like to query msg-segment-group.pos
+	    not x12-msg-segment-group-pos and edifact-segment-group-pos 
+            (And note that they are in differing DBs.) Handling differing ordering
+            of the roles would be nice too.
+
+(x12-msg-segment-group.pos ?msg ?gnum ?pos) -> (msg-segment-group.pos ?msg ?num ?pos)
+(edifiact-msg-segment-group.pos ?msg ?pos ?gnum) -> (msg-segment-group.pos ?msg ?num ?pos)
+
+- Is (trie-add '(something nil)) a problem?
+- See also issues from Expresso pod-notes.txt

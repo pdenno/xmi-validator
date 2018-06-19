@@ -1,0 +1,17 @@
+transformation HelloWorld ( uml : MyUML ) 
+{
+   top relation NewPackage 
+   {
+      str  : String;
+      lgth : Integer;
+      enforce domain uml  pckg : Column 
+      { 
+        name = str
+      };
+      where 
+      { 
+         str  = 'HelloWorld';
+         lgth = str.size();
+      }
+   }
+}

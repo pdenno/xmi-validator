@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-25" xmi:uuid="725A27D7-D4FF-40E4-9EC2-22B519CF9DCE">
+        <packagedElement xmi:id="Test-Case-25-Node_3"
+            xmi:uuid="725A27D7-D4FF-4DF2-9506-22B5E26C3455" xmi:type="uml:Node">
+            <ownedAttribute xmi:id="Test-Case-25-Node_3-b"
+                xmi:uuid="725A27D7-D4FF-413E-9800-22B5AA9208DD" xmi:type="uml:Property">
+                <upperValue xmi:id="Test-Case-25-Node_3-b-upperValue"
+                    xmi:uuid="725A27D7-D4FF-473B-9793-22B59670ACEE"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <lowerValue xmi:id="Test-Case-25-Node_3-b-lowerValue"
+                    xmi:uuid="725A27D7-D4FF-4138-9EF1-22B52A0658D9" xmi:type="uml:LiteralInteger"/>
+                <name>b</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-25-Node_4"/>
+                <association xmi:idref="Test-Case-25-C"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-25-Node_3-p"
+                xmi:uuid="725A27D7-D4FF-4847-9E0E-22B5DFE3C446" xmi:type="uml:Property">
+                <deployment xmi:id="Test-Case-25-Node_3-p-deployment"
+                    xmi:uuid="725A27D7-D4FF-4F70-9AA9-22B5B8B759F9" xmi:type="uml:Deployment">
+                    <supplier xmi:idref="Test-Case-25-Artifact_3"/>
+                    <client xmi:idref="Test-Case-25-Node_3-p"/>
+                    <deployedArtifact xmi:idref="Test-Case-25-Artifact_3"/>
+                </deployment>
+                <name>p</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-25-Node_4"/>
+            </ownedAttribute>
+            <nestedNode xmi:id="Test-Case-25-Node_3-Node_1"
+                xmi:uuid="725A27D7-D4FF-4B5E-9BAD-22B50E74EAAF" xmi:type="uml:Device">
+                <deployment xmi:id="Test-Case-25-Node_3-Node_1-deployment"
+                    xmi:uuid="725A27D7-D4FF-42A3-9D1D-22B5089C03E2" xmi:type="uml:Deployment">
+                    <supplier xmi:idref="Test-Case-25-Artifact_1"/>
+                    <client xmi:idref="Test-Case-25-Node_3-Node_1"/>
+                    <deployedArtifact xmi:idref="Test-Case-25-Artifact_1"/>
+                </deployment>
+                <name>Node 1</name>
+            </nestedNode>
+            <nestedNode xmi:id="Test-Case-25-Node_3-Node_2"
+                xmi:uuid="725A27D7-D4FF-4D9E-9DC7-22B5319A1783" xmi:type="uml:ExecutionEnvironment">
+                <deployment xmi:id="Test-Case-25-Node_3-Node_2-deployment"
+                    xmi:uuid="725A27D7-D4FF-45F8-9946-22B550AB7BEA" xmi:type="uml:Deployment">
+                    <supplier xmi:idref="Test-Case-25-Artifact_1-Artifact_2"/>
+                    <client xmi:idref="Test-Case-25-Node_3-Node_2"/>
+                    <deployedArtifact xmi:idref="Test-Case-25-Artifact_1-Artifact_2"/>
+                    <configuration xmi:id="Test-Case-25-Node_3-Node_2-deployment-configuration"
+                        xmi:uuid="725A27D7-D4FF-4D4D-9FE1-22B5C8BB9450"
+                        xmi:type="uml:DeploymentSpecification">
+                        <name>Deployment Spec 1</name>
+                        <deploymentLocation>Node 3</deploymentLocation>
+                        <executionLocation>Node 2</executionLocation>
+                    </configuration>
+                </deployment>
+                <name>Node 2</name>
+            </nestedNode>
+            <name>Node 3</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-Artifact_1"
+            xmi:uuid="725A27D7-D4FF-49F4-9E54-22B5D478FD6C" xmi:type="uml:Artifact">
+            <nestedArtifact xmi:id="Test-Case-25-Artifact_1-Artifact_2"
+                xmi:uuid="725A27D7-D4FF-4AC2-9542-22B55329D165" xmi:type="uml:Artifact">
+                <manifestation xmi:id="Test-Case-25-Artifact_1-Artifact_2-manifestation"
+                    xmi:uuid="725A27D7-D4FF-4A63-9790-22B5561772A4" xmi:type="uml:Manifestation">
+                    <supplier xmi:idref="Test-Case-25-Class_2"/>
+                    <client xmi:idref="Test-Case-25-Artifact_1-Artifact_2"/>
+                    <utilizedElement xmi:idref="Test-Case-25-Class_2"/>
+                </manifestation>
+                <name>Artifact 2</name>
+            </nestedArtifact>
+            <manifestation xmi:id="Test-Case-25-Artifact_1-manifestation"
+                xmi:uuid="725A27D7-D4FF-4982-9C64-22B50A453DF8" xmi:type="uml:Manifestation">
+                <supplier xmi:idref="Test-Case-25-Class_1"/>
+                <client xmi:idref="Test-Case-25-Artifact_1"/>
+                <utilizedElement xmi:idref="Test-Case-25-Class_1"/>
+            </manifestation>
+            <ownedOperation xmi:id="Test-Case-25-Artifact_1-operation"
+                xmi:uuid="725A27D7-D4FF-4270-95B1-22B59076A4E2" xmi:type="uml:Operation">
+                <name>operation</name>
+                <visibility>public</visibility>
+            </ownedOperation>
+            <ownedAttribute xmi:id="Test-Case-25-Artifact_1-attribute"
+                xmi:uuid="725A27D7-D4FF-4885-94E0-22B525C518E5" xmi:type="uml:Property">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <name>attribute</name>
+                <visibility>public</visibility>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-25-Artifact_1-y"
+                xmi:uuid="725A27D7-D4FF-42DE-91CF-22B5D040B8D2" xmi:type="uml:Property">
+                <name>y</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-25-Artifact_3"/>
+                <association xmi:idref="Test-Case-25-A"/>
+            </ownedAttribute>
+            <name>Artifact 1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-Class_1"
+            xmi:uuid="725A27D7-D4FF-417A-9FDD-22B5597CD50E" xmi:type="uml:Class">
+            <name>Class 1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-Class_2"
+            xmi:uuid="725A27D7-D4FF-4E01-9BCF-22B513B8752F" xmi:type="uml:Class">
+            <name>Class 2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-packagedElement-5"
+            xmi:uuid="725A27D7-D4FF-4029-9372-22B577EFAF8D" xmi:type="uml:Dependency">
+            <supplier xmi:idref="Test-Case-25-Node_3-Node_2-deployment"/>
+            <client xmi:idref="Test-Case-25-Node_3-Node_2-deployment-configuration"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-Node_4"
+            xmi:uuid="725A27D7-D4FF-4F75-9707-22B50ED0064C" xmi:type="uml:Node">
+            <ownedAttribute xmi:id="Test-Case-25-Node_4-a"
+                xmi:uuid="725A27D7-D4FF-4CEF-9D0D-22B574BF0C26" xmi:type="uml:Property">
+                <name>a</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-25-Node_3"/>
+                <association xmi:idref="Test-Case-25-C"/>
+            </ownedAttribute>
+            <name>Node 4</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-C" xmi:uuid="725A27D7-D4FF-4EA3-919F-22B5863CB15B"
+            xmi:type="uml:CommunicationPath">
+            <memberEnd xmi:idref="Test-Case-25-Node_3-b"/>
+            <memberEnd xmi:idref="Test-Case-25-Node_4-a"/>
+            <name>C</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-packagedElement-8"
+            xmi:uuid="725A27D7-D4FF-47CF-9527-22B509D80C57" xmi:type="uml:InstanceSpecification">
+            <classifier xmi:idref="Test-Case-25-Node_4"/>
+            <deployment xmi:id="Test-Case-25-packagedElement-8-deployment-1"
+                xmi:uuid="725A27D7-D4FF-44C5-9B70-22B5CDCED56D" xmi:type="uml:Deployment">
+                <supplier xmi:idref="Test-Case-25-packagedElement-9"/>
+                <client xmi:idref="Test-Case-25-packagedElement-8"/>
+                <deployedArtifact xmi:idref="Test-Case-25-packagedElement-9"/>
+            </deployment>
+            <deployment xmi:id="Test-Case-25-packagedElement-8-deployment-2"
+                xmi:uuid="725A27D7-D4FF-4F09-9204-22B5CFCDA705" xmi:type="uml:Deployment">
+                <supplier xmi:idref="Test-Case-25-packagedElement-10"/>
+                <client xmi:idref="Test-Case-25-packagedElement-8"/>
+                <deployedArtifact xmi:idref="Test-Case-25-packagedElement-10"/>
+            </deployment>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-packagedElement-9"
+            xmi:uuid="725A27D7-D4FF-48DD-9526-22B5409B1955" xmi:type="uml:InstanceSpecification">
+            <classifier xmi:idref="Test-Case-25-Artifact_1"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-packagedElement-10"
+            xmi:uuid="725A27D7-D4FF-45D0-9CD7-22B55E27F454" xmi:type="uml:InstanceSpecification">
+            <classifier xmi:idref="Test-Case-25-Artifact_3"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-Artifact_3"
+            xmi:uuid="725A27D7-D4FF-44C6-9B05-22B587EB6CAF" xmi:type="uml:Artifact">
+            <ownedAttribute xmi:id="Test-Case-25-Artifact_3-x"
+                xmi:uuid="725A27D7-D4FF-4AB1-97E9-22B5D82ED694" xmi:type="uml:Property">
+                <name>x</name>
+                <visibility>public</visibility>
+                <type xmi:idref="Test-Case-25-Artifact_1"/>
+                <association xmi:idref="Test-Case-25-A"/>
+            </ownedAttribute>
+            <name>Artifact 3</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-packagedElement-12"
+            xmi:uuid="725A27D7-D4FF-4127-98C5-22B59C714EE6" xmi:type="uml:InstanceSpecification">
+            <classifier xmi:idref="Test-Case-25-A"/>
+            <slot xmi:id="Test-Case-25-packagedElement-12-slot-1"
+                xmi:uuid="725A27D7-D4FF-42DB-9F02-22B5214454AE" xmi:type="uml:Slot">
+                <value xmi:id="Test-Case-25-packagedElement-12-slot-1-value"
+                    xmi:uuid="725A27D7-D4FF-432C-94FF-22B5FE5EF944" xmi:type="uml:InstanceValue">
+                    <instance xmi:idref="Test-Case-25-packagedElement-10"/>
+                </value>
+                <definingFeature xmi:idref="Test-Case-25-Artifact_1-y"/>
+            </slot>
+            <slot xmi:id="Test-Case-25-packagedElement-12-slot-2"
+                xmi:uuid="725A27D7-D4FF-4D76-9E23-22B524242BCF" xmi:type="uml:Slot">
+                <value xmi:id="Test-Case-25-packagedElement-12-slot-2-value"
+                    xmi:uuid="725A27D7-D4FF-4D87-902E-22B583B157BE" xmi:type="uml:InstanceValue">
+                    <instance xmi:idref="Test-Case-25-packagedElement-9"/>
+                </value>
+                <definingFeature xmi:idref="Test-Case-25-Artifact_3-x"/>
+            </slot>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-25-A" xmi:uuid="725A27D7-D4FF-46C8-9B5D-22B5D8DDB2C6"
+            xmi:type="uml:Association">
+            <memberEnd xmi:idref="Test-Case-25-Artifact_3-x"/>
+            <memberEnd xmi:idref="Test-Case-25-Artifact_1-y"/>
+            <name>A</name>
+        </packagedElement>
+        <name>Test-Case-25</name>
+    </uml:Model>
+</xmi:XMI>

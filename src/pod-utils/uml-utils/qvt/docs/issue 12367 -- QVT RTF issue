@@ -1,0 +1,424 @@
+From Ed.Willink@thalesgroup.com Fri Apr  4 03:17:39 2008
+Return-Path: <Ed.Willink@thalesgroup.com>
+Received: from harbor.mel.nist.gov (harbor.mel.nist.gov [129.6.70.12])
+	by meles1.mel.nist.gov (8.12.10/8.12.10) with ESMTP id m347IO5J024239
+	for <pdenno@meles1.mel.nist.gov>; Fri, 4 Apr 2008 03:18:24 -0400 (EDT)
+X-MailScanner-Watermark: 1207898299.64714@RojawPn+8MGZUw8h6SlR/Q
+Received: from smtp.nist.gov (rimp1.nist.gov [129.6.16.226])
+	by harbor.mel.nist.gov (8.13.1/8.13.1) with ESMTP id m347IItO017259
+	for <pdenno@cme.nist.gov>; Fri, 4 Apr 2008 03:18:19 -0400
+Received: from postmark.nist.gov (emailha1.nist.gov [129.6.16.196])
+	by smtp.nist.gov (8.13.1/8.13.1) with ESMTP id m347IDx8032206
+	for <pdenno@cme.nist.gov>; Fri, 4 Apr 2008 03:18:13 -0400
+Received: from smtp.nist.gov (rimp1.nist.gov [129.6.16.226])
+	by postmark.nist.gov (8.13.1/8.13.1) with ESMTP id m347I5Jj001907
+	for <peter.denno@nist.gov>; Fri, 4 Apr 2008 03:18:06 -0400
+Received: from spamav2.nist.gov (spamav2.nist.gov [129.6.13.239])
+	by smtp.nist.gov (8.13.1/8.13.1) with ESMTP id m347I0vt022816
+	for <peter.denno@nist.gov>; Fri, 4 Apr 2008 03:18:00 -0400
+Received: from thsmsgxrt12p.thalesgroup.com (thsmsgxrt12p.thalesgroup.com [192.54.144.135])
+	by spamav2.nist.gov (8.13.8/8.13.8) with ESMTP id m347HwRg023605
+	for <peter.denno@nist.gov>; Fri, 4 Apr 2008 03:17:58 -0400
+Received: from thsmsgirt24p.corp.thales (unknown [10.33.231.8])
+	by thsmsgxrt12p.thalesgroup.com (Postfix) with ESMTP id 2A19344352
+	for <peter.denno@nist.gov>; Fri,  4 Apr 2008 09:17:57 +0200 (CEST)
+Received: from thsmsgiav11p.corp.thales (10.33.231.31) by thsmsgirt24p.corp.thales (7.3.006)
+        id 47BD3124003535AE for peter.denno@nist.gov; Fri, 4 Apr 2008 09:17:57 +0200
+Received: from (unknown [10.33.231.3]) by thsmsgiav11p.corp.thales with smtp
+	 id 1210_b732acc8_0215_11dd_bb61_001143d32df6;
+	Fri, 04 Apr 2008 09:06:58 +0200
+Received: from msw002.uk.trt.thales (unknown [10.33.5.101])
+	by thsmsgirt13p.corp.thales (Postfix) with ESMTP id 7259E148002
+	for <peter.denno@nist.gov>; Fri,  4 Apr 2008 09:17:57 +0200 (CEST)
+Received: from NTS013.uk.trt.thales (nts013.uk.trt.thales) by 
+    msw002.uk.trt.thales (Clearswift SMTPRS 5.2.3) with ESMTP id 
+    <T8624ec04b7c0a8e01c16e8@msw002.uk.trt.thales> for 
+    <peter.denno@nist.gov>; Fri, 4 Apr 2008 08:17:45 +0100
+Received: by nts013.uk.trt.thales with Internet Mail Service (5.5.2656.59) id 
+    <F7WZ7JAV>; Fri, 4 Apr 2008 08:17:46 +0100
+Message-ID: <51BF576D5A02CC4CB2591F50994FD76602D4CD28@nts013.uk.trt.thales>
+From: "Willink, Ed" <Ed.Willink@thalesgroup.com>
+To: "'peter.denno@nist.gov'" <peter.denno@nist.gov>
+Subject: RE: issue 12367 -- QVT RTF issue
+Date: Fri, 4 Apr 2008 08:17:39 +0100 
+MIME-Version: 1.0
+X-Mailer: Internet Mail Service (5.5.2656.59)
+Content-Type: multipart/alternative;
+  boundary="----_=_NextPart_001_01C89623.F6F68D81"
+X-Proofpoint-Virus-Version: vendor=fsecure engine=4.65.7111:2.4.4,1.2.40,4.0.164 definitions=2008-04-04_03:2008-04-02,2008-04-04,2008-04-03 signatures=0
+X-PP-SpamDetails: rule=spampolicy2_notspam policy=spampolicy2 score=0 spamscore=0 ipscore=0 phishscore=0 bulkscore=0 adultscore=1 classifier=spam adjust=0 reason=mlx engine=3.1.0-0803050000 definitions=main-0804040000
+X-PP-SpamScore: 0
+X-NIST-MailScanner: Found to be clean, Found to be clean
+X-NIST-MailScanner-Information: 
+X-NIST-MailScanner-From: ed.willink@thalesgroup.com
+X-MailScanner-Information: Please contact postmaster@mel.nist.gov for more information
+X-MailScanner-ID: m347IItO017259
+X-MailScanner: Found to be clean
+X-MailScanner-SpamCheck: 
+X-MailScanner-From: ed.willink@thalesgroup.com
+X-Spam-Status: No
+Status: R
+X-Status: NC
+X-KMail-EncryptionState:  
+X-KMail-SignatureState:  
+X-KMail-MDN-Sent:  
+
+This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+------_=_NextPart_001_01C89623.F6F68D81
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Hi Peter
+ 
+If you're trying to parse Appendix A you may be interested in a conflict
+free QVTr grammar at
+ 
+http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/umlx/plugins/or
+g.eclipse.gmt.umlx.eqvtr.cst/src/org/eclipse/gmt/umlx/eqvtr/cst/parser/QVTrP
+arser.g
+<http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/umlx/plugins/o
+rg.eclipse.gmt.umlx.eqvtr.cst/src/org/eclipse/gmt/umlx/eqvtr/cst/parser/QVTr
+Parser.g> 
+ 
+that extends
+ 
+http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.mdt/org.eclipse.ocl/plu
+gins/org.eclipse.ocl/src/org/eclipse/ocl/parser/EssentialOCL.g?revision=1.3
+<http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.mdt/org.eclipse.ocl/pl
+ugins/org.eclipse.ocl/src/org/eclipse/ocl/parser/EssentialOCL.g?revision=1.3
+&root=Modeling_Project> &root=Modeling_Project
+ 
+and a meta-model package consistent Appendix A
+ 
+http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/umlx/plugins/or
+g.eclipse.gmt.umlx.qvtr.examples/qvtr/qvtr2qvtc/RelToCore.qvtr
+<http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/umlx/plugins/o
+rg.eclipse.gmt.umlx.qvtr.examples/qvtr/qvtr2qvtc/RelToCore.qvtr> 
+ 
+The above has only one error: the missing deep expression copy function.
+ 
+A working QVTr editor, parser AST generatoir and validator may be found at
+http://www.eclipse.org/gmt/umlx/download/
+<http://www.eclipse.org/gmt/umlx/download/> 
+provided you're prepared to install the MDT-OCL and EMF prerequisities.
+Working from CVS is a little better, if you're
+an enthusast. The UMLX editor support should be joining up with the MDT-QVTR
+compiler project shortly.
+ 
+    Regards
+  
+        Ed Willink
+ 
+ 
+
+
+  _____  
+
+From: Willink, Ed 
+Sent: 04 April 2008 07:49
+To: 'Juergen Boldt'; issues@omg.org; qvt-rtf@omg.org
+Cc: 'peter.denno@nist.gov'
+Subject: RE: issue 12367 -- QVT RTF issue
+
+
+Hi Peter
+ 
+This change is not necessary since 7.13.6 extends OclExpressionCS to include
+template.
+ 
+<OclExpressionCS> ::= <PropertyCallExpCS> | <VariableExpCS> | <LiteralExpCS>
+| <LetExpCS> | <IfExpCS> | '(' <OclExpressionCS> ')' | <template> 
+
+ 
+    Regards
+ 
+        Ed Willink
+
+
+  _____  
+
+From: Juergen Boldt [mailto:juergen@omg.org] 
+Sent: 03 April 2008 20:34
+To: issues@omg.org; qvt-rtf@omg.org
+Subject: issue 12367 -- QVT RTF issue
+
+
+This is issue #12367    From: Peter Denno <peter.denno@nist.gov> 
+
+Issue against QVT ptc/07-07-07 : relational grammar
+
+Section 7.13.5 Relation BNF
+
+
+The grammar rule for template is incorrect (It does not allow a 
+template to have embedded within it another template. The example in 
+Appendix A will not compile with such a grammar.)
+
+
+It says:
+
+
+<propertyTemplate> ::= <identifier> '=' <OclExpressionCS>
+
+
+It should says:
+<propertyTemplate> ::= <identifier> '=' ( <template> | 
+<oclExpressionCS 
+
+
+Juergen Boldt
+Director, Member Services
+Object Management Group
+140 Kendrick St
+Building A Suite 300
+Needham, MA 02494
+USA
+
+tel: +1 781 444 0404 x 132
+fax: +1 781 444 0320
+email: juergen@omg.org
+www.omg.org <http://www.omg.org/> 
+
+
+
+*******************************************************************************
+Please consider the environment before printing this email.
+*******************************************************************************
+This email and any files transmitted with it are intended solely for the use of
+the individual or entity to whom they are addressed and may not be divulged to
+any third party without the express permission of the originator.  Any views
+expressed in this message are those of the individual sender, except where the
+sender specifically states them to be the views of Thales Research & Technology
+(UK) Limited.
+*******************************************************************************
+
+
+------_=_NextPart_001_01C89623.F6F68D81
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; charset=3Dus-ascii">
+
+
+<META content=3D"MSHTML 6.00.6000.16608" name=3DGENERATOR></HEAD>
+<BODY>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>Hi Peter</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>If you're trying to parse Appendix A you may be=
+=20
+interested in a conflict free QVTr grammar at</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008><A=20
+href=3D"http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/umlx/p=
+lugins/org.eclipse.gmt.umlx.eqvtr.cst/src/org/eclipse/gmt/umlx/eqvtr/cst/pa=
+rser/QVTrParser.g">http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse=
+.gmt/umlx/plugins/org.eclipse.gmt.umlx.eqvtr.cst/src/org/eclipse/gmt/umlx/e=
+qvtr/cst/parser/QVTrParser.g</A></SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>that extends</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008><A=20
+href=3D"http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.mdt/org.eclips=
+e.ocl/plugins/org.eclipse.ocl/src/org/eclipse/ocl/parser/EssentialOCL.g?rev=
+ision=3D1.3&amp;root=3DModeling_Project">http://dev.eclipse.org/viewcvs/ind=
+ex.cgi/org.eclipse.mdt/org.eclipse.ocl/plugins/org.eclipse.ocl/src/org/ecli=
+pse/ocl/parser/EssentialOCL.g?revision=3D1.3&amp;root=3DModeling_Project</A=
+></SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>and a meta-model package consistent Appendix=20
+A</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008><A=20
+href=3D"http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/umlx/p=
+lugins/org.eclipse.gmt.umlx.qvtr.examples/qvtr/qvtr2qvtc/RelToCore.qvtr">ht=
+tp://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/umlx/plugins/org=
+.eclipse.gmt.umlx.qvtr.examples/qvtr/qvtr2qvtc/RelToCore.qvtr</A></SPAN></F=
+ONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>The above has only one error: the missing deep=20
+expression copy function.</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>A working QVTr editor, parser AST generatoir and=
+=20
+validator may be found at <A=20
+href=3D"http://www.eclipse.org/gmt/umlx/download/">http://www.eclipse.org/g=
+mt/umlx/download/</A></SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>provided you're prepared to install the MDT-OCL =
+and EMF=20
+prerequisities. Working from CVS is a little better, if=20
+you're</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>an enthusast. The UMLX editor support should be =
+joining=20
+up with the MDT-QVTR compiler project shortly.</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>&nbsp;&nbsp;&nbsp; Regards</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>&nbsp;&nbsp;</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ed=20
+Willink</SPAN></FONT></DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><SP=
+AN=20
+class=3D952095806-04042008></SPAN></FONT>&nbsp;</DIV><BR>
+<BLOCKQUOTE dir=3Dltr=20
+style=3D"PADDING-LEFT: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: #0000ff 2px soli=
+d; MARGIN-RIGHT: 0px">
+  <DIV class=3DOutlookMessageHeader lang=3Den-us dir=3Dltr align=3Dleft>
+  <HR tabIndex=3D-1>
+  <FONT face=3DTahoma size=3D2><B>From:</B> Willink, Ed <BR><B>Sent:</B> 04=
+ April=20
+  2008 07:49<BR><B>To:</B> 'Juergen Boldt'; issues@omg.org;=20
+  qvt-rtf@omg.org<BR><B>Cc:</B> 'peter.denno@nist.gov'<BR><B>Subject:</B> R=
+E:=20
+  issue 12367 -- QVT RTF issue<BR></FONT><BR></DIV>
+  <DIV></DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><=
+SPAN=20
+  class=3D854364606-04042008>Hi Peter</SPAN></FONT></DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><=
+SPAN=20
+  class=3D854364606-04042008></SPAN></FONT>&nbsp;</DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT size=3D+0><SPAN class=3D854364606-04042=
+008><FONT=20
+  color=3D#0000ff><FONT face=3DArial size=3D2>This change is not necessary =
+since=20
+  7.13.6 extends OclExpressionCS to include=20
+  template.</FONT></FONT></SPAN></FONT></DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D3><=
+SPAN=20
+  class=3D854364606-04042008></SPAN></FONT>&nbsp;</DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D3><=
+SPAN=20
+  class=3D854364606-04042008><B><FONT size=3D2>
+  <P>&lt;OclExpressionCS&gt; ::=3D &lt;PropertyCallExpCS&gt; |=20
+  &lt;VariableExpCS&gt; | &lt;LiteralExpCS&gt; | &lt;LetExpCS&gt; |=20
+  &lt;IfExpCS&gt; | '(' &lt;OclExpressionCS&gt; ')' | &lt;template&gt;=20
+  </P></B></FONT></SPAN></FONT></DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT face=3D"Times New Roman" color=3D#00000=
+0=20
+  size=3D3><SPAN class=3D854364606-04042008></SPAN></FONT>&nbsp;</DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT face=3D"Times New Roman" color=3D#00000=
+0=20
+  size=3D3><SPAN class=3D854364606-04042008>&nbsp;&nbsp;&nbsp; <FONT face=
+=3DArial=20
+  color=3D#0000ff size=3D2>Regards</FONT></SPAN></FONT></DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><=
+SPAN=20
+  class=3D854364606-04042008></SPAN></FONT>&nbsp;</DIV>
+  <DIV dir=3Dltr align=3Dleft><FONT face=3DArial color=3D#0000ff size=3D2><=
+SPAN=20
+  class=3D854364606-04042008>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ed=
+=20
+  Willink</SPAN></FONT></DIV><BR>
+  <BLOCKQUOTE=20
+  style=3D"PADDING-LEFT: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: #0000ff 2px so=
+lid; MARGIN-RIGHT: 0px">
+    <DIV class=3DOutlookMessageHeader lang=3Den-us dir=3Dltr align=3Dleft>
+    <HR tabIndex=3D-1>
+    <FONT face=3DTahoma size=3D2><B>From:</B> Juergen Boldt [mailto:juergen=
+@omg.org]=20
+    <BR><B>Sent:</B> 03 April 2008 20:34<BR><B>To:</B> issues@omg.org;=20
+    qvt-rtf@omg.org<BR><B>Subject:</B> issue 12367 -- QVT RTF=20
+    issue<BR></FONT><BR></DIV>
+    <DIV></DIV>This is issue #12367 <X-TAB>&nbsp;&nbsp;&nbsp;</X-TAB><FONT=
+=20
+    size=3D3>From: Peter Denno &lt;peter.denno@nist.gov&gt; <BR><BR></FONT>=
+Issue=20
+    against QVT ptc/07-07-07 : relational grammar<BR><BR>Section 7.13.5 Rel=
+ation=20
+    BNF<BR><BR><BR>The grammar rule for template is incorrect (It does not =
+allow=20
+    a <BR>template to have embedded within it another template. The example=
+ in=20
+    <BR>Appendix A will not compile with such a grammar.)<BR><BR><BR>It=20
+    says:<BR><BR><BR>&lt;propertyTemplate&gt; ::=3D &lt;identifier&gt; '=3D=
+'=20
+    &lt;OclExpressionCS&gt;<BR><BR><BR>It should=20
+    says:<BR>&lt;propertyTemplate&gt; ::=3D &lt;identifier&gt; '=3D' (=20
+    &lt;template&gt; | <BR>&lt;oclExpressionCS <BR><FONT=20
+    size=3D3><B><BR><BR>Juergen Boldt<BR>Director, Member Services<BR>Objec=
+t=20
+    Management Group<BR>140 Kendrick St<BR>Building A Suite 300<BR>Needham,=
+ MA=20
+    02494<BR>USA<BR><BR>tel: +1 781 444 0404 x 132<BR>fax: +1 781 444=20
+    0320<BR>email: juergen@omg.org<BR><A href=3D"http://www.omg.org/"=20
+    eudora=3D"autourl">www.omg.org<BR></BLOCKQUOTE></BLOCKQUOTE></A></FONT>=
+</B>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">***************=
+****************************************************************</span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">Please consider=
+ the environment before printing this email.</span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">***************=
+****************************************************************</span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">This email and =
+any files transmitted with it are intended solely for the use of</span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">the individual =
+or entity to whom they are addressed and may not be divulged to</span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">any third party=
+ without the express permission of the originator.  Any views</span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">expressed in th=
+is message are those of the individual sender, except where the</span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">sender specific=
+ally states them to be the views of Thales Research &amp; Technology</span>=
+</p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">(UK) Limited.</=
+span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">***************=
+****************************************************************</span></p>
+<p><span style=3D"font-family:'Courier New';font-size:8pt;">&nbsp;</span></=
+p></BODY></HTML>
+
+------_=_NextPart_001_01C89623.F6F68D81--
+
+

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version = "2.1" xmlns:xmi = "http://schema.omg.org/spec/XMI/2.1" xmlns:uml = "http://www.omg.org/spec/UML/20090901" >
+  <documentation xmi:type = "xmi:Documentation">
+    <exporter>Artisan Studio</exporter>
+    <exporterVersion>7.3.0</exporterVersion>
+  </documentation>
+  <uml:Model name = "TestCase7" xmi:id = "_ea91c6d8-6efa-4157-84c8-d2567b66a4a2">
+      <packagedElement xmi:type = "uml:Activity" xmi:id = "_5ba4dcb0-a599-42c3-9ead-1afe1b481499" name = "opaqueDoBehavior" visibility = "public" isReentrant = "false" isReadOnly = "false" isSingleExecution = "false">
+      </packagedElement>
+      <packagedElement xmi:type = "uml:Class" xmi:id = "_7232c666-8da8-4864-a612-b3450e8237ad" name = "protocolClass">
+        <ownedOperation xmi:type = "uml:Operation" xmi:id = "_e9e462c8-4ed2-40f4-b213-6fdd78fae13bop" name = "referredOperation" visibility = "public">
+        </ownedOperation>
+        <ownedBehavior xmi:type = "uml:StateMachine" xmi:id = "_00b85722-ebc9-4e4e-a130-4ead2038f3ee" name = "protocolStateMachine" visibility = "public">
+          <region xmi:id = "_00b85722-ebc9-4e4e-a130-4ead2038f3eeregion">
+            <subvertex xmi:type = "uml:FinalState" xmi:id = "_d6711362-1c75-44fb-bd18-a09c46a5ab0c" name = "Final">
+            </subvertex>
+            <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_d06f781b-c770-40bf-a691-07a15ed3dc9e" name = "Initial">
+            </subvertex>
+            <subvertex xmi:type = "uml:State" xmi:id = "_31c54dee-a0ae-4564-8454-0653eb1f81e6" name = "State1">
+            </subvertex>
+            <subvertex xmi:type = "uml:State" xmi:id = "_4a541bec-b076-4166-8007-989e42a4f2ae" name = "State2">
+            </subvertex>
+              <transition xmi:type = "uml:Transition" xmi:id = "_a0f31399-d575-4d40-b6e5-cd72f6dc7237" source = "_d06f781b-c770-40bf-a691-07a15ed3dc9e" target = "_31c54dee-a0ae-4564-8454-0653eb1f81e6">
+              </transition>
+              <transition xmi:type = "uml:Transition" xmi:id = "_487dc5b5-a18b-4bcf-bfc0-4e18359958bd" source = "_31c54dee-a0ae-4564-8454-0653eb1f81e6" target = "_4a541bec-b076-4166-8007-989e42a4f2ae">
+              </transition>
+              <transition xmi:type = "uml:Transition" xmi:id = "_e8ddb5ea-b419-4d39-911b-03cd9b9b4871" source = "_4a541bec-b076-4166-8007-989e42a4f2ae" target = "_d6711362-1c75-44fb-bd18-a09c46a5ab0c">
+              </transition>
+          </region>
+        </ownedBehavior>
+      </packagedElement>
+      <packagedElement xmi:type = "uml:StateMachine" xmi:id = "_6f68d02c-01c2-47b7-bcc0-be5a07834647" name = "compositeStateMachine" visibility = "public">
+        <region xmi:id = "_6f68d02c-01c2-47b7-bcc0-be5a07834647region">
+          <subvertex xmi:type = "uml:State" xmi:id = "_a11f3f1c-fca3-4b42-a97f-88bf1d68b2bf" name = "compositeState">
+            <region xmi:id = "_a11f3f1c-fca3-4b42-a97f-88bf1d68b2bfregion">
+              <subvertex xmi:type = "uml:State" xmi:id = "_fc60b6e4-9019-45ca-b0b2-2f40a7254cea" name = "Sequential State">
+                <region xmi:id = "_fc60b6e4-9019-45ca-b0b2-2f40a7254cearegion">
+                  <subvertex xmi:type = "uml:State" xmi:id = "_2de1d216-a17f-4369-97ee-a82446cfbe2b" name = "state2">
+                  </subvertex>
+                  <subvertex xmi:type = "uml:State" xmi:id = "_2ba601f3-4d9f-4e89-afdc-c435bc9962ea" name = "state3">
+                  </subvertex>
+                    <transition xmi:type = "uml:Transition" xmi:id = "_3224b987-61f1-415a-a3cf-9177cbf55a20" source = "_2de1d216-a17f-4369-97ee-a82446cfbe2b" target = "_2ba601f3-4d9f-4e89-afdc-c435bc9962ea">
+                    </transition>
+                    <transition xmi:type = "uml:Transition" xmi:id = "_d808e339-4f2b-4f40-839e-6ddd32c888c1" source = "_2ba601f3-4d9f-4e89-afdc-c435bc9962ea" target = "_769d9a05-0f88-47e0-b651-3113c0f90b08">
+                    </transition>
+                </region>
+              </subvertex>
+              <subvertex xmi:type = "uml:State" xmi:id = "_131f005f-b72c-4f91-8d10-33eb3bf173b0" name = "Sequential State1">
+                <region xmi:id = "_131f005f-b72c-4f91-8d10-33eb3bf173b0region">
+                  <subvertex xmi:type = "uml:State" xmi:id = "_15fa13f0-19b7-442b-b222-f628f04a2c9b" name = "state4">
+                  </subvertex>
+                  <subvertex xmi:type = "uml:State" xmi:id = "_e57cb81a-5bbd-4b8c-9974-90206523605c" name = "state5">
+                  </subvertex>
+                    <transition xmi:type = "uml:Transition" xmi:id = "_9c774a49-7783-4a40-a150-b4de1e5b397a" source = "_15fa13f0-19b7-442b-b222-f628f04a2c9b" target = "_e57cb81a-5bbd-4b8c-9974-90206523605c">
+                    </transition>
+                    <transition xmi:type = "uml:Transition" xmi:id = "_5381e033-edf2-4ef5-b5a4-3a04a006baee" source = "_e57cb81a-5bbd-4b8c-9974-90206523605c" target = "_769d9a05-0f88-47e0-b651-3113c0f90b08">
+                    </transition>
+                </region>
+              </subvertex>
+            </region>
+          </subvertex>
+          <subvertex xmi:type = "uml:FinalState" xmi:id = "_a3019e04-c024-491f-944c-9905fb730d93" name = "Final">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_edd50a31-4fdc-4afd-8fda-d5d0ba8c3ca1" name = "Fork">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_bbff0a12-895f-4cec-aae0-ff4e80f3aa19" name = "Initial">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_769d9a05-0f88-47e0-b651-3113c0f90b08" name = "Join">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_d403ae9d-966b-4eac-a9d8-90fde135dc70" name = "state1">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_bee9f0e3-1106-4256-913e-40dcf30a9d9d" name = "state6">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_a9e4a72c-4e4a-4986-bb82-133f473408c5" name = "subMachineState" submachine = "_59ada979-0209-423f-a796-c1c36954ca25">
+            <connection xmi:type = "uml:ConnectionPointReference" xmi:id = "_d99f730c-c321-4cfe-be2c-cabdd911a878" name = "enter1">
+              <entry xmi:idref = "_93074973-be82-4632-a209-80d3ae27e5f6">
+              </entry>
+            </connection>
+            <connection xmi:type = "uml:ConnectionPointReference" xmi:id = "_0ef54053-6b8f-4fbf-b9d9-2fbf89be6511" name = "enter2">
+              <entry xmi:idref = "_98bf3f37-5fb1-44fc-bf66-3a6ad226a766">
+              </entry>
+            </connection>
+            <connection xmi:type = "uml:ConnectionPointReference" xmi:id = "_0c108180-bfca-4e35-bce4-e7bed411e1db" name = "exit1">
+              <exit xmi:idref = "_aa03222c-0beb-4ab2-891f-c97c339c10a4">
+              </exit>
+            </connection>
+            <connection xmi:type = "uml:ConnectionPointReference" xmi:id = "_03e73deb-4fb8-45ed-9e47-0f818c130d7f" name = "exit2">
+              <exit xmi:idref = "_b71493f9-7cb8-4a0e-a237-5fb64bbe144a">
+              </exit>
+            </connection>
+          </subvertex>
+            <transition xmi:type = "uml:Transition" xmi:id = "_ffd8bdff-d417-4e98-a9b7-31cca142be8b" source = "_a11f3f1c-fca3-4b42-a97f-88bf1d68b2bf" target = "_bee9f0e3-1106-4256-913e-40dcf30a9d9d">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_9cfcd4ff-cf1d-4798-8e63-fa9f2794c788" source = "_edd50a31-4fdc-4afd-8fda-d5d0ba8c3ca1" target = "_2de1d216-a17f-4369-97ee-a82446cfbe2b">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_fc32e6b5-aed6-4d2b-b6d5-285c88e3643c" source = "_edd50a31-4fdc-4afd-8fda-d5d0ba8c3ca1" target = "_15fa13f0-19b7-442b-b222-f628f04a2c9b">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_da042852-0dcd-4884-9b3e-95f1665c7881" source = "_bbff0a12-895f-4cec-aae0-ff4e80f3aa19" target = "_d403ae9d-966b-4eac-a9d8-90fde135dc70">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_b2da4a55-bd44-493f-82cd-1c28855794b6" source = "_769d9a05-0f88-47e0-b651-3113c0f90b08" target = "_bee9f0e3-1106-4256-913e-40dcf30a9d9d">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_8907a110-9392-4344-b62f-077516281c82" source = "_d403ae9d-966b-4eac-a9d8-90fde135dc70" target = "_d99f730c-c321-4cfe-be2c-cabdd911a878">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_4705b4d3-1a3a-45a1-b7be-4241ac312a10" source = "_d403ae9d-966b-4eac-a9d8-90fde135dc70" target = "_0c108180-bfca-4e35-bce4-e7bed411e1db">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_dcc93be1-1fb3-4d9c-8ab9-118200f6fc43" source = "_d403ae9d-966b-4eac-a9d8-90fde135dc70" target = "_edd50a31-4fdc-4afd-8fda-d5d0ba8c3ca1">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_c6074101-f977-430f-b631-9131d5ad1b0a" source = "_bee9f0e3-1106-4256-913e-40dcf30a9d9d" target = "_a3019e04-c024-491f-944c-9905fb730d93">
+            </transition>
+        </region>
+      </packagedElement>
+      <packagedElement xmi:type = "uml:StateMachine" xmi:id = "_80b6e5d4-60b3-4709-8cea-8e238d6fb2d9" name = "simpleStateMachine" visibility = "public">
+        <region xmi:id = "_80b6e5d4-60b3-4709-8cea-8e238d6fb2d9region">
+          <subvertex xmi:type = "uml:FinalState" xmi:id = "_c1cb0001-c951-4bda-81ae-4783a6ca36bb" name = "Final">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_6bb60dfd-efb9-4b5b-b9c2-339cc588c708" name = "Initial">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_2b3e28fd-07c3-48af-97f1-820cfd891506" name = "Junction">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_e689c42f-ee87-439b-b749-1c2a003e1731" name = "state_0">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_7e5d1ab9-4c6c-4861-b5c8-52030884c8a5" name = "state_1">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_c6f694c6-f9fc-447e-9786-3eefacd3ff62" name = "state_2">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_cf15c1ca-8967-47bd-8a84-557dae8a8926" name = "state_3">
+          </subvertex>
+            <transition xmi:type = "uml:Transition" xmi:id = "_c970af7f-77ff-4b26-bdfc-17ad72d838f0" source = "_6bb60dfd-efb9-4b5b-b9c2-339cc588c708" target = "_e689c42f-ee87-439b-b749-1c2a003e1731">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_9d173b73-98f2-4ef7-9953-f95745e3515d" source = "_2b3e28fd-07c3-48af-97f1-820cfd891506" target = "_7e5d1ab9-4c6c-4861-b5c8-52030884c8a5">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_9ea7d50b-4d92-49d8-9b0c-869e49613cac" source = "_2b3e28fd-07c3-48af-97f1-820cfd891506" target = "_c6f694c6-f9fc-447e-9786-3eefacd3ff62">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_c641a851-2d28-4568-9351-0acddaa12709" source = "_2b3e28fd-07c3-48af-97f1-820cfd891506" target = "_cf15c1ca-8967-47bd-8a84-557dae8a8926">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_784fe7e3-b9e2-4382-aa9f-042ead6060fe" source = "_e689c42f-ee87-439b-b749-1c2a003e1731" target = "_2b3e28fd-07c3-48af-97f1-820cfd891506">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_63ceb5ee-2e14-4bc7-bdbb-ccb57028f21e" source = "_7e5d1ab9-4c6c-4861-b5c8-52030884c8a5" target = "_c1cb0001-c951-4bda-81ae-4783a6ca36bb">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_f27734ea-2343-4143-922d-2e5f62b9d918" source = "_7e5d1ab9-4c6c-4861-b5c8-52030884c8a5" target = "_7e5d1ab9-4c6c-4861-b5c8-52030884c8a5">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_6c48a3d1-ff92-4193-a588-bd17bf6f5196" source = "_c6f694c6-f9fc-447e-9786-3eefacd3ff62" target = "_c1cb0001-c951-4bda-81ae-4783a6ca36bb">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_344c8a0b-041f-423e-86e3-25bc40c1adce" source = "_cf15c1ca-8967-47bd-8a84-557dae8a8926" target = "_c1cb0001-c951-4bda-81ae-4783a6ca36bb">
+            </transition>
+        </region>
+      </packagedElement>
+      <packagedElement xmi:type = "uml:StateMachine" xmi:id = "_59ada979-0209-423f-a796-c1c36954ca25" name = "subStateMachine" visibility = "public">
+        <region xmi:id = "_59ada979-0209-423f-a796-c1c36954ca25region">
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_93074973-be82-4632-a209-80d3ae27e5f6" name = "enter1">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_98bf3f37-5fb1-44fc-bf66-3a6ad226a766" name = "enter2">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_aa03222c-0beb-4ab2-891f-c97c339c10a4" name = "exit1">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_b71493f9-7cb8-4a0e-a237-5fb64bbe144a" name = "exit2">
+          </subvertex>
+          <subvertex xmi:type = "uml:Pseudostate" xmi:id = "_a70e2f5f-f2cb-4dad-b23a-5a7194915a3a" name = "Junction">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_66cb26f9-a122-4af1-9652-4f0f347af904" name = "state7">
+          </subvertex>
+          <subvertex xmi:type = "uml:State" xmi:id = "_567db2ec-9821-487f-89b4-7badf999f639" name = "state8">
+          </subvertex>
+            <transition xmi:type = "uml:Transition" xmi:id = "_39b397c3-f0e3-4907-8b7a-51e287fee33e" source = "_93074973-be82-4632-a209-80d3ae27e5f6" target = "_66cb26f9-a122-4af1-9652-4f0f347af904">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_bea0a775-46b8-42bf-a132-546ba122a7c3" source = "_98bf3f37-5fb1-44fc-bf66-3a6ad226a766" target = "_567db2ec-9821-487f-89b4-7badf999f639">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_44431720-a075-4a38-9e24-a97a42d77e1c" source = "_a70e2f5f-f2cb-4dad-b23a-5a7194915a3a" target = "_aa03222c-0beb-4ab2-891f-c97c339c10a4">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_a43f4d44-bf53-4566-a990-3f4d9c59b8e1" source = "_66cb26f9-a122-4af1-9652-4f0f347af904" target = "_a70e2f5f-f2cb-4dad-b23a-5a7194915a3a">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_c842fd58-5d60-4479-997a-addc002a7935" source = "_567db2ec-9821-487f-89b4-7badf999f639" target = "_b71493f9-7cb8-4a0e-a237-5fb64bbe144a">
+            </transition>
+            <transition xmi:type = "uml:Transition" xmi:id = "_6b6353ac-4341-4183-9cd4-9293b0c59cd0" source = "_567db2ec-9821-487f-89b4-7badf999f639" target = "_a70e2f5f-f2cb-4dad-b23a-5a7194915a3a">
+            </transition>
+        </region>
+      </packagedElement>
+        </uml:Model>
+</xmi:XMI>

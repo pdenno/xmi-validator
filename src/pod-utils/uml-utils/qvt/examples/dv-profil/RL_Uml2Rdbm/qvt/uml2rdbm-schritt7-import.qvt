@@ -1,0 +1,131 @@
+import uml2rdbmHelper.qvt;
+ 
+/* */
+transformation uml2rdbm ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   /* */
+   top relation PackageToSchema 
+   {
+      packageName : String;
+      checkonly domain uml  pck : Package { name = packageName };
+      enforce   domain rdbm sma : Schema  { name = packageName };
+   }
+
+   /* */
+   top relation ClassToTable 
+   {
+	  className : String;
+	  prefix    : String;
+	  
+	  checkonly domain uml cls : Class 
+	  {
+	    namespace = pck : Package { },
+	    kind      = 'persistent',
+	    name      = className
+	  };
+	  
+      enforce   domain rdbm tbl : Table
+      {
+	    schema   = sma : Schema {},
+	    name     = className
+      };
+
+ 	  when 	{ PackageToSchema   ( pck, sma); }
+
+ 	  where 
+ 	  { 
+	    prefix = className; 
+        AttributeToColumn ( cls, tbl, prefix );
+      }
+   }
+
+   /* */
+   relation AttributeToColumn 
+   {
+	  checkonly domain uml  cls : Class {};
+	  enforce   domain rdbm tbl : Table {};
+	  primitive domain prefix   : String;
+	  
+	  where 
+	  {
+	    PrimitiveAttributeToColumn ( cls, tbl, prefix );
+	    ComplexAttributeToColumn   ( cls, tbl, prefix );
+	    SuperAttributeToColumn     ( cls, tbl, prefix );
+	  }
+   }
+
+   /* */
+   relation PrimitiveAttributeToColumn 
+   {
+	  columnName       : String;
+	  attributeName    : String;
+	  primDataTypeName : String;
+	  sqlType          : String;
+	  
+	  checkonly domain uml c : Class 
+	  {
+	    attribute = a : Attribute 
+	    {
+	      name = attributeName,
+	      type = pdt : PrimitiveDataType { name = primDataTypeName }
+	    }
+	  };
+	  
+	  enforce domain rdbm t : Table 
+	  {
+	    column = cl : Column 
+	    {
+	      name = columnName,
+	      type = sqlType
+	    }
+	  };
+	  
+	  primitive domain prefix   : String;
+
+	  where 
+	  {
+	     columnName = uml2rdbmHelper::ColumnNameWithPrefix  ( prefix, attributeName );
+	     sqlType    = uml2rdbmHelper::PrimitiveTypeToSqlType( primDataTypeName );
+	  }
+   }
+
+   /* */
+   relation ComplexAttributeToColumn 
+   {
+      attributeName    : String;
+	  
+	  checkonly domain uml cls : Class 
+	  {
+	    attribute = attr : Attribute 
+	    {
+	      name = attributeName,
+	      type = attrType : Class {}
+	    }
+	  };
+	  
+	  enforce   domain rdbm tbl : Table {};
+	  primitive domain prefix   : String;
+
+	  where 
+	  {
+	     AttributeToColumn ( attrType, tbl, prefix );
+	  }
+	}
+
+   /* */
+   relation SuperAttributeToColumn 
+   {
+	  checkonly domain uml cls : Class 
+	  {
+	    general = supCls : Class {}
+	  };
+	  
+	  enforce   domain rdbm tbl : Table {};
+	  primitive domain prefix   : String;
+
+	  where 
+	  {
+	    AttributeToColumn ( supCls, tbl, prefix );
+	  }
+   }
+}

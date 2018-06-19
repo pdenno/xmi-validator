@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:umldi="http://www.omg.org/spec/UML/20131001/UMLDI" xmlns:dc="http://www.omg.org/spec/DD/20131001/DC" xmlns:dg="http://www.omg.org/spec/DD/20131001/DG" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:OMGIssuesProfile="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+	<uml:Package xmi:type="uml:Package" xmi:id="_0" name="DI" URI="http://www.omg.org/spec/DD/20131001/DI">
+		<packageMerge xmi:type="uml:PackageMerge" xmi:id="_0-packageMerge">
+			<mergedPackage xmi:type="uml:Package" href="http://www.omg.org/spec/DD/20131001/DI.xmi#_0"/>
+		</packageMerge>
+		<umldi:Diagram xmi:type="umldi:UMLClassDiagram" xmi:id="_uml2.diagrams-_contents.0" name="DI Package Dependencies">
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.0">
+				<modelElement xmi:type="uml:Package" href="http://www.omg.org/spec/DD/20131001/DC.xmi#_0"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.0" text="DC"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.0-_layoutConstraint" x="634" y="317" width="3251" height="1636"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.1">
+				<modelElement xmi:type="uml:Package" href="http://www.omg.org/spec/DD/20131001/DI.xmi#_0"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.1" text="DI"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.1-_layoutConstraint" x="634" y="4121" width="3253" height="1637"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.2">
+				<modelElement xmi:type="uml:Package" href="http://www.omg.org/spec/UML/20131001/UML.xmi#_0"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.2" text="UML"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.2-_layoutConstraint" x="7608" y="4438" width="1953" height="1334"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.0-_edges.0" source="_uml2.diagrams-_contents.0-_children.1" target="_uml2.diagrams-_contents.0-_children.0">
+				<modelElement xmi:type="uml:PackageImport">
+					<modelElement xmi:type="uml:PackageImport" href="http://www.omg.org/spec/DD/20131001/DI.xmi#_packageImport.0"/>
+				</modelElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.0-_edges.1" source="_uml2.diagrams-_contents.0-_children.1" target="_uml2.diagrams-_contents.0-_children.2">
+				<modelElement xmi:type="uml:PackageImport">
+					<modelElement xmi:type="uml:PackageImport" href="http://www.omg.org/spec/DD/20131001/DI.xmi#_packageImport.1"/>
+				</modelElement>
+			</ownedElement>
+		</umldi:Diagram>
+		<umldi:Diagram xmi:type="umldi:UMLClassDiagram" xmi:id="_uml2.diagrams-_contents.1" name="DI">
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.0">
+				<modelElement xmi:type="uml:Class" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.0" text="DiagramElement"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.0-_layoutConstraint" x="-8956" y="-634" width="3525" height="5158"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.0-_children.4"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.1">
+				<modelElement xmi:type="uml:Class" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.1" text="Edge"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.1-_layoutConstraint" x="-13093" y="5072" width="6295" height="1110"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.1-_children.4">
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.1-_children.4-waypoint" text="+ waypoint : Point[*] {sequence}">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge-waypoint"/>
+					</elementInCompartment>
+				</compartment>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.2">
+				<modelElement xmi:type="uml:Class" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Shape"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.2" text="Shape"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.2-_layoutConstraint" x="-6436" y="5072" width="3208" height="895"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.2-_children.4">
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.2-_children.4-bounds" text="+ bounds : Bounds[0..1]">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Shape-bounds"/>
+					</elementInCompartment>
+				</compartment>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.3">
+				<modelElement xmi:type="uml:Class" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Diagram"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.3" text="Diagram"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.3-_layoutConstraint" x="-2315" y="4755" width="3772" height="1563"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.3-_children.4">
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.3-_children.4-name" text="+ name : String">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Diagram-name"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.3-_children.4-documentation" text="+ documentation : String">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Diagram-documentation"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.diagrams-_contents.1-_children.3-_children.4-resolution" text="+ resolution : Real = 300">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Diagram-resolution"/>
+					</elementInCompartment>
+				</compartment>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.4">
+				<modelElement xmi:type="uml:Class" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Style"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.4" text="Style"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.4-_layoutConstraint" x="-344" y="1268" width="1231" height="2407"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.diagrams-_contents.1-_children.4-_children.4"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.1-_children.5">
+				<modelElement xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.1-_children.5" text="Element"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_children.5-_layoutConstraint" x="-1337" y="-317" width="5709" height="666"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.0" source="_uml2.diagrams-_contents.1-_children.0" target="_uml2.diagrams-_contents.1-_children.0">
+				<modelElement xmi:type="uml:Association">
+					<modelElement xmi:type="uml:Association" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_ownedElement_owningElement"/>
+				</modelElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.1" text="0..1">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-owningElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.1-_layoutConstraint" x="-9800" y="445" width="529" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.2" text="owningElement">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-owningElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.2-_layoutConstraint" x="-12182" y="1026" width="2592" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.3" text="*">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-ownedElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.3-_layoutConstraint" x="-9318" y="-744" width="176" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.4" text="ownedElement">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-ownedElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.4-_layoutConstraint" x="-12159" y="-771" width="2504" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLRedefinesLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.7" text="">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-owningElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.7-_layoutConstraint" x="-9354" y="1390" width="2522" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLRedefinesLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.8" text="">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-ownedElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.0-_children.8-_layoutConstraint" x="-8534" y="-380" width="2522" height="387"/>
+				</ownedElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.1" source="_uml2.diagrams-_contents.1-_children.1" target="_uml2.diagrams-_contents.1-_children.0">
+				<modelElement xmi:type="uml:Association">
+					<modelElement xmi:type="uml:Association" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_target_targetEdge"/>
+				</modelElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.1" text="*">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_target_targetEdge-targetEdge"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.1-_layoutConstraint" x="-9340" y="4673" width="176" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.2" text="targetEdge">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_target_targetEdge-targetEdge"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.2-_layoutConstraint" x="-11674" y="4613" width="1975" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.3" text="1">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge-target"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.3-_layoutConstraint" x="-9216" y="4055" width="176" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.4" text="target">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge-target"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.4-_layoutConstraint" x="-10370" y="3362" width="1287" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLRedefinesLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.7" text="">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_target_targetEdge-targetEdge"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.7-_layoutConstraint" x="-12187" y="4147" width="2522" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLRedefinesLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.8" text="">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge-target"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.1-_children.8-_layoutConstraint" x="-11528" y="2966" width="2522" height="387"/>
+				</ownedElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.2" source="_uml2.diagrams-_contents.1-_children.1" target="_uml2.diagrams-_contents.1-_children.0">
+				<modelElement xmi:type="uml:Association">
+					<modelElement xmi:type="uml:Association" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_source_sourceEdge"/>
+				</modelElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.1" text="*">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_source_sourceEdge-sourceEdge"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.1-_layoutConstraint" x="-12524" y="4724" width="176" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.2" text="sourceEdge">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_source_sourceEdge-sourceEdge"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.2-_layoutConstraint" x="-14964" y="4688" width="2063" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.3" text="1">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge-source"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.3-_layoutConstraint" x="-9466" y="2434" width="176" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.4" text="source">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge-source"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.4-_layoutConstraint" x="-10568" y="1943" width="1375" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLRedefinesLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.7" text="">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_source_sourceEdge-sourceEdge"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.7-_layoutConstraint" x="-15419" y="4240" width="2522" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLRedefinesLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.8" text="">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge-source"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.2-_children.8-_layoutConstraint" x="-11487" y="1570" width="2522" height="387"/>
+				</ownedElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.3" source="_uml2.diagrams-_contents.1-_children.1" target="_uml2.diagrams-_contents.1-_children.0">
+				<modelElement xmi:type="uml:Generalization">
+					<modelElement xmi:type="uml:Generalization" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Edge-_generalization.0"/>
+				</modelElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.4" source="_uml2.diagrams-_contents.1-_children.2" target="_uml2.diagrams-_contents.1-_children.0">
+				<modelElement xmi:type="uml:Generalization">
+					<modelElement xmi:type="uml:Generalization" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Shape-_generalization.0"/>
+				</modelElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.5" source="_uml2.diagrams-_contents.1-_children.3" target="_uml2.diagrams-_contents.1-_children.2">
+				<modelElement xmi:type="uml:Generalization">
+					<modelElement xmi:type="uml:Generalization" href="http://www.omg.org/spec/DD/20131001/DI.xmi#Diagram-_generalization.0"/>
+				</modelElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.6" source="_uml2.diagrams-_contents.1-_children.0" target="_uml2.diagrams-_contents.1-_children.5">
+				<modelElement xmi:type="uml:Association">
+					<modelElement xmi:type="uml:Association" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_modelElement_diagramElement"/>
+				</modelElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.1" text="*">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_modelElement_diagramElement-diagramElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.1-_layoutConstraint" x="-5377" y="64" width="176" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.2" text="diagramElement">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_modelElement_diagramElement-diagramElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.2-_layoutConstraint" x="-5346" y="-652" width="2698" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.3" text="*">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-modelElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.3-_layoutConstraint" x="-1551" y="-625" width="176" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.4" text="modelElement">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-modelElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.4-_layoutConstraint" x="-3887" y="61" width="2434" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLRedefinesLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.7" text="">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_modelElement_diagramElement-diagramElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.7-_layoutConstraint" x="-5330" y="-1105" width="2522" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLRedefinesLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.8" text="">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-modelElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.6-_children.8-_layoutConstraint" x="-3874" y="458" width="2522" height="387"/>
+				</ownedElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.7" source="_uml2.diagrams-_contents.1-_children.0" target="_uml2.diagrams-_contents.1-_children.4">
+				<modelElement xmi:type="uml:Association">
+					<modelElement xmi:type="uml:Association" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_localStyle_styledElement"/>
+				</modelElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.7-_children.1" text="0..1">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_localStyle_styledElement-styledElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.7-_children.1-_layoutConstraint" x="-5124" y="3667" width="529" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.7-_children.2" text="styledElement">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_localStyle_styledElement-styledElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.7-_children.2-_layoutConstraint" x="-5312" y="2876" width="2275" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.7-_children.3" text="0..1">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-localStyle"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.7-_children.3-_layoutConstraint" x="-1081" y="3548" width="529" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.7-_children.4" text="localStyle">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-localStyle"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.7-_children.4-_layoutConstraint" x="-2155" y="2875" width="1640" height="387"/>
+				</ownedElement>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.diagrams-_contents.1-_edges.8" source="_uml2.diagrams-_contents.1-_children.0" target="_uml2.diagrams-_contents.1-_children.4">
+				<modelElement xmi:type="uml:Association">
+					<modelElement xmi:type="uml:Association" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_sharedStyle_styledElement"/>
+				</modelElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.8-_children.1" text="*">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_sharedStyle_styledElement-styledElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.8-_children.1-_layoutConstraint" x="-5380" y="2005" width="176" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.8-_children.2" text="styledElement">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#A_sharedStyle_styledElement-styledElement"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.8-_children.2-_layoutConstraint" x="-5376" y="1411" width="2275" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.8-_children.3" text="0..1">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-sharedStyle"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.8-_children.3-_layoutConstraint" x="-1208" y="1991" width="529" height="387"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.diagrams-_contents.1-_edges.8-_children.4" text="sharedStyle">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/spec/DD/20131001/DI.xmi#DiagramElement-sharedStyle"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.1-_edges.8-_children.4-_layoutConstraint" x="-2467" y="1409" width="1940" height="387"/>
+				</ownedElement>
+			</ownedElement>
+		</umldi:Diagram>
+	</uml:Package>
+</xmi:XMI>

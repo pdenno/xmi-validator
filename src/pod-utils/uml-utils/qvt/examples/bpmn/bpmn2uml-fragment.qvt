@@ -1,0 +1,42 @@
+
+transformation BPMN2UMLProfile( bpmn:BPMN, uml:UML23 ) //, bpmnprofile : UML23 )
+
+//mapping from BPMN to UML profile for BPMN
+//the transformation takes three inputs:
+//	* ?bpmn? is a model conforming to the BPMN meta-model. This is the source model of 	
+//       the transformation, and is not modified by the transformation
+//	* ?uml? is a model conforming to the UML meta-model. This is the target model of the
+// 	transformation, and is modified by the transformation rules.
+//	* ?bpmnprofile? is the UML profile for BPMN, conforming to the UML meta-model. The
+// 	stereotypes defined in the profile are applied to the elements of the output model. 
+
+{
+
+//**********************************
+//	Core Structure
+//*********************************
+
+top relation DefinitionsToPackage
+// This relation maps BPMN Definitions to UML Package
+// The BPMN Definition is bound to the variable ?d?. Its name is bound to the variable ?dn?.
+// ?checkonly? semantics ensures there are no side effects in the BPMN model.
+// the ?enforce? semantics ensures that a corresponding Package is created in the uml model,
+// and the Definition stereotype is applied to it, and the ?name? is copied.
+// the ?where? clause calls the subsequent relations to transform the contained elements. 
+{ 
+  checkonly domain bpmn _definitions : Definitions{ 
+    name  =  _name : String,
+      rootElement  =  _re : RootElement{ } };
+  enforce domain uml _package : uml::Package{ 
+    name  =  _name,
+      packageableElement  =  _pe : PackageableElement{ } };
+  //apply stereotype
+  enforce domain uml _umlDefinition : bpmnprofile::Definition{
+    base_Package  =  _package };
+  
+  where { 
+    RootElementToPackageableElement( _re, _pe ); 
+  }
+}
+} //transformation
+ 

@@ -1,0 +1,5 @@
+The source models are reprsented either in xmi or uml. 
+The umlclass_diagram is the UML class diagram file of the Eclipse UML2 Toolkit.
+You may do the modeling with the (an) UML2 tool. For transformation you need  
+the model in xmi or uml representation. The Eclipse UML modeling delivers uml 
+automatically, just like Topcase for example. 

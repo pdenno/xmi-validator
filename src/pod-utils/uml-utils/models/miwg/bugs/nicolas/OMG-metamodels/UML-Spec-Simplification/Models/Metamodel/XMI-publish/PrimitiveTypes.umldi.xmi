@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:umldi="http://www.omg.org/spec/UML/20131001/UMLDI" xmlns:dc="http://www.omg.org/spec/DD/20131001/DC" xmlns:dg="http://www.omg.org/spec/DD/20131001/DG" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:OMGIssuesProfile="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+	<uml:Package xmi:type="uml:Package" xmi:id="_0" name="PrimitiveTypes" URI="http://www.omg.org/spec/PrimitiveTypes/20131001">
+		<packageMerge xmi:type="uml:PackageMerge" xmi:id="_0-packageMerge">
+			<mergedPackage xmi:type="uml:Package" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#_0"/>
+		</packageMerge>
+		<umldi:Diagram xmi:type="umldi:UMLClassDiagram" xmi:id="_uml2.diagrams-_contents.0" name="Primitive Types">
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.0">
+				<modelElement xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.0" text="Integer"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.0-_layoutConstraint" x="1692" y="4047" width="2096" height="878"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.1">
+				<modelElement xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#UnlimitedNatural"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.1" text="UnlimitedNatural"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.1-_layoutConstraint" x="12408" y="4047" width="2907" height="878"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.2">
+				<modelElement xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.2" text="String"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.2-_layoutConstraint" x="8783" y="4047" width="2096" height="878"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.3">
+				<modelElement xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.3" text="Boolean"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.3-_layoutConstraint" x="5132" y="4047" width="2096" height="878"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.diagrams-_contents.0-_children.4">
+				<modelElement xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.diagrams-_contents.0-_children.4" text="Real"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.diagrams-_contents.0-_children.4-_layoutConstraint" x="17118" y="4121" width="2096" height="858"/>
+			</ownedElement>
+		</umldi:Diagram>
+	</uml:Package>
+</xmi:XMI>

@@ -1,0 +1,11 @@
+
+transformation HelloWorld ( trg : MyRDBM ) 
+{
+   top relation CreateSchema 
+   {
+      enforce domain trg  s : Schema 
+      { 
+         name = 'HelloWorld'
+      };
+   }
+}

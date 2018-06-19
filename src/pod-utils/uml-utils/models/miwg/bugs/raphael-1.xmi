@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+         xmlns:uml="http://www.omg.org/spec/UML/20110701"
+         xmlns:bpmnprofile="http://www.omg.org/spec/BPMNProfile/20120220"
+         xmi:version="2.1">
+   <uml:Package xmi:type="uml:Package" xmi:id="_1275488530530">
+      <packagedElement xmi:type="uml:Activity" xmi:id="_6">
+         <node xmi:type="uml:FlowFinalNode"
+               xmi:id="EndEvent_EndEvent"
+               name="EndEvent"
+               incoming="SequenceFlow_d"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="SequenceFlow_a"
+               name="a"
+               target="SubProcess_SubProcess"
+               source="StartEvent_StartEvent"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="SequenceFlow_d"
+               name="d"
+               target="EndEvent_EndEvent"
+               source="SubProcess_SubProcess"/>
+         <node xmi:type="uml:InitialNode"
+               xmi:id="StartEvent_StartEvent"
+               name="StartEvent"
+               outgoing="SequenceFlow_a"/>
+         <node xmi:type="uml:StructuredActivityNode"
+               xmi:id="SubProcess_SubProcess"
+               name="SubProcess"
+               outgoing="SequenceFlow_d"
+               incoming="SequenceFlow_a">
+            <node xmi:type="uml:FlowFinalNode"
+                  xmi:id="EndEvent_SubProcessEnd"
+                  name="SubProcessEnd"
+                  incoming="SequenceFlow_c"/>
+            <edge xmi:type="uml:ControlFlow"
+                  xmi:id="SequenceFlow_b"
+                  name="b"
+                  target="Activity_Activity"
+                  source="StartEvent_SubProcessStart"/>
+            <edge xmi:type="uml:ControlFlow"
+                  xmi:id="SequenceFlow_c"
+                  name="c"
+                  target="EndEvent_SubProcessEnd"
+                  source="Activity_Activity"/>
+            <node xmi:type="uml:InitialNode"
+                  xmi:id="StartEvent_SubProcessStart"
+                  name="SubProcessStart"
+                  outgoing="SequenceFlow_b"/>
+            <node xmi:type="uml:OpaqueAction"
+                  xmi:id="Activity_Activity"
+                  name="Activity"
+                  outgoing="SequenceFlow_c"
+                  incoming="SequenceFlow_b"/>
+         </node>
+      </packagedElement>
+      <profileApplication>
+         <appliedProfile href="http://www.omg.org/spec/BPMNProfile/20120220/BPMNProfileXMI/BPMNProfile.xmi"/>
+      </profileApplication>
+   </uml:Package>
+   <!-- Applied Stereotypes --><bpmnprofile:Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                            xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                            xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                            xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                            xmi:id="d1e1"
+                            base_Package="_1275488530530"
+                            targetNamespace="http://www.trisotech.com/definitions/_1275488530530"/>
+   <bpmnprofile:BPMNProcess xmi:id="d1e2" base_Activity="_6" isExecutable="false"/>
+   <bpmnprofile:EndEvent xmi:id="d1e3" base_FlowfinalNode="EndEvent_EndEvent"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e6" base_ControlFlow="SequenceFlow_a"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e7" base_ControlFlow="SequenceFlow_d"/>
+   <bpmnprofile:StartEvent xmi:id="d1e8" base_InitialNode="StartEvent_StartEvent"/>
+   <bpmnprofile:SubProcess xmi:id="d1e11"
+                           base_StructuredActivityNode="SubProcess_SubProcess"
+                           isForCompensation="false"
+                           startQuantity="1"
+                           completionQuantity="1"
+                           triggeredByEvent="false"/>
+   <bpmnprofile:EndEvent xmi:id="d1e24" base_FlowfinalNode="EndEvent_SubProcessEnd"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e27" base_ControlFlow="SequenceFlow_b"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e28" base_ControlFlow="SequenceFlow_c"/>
+   <bpmnprofile:StartEvent xmi:id="d1e16" base_InitialNode="StartEvent_SubProcessStart"/>
+   <bpmnprofile:Task xmi:id="d1e19"
+                     base_OpaqueAction="Activity_Activity"
+                     isForCompensation="false"
+                     startQuantity="1"
+                     completionQuantity="1"/>
+</xmi:XMI>

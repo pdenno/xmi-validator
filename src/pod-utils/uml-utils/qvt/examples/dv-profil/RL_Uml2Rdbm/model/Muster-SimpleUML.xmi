@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI 
+xmi:version="2.0" 
+xmlns:xmi="http://www.omg.org/XMI" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:SimpleUML="urn:SimpleUML.ecore" 
+xsi:schemaLocation="urn:SimpleUML.ecore platform:/resource/metamodels/SimpleUML.ecore">
+
+  <SimpleUML:UmlPackage umlName="HelloWorld" umlKind = "">
+  </SimpleUML:UmlPackage>
+
+</xmi:XMI>

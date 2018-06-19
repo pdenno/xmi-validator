@@ -1,0 +1,32 @@
+import UmlToRdbms_2;
+
+transformation UmlToRdbms_1(uml:umlMM; rdbms:rdbmsMM)
+{
+	top relation ClassToTable
+	{
+		n: String;
+		p: umlMM::Package;
+		s: rdbmsMM::Schema;
+		
+		enforce domain uml 
+		c1:Class
+		{
+			name = n,
+			hasPackage = p
+		};
+		
+		enforce domain rdbms
+		t1:Table 
+		{
+			name = n,
+			hasSchema = s
+		};
+
+		
+   		when
+		{
+			UmlToRdbms_2::PackageToSchema(p, s);
+   		}
+	}
+}
+

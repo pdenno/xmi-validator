@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="umlMM" xmi:id="_6WCDgCLQEdu9Nv7pSj2tqw">
+  <hasPackage xmi:id="_7SGqMCLQEdu9Nv7pSj2tqw" name="Company">
+    <hasClass xmi:id="_8leWkCLQEdu9Nv7pSj2tqw" name="Employee"/>
+    <hasClass xmi:id="_9Q88gCLQEdu9Nv7pSj2tqw" name="Employer"/>
+  </hasPackage>
+</null:Dummy>

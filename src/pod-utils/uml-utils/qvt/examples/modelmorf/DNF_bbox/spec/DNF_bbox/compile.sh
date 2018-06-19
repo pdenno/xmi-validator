@@ -1,0 +1,1 @@
+javac -classpath /local/ModelMorf/ModelMorf/extJar/adex.jar:/local/ModelMorf/ModelMorf/extJar/adexutil.jar:/local/ModelMorf/ModelMorf/extJar/mddcommon.jar spec/DNF_bbox/DNF_bbox_ext.java -d /local/ModelMorf/ModelMorf/qvtData

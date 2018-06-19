@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-31" xmi:uuid="725A27D7-D490-43F4-9CCA-5D548B37A8FC">
+        <packagedElement xmi:id="Test-Case-31-Test-Case-31"
+            xmi:uuid="725A27D7-D490-47A8-9613-5D545C16051F" xmi:type="uml:Activity">
+            <node xmi:id="Test-Case-31-Test-Case-31-Structured_Node"
+                xmi:uuid="725A27D7-D490-4AF8-90C4-5D542F81054A"
+                xmi:type="uml:StructuredActivityNode">
+                <variable xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Variable-3"
+                    xmi:uuid="725A27D7-D490-497A-9E87-5D5444EE648A" xmi:type="uml:Variable">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <upperValue
+                        xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Variable-3-upperValue"
+                        xmi:uuid="725A27D7-D490-49DE-9EFD-5D549C0AB151"
+                        xmi:type="uml:LiteralUnlimitedNatural">
+                        <value>*</value>
+                    </upperValue>
+                    <lowerValue
+                        xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Variable-3-lowerValue"
+                        xmi:uuid="725A27D7-D490-45CC-9121-5D545E72D4C8"
+                        xmi:type="uml:LiteralUnlimitedNatural"/>
+                    <name>Variable-3</name>
+                    <visibility>public</visibility>
+                    <isOrdered>true</isOrdered>
+                    <isUnique>false</isUnique>
+                </variable>
+                <node xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Read_Variable-1"
+                    xmi:uuid="725A27D7-D490-4240-946C-5D545DEA3867"
+                    xmi:type="uml:ReadVariableAction">
+                    <result
+                        xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Read_Variable-1-result"
+                        xmi:uuid="725A27D7-D490-482C-9937-5D54F1066381" xmi:type="uml:OutputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                        <outgoing xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-5"/>
+                        <name>result</name>
+                        <visibility>public</visibility>
+                    </result>
+                    <name>Read Variable-1</name>
+                    <visibility>public</visibility>
+                    <variable xmi:idref="Test-Case-31-Test-Case-31-Variable-1"/>
+                </node>
+                <node xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Add_Variable-3"
+                    xmi:uuid="725A27D7-D490-42D2-97C1-5D54A85D39D0"
+                    xmi:type="uml:AddVariableValueAction">
+                    <outgoing xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-4"/>
+                    <value xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Add_Variable-3-value"
+                        xmi:uuid="725A27D7-D490-4D75-9B7E-5D54EA12F039" xmi:type="uml:InputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                        <incoming xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-5"/>
+                        <name>value</name>
+                        <visibility>public</visibility>
+                    </value>
+                    <insertAt
+                        xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Add_Variable-3-insertAt"
+                        xmi:uuid="725A27D7-D490-4A98-9435-5D544BBDC3D2" xmi:type="uml:InputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#UnlimitedNatural"/>
+                        <incoming xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-1"/>
+                        <name>insertAt</name>
+                        <visibility>public</visibility>
+                    </insertAt>
+                    <name>Add Variable-3</name>
+                    <visibility>public</visibility>
+                    <variable xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Variable-3"/>
+                </node>
+                <node xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Remove_Variable-3"
+                    xmi:uuid="725A27D7-D490-40BD-9CDC-5D5432695532"
+                    xmi:type="uml:RemoveVariableValueAction">
+                    <incoming xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-4"/>
+                    <removeAt
+                        xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Remove_Variable-3-removeAt"
+                        xmi:uuid="725A27D7-D490-4BDE-9F17-5D5498284CC0" xmi:type="uml:InputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#UnlimitedNatural"/>
+                        <incoming xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-2"/>
+                        <name>removeAt</name>
+                        <visibility>public</visibility>
+                    </removeAt>
+                    <name>Remove Variable-3</name>
+                    <visibility>public</visibility>
+                    <variable xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Variable-3"/>
+                </node>
+                <node xmi:id="Test-Case-31-Test-Case-31-Structured_Node-node-4"
+                    xmi:uuid="725A27D7-D490-4632-9C48-5D54D5FA8F9E" xmi:type="uml:ForkNode">
+                    <outgoing xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-1"/>
+                    <outgoing xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-2"/>
+                    <incoming xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-3"/>
+                    <visibility>public</visibility>
+                </node>
+                <node xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Value_1"
+                    xmi:uuid="725A27D7-D490-4AA6-92A8-5D54E2FA438A"
+                    xmi:type="uml:ValueSpecificationAction">
+                    <value xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Value_1-value"
+                        xmi:uuid="725A27D7-D490-4054-91DC-5D54CB63CB5C"
+                        xmi:type="uml:LiteralUnlimitedNatural">
+                        <value>1</value>
+                    </value>
+                    <result xmi:id="Test-Case-31-Test-Case-31-Structured_Node-Value_1-result"
+                        xmi:uuid="725A27D7-D490-4582-9F5E-5D543E0A2F46" xmi:type="uml:OutputPin">
+                        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#UnlimitedNatural"/>
+                        <outgoing xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-edge-3"/>
+                        <name>result</name>
+                        <visibility>public</visibility>
+                    </result>
+                    <name>Value 1</name>
+                    <visibility>public</visibility>
+                </node>
+                <edge xmi:id="Test-Case-31-Test-Case-31-Structured_Node-edge-1"
+                    xmi:uuid="725A27D7-D490-4B2E-9A18-5D5443A9EADD" xmi:type="uml:ObjectFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-node-4"/>
+                    <target
+                        xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Add_Variable-3-insertAt"
+                    />
+                </edge>
+                <edge xmi:id="Test-Case-31-Test-Case-31-Structured_Node-edge-2"
+                    xmi:uuid="725A27D7-D490-485E-9C3F-5D547FDAFF12" xmi:type="uml:ObjectFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-node-4"/>
+                    <target
+                        xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Remove_Variable-3-removeAt"
+                    />
+                </edge>
+                <edge xmi:id="Test-Case-31-Test-Case-31-Structured_Node-edge-3"
+                    xmi:uuid="725A27D7-D490-4F58-9EB4-5D54C6F11D43" xmi:type="uml:ObjectFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Value_1-result"/>
+                    <target xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-node-4"/>
+                </edge>
+                <edge xmi:id="Test-Case-31-Test-Case-31-Structured_Node-edge-4"
+                    xmi:uuid="725A27D7-D490-46D5-9F4B-5D54D9E184F3" xmi:type="uml:ControlFlow">
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Add_Variable-3"/>
+                    <target xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Remove_Variable-3"
+                    />
+                </edge>
+                <edge xmi:id="Test-Case-31-Test-Case-31-Structured_Node-edge-5"
+                    xmi:uuid="725A27D7-D490-41CD-9712-5D54CE4E6896" xmi:type="uml:ObjectFlow">
+                    <visibility>public</visibility>
+                    <source
+                        xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Read_Variable-1-result"/>
+                    <target
+                        xmi:idref="Test-Case-31-Test-Case-31-Structured_Node-Add_Variable-3-value"/>
+                </edge>
+                <name>Structured Node</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-31-Test-Case-31-Read_Variable-1"
+                xmi:uuid="725A27D7-D490-4629-9DCE-5D54A8ED5BB0" xmi:type="uml:ReadVariableAction">
+                <outgoing xmi:idref="Test-Case-31-Test-Case-31-edge-5"/>
+                <result xmi:id="Test-Case-31-Test-Case-31-Read_Variable-1-result"
+                    xmi:uuid="725A27D7-D490-4896-9047-5D54090688B1" xmi:type="uml:OutputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <outgoing xmi:idref="Test-Case-31-Test-Case-31-edge-1"/>
+                    <name>result</name>
+                    <visibility>public</visibility>
+                </result>
+                <name>Read Variable-1</name>
+                <visibility>public</visibility>
+                <variable xmi:idref="Test-Case-31-Test-Case-31-Variable-1"/>
+            </node>
+            <node xmi:id="Test-Case-31-Test-Case-31-Add_Variable-2"
+                xmi:uuid="725A27D7-D490-4A7E-90D5-5D54DBAA1869"
+                xmi:type="uml:AddVariableValueAction">
+                <outgoing xmi:idref="Test-Case-31-Test-Case-31-edge-3"/>
+                <value xmi:id="Test-Case-31-Test-Case-31-Add_Variable-2-value"
+                    xmi:uuid="725A27D7-D490-43AE-975A-5D54AE27CBE5" xmi:type="uml:InputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <incoming xmi:idref="Test-Case-31-Test-Case-31-edge-2"/>
+                    <name>value</name>
+                    <visibility>public</visibility>
+                </value>
+                <name>Add Variable-2</name>
+                <visibility>public</visibility>
+                <isReplaceAll>true</isReplaceAll>
+                <variable xmi:idref="Test-Case-31-Test-Case-31-Variable-2"/>
+            </node>
+            <node xmi:id="Test-Case-31-Test-Case-31-node-4"
+                xmi:uuid="725A27D7-D490-4622-95D1-5D545DA3B67E" xmi:type="uml:ForkNode">
+                <outgoing xmi:idref="Test-Case-31-Test-Case-31-edge-2"/>
+                <outgoing xmi:idref="Test-Case-31-Test-Case-31-edge-4"/>
+                <incoming xmi:idref="Test-Case-31-Test-Case-31-edge-1"/>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-31-Test-Case-31-_Remove_Variable-2"
+                xmi:uuid="725A27D7-D490-4B04-9714-5D540283526A"
+                xmi:type="uml:RemoveVariableValueAction">
+                <incoming xmi:idref="Test-Case-31-Test-Case-31-edge-3"/>
+                <value xmi:id="Test-Case-31-Test-Case-31-_Remove_Variable-2-value"
+                    xmi:uuid="725A27D7-D490-4FAE-96FF-5D54C3773275" xmi:type="uml:InputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <incoming xmi:idref="Test-Case-31-Test-Case-31-edge-4"/>
+                    <name>value</name>
+                    <visibility>public</visibility>
+                </value>
+                <name> Remove Variable-2</name>
+                <visibility>public</visibility>
+                <isRemoveDuplicates>true</isRemoveDuplicates>
+                <variable xmi:idref="Test-Case-31-Test-Case-31-Variable-2"/>
+            </node>
+            <node xmi:id="Test-Case-31-Test-Case-31-Clear_Variable-1"
+                xmi:uuid="725A27D7-D490-4BFF-908F-5D54298BD932" xmi:type="uml:ClearVariableAction">
+                <incoming xmi:idref="Test-Case-31-Test-Case-31-edge-5"/>
+                <name>Clear Variable-1</name>
+                <visibility>public</visibility>
+                <variable xmi:idref="Test-Case-31-Test-Case-31-Variable-1"/>
+            </node>
+            <variable xmi:id="Test-Case-31-Test-Case-31-Variable-1"
+                xmi:uuid="725A27D7-D490-4F05-97BA-5D54C9550ACC" xmi:type="uml:Variable">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <name>Variable-1</name>
+                <visibility>public</visibility>
+            </variable>
+            <variable xmi:id="Test-Case-31-Test-Case-31-Variable-2"
+                xmi:uuid="725A27D7-D490-4417-9718-5D54EE24356D" xmi:type="uml:Variable">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <upperValue xmi:id="Test-Case-31-Test-Case-31-Variable-2-upperValue"
+                    xmi:uuid="725A27D7-D490-4B48-9E49-5D5428B32164"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <lowerValue xmi:id="Test-Case-31-Test-Case-31-Variable-2-lowerValue"
+                    xmi:uuid="725A27D7-D490-4F26-993C-5D54DB0556C0"
+                    xmi:type="uml:LiteralUnlimitedNatural"/>
+                <name>Variable-2</name>
+                <visibility>public</visibility>
+                <isUnique>false</isUnique>
+            </variable>
+            <edge xmi:id="Test-Case-31-Test-Case-31-edge-1"
+                xmi:uuid="725A27D7-D490-41F1-9DC9-5D54FFAFA475" xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-31-Test-Case-31-Read_Variable-1-result"/>
+                <target xmi:idref="Test-Case-31-Test-Case-31-node-4"/>
+            </edge>
+            <edge xmi:id="Test-Case-31-Test-Case-31-edge-2"
+                xmi:uuid="725A27D7-D490-4FA7-9D25-5D5497B40460" xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-31-Test-Case-31-node-4"/>
+                <target xmi:idref="Test-Case-31-Test-Case-31-Add_Variable-2-value"/>
+            </edge>
+            <edge xmi:id="Test-Case-31-Test-Case-31-edge-3"
+                xmi:uuid="725A27D7-D490-48C0-97F6-5D54522F6682" xmi:type="uml:ControlFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-31-Test-Case-31-Add_Variable-2"/>
+                <target xmi:idref="Test-Case-31-Test-Case-31-_Remove_Variable-2"/>
+            </edge>
+            <edge xmi:id="Test-Case-31-Test-Case-31-edge-4"
+                xmi:uuid="725A27D7-D490-471F-907C-5D54EA011764" xmi:type="uml:ObjectFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-31-Test-Case-31-node-4"/>
+                <target xmi:idref="Test-Case-31-Test-Case-31-_Remove_Variable-2-value"/>
+            </edge>
+            <edge xmi:id="Test-Case-31-Test-Case-31-edge-5"
+                xmi:uuid="725A27D7-D490-4256-95DB-5D5487B0CEAD" xmi:type="uml:ControlFlow">
+                <visibility>public</visibility>
+                <source xmi:idref="Test-Case-31-Test-Case-31-Read_Variable-1"/>
+                <target xmi:idref="Test-Case-31-Test-Case-31-Clear_Variable-1"/>
+            </edge>
+            <name>Test-Case-31</name>
+        </packagedElement>
+        <name>Test-Case-31</name>
+    </uml:Model>
+</xmi:XMI>

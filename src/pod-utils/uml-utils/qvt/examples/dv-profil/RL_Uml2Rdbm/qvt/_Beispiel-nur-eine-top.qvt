@@ -1,0 +1,94 @@
+
+transformation uml2rdbms ( uml : MyUML, rdbm : MyRDBM ) 
+{
+	top relation PackageToSchema 
+	{
+	   packageName : String;
+	   
+	   checkonly domain uml  pck : Package 
+	   {
+	      name = packageName
+	   };
+	   
+	   enforce   domain rdbm sma : Schema  
+	   {
+	      name = packageName
+	   };
+
+	   where	  
+	   {	
+	      ClassToTable (cls, tbl);	  
+--	      AssocToTable (cls, tbl);	  
+	   }
+	}
+	
+	relation ClassToTable 
+	{
+	   className : String;
+	   
+	   checkonly domain uml  cls : Class  
+	   {
+	      namespace = pck : Package { }, 
+	      name      = className 
+	   };
+       
+       enforce   domain rdbm tbl : Table  
+       {
+          schema    = sma : Schema {},   
+          name      = className
+       };
+	   
+	   when	  
+	   {	
+--	      PackageToSchema(pck, sma);	  
+	   }
+	   
+	   where	  
+	   {	
+	      AttributeToColumn (cls, tbl);	  
+	   }
+	}
+	
+	relation AssocToTable 
+	{
+	   associationName : String;
+	   sourceClassName : String;
+	   destClassName   : String;
+	  
+	   checkonly domain uml ass : Association 
+	   {
+         namespace   = pck : Package {},
+	     name        = associationName,
+	     source      = srcCls : Class { name = sourceClassName },
+	     destination = dstCls : Class { name = destClassName   }
+	   };
+	  
+	   enforce domain rdbm tab : Table  
+	   {
+	      schema  = sma : Schema {}, 
+	      name    = associationName, 
+          column  = srcclm : Column    { name = sourceClassName + '_ID' },
+          column  = dstclm : Column    { name = destClassName   + '_ID' }
+ 	   };
+ 
+       when 
+       { 
+--          PackageToSchema ( pck, sma ); 
+       }
+	}
+
+	relation AttributeToColumn 
+	{
+ 	  attrName : String;
+ 	  
+	  checkonly domain uml cls : Class 
+	  {
+	    attribute = att : Attribute { name = attrName  }
+	  };
+	  
+	  enforce   domain rdbm tbl : Table 
+	  {
+	    column    = clm : Column    { name = attrName  }
+	  };
+	}
+}

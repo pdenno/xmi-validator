@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <sysml:Allocate xmi:id="_-Allocate-1" xmi:uuid="725A27D7-D4C3-4351-92AB-E300479A82E9">
+        <base_Abstraction xmi:idref="Test-Case-39-packagedElement-7"/>
+    </sysml:Allocate>
+    <sysml:Allocate xmi:id="_-Allocate-3" xmi:uuid="725A27D7-D4C3-4700-98E1-E3006E2439F9">
+        <base_Abstraction xmi:idref="Test-Case-39-packagedElement-8"/>
+    </sysml:Allocate>
+    <sysml:Allocate xmi:id="_-Allocate-2" xmi:uuid="725A27D7-D4C3-4B5E-90B5-E300A5881734">
+        <base_Abstraction xmi:idref="Test-Case-39-packagedElement-9"/>
+    </sysml:Allocate>
+    <sysml:Allocate xmi:id="_-Allocate-4" xmi:uuid="725A27D7-D4C3-4BFC-9EAE-E30087126D4E">
+        <base_Abstraction xmi:idref="Test-Case-39-packagedElement-6"/>
+    </sysml:Allocate>
+    <sysml:AllocateActivityPartition xmi:id="_-AllocateActivityPartition-1"
+        xmi:uuid="725A27D7-D4C3-4738-94C2-E3001D732F57">
+        <base_ActivityPartition xmi:idref="Test-Case-39-Block-0-Activity-group-1"/>
+    </sysml:AllocateActivityPartition>
+    <sysml:AllocateActivityPartition xmi:id="_-AllocateActivityPartition-2"
+        xmi:uuid="725A27D7-D4C3-4819-9B10-E300B22A9831">
+        <base_ActivityPartition xmi:idref="Test-Case-39-Block-0-Activity-group-3"/>
+    </sysml:AllocateActivityPartition>
+    <sysml:AllocateActivityPartition xmi:id="_-AllocateActivityPartition-3"
+        xmi:uuid="725A27D7-D4C3-4F57-9240-E300513D0874">
+        <base_ActivityPartition xmi:idref="Test-Case-39-Block-0-Activity-group-2"/>
+    </sysml:AllocateActivityPartition>
+    <sysml:Block xmi:id="_-Block-1" xmi:uuid="725A27D7-D4C3-46EF-98A2-E30078334FFE">
+        <base_Class xmi:idref="Test-Case-39-Block-0"/>
+    </sysml:Block>
+    <sysml:Block xmi:id="_-Block-3" xmi:uuid="725A27D7-D4C3-47E2-954D-E300CCC50052">
+        <base_Class xmi:idref="Test-Case-39-Block-2"/>
+    </sysml:Block>
+    <sysml:Block xmi:id="_-Block-2" xmi:uuid="725A27D7-D4C3-4FCB-92C2-E300B27277DD">
+        <base_Class xmi:idref="Test-Case-39-Block-1"/>
+    </sysml:Block>
+    <uml:Model xmi:id="Test-Case-39" xmi:uuid="725A27D7-D4C3-42D2-92A5-E30034FB2200">
+        <profileApplication xmi:id="Test-Case-39-profileApplication"
+            xmi:uuid="725A27D7-D4C3-4406-9D42-E3001CC13F97" xmi:type="uml:ProfileApplication">
+            <appliedProfile href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+        </profileApplication>
+        <packagedElement xmi:id="Test-Case-39-Block-0"
+            xmi:uuid="725A27D7-D4C3-4AEB-943A-E300843BBD97" xmi:type="uml:Class">
+            <ownedBehavior xmi:id="Test-Case-39-Block-0-Activity"
+                xmi:uuid="725A27D7-D4C3-485A-905D-E300FD8B3A62" xmi:type="uml:Activity">
+                <partition xmi:idref="Test-Case-39-Block-0-Activity-group-1"/>
+                <partition xmi:idref="Test-Case-39-Block-0-Activity-group-2"/>
+                <partition xmi:idref="Test-Case-39-Block-0-Activity-group-3"/>
+                <node xmi:id="Test-Case-39-Block-0-Activity-Action-1"
+                    xmi:uuid="725A27D7-D4C3-4BEE-9D25-E300A9870BAE" xmi:type="uml:OpaqueAction">
+                    <outgoing xmi:idref="Test-Case-39-Block-0-Activity-edge-1"/>
+                    <inPartition xmi:idref="Test-Case-39-Block-0-Activity-group-1"/>
+                    <name>Action-1</name>
+                    <visibility>public</visibility>
+                </node>
+                <node xmi:id="Test-Case-39-Block-0-Activity-Action-2"
+                    xmi:uuid="725A27D7-D4C3-425D-94DF-E300305BF5CF" xmi:type="uml:OpaqueAction">
+                    <outgoing xmi:idref="Test-Case-39-Block-0-Activity-edge-2"/>
+                    <incoming xmi:idref="Test-Case-39-Block-0-Activity-edge-1"/>
+                    <inPartition xmi:idref="Test-Case-39-Block-0-Activity-group-1"/>
+                    <name>Action-2</name>
+                    <visibility>public</visibility>
+                </node>
+                <node xmi:id="Test-Case-39-Block-0-Activity-Action-3"
+                    xmi:uuid="725A27D7-D4C3-408E-9718-E300D564E9D9" xmi:type="uml:OpaqueAction">
+                    <outgoing xmi:idref="Test-Case-39-Block-0-Activity-edge-3"/>
+                    <incoming xmi:idref="Test-Case-39-Block-0-Activity-edge-2"/>
+                    <inPartition xmi:idref="Test-Case-39-Block-0-Activity-group-2"/>
+                    <name>Action-3</name>
+                    <visibility>public</visibility>
+                </node>
+                <node xmi:id="Test-Case-39-Block-0-Activity-Action-4"
+                    xmi:uuid="725A27D7-D4C3-4AC7-97AD-E300FC0EA054" xmi:type="uml:OpaqueAction">
+                    <incoming xmi:idref="Test-Case-39-Block-0-Activity-edge-3"/>
+                    <inPartition xmi:idref="Test-Case-39-Block-0-Activity-group-3"/>
+                    <name>Action-4</name>
+                    <visibility>public</visibility>
+                </node>
+                <group xmi:id="Test-Case-39-Block-0-Activity-group-1"
+                    xmi:uuid="725A27D7-D4C3-4294-9BFD-E300D9BF21E6" xmi:type="uml:ActivityPartition">
+                    <edge xmi:idref="Test-Case-39-Block-0-Activity-edge-1"/>
+                    <edge xmi:idref="Test-Case-39-Block-0-Activity-edge-2"/>
+                    <node xmi:idref="Test-Case-39-Block-0-Activity-Action-1"/>
+                    <node xmi:idref="Test-Case-39-Block-0-Activity-Action-2"/>
+                    <visibility>public</visibility>
+                    <represents xmi:idref="Test-Case-39-Block-0"/>
+                </group>
+                <group xmi:id="Test-Case-39-Block-0-Activity-group-2"
+                    xmi:uuid="725A27D7-D4C3-4583-959E-E300C76708A2" xmi:type="uml:ActivityPartition">
+                    <edge xmi:idref="Test-Case-39-Block-0-Activity-edge-3"/>
+                    <node xmi:idref="Test-Case-39-Block-0-Activity-Action-3"/>
+                    <visibility>public</visibility>
+                    <represents xmi:idref="Test-Case-39-Block-0-part-1"/>
+                </group>
+                <group xmi:id="Test-Case-39-Block-0-Activity-group-3"
+                    xmi:uuid="725A27D7-D4C3-4D83-98EC-E3008FB9E87D" xmi:type="uml:ActivityPartition">
+                    <node xmi:idref="Test-Case-39-Block-0-Activity-Action-4"/>
+                    <visibility>public</visibility>
+                    <represents xmi:idref="Test-Case-39-Block-0-part-2"/>
+                </group>
+                <edge xmi:id="Test-Case-39-Block-0-Activity-edge-1"
+                    xmi:uuid="725A27D7-D4C3-4525-9499-E3000284CB30" xmi:type="uml:ControlFlow">
+                    <inPartition xmi:idref="Test-Case-39-Block-0-Activity-group-1"/>
+                    <weight xmi:id="Test-Case-39-Block-0-Activity-edge-1-weight"
+                        xmi:uuid="725A27D7-D4C3-4642-9D6A-E3007996DB81"
+                        xmi:type="uml:LiteralUnlimitedNatural">
+                        <value>1</value>
+                    </weight>
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-39-Block-0-Activity-Action-1"/>
+                    <target xmi:idref="Test-Case-39-Block-0-Activity-Action-2"/>
+                </edge>
+                <edge xmi:id="Test-Case-39-Block-0-Activity-edge-2"
+                    xmi:uuid="725A27D7-D4C3-4536-9183-E3009D412539" xmi:type="uml:ControlFlow">
+                    <inPartition xmi:idref="Test-Case-39-Block-0-Activity-group-1"/>
+                    <weight xmi:id="Test-Case-39-Block-0-Activity-edge-2-weight"
+                        xmi:uuid="725A27D7-D4C3-4A4B-94B6-E300B76732C5"
+                        xmi:type="uml:LiteralUnlimitedNatural">
+                        <value>1</value>
+                    </weight>
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-39-Block-0-Activity-Action-2"/>
+                    <target xmi:idref="Test-Case-39-Block-0-Activity-Action-3"/>
+                </edge>
+                <edge xmi:id="Test-Case-39-Block-0-Activity-edge-3"
+                    xmi:uuid="725A27D7-D4C3-41A6-9188-E3003F86B1BF" xmi:type="uml:ControlFlow">
+                    <inPartition xmi:idref="Test-Case-39-Block-0-Activity-group-2"/>
+                    <weight xmi:id="Test-Case-39-Block-0-Activity-edge-3-weight"
+                        xmi:uuid="725A27D7-D4C3-4A8F-9339-E30067ED4584"
+                        xmi:type="uml:LiteralUnlimitedNatural">
+                        <value>1</value>
+                    </weight>
+                    <visibility>public</visibility>
+                    <source xmi:idref="Test-Case-39-Block-0-Activity-Action-3"/>
+                    <target xmi:idref="Test-Case-39-Block-0-Activity-Action-4"/>
+                </edge>
+                <name>Activity-0</name>
+            </ownedBehavior>
+            <ownedAttribute xmi:id="Test-Case-39-Block-0-part-1"
+                xmi:uuid="725A27D7-D4C3-401A-9862-E300857AD367" xmi:type="uml:Property">
+                <name>part-1</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-39-Block-1"/>
+                <association xmi:idref="Test-Case-39-packagedElement-4"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-39-Block-0-part-2"
+                xmi:uuid="725A27D7-D4C3-4ED4-9A0C-E30079E4DA17" xmi:type="uml:Property">
+                <name>part-2</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-39-Block-2"/>
+                <association xmi:idref="Test-Case-39-packagedElement-5"/>
+            </ownedAttribute>
+            <name>Block-0</name>
+            <classifierBehavior xmi:idref="Test-Case-39-Block-0-Activity"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-39-Block-1"
+            xmi:uuid="725A27D7-D4C3-4851-98F5-E30024A3B165" xmi:type="uml:Class">
+            <name>Block-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-39-Block-2"
+            xmi:uuid="725A27D7-D4C3-4AAC-9FC7-E3003EE19953" xmi:type="uml:Class">
+            <name>Block-2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-39-packagedElement-4"
+            xmi:uuid="725A27D7-D4C3-4E89-93E3-E3004EDDE68E" xmi:type="uml:Association">
+            <memberEnd xmi:idref="Test-Case-39-Block-0-part-1"/>
+            <memberEnd xmi:idref="Test-Case-39-packagedElement-4-ownedEnd"/>
+            <ownedEnd xmi:id="Test-Case-39-packagedElement-4-ownedEnd"
+                xmi:uuid="725A27D7-D4C3-45EF-92C1-E3001FBE55BA" xmi:type="uml:Property">
+                <visibility>private</visibility>
+                <type xmi:idref="Test-Case-39-Block-0"/>
+                <association xmi:idref="Test-Case-39-packagedElement-4"/>
+            </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-39-packagedElement-5"
+            xmi:uuid="725A27D7-D4C3-4A53-9FC2-E300B2F927C2" xmi:type="uml:Association">
+            <memberEnd xmi:idref="Test-Case-39-Block-0-part-2"/>
+            <memberEnd xmi:idref="Test-Case-39-packagedElement-5-ownedEnd"/>
+            <ownedEnd xmi:id="Test-Case-39-packagedElement-5-ownedEnd"
+                xmi:uuid="725A27D7-D4C3-4FAE-965D-E300F9A13CEC" xmi:type="uml:Property">
+                <visibility>private</visibility>
+                <type xmi:idref="Test-Case-39-Block-0"/>
+                <association xmi:idref="Test-Case-39-packagedElement-5"/>
+            </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-39-packagedElement-6"
+            xmi:uuid="725A27D7-D4C3-46F5-90F9-E3009A9E1816" xmi:type="uml:Abstraction">
+            <supplier xmi:idref="Test-Case-39-Block-0"/>
+            <client xmi:idref="Test-Case-39-Block-0-Activity-Action-1"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-39-packagedElement-7"
+            xmi:uuid="725A27D7-D4C3-4E25-9911-E300291DC00E" xmi:type="uml:Abstraction">
+            <supplier xmi:idref="Test-Case-39-Block-0"/>
+            <client xmi:idref="Test-Case-39-Block-0-Activity-Action-2"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-39-packagedElement-8"
+            xmi:uuid="725A27D7-D4C3-4709-998E-E3006A9E2AA7" xmi:type="uml:Abstraction">
+            <supplier xmi:idref="Test-Case-39-Block-0-part-1"/>
+            <client xmi:idref="Test-Case-39-Block-0-Activity-Action-3"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-39-packagedElement-9"
+            xmi:uuid="725A27D7-D4C3-48AD-9DCE-E30083A02BDD" xmi:type="uml:Abstraction">
+            <supplier xmi:idref="Test-Case-39-Block-0-part-2"/>
+            <client xmi:idref="Test-Case-39-Block-0-Activity-Action-4"/>
+        </packagedElement>
+        <name>Test-Case-39</name>
+    </uml:Model>
+</xmi:XMI>

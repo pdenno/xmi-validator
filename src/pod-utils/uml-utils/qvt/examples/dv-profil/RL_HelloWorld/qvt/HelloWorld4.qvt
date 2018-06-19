@@ -1,0 +1,18 @@
+transformation HelloWorld ( source : MyUML, target : MyRDBM  ) 
+{
+   top relation NewPackage 
+   {
+      packageName : String; 
+      hello       : String;
+      checkonly domain source srcPckg : Package 
+      {
+         name = packageName 
+      };
+      enforce   domain target tgtPckg : Schema  
+      { 
+         name  = hello + packageName,
+         table = tbl : Table { name = hello } 
+      };
+      where { hello = 'HelloWorld';}
+   }
+}

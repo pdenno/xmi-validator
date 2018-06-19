@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Package xmi:type="uml:Package" xmi:id="QVTCore" name="QVTCore" URI="http://www.omg.org/spec/QVT/20140401/QVTCore">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="EnforcementMode" name="EnforcementMode">
+      <ownedLiteral xmi:id="Creation" name="Creation"/>
+      <ownedLiteral xmi:id="Deletion" name="Deletion"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Area" name="Area" isAbstract="true">
+      <ownedAttribute xmi:id="Area.bottomPattern" name="bottomPattern" type="BottomPattern" aggregation="composite" association="A_Area.bottomPattern_BottomPattern.area"/>
+      <ownedAttribute xmi:id="Area.guardPattern" name="guardPattern" type="GuardPattern" aggregation="composite" association="A_Area.guardPattern_GuardPattern.area"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Assignment" name="Assignment" isAbstract="true">
+      <generalization xmi:id="G_Assignment_Element">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Element"/>
+      </generalization>
+      <ownedAttribute xmi:id="Assignment.bottomPattern" name="bottomPattern" type="BottomPattern" association="A_Assignment.bottomPattern_BottomPattern.assignment"/>
+      <ownedAttribute xmi:id="Assignment.isDefault" name="isDefault" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Assignment.value" name="value" aggregation="composite" association="A_Assignment.value_valueAssignment">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="BottomPattern" name="BottomPattern">
+      <generalization xmi:id="G_BottomPattern_CorePattern" general="CorePattern"/>
+      <ownedAttribute xmi:id="BottomPattern.area" name="area" type="Area" association="A_Area.bottomPattern_BottomPattern.area"/>
+      <ownedAttribute xmi:id="BottomPattern.assignment" name="assignment" type="Assignment" aggregation="composite" association="A_Assignment.bottomPattern_BottomPattern.assignment">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="BottomPattern.enforcementOperation" name="enforcementOperation" type="EnforcementOperation" aggregation="composite"
+          association="A_BottomPattern.enforcementOperation_EnforcementOperation.bottomPattern">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="BottomPattern.realizedVariable" name="realizedVariable" type="RealizedVariable" aggregation="composite"
+          association="A_BottomPattern.realizedVariable_RealizedVariable.bottomPattern">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CoreDomain" name="CoreDomain">
+      <generalization xmi:id="G_CoreDomain_Area" general="Area"/>
+      <generalization xmi:id="G_CoreDomain_Domain">
+        <general xmi:type="uml:Class" href="QVTBase.xmi#Domain"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CorePattern" name="CorePattern">
+      <generalization xmi:id="G_CorePattern_Pattern">
+        <general xmi:type="uml:Class" href="QVTBase.xmi#Pattern"/>
+      </generalization>
+      <ownedAttribute xmi:id="CorePattern.variable" name="variable" aggregation="composite" association="A_CorePattern.variable_corePattern">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="EnforcementOperation" name="EnforcementOperation">
+      <generalization xmi:id="G_EnforcementOperation_Element">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Element"/>
+      </generalization>
+      <ownedAttribute xmi:id="EnforcementOperation.bottomPattern" name="bottomPattern" type="BottomPattern" association="A_BottomPattern.enforcementOperation_EnforcementOperation.bottomPattern"/>
+      <ownedAttribute xmi:id="EnforcementOperation.enforcementMode" name="enforcementMode" visibility="public" type="EnforcementMode">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="EnforcementOperation.operationCallExp" name="operationCallExp" aggregation="composite" association="A_EnforcementOperation.operationCallExp_enforcementOperation">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OperationCallExp"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GuardPattern" name="GuardPattern">
+      <generalization xmi:id="G_GuardPattern_CorePattern" general="CorePattern"/>
+      <ownedAttribute xmi:id="GuardPattern.area" name="area" type="Area" association="A_Area.guardPattern_GuardPattern.area"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Mapping" name="Mapping">
+      <generalization xmi:id="G_Mapping_Area" general="Area"/>
+      <generalization xmi:id="G_Mapping_Rule">
+        <general xmi:type="uml:Class" href="QVTBase.xmi#Rule"/>
+      </generalization>
+      <ownedAttribute xmi:id="Mapping.context" name="context" type="Mapping" association="A_Mapping.context_Mapping.local">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Mapping.local" name="local" type="Mapping" aggregation="composite" association="A_Mapping.context_Mapping.local">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Mapping.refinement" name="refinement" type="Mapping" association="A_Mapping.refinement_Mapping.specification">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Mapping.specification" name="specification" type="Mapping" association="A_Mapping.refinement_Mapping.specification">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="PropertyAssignment" name="PropertyAssignment">
+      <generalization xmi:id="G_PropertyAssignment_Assignment" general="Assignment"/>
+      <ownedAttribute xmi:id="PropertyAssignment.slotExpression" name="slotExpression" aggregation="composite" association="A_PropertyAssignment.slotExpression_slotAssignment">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="PropertyAssignment.targetProperty" name="targetProperty" association="A_PropertyAssignment.targetProperty_assignment">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="RealizedVariable" name="RealizedVariable">
+      <generalization xmi:id="G_RealizedVariable_Variable">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+      </generalization>
+      <ownedAttribute xmi:id="RealizedVariable.bottomPattern" name="bottomPattern" type="BottomPattern" association="A_BottomPattern.realizedVariable_RealizedVariable.bottomPattern"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="VariableAssignment" name="VariableAssignment">
+      <generalization xmi:id="G_VariableAssignment_Assignment" general="Assignment"/>
+      <ownedAttribute xmi:id="VariableAssignment.targetVariable" name="targetVariable" association="A_VariableAssignment.targetVariable_assignment">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Area.bottomPattern_BottomPattern.area" name="A_Area.bottomPattern_BottomPattern.area"
+        memberEnd="Area.bottomPattern BottomPattern.area"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Area.guardPattern_GuardPattern.area" name="A_Area.guardPattern_GuardPattern.area"
+        memberEnd="Area.guardPattern GuardPattern.area"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Assignment.bottomPattern_BottomPattern.assignment" name="A_Assignment.bottomPattern_BottomPattern.assignment"
+        memberEnd="BottomPattern.assignment Assignment.bottomPattern"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Assignment.value_valueAssignment" name="A_Assignment.value_valueAssignment"
+        memberEnd="Assignment.value A_Assignment.value_valueAssignment.valueAssignment">
+      <ownedEnd xmi:id="A_Assignment.value_valueAssignment.valueAssignment" name="valueAssignment" type="Assignment" association="A_Assignment.value_valueAssignment">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_BottomPattern.enforcementOperation_EnforcementOperation.bottomPattern" name="A_BottomPattern.enforcementOperation_EnforcementOperation.bottomPattern"
+        memberEnd="BottomPattern.enforcementOperation EnforcementOperation.bottomPattern"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_BottomPattern.realizedVariable_RealizedVariable.bottomPattern" name="A_BottomPattern.realizedVariable_RealizedVariable.bottomPattern"
+        memberEnd="BottomPattern.realizedVariable RealizedVariable.bottomPattern"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_CorePattern.variable_corePattern" name="A_CorePattern.variable_corePattern"
+        memberEnd="CorePattern.variable A_CorePattern.variable_corePattern.corePattern">
+      <ownedEnd xmi:id="A_CorePattern.variable_corePattern.corePattern" name="corePattern" type="CorePattern" association="A_CorePattern.variable_corePattern">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_EnforcementOperation.operationCallExp_enforcementOperation" name="A_EnforcementOperation.operationCallExp_enforcementOperation"
+        memberEnd="EnforcementOperation.operationCallExp A_EnforcementOperation.operationCallExp_enforcementOperation.enforcementOperation">
+      <ownedEnd xmi:id="A_EnforcementOperation.operationCallExp_enforcementOperation.enforcementOperation" name="enforcementOperation"
+          type="EnforcementOperation" association="A_EnforcementOperation.operationCallExp_enforcementOperation">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Mapping.context_Mapping.local" name="A_Mapping.context_Mapping.local" memberEnd="Mapping.local Mapping.context"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_Mapping.refinement_Mapping.specification" name="A_Mapping.refinement_Mapping.specification"
+        memberEnd="Mapping.specification Mapping.refinement"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_PropertyAssignment.slotExpression_slotAssignment" name="A_PropertyAssignment.slotExpression_slotAssignment"
+        memberEnd="PropertyAssignment.slotExpression A_PropertyAssignment.slotExpression_slotAssignment.slotAssignment">
+      <ownedEnd xmi:id="A_PropertyAssignment.slotExpression_slotAssignment.slotAssignment" name="slotAssignment" type="PropertyAssignment"
+          association="A_PropertyAssignment.slotExpression_slotAssignment">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_PropertyAssignment.targetProperty_assignment" name="A_PropertyAssignment.targetProperty_assignment"
+        memberEnd="PropertyAssignment.targetProperty A_PropertyAssignment.targetProperty_assignment.assignment">
+      <ownedEnd xmi:id="A_PropertyAssignment.targetProperty_assignment.assignment" name="assignment" type="PropertyAssignment" association="A_PropertyAssignment.targetProperty_assignment">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_VariableAssignment.targetVariable_assignment" name="A_VariableAssignment.targetVariable_assignment"
+        memberEnd="VariableAssignment.targetVariable A_VariableAssignment.targetVariable_assignment.assignment">
+      <ownedEnd xmi:id="A_VariableAssignment.targetVariable_assignment.assignment" name="assignment" type="VariableAssignment" association="A_VariableAssignment.targetVariable_assignment">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+  </uml:Package>
+  <mofext:Tag xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" value="qvtcore" element="QVTCore"/>
+</xmi:XMI>

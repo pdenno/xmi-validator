@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:null="deMorgansLawMM" xmi:id="_HAYnsKRhEduByffnwpVXxQ">
+  <hasExpr xsi:type="null:ExprTree" xmi:id="_IhZHcKRhEduByffnwpVXxQ" expr="_dhNT0KRiEduByffnwpVXxQ" name="Tree"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_PKYNoKRhEduByffnwpVXxQ" name="a" parent="_hWoisKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_PmPqQKRhEduByffnwpVXxQ" name="b" parent="_bMyPkKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_P7aB8KRhEduByffnwpVXxQ" name="c" parent="_kBjQ0KRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_QN45EKRhEduByffnwpVXxQ" name="d" parent="_kBjQ0KRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_Qd-jgKRhEduByffnwpVXxQ" name="e" parent="_zYAdcKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_Q1rR0KRhEduByffnwpVXxQ" name="f" parent="_zYAdcKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_RTU3IKRhEduByffnwpVXxQ" name="g" parent="_dOuSIKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_RlzuQKRhEduByffnwpVXxQ" name="h" parent="_5yjfAKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_R5LWMKRhEduByffnwpVXxQ" name="i" parent="_MIDPoKRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_SVCy0KRhEduByffnwpVXxQ" name="j" parent="_MIDPoKRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_SuX40KRhEduByffnwpVXxQ" name="k" parent="_UdOx4KRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Not" xmi:id="_bMyPkKRhEduByffnwpVXxQ" expr="_PmPqQKRhEduByffnwpVXxQ" name="~b" parent="_hWoisKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Not" xmi:id="_dOuSIKRhEduByffnwpVXxQ" expr="_RTU3IKRhEduByffnwpVXxQ" name="~g" parent="_5yjfAKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:And" xmi:id="_hWoisKRhEduByffnwpVXxQ" expr="_PKYNoKRhEduByffnwpVXxQ _bMyPkKRhEduByffnwpVXxQ" name="a.~b" parent="_u7ZIMKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Or" xmi:id="_kBjQ0KRhEduByffnwpVXxQ" expr="_P7aB8KRhEduByffnwpVXxQ _QN45EKRhEduByffnwpVXxQ" name="c+d" parent="_nNGm0KRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Not" xmi:id="_nNGm0KRhEduByffnwpVXxQ" expr="_kBjQ0KRhEduByffnwpVXxQ" name="~(c+d)" parent="_u7ZIMKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Or" xmi:id="_u7ZIMKRhEduByffnwpVXxQ" expr="_hWoisKRhEduByffnwpVXxQ _nNGm0KRhEduByffnwpVXxQ" name="(a.~b)+~(c+d)" parent="_DHEXUKRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:And" xmi:id="_zYAdcKRhEduByffnwpVXxQ" expr="_Qd-jgKRhEduByffnwpVXxQ _Q1rR0KRhEduByffnwpVXxQ" name="e.f" parent="_10xa0KRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Not" xmi:id="_10xa0KRhEduByffnwpVXxQ" expr="_zYAdcKRhEduByffnwpVXxQ" name="~(e.f)" parent="_9Jb7QKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Or" xmi:id="_5yjfAKRhEduByffnwpVXxQ" expr="_dOuSIKRhEduByffnwpVXxQ _RlzuQKRhEduByffnwpVXxQ" name="~g+h" parent="_9Jb7QKRhEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Or" xmi:id="_9Jb7QKRhEduByffnwpVXxQ" expr="_10xa0KRhEduByffnwpVXxQ _5yjfAKRhEduByffnwpVXxQ" name="~(e.f)+(~g+h)" parent="_DHEXUKRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:And" xmi:id="_DHEXUKRiEduByffnwpVXxQ" expr="_u7ZIMKRhEduByffnwpVXxQ _9Jb7QKRhEduByffnwpVXxQ" name="(((a.~b)+~(c+d)).(~(e.f)+(~g+h)))" parent="_dhNT0KRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Or" xmi:id="_MIDPoKRiEduByffnwpVXxQ" expr="_R5LWMKRhEduByffnwpVXxQ _SVCy0KRhEduByffnwpVXxQ" name="i+j" parent="_ZDZEsKRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Literal" xmi:id="_RUEBgKRiEduByffnwpVXxQ" name="h" parent="_UdOx4KRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:And" xmi:id="_UdOx4KRiEduByffnwpVXxQ" expr="_SuX40KRhEduByffnwpVXxQ _RUEBgKRiEduByffnwpVXxQ" name="k.h" parent="_ZDZEsKRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:And" xmi:id="_ZDZEsKRiEduByffnwpVXxQ" expr="_MIDPoKRiEduByffnwpVXxQ _UdOx4KRiEduByffnwpVXxQ" name="(i+j).(k.h)" parent="_dhNT0KRiEduByffnwpVXxQ"/>
+  <hasExpr xsi:type="null:Or" xmi:id="_dhNT0KRiEduByffnwpVXxQ" expr="_DHEXUKRiEduByffnwpVXxQ _ZDZEsKRiEduByffnwpVXxQ" name="(((a.~b)+~(c+d)).(~(e.f)+(~g+h)))+((i+j).(k.h))" parent="_IhZHcKRhEduByffnwpVXxQ"/>
+</null:dummy>

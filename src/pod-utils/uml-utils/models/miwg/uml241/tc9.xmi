@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20110701" xsi:schemaLocation="http://schema.omg.org/spec/UML/2.3" xmi:id="_WLW3gBfzEd-619-IPupPpA" name="TestCase9">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_WLW3gxfzEd-619-IPupPpA">
+    <importedPackage xmi:type="uml:Model" href="http://www.omg.org/spec/UML/20110701/UML.xmi#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_guYxYBfzEd-619-IPupPpA" name="D">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_1CN28BfzEd-619-IPupPpA" name="aa" visibility="public" type="_iLg2sBfzEd-619-IPupPpA" aggregation="composite" association="_1BVGIBfzEd-619-IPupPpA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_1v0j0RfzEd-619-IPupPpA" name="bb" visibility="private" type="_idsy4BfzEd-619-IPupPpA" aggregation="composite" association="_1v0j0BfzEd-619-IPupPpA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_2E1KgRfzEd-619-IPupPpA" name="cc" visibility="protected" type="_jXED0BfzEd-619-IPupPpA" aggregation="composite" association="_2E1KgBfzEd-619-IPupPpA"/>
+    <ownedConnector xmi:type="uml:Connector" xmi:id="_-04OYBf0Ed-619-IPupPpA" name="a-b" >
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_-1U6UBf0Ed-619-IPupPpA" role="_1CN28BfzEd-619-IPupPpA"/>
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_-1U6URf0Ed-619-IPupPpA" role="_1v0j0RfzEd-619-IPupPpA"/>
+    </ownedConnector>
+    <ownedConnector xmi:type="uml:Connector" xmi:id="_A3j30Bf1Ed-619-IPupPpA" name="a-c" >
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_A3j30Rf1Ed-619-IPupPpA" role="_1CN28BfzEd-619-IPupPpA"/>
+      <end xmi:type="uml:ConnectorEnd" xmi:id="_A3j30hf1Ed-619-IPupPpA" role="_2E1KgRfzEd-619-IPupPpA"/>
+    </ownedConnector>
+    <ownedConnector xmi:type="uml:Connector" xmi:id="__3L_8Bf0Ed-619-IPupPpA" name="b-c" >
+      <end xmi:type="uml:ConnectorEnd" xmi:id="__3L_8Rf0Ed-619-IPupPpA" role="_1v0j0RfzEd-619-IPupPpA"/>
+      <end xmi:type="uml:ConnectorEnd" xmi:id="__3L_8hf0Ed-619-IPupPpA" role="_2E1KgRfzEd-619-IPupPpA"/>
+    </ownedConnector>
+    <ownedBehavior xmi:type="uml:Interaction" xmi:id="_K5pn0Bf1Ed-619-IPupPpA" name="Interaction1">
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_O4Bh4Bf1Ed-619-IPupPpA" name="aa" represents="_1CN28BfzEd-619-IPupPpA" coveredBy="_TDMh0Bf1Ed-619-IPupPpA _inf9MRf1Ed-619-IPupPpA _ezrbYRf3Ed-619-IPupPpA _ezrbYxf3Ed-619-IPupPpA _ezrbZRf3Ed-619-IPupPpA _abBcQhf7Ed-619-IPupPpA _abBcQxf7Ed-619-IPupPpA _abBcRRf7Ed-619-IPupPpA _bdwogRwVEd-CJL0dhfPuww _beDjdBwVEd-CJL0dhfPuww"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_PkbU4Bf1Ed-619-IPupPpA" name="bb" represents="_1v0j0RfzEd-619-IPupPpA" coveredBy="_TDMh0hf1Ed-619-IPupPpA _bR9TARf1Ed-619-IPupPpA _bSQN8xf1Ed-619-IPupPpA _NmxqgRf3Ed-619-IPupPpA _Nmxqhhf3Ed-619-IPupPpA _S1Ap8hf3Ed-619-IPupPpA _S1Ap8xf3Ed-619-IPupPpA _S1Jz4Bf3Ed-619-IPupPpA _Xr_nARf3Ed-619-IPupPpA _ezhqYRf3Ed-619-IPupPpA"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_QAlscBf1Ed-619-IPupPpA" name="cc" represents="_2E1KgRfzEd-619-IPupPpA" coveredBy="_bSHEABf1Ed-619-IPupPpA _bSQN8Bf1Ed-619-IPupPpA _bSQN8Rf1Ed-619-IPupPpA _inf9Mhf1Ed-619-IPupPpA _inpHIBf1Ed-619-IPupPpA _inpHIhf1Ed-619-IPupPpA _Nmxqghf3Ed-619-IPupPpA _Nmxqgxf3Ed-619-IPupPpA _NmxqhBf3Ed-619-IPupPpA _S1Ap8Rf3Ed-619-IPupPpA _S1Jz4hf3Ed-619-IPupPpA _Xr_nAxf3Ed-619-IPupPpA _abBcQRf7Ed-619-IPupPpA _beDjcBwVEd-CJL0dhfPuww _beDjcRwVEd-CJL0dhfPuww _beDjchwVEd-CJL0dhfPuww"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_TDMh0Bf1Ed-619-IPupPpA" covered="_O4Bh4Bf1Ed-619-IPupPpA" event="_KkBJ8CFUEd-yMap7Ofslqg" message="_TDDX4Bf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_TDMh0hf1Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_TDMh0xf1Ed-619-IPupPpA" message="_TDDX4Bf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bR9TARf1Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_b2nfQBf1Ed-619-IPupPpA" message="_bR9TABf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bSHEABf1Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_bSHEARf1Ed-619-IPupPpA" message="_bR9TABf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_bSQN8Bf1Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" start="_bSHEABf1Ed-619-IPupPpA" finish="_bSQN8Rf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bSQN8Rf1Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_b2nfQBf1Ed-619-IPupPpA" message="_bSQN8hf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bSQN8xf1Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_bSHEARf1Ed-619-IPupPpA" message="_bSQN8hf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_inf9MRf1Ed-619-IPupPpA" covered="_O4Bh4Bf1Ed-619-IPupPpA" event="_jStdYBf1Ed-619-IPupPpA" message="_inf9MBf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_inf9Mhf1Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_inf9Mxf1Ed-619-IPupPpA" message="_inf9MBf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_inpHIBf1Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" start="_inf9Mhf1Ed-619-IPupPpA" finish="_inpHIhf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_inpHIhf1Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_inpHIRf1Ed-619-IPupPpA" execution="_inpHIBf1Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_abBcQRf7Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_bSmkgRf7Ed-619-IPupPpA" message="_abBcQBf7Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_abBcQhf7Ed-619-IPupPpA" covered="_O4Bh4Bf1Ed-619-IPupPpA" event="_bSmkghf7Ed-619-IPupPpA" message="_abBcQBf7Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_abBcQxf7Ed-619-IPupPpA" covered="_O4Bh4Bf1Ed-619-IPupPpA" start="_abBcQhf7Ed-619-IPupPpA" finish="_abBcRRf7Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_abBcRRf7Ed-619-IPupPpA" covered="_O4Bh4Bf1Ed-619-IPupPpA" event="_abBcRBf7Ed-619-IPupPpA" execution="_abBcQxf7Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_NmxqgRf3Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_OAGwgBf3Ed-619-IPupPpA" message="_NmxqgBf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Nmxqghf3Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_OAGwgRf3Ed-619-IPupPpA" message="_NmxqgBf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_Nmxqgxf3Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" start="_Nmxqghf3Ed-619-IPupPpA" finish="_NmxqhBf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_S1Ap8Rf3Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_TFZ2YBf3Ed-619-IPupPpA" message="_S1Ap8Bf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_S1Ap8hf3Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_TFZ2YRf3Ed-619-IPupPpA" message="_S1Ap8Bf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_S1Ap8xf3Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" start="_S1Ap8hf3Ed-619-IPupPpA" finish="_S1Jz4Bf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ezhqYRf3Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_ezrbYBf3Ed-619-IPupPpA" message="_ezhqYBf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_ezrbYRf3Ed-619-IPupPpA" covered="_O4Bh4Bf1Ed-619-IPupPpA" event="_ezrbYhf3Ed-619-IPupPpA" message="_ezhqYBf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_ezrbYxf3Ed-619-IPupPpA" covered="_O4Bh4Bf1Ed-619-IPupPpA" start="_ezrbYRf3Ed-619-IPupPpA" finish="_ezrbZRf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_ezrbZRf3Ed-619-IPupPpA" covered="_O4Bh4Bf1Ed-619-IPupPpA" event="_ezrbZBf3Ed-619-IPupPpA" execution="_ezrbYxf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_S1Jz4Bf3Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_TFZ2YBf3Ed-619-IPupPpA" message="_S1Jz4Rf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_S1Jz4hf3Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_TFZ2YRf3Ed-619-IPupPpA" message="_S1Jz4Rf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_NmxqhBf3Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_OAGwgBf3Ed-619-IPupPpA" message="_NmxqhRf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Nmxqhhf3Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_OAGwgRf3Ed-619-IPupPpA" message="_NmxqhRf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bdwogRwVEd-CJL0dhfPuww" covered="_O4Bh4Bf1Ed-619-IPupPpA" event="_jStdYBf1Ed-619-IPupPpA" message="_bdwogBwVEd-CJL0dhfPuww"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_beDjcBwVEd-CJL0dhfPuww" covered="_QAlscBf1Ed-619-IPupPpA" event="_inf9Mxf1Ed-619-IPupPpA" message="_bdwogBwVEd-CJL0dhfPuww"/>
+      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_beDjcRwVEd-CJL0dhfPuww" covered="_QAlscBf1Ed-619-IPupPpA" start="_beDjcBwVEd-CJL0dhfPuww" finish="_beDjchwVEd-CJL0dhfPuww"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_beDjchwVEd-CJL0dhfPuww" covered="_QAlscBf1Ed-619-IPupPpA" event="_jStdYBf1Ed-619-IPupPpA" message="_beDjcxwVEd-CJL0dhfPuww"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_beDjdBwVEd-CJL0dhfPuww" covered="_O4Bh4Bf1Ed-619-IPupPpA" event="_inf9Mxf1Ed-619-IPupPpA" message="_beDjcxwVEd-CJL0dhfPuww"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Xr_nARf3Ed-619-IPupPpA" covered="_PkbU4Bf1Ed-619-IPupPpA" event="_hZPOMSFUEd-yMap7Ofslqg" message="_Xr_nABf3Ed-619-IPupPpA"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Xr_nAxf3Ed-619-IPupPpA" covered="_QAlscBf1Ed-619-IPupPpA" event="_XsJYABf3Ed-619-IPupPpA" message="_Xr_nABf3Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_TDDX4Bf1Ed-619-IPupPpA" name="B" messageSort="createMessage" receiveEvent="_TDMh0hf1Ed-619-IPupPpA" sendEvent="_TDMh0Bf1Ed-619-IPupPpA" connector="_-04OYBf0Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_bR9TABf1Ed-619-IPupPpA" name="cOperation1" receiveEvent="_bSHEABf1Ed-619-IPupPpA" sendEvent="_bR9TARf1Ed-619-IPupPpA" connector="__3L_8Bf0Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_bSQN8hf1Ed-619-IPupPpA" name="cOperation1" messageSort="reply" receiveEvent="_bSQN8xf1Ed-619-IPupPpA" sendEvent="_bSQN8Rf1Ed-619-IPupPpA" connector="__3L_8Bf0Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_inf9MBf1Ed-619-IPupPpA" name="cOperation3" messageSort="asynchCall" receiveEvent="_inf9Mhf1Ed-619-IPupPpA" sendEvent="_inf9MRf1Ed-619-IPupPpA" connector="_A3j30Bf1Ed-619-IPupPpA">
+        <argument xmi:type="uml:OpaqueExpression" xmi:id="_qFO6EBf1Ed-619-IPupPpA">
+          <language>10</language>
+          <body>10</body>
+        </argument>
+        <argument xmi:type="uml:OpaqueExpression" xmi:id="_TEa_ABwVEd-CJL0dhfPuww">
+          <language>OCL</language>
+          <body>4</body>
+        </argument>
+      </message>
+      <message xmi:type="uml:Message" xmi:id="_NmxqgBf3Ed-619-IPupPpA" name="cOperation2" receiveEvent="_Nmxqghf3Ed-619-IPupPpA" sendEvent="_NmxqgRf3Ed-619-IPupPpA" connector="__3L_8Bf0Ed-619-IPupPpA">
+        <argument xmi:type="uml:LiteralString" xmi:id="_Gr0OEBf4Ed-619-IPupPpA" value="theName"/>
+      </message>
+      <message xmi:type="uml:Message" xmi:id="_NmxqhRf3Ed-619-IPupPpA" name="cOperation2" messageSort="reply" receiveEvent="_Nmxqhhf3Ed-619-IPupPpA" sendEvent="_NmxqhBf3Ed-619-IPupPpA" connector="__3L_8Bf0Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_S1Ap8Bf3Ed-619-IPupPpA" name="callBack" receiveEvent="_S1Ap8hf3Ed-619-IPupPpA" sendEvent="_S1Ap8Rf3Ed-619-IPupPpA" connector="__3L_8Bf0Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_S1Jz4Rf3Ed-619-IPupPpA" name="callBack" messageSort="reply" receiveEvent="_S1Jz4hf3Ed-619-IPupPpA" sendEvent="_S1Jz4Bf3Ed-619-IPupPpA" connector="__3L_8Bf0Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_Xr_nABf3Ed-619-IPupPpA" name="destroy" messageSort="deleteMessage" receiveEvent="_Xr_nAxf3Ed-619-IPupPpA" sendEvent="_Xr_nARf3Ed-619-IPupPpA" connector="__3L_8Bf0Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_ezhqYBf3Ed-619-IPupPpA" name="Signal1" messageSort="asynchSignal" receiveEvent="_ezrbYRf3Ed-619-IPupPpA" sendEvent="_ezhqYRf3Ed-619-IPupPpA" connector="_-04OYBf0Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_abBcQBf7Ed-619-IPupPpA" name="aOperation1" messageSort="asynchCall" receiveEvent="_abBcQhf7Ed-619-IPupPpA" sendEvent="_abBcQRf7Ed-619-IPupPpA" connector="_A3j30Bf1Ed-619-IPupPpA"/>
+      <message xmi:type="uml:Message" xmi:id="_bdwogBwVEd-CJL0dhfPuww" name="cOperation3" receiveEvent="_beDjcBwVEd-CJL0dhfPuww" sendEvent="_bdwogRwVEd-CJL0dhfPuww" connector="_A3j30Bf1Ed-619-IPupPpA">
+        <argument xmi:type="uml:OpaqueExpression" xmi:id="_dPwKkBwVEd-CJL0dhfPuww">
+          <language></language>
+          <body>1</body>
+        </argument>
+        <argument xmi:type="uml:OpaqueExpression" xmi:id="_hHZxkBwVEd-CJL0dhfPuww">
+          <language></language>
+          <body>2</body>
+        </argument>
+      </message>
+      <message xmi:type="uml:Message" xmi:id="_beDjcxwVEd-CJL0dhfPuww" name="cOperation3" messageSort="reply" receiveEvent="_beDjdBwVEd-CJL0dhfPuww" sendEvent="_beDjchwVEd-CJL0dhfPuww" connector="_A3j30Bf1Ed-619-IPupPpA">
+        <argument xmi:type="uml:OpaqueExpression" xmi:id="_kEzW0BwVEd-CJL0dhfPuww">
+          <language></language>
+          <body>9</body>
+        </argument>
+        <argument xmi:type="uml:OpaqueExpression" xmi:id="_pxlTcBwVEd-CJL0dhfPuww">
+          <language></language>
+          <body>10</body>
+        </argument>
+      </message>
+    </ownedBehavior>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_iLg2sBfzEd-619-IPupPpA" name="A" isActive="true">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_bSmkgBf7Ed-619-IPupPpA" name="aOperation1"/>
+    <ownedReception xmi:type="uml:Reception" xmi:id="_g8cmEBf0Ed-619-IPupPpA" signal="_v1CAYBfzEd-619-IPupPpA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_idsy4BfzEd-619-IPupPpA" name="B" isActive="true">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_QKXI8Bf0Ed-619-IPupPpA" name="callBack"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_KjHyECFUEd-yMap7Ofslqg" name="B"/>
+    <ownedReception xmi:type="uml:Reception" xmi:id="_ha2ZUBf0Ed-619-IPupPpA" signal="_wPjZMBfzEd-619-IPupPpA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jXED0BfzEd-619-IPupPpA" name="C">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_59rrYBfzEd-619-IPupPpA" name="cOperation1"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6kIAUBfzEd-619-IPupPpA" name="cOperation2">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-ANssBfzEd-619-IPupPpA" name="name">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_695yQBfzEd-619-IPupPpA" name="cOperation3">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Irb5QBf0Ed-619-IPupPpA" name="number">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/UML.xmi#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1HrecBwUEd-CJL0dhfPuww" name="outParam" direction="out">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/UML.xmi#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6u8o8BwUEd-CJL0dhfPuww" name="return" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20110701/UML.xmi#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_hZPOMCFUEd-yMap7Ofslqg" name="destroy"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Signal" xmi:id="_v1CAYBfzEd-619-IPupPpA" name="Signal1"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="_wPjZMBfzEd-619-IPupPpA" name="Signal2"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1BVGIBfzEd-619-IPupPpA" memberEnd="_1CN28BfzEd-619-IPupPpA _1DtrwBfzEd-619-IPupPpA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1DtrwBfzEd-619-IPupPpA" name="" visibility="private" type="_guYxYBfzEd-619-IPupPpA" association="_1BVGIBfzEd-619-IPupPpA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1DtrwhfzEd-619-IPupPpA" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1DtrwRfzEd-619-IPupPpA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1v0j0BfzEd-619-IPupPpA" memberEnd="_1v0j0RfzEd-619-IPupPpA _1v9twhfzEd-619-IPupPpA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1v9twhfzEd-619-IPupPpA" name="" visibility="private" type="_guYxYBfzEd-619-IPupPpA" association="_1v0j0BfzEd-619-IPupPpA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1v9txBfzEd-619-IPupPpA" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1v9twxfzEd-619-IPupPpA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2E1KgBfzEd-619-IPupPpA" memberEnd="_2E1KgRfzEd-619-IPupPpA _2E1KhBfzEd-619-IPupPpA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2E1KhBfzEd-619-IPupPpA" name="" visibility="private" type="_guYxYBfzEd-619-IPupPpA" association="_2E1KgBfzEd-619-IPupPpA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2E-UcRfzEd-619-IPupPpA" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2E-UcBfzEd-619-IPupPpA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:CreationEvent" xmi:id="_TDMh0xf1Ed-619-IPupPpA" name="CreationEvent1"/>
+  <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_bSHEARf1Ed-619-IPupPpA" name="ReceiveOperationEvent1" operation="_59rrYBfzEd-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_b2nfQBf1Ed-619-IPupPpA" name="SendOperationEvent2" operation="_59rrYBfzEd-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_inf9Mxf1Ed-619-IPupPpA" name="ReceiveOperationEvent2" operation="_695yQBfzEd-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:ExecutionEvent" xmi:id="_inpHIRf1Ed-619-IPupPpA" name="ExecutionEvent1"/>
+  <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_jStdYBf1Ed-619-IPupPpA" name="SendOperationEvent3" operation="_695yQBfzEd-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_OAGwgBf3Ed-619-IPupPpA" name="SendOperationEvent4" operation="_6kIAUBfzEd-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_OAGwgRf3Ed-619-IPupPpA" name="ReceiveOperationEvent4" operation="_6kIAUBfzEd-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_TFZ2YBf3Ed-619-IPupPpA" name="SendOperationEvent5" operation="_QKXI8Bf0Ed-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_TFZ2YRf3Ed-619-IPupPpA" name="ReceiveOperationEvent5" operation="_QKXI8Bf0Ed-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:DestructionEvent" xmi:id="_XsJYABf3Ed-619-IPupPpA" name="DestructionEvent1"/>
+  <packagedElement xmi:type="uml:SendSignalEvent" xmi:id="_ezrbYBf3Ed-619-IPupPpA" name="SendSignalEvent1" signal="_v1CAYBfzEd-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:ReceiveSignalEvent" xmi:id="_ezrbYhf3Ed-619-IPupPpA" name="ReceiveSignalEvent1" signal="_v1CAYBfzEd-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:ExecutionEvent" xmi:id="_ezrbZBf3Ed-619-IPupPpA" name="ExecutionEvent2"/>
+  <packagedElement xmi:type="uml:ExecutionEvent" xmi:id="_abBcRBf7Ed-619-IPupPpA" name="ExecutionEvent3"/>
+  <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_bSmkgRf7Ed-619-IPupPpA" name="SendOperationEvent7" operation="_bSmkgBf7Ed-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_bSmkghf7Ed-619-IPupPpA" name="ReceiveOperationEvent6" operation="_bSmkgBf7Ed-619-IPupPpA"/>
+  <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_KkBJ8CFUEd-yMap7Ofslqg" name="SendOperationEvent8" operation="_KjHyECFUEd-yMap7Ofslqg"/>
+  <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_hZPOMSFUEd-yMap7Ofslqg" name="SendOperationEvent1" operation="_hZPOMCFUEd-yMap7Ofslqg"/>
+ 
+</uml:Model>

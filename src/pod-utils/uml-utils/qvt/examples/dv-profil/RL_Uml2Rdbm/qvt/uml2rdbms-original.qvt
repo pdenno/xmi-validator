@@ -1,0 +1,224 @@
+/*
+ * This transformation is uni-directional in direction "rdbms" and maps classes in packages to 
+ * tables in schemas. It is based upon the example in the official QVT specification at 
+ * http://www.omg.org/cgi-bin/apps/doc?ptc/05-11-01.pdf.
+ */
+transformation uml2rdbms ( uml : MyUML, rdbms : MyRDBM ) 
+{
+	-- map each package to a schema
+	top relation PackageToSchema 
+	{
+	  pn : String;
+	  checkonly domain uml p : Package { name = pn };
+	  enforce domain rdbms s : Schema  { name = pn };
+	}
+	
+	-- map each persistent class to a table
+	top relation ClassToTable 
+	{
+	  cn     : String;
+	  prefix : String;
+	  
+	  checkonly domain uml c : Class 
+	  {
+	    namespace = p : Package { },
+	    kind = 'persistent',
+	    name = cn
+	  };
+	  
+	  enforce domain rdbms t : Table 
+	  {
+	    schema = s : Schema {},
+	    name   = cn,
+	    column = cl : Column 
+	    {
+	      name = cn + '_tid',
+	      type = 'NUMBER'
+	    },
+	    primaryKey = k : PrimaryKey  { column = cl : Column{}  }
+	  };
+	  
+	  when 
+	  {
+	    PackageToSchema(p, s);
+	  }
+	  
+	  where 
+	  {
+	    ClassToPkey(c, k);
+	    prefix = cn;
+	    AttributeToColumn(c, t, prefix);
+	  }
+	}
+	
+	relation ClassToPkey 
+	{
+	  cn : String;
+	  checkonly domain uml c : Class      { name = cn  };
+	  enforce domain rdbms k : PrimaryKey { name = cn + '_pk' };
+	}
+	
+	relation AttributeToColumn 
+	{
+	  checkonly domain uml   c : Class { };
+	  enforce   domain rdbms t : Table { };
+	  primitive domain prefix  : String;
+	  
+	  where 
+	  {
+	    ComplexAttributeToColumn  (c, t, prefix);
+	    PrimitiveAttributeToColumn(c, t, prefix);
+	    SuperAttributeToColumn    (c, t, prefix);
+	  }
+	}
+	
+	relation PrimitiveAttributeToColumn 
+	{
+	  an : String;
+	  pn : String;
+	  cn : String;
+	  sqltype : String;
+	  
+	  checkonly domain uml c : Class 
+	  {
+	    attribute = a : Attribute 
+	    {
+	      name = an,
+	      type = p : PrimitiveDataType { name = pn }
+	    }
+	  };
+	  
+	  enforce domain rdbms t : Table 
+	  {
+	    column = cl : Column 
+	    {
+	      name = cn,
+	      type = sqltype
+	    }
+	  };
+	  
+	  primitive domain prefix : String;
+	  
+	  where 
+	  {
+	    cn = if   prefix = ''        then an
+	         else prefix + '_' + an  endif;
+	    sqltype = PrimitiveTypeToSqlType(pn);
+	  }
+	}
+	
+	relation ComplexAttributeToColumn 
+	{
+	  an : String;
+	  newPrefix : String;
+	  
+	  checkonly domain uml c : Class 
+	  {
+	    attribute = a : Attribute 
+	    {
+	      name = an,
+	      type = tc : Class {}
+	    }
+	  };
+	  
+	  enforce domain rdbms t : Table {};
+	  
+	  primitive domain prefix : String;
+	  
+	  where 
+	  {
+	    newPrefix = prefix + '_' + an;
+	    AttributeToColumn(tc, t, newPrefix);
+	  }
+	}
+	
+	relation SuperAttributeToColumn 
+	{
+	  
+	  checkonly domain uml c : Class 
+	  {
+	    general = sc : Class {}
+	  };
+	  
+	  enforce domain rdbms t : Table {};
+	  
+	  primitive domain prefix : String;
+	  
+	  where 
+	  {
+	    AttributeToColumn(sc, t, prefix);
+	  }
+	}
+	
+	-- map each association between persistent classes to a foreign key
+	top relation AssocToFKey 
+	{
+	  an : String;
+	  scn : String;
+	  dcn : String;
+	  fkn : String;
+	  fcn : String;
+	  
+	  checkonly domain uml a : Association 
+	  {
+	    namespace = p : Package {},
+	    name = an,
+	    source = sc : Class 
+	    {
+	      kind = 'persistent',
+	      name = scn
+	    },
+	    destination = dc : Class 
+	    {
+	      kind = 'persistent',
+	      name = dcn
+	    }
+	  };
+	  
+	  enforce domain rdbms fk : ForeignKey 
+	  {
+	    name  = fkn,
+	    owner = srcTbl : Table 
+	    {
+	      schema = s : Schema { }
+	    },
+	    column = fc : Column 
+	    {
+	      name = fcn,
+	      type = 'NUMBER',
+	      owner = srcTbl
+	    },
+	    refersTo = pKey : PrimaryKey 
+	    {
+	      owner = destTbl : Table {}
+	    }
+	  };
+	  
+	  when 
+	  {
+	    ClassToPkey(dc, pKey);
+	    PackageToSchema(p, s);
+	    ClassToTable(sc, srcTbl);
+	    ClassToTable(dc, destTbl);
+	  }
+	  
+	  where 
+	  {
+	    fkn = scn + '_' + an + '_' + dcn;
+	    fcn = fkn + '_tid';
+	  }
+	}
+	
+	query PrimitiveTypeToSqlType (typename : String) : String 
+	{
+	  if typename = 'INTEGER' then
+	    'NUMBER'
+	  else
+	    if typename = 'BOOLEAN' then
+	      'BOOLEAN'
+	    else
+	      'VARCHAR'
+	    endif
+	  endif
+	}
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:null="ClassMM" xmi:id="_i9T1MMMkEdukQ_owkN2EXA">
+  <hasType xsi:type="null:Class" xmi:id="_oWlnAMMkEdukQ_owkN2EXA" name="Instrument" isAbstract="true">
+    <operation xmi:id="_p_fegMMkEdukQ_owkN2EXA" name="play">
+      <parameter xmi:id="_NL7hoMMmEdukQ_owkN2EXA" name="pitchAlphabet" type="_Rw5hoMMmEdukQ_owkN2EXA"/>
+      <parameter xmi:id="_UtQlEMMmEdukQ_owkN2EXA" name="octaveFrequency" type="_MTv8cMMmEdukQ_owkN2EXA"/>
+    </operation>
+  </hasType>
+  <hasType xsi:type="null:Class" xmi:id="_Ar0FcMMlEdukQ_owkN2EXA" name="Percussion" inheritsFrom="_oWlnAMMkEdukQ_owkN2EXA"/>
+  <hasType xsi:type="null:Class" xmi:id="_DoBX4MMlEdukQ_owkN2EXA" name="Stringed" inheritsFrom="_oWlnAMMkEdukQ_owkN2EXA"/>
+  <hasType xsi:type="null:Class" xmi:id="_G1hOoMMlEdukQ_owkN2EXA" name="Brass" inheritsFrom="_oWlnAMMkEdukQ_owkN2EXA"/>
+  <hasType xsi:type="null:Class" xmi:id="_JvDAgMMlEdukQ_owkN2EXA" name="Wind" inheritsFrom="_oWlnAMMkEdukQ_owkN2EXA"/>
+  <hasType xsi:type="null:PrimitiveDataType" xmi:id="_MTv8cMMmEdukQ_owkN2EXA" name="integer"/>
+  <hasType xsi:type="null:PrimitiveDataType" xmi:id="_Rw5hoMMmEdukQ_owkN2EXA" name="character"/>
+</null:dummy>

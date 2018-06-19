@@ -1,0 +1,124 @@
+transformation MiToSi(uml:umlmmmi; java:javammsi)
+{
+	key umlmmmi::Class {name};
+	key javammsi::Class {name};
+	key javammsi::Interface {name};
+
+	top relation RClassToClass	// check when this is non-top
+	{
+		n : String;
+
+		domain uml 
+		c1:Class
+		{
+			name = n,
+			type = 'DomainRoot'
+		};
+		
+		enforce domain java 
+		c2:Class
+		{
+			name = n
+		};
+	}
+
+	top relation ClassToClass
+	{
+		n : String;
+		c1sup: umlmmmi::Class;
+		c2sup: javammsi::Class;
+
+		domain uml 
+		c1:Class
+		{
+			name = n,
+			supers = c1sup
+		};
+		
+		enforce domain java 
+		c2:Class
+		{
+			name = n,
+			Extends = c2sup
+		};
+		
+		when 
+		{
+			RClassToClass(c1sup, c2sup)
+			or
+			ClassToClass(c1sup, c2sup);
+		}
+	}   
+
+	top relation RClassToInterface	// check when this is non-top
+	{
+		n : String;
+		typ : String;
+
+		domain uml 
+		c:Class
+		{
+			name = n,
+			type = typ
+		} {c.supers->isEmpty() and typ <> 'DomainRoot'};
+		
+		enforce domain java 
+		i:Interface
+		{
+			name = n
+		};
+	}
+
+	top relation ClassToInterface
+	{
+		n : String;
+		csup: umlmmmi::Class;
+		isup: javammsi::Interface;
+		someI: javammsi::Interface;
+
+		domain uml 
+		c:Class
+		{
+			name = n,
+			supers = csup
+		};
+		
+		enforce domain java 
+		i:Interface
+		{
+			name = n,
+			Extends = isup
+		};
+		
+		when 
+		{
+			(RClassToInterface(csup, isup) or ClassToInterface(csup, isup));
+			not ClassToClass(c, _);
+		}
+	}   
+
+	top relation ClassSupersToClassImplements
+	{
+		csup: umlmmmi::Class;
+		isup: javammsi::Interface;
+
+		domain uml 
+		c1:Class
+		{
+			supers = csup
+		};
+		
+		enforce domain java 
+		c2:Class
+		{
+			implements = isup
+		};
+		
+		when 
+		{
+			ClassToClass(c1, c2);
+			ClassToInterface(csup, isup);
+		}
+	}   
+}
+

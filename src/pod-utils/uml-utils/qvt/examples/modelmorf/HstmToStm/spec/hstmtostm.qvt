@@ -1,0 +1,71 @@
+transformation HstmToStm(hstm:hstmMM_p; stm:stmMM_p)
+{
+	key hstmMM_p::State {name};
+	key hstmMM_p::Trans {name, fromState, toState};
+	key stmMM_p::State {name};
+	key stmMM_p::Trans {name, fromState, toState};
+
+	query StateContainsState(cState:hstmMM_p::State, mState:hstmMM_p::State):Boolean
+	{
+		if (mState.containedInState->isEmpty())
+		then
+			false
+		else if (mState.containedInState = cState)
+			then
+				true
+			else
+				StateContainsState(cState, mState.containedInState)
+			endif
+		endif
+	}
+
+	top relation LStateToState   		// map each Class to Table
+	{
+		n : String;
+
+		domain hstm s1:State
+		{
+	   		name = n
+		} {s1.containsState->isEmpty()};
+	   
+		enforce domain stm s2:State
+		{
+			name = n
+		};
+	}   
+
+	top relation CStateToState   		// map each Class to Table
+	{
+		tn : String;
+		ms1: hstmMM_p::State;
+		ms2: hstmMM_p::State;
+		ts1: hstmMM_p::State;
+		ts2: stmMM_p::State;
+
+		domain hstm fs1:State
+		{
+			outTrans = t1:Trans {name = tn, toState = ts1}
+		};
+	   
+		enforce domain stm fs2:State
+		{
+			outTrans = t2:Trans {name = tn, toState = ts2}
+		};
+		
+		when 
+		{
+			LStateToState(ms1, fs2);
+			(
+				ms1 = fs1
+				or
+				StateContainsState(fs1, ms1)
+			);
+			LStateToState(ms2, ts2);
+			(
+				ms2 = ts1
+				or
+				StateContainsState(ts1, ms2)
+			);
+		}
+	}   
+}

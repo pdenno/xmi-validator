@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="rdbmsMM"
+    name="rdbmsMM" uri="rdbmsMM">
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.Schema" name="Schema">
+    <ownedAttribute xmi:id="rdbmsMM.Schema.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="rdbmsMM.Schema.table" name="table" upper="*" type="rdbmsMM.Table"
+        isComposite="true" opposite="rdbmsMM.Table.schema"/>
+    <ownedAttribute xmi:id="rdbmsMM.Schema.foreignKey" name="foreignKey" upper="*"
+        type="rdbmsMM.ForeignKey" isComposite="true" opposite="rdbmsMM.ForeignKey.schema"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.Table" name="Table">
+    <ownedAttribute xmi:id="rdbmsMM.Table.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="rdbmsMM.Table.schema" name="schema" lower="1" type="rdbmsMM.Schema"
+        opposite="rdbmsMM.Schema.table"/>
+    <ownedAttribute xmi:id="rdbmsMM.Table.column" name="column" upper="*" type="rdbmsMM.Column"
+        isComposite="true" opposite="rdbmsMM.Column.owner"/>
+    <ownedAttribute xmi:id="rdbmsMM.Table.hasKey" name="hasKey" type="rdbmsMM.Key"
+        isComposite="true" opposite="rdbmsMM.Key.owner"/>
+    <ownedAttribute xmi:id="rdbmsMM.Table.hasForeignKey" name="hasForeignKey" upper="*"
+        type="rdbmsMM.ForeignKey" opposite="rdbmsMM.ForeignKey.owner"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.Column" name="Column">
+    <ownedAttribute xmi:id="rdbmsMM.Column.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="rdbmsMM.Column.type" name="type">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="rdbmsMM.Column.owner" name="owner" lower="1" type="rdbmsMM.Table"
+        opposite="rdbmsMM.Table.column"/>
+    <ownedAttribute xmi:id="rdbmsMM.Column.hasKey" name="hasKey" upper="*" type="rdbmsMM.Key"
+        opposite="rdbmsMM.Key.column"/>
+    <ownedAttribute xmi:id="rdbmsMM.Column.hasForeignKey" name="hasForeignKey" upper="*"
+        type="rdbmsMM.ForeignKey" opposite="rdbmsMM.ForeignKey.column"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.Key" name="Key">
+    <ownedAttribute xmi:id="rdbmsMM.Key.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="rdbmsMM.Key.owner" name="owner" lower="1" type="rdbmsMM.Table"
+        opposite="rdbmsMM.Table.hasKey"/>
+    <ownedAttribute xmi:id="rdbmsMM.Key.column" name="column" lower="1" upper="*"
+        type="rdbmsMM.Column" opposite="rdbmsMM.Column.hasKey"/>
+    <ownedAttribute xmi:id="rdbmsMM.Key.referedBy" name="referedBy" upper="*" type="rdbmsMM.ForeignKey"
+        opposite="rdbmsMM.ForeignKey.refersTo"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.ForeignKey" name="ForeignKey">
+    <ownedAttribute xmi:id="rdbmsMM.ForeignKey.schema" name="schema" lower="1" type="rdbmsMM.Schema"
+        opposite="rdbmsMM.Schema.foreignKey"/>
+    <ownedAttribute xmi:id="rdbmsMM.ForeignKey.refersTo" name="refersTo" lower="1"
+        type="rdbmsMM.Key" opposite="rdbmsMM.Key.referedBy"/>
+    <ownedAttribute xmi:id="rdbmsMM.ForeignKey.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="rdbmsMM.ForeignKey.owner" name="owner" lower="1" type="rdbmsMM.Table"
+        opposite="rdbmsMM.Table.hasForeignKey"/>
+    <ownedAttribute xmi:id="rdbmsMM.ForeignKey.column" name="column" lower="1" upper="*"
+        type="rdbmsMM.Column" opposite="rdbmsMM.Column.hasForeignKey"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.dummy" name="dummy">
+    <ownedAttribute xmi:id="rdbmsMM.dummy.containsSchema" name="containsSchema" upper="*"
+        type="rdbmsMM.Schema" isComposite="true"/>
+  </ownedType>
+</emof:Package>

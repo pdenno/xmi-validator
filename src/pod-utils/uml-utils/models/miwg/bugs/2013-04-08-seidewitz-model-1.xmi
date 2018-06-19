@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20110701"
+         xmlns:xmi="http://www.omg.org/spec/XMI/2.4.1">
+   <uml:Model xmi:type="uml:Model" xmi:id="_17_0_2beta_e4a0319_1340021946695_228424_2224"
+              name="Model1">
+      <packagedElement xmi:type="uml:Class" xmi:id="_17_0_2beta_e4a0319_1340021990885_527740_2247"
+                       name="M1C1">
+         <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_2beta_e4a0319_1340022037715_272744_2308"
+                         name="c2"
+                         visibility="private"
+                         type="_17_0_2beta_e4a0319_1340022027155_344135_2285"
+                         association="_17_0_2beta_e4a0319_1340022037715_718412_2307"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_17_0_2beta_e4a0319_1340022008345_701939_2267"
+                       name="M1D1"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_17_0_2beta_e4a0319_1340022027155_344135_2285"
+                       name="M1C2">
+         <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_2beta_e4a0319_1340022037715_822300_2309"
+                         name="c1"
+                         visibility="private"
+                         type="_17_0_2beta_e4a0319_1340021990885_527740_2247"
+                         association="_17_0_2beta_e4a0319_1340022037715_718412_2307"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association"
+                       xmi:id="_17_0_2beta_e4a0319_1340022037715_718412_2307"
+                       name="M1A1">
+         <memberEnd xmi:idref="_17_0_2beta_e4a0319_1340022037715_272744_2308"/>
+         <memberEnd xmi:idref="_17_0_2beta_e4a0319_1340022037715_822300_2309"/>
+      </packagedElement>
+   </uml:Model>
+</xmi:XMI>

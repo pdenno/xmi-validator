@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="umlMM"
+    name="umlMM" uri="umlMM">
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.Package" name="Package">
+    <ownedAttribute xmi:id="umlMM.Package.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM.Package.classifier" name="classifier" upper="*"
+        type="umlMM.Classifier" isComposite="true" opposite="umlMM.Classifier.namespace"/>
+    <ownedAttribute xmi:id="umlMM.Package.association" name="association" upper="*"
+        type="umlMM.Association" isComposite="true" opposite="umlMM.Association.namespace"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.Class" name="Class" superClass="umlMM.Classifier">
+    <ownedAttribute xmi:id="umlMM.Class.kind" name="kind">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM.Class.attribute" name="attribute" upper="*" type="umlMM.Attribute"
+        isComposite="true" opposite="umlMM.Attribute.owner"/>
+    <ownedAttribute xmi:id="umlMM.Class.general" name="general" type="umlMM.Class"
+        opposite="umlMM.Class.subclass"/>
+    <ownedAttribute xmi:id="umlMM.Class.subclass" name="subclass" upper="*" type="umlMM.Class"
+        opposite="umlMM.Class.general"/>
+    <ownedAttribute xmi:id="umlMM.Class.sourceOf" name="sourceOf" upper="*" type="umlMM.Association"
+        opposite="umlMM.Association.source"/>
+    <ownedAttribute xmi:id="umlMM.Class.destinationOf" name="destinationOf" upper="*"
+        type="umlMM.Association" opposite="umlMM.Association.destination"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.Attribute" name="Attribute">
+    <ownedAttribute xmi:id="umlMM.Attribute.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM.Attribute.owner" name="owner" lower="1" type="umlMM.Class"
+        opposite="umlMM.Class.attribute"/>
+    <ownedAttribute xmi:id="umlMM.Attribute.type" name="type" lower="1" type="umlMM.Classifier"
+        opposite="umlMM.Classifier.typeOf"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.Classifier" name="Classifier" isAbstract="true">
+    <ownedAttribute xmi:id="umlMM.Classifier.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM.Classifier.typeOf" name="typeOf" upper="*" type="umlMM.Attribute"
+        opposite="umlMM.Attribute.type"/>
+    <ownedAttribute xmi:id="umlMM.Classifier.namespace" name="namespace" lower="1"
+        type="umlMM.Package" opposite="umlMM.Package.classifier"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.PrimitiveDataType" name="PrimitiveDataType"
+      superClass="umlMM.Classifier"/>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.Association" name="Association">
+    <ownedAttribute xmi:id="umlMM.Association.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM.Association.namespace" name="namespace" lower="1"
+        type="umlMM.Package" opposite="umlMM.Package.association"/>
+    <ownedAttribute xmi:id="umlMM.Association.source" name="source" lower="1" type="umlMM.Class"
+        opposite="umlMM.Class.sourceOf"/>
+    <ownedAttribute xmi:id="umlMM.Association.destination" name="destination" lower="1"
+        type="umlMM.Class" opposite="umlMM.Class.destinationOf"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM.dummy" name="dummy">
+    <ownedAttribute xmi:id="umlMM.dummy.containsPackage" name="containsPackage" upper="*"
+        type="umlMM.Package" isComposite="true"/>
+  </ownedType>
+</emof:Package>

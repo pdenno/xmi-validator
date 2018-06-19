@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="Model2" xmi:uuid="6ecab75f-b940-11e1-bf7f-f7ef382941c6" xmi:type="uml:Model">
+    <packagedElement xmi:id="Model2-M2C1" xmi:uuid="8b1e583b-b941-11e1-bf7f-f7ef382941c6" xmi:type="uml:Class">
+      <generalization xmi:id="Model2-M2C1-generalization" xmi:uuid="8b1e583c-b941-11e1-bf7f-f7ef382941c6" xmi:type="uml:Generalization">
+        <general href="valid-model1.xmi#_17_0_2beta_e4a0319_1340021990885_527740_2247"/>
+      </generalization>
+      <ownedAttribute xmi:id="Model2-M2C1-m1C2" xmi:uuid="8b1fdedd-b941-11e1-bf7f-f7ef382941c6" xmi:type="uml:Property">
+        <type href="valid-model1.xmi#_17_0_2beta_e4a0319_1340022027155_344135_2285"/>
+        <name>m1C2</name>
+        <visibility>private</visibility>
+        <association xmi:idref="Model2-M2A1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Model2-M2C1-m2Att1" xmi:uuid="8b1fdede-b941-11e1-bf7f-f7ef382941c6" xmi:type="uml:Property">
+        <type href="valid-model1.xmi#_17_0_2beta_e4a0319_1340022008345_701939_2267"/>
+        <name>m2Att1</name>
+      </ownedAttribute>
+      <ownedOperation xmi:id="Model2-M2C1-m2O1" xmi:uuid="c6e25522-b941-11e1-bf7f-f7ef382941c6" xmi:type="uml:Operation">
+        <ownedParameter xmi:id="Model2-M2C1-m2O1-p1" xmi:uuid="c6e25523-b941-11e1-bf7f-f7ef382941c6" xmi:type="uml:Parameter">
+          <type href="valid-model1.xmi#_17_0_2beta_e4a0319_1340022008345_701939_2267"/>
+          <name>p1</name>
+          <visibility>public</visibility>
+        </ownedParameter>
+        <name>m2O1</name>
+        <visibility>public</visibility>
+      </ownedOperation>
+      <name>M2C1</name>
+    </packagedElement>
+    <packagedElement xmi:id="Model2-M2A1" xmi:uuid="8b1fdedf-b941-11e1-bf7f-f7ef382941c6" xmi:type="uml:Association">
+      <memberEnd xmi:idref="Model2-M2C1-m1C2"/>
+      <memberEnd xmi:idref="Model2-M2A1-m2C1"/>
+      <navigableOwnedEnd xmi:idref="Model2-M2A1-m2C1"/>
+      <ownedEnd xmi:id="Model2-M2A1-m2C1" xmi:uuid="8b1fdee0-b941-11e1-bf7f-f7ef382941c6" xmi:type="uml:Property">
+        <name>m2C1</name>
+        <visibility>private</visibility>
+        <type xmi:idref="Model2-M2C1"/>
+        <association xmi:idref="Model2-M2A1"/>
+      </ownedEnd>
+      <name>M2A1</name>
+    </packagedElement>
+    <name>Model2</name>
+  </uml:Model>
+</xmi:XMI>

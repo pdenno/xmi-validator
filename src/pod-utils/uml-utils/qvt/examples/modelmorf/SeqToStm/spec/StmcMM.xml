@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="StmcMM"
+    name="StmcMM" uri="StmcMM">
+  <ownedType xmi:type="emof:Class" xmi:id="StmcMM.Dummy" name="Dummy">
+    <ownedAttribute xmi:id="StmcMM.Dummy.containsStateMachine" name="containsStateMachine"
+        upper="*" type="StmcMM.StateMachine" isComposite="true"/>
+    <ownedAttribute xmi:id="StmcMM.Dummy.containsMessage" name="containsMessage" upper="*"
+        type="StmcMM.Message" isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="StmcMM.StateMachine" name="StateMachine">
+    <ownedAttribute xmi:id="StmcMM.StateMachine.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="StmcMM.StateMachine.state" name="state" upper="*" type="StmcMM.State"
+        isComposite="true" opposite="StmcMM.State.owner"/>
+    <ownedAttribute xmi:id="StmcMM.StateMachine.transition" name="transition" upper="*"
+        type="StmcMM.Transition" isComposite="true" opposite="StmcMM.Transition.owner"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="StmcMM.State" name="State">
+    <ownedAttribute xmi:id="StmcMM.State.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="StmcMM.State.owner" name="owner" lower="1" type="StmcMM.StateMachine"
+        opposite="StmcMM.StateMachine.state"/>
+    <ownedAttribute xmi:id="StmcMM.State.inTransition" name="inTransition" upper="*"
+        type="StmcMM.Transition" opposite="StmcMM.Transition.toState"/>
+    <ownedAttribute xmi:id="StmcMM.State.outTransition" name="outTransition" upper="*"
+        type="StmcMM.Transition" opposite="StmcMM.Transition.fromState"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="StmcMM.Transition" name="Transition">
+    <ownedAttribute xmi:id="StmcMM.Transition.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="StmcMM.Transition.guard" name="guard">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="StmcMM.Transition.owner" name="owner" lower="1" type="StmcMM.StateMachine"
+        opposite="StmcMM.StateMachine.transition"/>
+    <ownedAttribute xmi:id="StmcMM.Transition.toState" name="toState" lower="1" type="StmcMM.State"
+        opposite="StmcMM.State.inTransition"/>
+    <ownedAttribute xmi:id="StmcMM.Transition.fromState" name="fromState" lower="1"
+        type="StmcMM.State" opposite="StmcMM.State.outTransition"/>
+    <ownedAttribute xmi:id="StmcMM.Transition.trigger" name="trigger" type="StmcMM.Event"
+        isComposite="true"/>
+    <ownedAttribute xmi:id="StmcMM.Transition.action" name="action" type="StmcMM.Action"
+        isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="StmcMM.Event" name="Event">
+    <ownedAttribute xmi:id="StmcMM.Event.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="StmcMM.Action" name="Action">
+    <ownedAttribute xmi:id="StmcMM.Action.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="StmcMM.Message" name="Message">
+    <ownedAttribute xmi:id="StmcMM.Message.messageId" name="messageId">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="StmcMM.SendMsg" name="SendMsg" superClass="StmcMM.Action">
+    <ownedAttribute xmi:id="StmcMM.SendMsg.message" name="message" lower="1" type="StmcMM.Message"/>
+  </ownedType>
+</emof:Package>

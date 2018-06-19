@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:null="umlMM" xmi:id="_6AxNcNCQEduqp90yRZoxVQ">
+  <containsPackage xmi:id="_8FRb0NCQEduqp90yRZoxVQ" name="Company">
+    <classifier xsi:type="null:Class" xmi:id="_-gI7wNCQEduqp90yRZoxVQ" name="Person" kind="NonPersistent" subclass="_-xH-ENCQEduqp90yRZoxVQ _FRt9QNCREduqp90yRZoxVQ">
+      <attribute xmi:id="_RDBBENCREduqp90yRZoxVQ" name="Name" type="_HxfyYNCREduqp90yRZoxVQ"/>
+    </classifier>
+    <classifier xsi:type="null:Class" xmi:id="_-xH-ENCQEduqp90yRZoxVQ" name="Employer" kind="Persistent" general="_-gI7wNCQEduqp90yRZoxVQ" sourceOf="_O-XBsNCREduqp90yRZoxVQ">
+      <attribute xmi:id="_Syy8oNCREduqp90yRZoxVQ" name="Age" type="_JHy28NCREduqp90yRZoxVQ"/>
+    </classifier>
+    <classifier xsi:type="null:Class" xmi:id="_FRt9QNCREduqp90yRZoxVQ" name="Employee" kind="Persistent" general="_-gI7wNCQEduqp90yRZoxVQ" destinationOf="_O-XBsNCREduqp90yRZoxVQ">
+      <attribute xmi:id="_VlXK4NCREduqp90yRZoxVQ" name="Info" type="_Mi5r4NCREduqp90yRZoxVQ"/>
+    </classifier>
+    <classifier xsi:type="null:PrimitiveDataType" xmi:id="_HxfyYNCREduqp90yRZoxVQ" name="STRING" typeOf="_RDBBENCREduqp90yRZoxVQ"/>
+    <classifier xsi:type="null:PrimitiveDataType" xmi:id="_JHy28NCREduqp90yRZoxVQ" name="INTEGER" typeOf="_ZDSqUNCREduqp90yRZoxVQ _Syy8oNCREduqp90yRZoxVQ"/>
+    <classifier xsi:type="null:Class" xmi:id="_Mi5r4NCREduqp90yRZoxVQ" name="EmployeeInfo" typeOf="_VlXK4NCREduqp90yRZoxVQ" kind="NonPersistent">
+      <attribute xmi:id="_ZDSqUNCREduqp90yRZoxVQ" name="EmployeeNo" type="_JHy28NCREduqp90yRZoxVQ"/>
+    </classifier>
+    <association xmi:id="_O-XBsNCREduqp90yRZoxVQ" name="employs" source="_-xH-ENCQEduqp90yRZoxVQ" destination="_FRt9QNCREduqp90yRZoxVQ"/>
+  </containsPackage>
+</null:dummy>

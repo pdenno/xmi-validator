@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+        xmlns:uml="http://www.omg.org/spec/UML/20090901"
+        xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile">
+        <uml:Model name="TestCase16" xmi:id="_6ebee6a6-b2b2-492f-a7cf-e35299f75f19">
+                <packagedElement xmi:type="uml:Package"
+                        xmi:id="_da067cb9-9655-4427-9af9-e20321566f0b" name="Test Case 16">
+                        <packagedElement xmi:type="uml:Activity"
+                                xmi:id="_5cf9b105-2b87-402d-885c-0fba2ec5b236" name="Activity 1"> </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_6742841b-cb7e-40aa-a041-bf4aca10f194" name="Block 0">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_c73c9d1f-c9ff-46c4-bc8e-6f4f7b76703c" name="part 2"
+                                        type="_0d5d6c95-612b-4705-83fd-3a6fb7aac8cf"
+                                        aggregation="composite"
+                                        association="_71a5f2e8-35df-4515-ba3f-abf014d3d49d"> </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_3cefe7da-17d4-4e63-b31a-fde138d2cea5" name="part 3"
+                                        type="_966f5ec8-ae1f-4f0f-84a9-33be5a292367"
+                                        aggregation="composite"
+                                        association="_a71b0e7a-f49b-4086-8eac-34776484b9e4"
+                                > </ownedAttribute>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_9771d40b-56ab-41b9-84b2-735c2b8f5697" name="Block 1"> </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_0d5d6c95-612b-4705-83fd-3a6fb7aac8cf" name="Block 2">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_d2f311ec-1f6e-41a7-9796-c34b8a2dddbe"
+                                        name="part 2-1" type="_7469924b-3c10-4d17-9a85-1f7ae74a4c22"
+                                        aggregation="composite"
+                                        association="_f585c2e1-5d34-415c-85fd-5ea7b27ee046"
+                                > </ownedAttribute>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_7469924b-3c10-4d17-9a85-1f7ae74a4c22" name="Block 2-1"> </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_966f5ec8-ae1f-4f0f-84a9-33be5a292367" name="Block 3">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_b9cf8c41-6114-4ac8-86b5-384ef6223c5b"
+                                        name="part 3-1" type="_9760908c-0a02-47ec-8bb7-39cef854c652"
+                                        aggregation="composite"
+                                        association="_8344b95f-18d1-49a1-8340-5aef8f6340f0"
+                                > </ownedAttribute>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_9760908c-0a02-47ec-8bb7-39cef854c652" name="Block 3-1"> </packagedElement>
+                        <packagedElement xmi:type="uml:Association"
+                                xmi:id="_a71b0e7a-f49b-4086-8eac-34776484b9e4"
+                                memberEnd="_7e59586c-9d1d-4eec-90e2-78201bd160f7 _3cefe7da-17d4-4e63-b31a-fde138d2cea5">
+                                <ownedEnd xmi:type="uml:Property"
+                                        xmi:id="_7e59586c-9d1d-4eec-90e2-78201bd160f7"
+                                        type="_6742841b-cb7e-40aa-a041-bf4aca10f194"
+                                        association="_a71b0e7a-f49b-4086-8eac-34776484b9e4"
+                                > </ownedEnd>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Association"
+                                xmi:id="_f585c2e1-5d34-415c-85fd-5ea7b27ee046"
+                                memberEnd="_bef112c0-b28d-4483-ac8f-e9657cc9e114 _d2f311ec-1f6e-41a7-9796-c34b8a2dddbe">
+                                <ownedEnd xmi:type="uml:Property"
+                                        xmi:id="_bef112c0-b28d-4483-ac8f-e9657cc9e114"
+                                        type="_0d5d6c95-612b-4705-83fd-3a6fb7aac8cf"
+                                        association="_f585c2e1-5d34-415c-85fd-5ea7b27ee046"
+                                > </ownedEnd>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Association"
+                                xmi:id="_8344b95f-18d1-49a1-8340-5aef8f6340f0"
+                                memberEnd="_578f4387-0c41-4ed5-9a2c-a31b898ca2db _b9cf8c41-6114-4ac8-86b5-384ef6223c5b">
+                                <ownedEnd xmi:type="uml:Property"
+                                        xmi:id="_578f4387-0c41-4ed5-9a2c-a31b898ca2db"
+                                        type="_966f5ec8-ae1f-4f0f-84a9-33be5a292367"
+                                        association="_8344b95f-18d1-49a1-8340-5aef8f6340f0"
+                                > </ownedEnd>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Association"
+                                xmi:id="_71a5f2e8-35df-4515-ba3f-abf014d3d49d"
+                                memberEnd="_f1736160-f64d-4254-87d9-4bf6fb5e8495 _c73c9d1f-c9ff-46c4-bc8e-6f4f7b76703c">
+                                <ownedEnd xmi:type="uml:Property"
+                                        xmi:id="_f1736160-f64d-4254-87d9-4bf6fb5e8495"
+                                        type="_6742841b-cb7e-40aa-a041-bf4aca10f194"
+                                        association="_71a5f2e8-35df-4515-ba3f-abf014d3d49d"
+                                > </ownedEnd>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Abstraction"
+                                xmi:id="_e36dce08-6831-4eef-82cb-51dc7589e0f9"
+                                client="_d2f311ec-1f6e-41a7-9796-c34b8a2dddbe"
+                                supplier="_b9cf8c41-6114-4ac8-86b5-384ef6223c5b"> </packagedElement>
+                        <packagedElement xmi:type="uml:Abstraction"
+                                xmi:id="_0172409d-5c1c-4837-9669-cb24f7c45c8d"
+                                client="_5cf9b105-2b87-402d-885c-0fba2ec5b236"
+                                supplier="_9771d40b-56ab-41b9-84b2-735c2b8f5697"> </packagedElement>
+                </packagedElement>
+                <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication0">
+                        <appliedProfile xmi:type="uml:Profile"
+                                href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+                </profileApplication>
+        </uml:Model>
+        <sysml:Allocated base_NamedElement="_5cf9b105-2b87-402d-885c-0fba2ec5b236"
+                xmi:id="_0cf04216-5cbc-4d33-938a-30a3cdc81b7e"/>
+        <sysml:Block base_Class="_6742841b-cb7e-40aa-a041-bf4aca10f194"
+                xmi:id="_afe7aa7e-2be1-4c23-b69e-fde3c0c014b4"/>
+        <sysml:Allocated base_NamedElement="_9771d40b-56ab-41b9-84b2-735c2b8f5697"
+                xmi:id="_f29640b1-b579-4057-af42-5759a2a77d8c"/>
+        <sysml:Block base_Class="_9771d40b-56ab-41b9-84b2-735c2b8f5697"
+                xmi:id="_389866b3-eb49-481d-9cd4-e817c6969921"/>
+        <sysml:Block base_Class="_0d5d6c95-612b-4705-83fd-3a6fb7aac8cf"
+                xmi:id="_52d0f513-81c9-4357-89c5-769abc80be66"/>
+        <sysml:Block base_Class="_7469924b-3c10-4d17-9a85-1f7ae74a4c22"
+                xmi:id="_c83dd4af-d3c6-4583-ae2e-b3dce52181c8"/>
+        <sysml:Block base_Class="_966f5ec8-ae1f-4f0f-84a9-33be5a292367"
+                xmi:id="_0e1b9a7b-575b-495f-be6e-af49318c9669"/>
+        <sysml:Block base_Class="_9760908c-0a02-47ec-8bb7-39cef854c652"
+                xmi:id="_f7fb177b-f6b6-48f1-8bdb-d6c609d13444"/>
+        <sysml:Allocated base_NamedElement="_d2f311ec-1f6e-41a7-9796-c34b8a2dddbe"
+                xmi:id="_eb19bde8-78ea-444d-82e3-b331e453b42f"/>
+        <sysml:Allocated base_NamedElement="_b9cf8c41-6114-4ac8-86b5-384ef6223c5b"
+                xmi:id="_a332a981-7586-4d34-9804-0d3b58440607"/>
+        <sysml:Allocate base_Abstraction="_e36dce08-6831-4eef-82cb-51dc7589e0f9"
+                xmi:id="_7d971ea0-7dfa-48cd-a5f6-fec7b3a54320"/>
+        <sysml:Allocate base_Abstraction="_0172409d-5c1c-4837-9669-cb24f7c45c8d"
+                xmi:id="_7bcf7154-6f91-42ed-be8e-fda0a2089d22"/>
+</xmi:XMI>

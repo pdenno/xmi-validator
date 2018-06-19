@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+        xmlns:cmof="http://schema.omg.org/spec/MOF/2.0/cmof.xml">
+        <uml:Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20090901/UML.xmi"
+                xmi:id="SoaML" xmi:uuid="725A27D7-D2E4-41C5-9F96-0EFE50456A01">
+                <name>SoaML</name>
+                <packageImport xmi:id="SoaML-packageImport"
+                        xmi:uuid="725A27D7-D2E4-4F79-954F-0EFE2AC4BAA6" xmi:type="uml:PackageImport">
+                        <importedPackage href="http://www.omg.org/spec/UML/20090901/UML.xmi#_0"/>
+                </packageImport>
+                <packagedElement xmi:id="SoaML-Property_Attachment"
+                        xmi:uuid="725A27D7-D2E4-40DA-91BF-0EFE8AFA068D" xmi:type="uml:Extension">
+                        <name>Property_Attachment</name>
+                        <memberEnd xmi:idref="SoaML-Property_Attachment-extension_Attachment"/>
+                        <memberEnd xmi:idref="SoaML-Attachment-base_Property"/>
+                        <ownedEnd xmi:id="SoaML-Property_Attachment-extension_Attachment"
+                                xmi:uuid="725A27D7-D2E4-4FD3-96D5-0EFE4922AD57"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Attachment</name>
+                                <association xmi:idref="SoaML-Property_Attachment"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Attachment"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Agent"
+                        xmi:uuid="725A27D7-D2E4-40FB-9071-0EFE78293F9A" xmi:type="uml:Stereotype">
+                        <name>Agent</name>
+                        <generalization xmi:id="SoaML-Agent-generalization"
+                                xmi:uuid="725A27D7-D2E4-4527-9B97-0EFE010773A0"
+                                xmi:type="uml:Generalization">
+                                <general xmi:idref="SoaML-Participant"/>
+                        </generalization>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Collaboration"
+                        xmi:uuid="725A27D7-D2E4-4116-9032-0EFE3A897144" xmi:type="uml:Stereotype">
+                        <name>Collaboration</name>
+                        <ownedAttribute xmi:id="SoaML-Collaboration-base_Collaboration"
+                                xmi:uuid="725A27D7-D2E4-41A3-9023-0EFED43AE82C"
+                                xmi:type="uml:Property">
+                                <name>base_Collaboration</name>
+                                <type
+                                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#Collaboration"/>
+                                <association xmi:idref="SoaML-Collaboration_Collaboration"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Collaboration-isStrict"
+                                xmi:uuid="725A27D7-D2E4-4B1B-90A4-0EFE4E19796A"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>isStrict</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+                                <defaultValue xmi:id="SoaML-Collaboration-isStrict-defaultValue"
+                                        xmi:uuid="725A27D7-D2E4-40EA-9022-0EFEB0FDE8D6"
+                                        xmi:type="uml:LiteralBoolean">
+                                        <type
+                                                href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+                                        <value>true</value>
+                                </defaultValue>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Package_Catalog"
+                        xmi:uuid="725A27D7-D2E4-412B-96D9-0EFE281F56C2" xmi:type="uml:Extension">
+                        <name>Package_Catalog</name>
+                        <memberEnd xmi:idref="SoaML-Package_Catalog-extension_Catalog"/>
+                        <memberEnd xmi:idref="SoaML-Catalog-base_Package"/>
+                        <ownedEnd xmi:id="SoaML-Package_Catalog-extension_Catalog"
+                                xmi:uuid="725A27D7-D2E4-493D-9D37-0EFEDD49BE98"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Catalog</name>
+                                <association xmi:idref="SoaML-Package_Catalog"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Catalog"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Interface_Provider"
+                        xmi:uuid="725A27D7-D2E4-41A0-9E73-0EFEDCFB5BFC" xmi:type="uml:Extension">
+                        <name>Interface_Provider</name>
+                        <memberEnd xmi:idref="SoaML-Interface_Provider-extension_Provider"/>
+                        <memberEnd xmi:idref="SoaML-Provider-base_Interface"/>
+                        <ownedEnd xmi:id="SoaML-Interface_Provider-extension_Provider"
+                                xmi:uuid="725A27D7-D2E4-46EC-9852-0EFE872B2069"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Provider</name>
+                                <association xmi:idref="SoaML-Interface_Provider"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Provider"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-MotivationElement"
+                        xmi:uuid="725A27D7-D2E4-41D2-99F9-0EFE6B6B805D" xmi:type="uml:Class">
+                        <name>MotivationElement</name>
+                        <isAbstract>true</isAbstract>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Realization_ContractRealization"
+                        xmi:uuid="725A27D7-D2E4-41DD-9033-0EFE8EDE8DCD" xmi:type="uml:Extension">
+                        <name>Realization_ContractRealization</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Realization_ContractRealization-extension_ContractRealization"/>
+                        <memberEnd xmi:idref="SoaML-MotivationRealization-base_Realization"/>
+                        <ownedEnd
+                                xmi:id="SoaML-Realization_ContractRealization-extension_ContractRealization"
+                                xmi:uuid="725A27D7-D2E4-45D1-9DCC-0EFEDABD2701"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_ContractRealization</name>
+                                <association xmi:idref="SoaML-Realization_ContractRealization"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-MotivationRealization"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Class_MessageType"
+                        xmi:uuid="725A27D7-D2E4-4277-9EE7-0EFEA5291B79" xmi:type="uml:Extension">
+                        <name>Class_MessageType</name>
+                        <memberEnd xmi:idref="SoaML-Class_MessageType-extension_MessageType"/>
+                        <memberEnd xmi:idref="SoaML-MessageType-base_Class"/>
+                        <ownedEnd xmi:id="SoaML-Class_MessageType-extension_MessageType"
+                                xmi:uuid="725A27D7-D2E4-4896-9243-0EFE0D5614F2"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_MessageType</name>
+                                <association xmi:idref="SoaML-Class_MessageType"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-MessageType"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Connector_ServiceChannel"
+                        xmi:uuid="725A27D7-D2E4-42B9-9CBD-0EFE432E37AF" xmi:type="uml:Extension">
+                        <name>Connector_ServiceChannel</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Connector_ServiceChannel-extension_ServiceChannel"/>
+                        <memberEnd xmi:idref="SoaML-ServiceChannel-base_Connector"/>
+                        <ownedEnd xmi:id="SoaML-Connector_ServiceChannel-extension_ServiceChannel"
+                                xmi:uuid="725A27D7-D2E4-4116-9361-0EFEF34BFF6F"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_ServiceChannel</name>
+                                <association xmi:idref="SoaML-Connector_ServiceChannel"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-ServiceChannel"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Provider"
+                        xmi:uuid="725A27D7-D2E4-434C-9DCE-0EFE7E84F309" xmi:type="uml:Stereotype">
+                        <name>Provider</name>
+                        <ownedAttribute xmi:id="SoaML-Provider-base_Interface"
+                                xmi:uuid="725A27D7-D2E4-453D-9517-0EFEDF822108"
+                                xmi:type="uml:Property">
+                                <name>base_Interface</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Interface"/>
+                                <association xmi:idref="SoaML-Interface_Provider"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Provider-base_Class"
+                                xmi:uuid="725A27D7-D2E4-48EA-9300-0EFECCF9E331"
+                                xmi:type="uml:Property">
+                                <name>base_Class</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+                                <association xmi:idref="SoaML-Class_Provider"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-FreeFormValue"
+                        xmi:uuid="725A27D7-D2E4-4366-9704-0EFE212A5972" xmi:type="uml:Stereotype">
+                        <name>FreeFormValue</name>
+                        <ownedAttribute xmi:id="SoaML-FreeFormValue-base_ValueSpecification"
+                                xmi:uuid="725A27D7-D2E4-4058-9139-0EFE6482C8F3"
+                                xmi:type="uml:Property">
+                                <name>base_ValueSpecification</name>
+                                <type
+                                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#ValueSpecification"/>
+                                <association xmi:idref="SoaML-ValueSpecification_FreeFormValue"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-ValueSpecification_FreeFormValue"
+                        xmi:uuid="725A27D7-D2E4-4449-9DA6-0EFE1C9EF155" xmi:type="uml:Extension">
+                        <name>ValueSpecification_FreeFormValue</name>
+                        <memberEnd
+                                xmi:idref="SoaML-ValueSpecification_FreeFormValue-extension_FreeFormValue"/>
+                        <memberEnd xmi:idref="SoaML-FreeFormValue-base_ValueSpecification"/>
+                        <ownedEnd
+                                xmi:id="SoaML-ValueSpecification_FreeFormValue-extension_FreeFormValue"
+                                xmi:uuid="725A27D7-D2E4-4425-9936-0EFE817E6580"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_FreeFormValue</name>
+                                <association xmi:idref="SoaML-ValueSpecification_FreeFormValue"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-FreeFormValue"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Interface_Consumer"
+                        xmi:uuid="725A27D7-D2E4-4546-9543-0EFEC6ADAC9C" xmi:type="uml:Extension">
+                        <name>Interface_Consumer</name>
+                        <memberEnd xmi:idref="SoaML-Interface_Consumer-extension_Consumer"/>
+                        <memberEnd xmi:idref="SoaML-Consumer-base_Interface"/>
+                        <ownedEnd xmi:id="SoaML-Interface_Consumer-extension_Consumer"
+                                xmi:uuid="725A27D7-D2E4-4524-93C7-0EFE1D321C15"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Consumer</name>
+                                <association xmi:idref="SoaML-Interface_Consumer"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Consumer"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-MessageType"
+                        xmi:uuid="725A27D7-D2E4-45D1-948E-0EFE68586C0C" xmi:type="uml:Stereotype">
+                        <name>MessageType</name>
+                        <ownedAttribute xmi:id="SoaML-MessageType-base_Signal"
+                                xmi:uuid="725A27D7-D2E4-4C8A-9C15-0EFE1187303C"
+                                xmi:type="uml:Property">
+                                <name>base_Signal</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Signal"/>
+                                <association xmi:idref="SoaML-Signal_MessageType"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-MessageType-encoding"
+                                xmi:uuid="725A27D7-D2E4-4553-9B4D-0EFE9783F9C9"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>encoding</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-MessageType-base_Class"
+                                xmi:uuid="725A27D7-D2E4-4C81-941C-0EFE31ED9789"
+                                xmi:type="uml:Property">
+                                <name>base_Class</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+                                <association xmi:idref="SoaML-Class_MessageType"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-MessageType-base_DataType"
+                                xmi:uuid="725A27D7-D2E4-40D4-9FEA-0EFE415CF9BF"
+                                xmi:type="uml:Property">
+                                <name>base_DataType</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#DataType"/>
+                                <association xmi:idref="SoaML-DataType_MessageType"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Category"
+                        xmi:uuid="725A27D7-D2E4-4603-9663-0EFE2FD57906" xmi:type="uml:Stereotype">
+                        <name>Category</name>
+                        <generalization xmi:id="SoaML-Category-generalization"
+                                xmi:uuid="725A27D7-D2E4-4263-9B35-0EFEDA5328E9"
+                                xmi:type="uml:Generalization">
+                                <general xmi:idref="SoaML-NodeDescriptor"/>
+                        </generalization>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Port_Port"
+                        xmi:uuid="725A27D7-D2E4-4613-9E2E-0EFE4E707C95" xmi:type="uml:Extension">
+                        <name>Port_Port</name>
+                        <memberEnd xmi:idref="SoaML-Port_Port-extension_Port"/>
+                        <memberEnd xmi:idref="SoaML-Port-base_Port"/>
+                        <ownedEnd xmi:id="SoaML-Port_Port-extension_Port"
+                                xmi:uuid="725A27D7-D2E4-4DAC-9209-0EFE96223FDA"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Port</name>
+                                <association xmi:idref="SoaML-Port_Port"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Port"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Milestone"
+                        xmi:uuid="725A27D7-D2E4-463C-9AC7-0EFE99B5235D" xmi:type="uml:Stereotype">
+                        <name>Milestone</name>
+                        <ownedAttribute xmi:id="SoaML-Milestone-signal"
+                                xmi:uuid="725A27D7-D2E4-4CC4-94CB-0EFEB111C57F"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>signal</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Signal"/>
+                                <upperValue xmi:id="SoaML-Milestone-signal-upperValue"
+                                        xmi:uuid="725A27D7-D2E4-48C2-91FB-0EFE5087B4C8"
+                                        xmi:type="uml:LiteralUnlimitedNatural">
+                                        <value>1</value>
+                                </upperValue>
+                                <lowerValue xmi:id="SoaML-Milestone-signal-lowerValue"
+                                        xmi:uuid="725A27D7-D2E4-42D0-9E72-0EFEA5D16DB2"
+                                        xmi:type="uml:LiteralInteger"/>
+                                <association xmi:idref="SoaML-packagedElement-23"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Milestone-progress"
+                                xmi:uuid="725A27D7-D2E4-42AB-99AA-0EFE957E704D"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>progress</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Milestone-value"
+                                xmi:uuid="725A27D7-D2E4-40ED-9367-0EFE6D06EFA6"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>value</name>
+                                <type
+                                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#ValueSpecification"/>
+                                <upperValue xmi:id="SoaML-Milestone-value-upperValue"
+                                        xmi:uuid="725A27D7-D2E4-4616-92F7-0EFEC5C96E58"
+                                        xmi:type="uml:LiteralUnlimitedNatural">
+                                        <value>*</value>
+                                </upperValue>
+                                <lowerValue xmi:id="SoaML-Milestone-value-lowerValue"
+                                        xmi:uuid="725A27D7-D2E4-4FFC-9F2C-0EFEDAACC8AC"
+                                        xmi:type="uml:LiteralInteger"/>
+                                <association xmi:idref="SoaML-packagedElement-18"/>
+                                <aggregation>shared</aggregation>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Milestone-base_Comment"
+                                xmi:uuid="725A27D7-D2E4-4FAE-9DBF-0EFEE8896CFB"
+                                xmi:type="uml:Property">
+                                <name>base_Comment</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Comment"/>
+                                <association xmi:idref="SoaML-Comment_PorgressLabel"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Property_FreeFormDescriptor"
+                        xmi:uuid="725A27D7-D2E4-4697-915D-0EFE13CB293D" xmi:type="uml:Extension">
+                        <name>Property_FreeFormDescriptor</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Property_FreeFormDescriptor-extension_FreeFormDescriptor"/>
+                        <memberEnd xmi:idref="SoaML-FreeFormDescriptor-base_Property"/>
+                        <ownedEnd
+                                xmi:id="SoaML-Property_FreeFormDescriptor-extension_FreeFormDescriptor"
+                                xmi:uuid="725A27D7-D2E4-4AD7-9692-0EFEA7B23C6B"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_FreeFormDescriptor</name>
+                                <association xmi:idref="SoaML-Property_FreeFormDescriptor"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-FreeFormDescriptor"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-FreeFormDescriptor"
+                        xmi:uuid="725A27D7-D2E4-46B9-92D8-0EFE3C60ABF9" xmi:type="uml:Stereotype">
+                        <name>FreeFormDescriptor</name>
+                        <ownedAttribute xmi:id="SoaML-FreeFormDescriptor-base_Property"
+                                xmi:uuid="725A27D7-D2E4-4502-9DF3-0EFE39BE8C29"
+                                xmi:type="uml:Property">
+                                <name>base_Property</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+                                <association xmi:idref="SoaML-Property_FreeFormDescriptor"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-CategoryValue"
+                        xmi:uuid="725A27D7-D2E4-46BF-928A-0EFEDDF78744" xmi:type="uml:Stereotype">
+                        <name>CategoryValue</name>
+                        <generalization xmi:id="SoaML-CategoryValue-generalization"
+                                xmi:uuid="725A27D7-D2E4-449A-9BA4-0EFE01C7C76F"
+                                xmi:type="uml:Generalization">
+                                <general xmi:idref="SoaML-FreeFormValue"/>
+                        </generalization>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Collaboration_Collaboration"
+                        xmi:uuid="725A27D7-D2E4-471E-99DE-0EFEA95B1A8D" xmi:type="uml:Extension">
+                        <name>Collaboration_Collaboration</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Collaboration_Collaboration-extension_Collaboration"/>
+                        <memberEnd xmi:idref="SoaML-Collaboration-base_Collaboration"/>
+                        <ownedEnd xmi:id="SoaML-Collaboration_Collaboration-extension_Collaboration"
+                                xmi:uuid="725A27D7-D2E4-42CD-9E46-0EFEE9B2F887"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Collaboration</name>
+                                <association xmi:idref="SoaML-Collaboration_Collaboration"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Collaboration"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-ServiceContract"
+                        xmi:uuid="725A27D7-D2E4-4722-9BD0-0EFE16406D97" xmi:type="uml:Stereotype">
+                        <name>ServiceContract</name>
+                        <generalization xmi:id="SoaML-ServiceContract-generalization"
+                                xmi:uuid="725A27D7-D2E4-4518-9F06-0EFE723B25CF"
+                                xmi:type="uml:Generalization">
+                                <general xmi:idref="SoaML-Collaboration"/>
+                        </generalization>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Port_RequestPoint"
+                        xmi:uuid="725A27D7-D2E4-4730-932A-0EFE3E7325B0" xmi:type="uml:Extension">
+                        <name>Port_RequestPoint</name>
+                        <memberEnd xmi:idref="SoaML-Port_RequestPoint-extension_RequestPoint"/>
+                        <memberEnd xmi:idref="SoaML-Request-base_Port"/>
+                        <ownedEnd xmi:id="SoaML-Port_RequestPoint-extension_RequestPoint"
+                                xmi:uuid="725A27D7-D2E4-434B-9A40-0EFED81B2F76"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_RequestPoint</name>
+                                <association xmi:idref="SoaML-Port_RequestPoint"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Request"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Request"
+                        xmi:uuid="725A27D7-D2E4-4770-9E73-0EFE4C77ACF0" xmi:type="uml:Stereotype">
+                        <name>Request</name>
+                        <ownedAttribute xmi:id="SoaML-Request-base_Port"
+                                xmi:uuid="725A27D7-D2E4-40DF-909F-0EFEA48D4CE3"
+                                xmi:type="uml:Property">
+                                <name>base_Port</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Port"/>
+                                <association xmi:idref="SoaML-Port_RequestPoint"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Interface_ServiceInterface"
+                        xmi:uuid="725A27D7-D2E4-47D0-9FB9-0EFE89105769" xmi:type="uml:Extension">
+                        <name>Interface_ServiceInterface</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Interface_ServiceInterface-extension_ServiceInterface"/>
+                        <memberEnd xmi:idref="SoaML-ServiceInterface-base_Interface"/>
+                        <ownedEnd
+                                xmi:id="SoaML-Interface_ServiceInterface-extension_ServiceInterface"
+                                xmi:uuid="725A27D7-D2E4-44DF-9902-0EFE68D9D710"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_ServiceInterface</name>
+                                <association xmi:idref="SoaML-Interface_ServiceInterface"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-ServiceInterface"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Participant"
+                        xmi:uuid="725A27D7-D2E4-4868-951E-0EFE8FEDA58C" xmi:type="uml:Stereotype">
+                        <name>Participant</name>
+                        <ownedAttribute xmi:id="SoaML-Participant-base_Class"
+                                xmi:uuid="725A27D7-D2E4-444B-9C02-0EFE3B237F7D"
+                                xmi:type="uml:Property">
+                                <name>base_Class</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+                                <association xmi:idref="SoaML-Class_Participant"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Comment_PorgressLabel"
+                        xmi:uuid="725A27D7-D2E4-488D-97FF-0EFE75EFA9E5" xmi:type="uml:Extension">
+                        <name>Comment_PorgressLabel</name>
+                        <memberEnd xmi:idref="SoaML-Comment_PorgressLabel-extension_PorgressLabel"/>
+                        <memberEnd xmi:idref="SoaML-Milestone-base_Comment"/>
+                        <ownedEnd xmi:id="SoaML-Comment_PorgressLabel-extension_PorgressLabel"
+                                xmi:uuid="725A27D7-D2E4-4334-95DC-0EFE4A001F30"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_PorgressLabel</name>
+                                <association xmi:idref="SoaML-Comment_PorgressLabel"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Milestone"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-NodeDescriptor"
+                        xmi:uuid="725A27D7-D2E4-489A-91FA-0EFEB8EB7C05" xmi:type="uml:Stereotype">
+                        <name>NodeDescriptor</name>
+                        <ownedAttribute xmi:id="SoaML-NodeDescriptor-base_Artifact"
+                                xmi:uuid="725A27D7-D2E4-408A-9315-0EFEC6BD519E"
+                                xmi:type="uml:Property">
+                                <name>base_Artifact</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Artifact"/>
+                                <association xmi:idref="SoaML-Artifact_DescriptorGroup"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Dependency_Categorization"
+                        xmi:uuid="725A27D7-D2E4-48B0-985D-0EFE95888A6A" xmi:type="uml:Extension">
+                        <name>Dependency_Categorization</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Dependency_Categorization-extension_Categorization"/>
+                        <memberEnd xmi:idref="SoaML-Categorization-base_Dependency"/>
+                        <ownedEnd xmi:id="SoaML-Dependency_Categorization-extension_Categorization"
+                                xmi:uuid="725A27D7-D2E4-49C2-9FFF-0EFEB6EEB994"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Categorization</name>
+                                <association xmi:idref="SoaML-Dependency_Categorization"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Categorization"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Dependency_CapabilityExposure"
+                        xmi:uuid="725A27D7-D2E4-490D-9B34-0EFECFD87050" xmi:type="uml:Extension">
+                        <name>Dependency_CapabilityExposure</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Dependency_CapabilityExposure-extension_CapabilityExposure"/>
+                        <memberEnd xmi:idref="SoaML-Expose-base_Dependency"/>
+                        <ownedEnd
+                                xmi:id="SoaML-Dependency_CapabilityExposure-extension_CapabilityExposure"
+                                xmi:uuid="725A27D7-D2E4-4E81-9EEB-0EFE812D1F34"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_CapabilityExposure</name>
+                                <association xmi:idref="SoaML-Dependency_CapabilityExposure"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Expose"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Property_Property"
+                        xmi:uuid="725A27D7-D2E4-4922-9207-0EFEB93FCF50" xmi:type="uml:Extension">
+                        <name>Property_Property</name>
+                        <memberEnd xmi:idref="SoaML-Property_Property-extension_Property"/>
+                        <memberEnd xmi:idref="SoaML-Property-base_Property"/>
+                        <ownedEnd xmi:id="SoaML-Property_Property-extension_Property"
+                                xmi:uuid="725A27D7-D2E4-43AE-9372-0EFE78340946"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Property</name>
+                                <association xmi:idref="SoaML-Property_Property"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Property"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-DataType_MessageType"
+                        xmi:uuid="725A27D7-D2E4-4A6A-9EF4-0EFE3CA98B6F" xmi:type="uml:Extension">
+                        <name>DataType_MessageType</name>
+                        <memberEnd xmi:idref="SoaML-DataType_MessageType-extension_MessageType"/>
+                        <memberEnd xmi:idref="SoaML-MessageType-base_DataType"/>
+                        <ownedEnd xmi:id="SoaML-DataType_MessageType-extension_MessageType"
+                                xmi:uuid="725A27D7-D2E4-4268-9003-0EFEE969400D"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_MessageType</name>
+                                <association xmi:idref="SoaML-DataType_MessageType"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-MessageType"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Consumer"
+                        xmi:uuid="725A27D7-D2E4-4A76-9F27-0EFE0CE4BF7F" xmi:type="uml:Stereotype">
+                        <name>Consumer</name>
+                        <ownedAttribute xmi:id="SoaML-Consumer-base_Interface"
+                                xmi:uuid="725A27D7-D2E4-4F57-9DD4-0EFEE4588F60"
+                                xmi:type="uml:Property">
+                                <name>base_Interface</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Interface"/>
+                                <association xmi:idref="SoaML-Interface_Consumer"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Consumer-base_Class"
+                                xmi:uuid="725A27D7-D2E4-4319-9419-0EFE5F217310"
+                                xmi:type="uml:Property">
+                                <name>base_Class</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+                                <association xmi:idref="SoaML-Class_Consumer"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Catalog"
+                        xmi:uuid="725A27D7-D2E4-4A7F-9853-0EFE2E67D77F" xmi:type="uml:Stereotype">
+                        <name>Catalog</name>
+                        <generalization xmi:id="SoaML-Catalog-generalization"
+                                xmi:uuid="725A27D7-D2E4-4EB8-95E6-0EFE1C136D04"
+                                xmi:type="uml:Generalization">
+                                <general xmi:idref="SoaML-NodeDescriptor"/>
+                        </generalization>
+                        <ownedAttribute xmi:id="SoaML-Catalog-base_Package"
+                                xmi:uuid="725A27D7-D2E4-4C69-9001-0EFE6E8B9413"
+                                xmi:type="uml:Property">
+                                <name>base_Package</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Package"/>
+                                <association xmi:idref="SoaML-Package_Catalog"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Port_ServicePoint"
+                        xmi:uuid="725A27D7-D2E4-4AAC-9F17-0EFE2A5B04BC" xmi:type="uml:Extension">
+                        <name>Port_ServicePoint</name>
+                        <memberEnd xmi:idref="SoaML-Port_ServicePoint-extension_ServicePoint"/>
+                        <memberEnd xmi:idref="SoaML-Service-base_Port"/>
+                        <ownedEnd xmi:id="SoaML-Port_ServicePoint-extension_ServicePoint"
+                                xmi:uuid="725A27D7-D2E4-4A70-992B-0EFE50ACA846"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_ServicePoint</name>
+                                <association xmi:idref="SoaML-Port_ServicePoint"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Service"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Artifact_DescriptorGroup"
+                        xmi:uuid="725A27D7-D2E4-4B4C-9E44-0EFE061C2AB3" xmi:type="uml:Extension">
+                        <name>Artifact_DescriptorGroup</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Artifact_DescriptorGroup-extension_DescriptorGroup"/>
+                        <memberEnd xmi:idref="SoaML-NodeDescriptor-base_Artifact"/>
+                        <ownedEnd xmi:id="SoaML-Artifact_DescriptorGroup-extension_DescriptorGroup"
+                                xmi:uuid="725A27D7-D2E4-40E1-9D50-0EFE759D6F5C"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_DescriptorGroup</name>
+                                <association xmi:idref="SoaML-Artifact_DescriptorGroup"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-NodeDescriptor"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Class_ServiceInterface"
+                        xmi:uuid="725A27D7-D2E4-4BB5-9911-0EFEB53EAA33" xmi:type="uml:Extension">
+                        <name>Class_ServiceInterface</name>
+                        <memberEnd
+                                xmi:idref="SoaML-Class_ServiceInterface-extension_ServiceInterface"/>
+                        <memberEnd xmi:idref="SoaML-ServiceInterface-base_Class"/>
+                        <ownedEnd xmi:id="SoaML-Class_ServiceInterface-extension_ServiceInterface"
+                                xmi:uuid="725A27D7-D2E4-4310-91F5-0EFE867CFB5E"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_ServiceInterface</name>
+                                <association xmi:idref="SoaML-Class_ServiceInterface"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-ServiceInterface"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-CollaborationUse_ContractFulfillment"
+                        xmi:uuid="725A27D7-D2E4-4C1A-990F-0EFE776B99E0" xmi:type="uml:Extension">
+                        <name>CollaborationUse_ContractFulfillment</name>
+                        <memberEnd
+                                xmi:idref="SoaML-CollaborationUse_ContractFulfillment-extension_ContractFulfillment"/>
+                        <memberEnd xmi:idref="SoaML-CollaborationUse-base_CollaborationUse"/>
+                        <ownedEnd
+                                xmi:id="SoaML-CollaborationUse_ContractFulfillment-extension_ContractFulfillment"
+                                xmi:uuid="725A27D7-D2E4-4FBE-994B-0EFE95AEDEBC"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_ContractFulfillment</name>
+                                <association xmi:idref="SoaML-CollaborationUse_ContractFulfillment"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-CollaborationUse"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-packagedElement-18"
+                        xmi:uuid="725A27D7-D2E4-4C25-9D4F-0EFEDA07002F" xmi:type="uml:Association">
+                        <ownedEnd xmi:id="SoaML-packagedElement-18-ownedEnd"
+                                xmi:uuid="725A27D7-D2E4-4C50-95C5-0EFEF2811D7A"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>milestone</name>
+                                <type xmi:idref="SoaML-Milestone"/>
+                                <upperValue xmi:id="SoaML-packagedElement-18-ownedEnd-upperValue"
+                                        xmi:uuid="725A27D7-D2E4-4B36-93BE-0EFE5BB445D3"
+                                        xmi:type="uml:LiteralUnlimitedNatural">
+                                        <value>1</value>
+                                </upperValue>
+                                <lowerValue xmi:id="SoaML-packagedElement-18-ownedEnd-lowerValue"
+                                        xmi:uuid="725A27D7-D2E4-4EA7-9E0E-0EFEFA24120F"
+                                        xmi:type="uml:LiteralInteger"/>
+                                <association xmi:idref="SoaML-packagedElement-18"/>
+                        </ownedEnd>
+                        <memberEnd xmi:idref="SoaML-Milestone-value"/>
+                        <memberEnd xmi:idref="SoaML-packagedElement-18-ownedEnd"/>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Capability"
+                        xmi:uuid="725A27D7-D2E4-4C2E-976F-0EFE40B99DD5" xmi:type="uml:Stereotype">
+                        <name>Capability</name>
+                        <ownedAttribute xmi:id="SoaML-Capability-base_Class"
+                                xmi:uuid="725A27D7-D2E4-4604-9DEB-0EFEFE0824E1"
+                                xmi:type="uml:Property">
+                                <name>base_Class</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+                                <association xmi:idref="SoaML-Class_Capability"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Categorization"
+                        xmi:uuid="725A27D7-D2E4-4C3A-9F32-0EFEB8EC7C8B" xmi:type="uml:Stereotype">
+                        <name>Categorization</name>
+                        <ownedAttribute xmi:id="SoaML-Categorization-base_Dependency"
+                                xmi:uuid="725A27D7-D2E4-4E6D-9D33-0EFEDAF168BF"
+                                xmi:type="uml:Property">
+                                <name>base_Dependency</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Dependency"/>
+                                <association xmi:idref="SoaML-Dependency_Categorization"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Signal_MessageType"
+                        xmi:uuid="725A27D7-D2E4-4C86-96BD-0EFE54916D1C" xmi:type="uml:Extension">
+                        <name>Signal_MessageType</name>
+                        <memberEnd xmi:idref="SoaML-Signal_MessageType-extension_MessageType"/>
+                        <memberEnd xmi:idref="SoaML-MessageType-base_Signal"/>
+                        <ownedEnd xmi:id="SoaML-Signal_MessageType-extension_MessageType"
+                                xmi:uuid="725A27D7-D2E4-4516-931A-0EFE5CABA25C"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_MessageType</name>
+                                <association xmi:idref="SoaML-Signal_MessageType"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-MessageType"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-MotivationRealization"
+                        xmi:uuid="725A27D7-D2E4-4CC5-93DB-0EFE9F5AB955" xmi:type="uml:Stereotype">
+                        <name>MotivationRealization</name>
+                        <ownedAttribute xmi:id="SoaML-MotivationRealization-base_Realization"
+                                xmi:uuid="725A27D7-D2E4-4C03-979A-0EFEBCF5B4DF"
+                                xmi:type="uml:Property">
+                                <name>base_Realization</name>
+                                <type
+                                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#Realization"/>
+                                <association xmi:idref="SoaML-Realization_ContractRealization"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-ServiceInterface"
+                        xmi:uuid="725A27D7-D2E4-4CDB-9C0B-0EFE97A30146" xmi:type="uml:Stereotype">
+                        <name>ServiceInterface</name>
+                        <ownedAttribute xmi:id="SoaML-ServiceInterface-base_Class"
+                                xmi:uuid="725A27D7-D2E4-4567-96D7-0EFE568D6986"
+                                xmi:type="uml:Property">
+                                <name>base_Class</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+                                <association xmi:idref="SoaML-Class_ServiceInterface"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-ServiceInterface-base_Interface"
+                                xmi:uuid="725A27D7-D2E4-4B71-9BE6-0EFEAD083EBA"
+                                xmi:type="uml:Property">
+                                <name>base_Interface</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Interface"/>
+                                <association xmi:idref="SoaML-Interface_ServiceInterface"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Class_Provider"
+                        xmi:uuid="725A27D7-D2E4-4CEE-952C-0EFEA6CCE0F4" xmi:type="uml:Extension">
+                        <name>Class_Provider</name>
+                        <memberEnd xmi:idref="SoaML-Class_Provider-extension_Provider"/>
+                        <memberEnd xmi:idref="SoaML-Provider-base_Class"/>
+                        <ownedEnd xmi:id="SoaML-Class_Provider-extension_Provider"
+                                xmi:uuid="725A27D7-D2E4-4197-9373-0EFEBB07C220"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Provider</name>
+                                <association xmi:idref="SoaML-Class_Provider"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Provider"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-ServicesArchitecture"
+                        xmi:uuid="725A27D7-D2E4-4D35-9084-0EFE768BBFB7" xmi:type="uml:Stereotype">
+                        <name>ServicesArchitecture</name>
+                        <generalization xmi:id="SoaML-ServicesArchitecture-generalization"
+                                xmi:uuid="725A27D7-D2E4-4AE0-9E23-0EFE4DA75E2D"
+                                xmi:type="uml:Generalization">
+                                <general xmi:idref="SoaML-Collaboration"/>
+                        </generalization>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Attachment"
+                        xmi:uuid="725A27D7-D2E4-4D4F-9758-0EFE3E2A807C" xmi:type="uml:Stereotype">
+                        <name>Attachment</name>
+                        <ownedAttribute xmi:id="SoaML-Attachment-encoding"
+                                xmi:uuid="725A27D7-D2E4-4B05-9E70-0EFEE0651645"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>encoding</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Attachment-base_Property"
+                                xmi:uuid="725A27D7-D2E4-474E-99D3-0EFE2E80B57E"
+                                xmi:type="uml:Property">
+                                <name>base_Property</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+                                <association xmi:idref="SoaML-Property_Attachment"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Attachment-mimetype"
+                                xmi:uuid="725A27D7-D2E4-416D-923E-0EFEB19FB550"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>mimetype</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Class_Consumer"
+                        xmi:uuid="725A27D7-D2E4-4D4F-9E6F-0EFE9CF05A1F" xmi:type="uml:Extension">
+                        <name>Class_Consumer</name>
+                        <memberEnd xmi:idref="SoaML-Class_Consumer-extension_Consumer"/>
+                        <memberEnd xmi:idref="SoaML-Consumer-base_Class"/>
+                        <ownedEnd xmi:id="SoaML-Class_Consumer-extension_Consumer"
+                                xmi:uuid="725A27D7-D2E4-42A1-994A-0EFEAD3A5090"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Consumer</name>
+                                <association xmi:idref="SoaML-Class_Consumer"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Consumer"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-packagedElement-23"
+                        xmi:uuid="725A27D7-D2E4-4D9A-95E4-0EFE26655954" xmi:type="uml:Association">
+                        <ownedEnd xmi:id="SoaML-packagedElement-23-ownedEnd"
+                                xmi:uuid="725A27D7-D2E4-49CE-9144-0EFE52F7497F"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>milestone</name>
+                                <type xmi:idref="SoaML-Milestone"/>
+                                <upperValue xmi:id="SoaML-packagedElement-23-ownedEnd-upperValue"
+                                        xmi:uuid="725A27D7-D2E4-47A6-9600-0EFE93748BC9"
+                                        xmi:type="uml:LiteralUnlimitedNatural">
+                                        <value>1</value>
+                                </upperValue>
+                                <lowerValue xmi:id="SoaML-packagedElement-23-ownedEnd-lowerValue"
+                                        xmi:uuid="725A27D7-D2E4-4C68-9F3B-0EFE58B42C4B"
+                                        xmi:type="uml:LiteralInteger"/>
+                                <association xmi:idref="SoaML-packagedElement-23"/>
+                        </ownedEnd>
+                        <memberEnd xmi:idref="SoaML-Milestone-signal"/>
+                        <memberEnd xmi:idref="SoaML-packagedElement-23-ownedEnd"/>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-CollaborationUse"
+                        xmi:uuid="725A27D7-D2E4-4E14-98EC-0EFE85404898" xmi:type="uml:Stereotype">
+                        <name>CollaborationUse</name>
+                        <ownedAttribute xmi:id="SoaML-CollaborationUse-base_CollaborationUse"
+                                xmi:uuid="725A27D7-D2E4-40CF-92D2-0EFE6347D215"
+                                xmi:type="uml:Property">
+                                <name>base_CollaborationUse</name>
+                                <type
+                                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#CollaborationUse"/>
+                                <association xmi:idref="SoaML-CollaborationUse_ContractFulfillment"
+                                />
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-CollaborationUse-isStrict"
+                                xmi:uuid="725A27D7-D2E4-4DFF-96BF-0EFEF0C9EE25"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>isStrict</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Class_Capability"
+                        xmi:uuid="725A27D7-D2E4-4E19-935E-0EFECD88918F" xmi:type="uml:Extension">
+                        <name>Class_Capability</name>
+                        <memberEnd xmi:idref="SoaML-Class_Capability-extension_Capability"/>
+                        <memberEnd xmi:idref="SoaML-Capability-base_Class"/>
+                        <ownedEnd xmi:id="SoaML-Class_Capability-extension_Capability"
+                                xmi:uuid="725A27D7-D2E4-4E38-9AEF-0EFEAC166B18"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Capability</name>
+                                <association xmi:idref="SoaML-Class_Capability"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Capability"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-ServiceChannel"
+                        xmi:uuid="725A27D7-D2E4-4E23-9029-0EFE4DCB99C3" xmi:type="uml:Stereotype">
+                        <name>ServiceChannel</name>
+                        <ownedAttribute xmi:id="SoaML-ServiceChannel-base_Connector"
+                                xmi:uuid="725A27D7-D2E4-445C-9880-0EFEB9E308BB"
+                                xmi:type="uml:Property">
+                                <name>base_Connector</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Connector"/>
+                                <association xmi:idref="SoaML-Connector_ServiceChannel"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Class_Participant"
+                        xmi:uuid="725A27D7-D2E4-4E36-9F22-0EFE63413A3B" xmi:type="uml:Extension">
+                        <name>Class_Participant</name>
+                        <memberEnd xmi:idref="SoaML-Class_Participant-extension_Participant"/>
+                        <memberEnd xmi:idref="SoaML-Participant-base_Class"/>
+                        <ownedEnd xmi:id="SoaML-Class_Participant-extension_Participant"
+                                xmi:uuid="725A27D7-D2E4-4EFD-9C10-0EFE9201859F"
+                                xmi:type="uml:ExtensionEnd">
+                                <name>extension_Participant</name>
+                                <association xmi:idref="SoaML-Class_Participant"/>
+                                <aggregation>composite</aggregation>
+                                <type xmi:idref="SoaML-Participant"/>
+                        </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Service"
+                        xmi:uuid="725A27D7-D2E4-4F3E-923A-0EFE2134E52A" xmi:type="uml:Stereotype">
+                        <name>Service</name>
+                        <ownedAttribute xmi:id="SoaML-Service-base_Port"
+                                xmi:uuid="725A27D7-D2E4-4BBF-9CCC-0EFE46711ED1"
+                                xmi:type="uml:Property">
+                                <name>base_Port</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Port"/>
+                                <association xmi:idref="SoaML-Port_ServicePoint"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Port" xmi:uuid="725A27D7-D2E4-4F84-9BAF-0EFEBB35EA72"
+                        xmi:type="uml:Stereotype">
+                        <name>Port</name>
+                        <ownedAttribute xmi:id="SoaML-Port-base_Port"
+                                xmi:uuid="725A27D7-D2E4-40E3-9B3B-0EFE59000CF8"
+                                xmi:type="uml:Property">
+                                <name>base_Port</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Port"/>
+                                <association xmi:idref="SoaML-Port_Port"/>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Port-connectorRequired"
+                                xmi:uuid="725A27D7-D2E4-453E-9E6F-0EFE37979B07"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>connectorRequired</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+                                <defaultValue xmi:id="SoaML-Port-connectorRequired-defaultValue"
+                                        xmi:uuid="725A27D7-D2E4-42BC-996B-0EFED1AC1AB6"
+                                        xmi:type="uml:LiteralBoolean">
+                                        <type
+                                                href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+                                        <value>true</value>
+                                </defaultValue>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Property"
+                        xmi:uuid="725A27D7-D2E4-4FDB-999B-0EFE079C9C00" xmi:type="uml:Stereotype">
+                        <name>Property</name>
+                        <ownedAttribute xmi:id="SoaML-Property-isID"
+                                xmi:uuid="725A27D7-D2E4-469F-90D4-0EFED58287C3"
+                                xmi:type="uml:Property">
+                                <visibility>public</visibility>
+                                <name>isID</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+                                <defaultValue xmi:id="SoaML-Property-isID-defaultValue"
+                                        xmi:uuid="725A27D7-D2E4-4E9C-9710-0EFE50CC4321"
+                                        xmi:type="uml:LiteralBoolean">
+                                        <type
+                                                href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"
+                                        />
+                                </defaultValue>
+                        </ownedAttribute>
+                        <ownedAttribute xmi:id="SoaML-Property-base_Property"
+                                xmi:uuid="725A27D7-D2E4-4C2C-9586-0EFE22E5845E"
+                                xmi:type="uml:Property">
+                                <name>base_Property</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+                                <association xmi:idref="SoaML-Property_Property"/>
+                        </ownedAttribute>
+                </packagedElement>
+                <packagedElement xmi:id="SoaML-Expose"
+                        xmi:uuid="725A27D7-D2E4-4FE2-923A-0EFEC36D0115" xmi:type="uml:Stereotype">
+                        <name>Expose</name>
+                        <ownedAttribute xmi:id="SoaML-Expose-base_Dependency"
+                                xmi:uuid="725A27D7-D2E4-47CE-9C51-0EFEC2FC9366"
+                                xmi:type="uml:Property">
+                                <name>base_Dependency</name>
+                                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Dependency"/>
+                                <association xmi:idref="SoaML-Dependency_CapabilityExposure"/>
+                        </ownedAttribute>
+                </packagedElement>
+        </uml:Profile>
+        <cmof:Tag xmi:id="_2" xmi:uuid="725A27D7-D2E4-405B-9B75-0EFEA4988CAB">
+                <name>org.omg.xmi.nsURI</name>
+                <value>http://www.omg.org/spec/SoaML/20120101</value>
+                <element xmi:idref="SoaML"/>
+        </cmof:Tag>
+        <cmof:Tag xmi:id="_1" xmi:uuid="725A27D7-D2E4-42C2-903E-0EFE48005DE3">
+                <name>org.omg.xmi.nsPrefix</name>
+                <value>SoaMLProfile</value>
+                <element xmi:idref="SoaML"/>
+        </cmof:Tag>
+</xmi:XMI>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+        xmlns:uml="http://www.omg.org/spec/UML/20110701"
+        xmlns:SoaMLProfile="http://www.omg.org/spec/SoaML/20091101" xmi:version="2.1">
+        <uml:Model xmi:id="eee_1045467100313_135436_1" name="TestCase-17" viewpoint="">
+                <profileApplication xmi:type="uml:ProfileApplication"
+                        xmi:id="_17_0_3_1a900482_1328540111859_424731_3290">
+                        <appliedProfile xmi:type="uml:Profile"
+                                href="http://www.omg.org/spec/SoaML/20091101/SoaMLProfile.xmi#_bO2YlM0cEd6AF7oF64guDA"/>
+                </profileApplication>
+                <packagedElement xmi:type="uml:Package"
+                        xmi:id="_16_5_873024e_1240618325812_697912_2050" name="Message Types">
+                        <packagedElement xmi:type="uml:DataType"
+                                xmi:id="_16_9_1a900482_1304957929625_583203_10308"
+                                name="Delivery Confirmation">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240631791468_916073_2567"
+                                        name="waybill number" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240631809593_343732_2569"
+                                        name="shipment ID" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240631833984_280821_2571"
+                                        name="delivery date" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:DataType"
+                                xmi:id="_16_9_1a900482_1304957831015_844209_10011" name="Order">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240629595765_884783_2268"
+                                        name="customer ID" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240629626234_105131_2270"
+                                        name="customer order ID" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240629662656_819974_2274"
+                                        name="product ID" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240629696078_801782_2276"
+                                        name="quantity" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#Integer"
+                                        />
+                                </ownedAttribute>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:DataType"
+                                xmi:id="_16_9_1a900482_1304956534500_44329_7307" name="US Dollars">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_9_1a900482_1304956544796_923675_7351"
+                                        name="dollars" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#Integer"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_9_1a900482_1304956570281_160253_7361"
+                                        name="cents" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#Integer"
+                                        />
+                                </ownedAttribute>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:DataType"
+                                xmi:id="_16_9_1a900482_1304957856921_662398_10094"
+                                name="Order Confirmation">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240629848296_910851_2305"
+                                        name="customer order ID" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240629874625_221719_2307"
+                                        name="provider order ID" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240629893562_268199_2309"
+                                        name="confirmation" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#Boolean"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240631697015_916211_2565"
+                                        name="shipment ID" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:DataType"
+                                xmi:id="_16_9_1a900482_1304957909125_266035_10246" name="Quote">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240630120171_227598_2321"
+                                        name="request" visibility="public"
+                                        type="_16_9_1a900482_1304957881343_590734_10174"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240630139546_892121_2323"
+                                        name="price" visibility="public"
+                                        type="_16_9_1a900482_1304956534500_44329_7307"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:DataType"
+                                xmi:id="_16_9_1a900482_1304957881343_590734_10174"
+                                name="Quote Request">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240630001468_497514_2313"
+                                        name="customer ID" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#String"
+                                        />
+                                </ownedAttribute>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240630061218_464581_2317"
+                                        name="product ID" visibility="public"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240630077890_102329_2319"
+                                        name="quantity" visibility="public">
+                                        <type xmi:type="uml:PrimitiveType"
+                                                href="http://www.omg.org/spec/UML/20110701/UML.xmi#Integer"
+                                        />
+                                </ownedAttribute>
+                        </packagedElement>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package"
+                        xmi:id="_16_5_873024e_1240198317218_92600_2019" name="Service Contract">
+                        <packagedElement xmi:type="uml:Interface"
+                                xmi:id="_16_5_873024e_1240198402828_561385_2090" name="Orderer">
+                                <ownedOperation xmi:type="uml:Operation"
+                                        xmi:id="_16_9_1a900482_1304948054937_253267_4772"
+                                        name="receive delivery confirmation" visibility="public">
+                                        <ownedParameter xmi:type="uml:Parameter"
+                                                xmi:id="_16_9_1a900482_1304957990703_961535_10411"
+                                                name="confirmation" visibility="public"
+                                                type="_16_9_1a900482_1304957929625_583203_10308"/>
+                                </ownedOperation>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Interface"
+                                xmi:id="_16_5_873024e_1240198390812_355106_2071" name="Vendor">
+                                <ownedOperation xmi:type="uml:Operation"
+                                        xmi:id="_16_9_1a900482_1304947870796_672629_4663"
+                                        name="request quote" visibility="public">
+                                        <ownedParameter xmi:type="uml:Parameter"
+                                                xmi:id="_16_9_1a900482_1304948209312_565174_4883"
+                                                name="request" visibility="public"
+                                                type="_16_9_1a900482_1304957881343_590734_10174"/>
+                                </ownedOperation>
+                                <ownedOperation xmi:type="uml:Operation"
+                                        xmi:id="_16_9_1a900482_1304947985265_490638_4708"
+                                        name="place order" visibility="public">
+                                        <ownedParameter xmi:type="uml:Parameter"
+                                                xmi:id="_16_9_1a900482_1304948220734_16886_4900"
+                                                name="order" visibility="public"
+                                                type="_16_9_1a900482_1304957831015_844209_10011"/>
+                                </ownedOperation>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Collaboration"
+                                xmi:id="_16_5_873024e_1240198353171_624677_2045" name="Place Order">
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240198376171_943982_2059"
+                                        name="vendor" visibility="private" aggregation="composite"
+                                        type="_16_5_873024e_1240198390812_355106_2071"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240198393703_295408_2078"
+                                        name="orderer" visibility="private" aggregation="composite"
+                                        type="_16_5_873024e_1240198402828_561385_2090"/>
+                                <ownedConnector xmi:type="uml:Connector"
+                                        xmi:id="_16_5_873024e_1240198406000_654575_2096" name=""
+                                        visibility="public">
+                                        <end xmi:type="uml:ConnectorEnd"
+                                                xmi:id="_16_5_873024e_1240198406000_699557_2097"
+                                                role="_16_5_873024e_1240198393703_295408_2078"/>
+                                        <end xmi:type="uml:ConnectorEnd"
+                                                xmi:id="_16_5_873024e_1240198406000_555497_2098"
+                                                role="_16_5_873024e_1240198376171_943982_2059"/>
+                                </ownedConnector>
+                                <ownedBehavior xmi:type="uml:Interaction"
+                                        xmi:id="_16_5_873024e_1240630344796_622804_2330"
+                                        name="Place Order" isReentrant="false">
+                                        <lifeline xmi:type="uml:Lifeline"
+                                                xmi:id="_16_5_873024e_1240630352203_351393_2368"
+                                                name="" visibility="public"
+                                                represents="_16_5_873024e_1240198393703_295408_2078">
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240630388234_826629_2391"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240630406437_13844_2403"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240630431578_962688_2412"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240630445968_840940_2425"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240632425468_622499_2591"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_2_1a900482_1253737073796_153966_2557"
+                                                />
+                                        </lifeline>
+                                        <lifeline xmi:type="uml:Lifeline"
+                                                xmi:id="_16_5_873024e_1240630352328_195641_2379"
+                                                name="" visibility="public"
+                                                represents="_16_5_873024e_1240198376171_943982_2059">
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240630388234_25106_2392"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240630406437_357854_2402"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240630431578_635842_2413"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240630445968_216363_2424"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_873024e_1240632425468_622499_2591"/>
+                                                <coveredBy
+                                                  xmi:idref="_16_5_2_1a900482_1253737073796_959353_2556"
+                                                />
+                                        </lifeline>
+                                        <message xmi:type="uml:Message"
+                                                xmi:id="_16_5_873024e_1240630388234_749857_2390"
+                                                name="place order" visibility="public"
+                                                receiveEvent="_16_5_873024e_1240630388234_25106_2392"
+                                                sendEvent="_16_5_873024e_1240630388234_826629_2391">
+                                                <argument xmi:type="uml:OpaqueExpression"
+                                                  xmi:id="_16_9_1a900482_1304948220750_542780_4901"
+                                                  name=""> </argument>
+                                        </message>
+                                        <message xmi:type="uml:Message"
+                                                xmi:id="_16_5_873024e_1240630406437_985291_2401"
+                                                name="Order Confirmation" visibility="public"
+                                                messageSort="reply"
+                                                receiveEvent="_16_5_873024e_1240630406437_13844_2403"
+                                                sendEvent="_16_5_873024e_1240630406437_357854_2402">
+                                                <argument xmi:type="uml:OpaqueExpression"
+                                                  xmi:id="_16_9_1a900482_1304948273515_566674_4929"
+                                                  name=""/>
+                                        </message>
+                                        <message xmi:type="uml:Message"
+                                                xmi:id="_16_5_873024e_1240630431578_200144_2411"
+                                                name="request quote" visibility="public"
+                                                receiveEvent="_16_5_873024e_1240630431578_635842_2413"
+                                                sendEvent="_16_5_873024e_1240630431578_962688_2412">
+                                                <argument xmi:type="uml:OpaqueExpression"
+                                                  xmi:id="_16_9_1a900482_1304948209328_509496_4884"
+                                                  name=""> </argument>
+                                        </message>
+                                        <message xmi:type="uml:Message"
+                                                xmi:id="_16_5_873024e_1240630445968_82515_2423"
+                                                name="Quote" visibility="public" messageSort="reply"
+                                                receiveEvent="_16_5_873024e_1240630445968_840940_2425"
+                                                sendEvent="_16_5_873024e_1240630445968_216363_2424">
+                                                <argument xmi:type="uml:OpaqueExpression"
+                                                  xmi:id="_16_9_1a900482_1304948253750_618854_4918"
+                                                  name=""/>
+                                        </message>
+                                        <message xmi:type="uml:Message"
+                                                xmi:id="_16_5_2_1a900482_1253737073796_278710_2555"
+                                                name="receive delivery confirmation"
+                                                visibility="public"
+                                                receiveEvent="_16_5_2_1a900482_1253737073796_153966_2557"
+                                                sendEvent="_16_5_2_1a900482_1253737073796_959353_2556">
+                                                <argument xmi:type="uml:OpaqueExpression"
+                                                  xmi:id="_16_9_1a900482_1304957990718_396827_10412"
+                                                  name=""> </argument>
+                                        </message>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_873024e_1240630388234_826629_2391"
+                                                name="" visibility="public"
+                                                message="_16_5_873024e_1240630388234_749857_2390"
+                                                event="_16_9_1a900482_1304947983453_288124_4704">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352203_351393_2368"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_873024e_1240630388234_25106_2392"
+                                                name="" visibility="public"
+                                                message="_16_5_873024e_1240630388234_749857_2390"
+                                                event="_16_9_1a900482_1304947983453_288124_4704_1">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352328_195641_2379"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_873024e_1240630406437_357854_2402"
+                                                name="" visibility="public"
+                                                message="_16_5_873024e_1240630406437_985291_2401"
+                                                event="_16_9_1a900482_1304947983453_288124_4704">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352328_195641_2379"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_873024e_1240630406437_13844_2403"
+                                                name="" visibility="public"
+                                                message="_16_5_873024e_1240630406437_985291_2401"
+                                                event="_16_9_1a900482_1304947983453_288124_4704_1">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352203_351393_2368"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_873024e_1240630431578_962688_2412"
+                                                name="" visibility="public"
+                                                message="_16_5_873024e_1240630431578_200144_2411"
+                                                event="_16_9_1a900482_1304947868609_152328_4659">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352203_351393_2368"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_873024e_1240630431578_635842_2413"
+                                                name="" visibility="public"
+                                                message="_16_5_873024e_1240630431578_200144_2411"
+                                                event="_16_9_1a900482_1304947868609_152328_4659_1">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352328_195641_2379"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_873024e_1240630445968_216363_2424"
+                                                name="" visibility="public"
+                                                message="_16_5_873024e_1240630445968_82515_2423"
+                                                event="_16_9_1a900482_1304947868609_152328_4659">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352328_195641_2379"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_873024e_1240630445968_840940_2425"
+                                                name="" visibility="public"
+                                                message="_16_5_873024e_1240630445968_82515_2423"
+                                                event="_16_9_1a900482_1304947868609_152328_4659_1">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352203_351393_2368"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:CombinedFragment"
+                                                xmi:id="_16_5_873024e_1240632425468_622499_2591"
+                                                name="" visibility="public">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352203_351393_2368"/>
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352328_195641_2379"/>
+                                                <operand xmi:type="uml:InteractionOperand"
+                                                  xmi:id="_16_5_873024e_1240632425468_122195_2592"
+                                                  name="" visibility="public"/>
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_2_1a900482_1253737073796_959353_2556"
+                                                name="" visibility="public"
+                                                message="_16_5_2_1a900482_1253737073796_278710_2555"
+                                                event="_16_9_1a900482_1304948052859_165568_4768">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352328_195641_2379"
+                                                />
+                                        </fragment>
+                                        <fragment xmi:type="uml:MessageOccurrenceSpecification"
+                                                xmi:id="_16_5_2_1a900482_1253737073796_153966_2557"
+                                                name="" visibility="public"
+                                                message="_16_5_2_1a900482_1253737073796_278710_2555"
+                                                event="_16_9_1a900482_1304948052859_165568_4768_1">
+                                                <covered
+                                                  xmi:idref="_16_5_873024e_1240630352203_351393_2368"
+                                                />
+                                        </fragment>
+                                </ownedBehavior>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Usage"
+                                xmi:id="_16_5_873024e_1240841715218_83937_2453" name="">
+                                <supplier xmi:idref="_16_5_873024e_1240198390812_355106_2071"/>
+                                <client xmi:idref="_16_5_873024e_1240198402828_561385_2090"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Usage"
+                                xmi:id="_16_5_873024e_1241889071750_538866_2503" name="">
+                                <supplier xmi:idref="_16_5_873024e_1240198402828_561385_2090"/>
+                                <client xmi:idref="_16_5_873024e_1240198390812_355106_2071"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:SendOperationEvent"
+                                xmi:id="_16_9_1a900482_1304947868609_152328_4659"
+                                name="request quote"
+                                operation="_16_9_1a900482_1304947870796_672629_4663"/>
+                        <packagedElement xmi:type="uml:SendOperationEvent"
+                                xmi:id="_16_9_1a900482_1304947983453_288124_4704" name=""
+                                operation="_16_9_1a900482_1304947985265_490638_4708"/>
+                        <packagedElement xmi:type="uml:SendOperationEvent"
+                                xmi:id="_16_9_1a900482_1304948052859_165568_4768"
+                                name=""
+                                operation="_16_9_1a900482_1304948054937_253267_4772"/>
+                        <packagedElement xmi:type="uml:ReceiveOperationEvent"
+                                xmi:id="_16_9_1a900482_1304947868609_152328_4659_1"
+                                name=""
+                                operation="_16_9_1a900482_1304947870796_672629_4663"/>
+                        <packagedElement xmi:type="uml:ReceiveOperationEvent"
+                                xmi:id="_16_9_1a900482_1304947983453_288124_4704_1"
+                                name=""
+                                operation="_16_9_1a900482_1304947985265_490638_4708"/>
+                        <packagedElement xmi:type="uml:ReceiveOperationEvent"
+                                xmi:id="_16_9_1a900482_1304948052859_165568_4768_1"
+                                name=""
+                                operation="_16_9_1a900482_1304948054937_253267_4772"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package"
+                        xmi:id="_16_5_873024e_1240198084718_52382_464" name="Services Architecture">
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_16_5_873024e_1240198202312_319180_1925" name="Manufacturer">
+                                <ownedAttribute xmi:type="uml:Port"
+                                        xmi:id="_16_9_1a900482_1304953118203_443790_6258" name=""
+                                        aggregation="composite"
+                                        type="_16_5_873024e_1240198390812_355106_2071"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Collaboration"
+                                xmi:id="_16_5_873024e_1240198158625_914776_1899" name="Ordering">
+                                <collaborationUse xmi:type="uml:CollaborationUse"
+                                        xmi:id="_16_5_873024e_1240601319781_19958_1929" name=""
+                                        visibility="public"
+                                        type="_16_5_873024e_1240198353171_624677_2045">
+                                        <roleBinding xmi:type="uml:Dependency"
+                                                xmi:id="_16_5_873024e_1240601328890_574147_1940"
+                                                name="">
+                                                <supplier
+                                                  xmi:idref="_16_5_873024e_1240198393703_295408_2078"/>
+                                                <client
+                                                  xmi:idref="_16_5_873024e_1240601299828_776904_1887"
+                                                />
+                                        </roleBinding>
+                                        <roleBinding xmi:type="uml:Dependency"
+                                                xmi:id="_16_5_873024e_1240601341015_835278_1945"
+                                                name="">
+                                                <supplier
+                                                  xmi:idref="_16_5_873024e_1240198376171_943982_2059"/>
+                                                <client
+                                                  xmi:idref="_16_5_873024e_1240601303468_934388_1901"
+                                                />
+                                        </roleBinding>
+                                </collaborationUse>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240601299828_776904_1887"
+                                        name="customer" isUnique="false" aggregation="composite"
+                                        type="_16_5_873024e_1240198211625_390799_1944"/>
+                                <ownedAttribute xmi:type="uml:Property"
+                                        xmi:id="_16_5_873024e_1240601303468_934388_1901" name="mfg"
+                                        visibility="private" aggregation="composite"
+                                        type="_16_5_873024e_1240198202312_319180_1925"/>
+                        </packagedElement>
+                        <packagedElement xmi:type="uml:Class"
+                                xmi:id="_16_5_873024e_1240198211625_390799_1944" name="Customer">
+                                <ownedAttribute xmi:type="uml:Port"
+                                        xmi:id="_16_9_1a900482_1304953095781_297128_6221" name=""
+                                        visibility="public" aggregation="composite"
+                                        type="_16_5_873024e_1240198402828_561385_2090"/>
+                        </packagedElement>
+                </packagedElement>
+        </uml:Model>
+        <SoaMLProfile:ServiceContract xmi:id="_16_5_873024e_1240198353171_550215_2046"
+                base_Collaboration="_16_5_873024e_1240198353171_624677_2045"/>
+        <SoaMLProfile:Provider xmi:id="_16_5_873024e_1241889180500_359541_2504"
+                base_Interface="_16_5_873024e_1240198390812_355106_2071"/>
+        <SoaMLProfile:ServicesArchitecture xmi:id="_16_5_873024e_1240198158625_318900_1900"
+                base_Collaboration="_16_5_873024e_1240198158625_914776_1899"/>
+        <SoaMLProfile:Participant xmi:id="_16_5_873024e_1240198202312_433435_1926"
+                base_Class="_16_5_873024e_1240198202312_319180_1925"/>
+        <SoaMLProfile:Participant xmi:id="_16_5_873024e_1240198211625_522395_1945"
+                base_Class="_16_5_873024e_1240198211625_390799_1944"/>
+        <SoaMLProfile:MessageType xmi:id="_16_9_1a900482_1304957909125_109418_10247"
+                base_DataType="_16_9_1a900482_1304957909125_266035_10246"/>
+        <SoaMLProfile:Consumer xmi:id="_16_5_873024e_1241889210359_514182_2505"
+                base_Interface="_16_5_873024e_1240198402828_561385_2090"/>
+        <SoaMLProfile:MessageType xmi:id="_16_9_1a900482_1304957929625_439156_10309"
+                base_DataType="_16_9_1a900482_1304957929625_583203_10308"/>
+        <SoaMLProfile:MessageType xmi:id="_16_9_1a900482_1304957831015_691596_10012"
+                base_DataType="_16_9_1a900482_1304957831015_844209_10011"/>
+        <SoaMLProfile:MessageType xmi:id="_16_9_1a900482_1304957856921_733774_10095"
+                base_DataType="_16_9_1a900482_1304957856921_662398_10094"/>
+        <SoaMLProfile:MessageType xmi:id="_16_9_1a900482_1304957881343_652397_10175"
+                base_DataType="_16_9_1a900482_1304957881343_590734_10174"/>
+</xmi:XMI>

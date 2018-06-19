@@ -1,0 +1,147 @@
+
+OrderInfo
+ - orderDate
+ - dueDate
+ - quantityOrdered
+
+
+(DEF-MM-CLASS
+ |DeliverySequence_SEQ|
+ :DELJIT
+ (|SegmentContainer|)
+ "A SegmentContainer for the content of the conceptual object DeliverySequence_SEQ.<br/> <strong>EDIpath:</strong> DELJIT.SG4.SEQ(160)"
+ NIL)
+
+(DEF-MM-CLASS
+ |ItemRequestedDeliveryDate_DTM_C507/2|
+ :DELJIT
+ (|CompositeContainer|)
+ "A CompositeContainer for the content of the conceptual object ItemRequestedDeliveryDate_DTM_C507/2.<br/> <strong>EDIpath:</strong> DELJIT.SG4.SG7.SG12[QTY.6063=113].DTM[DTM.2005=2].C507(480:10)"
+ NIL)
+
+(DEF-MM-CLASS
+ |OrderIssueDate_DTM_C507|
+ :DELJIT
+ (|CompositeContainer|)
+ "A CompositeContainer for the content of the conceptual object OrderIssueDate_DTM_C507.<br/> <strong>EDIpath:</strong> DELJIT.SG1[RFF.1153=OP].DTM[DTM.2005=4].C507(70:10)"
+ NIL)
+
+(DEF-MM-CLASS
+ |OrderIssueDate_DTM|
+ :DELJIT
+ (|SegmentContainer|)
+ "A SegmentContainer for the content of the conceptual object OrderIssueDate_DTM.<br/> <strong>EDIpath:</strong> DELJIT.SG1[RFF.1153=OP].DTM[DTM.2005=4](70)"
+ NIL)
+
+
+(DEF-MM-CLASS
+ |RequestedDeliveryDate_DTM_C507|
+ :DELJIT
+ (|CompositeContainer|)
+ "A CompositeContainer for the content of the conceptual object RequestedDeliveryDate_DTM_C507.<br/> <strong>EDIpath:</strong> DELJIT.SG4.DTM[DTM.2005=2].C507(170:10)"
+ NIL)
+
+
+transformation deljit2orderInfo (deljit:DELJIT, sim:SimulationProfile)
+{
+  key OrderInfo(orderNumber);
+
+top relation deliverySequence2OrderInfo
+  {
+    checkonly domain deljit 
+    : DeliverySequence_SG4
+      { ownedElement = :Set(Container) 
+	{ dueDTM   : RequestedDeliveryDate_DTM,
+	           : ItemActionRequest_SG7
+	               { ownedElement = :Set(Container) 
+			 { : ItemQuantityRequestedToBeDelivered_SG12
+			       { ownedElement = :Set(Container) 
+				 { qty : ItemQuantityRequestedToBeDelivered_QTY }
+			       }
+			 }
+		       }
+	}
+      };
+    enforce domain sim info:OrderInfo 
+      { dueDate         = due,
+        quantityOrdered = quantity };
+    when
+	{ due      = dtm2time(dueDTM);
+	  quantity = qty2quantity(qty);
+	}
+    }
+}
+
+
+// If you don't specify the relationship among identity conditions here,
+// it is going to use whatever Consignee it finds, not just the one with this DUNS.
+top relation shipTo2Consignee
+ {
+    dunsID : String;
+    checkonly domain deljit stParty:ShipToParty_NAD { };
+    enforce domain cm consignee:Consignee { playedBy = :Party { partyID = :PartyID { idString=dunsID } } };
+
+    when  { dunsID = dunsIDfn(stParty);   } // NAD2dunsID(stParty,dusnID);
+    where { NAD2Role(stParty, consignee); }
+ }
+
+
+top relation shipFrom2Supplier
+ {
+    dunsID : String;
+    checkonly domain deljit sfParty:ShipFromParty_NAD { }; 
+    enforce domain cm supplier:Supplier { playedBy = :Party { partyID = :PartyID { idString=dunsID } } };
+
+    when  { dunsID = dunsIDfn(sfParty);  }
+    where { NAD2Role(sfParty, supplier); }
+ }
+
+// COPY NAD segment information to the argument party.
+relation NAD2Role
+ {
+    partyID, cityName, nadCity, partyName : String;
+    checkonly domain deljit nad 
+     :SegmentContainer 
+	{ ownedElement = :Set(Container) {
+           // partyID = C082.E3039
+	    :CompositeContainer
+	    {  compositeName = MOSSCompositeNumber::C082,
+               ownedElement  = :Set(Container)
+ 	        { partyIdElem :ElementContainer{ elementName = MOSSElementNumber::E3039 } } }, 
+            // partyName = C082.E3036
+            :CompositeContainer
+	    {  compositeName = MOSSCompositeNumber::C080,
+               ownedElement = :Set(Container)
+	        { partyNameElem :ElementContainer { elementName = MOSSElementNumber::E3036 } } }, 
+            // cityName = E3164
+	    cityNameElem:ElementContainer { elementName = MOSSElementNumber::E3164 } } };
+
+
+    enforce domain cm role  
+     :Role  { playedBy = :Party { name     = partyName,
+		 	          partyID  = :PartyID  { idString = partyID }, 
+			          facility = :Facility { locationAddress = 
+							  :LocationStyleStreet { city = cityName } } } };
+  where 
+      { partyName = partyNameElem.value;
+        partyID   = partyIdElem.value;
+        cityName  = cityNameElem.value;
+   }
+ }   
+
+
+function DTM2TimePoint ( ) :
+
+
+function dunsIDfn (nad : SegmentContainer) : String
+  {
+     nad.ownedElement
+	 ->any( c | c.oclIsKindOf(CompositeContainer) and
+    		    c.compositeName = MOSSCompositeNumber::C082).ownedElement
+	 ->any( e | e.oclIsKindOf(ElementContainer) and
+		    e.elementName = MOSSElementNumber::E3039).value
+  }
+
+}
+	    
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="hstmMM_p" xmi:id="_5qCwgELrEdu-SI8DyztHqw">
+  <contains_state xmi:id="_ax47IELsEdu-SI8DyztHqw" containsState="_bOzgoELsEdu-SI8DyztHqw _bZOn8ELsEdu-SI8DyztHqw" outTrans="_pI2ZoELsEdu-SI8DyztHqw" name="s1"/>
+  <contains_state xmi:id="_bDeaYELsEdu-SI8DyztHqw" containsState="_bx0uIELsEdu-SI8DyztHqw _b-VgIELsEdu-SI8DyztHqw" inTrans="_pI2ZoELsEdu-SI8DyztHqw" name="s2"/>
+  <contains_state xmi:id="_bOzgoELsEdu-SI8DyztHqw" containsState="_cHk7sELsEdu-SI8DyztHqw _cPoEcELsEdu-SI8DyztHqw" containedInState="_ax47IELsEdu-SI8DyztHqw" outTrans="_r_sD4ELsEdu-SI8DyztHqw" name="s3"/>
+  <contains_state xmi:id="_bZOn8ELsEdu-SI8DyztHqw" containsState="_cXXrMELsEdu-SI8DyztHqw _cerNEELsEdu-SI8DyztHqw" containedInState="_ax47IELsEdu-SI8DyztHqw" inTrans="_r_sD4ELsEdu-SI8DyztHqw" name="s4"/>
+  <contains_state xmi:id="_bx0uIELsEdu-SI8DyztHqw" containsState="_clhb8ELsEdu-SI8DyztHqw _c29xQELsEdu-SI8DyztHqw" containedInState="_bDeaYELsEdu-SI8DyztHqw" outTrans="_plw_IELsEdu-SI8DyztHqw" name="s5"/>
+  <contains_state xmi:id="_b-VgIELsEdu-SI8DyztHqw" containsState="_dbLRkELsEdu-SI8DyztHqw _dmyrsELsEdu-SI8DyztHqw" containedInState="_bDeaYELsEdu-SI8DyztHqw" inTrans="_plw_IELsEdu-SI8DyztHqw" name="s6"/>
+  <contains_state xmi:id="_cHk7sELsEdu-SI8DyztHqw" containedInState="_bOzgoELsEdu-SI8DyztHqw" outTrans="_p3yjQELsEdu-SI8DyztHqw" name="s7"/>
+  <contains_state xmi:id="_cPoEcELsEdu-SI8DyztHqw" containedInState="_bOzgoELsEdu-SI8DyztHqw" inTrans="_p3yjQELsEdu-SI8DyztHqw" name="s8"/>
+  <contains_state xmi:id="_cXXrMELsEdu-SI8DyztHqw" containedInState="_bZOn8ELsEdu-SI8DyztHqw" outTrans="_qKakUELsEdu-SI8DyztHqw" name="s9"/>
+  <contains_state xmi:id="_cerNEELsEdu-SI8DyztHqw" containedInState="_bZOn8ELsEdu-SI8DyztHqw" inTrans="_qKakUELsEdu-SI8DyztHqw" name="s10"/>
+  <contains_state xmi:id="_clhb8ELsEdu-SI8DyztHqw" containedInState="_bx0uIELsEdu-SI8DyztHqw" outTrans="_qf328ELsEdu-SI8DyztHqw" name="s11"/>
+  <contains_state xmi:id="_c29xQELsEdu-SI8DyztHqw" containedInState="_bx0uIELsEdu-SI8DyztHqw" inTrans="_qf328ELsEdu-SI8DyztHqw" name="s12"/>
+  <contains_state xmi:id="_dbLRkELsEdu-SI8DyztHqw" containedInState="_b-VgIELsEdu-SI8DyztHqw" outTrans="_q33gMELsEdu-SI8DyztHqw" name="s13"/>
+  <contains_state xmi:id="_dmyrsELsEdu-SI8DyztHqw" containedInState="_b-VgIELsEdu-SI8DyztHqw" inTrans="_q33gMELsEdu-SI8DyztHqw" name="s14"/>
+  <conatains_trans xmi:id="_pI2ZoELsEdu-SI8DyztHqw" fromState="_ax47IELsEdu-SI8DyztHqw" toState="_bDeaYELsEdu-SI8DyztHqw" name="t1_2"/>
+  <conatains_trans xmi:id="_r_sD4ELsEdu-SI8DyztHqw" fromState="_bOzgoELsEdu-SI8DyztHqw" toState="_bZOn8ELsEdu-SI8DyztHqw" name="t3_4"/>
+  <conatains_trans xmi:id="_plw_IELsEdu-SI8DyztHqw" fromState="_bx0uIELsEdu-SI8DyztHqw" toState="_b-VgIELsEdu-SI8DyztHqw" name="t5_6"/>
+  <conatains_trans xmi:id="_p3yjQELsEdu-SI8DyztHqw" fromState="_cHk7sELsEdu-SI8DyztHqw" toState="_cPoEcELsEdu-SI8DyztHqw" name="t7_8"/>
+  <conatains_trans xmi:id="_qKakUELsEdu-SI8DyztHqw" fromState="_cXXrMELsEdu-SI8DyztHqw" toState="_cerNEELsEdu-SI8DyztHqw" name="t9_10"/>
+  <conatains_trans xmi:id="_qf328ELsEdu-SI8DyztHqw" fromState="_clhb8ELsEdu-SI8DyztHqw" toState="_c29xQELsEdu-SI8DyztHqw" name="t11_12"/>
+  <conatains_trans xmi:id="_q33gMELsEdu-SI8DyztHqw" fromState="_dbLRkELsEdu-SI8DyztHqw" toState="_dmyrsELsEdu-SI8DyztHqw" name="t13_14"/>
+</null:dummy>

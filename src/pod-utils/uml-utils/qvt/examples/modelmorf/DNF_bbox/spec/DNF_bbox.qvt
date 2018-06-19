@@ -1,0 +1,258 @@
+// Transforming an arbitrary boolean expression into disjunctive normal form by using 
+// DeMorgan's law
+
+transformation DNF_bbox(expr1:exprMM; expr2:exprMM)
+{
+
+	// a.(b+c) = (a.b) + (a.c)
+	top relation EqualByDistributionLaw1
+	{
+		p:exprMM::Expr;
+		emptySequence:Sequence(exprMM::Expr);
+
+		replace domain expr1 
+		e1:And 
+		{
+			expr = e1s:Sequence(Expr)
+			{
+				a:Expr{parent = e1},
+				e2:Or 
+				{
+					expr = e2s:Sequence(Expr)
+					{
+						b:Expr{parent = e2},
+						c:Expr{parent = e2}
+						++ emptySequence   // To ensures that OR only has two operands.
+					},
+					parent = e1
+				}
+				++ emptySequence   // To ensure that AND only has two operands.
+			},
+			parent = p
+		}
+		{emptySequence = Sequence{}};
+
+		enforce domain expr2 
+		e3:Or 
+		{
+			expr = e3s:Sequence(Expr)
+			{
+				e4:And 
+				{
+					expr = e4s:Sequence(Expr)
+					{
+						a:Expr{parent = e4},
+						b:Expr{parent = e4}
+						++ emptySequence
+					},
+					parent = e3
+				},
+				e5:And 
+				{
+					expr = e5s:Sequence(Expr)
+					{
+						a_c:Expr{parent = e5},
+						c:Expr{parent = e5}
+						++ emptySequence
+					},
+					parent = e3
+				}
+				++ emptySequence
+			},
+			parent = p
+		};
+
+		where 
+		{
+			CopyOfExpr(a, a_c);
+		}
+	}
+
+	// (b+c).a = (b.a) + (c.a)
+	top relation EqualByDistributionLaw2
+	{
+		p:exprMM::Expr;
+		emptySequence:Sequence(exprMM::Expr);
+
+		replace domain expr1 
+		e1:And 
+		{
+			expr = e1s:Sequence(Expr)
+			{
+				e2:Or 
+				{
+					expr = e2s:Sequence(Expr)
+					{
+						b:Expr{parent = e2},
+						c:Expr{parent = e2}
+						++ emptySequence   // To ensures that OR only has two operands.
+					},
+					parent = e2
+				},
+				a:Expr{parent = e1}
+				++ emptySequence   // To ensure that AND only has two operands.
+			},
+			parent = p
+		}
+		{emptySequence = Sequence{}};
+
+		enforce domain expr2 
+		e3:Or 
+		{
+			expr = e3s:Sequence(Expr)
+			{
+				e4:And 
+				{
+					expr = e4s:Sequence(Expr)
+					{
+						b:Expr{parent = e4},
+						a:Expr{parent = e4}
+						++ emptySequence
+					},
+					parent = e3
+				},
+				e5:And 
+				{
+					expr = e5s:Sequence(Expr)
+					{
+						c:Expr{parent = e5},
+						a_c:Expr{parent = e5}
+						++ emptySequence
+					},
+					parent = e3
+				}
+				++ emptySequence
+			},
+			parent = p
+		};
+
+		when 
+		{
+			not EqualByDistributionLaw1(e1, _);   // lest (a+b).(c+d) transformed twice!
+		}
+
+		where 
+		{
+			CopyOfExpr(a, a_c);
+		}
+	}
+
+	// ~(a+b) = ~a.~b
+	top relation EqualByDeMorganLaw1
+	{
+		p:exprMM::Expr;
+		emptySequence:Sequence(exprMM::Expr);
+
+		replace domain expr1 
+		e1:Not 
+		{
+			expr = e1s:Sequence(Expr)
+			{
+				e2:Or 
+				{
+					expr = e2s:Sequence(Expr)
+					{
+						a:Expr{parent = e2},
+						b:Expr{parent = e2}
+						++ emptySequence   // To ensures that OR only has two operands.
+					},
+					parent = e1
+				}
+				++ emptySequence   // To ensure that AND only has two operands.
+			},
+			parent = p
+		}
+		{emptySequence = Sequence{}};
+
+		enforce domain expr2 
+		e3:And 
+		{
+			expr = e3s:Sequence(Expr)
+			{
+				e4:Not 
+				{
+					expr = e4s:Sequence(Expr)
+					{
+						a:Expr{parent = e4}
+						++ emptySequence
+					},
+					parent = e3
+				},
+				e5:Not 
+				{
+					expr = e5s:Sequence(Expr)
+					{
+						b:Expr{parent = e5}
+						++ emptySequence
+					},
+					parent = e3
+				}
+				++ emptySequence
+			},
+			parent = p
+		};
+	}
+
+	// ~(a.b) = ~a+~b
+	top relation EqualByDeMorganLaw2
+	{
+		p:exprMM::Expr;
+		emptySequence:Sequence(exprMM::Expr);
+
+		replace domain expr1 
+		e1:Not 
+		{
+			expr = e1s:Sequence(Expr)
+			{
+				e2:And 
+				{
+					expr = e2s:Sequence(Expr)
+					{
+						a:Expr{parent = e2},
+						b:Expr{parent = e2}
+						++ emptySequence   // To ensure that AND only has two operands.
+					},
+					parent = e1
+				}
+				++ emptySequence   // To ensure that NOT only has one operand.
+			},
+			parent = p
+		}
+		{emptySequence = Sequence{}};
+
+		enforce domain expr2 
+		e3:Or 
+		{
+			expr = e3s:Sequence(Expr)
+			{
+				e4:Not 
+				{
+					expr = e4s:Sequence(Expr)
+					{
+						a:Expr{parent = e4}
+						++ emptySequence
+					},
+					parent = e3
+				},
+				e5:Not 
+				{
+					expr = e5s:Sequence(Expr)
+					{
+						b:Expr{parent = e5}
+						++ emptySequence
+					},
+					parent = e3
+				}
+				++ emptySequence
+			},
+			parent = p
+		};
+	}
+
+	relation CopyOfExpr
+	{
+		domain expr1 e1:Expr {};
+
+		enforce domain expr2 e2:Expr {} implementedby CopyExpr(e1, e2);
+	}
+}

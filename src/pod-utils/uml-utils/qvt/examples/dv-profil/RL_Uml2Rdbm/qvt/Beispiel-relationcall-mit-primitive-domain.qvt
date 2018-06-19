@@ -1,0 +1,50 @@
+transformation uml2rdbms ( uml : MyUML, rdbm : MyRDBM ) 
+{
+	top relation PackageToSchema 
+	{
+	   packageName : String;
+	   prefix      : String;
+	   
+	   checkonly domain uml  pck : Package 
+	   {
+	      name = packageName
+	   };
+	   
+	   enforce   domain rdbm sma : Schema  
+	   {
+	      name = packageName
+	   };
+	   
+	   where	  
+	   {
+	      prefix = 'HelloWorld';	
+	      SchemanameWithPrefix (pck, sma, prefix);	  
+	   }
+	}
+	
+    relation SchemanameWithPrefix 
+	{
+	   cName  : String;
+	   cName1 : String;
+	   
+	   checkonly domain uml  p : Package  
+	   {
+	      name = cName1 
+	   };
+       
+       enforce   domain rdbm s : Schema 
+       {
+          name = cName
+       };
+
+       primitive domain prefix : String;  
+    	   
+	   where	  
+	   {
+          cName = if   prefix = ''        
+                  then cName1
+	              else prefix + '_' + cName1  
+	              endif;
+	   }
+	}
+}

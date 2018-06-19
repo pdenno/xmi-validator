@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model>
+    <packagedElement xmi:id="TestCase5-TestClass1" xmi:uuid="725A27D7-D27E-4858-95A3-59D67C8F9925" xmi:type="uml:Class">
+      <name>TestClass1</name>
+      <ownedBehavior xmi:id="TestCase5-TestClass1-TestX" xmi:uuid="725A27D7-D27E-4739-95B1-59D6C5A2DBAE" xmi:type="uml:Activity">
+        <name>TestX</name>
+        <specification xmi:idref="TestCase5-TestClass1-testX"/>
+        <ownedParameter xmi:id="TestCase5-TestClass1-TestX-value" xmi:uuid="725A27D7-D27E-4BE3-9AF9-59D6C89D68FC" xmi:type="uml:Parameter">
+          <name>value</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="TestCase5-TestClass1-TestX-result" xmi:uuid="725A27D7-D27E-445E-9324-59D60001AEF1" xmi:type="uml:Parameter">
+          <name>result</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+          <direction>return</direction>
+        </ownedParameter>
+        <node xmi:id="TestCase5-TestClass1-TestX-Read_x_" xmi:uuid="725A27D7-D27E-419B-9F86-59D60683B786" xmi:type="uml:ReadStructuralFeatureAction">
+          <name>Read(x)</name>
+          <structuralFeature xmi:idref="TestCase5-TestClass1-x"/>
+          <object xmi:id="TestCase5-TestClass1-TestX-Read_x_-Read_x_.object" xmi:uuid="725A27D7-D27E-4E8F-965D-59D6283B7295" xmi:type="uml:InputPin">
+            <name>Read(x).object</name>
+            <incoming xmi:idref="TestCase5-TestClass1-TestX-edge-3"/>
+            <type xmi:idref="TestCase5-TestClass1"/>
+          </object>
+          <result xmi:id="TestCase5-TestClass1-TestX-Read_x_-Read_x_.result" xmi:uuid="725A27D7-D27E-4157-9FD4-59D68B2B96C9" xmi:type="uml:OutputPin">
+            <name>Read(x).result</name>
+            <outgoing xmi:idref="TestCase5-TestClass1-TestX-edge-4"/>
+            <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+          </result>
+        </node>
+        <node xmi:id="TestCase5-TestClass1-TestX-ReadSelf" xmi:uuid="725A27D7-D27E-42FB-993F-59D6400AA320" xmi:type="uml:ReadSelfAction">
+          <name>ReadSelf</name>
+          <result xmi:id="TestCase5-TestClass1-TestX-ReadSelf-ReadSelf.result" xmi:uuid="725A27D7-D27E-450E-9E05-59D68425C1CE" xmi:type="uml:OutputPin">
+            <name>ReadSelf.result</name>
+            <outgoing xmi:idref="TestCase5-TestClass1-TestX-edge-3"/>
+            <type xmi:idref="TestCase5-TestClass1"/>
+          </result>
+        </node>
+        <node xmi:id="TestCase5-TestClass1-TestX-Parameter_value_" xmi:uuid="725A27D7-D27E-44A4-9BC0-59D6F5436134" xmi:type="uml:ActivityParameterNode">
+          <name>Parameter(value)</name>
+          <outgoing xmi:idref="TestCase5-TestClass1-TestX-edge-1"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+          <parameter xmi:idref="TestCase5-TestClass1-TestX-value"/>
+        </node>
+        <node xmi:id="TestCase5-TestClass1-TestX-TestIdentity" xmi:uuid="725A27D7-D27E-484F-92DD-59D6E0EC18EB" xmi:type="uml:TestIdentityAction">
+          <name>TestIdentity</name>
+          <second xmi:id="TestCase5-TestClass1-TestX-TestIdentity-TestIdentity.second" xmi:uuid="725A27D7-D27E-4126-92DD-59D66B01FB39" xmi:type="uml:InputPin">
+            <name>TestIdentity.second</name>
+            <incoming xmi:idref="TestCase5-TestClass1-TestX-edge-1"/>
+          </second>
+          <result xmi:id="TestCase5-TestClass1-TestX-TestIdentity-TestIdentity.result" xmi:uuid="725A27D7-D27E-420A-921D-59D66EF84D26" xmi:type="uml:OutputPin">
+            <name>TestIdentity.result</name>
+            <outgoing xmi:idref="TestCase5-TestClass1-TestX-edge-2"/>
+            <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+          </result>
+          <first xmi:id="TestCase5-TestClass1-TestX-TestIdentity-TestIdentity.first" xmi:uuid="725A27D7-D27E-4DE7-991F-59D6DEEC4389" xmi:type="uml:InputPin">
+            <name>TestIdentity.first</name>
+            <incoming xmi:idref="TestCase5-TestClass1-TestX-edge-4"/>
+          </first>
+        </node>
+        <node xmi:id="TestCase5-TestClass1-TestX-Parameter_result_" xmi:uuid="725A27D7-D27E-4C1B-9455-59D63B4FB8A3" xmi:type="uml:ActivityParameterNode">
+          <name>Parameter(result)</name>
+          <incoming xmi:idref="TestCase5-TestClass1-TestX-edge-2"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+          <parameter xmi:idref="TestCase5-TestClass1-TestX-result"/>
+        </node>
+        <edge xmi:id="TestCase5-TestClass1-TestX-edge-4" xmi:uuid="725A27D7-D27E-4398-9FC1-59D68BC43AD8" xmi:type="uml:ObjectFlow">
+          <weight xmi:id="TestCase5-TestClass1-TestX-edge-4-weight" xmi:uuid="725A27D7-D27E-4498-990C-59D63D3DC034" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>1</value>
+          </weight>
+          <target xmi:idref="TestCase5-TestClass1-TestX-TestIdentity-TestIdentity.first"/>
+          <source xmi:idref="TestCase5-TestClass1-TestX-Read_x_-Read_x_.result"/>
+        </edge>
+        <edge xmi:id="TestCase5-TestClass1-TestX-edge-1" xmi:uuid="725A27D7-D27E-44C7-937E-59D623C9FC96" xmi:type="uml:ObjectFlow">
+          <weight xmi:id="TestCase5-TestClass1-TestX-edge-1-weight" xmi:uuid="725A27D7-D27E-48B9-93BC-59D69CA211B3" xmi:type="uml:LiteralInteger">
+            <value>1</value>
+          </weight>
+          <target xmi:idref="TestCase5-TestClass1-TestX-TestIdentity-TestIdentity.second"/>
+          <source xmi:idref="TestCase5-TestClass1-TestX-Parameter_value_"/>
+        </edge>
+        <edge xmi:id="TestCase5-TestClass1-TestX-edge-3" xmi:uuid="725A27D7-D27E-45B8-9E7B-59D61BEBCE2D" xmi:type="uml:ObjectFlow">
+          <weight xmi:id="TestCase5-TestClass1-TestX-edge-3-weight" xmi:uuid="725A27D7-D27E-4F3B-97EC-59D6D579B7A4" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>1</value>
+          </weight>
+          <target xmi:idref="TestCase5-TestClass1-TestX-Read_x_-Read_x_.object"/>
+          <source xmi:idref="TestCase5-TestClass1-TestX-ReadSelf-ReadSelf.result"/>
+        </edge>
+        <edge xmi:id="TestCase5-TestClass1-TestX-edge-2" xmi:uuid="725A27D7-D27E-4BDD-973B-59D6E38A4D17" xmi:type="uml:ObjectFlow">
+          <weight xmi:id="TestCase5-TestClass1-TestX-edge-2-weight" xmi:uuid="725A27D7-D27E-4D12-9D19-59D66B94A5DA" xmi:type="uml:LiteralInteger">
+            <value>1</value>
+          </weight>
+          <target xmi:idref="TestCase5-TestClass1-TestX-Parameter_result_"/>
+          <source xmi:idref="TestCase5-TestClass1-TestX-TestIdentity-TestIdentity.result"/>
+        </edge>
+      </ownedBehavior>
+      <ownedOperation xmi:id="TestCase5-TestClass1-testX" xmi:uuid="725A27D7-D27E-4F0B-9FDC-59D6D7615C98" xmi:type="uml:Operation">
+        <name>testX</name>
+        <ownedParameter xmi:id="TestCase5-TestClass1-testX-ownedParameter-2" xmi:uuid="725A27D7-D27E-46C7-939C-59D6193BBF11" xmi:type="uml:Parameter">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+          <direction>return</direction>
+        </ownedParameter>
+        <ownedParameter xmi:id="TestCase5-TestClass1-testX-value" xmi:uuid="725A27D7-D27E-47D9-96A2-59D6A017DC17" xmi:type="uml:Parameter">
+          <name>value</name>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </ownedParameter>
+        <method xmi:idref="TestCase5-TestClass1-TestX"/>
+      </ownedOperation>
+      <ownedAttribute xmi:id="TestCase5-TestClass1-x" xmi:uuid="725A27D7-D27E-4A55-9114-59D6BCDCED29" xmi:type="uml:Property">
+        <name>x</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase5-TestObjectActions" xmi:uuid="725A27D7-D27E-43CF-99BF-59D684298CD9" xmi:type="uml:Activity">
+      <name>TestObjectActions</name>
+      <ownedParameter xmi:id="TestCase5-TestObjectActions-x" xmi:uuid="725A27D7-D27E-4551-91C2-59D69E7A929D" xmi:type="uml:Parameter">
+        <name>x</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <direction>out</direction>
+      </ownedParameter>
+      <ownedParameter xmi:id="TestCase5-TestObjectActions-result" xmi:uuid="725A27D7-D27E-4D6F-9F9C-59D6F0B6C289" xmi:type="uml:Parameter">
+        <name>result</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+        <direction>out</direction>
+      </ownedParameter>
+      <ownedParameter xmi:id="TestCase5-TestObjectActions-extent" xmi:uuid="725A27D7-D27E-4464-9B4C-59D64D0F6B97" xmi:type="uml:Parameter">
+        <upperValue xmi:id="TestCase5-TestObjectActions-extent-upperValue" xmi:uuid="725A27D7-D27E-4288-961E-59D6DF33BE04" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>*</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase5-TestObjectActions-extent-lowerValue" xmi:uuid="725A27D7-D27E-4AD5-9C9F-59D68B3E80E8" xmi:type="uml:LiteralInteger"/>
+        <name>extent</name>
+        <type xmi:idref="TestCase5-TestClass1"/>
+        <direction>out</direction>
+      </ownedParameter>
+      <node xmi:id="TestCase5-TestObjectActions-Write_x_" xmi:uuid="725A27D7-D27E-4292-9CA1-59D687594427" xmi:type="uml:AddStructuralFeatureValueAction">
+        <name>Write(x)</name>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-6"/>
+        <structuralFeature xmi:idref="TestCase5-TestClass1-x"/>
+        <object xmi:id="TestCase5-TestObjectActions-Write_x_-Write_x_.object" xmi:uuid="725A27D7-D27E-49EE-902D-59D6BE94DB96" xmi:type="uml:InputPin">
+          <name>Write(x).object</name>
+          <incoming xmi:idref="TestCase5-TestObjectActions-edge-2"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </object>
+        <value xmi:id="TestCase5-TestObjectActions-Write_x_-Write_x_.value" xmi:uuid="725A27D7-D27E-43EE-982C-59D644E61AB3" xmi:type="uml:InputPin">
+          <name>Write(x).value</name>
+          <incoming xmi:idref="TestCase5-TestObjectActions-edge-10"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </value>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-ReadExtent_TestClass1_" xmi:uuid="725A27D7-D27E-42D9-94AD-59D6A342F437" xmi:type="uml:ReadExtentAction">
+        <name>ReadExtent(TestClass1)</name>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-8"/>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-9"/>
+        <result xmi:id="TestCase5-TestObjectActions-ReadExtent_TestClass1_-ReadExtent.result" xmi:uuid="725A27D7-D27E-47E3-94E2-59D61E4CA595" xmi:type="uml:OutputPin">
+          <upperValue xmi:id="TestCase5-TestObjectActions-ReadExtent_TestClass1_-ReadExtent.result-upperValue" xmi:uuid="725A27D7-D27E-478E-9273-59D645D248B9" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>*</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase5-TestObjectActions-ReadExtent_TestClass1_-ReadExtent.result-lowerValue" xmi:uuid="725A27D7-D27E-4CBA-9C3F-59D657946759" xmi:type="uml:LiteralInteger"/>
+          <name>ReadExtent.result</name>
+          <outgoing xmi:idref="TestCase5-TestObjectActions-edge-14"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </result>
+        <classifier xmi:idref="TestCase5-TestClass1"/>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Call_testX_" xmi:uuid="725A27D7-D27E-44A8-9E62-59D6798549CC" xmi:type="uml:CallOperationAction">
+        <name>Call(testX)</name>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-7"/>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-6"/>
+        <argument xmi:id="TestCase5-TestObjectActions-Call_testX_-Call_testX_.value" xmi:uuid="725A27D7-D27E-45BD-9340-59D63F0B3E3F" xmi:type="uml:InputPin">
+          <name>Call(testX).value</name>
+          <incoming xmi:idref="TestCase5-TestObjectActions-edge-12"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </argument>
+        <result xmi:id="TestCase5-TestObjectActions-Call_testX_-Call_testX_.result" xmi:uuid="725A27D7-D27E-448B-9D9D-59D6D7619ECC" xmi:type="uml:OutputPin">
+          <name>Call(testX).result</name>
+          <outgoing xmi:idref="TestCase5-TestObjectActions-edge-13"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+        </result>
+        <target xmi:id="TestCase5-TestObjectActions-Call_testX_-Call_testX_.target" xmi:uuid="725A27D7-D27E-45B0-9BEF-59D646BB85CD" xmi:type="uml:InputPin">
+          <name>Call(testX).target</name>
+          <incoming xmi:idref="TestCase5-TestObjectActions-edge-15"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </target>
+        <operation xmi:idref="TestCase5-TestClass1-testX"/>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Fork_object_" xmi:uuid="725A27D7-D27E-46A0-989D-59D6F5D5CA3C" xmi:type="uml:ForkNode">
+        <name>Fork(object)</name>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-2"/>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-4"/>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-5"/>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-15"/>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-3"/>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Fork_value_" xmi:uuid="725A27D7-D27E-46A2-9280-59D6DBAD954A" xmi:type="uml:ForkNode">
+        <name>Fork(value)</name>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-10"/>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-12"/>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-11"/>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Parameter_extent_" xmi:uuid="725A27D7-D27E-46B4-97AF-59D6620EE080" xmi:type="uml:ActivityParameterNode">
+        <name>Parameter(extent)</name>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-14"/>
+        <type xmi:idref="TestCase5-TestClass1"/>
+        <parameter xmi:idref="TestCase5-TestObjectActions-extent"/>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Value_999_" xmi:uuid="725A27D7-D27E-4744-92FA-59D6EC6B4BB0" xmi:type="uml:ValueSpecificationAction">
+        <name>Value(999)</name>
+        <value xmi:id="TestCase5-TestObjectActions-Value_999_-value" xmi:uuid="725A27D7-D27E-4013-92CE-59D613C6738A" xmi:type="uml:OpaqueExpression">
+          <language>English</language>
+          <body>999</body>
+        </value>
+        <result xmi:id="TestCase5-TestObjectActions-Value_999_-Value_999_.result" xmi:uuid="725A27D7-D27E-4D29-9F9A-59D65C85B6A1" xmi:type="uml:OutputPin">
+          <name>Value(999).result</name>
+          <outgoing xmi:idref="TestCase5-TestObjectActions-edge-11"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </result>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Create_TestClass1_" xmi:uuid="725A27D7-D27E-48DB-907B-59D64313F3CE" xmi:type="uml:CreateObjectAction">
+        <name>Create(TestClass1)</name>
+        <result xmi:id="TestCase5-TestObjectActions-Create_TestClass1_-Create_TestClass1_.result" xmi:uuid="725A27D7-D27E-42C9-9E15-59D66BB5D55B" xmi:type="uml:OutputPin">
+          <name>Create(TestClass1).result</name>
+          <outgoing xmi:idref="TestCase5-TestObjectActions-edge-3"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </result>
+        <classifier xmi:idref="TestCase5-TestClass1"/>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Parameter_result_" xmi:uuid="725A27D7-D27E-4B08-9C32-59D67A314733" xmi:type="uml:ActivityParameterNode">
+        <name>Parameter(result)</name>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-13"/>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"/>
+        <parameter xmi:idref="TestCase5-TestObjectActions-result"/>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Read_x_" xmi:uuid="725A27D7-D27E-4B55-98BD-59D60986FF7D" xmi:type="uml:ReadStructuralFeatureAction">
+        <name>Read(x)</name>
+        <outgoing xmi:idref="TestCase5-TestObjectActions-edge-9"/>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-7"/>
+        <structuralFeature xmi:idref="TestCase5-TestClass1-x"/>
+        <object xmi:id="TestCase5-TestObjectActions-Read_x_-Read_x_.object" xmi:uuid="725A27D7-D27E-44E6-9EAA-59D65E030667" xmi:type="uml:InputPin">
+          <name>Read(x).object</name>
+          <incoming xmi:idref="TestCase5-TestObjectActions-edge-4"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </object>
+        <result xmi:id="TestCase5-TestObjectActions-Read_x_-Read_x_.result" xmi:uuid="725A27D7-D27E-4D9D-90EB-59D6B3BE0C53" xmi:type="uml:OutputPin">
+          <name>Read(x).result</name>
+          <outgoing xmi:idref="TestCase5-TestObjectActions-edge-1"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </result>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-DestroyObject" xmi:uuid="725A27D7-D27E-4D0E-9A16-59D6BA4FC7C1" xmi:type="uml:DestroyObjectAction">
+        <name>DestroyObject</name>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-8"/>
+        <target xmi:id="TestCase5-TestObjectActions-DestroyObject-DestroyObject.target" xmi:uuid="725A27D7-D27E-458D-9D4A-59D6E9747E2A" xmi:type="uml:InputPin">
+          <name>DestroyObject.target</name>
+          <incoming xmi:idref="TestCase5-TestObjectActions-edge-5"/>
+        </target>
+      </node>
+      <node xmi:id="TestCase5-TestObjectActions-Parameter_x_" xmi:uuid="725A27D7-D27E-4E12-945A-59D61E697B06" xmi:type="uml:ActivityParameterNode">
+        <name>Parameter(x)</name>
+        <incoming xmi:idref="TestCase5-TestObjectActions-edge-1"/>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <parameter xmi:idref="TestCase5-TestObjectActions-x"/>
+      </node>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-6" xmi:uuid="725A27D7-D27E-4074-9319-59D6DF5CD925" xmi:type="uml:ControlFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-6-weight" xmi:uuid="725A27D7-D27E-459E-9B7C-59D66E0D17CC" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Call_testX_"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Write_x_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-14" xmi:uuid="725A27D7-D27E-420C-924F-59D6A851E95E" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-14-weight" xmi:uuid="725A27D7-D27E-4920-938B-59D6E37FEAC9" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Parameter_extent_"/>
+        <source xmi:idref="TestCase5-TestObjectActions-ReadExtent_TestClass1_-ReadExtent.result"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-13" xmi:uuid="725A27D7-D27E-4250-9CF5-59D68E66E419" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-13-weight" xmi:uuid="725A27D7-D27E-44EC-91B4-59D616443E69" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Parameter_result_"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Call_testX_-Call_testX_.result"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-11" xmi:uuid="725A27D7-D27E-42B7-9F06-59D68964C48F" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-11-weight" xmi:uuid="725A27D7-D27E-46F3-9360-59D6F3E070B8" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Fork_value_"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Value_999_-Value_999_.result"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-8" xmi:uuid="725A27D7-D27E-443F-9E38-59D6DE81AFA6" xmi:type="uml:ControlFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-8-weight" xmi:uuid="725A27D7-D27E-420C-950A-59D601E5ACF4" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-DestroyObject"/>
+        <source xmi:idref="TestCase5-TestObjectActions-ReadExtent_TestClass1_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-1" xmi:uuid="725A27D7-D27E-4620-9605-59D696A5D1A4" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-1-weight" xmi:uuid="725A27D7-D27E-47A1-98D1-59D62786FA04" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Parameter_x_"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Read_x_-Read_x_.result"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-10" xmi:uuid="725A27D7-D27E-4772-9759-59D644639703" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-10-weight" xmi:uuid="725A27D7-D27E-489B-97D1-59D6A6DCACB1" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Write_x_-Write_x_.value"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Fork_value_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-5" xmi:uuid="725A27D7-D27E-4847-919A-59D651D3CB13" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-5-weight" xmi:uuid="725A27D7-D27E-46D3-93C4-59D610B89904" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-DestroyObject-DestroyObject.target"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Fork_object_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-2" xmi:uuid="725A27D7-D27E-4ABC-9C80-59D60C59D506" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-2-weight" xmi:uuid="725A27D7-D27E-48A0-95C3-59D6254BFE4A" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Write_x_-Write_x_.object"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Fork_object_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-4" xmi:uuid="725A27D7-D27E-4B98-9872-59D6F748EC50" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-4-weight" xmi:uuid="725A27D7-D27E-457A-9281-59D699FD7F9E" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Read_x_-Read_x_.object"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Fork_object_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-7" xmi:uuid="725A27D7-D27E-4C53-9BB2-59D61AF54D2B" xmi:type="uml:ControlFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-7-weight" xmi:uuid="725A27D7-D27E-4D5A-9269-59D604FE7E4E" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Read_x_"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Call_testX_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-12" xmi:uuid="725A27D7-D27E-4C91-9CD8-59D6E0403A4D" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-12-weight" xmi:uuid="725A27D7-D27E-466B-9D93-59D698192A8D" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Call_testX_-Call_testX_.value"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Fork_value_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-3" xmi:uuid="725A27D7-D27E-4CC3-921E-59D6000B7453" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-3-weight" xmi:uuid="725A27D7-D27E-46A3-99A7-59D6C2F3E211" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Fork_object_"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Create_TestClass1_-Create_TestClass1_.result"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-9" xmi:uuid="725A27D7-D27E-4F1E-9FFD-59D6165A4B63" xmi:type="uml:ControlFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-9-weight" xmi:uuid="725A27D7-D27E-4687-9B65-59D63B8CFE71" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-ReadExtent_TestClass1_"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Read_x_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestObjectActions-edge-15" xmi:uuid="725A27D7-D27E-4F8E-91E0-59D6641DDB77" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestObjectActions-edge-15-weight" xmi:uuid="725A27D7-D27E-4153-9BDB-59D6B474924D" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestObjectActions-Call_testX_-Call_testX_.target"/>
+        <source xmi:idref="TestCase5-TestObjectActions-Fork_object_"/>
+      </edge>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase5-TestClass2" xmi:uuid="725A27D7-D27E-4EBC-9806-59D6810BC053" xmi:type="uml:Class">
+      <name>TestClass2</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase5-TestAssociation" xmi:uuid="725A27D7-D27E-4643-9777-59D670798965" xmi:type="uml:Association">
+      <name>TestAssociation</name>
+      <ownedEnd xmi:id="TestCase5-TestAssociation-end2" xmi:uuid="725A27D7-D27E-4D73-91AC-59D60BB6DE96" xmi:type="uml:Property">
+        <name>end2</name>
+        <type xmi:idref="TestCase5-TestClass2"/>
+        <association xmi:idref="TestCase5-TestAssociation"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="TestCase5-TestAssociation-end1" xmi:uuid="725A27D7-D27E-461F-98EE-59D6E9B040F1" xmi:type="uml:Property">
+        <name>end1</name>
+        <type xmi:idref="TestCase5-TestClass1"/>
+        <association xmi:idref="TestCase5-TestAssociation"/>
+      </ownedEnd>
+      <navigableOwnedEnd xmi:idref="TestCase5-TestAssociation-end1"/>
+      <navigableOwnedEnd xmi:idref="TestCase5-TestAssociation-end2"/>
+      <memberEnd xmi:idref="TestCase5-TestAssociation-end1"/>
+      <memberEnd xmi:idref="TestCase5-TestAssociation-end2"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase5-TestLinkActions" xmi:uuid="725A27D7-D27E-4702-90EA-59D6AEE774B3" xmi:type="uml:Activity">
+      <name>TestLinkActions</name>
+      <ownedParameter xmi:id="TestCase5-TestLinkActions-output" xmi:uuid="725A27D7-D27E-4118-9A67-59D678523B96" xmi:type="uml:Parameter">
+        <name>output</name>
+        <type xmi:idref="TestCase5-TestClass2"/>
+        <direction>out</direction>
+      </ownedParameter>
+      <node xmi:id="TestCase5-TestLinkActions-Fork_object1_" xmi:uuid="725A27D7-D27E-445C-9EF1-59D64273FAD9" xmi:type="uml:ForkNode">
+        <name>Fork(object1)</name>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-4"/>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-6"/>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-10"/>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-12"/>
+        <incoming xmi:idref="TestCase5-TestLinkActions-edge-5"/>
+      </node>
+      <node xmi:id="TestCase5-TestLinkActions-Clear_TestAssociation_" xmi:uuid="725A27D7-D27E-45C0-9288-59D65E85B3D9" xmi:type="uml:ClearAssociationAction">
+        <name>Clear(TestAssociation)</name>
+        <incoming xmi:idref="TestCase5-TestLinkActions-edge-3"/>
+        <object xmi:id="TestCase5-TestLinkActions-Clear_TestAssociation_-Clear_TestAssociation_.object" xmi:uuid="725A27D7-D27E-44A7-9143-59D6FCCB7318" xmi:type="uml:InputPin">
+          <name>Clear(TestAssociation).object</name>
+          <incoming xmi:idref="TestCase5-TestLinkActions-edge-12"/>
+        </object>
+        <association xmi:idref="TestCase5-TestAssociation"/>
+      </node>
+      <node xmi:id="TestCase5-TestLinkActions-Fork_object2_" xmi:uuid="725A27D7-D27E-46B1-9DE9-59D68815546B" xmi:type="uml:ForkNode">
+        <name>Fork(object2)</name>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-7"/>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-9"/>
+        <incoming xmi:idref="TestCase5-TestLinkActions-edge-8"/>
+      </node>
+      <node xmi:id="TestCase5-TestLinkActions-Create_TestClass2_" xmi:uuid="725A27D7-D27E-488E-93F9-59D6B693FF27" xmi:type="uml:CreateObjectAction">
+        <name>Create(TestClass2)</name>
+        <result xmi:id="TestCase5-TestLinkActions-Create_TestClass2_-Create_TestClass2_.result" xmi:uuid="725A27D7-D27E-4E73-9AC6-59D63A2C53C2" xmi:type="uml:OutputPin">
+          <name>Create(TestClass2).result</name>
+          <outgoing xmi:idref="TestCase5-TestLinkActions-edge-8"/>
+          <type xmi:idref="TestCase5-TestClass2"/>
+        </result>
+        <classifier xmi:idref="TestCase5-TestClass2"/>
+      </node>
+      <node xmi:id="TestCase5-TestLinkActions-Create_TestAssociation_" xmi:uuid="725A27D7-D27E-4A3E-94ED-59D6FA38C3D8" xmi:type="uml:CreateLinkAction">
+        <name>Create(TestAssociation)</name>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-1"/>
+        <inputValue xmi:id="TestCase5-TestLinkActions-Create_TestAssociation_-Create_TestAssociation_.end2" xmi:uuid="725A27D7-D27E-42D5-9BCA-59D6574AE4A5" xmi:type="uml:InputPin">
+          <name>Create(TestAssociation).end2</name>
+          <incoming xmi:idref="TestCase5-TestLinkActions-edge-7"/>
+          <type xmi:idref="TestCase5-TestClass2"/>
+        </inputValue>
+        <inputValue xmi:id="TestCase5-TestLinkActions-Create_TestAssociation_-Create_TestAssociation_.end1" xmi:uuid="725A27D7-D27E-4AB2-9BED-59D697E22951" xmi:type="uml:InputPin">
+          <name>Create(TestAssociation).end1</name>
+          <incoming xmi:idref="TestCase5-TestLinkActions-edge-4"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </inputValue>
+        <endData xmi:id="TestCase5-TestLinkActions-Create_TestAssociation_-endData-2" xmi:uuid="725A27D7-D27E-4593-9614-59D67D741F29" xmi:type="uml:LinkEndCreationData">
+          <value xmi:idref="TestCase5-TestLinkActions-Create_TestAssociation_-Create_TestAssociation_.end2"/>
+          <end xmi:idref="TestCase5-TestAssociation-end2"/>
+        </endData>
+        <endData xmi:id="TestCase5-TestLinkActions-Create_TestAssociation_-endData-1" xmi:uuid="725A27D7-D27E-4660-906A-59D6D54A2316" xmi:type="uml:LinkEndCreationData">
+          <value xmi:idref="TestCase5-TestLinkActions-Create_TestAssociation_-Create_TestAssociation_.end1"/>
+          <end xmi:idref="TestCase5-TestAssociation-end1"/>
+        </endData>
+      </node>
+      <node xmi:id="TestCase5-TestLinkActions-Create_TestClass1_" xmi:uuid="725A27D7-D27E-4A60-9C75-59D62018206B" xmi:type="uml:CreateObjectAction">
+        <name>Create(TestClass1)</name>
+        <result xmi:id="TestCase5-TestLinkActions-Create_TestClass1_-Create_TestClass1_.result" xmi:uuid="725A27D7-D27E-47B7-97FA-59D68AA5D68B" xmi:type="uml:OutputPin">
+          <name>Create(TestClass1).result</name>
+          <outgoing xmi:idref="TestCase5-TestLinkActions-edge-5"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </result>
+        <classifier xmi:idref="TestCase5-TestClass1"/>
+      </node>
+      <node xmi:id="TestCase5-TestLinkActions-Parameter_output_" xmi:uuid="725A27D7-D27E-4BE9-90CC-59D6C643367D" xmi:type="uml:ActivityParameterNode">
+        <name>Parameter(output)</name>
+        <incoming xmi:idref="TestCase5-TestLinkActions-edge-11"/>
+        <type xmi:idref="TestCase5-TestClass2"/>
+        <parameter xmi:idref="TestCase5-TestLinkActions-output"/>
+      </node>
+      <node xmi:id="TestCase5-TestLinkActions-Destroy_TestAssociation_" xmi:uuid="725A27D7-D27E-4DC5-9EC6-59D66E98C10C" xmi:type="uml:DestroyLinkAction">
+        <name>Destroy(TestAssociation)</name>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-3"/>
+        <incoming xmi:idref="TestCase5-TestLinkActions-edge-2"/>
+        <inputValue xmi:id="TestCase5-TestLinkActions-Destroy_TestAssociation_-Destroy_TestAssociation_.end1" xmi:uuid="725A27D7-D27E-4CE2-9D68-59D6649BA5A5" xmi:type="uml:InputPin">
+          <name>Destroy(TestAssociation).end1</name>
+          <incoming xmi:idref="TestCase5-TestLinkActions-edge-6"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </inputValue>
+        <inputValue xmi:id="TestCase5-TestLinkActions-Destroy_TestAssociation_-Destroy_TestAssociation_.end2" xmi:uuid="725A27D7-D27E-4CF0-9946-59D6252ED236" xmi:type="uml:InputPin">
+          <name>Destroy(TestAssociation).end2</name>
+          <incoming xmi:idref="TestCase5-TestLinkActions-edge-9"/>
+          <type xmi:idref="TestCase5-TestClass2"/>
+        </inputValue>
+        <endData xmi:id="TestCase5-TestLinkActions-Destroy_TestAssociation_-endData-2" xmi:uuid="725A27D7-D27E-44A1-99E0-59D6501D2480" xmi:type="uml:LinkEndDestructionData">
+          <value xmi:idref="TestCase5-TestLinkActions-Destroy_TestAssociation_-Destroy_TestAssociation_.end2"/>
+          <end xmi:idref="TestCase5-TestAssociation-end2"/>
+        </endData>
+        <endData xmi:id="TestCase5-TestLinkActions-Destroy_TestAssociation_-endData-1" xmi:uuid="725A27D7-D27E-472B-99BC-59D68EEE6232" xmi:type="uml:LinkEndDestructionData">
+          <value xmi:idref="TestCase5-TestLinkActions-Destroy_TestAssociation_-Destroy_TestAssociation_.end1"/>
+          <end xmi:idref="TestCase5-TestAssociation-end1"/>
+        </endData>
+      </node>
+      <node xmi:id="TestCase5-TestLinkActions-Read_TestAssociation_" xmi:uuid="725A27D7-D27E-4F60-99A9-59D690805C20" xmi:type="uml:ReadLinkAction">
+        <name>Read(TestAssociation)</name>
+        <outgoing xmi:idref="TestCase5-TestLinkActions-edge-2"/>
+        <incoming xmi:idref="TestCase5-TestLinkActions-edge-1"/>
+        <inputValue xmi:id="TestCase5-TestLinkActions-Read_TestAssociation_-Read_TestAssociation_.end1" xmi:uuid="725A27D7-D27E-40B6-9632-59D6B761E229" xmi:type="uml:InputPin">
+          <name>Read(TestAssociation).end1</name>
+          <incoming xmi:idref="TestCase5-TestLinkActions-edge-10"/>
+          <type xmi:idref="TestCase5-TestClass1"/>
+        </inputValue>
+        <endData xmi:id="TestCase5-TestLinkActions-Read_TestAssociation_-endData-1" xmi:uuid="725A27D7-D27E-4148-9235-59D6B767823B" xmi:type="uml:LinkEndData">
+          <value xmi:idref="TestCase5-TestLinkActions-Read_TestAssociation_-Read_TestAssociation_.end1"/>
+          <end xmi:idref="TestCase5-TestAssociation-end1"/>
+        </endData>
+        <endData xmi:id="TestCase5-TestLinkActions-Read_TestAssociation_-endData-2" xmi:uuid="725A27D7-D27E-4A19-9E02-59D64E226D99" xmi:type="uml:LinkEndData">
+          <end xmi:idref="TestCase5-TestAssociation-end2"/>
+        </endData>
+        <result xmi:id="TestCase5-TestLinkActions-Read_TestAssociation_-Read_TestAssociation_.end2" xmi:uuid="725A27D7-D27E-41CA-9A09-59D6CF38DBC3" xmi:type="uml:OutputPin">
+          <name>Read(TestAssociation).end2</name>
+          <outgoing xmi:idref="TestCase5-TestLinkActions-edge-11"/>
+          <type xmi:idref="TestCase5-TestClass2"/>
+        </result>
+      </node>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-4" xmi:uuid="725A27D7-D27E-40AE-90D0-59D6B4F2E394" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-4-weight" xmi:uuid="725A27D7-D27E-4E2A-9435-59D636973615" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Create_TestAssociation_-Create_TestAssociation_.end1"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Fork_object1_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-6" xmi:uuid="725A27D7-D27E-4369-9DED-59D631BC6117" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-6-weight" xmi:uuid="725A27D7-D27E-469C-95FF-59D62DB6EE99" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Destroy_TestAssociation_-Destroy_TestAssociation_.end1"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Fork_object1_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-5" xmi:uuid="725A27D7-D27E-44B3-9731-59D64A419AC7" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-5-weight" xmi:uuid="725A27D7-D27E-4123-96F4-59D6A909A13C" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Fork_object1_"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Create_TestClass1_-Create_TestClass1_.result"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-8" xmi:uuid="725A27D7-D27E-44E9-9C9E-59D6956C4A46" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-8-weight" xmi:uuid="725A27D7-D27E-4ABC-96C1-59D65DE0943A" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Fork_object2_"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Create_TestClass2_-Create_TestClass2_.result"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-7" xmi:uuid="725A27D7-D27E-45B4-9117-59D6F2634EF8" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-7-weight" xmi:uuid="725A27D7-D27E-4265-968B-59D6ABF839A1" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Create_TestAssociation_-Create_TestAssociation_.end2"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Fork_object2_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-3" xmi:uuid="725A27D7-D27E-4674-971A-59D6AB406E71" xmi:type="uml:ControlFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-3-weight" xmi:uuid="725A27D7-D27E-4224-920B-59D6996E3B59" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Clear_TestAssociation_"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Destroy_TestAssociation_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-11" xmi:uuid="725A27D7-D27E-494C-957A-59D6CCA24EF1" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-11-weight" xmi:uuid="725A27D7-D27E-46CD-956E-59D6B29265C4" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Parameter_output_"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Read_TestAssociation_-Read_TestAssociation_.end2"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-1" xmi:uuid="725A27D7-D27E-4A14-94EE-59D6DEB7E24A" xmi:type="uml:ControlFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-1-weight" xmi:uuid="725A27D7-D27E-471D-9921-59D622289855" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Read_TestAssociation_"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Create_TestAssociation_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-10" xmi:uuid="725A27D7-D27E-4B42-9DF0-59D67D990472" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-10-weight" xmi:uuid="725A27D7-D27E-41B1-9B84-59D6401655B9" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Read_TestAssociation_-Read_TestAssociation_.end1"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Fork_object1_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-2" xmi:uuid="725A27D7-D27E-4E1B-90CF-59D693DB61C4" xmi:type="uml:ControlFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-2-weight" xmi:uuid="725A27D7-D27E-46CC-9A36-59D628D44FF7" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Destroy_TestAssociation_"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Read_TestAssociation_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-9" xmi:uuid="725A27D7-D27E-4E93-9493-59D6932600D2" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-9-weight" xmi:uuid="725A27D7-D27E-4DCC-9203-59D638181CCE" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Destroy_TestAssociation_-Destroy_TestAssociation_.end2"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Fork_object2_"/>
+      </edge>
+      <edge xmi:id="TestCase5-TestLinkActions-edge-12" xmi:uuid="725A27D7-D27E-4EE7-92AC-59D6D91D44C0" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase5-TestLinkActions-edge-12-weight" xmi:uuid="725A27D7-D27E-406F-964B-59D6DEF14931" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase5-TestLinkActions-Clear_TestAssociation_-Clear_TestAssociation_.object"/>
+        <source xmi:idref="TestCase5-TestLinkActions-Fork_object1_"/>
+      </edge>
+    </packagedElement>
+    <name>TestCase5</name>
+  </uml:Model>
+</xmi:XMI>

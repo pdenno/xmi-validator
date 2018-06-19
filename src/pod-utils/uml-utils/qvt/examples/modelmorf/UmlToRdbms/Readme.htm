@@ -1,0 +1,372 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Readme_files/filelist.xml">
+<title>Transforming a UML model into an RDBMS model</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Azhar</o:Author>
+  <o:LastAuthor>Azhar</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>14</o:TotalTime>
+  <o:Created>2007-03-13T05:38:00Z</o:Created>
+  <o:LastSaved>2007-03-13T05:38:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>385</o:Words>
+  <o:Characters>2197</o:Characters>
+  <o:Company> TCS</o:Company>
+  <o:Lines>18</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2698</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>7 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>19.05 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-font-kerning:0pt;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:705183809;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1781088068 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:1145077255;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1811689890 67698689 67698691 67698689 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1>Transforming a UML model into an RDBMS model<span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'><o:p></o:p></span></h1>
+
+<p class=MsoNormal><span style='font-size:11.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>--------------------------------------------------------------<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec’ contains :<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Verdana'>umlMM.xml : UML Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Verdana'>rdbmsMM.xml : RDBMS Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Verdana'>umlUM.xml : A sample UML model<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Verdana'>rdbmsUM.xml : A sample RDBMS
+model<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Verdana'>UmlToRdbms.qvt : QVT
+specification file for UmlToRdbms transformation.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>UML metamodel:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>See figure 'Simple UML Meta Model for example UmlToRdbms'
+in file UmlToRdbms.pdf file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>RDBMS metamodel:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>See figure 'Simple RDBMS Meta Model for example
+UmlToRdbms' in file UmlToRdbms.pdf file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>This example maps persistent classes of a simple UML model
+to tables of a simple RDBMS model. <o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>A
+     persistent class maps to a table, a primary key and an identifying column.
+     <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Attributes
+     of the persistent class map to columns of the table<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>An
+      attribute of a primitive datatype maps to a single column<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>An
+      attribute of a complex data type maps to a set of columns corresponding
+      to its exploded set of primitive datatype attributes<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Attributes
+      inherited from the class hierarchy are also mapped to the columns of the
+      table. <o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>An
+     association between two persistent classes maps to a foreign key
+     relationship between the corresponding tables.<o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample UML model in file umlUM.xml contains:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Package
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Company<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Class
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Employer
+      : kind='Persistent'; attribute={Age}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Employee
+      : kind='Persistent'; attribute={Info}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Person
+      : attribute={Name}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>EmployeeInfo
+      : attribute={EmployeeNo}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Attribute
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Name
+      : type=PrimitiveDataType STRING<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Age
+      : type=PrimitiveDataType INTEGER<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Info
+      : type=Class EmployeeInfo<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>EmployeeNo
+      : type=PrimitiveDataType INTEGER<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Association
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>employs
+      : source={Employer}; destination={Employee}<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample RDBMS model in file rdbmsUM.xml contains:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Schema
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Company<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Table
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Employer
+      : column={Employer_tid, Age, Name}; hasKey={Employer_pk}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Employee
+      : column={Employee_tid, Name, _Info_EmployeeNo}; hasKey={Employer_pk}<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>If the example is run in checkonly mode following
+inconsistency will be reported:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Association ‘employs’ between Class ‘Employer’ &amp;
+‘Employee’ in Package ‘Company’ does not find matching ForeignKey in Schema.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>To run this example in checkonly mode execute the batch
+file ‘run1.bat’ for windows or<span style="mso-spacerun: yes">  </span>the
+shell script ‘run1.sh’ for unix.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>If the example is run in enforce mode, enforcement removes
+the inconsistency by creating a ForeignKey ‘Employer_employes_Employee’ in
+Schema ‘Company’ &amp; Table ‘Employer’ and association ‘refersTo’ with Key
+‘Employee_pk’ of Table ‘Employee’. Also a Column
+‘Employer_employes_Employee_tid’ is created and associated to Table ‘Employer’.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>To run this example in enforce mode execute the batch file
+‘run2.bat’ for windows or<span style="mso-spacerun: yes">  </span>the shell
+script ‘run2.sh’ for unix.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

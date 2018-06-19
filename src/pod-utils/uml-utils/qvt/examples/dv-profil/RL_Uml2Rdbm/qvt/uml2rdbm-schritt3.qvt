@@ -1,0 +1,43 @@
+/*
+ * generelle Aufbau von Transformationen -
+ * Festlegung der Relationen und Domänen-Signaturen
+ */
+transformation uml2rdbm ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   top relation PackageToSchema 
+   {
+      -- variables
+      -- checkonly | enforce domain modelname Rootvariable : modelelement { /* domain pattern */ };
+      checkonly domain uml  pck : Package { };
+      enforce   domain rdbm sma : Schema  { };
+      -- when  { }
+      -- where { }
+   }
+
+   top relation ClassToTable
+   {
+      -- variables
+      checkonly domain uml  cls : Class  { };
+      enforce   domain rdbm tbl : Table  { };
+      -- when  { }
+      -- where { }
+   }
+
+   top relation AssocToTable
+   {
+      -- variables
+      checkonly domain uml  ass : Association { };
+      enforce   domain rdbm tbl : Table       { };
+      -- when  { }
+      -- where { }
+   }   
+   
+   relation AttributeToColumn
+   {
+      -- variables
+      checkonly domain uml  cls : Class { };
+      enforce   domain rdbm tbl : Table { };
+      -- when  { }
+      -- where { }
+   }
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:umldi="http://www.omg.org/spec/UML/20131001/UMLDI" xmlns:dc="http://www.omg.org/spec/DD/20131001/DC" xmlns:dg="http://www.omg.org/spec/DD/20131001/DG" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:OMGIssuesProfile="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+	<uml:Profile xmi:type="uml:Profile" xmi:id="_0" name="OMGIssuesProfile" URI="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile">
+		<packageMerge xmi:type="uml:PackageMerge" xmi:id="_0-packageMerge">
+			<mergedPackage xmi:type="uml:Package" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#_0"/>
+		</packageMerge>
+		<umldi:Diagram xmi:type="umldi:UMLClassDiagram" xmi:id="_uml2.profile.diagrams-_contents.0" name="OMGissuesProfile">
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.profile.diagrams-_contents.0-_children.0">
+				<modelElement xmi:type="uml:Stereotype" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#OMGIssueTag"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_children.0" text="OMGIssueTag"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.profile.diagrams-_contents.0-_children.0-_layoutConstraint" x="5412" y="2508" width="2431" height="543"/>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLCompartmentableShape" xmi:id="_uml2.profile.diagrams-_contents.0-_children.1">
+				<modelElement xmi:type="uml:Class" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#IssueDetail"/>
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_children.1" text="IssueDetail"/>
+				<bounds xmi:type="dc:Bounds" xmi:id="_uml2.profile.diagrams-_contents.0-_children.1-_layoutConstraint" x="14652" y="2112" width="2431" height="1563"/>
+				<compartment xmi:type="umldi:UMLCompartment" xmi:id="_uml2.profile.diagrams-_contents.0-_children.1-_children.4">
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_children.1-_children.4-number" text="+ number : Integer">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#IssueDetail-number"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_children.1-_children.4-url" text="+ url : String">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#IssueDetail-url"/>
+					</elementInCompartment>
+					<elementInCompartment xmi:type="umldi:UMLLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_children.1-_children.4-text" text="+ text : String">
+						<modelElement xmi:type="uml:Property" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#IssueDetail-text"/>
+					</elementInCompartment>
+				</compartment>
+			</ownedElement>
+			<ownedElement xmi:type="umldi:UMLEdge" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0" source="_uml2.profile.diagrams-_contents.0-_children.0" target="_uml2.profile.diagrams-_contents.0-_children.1">
+				<modelElement xmi:type="uml:Association">
+					<modelElement xmi:type="uml:Association" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#_packagedElement.3"/>
+				</modelElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0-_children.1" text="1">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#_packagedElement.3-issueTag"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0-_children.1-_layoutConstraint" x="8741" y="3034" width="158" height="334"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0-_children.2" text="issueTag">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#_packagedElement.3-issueTag"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0-_children.2-_layoutConstraint" x="8124" y="2241" width="1393" height="334"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0-_children.3" text="*">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#OMGIssueTag-issueDetail"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0-_children.3-_layoutConstraint" x="13544" y="3034" width="158" height="334"/>
+				</ownedElement>
+				<ownedElement xmi:type="umldi:UMLAssociationEndLabel" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0-_children.4" text="issueDetail">
+					<modelElement xmi:type="uml:Property" href="http://www.omg.org/techprocess/ab/20131001/OMGIssuesProfile.xmi#OMGIssueTag-issueDetail"/>
+					<bounds xmi:type="dc:Bounds" xmi:id="_uml2.profile.diagrams-_contents.0-_edges.0-_children.4-_layoutConstraint" x="12812" y="2241" width="1622" height="334"/>
+				</ownedElement>
+			</ownedElement>
+		</umldi:Diagram>
+	</uml:Profile>
+</xmi:XMI>

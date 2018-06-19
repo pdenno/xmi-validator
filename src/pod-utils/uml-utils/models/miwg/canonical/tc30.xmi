@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-30" xmi:uuid="725A27D7-D489-4C4E-9190-D75FD357A879">
+        <packagedElement xmi:id="Test-Case-30-Test-Case-30"
+            xmi:uuid="725A27D7-D489-4973-9944-D75F6C79C495" xmi:type="uml:Activity">
+            <node xmi:id="Test-Case-30-Test-Case-30-Action-3"
+                xmi:uuid="725A27D7-D489-4A51-934C-D75FD65131E3" xmi:type="uml:OpaqueAction">
+                <body/>
+                <inputValue xmi:id="Test-Case-30-Test-Case-30-Action-3-input"
+                    xmi:uuid="725A27D7-D489-4C17-9DC6-D75F231ED573" xmi:type="uml:ActionInputPin">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <fromAction xmi:id="Test-Case-30-Test-Case-30-Action-3-input-Action-3a"
+                        xmi:uuid="725A27D7-D489-4CDF-9344-D75F0D9D310F" xmi:type="uml:OpaqueAction">
+                        <body/>
+                        <outputValue
+                            xmi:id="Test-Case-30-Test-Case-30-Action-3-input-Action-3a-output"
+                            xmi:uuid="725A27D7-D489-475D-977F-D75F14BDCE5C" xmi:type="uml:OutputPin">
+                            <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                            <name>output</name>
+                            <visibility>public</visibility>
+                        </outputValue>
+                        <name>Action-3a</name>
+                        <visibility>public</visibility>
+                    </fromAction>
+                    <name>input</name>
+                    <visibility>public</visibility>
+                </inputValue>
+                <name>Action-3</name>
+                <visibility>public</visibility>
+            </node>
+            <node xmi:id="Test-Case-30-Test-Case-30-Sequence_Node"
+                xmi:uuid="725A27D7-D489-49F4-9575-D75F68EFA17B" xmi:type="uml:SequenceNode">
+                <executableNode xmi:id="Test-Case-30-Test-Case-30-Sequence_Node-Action-1"
+                    xmi:uuid="725A27D7-D489-4B1B-9E3D-D75F950AD1F8" xmi:type="uml:OpaqueAction">
+                    <body/>
+                    <inputValue xmi:id="Test-Case-30-Test-Case-30-Sequence_Node-Action-1-null"
+                        xmi:uuid="725A27D7-D489-4093-9BF8-D75FD452AA38" xmi:type="uml:ValuePin">
+                        <value xmi:id="Test-Case-30-Test-Case-30-Sequence_Node-Action-1-null-value"
+                            xmi:uuid="725A27D7-D489-48A8-9EFE-D75F7061FDEE"
+                            xmi:type="uml:LiteralNull"/>
+                        <name>null</name>
+                        <visibility>public</visibility>
+                    </inputValue>
+                    <name>Action-1</name>
+                    <visibility>public</visibility>
+                </executableNode>
+                <executableNode xmi:id="Test-Case-30-Test-Case-30-Sequence_Node-Action-2"
+                    xmi:uuid="725A27D7-D489-48E2-97BF-D75F4C17FF67" xmi:type="uml:OpaqueAction">
+                    <visibility>public</visibility>
+                    <name>Action-2</name>
+                </executableNode>
+                <name>Sequence Node</name>
+                <visibility>public</visibility>
+            </node>
+            <name>Test-Case-30</name>
+        </packagedElement>
+        <name>Test-Case-30</name>
+    </uml:Model>
+</xmi:XMI>

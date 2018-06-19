@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-28" xmi:uuid="725A27D7-D489-46B7-93A1-C3372335E3B1">
+        <packagedElement xmi:id="Test-Case-28-C" xmi:uuid="725A27D7-D489-4DA3-9997-C337851ABEA7"
+            xmi:type="uml:Class">
+            <ownedOperation xmi:id="Test-Case-28-C-op"
+                xmi:uuid="725A27D7-D489-4074-9BFE-C337F3D8EFF2" xmi:type="uml:Operation">
+                <ownedParameter xmi:id="Test-Case-28-C-op-x"
+                    xmi:uuid="725A27D7-D489-4959-95F7-C33746C90B02" xmi:type="uml:Parameter">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <parameterSet xmi:idref="Test-Case-28-C-op-op-ParameterSet-1"/>
+                    <name>x</name>
+                    <visibility>public</visibility>
+                </ownedParameter>
+                <ownedParameter xmi:id="Test-Case-28-C-op-y"
+                    xmi:uuid="725A27D7-D489-4180-9C79-C3373216D996" xmi:type="uml:Parameter">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <parameterSet xmi:idref="Test-Case-28-C-op-op-ParameterSet-1"/>
+                    <name>y</name>
+                    <visibility>public</visibility>
+                </ownedParameter>
+                <ownedParameter xmi:id="Test-Case-28-C-op-z"
+                    xmi:uuid="725A27D7-D489-4784-9A00-C3376BB523E3" xmi:type="uml:Parameter">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <parameterSet xmi:idref="Test-Case-28-C-op-op-ParameterSet-2"/>
+                    <name>z</name>
+                    <visibility>public</visibility>
+                </ownedParameter>
+                <ownedParameter xmi:id="Test-Case-28-C-op-ownedParameter-4"
+                    xmi:uuid="725A27D7-D489-44F5-9E49-C337C2A2A06C" xmi:type="uml:Parameter">
+                    <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                    <visibility>public</visibility>
+                    <direction>return</direction>
+                </ownedParameter>
+                <ownedParameterSet xmi:id="Test-Case-28-C-op-op-ParameterSet-1"
+                    xmi:uuid="725A27D7-D489-482A-9784-C337965CBA89" xmi:type="uml:ParameterSet">
+                    <parameter xmi:idref="Test-Case-28-C-op-x"/>
+                    <parameter xmi:idref="Test-Case-28-C-op-y"/>
+                    <name>op-ParameterSet-1</name>
+                </ownedParameterSet>
+                <ownedParameterSet xmi:id="Test-Case-28-C-op-op-ParameterSet-2"
+                    xmi:uuid="725A27D7-D489-4857-9FCB-C3373BD3E1FF" xmi:type="uml:ParameterSet">
+                    <parameter xmi:idref="Test-Case-28-C-op-z"/>
+                    <name>op-ParameterSet-2</name>
+                </ownedParameterSet>
+                <name>op</name>
+                <visibility>public</visibility>
+            </ownedOperation>
+            <name>C</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-28-F" xmi:uuid="725A27D7-D489-45C2-9BC0-C3374FDD9895"
+            xmi:type="uml:FunctionBehavior">
+            <ownedParameter xmi:id="Test-Case-28-F-x"
+                xmi:uuid="725A27D7-D489-4A71-9715-C3370A9BF701" xmi:type="uml:Parameter">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <parameterSet xmi:idref="Test-Case-28-F-F-ParameterSet-1"/>
+                <name>x</name>
+                <visibility>public</visibility>
+            </ownedParameter>
+            <ownedParameter xmi:id="Test-Case-28-F-ownedParameter-2"
+                xmi:uuid="725A27D7-D489-4C78-9E83-C337726D5F33" xmi:type="uml:Parameter">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <visibility>public</visibility>
+                <direction>return</direction>
+            </ownedParameter>
+            <ownedParameter xmi:id="Test-Case-28-F-y"
+                xmi:uuid="725A27D7-D489-46A4-9A1C-C337E5ED13F5" xmi:type="uml:Parameter">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <parameterSet xmi:idref="Test-Case-28-F-F-ParameterSet-1"/>
+                <name>y</name>
+                <visibility>public</visibility>
+            </ownedParameter>
+            <ownedParameter xmi:id="Test-Case-28-F-z"
+                xmi:uuid="725A27D7-D489-46CD-9093-C3370D71DBFA" xmi:type="uml:Parameter">
+                <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                <parameterSet xmi:idref="Test-Case-28-F-F-ParameterSet-2"/>
+                <name>z</name>
+                <visibility>public</visibility>
+            </ownedParameter>
+            <ownedParameterSet xmi:id="Test-Case-28-F-F-ParameterSet-1"
+                xmi:uuid="725A27D7-D489-4415-9C3F-C33796903F5B" xmi:type="uml:ParameterSet">
+                <parameter xmi:idref="Test-Case-28-F-x"/>
+                <parameter xmi:idref="Test-Case-28-F-y"/>
+                <name>F-ParameterSet-1</name>
+            </ownedParameterSet>
+            <ownedParameterSet xmi:id="Test-Case-28-F-F-ParameterSet-2"
+                xmi:uuid="725A27D7-D489-41A3-9B3C-C3372FBCB66F" xmi:type="uml:ParameterSet">
+                <parameter xmi:idref="Test-Case-28-F-z"/>
+                <name>F-ParameterSet-2</name>
+            </ownedParameterSet>
+            <name>F</name>
+        </packagedElement>
+        <name>Test-Case-28</name>
+    </uml:Model>
+</xmi:XMI>

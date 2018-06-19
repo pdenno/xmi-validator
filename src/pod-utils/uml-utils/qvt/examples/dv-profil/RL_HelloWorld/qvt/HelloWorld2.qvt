@@ -1,0 +1,15 @@
+transformation HelloWorld ( source : MyUML, target : MyUML ) 
+{
+   top relation NewPackage 
+   {
+      pName : String;
+      checkonly domain source srcPckg : Package 
+      {
+         name = pName
+      };
+      enforce   domain target tgtPckg : Package
+      { 
+         name = 'HelloWorld ' 
+      };
+   }
+}

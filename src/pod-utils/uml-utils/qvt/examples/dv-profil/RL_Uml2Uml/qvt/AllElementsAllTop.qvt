@@ -1,0 +1,85 @@
+/*
+ * UML to UML transformation with top level relations only.
+ */
+
+transformation UmlToUml ( source : uml, target : uml ) 
+{
+  top relation Model
+   {
+      modelName : String;
+      checkonly domain source srcPkg : uml::Model 
+      { 
+         name = modelName 
+      };
+      enforce   domain target dstPkg : uml::Model 
+      {
+         name = modelName 
+      };
+   }
+
+   top relation Packages
+   {
+      packageName : String;
+      checkonly domain source srcPkg : uml::Package 
+      {
+         name = packageName
+      };
+      enforce   domain target dstPkg : uml::Package 
+      {
+         name = packageName
+     };
+   }
+
+   top relation Classes
+   {
+      className : String;
+      checkonly domain source src : uml::Class
+      { 
+         name = className
+      };
+      enforce   domain target dst : uml::Class
+      { 
+         name = className
+      };
+   }
+
+   top relation Interfaces
+   {
+      interfaceName : String;
+      checkonly domain source src : uml::Interface
+      { 
+         name = interfaceName 
+      };
+      enforce   domain target dst : uml::Interface 
+      { 
+         name = interfaceName 
+      };
+   }
+
+   top relation Datatypes
+   {
+      datatypeName : String;
+      checkonly domain source src : uml::DataType 
+      {
+         name = datatypeName 
+      };
+      enforce   domain target dst : uml::DataType
+      {
+         name = datatypeName 
+      }; 
+   }
+
+   top relation Associations
+   {
+      associationName : String;
+      checkonly domain source src : uml::Association 
+      { 
+         name = associationName 
+      };
+      enforce   domain target dst : uml::Association
+      { 
+         name = associationName 
+      };
+   }
+}
+   

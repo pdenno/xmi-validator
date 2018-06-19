@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:StandardProfileL2="http://www.omg.org/spec/UML/20131001/StandardProfileL2" xmlns:TestCase3_Profile="http:///schemas/TestCase3_Profile.xmi" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Model xmi:id="_eNJbc1ztEd6YpLSSRX9zkg" name="TestCase3_Model">
+    <packagedElement xmi:type="uml:Class" xmi:id="_9GUscGSrEd6GIv0ibkwFLA" name="ClassA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HDgHQGSsEd6GIv0ibkwFLA" name="modelAttribute1" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/2.5/PrimitiveTypes.xmi#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QgXhEG0BEd6PP-C81v-frg" name="modelAttribute2" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/2.5/PrimitiveTypes.xmi#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_PIJw8G0BEd6PP-C81v-frg" name="Operation1" />
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FSQMEGSsEd6GIv0ibkwFLA" name="ClassB"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="__0pO0GgXEd6GIv0ibkwFLA" name="Class1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_7IUwAG0BEd6PP-C81v-frg" name="Class2">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_7sYfUG0BEd6PP-C81v-frg" name="Operation1" />
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_Bxa5AG0EEd6PP-C81v-frg" name="DataTypeA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_I35zgG0EEd6PP-C81v-frg" name="ClassE"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ao3o0G0GEd6PP-C81v-frg" name="ClassC">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_VyzioG3TEd6WMas_CPXWYA" name="Operation1" visibility="protected"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eHV60G0GEd6PP-C81v-frg" name="ClassD"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_IvuyIG0IEd6PP-C81v-frg" name="InterfaceB"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_LBA4QG0IEd6PP-C81v-frg" name="InterfaceA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ysr_YG3QEd6WMas_CPXWYA" name="Class3">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FCvwsG3REd6WMas_CPXWYA" name="attribute1" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/2.5/PrimitiveTypes.xmi#Integer"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_FVYY0G3REd6WMas_CPXWYA" name="Operation1" />
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_QMEOgG3REd6WMas_CPXWYA" name="Interface1"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_X1RbkG3REd6WMas_CPXWYA" name="Package1"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_eNJbeFztEd6YpLSSRX9zkg" >
+      <appliedProfile xmi:type="uml:Profile" href="http://www.omg.org/spec/UML/20131001/StandardProfileL2.xmi#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_dYx8gHTZEd6py9BDjV7JCg" isStrict="true" >
+      <appliedProfile xmi:type="uml:Profile" href="valid.profile.xmi#_KitXcFtIEd6YpLSSRX9zkg"/>
+    </profileApplication>
+  </uml:Model>
+  <StandardProfileL2:Metaclass xmi:id="_CvzYYGgYEd6GIv0ibkwFLA" base_Class="__0pO0GgXEd6GIv0ibkwFLA"/>
+  <StandardProfileL2:Create xmi:id="_9bY-0G0BEd6PP-C81v-frg" base_BehavioralFeature="_7sYfUG0BEd6PP-C81v-frg"/>
+  <StandardProfileL2:Specification xmi:id="_570fkG3QEd6WMas_CPXWYA" base_Classifier="_ysr_YG3QEd6WMas_CPXWYA"/>
+  <StandardProfileL2:Destroy xmi:id="_IS7IAG3REd6WMas_CPXWYA" base_BehavioralFeature="_FVYY0G3REd6WMas_CPXWYA"/>
+  <StandardProfileL2:Specification xmi:id="_SThDMG3REd6WMas_CPXWYA" base_Classifier="_QMEOgG3REd6WMas_CPXWYA"/>
+  <StandardProfileL2:Realization xmi:id="_WjK6gG3REd6WMas_CPXWYA" base_Classifier="_QMEOgG3REd6WMas_CPXWYA"/>
+  <StandardProfileL2:Framework xmi:id="_ZlCJAG3REd6WMas_CPXWYA" base_Package="_X1RbkG3REd6WMas_CPXWYA"/>
+  <StandardProfileL2:ModelLibrary xmi:id="_ZlCJAW3REd6WMas_CPXWYA" base_Package="_X1RbkG3REd6WMas_CPXWYA"/>
+  <TestCase3_Profile:Stereotype2 xmi:id="_dd2CsHTZEd6py9BDjV7JCg" attribute3="_Bxa5AG0EEd6PP-C81v-frg" attribute4="_I35zgG0EEd6PP-C81v-frg" base_Property="_HDgHQGSsEd6GIv0ibkwFLA"/>
+  <TestCase3_Profile:Stereotype2 xmi:id="_deI9oHTZEd6py9BDjV7JCg" attribute3="_Bxa5AG0EEd6PP-C81v-frg" attribute4="_I35zgG0EEd6PP-C81v-frg" base_Property="_QgXhEG0BEd6PP-C81v-frg"/>
+  <TestCase3_Profile:Stereotype2 xmi:id="_deI9oXTZEd6py9BDjV7JCg" base_Property="_FCvwsG3REd6WMas_CPXWYA"/>
+  <TestCase3_Profile:Stereotype3 xmi:id="_1wX_kHUzEd6py9BDjV7JCg" base_Class="_FSQMEGSsEd6GIv0ibkwFLA" attribute5="GREEN" attribute6="_HDgHQGSsEd6GIv0ibkwFLA"/>
+  <TestCase3_Profile:Stereotype4 xmi:id="_4IqFkHUzEd6py9BDjV7JCg" base_Class="_ao3o0G0GEd6PP-C81v-frg" attribute7="Text"/>
+  <TestCase3_Profile:Stereotype5 xmi:id="_6yEX0HUzEd6py9BDjV7JCg" base_Class="_eHV60G0GEd6PP-C81v-frg" attribute7="Text" attribute8="8"/>
+  <TestCase3_Profile:Stereotype1 xmi:id="_PZfu0HU0Ed6py9BDjV7JCg" attribute1="Text" attribute2="4" base_Property="_QgXhEG0BEd6PP-C81v-frg"/>
+  <TestCase3_Profile:Stereotype6 xmi:id="_9XrAwHU2Ed6py9BDjV7JCg" attribute9="_AIjM8HU3Ed6py9BDjV7JCg" base_Interface="_LBA4QG0IEd6PP-C81v-frg"/>
+  <TestCase3_Profile:Stereotype7 xmi:id="_AIjM8HU3Ed6py9BDjV7JCg" base_Interface="_IvuyIG0IEd6PP-C81v-frg"/>
+  <TestCase3_Profile:Stereotype1 xmi:id="_AX7v8HU7Ed6py9BDjV7JCg" attribute1="Text" attribute2="2" base_Operation="_PIJw8G0BEd6PP-C81v-frg"/>
+</xmi:XMI>

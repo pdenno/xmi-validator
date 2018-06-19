@@ -1,0 +1,104 @@
+/*
+ * Auflösung von Beziehungen - hier mittels eines ForeignKeys
+ * in der referenzierenden Tabelle. Dazu dient die Relation
+ * AssocToFKey, die in der Source-Tabelle einen Fremdschlüssel 
+ * erzeugt.
+ */
+transformation Uml2rdbm ( uml : MyUML, rdbm : MyRDBM ) 
+{
+   /*  */
+   top relation PackageToSchema 
+   {
+      packageName : String;
+      checkonly domain uml  pck : Package { name = packageName };
+      enforce   domain rdbm sma : Schema  { name = packageName };
+   }
+
+   /*  */
+   top relation ClassToTable 
+   {
+	  className : String;
+	  
+	  checkonly domain uml cls : Class 
+	  {
+	    namespace = pck : Package { },
+	    kind      = 'persistent',
+	    name      = className
+	  };
+	  
+      enforce   domain rdbm tbl : Table
+      {
+	    schema   = sma : Schema {},
+	    name     = className,
+	    column   = cl : Column 
+	    {
+	      name   = className + '_ID',
+	      type   = 'Integer'
+	    },
+	    primaryKey      = k : PrimaryKey 
+	    {
+    	  name   = className + '_PK', 
+	      column = cl : Column {}
+	    }
+      };
+ 	  when 	{ PackageToSchema(pck, sma); }
+   }
+	
+   /*  */
+   top relation AssocToFKey 
+   {
+	  assocName       : String;
+	  sourceClassName : String;
+	  destClassName   : String;
+	  foreignKeyName  : String;
+	  fKeyColumnName  : String;
+	  
+	  checkonly domain uml assoc : Association 
+	  {
+	    namespace = pck    : Package {},
+	    name      = assocName,
+	    source    = srcCls : Class 
+	    {
+	      kind = 'persistent',
+	      name = sourceClassName
+	    },
+	    destination = dstCls : Class 
+	    {
+	      kind = 'persistent',
+	      name = destClassName
+	    }
+	  };
+	  
+	  enforce domain rdbm fKey : ForeignKey 
+	  {
+      	name  = foreignKeyName,
+	    owner = srcTbl : Table 
+	    {
+	      schema = sma : Schema { }
+	    },
+	    column = fc : Column 
+	    {
+	      name  = fKeyColumnName,
+	      type  = 'Integer',
+	      owner = srcTbl
+	    },
+	    refersTo = pKey : PrimaryKey 
+	    {
+	      owner = destTbl : Table {}
+	    }
+	  };
+	  
+	  when 
+	  {
+	    PackageToSchema ( pck,    sma     );
+	    ClassToTable    ( srcCls, srcTbl  );
+	    ClassToTable    ( dstCls, destTbl );
+	  }
+	  where 
+	  {
+	    foreignKeyName = sourceClassName + '_' + assocName + '_' + destClassName;
+	    fKeyColumnName = foreignKeyName  + '_TID';
+	  }
+	}
+	
+}

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:StandardProfileL2="http://www.omg.org/spec/UML/20090901/StandardProfileL2" xmlns:TestCase3_Profile="http:///schemas/TestCase3_Profile.xmi" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <StandardProfileL2:Create xmi:id="_-Create" xmi:uuid="725A27D7-D40B-4385-981C-592FEB36B0CA">
+    <base_BehavioralFeature xmi:idref="TestCase3_Model-Class2-Operation1"/>
+  </StandardProfileL2:Create>
+  <StandardProfileL2:Destroy xmi:id="_-Destroy" xmi:uuid="725A27D7-D40B-4420-9DA8-592FA29AA873">
+    <base_BehavioralFeature xmi:idref="TestCase3_Model-Class3-Operation1"/>
+  </StandardProfileL2:Destroy>
+  <StandardProfileL2:Framework xmi:id="_-Framework" xmi:uuid="725A27D7-D40B-4844-94CE-592FF034BC09">
+    <base_Package xmi:idref="TestCase3_Model-Package1"/>
+  </StandardProfileL2:Framework>
+  <StandardProfileL2:Metaclass xmi:id="_-Metaclass" xmi:uuid="725A27D7-D40B-4DFE-9208-592F9EC80EBA">
+    <base_Class xmi:idref="TestCase3_Model-Class1"/>
+  </StandardProfileL2:Metaclass>
+  <uml:Model xmi:id="TestCase3_Model" xmi:uuid="725A27D7-D40B-403D-903F-592EB069BDCF">
+    <packagedElement xmi:id="TestCase3_Model-ClassA" xmi:uuid="725A27D7-D40B-4A1D-9590-592E64DD1E02" xmi:type="uml:Class">
+      <ownedAttribute xmi:id="TestCase3_Model-ClassA-modelAttribute1" xmi:uuid="725A27D7-D40B-4FA8-9814-592EA989C813" xmi:type="uml:Property">
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <name>modelAttribute1</name>
+        <visibility>private</visibility>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Model-ClassA-modelAttribute2" xmi:uuid="725A27D7-D40B-417E-9209-592E2B046764" xmi:type="uml:Property">
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <name>modelAttribute2</name>
+        <visibility>private</visibility>
+      </ownedAttribute>
+      <ownedOperation xmi:id="TestCase3_Model-ClassA-Operation1" xmi:uuid="725A27D7-D40B-4BCF-9BB7-592F89AB14F8" xmi:type="uml:Operation">
+        <name>Operation1</name>
+      </ownedOperation>
+      <name>ClassA</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-ClassB" xmi:uuid="725A27D7-D40B-4EE1-9CB2-592FB8881D9A" xmi:type="uml:Class">
+      <name>ClassB</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-Class1" xmi:uuid="725A27D7-D40B-4FD5-99E8-592FEE292B13" xmi:type="uml:Class">
+      <name>Class1</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-Class2" xmi:uuid="725A27D7-D40B-4BFC-9363-592F72C97737" xmi:type="uml:Class">
+      <ownedOperation xmi:id="TestCase3_Model-Class2-Operation1" xmi:uuid="725A27D7-D40B-45C3-991C-592F12B120D0" xmi:type="uml:Operation">
+        <name>Operation1</name>
+      </ownedOperation>
+      <name>Class2</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-DataTypeA" xmi:uuid="725A27D7-D40B-4DDA-9F92-592F1D533692" xmi:type="uml:DataType">
+      <name>DataTypeA</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-ClassE" xmi:uuid="725A27D7-D40B-4A12-9114-592FBE6CAAF9" xmi:type="uml:Class">
+      <name>ClassE</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-ClassC" xmi:uuid="725A27D7-D40B-4AAE-960E-592F407D3FA5" xmi:type="uml:Class">
+      <ownedOperation xmi:id="TestCase3_Model-ClassC-Operation1" xmi:uuid="725A27D7-D40B-4CDB-93C2-592F74232E40" xmi:type="uml:Operation">
+        <name>Operation1</name>
+        <visibility>protected</visibility>
+      </ownedOperation>
+      <name>ClassC</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-ClassD" xmi:uuid="725A27D7-D40B-4D99-91CB-592FDECDB602" xmi:type="uml:Class">
+      <name>ClassD</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-InterfaceB" xmi:uuid="725A27D7-D40B-40C9-93D6-592FBE94236A" xmi:type="uml:Interface">
+      <name>InterfaceB</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-InterfaceA" xmi:uuid="725A27D7-D40B-47EB-9389-592FEE00B226" xmi:type="uml:Interface">
+      <name>InterfaceA</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-Class3" xmi:uuid="725A27D7-D40B-4241-9884-592FE5FCACB9" xmi:type="uml:Class">
+      <ownedAttribute xmi:id="TestCase3_Model-Class3-attribute1" xmi:uuid="725A27D7-D40B-4A5B-9877-592FDB760894" xmi:type="uml:Property">
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <name>attribute1</name>
+        <visibility>private</visibility>
+      </ownedAttribute>
+      <ownedOperation xmi:id="TestCase3_Model-Class3-Operation1" xmi:uuid="725A27D7-D40B-4DA4-9316-592F89461A4B" xmi:type="uml:Operation">
+        <name>Operation1</name>
+      </ownedOperation>
+      <name>Class3</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-Interface1" xmi:uuid="725A27D7-D40B-4ABC-9512-592F6456EAB3" xmi:type="uml:Interface">
+      <name>Interface1</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Model-Package1" xmi:uuid="725A27D7-D40B-44D1-9602-592FA0DC6B50" xmi:type="uml:Package">
+      <name>Package1</name>
+    </packagedElement>
+    <profileApplication xmi:id="TestCase3_Model-profileApplication-1" xmi:uuid="725A27D7-D40B-46A8-9D73-592FA8482B5D" xmi:type="uml:ProfileApplication">
+      <appliedProfile href="http://www.omg.org/spec/UML/20090901/StandardProfileL2.xmi#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="TestCase3_Model-profileApplication-2" xmi:uuid="725A27D7-D40B-4E89-9D4B-592F484A09ED" xmi:type="uml:ProfileApplication">
+      <appliedProfile href="valid.profile.xmi#_KitXcFtIEd6YpLSSRX9zkg"/>
+      <isStrict>true</isStrict>
+    </profileApplication>
+    <name>TestCase3_Model</name>
+  </uml:Model>
+  <StandardProfileL2:ModelLibrary xmi:id="_-ModelLibrary" xmi:uuid="725A27D7-D40B-4495-91B4-592F98A22E9A">
+    <base_Package xmi:idref="TestCase3_Model-Package1"/>
+  </StandardProfileL2:ModelLibrary>
+  <StandardProfileL2:Realization xmi:id="_-Realization" xmi:uuid="725A27D7-D40B-483A-9DFD-592F68578189">
+    <base_Classifier xmi:idref="TestCase3_Model-Interface1"/>
+  </StandardProfileL2:Realization>
+  <StandardProfileL2:Specification xmi:id="_-Specification-2" xmi:uuid="725A27D7-D40B-44EB-9DEF-592FA4E6E25F">
+    <base_Classifier xmi:idref="TestCase3_Model-Interface1"/>
+  </StandardProfileL2:Specification>
+  <StandardProfileL2:Specification xmi:id="_-Specification-1" xmi:uuid="725A27D7-D40B-4623-957E-592F3E03C893">
+    <base_Classifier xmi:idref="TestCase3_Model-Class3"/>
+  </StandardProfileL2:Specification>
+  <TestCase3_Profile:Stereotype1 xmi:id="_-Stereotype1-1" xmi:uuid="725A27D7-D40B-42CA-94F5-592FED3672E9">
+    <attribute1>Text</attribute1>
+    <attribute2>4</attribute2>
+    <base_Property xmi:idref="TestCase3_Model-ClassA-modelAttribute2"/>
+  </TestCase3_Profile:Stereotype1>
+  <TestCase3_Profile:Stereotype1 xmi:id="_-Stereotype1-2" xmi:uuid="725A27D7-D40B-4613-90A6-592F97CDBAA8">
+    <attribute1>Text</attribute1>
+    <attribute2>2</attribute2>
+    <base_Operation xmi:idref="TestCase3_Model-ClassA-Operation1"/>
+  </TestCase3_Profile:Stereotype1>
+  <TestCase3_Profile:Stereotype2 xmi:id="_-Stereotype2-1" xmi:uuid="725A27D7-D40B-40F6-9024-592FE644F736">
+    <attribute3 xmi:idref="TestCase3_Model-DataTypeA"/>
+    <attribute4 xmi:idref="TestCase3_Model-ClassE"/>
+    <base_Property xmi:idref="TestCase3_Model-ClassA-modelAttribute1"/>
+  </TestCase3_Profile:Stereotype2>
+  <TestCase3_Profile:Stereotype2 xmi:id="_-Stereotype2-3" xmi:uuid="725A27D7-D40B-43C8-96DB-592FC52FEE3C">
+    <base_Property xmi:idref="TestCase3_Model-Class3-attribute1"/>
+  </TestCase3_Profile:Stereotype2>
+  <TestCase3_Profile:Stereotype2 xmi:id="_-Stereotype2-2" xmi:uuid="725A27D7-D40B-4ACB-9336-592FC1DA49FD">
+    <attribute3 xmi:idref="TestCase3_Model-DataTypeA"/>
+    <attribute4 xmi:idref="TestCase3_Model-ClassE"/>
+    <base_Property xmi:idref="TestCase3_Model-ClassA-modelAttribute2"/>
+  </TestCase3_Profile:Stereotype2>
+  <TestCase3_Profile:Stereotype3 xmi:id="_-Stereotype3" xmi:uuid="725A27D7-D40B-4D65-9D2A-592FC29685B7">
+    <base_Class xmi:idref="TestCase3_Model-ClassB"/>
+    <attribute5>GREEN</attribute5>
+    <attribute6 xmi:idref="TestCase3_Model-ClassA-modelAttribute1"/>
+  </TestCase3_Profile:Stereotype3>
+  <TestCase3_Profile:Stereotype4 xmi:id="_-Stereotype4" xmi:uuid="725A27D7-D40B-4CB9-9C5A-592F55A8A1E0">
+    <base_Class xmi:idref="TestCase3_Model-ClassC"/>
+    <attribute7>Text</attribute7>
+  </TestCase3_Profile:Stereotype4>
+  <TestCase3_Profile:Stereotype5 xmi:id="_-Stereotype5" xmi:uuid="725A27D7-D40B-4C49-9514-592F6DC142FE">
+    <base_Class xmi:idref="TestCase3_Model-ClassD"/>
+    <attribute7>Text</attribute7>
+    <attribute8>8</attribute8>
+  </TestCase3_Profile:Stereotype5>
+  <TestCase3_Profile:Stereotype6 xmi:id="_-Stereotype6" xmi:uuid="725A27D7-D40B-4831-93FB-592F884F3948">
+    <attribute9 xmi:idref="_-Stereotype7"/>
+    <base_Interface xmi:idref="TestCase3_Model-InterfaceA"/>
+  </TestCase3_Profile:Stereotype6>
+  <TestCase3_Profile:Stereotype7 xmi:id="_-Stereotype7" xmi:uuid="725A27D7-D40B-4E69-9FC5-592F745D4B0F">
+    <base_Interface xmi:idref="TestCase3_Model-InterfaceB"/>
+  </TestCase3_Profile:Stereotype7>
+</xmi:XMI>

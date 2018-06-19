@@ -1,0 +1,19 @@
+transformation HelloOCL ( source : MyUML, target : MyRDBM  ) 
+{
+   top relation package2schema 
+   {
+      packageName: String;
+      classes : OrderedSet (Class);
+      checkonly domain source srcPkg : Package 
+      {
+         name = packageName,
+         ownedElement = classes 
+      };
+      enforce   domain target tgtSma  : Schema  
+      { 
+         name  = packageName,
+         table = t1 : Table { name = classes->at(1).name },
+         table = t2 : Table { name = classes->at(2).name }
+      };
+   }
+}

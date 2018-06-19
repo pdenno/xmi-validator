@@ -1,0 +1,12 @@
+
+transformation HelloWorld ( src : MyUML, trg : MyUML) 
+{
+   top relation NewPackage 
+   {
+      checkonly domain src  p1 : Package { };
+      enforce   domain trg  p2 : Package 
+      { 
+         name  = 'HelloWorld'
+      };
+   }
+}

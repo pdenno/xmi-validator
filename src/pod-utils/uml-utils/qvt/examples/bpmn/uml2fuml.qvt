@@ -1,0 +1,26 @@
+
+ /* This an example from Appendix A.1 of the QVT spec. */
+
+transformation umlToFuml (uml:UML23, fuml:FUML)
+{
+key Package (name);   // Further evidence that this is one-way:
+key Class (name);     // If not, where are the uml key constructs, and why don't these have domain prefix?
+
+top relation PackageToPackage 
+{
+ pn: String;
+ checkonly domain    uml pu:Package {name=pn};
+ enforce   domain   fuml pf:Package {name=pn};
+}
+
+top relation ClassToClass   
+{
+    // I think as a general rule, you ought to supply key attributes to the enforce domain.
+    // The parser post-processing ought to check for it, and the QVT spec ought to say so ???
+    // Of course, name really isn't a sufficient key here...
+  cn: String;
+  checkonly domain uml  cu:Class {name=cn};
+  enforce   domain fuml cf:Class {name=cn};
+}  
+
+}

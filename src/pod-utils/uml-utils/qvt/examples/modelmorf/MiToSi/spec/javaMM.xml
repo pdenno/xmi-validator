@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="javammsi"
+    name="javammsi" uri="javammsi">
+  <ownedType xmi:type="emof:Class" xmi:id="javammsi.Class" name="Class">
+    <ownedAttribute xmi:id="javammsi.Class.Extends" name="Extends" upper="*" type="javammsi.Class"
+        opposite="javammsi.Class.extendedBy"/>
+    <ownedAttribute xmi:id="javammsi.Class.extendedBy" name="extendedBy" upper="*"
+        type="javammsi.Class" opposite="javammsi.Class.Extends"/>
+    <ownedAttribute xmi:id="javammsi.Class.implements" name="implements" upper="*"
+        type="javammsi.Interface" opposite="javammsi.Interface.implementedBy"/>
+    <ownedAttribute xmi:id="javammsi.Class.name" name="name" isID="true">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="javammsi.Interface" name="Interface">
+    <ownedAttribute xmi:id="javammsi.Interface.implementedBy" name="implementedBy"
+        upper="*" type="javammsi.Class" opposite="javammsi.Class.implements"/>
+    <ownedAttribute xmi:id="javammsi.Interface.Extends" name="Extends" upper="*" type="javammsi.Interface"
+        opposite="javammsi.Interface.extendedBy"/>
+    <ownedAttribute xmi:id="javammsi.Interface.extendedBy" name="extendedBy" upper="*"
+        type="javammsi.Interface" opposite="javammsi.Interface.Extends"/>
+    <ownedAttribute xmi:id="javammsi.Interface.name" name="name" isID="true">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="javammsi.dummy" name="dummy">
+    <ownedAttribute xmi:id="javammsi.dummy.containsClass" name="containsClass" upper="*"
+        type="javammsi.Class" isComposite="true"/>
+    <ownedAttribute xmi:id="javammsi.dummy.containsIterface" name="containsIterface"
+        upper="*" type="javammsi.Interface" isComposite="true"/>
+  </ownedType>
+</emof:Package>

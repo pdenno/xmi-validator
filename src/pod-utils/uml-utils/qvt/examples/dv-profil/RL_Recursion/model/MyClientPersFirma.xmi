@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MyUML="urn:MyUML.ecore" xsi:schemaLocation="urn:MyUML.ecore ../../metamodels/MyUML.ecore">
+  <MyUML:Package name="HELLOWORLD">
+    <ownedElement xsi:type="MyUML:PrimitiveDataType" name="int"/>
+    <ownedElement xsi:type="MyUML:PrimitiveDataType" name="string"/>
+    <ownedElement xsi:type="MyUML:Class" name="Client" kind="Persistent" specific="/0/@ownedElement.3 /0/@ownedElement.4">
+      <attribute name="name"/>
+    </ownedElement>
+    <ownedElement xsi:type="MyUML:Class" name="Person" kind="Persistent" general="/0/@ownedElement.2">
+      <attribute name="alter" kind=""/>
+    </ownedElement>
+    <ownedElement xsi:type="MyUML:Class" name="Firma" kind="Persistent" general="/0/@ownedElement.2">
+      <attribute name="gruendung" kind=""/>
+    </ownedElement>
+  </MyUML:Package>
+  <MyUML:Package name="HELLOWORLD"/>
+</xmi:XMI>

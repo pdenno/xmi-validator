@@ -1,0 +1,96 @@
+transformation UmlToRel(uml:umlmm; rdbms:relmm)
+{
+	key umlmm::Class {name};
+	key umlmm::Attribute {name, opposite(umlmm::Class.attribute)};
+	key relmm::Table {name};
+	key relmm::Column {name, opposite(relmm::Table.column)};
+
+	query UmlToSqlDataType(utyp:String):String
+	{
+		if 
+			(utyp = 'Int')
+		then
+			'Number'
+		else 
+			if 
+				(utyp = 'Binary')
+			then 
+				'Raw'
+			else 
+				'Varchar' 
+			endif 
+		endif
+	}
+
+	query SqlToUmlDataType(styp:String):String
+	{
+		if 
+			(styp = 'Number')
+		then 
+			'Int'
+		else 
+			if 
+				(styp = 'Raw')
+			then
+				'Binary'
+			else
+				'String' 
+			endif
+		endif
+	}
+
+	top relation ClassToTable
+	{
+		n : String;
+
+		enforce domain uml 
+		c:Class
+		{
+			name = n
+		};
+
+		enforce domain rdbms 
+		t:Table
+		{
+			name = n
+		};
+	}   
+
+	top relation AttributeToColumn
+	{
+		n:String;
+		utyp:String;
+		rtyp:String;
+
+		enforce domain uml 
+		a:Attribute
+		{
+			name = n,
+			type = utyp,
+			opposite(umlmm::Class.attribute) = c:Class{}
+		}
+		default_values
+		{
+			utyp = SqlToUmlDataType(rtyp);
+		};
+	   
+		enforce domain rdbms 
+		cl:Column
+		{
+			name = n,
+			dataType = rtyp,
+			opposite(relmm::Table.column) = t:Table{}
+		};
+		
+		when 
+		{
+			ClassToTable(c, t);
+		}
+		
+		where 
+		{
+			rtyp = UmlToSqlDataType(utyp);
+		}
+	}
+}
+

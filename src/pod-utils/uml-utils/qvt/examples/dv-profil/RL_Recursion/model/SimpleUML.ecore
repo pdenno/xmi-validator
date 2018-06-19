@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SimpleUML"
+    nsURI="urn:SimpleUML.ecore" nsPrefix="SimpleUML">
+  <eClassifiers xsi:type="ecore:EClass" name="UmlModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="umlKind" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UmlPackageElement" eSuperTypes="#//UmlModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlNamespace" eType="#//UmlPackage"
+        eOpposite="#//UmlPackage/umlOwnedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UmlPackage" eSuperTypes="#//UmlModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlOwnedElement" upperBound="-1"
+        eType="#//UmlPackageElement" containment="true" eOpposite="#//UmlPackageElement/umlNamespace"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UmlClassifier" eSuperTypes="#//UmlPackageElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UmlClass" eSuperTypes="#//UmlClassifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlForward" upperBound="-1"
+        eType="#//UmlAssociation" eOpposite="#//UmlAssociation/umlDestination"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlReverse" upperBound="-1"
+        eType="#//UmlAssociation" eOpposite="#//UmlAssociation/umlSource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlAttribute" upperBound="-1"
+        eType="#//UmlAttribute" containment="true" eOpposite="#//UmlAttribute/umlOwner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlGeneral" upperBound="-1"
+        eType="#//UmlClass" eOpposite="#//UmlClass/umlSpecific"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlSpecific" upperBound="-1"
+        eType="#//UmlClass" eOpposite="#//UmlClass/umlGeneral"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UmlAttribute" eSuperTypes="#//UmlModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlOwner" eType="#//UmlClass"
+        eOpposite="#//UmlClass/umlAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlType" eType="#//UmlClassifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UmlAssociation" eSuperTypes="#//UmlPackageElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlDestination" lowerBound="1"
+        eType="#//UmlClass" eOpposite="#//UmlClass/umlForward"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="umlSource" lowerBound="1"
+        eType="#//UmlClass" eOpposite="#//UmlClass/umlReverse"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UmlPrimitiveDataType" eSuperTypes="#//UmlClassifier"/>
+</ecore:EPackage>

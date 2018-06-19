@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+         xmlns:uml="http://www.omg.org/spec/UML/20110701"
+         xmlns:bpmnprofile="http://www.omg.org/spec/BPMNProfile/20120220"
+         xmi:version="2.1">
+   <uml:Package xmi:type="uml:Package" xmi:id="_1275486223307">
+      <packagedElement xmi:type="uml:Activity" xmi:id="_6">
+         <node xmi:type="uml:FlowFinalNode"
+               xmi:id="EndProcess"
+               name=""
+               incoming="_6-536"/>
+         <node xmi:type="uml:CallOperationAction"
+               xmi:id="TerminateProcess"
+               name=""
+               incoming="_6-552"/>
+         <node xmi:type="uml:DecisionNode"
+               xmi:id="GatewayOrderApprovedDecision"
+               name=""
+               outgoing="_6-502 _6-552"
+               incoming="_6-500"/>
+         <node xmi:type="uml:JoinNode"
+               xmi:id="ParaSplitOrderAndShipment"
+               name=""
+               outgoing="_6-504 _6-506"
+               incoming="_6-502"/>
+         <node xmi:type="uml:JoinNode"
+               xmi:id="ParaJoinOderAndShipment"
+               name=""
+               outgoing="_6-534"
+               incoming="_6-508 _6-532"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-468"
+               name=""
+               target="TaskQuotationHandling"
+               source="StartProcess"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-470"
+               name=""
+               target="TaskApproveOrder"
+               source="TaskQuotationHandling"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-500"
+               name=""
+               target="GatewayOrderApprovedDecision"
+               source="TaskApproveOrder"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-502"
+               name="Approved"
+               target="ParaSplitOrderAndShipment"
+               source="GatewayOrderApprovedDecision"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-504"
+               name=""
+               target="_6-190"
+               source="ParaSplitOrderAndShipment"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-506"
+               name=""
+               target="_6-241"
+               source="ParaSplitOrderAndShipment"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-508"
+               name=""
+               target="ParaJoinOderAndShipment"
+               source="_6-190"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-532"
+               name=""
+               target="ParaJoinOderAndShipment"
+               source="_6-241"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-534"
+               name=""
+               target="TaskReviewOrder"
+               source="ParaJoinOderAndShipment"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-536"
+               name=""
+               target="EndProcess"
+               source="TaskReviewOrder"/>
+         <edge xmi:type="uml:ControlFlow"
+               xmi:id="_6-552"
+               name=""
+               target="TerminateProcess"
+               source="GatewayOrderApprovedDecision"/>
+         <node xmi:type="uml:InitialNode"
+               xmi:id="StartProcess"
+               name=""
+               outgoing="_6-468"/>
+         <node xmi:type="uml:OpaqueAction"
+               xmi:id="TaskQuotationHandling"
+               name="Quotation Handling"
+               outgoing="_6-470"
+               incoming="_6-468"/>
+         <node xmi:type="uml:OpaqueAction"
+               xmi:id="_6-190"
+               name="Order  Handling"
+               outgoing="_6-508"
+               incoming="_6-504"/>
+         <node xmi:type="uml:OpaqueAction"
+               xmi:id="_6-241"
+               name="Shipping Handling"
+               outgoing="_6-532"
+               incoming="_6-506"/>
+         <node xmi:type="uml:OpaqueAction"
+               body="##unspecified"
+               xmi:id="TaskReviewOrder"
+               name="Review Order"
+               outgoing="_6-536"
+               incoming="_6-534"/>
+         <node xmi:type="uml:OpaqueAction"
+               body="##unspecified"
+               xmi:id="TaskApproveOrder"
+               name="Approve Order"
+               outgoing="_6-500"
+               incoming="_6-470"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="d1e9"/>
+      <profileApplication>
+         <appliedProfile href="http://www.omg.org/spec/BPMNProfile/20120220/BPMNProfileXMI/BPMNProfile.xmi"/>
+      </profileApplication>
+   </uml:Package>
+   <!-- Applied Stereotypes --><bpmnprofile:Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                            xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                            xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                            xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                            xmi:id="d1e1"
+                            base_Package="_1275486223307"
+                            targetNamespace="http://www.trisotech.com/definitions/_1275486223307"/>
+   <bpmnprofile:BPMNProcess xmi:id="d1e2" base_Activity="_6" isExecutable="false"/>
+   <bpmnprofile:EndEvent xmi:id="d1e3" base_FlowfinalNode="EndProcess"/>
+   <bpmnprofile:EndEvent xmi:id="d1e6" base_CallOperationAction="TerminateProcess"/>
+   <bpmnprofile:TerminateEventDefinition xmi:id="ownedBy_TerminateProcess" base_CallEvent="d1e9"/>
+   <bpmnprofile:ExclusiveGateway xmi:id="d1e10"
+                                 base_DecisionNode="GatewayOrderApprovedDecision"
+                                 gatewayDirection="Diverging"/>
+   <bpmnprofile:ParallelGateway xmi:id="d1e17"
+                                base_JoinNode="ParaSplitOrderAndShipment"
+                                gatewayDirection="Diverging"/>
+   <bpmnprofile:ParallelGateway xmi:id="d1e24"
+                                base_JoinNode="ParaJoinOderAndShipment"
+                                gatewayDirection="Converging"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e31" base_ControlFlow="_6-468"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e32" base_ControlFlow="_6-470"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e33" base_ControlFlow="_6-500"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e34" base_ControlFlow="_6-502"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e35" base_ControlFlow="_6-504"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e36" base_ControlFlow="_6-506"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e38" base_ControlFlow="_6-508"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e39" base_ControlFlow="_6-532"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e40" base_ControlFlow="_6-534"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e41" base_ControlFlow="_6-536"/>
+   <bpmnprofile:SequenceFlow xmi:id="d1e42" base_ControlFlow="_6-552"/>
+   <bpmnprofile:StartEvent xmi:id="d1e43" base_InitialNode="StartProcess"/>
+   <bpmnprofile:Task xmi:id="d1e46"
+                     base_OpaqueAction="TaskQuotationHandling"
+                     isForCompensation="false"
+                     startQuantity="1"
+                     completionQuantity="1"/>
+   <bpmnprofile:Task xmi:id="d1e51"
+                     base_OpaqueAction="_6-190"
+                     isForCompensation="false"
+                     startQuantity="1"
+                     completionQuantity="1"/>
+   <bpmnprofile:Task xmi:id="d1e56"
+                     base_OpaqueAction="_6-241"
+                     isForCompensation="false"
+                     startQuantity="1"
+                     completionQuantity="1"/>
+   <bpmnprofile:UserTask xmi:id="d1e61"
+                         base_OpaqueAction="TaskReviewOrder"
+                         isForCompensation="false"
+                         startQuantity="1"
+                         completionQuantity="1"/>
+   <bpmnprofile:UserTask xmi:id="d1e66"
+                         base_OpaqueAction="TaskApproveOrder"
+                         isForCompensation="false"
+                         startQuantity="1"
+                         completionQuantity="1"/>
+</xmi:XMI>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SimpleRDBMS"
+    nsURI="urn:SimpleRDBMS.ecore" nsPrefix="SimpleRDBMS">
+  <eClassifiers xsi:type="ecore:EClass" name="RdbmsModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rdbmsName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rdbmsKind" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RdbmsSchema" eSuperTypes="#//RdbmsModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsTable" upperBound="-1"
+        eType="#//RdbmsTable" containment="true" eOpposite="#//RdbmsTable/rdbmsSchema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RdbmsTable" eSuperTypes="#//RdbmsModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsColumn" upperBound="-1"
+        eType="#//RdbmsColumn" containment="true" eOpposite="#//RdbmsColumn/rdbmsOwner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsForeignKey" upperBound="-1"
+        eType="#//RdbmsForeignKey" containment="true" eOpposite="#//RdbmsForeignKey/rdbmsOwner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsKey" upperBound="-1"
+        eType="#//RdbmsKey" containment="true" eOpposite="#//RdbmsKey/rdbmsOwner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsSchema" lowerBound="1"
+        eType="#//RdbmsSchema" eOpposite="#//RdbmsSchema/rdbmsTable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RdbmsColumn" eSuperTypes="#//RdbmsModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rdbmsType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsOwner" lowerBound="1"
+        eType="#//RdbmsTable" eOpposite="#//RdbmsTable/rdbmsColumn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsKey" upperBound="-1"
+        eType="#//RdbmsKey" eOpposite="#//RdbmsKey/rdbmsColumn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsForeignKey" upperBound="-1"
+        eType="#//RdbmsForeignKey" eOpposite="#//RdbmsForeignKey/rdbmsColumn"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RdbmsForeignKey" eSuperTypes="#//RdbmsModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsOwner" lowerBound="1"
+        eType="#//RdbmsTable" eOpposite="#//RdbmsTable/rdbmsForeignKey"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsRefersTo" lowerBound="1"
+        eType="#//RdbmsKey" eOpposite="#//RdbmsKey/rdbmsRefersToOpposite"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsColumn" upperBound="-1"
+        eType="#//RdbmsColumn" eOpposite="#//RdbmsColumn/rdbmsForeignKey"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RdbmsKey" eSuperTypes="#//RdbmsModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsColumn" upperBound="-1"
+        eType="#//RdbmsColumn" eOpposite="#//RdbmsColumn/rdbmsKey"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsRefersToOpposite"
+        upperBound="-1" eType="#//RdbmsForeignKey" eOpposite="#//RdbmsForeignKey/rdbmsRefersTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rdbmsOwner" lowerBound="1"
+        eType="#//RdbmsTable" eOpposite="#//RdbmsTable/rdbmsKey"/>
+  </eClassifiers>
+</ecore:EPackage>

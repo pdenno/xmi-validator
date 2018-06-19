@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="SeqMM"
+    name="SeqMM" uri="SeqMM">
+  <ownedType xmi:type="emof:Class" xmi:id="SeqMM.Dummy" name="Dummy">
+    <ownedAttribute xmi:id="SeqMM.Dummy.hasInteraction" name="hasInteraction" upper="*"
+        type="SeqMM.Interaction" isComposite="true"/>
+    <ownedAttribute xmi:id="SeqMM.Dummy.containedState" name="containedState" upper="*"
+        type="SeqMM.State" isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="SeqMM.Interaction" name="Interaction">
+    <ownedAttribute xmi:id="SeqMM.Interaction.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMM.Interaction.lifeline" name="lifeline" upper="*"
+        type="SeqMM.LifeLine" isComposite="true" opposite="SeqMM.LifeLine.interaction"/>
+    <ownedAttribute xmi:id="SeqMM.Interaction.message" name="message" upper="*" type="SeqMM.Message"
+        isComposite="true" opposite="SeqMM.Message.interaction"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="SeqMM.LifeLine" name="LifeLine">
+    <ownedAttribute xmi:id="SeqMM.LifeLine.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMM.LifeLine.msgEvent" name="msgEvent" upper="*" type="SeqMM.MessageEvent"
+        isComposite="true" opposite="SeqMM.MessageEvent.lifeline"/>
+    <ownedAttribute xmi:id="SeqMM.LifeLine.state" name="state" upper="*" type="SeqMM.State"
+        opposite="SeqMM.State.lifeline"/>
+    <ownedAttribute xmi:id="SeqMM.LifeLine.interaction" name="interaction" lower="1"
+        type="SeqMM.Interaction" opposite="SeqMM.Interaction.lifeline"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="SeqMM.Message" name="Message">
+    <ownedAttribute xmi:id="SeqMM.Message.messageId" name="messageId">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMM.Message.interaction" name="interaction" lower="1"
+        type="SeqMM.Interaction" opposite="SeqMM.Interaction.message"/>
+    <ownedAttribute xmi:id="SeqMM.Message.event" name="event" lower="1" upper="*"
+        type="SeqMM.MessageEvent" opposite="SeqMM.MessageEvent.message"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="SeqMM.State" name="State">
+    <ownedAttribute xmi:id="SeqMM.State.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="SeqMM.State.messageevent" name="messageevent" upper="*"
+        type="SeqMM.MessageEvent" opposite="SeqMM.MessageEvent.state"/>
+    <ownedAttribute xmi:id="SeqMM.State.lifeline" name="lifeline" lower="1" upper="*"
+        type="SeqMM.LifeLine" opposite="SeqMM.LifeLine.state"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="SeqMM.Event" name="Event"/>
+  <ownedType xmi:type="emof:Class" xmi:id="SeqMM.MessageEvent" name="MessageEvent"
+      superClass="SeqMM.Event">
+    <ownedAttribute xmi:id="SeqMM.MessageEvent.type" name="type" type="SeqMM.MessageEventType"
+        default="Send"/>
+    <ownedAttribute xmi:id="SeqMM.MessageEvent.prev" name="prev" type="SeqMM.MessageEvent"/>
+    <ownedAttribute xmi:id="SeqMM.MessageEvent.next" name="next" type="SeqMM.MessageEvent"/>
+    <ownedAttribute xmi:id="SeqMM.MessageEvent.message" name="message" type="SeqMM.Message"
+        opposite="SeqMM.Message.event"/>
+    <ownedAttribute xmi:id="SeqMM.MessageEvent.lifeline" name="lifeline" lower="1"
+        type="SeqMM.LifeLine" opposite="SeqMM.LifeLine.msgEvent"/>
+    <ownedAttribute xmi:id="SeqMM.MessageEvent.state" name="state" type="SeqMM.State"
+        opposite="SeqMM.State.messageevent"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Enumeration" xmi:id="SeqMM.MessageEventType" name="MessageEventType">
+    <ownedLiteral xmi:id="SeqMM.MessageEventType.Send" name="Send"/>
+    <ownedLiteral xmi:id="SeqMM.MessageEventType.Receive" name="Receive">
+    </ownedLiteral>
+  </ownedType>
+</emof:Package>

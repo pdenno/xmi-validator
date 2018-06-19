@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:Dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="ClassMM_uri" xmi:id="_uyi6QEPiEdurkaVVcVejrg">
+  <hasClass xmi:id="_vmF3EEPiEdurkaVVcVejrg" subs="_yFEa8EPiEdurkaVVcVejrg _1C428EPiEdurkaVVcVejrg" name="Polygon"/>
+  <hasClass xmi:id="_yFEa8EPiEdurkaVVcVejrg" subs="_02YE8EPiEdurkaVVcVejrg _0oXeIEPiEdurkaVVcVejrg" supers="_vmF3EEPiEdurkaVVcVejrg" name="Quadrilateral"/>
+  <hasClass xmi:id="_1C428EPiEdurkaVVcVejrg" subs="_xzossEPiEdurkaVVcVejrg _0EAz4EPiEdurkaVVcVejrg" supers="_vmF3EEPiEdurkaVVcVejrg" name="Triangle"/>
+  <hasClass xmi:id="_02YE8EPiEdurkaVVcVejrg" subs="_0Wyl8EPiEdurkaVVcVejrg" supers="_yFEa8EPiEdurkaVVcVejrg" name="Rhombus"/>
+  <hasClass xmi:id="_0oXeIEPiEdurkaVVcVejrg" subs="_0Wyl8EPiEdurkaVVcVejrg" supers="_yFEa8EPiEdurkaVVcVejrg" name="Rectangle"/>
+  <hasClass xmi:id="_0Wyl8EPiEdurkaVVcVejrg" supers="_02YE8EPiEdurkaVVcVejrg _0oXeIEPiEdurkaVVcVejrg" name="Square"/>
+  <hasClass xmi:id="_xzossEPiEdurkaVVcVejrg" subs="_z2TvEEPiEdurkaVVcVejrg" supers="_1C428EPiEdurkaVVcVejrg" name="IsoscelesTriangle"/>
+  <hasClass xmi:id="_0EAz4EPiEdurkaVVcVejrg" supers="_1C428EPiEdurkaVVcVejrg" name="ScaleneTriangle"/>
+  <hasClass xmi:id="_z2TvEEPiEdurkaVVcVejrg" supers="_xzossEPiEdurkaVVcVejrg" name="EquilateralTriangle"/>
+</null:Dummy>

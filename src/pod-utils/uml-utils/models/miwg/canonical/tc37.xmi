@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+    xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile">
+    <sysml:Copy xmi:id="_-Copy-2" xmi:uuid="725A27D7-D4C3-401B-9071-E7FAAB5B636B">
+        <base_Abstraction xmi:idref="Test-Case-37-packagedElement-4"/>
+    </sysml:Copy>
+    <sysml:Copy xmi:id="_-Copy-1" xmi:uuid="725A27D7-D4C3-47AE-9E49-E7FAAD92429D">
+        <base_Abstraction xmi:idref="Test-Case-37-packagedElement-5"/>
+    </sysml:Copy>
+    <uml:Model xmi:id="Test-Case-37" xmi:uuid="725A27D7-D4C3-4B3F-960A-E7FAB82C5607">
+        <ownedComment xmi:id="Test-Case-37-ownedComment"
+            xmi:uuid="725A27D7-D4C3-490E-98EC-E7FAA9C93646" xmi:type="uml:Comment">
+            <annotatedElement xmi:idref="Test-Case-37-Test-Case-Common"/>
+            <body>There is a problem with this test case.</body>
+        </ownedComment>
+        <profileApplication xmi:id="Test-Case-37-profileApplication"
+            xmi:uuid="725A27D7-D4C3-443B-98D6-E7FA03C5E4B1" xmi:type="uml:ProfileApplication">
+            <appliedProfile href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+        </profileApplication>
+        <packagedElement xmi:id="Test-Case-37-Requirement-A"
+            xmi:uuid="725A27D7-D4C3-412C-9638-E7FA5306F745" xmi:type="uml:Class">
+            <nestedClassifier xmi:id="Test-Case-37-Requirement-A-Requirement-A1"
+                xmi:uuid="725A27D7-D4C3-4031-982A-E7FAEEA24AE9" xmi:type="uml:Class">
+                <name>Requirement-A1</name>
+            </nestedClassifier>
+            <nestedClassifier xmi:id="Test-Case-37-Requirement-A-Requirement-A2"
+                xmi:uuid="725A27D7-D4C3-4266-99CF-E7FA7F769171" xmi:type="uml:Class">
+                <name>Requirement-A2</name>
+            </nestedClassifier>
+            <name>Requirement-A</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-37-Requirement-B"
+            xmi:uuid="725A27D7-D4C3-4880-90BE-E7FA7BBF401C" xmi:type="uml:Class">
+            <nestedClassifier xmi:id="Test-Case-37-Requirement-B-Requirement-B1"
+                xmi:uuid="725A27D7-D4C3-4C6D-9D5F-E7FA657CD77F" xmi:type="uml:Class">
+                <name>Requirement-B1</name>
+            </nestedClassifier>
+            <nestedClassifier xmi:id="Test-Case-37-Requirement-B-Requirement-B2"
+                xmi:uuid="725A27D7-D4C3-4C53-9DB4-E7FAA7BC138D" xmi:type="uml:Class">
+                <name>Requirement-B2</name>
+            </nestedClassifier>
+            <name>Requirement-B</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-37-Requirement-Common"
+            xmi:uuid="725A27D7-D4C3-4C91-9B8F-E7FACE17F758" xmi:type="uml:Class">
+            <name>Requirement-Common</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-37-packagedElement-4"
+            xmi:uuid="725A27D7-D4C3-4AAA-9A2B-E7FA4BE4425D" xmi:type="uml:Abstraction">
+            <supplier xmi:idref="Test-Case-37-Requirement-Common"/>
+            <client xmi:idref="Test-Case-37-Requirement-A-Requirement-A2"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-37-packagedElement-5"
+            xmi:uuid="725A27D7-D4C3-45F7-9764-E7FAE6A91A6B" xmi:type="uml:Abstraction">
+            <supplier xmi:idref="Test-Case-37-Requirement-Common"/>
+            <client xmi:idref="Test-Case-37-Requirement-B-Requirement-B2"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-37-Test-Case-Common"
+            xmi:uuid="725A27D7-D4C3-4CDB-9C34-E7FA81CA5E85" xmi:type="uml:Activity">
+            <ownedParameter xmi:id="Test-Case-37-Test-Case-Common-ownedParameter"
+                xmi:uuid="725A27D7-D4C3-48CE-9019-E7FA0626125F" xmi:type="uml:Parameter">
+                <type href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#VerdictKind"/>
+                <visibility>public</visibility>
+                <direction>return</direction>
+            </ownedParameter>
+            <node xmi:id="Test-Case-37-Test-Case-Common-result"
+                xmi:uuid="725A27D7-D4C3-4D65-98B2-E7FA7409A57F" xmi:type="uml:ActivityParameterNode">
+                <type href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#VerdictKind"/>
+                <name>result</name>
+                <visibility>public</visibility>
+                <parameter xmi:idref="Test-Case-37-Test-Case-Common-ownedParameter"/>
+            </node>
+            <name>Test-Case-Common</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-37-packagedElement-7"
+            xmi:uuid="725A27D7-D4C3-433A-9D7A-E7FA50B32382" xmi:type="uml:Abstraction">
+            <supplier xmi:idref="Test-Case-37-Requirement-Common"/>
+            <client xmi:idref="Test-Case-37-Test-Case-Common"/>
+        </packagedElement>
+        <name>Test-Case-37</name>
+    </uml:Model>
+    <sysml:Problem xmi:id="_-Problem" xmi:uuid="725A27D7-D4C3-45D6-9238-E7FA25942360">
+        <base_Comment xmi:idref="Test-Case-37-ownedComment"/>
+    </sysml:Problem>
+    <sysml:Requirement xmi:id="_-Requirement-2" xmi:uuid="725A27D7-D4C3-427B-9600-E7FA77BEA505">
+        <base_Class xmi:idref="Test-Case-37-Requirement-B"/>
+        <Text>Requirements for B</Text>
+        <Id>2</Id>
+    </sysml:Requirement>
+    <sysml:Requirement xmi:id="_-Requirement-5" xmi:uuid="725A27D7-D4C3-42EE-954C-E7FA022E5207">
+        <base_Class xmi:idref="Test-Case-37-Requirement-A-Requirement-A1"/>
+        <Text>Specific requirements for A</Text>
+        <Id>1.1</Id>
+    </sysml:Requirement>
+    <sysml:Requirement xmi:id="_-Requirement-6" xmi:uuid="725A27D7-D4C3-43B5-9E41-E7FA1E3A4AAE">
+        <base_Class xmi:idref="Test-Case-37-Requirement-B-Requirement-B2"/>
+        <Text>Common requirements</Text>
+        <Id>2.2</Id>
+    </sysml:Requirement>
+    <sysml:Requirement xmi:id="_-Requirement-3" xmi:uuid="725A27D7-D4C3-43B7-9433-E7FA78B8EE23">
+        <base_Class xmi:idref="Test-Case-37-Requirement-Common"/>
+        <Text>Common requirements</Text>
+        <Id>0</Id>
+    </sysml:Requirement>
+    <sysml:Requirement xmi:id="_-Requirement-7" xmi:uuid="725A27D7-D4C3-46D5-94C7-E7FA67AED8EE">
+        <base_Class xmi:idref="Test-Case-37-Requirement-A"/>
+        <Text>Requirements for A</Text>
+        <Id>1</Id>
+    </sysml:Requirement>
+    <sysml:Requirement xmi:id="_-Requirement-1" xmi:uuid="725A27D7-D4C3-49AD-9805-E7FA24B81C31">
+        <base_Class xmi:idref="Test-Case-37-Requirement-B-Requirement-B1"/>
+        <Text>Specific requirements for B</Text>
+        <Id>2.1</Id>
+    </sysml:Requirement>
+    <sysml:Requirement xmi:id="_-Requirement-4" xmi:uuid="725A27D7-D4C3-4D34-91F6-E7FAC6CDC1DB">
+        <base_Class xmi:idref="Test-Case-37-Requirement-A-Requirement-A2"/>
+        <Text>Common requirements</Text>
+        <Id>1.2</Id>
+    </sysml:Requirement>
+    <sysml:RequirementRelated xmi:id="_-RequirementRelated-2"
+        xmi:uuid="725A27D7-D4C3-419D-934A-E7FA5399BB1D">
+        <base_NamedElement xmi:idref="Test-Case-37-Requirement-A-Requirement-A2"/>
+    </sysml:RequirementRelated>
+    <sysml:RequirementRelated xmi:id="_-RequirementRelated-1"
+        xmi:uuid="725A27D7-D4C3-4AAE-9718-E7FA0F019E0A">
+        <base_NamedElement xmi:idref="Test-Case-37-Test-Case-Common"/>
+    </sysml:RequirementRelated>
+    <sysml:RequirementRelated xmi:id="_-RequirementRelated-3"
+        xmi:uuid="725A27D7-D4C3-4D8B-9335-E7FA25FC99A2">
+        <base_NamedElement xmi:idref="Test-Case-37-Requirement-B-Requirement-B2"/>
+    </sysml:RequirementRelated>
+    <sysml:TestCase xmi:id="_-TestCase" xmi:uuid="725A27D7-D4C3-4352-9314-E7FA5EDB6763">
+        <base_Behavior xmi:idref="Test-Case-37-Test-Case-Common"/>
+    </sysml:TestCase>
+    <sysml:Verify xmi:id="_-Verify" xmi:uuid="725A27D7-D4C3-45D1-9CBB-E7FAB72F409B">
+        <base_Abstraction xmi:idref="Test-Case-37-packagedElement-7"/>
+    </sysml:Verify>
+</xmi:XMI>

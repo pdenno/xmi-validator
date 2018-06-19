@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="rdbmsMM"
+    name="rdbmsMM" uri="rdbmsMM">
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.Dummy" name="Dummy">
+    <ownedAttribute xmi:id="rdbmsMM.Dummy.hasSchema" name="hasSchema" upper="*" type="rdbmsMM.Schema"
+        isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.Schema" name="Schema">
+    <ownedAttribute xmi:id="rdbmsMM.Schema.name" name="name" isID="true">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="rdbmsMM.Schema.hasTable" name="hasTable" upper="*" type="rdbmsMM.Table"
+        isComposite="true" opposite="rdbmsMM.Table.hasSchema"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="rdbmsMM.Table" name="Table">
+    <ownedAttribute xmi:id="rdbmsMM.Table.name" name="name" isID="true">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="rdbmsMM.Table.hasSchema" name="hasSchema" lower="1" type="rdbmsMM.Schema"
+        opposite="rdbmsMM.Schema.hasTable"/>
+  </ownedType>
+</emof:Package>

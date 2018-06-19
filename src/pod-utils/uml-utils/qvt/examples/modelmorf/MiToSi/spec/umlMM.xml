@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="umlmmmi"
+    name="umlmmmi" uri="umlmmmi">
+  <ownedType xmi:type="emof:Class" xmi:id="umlmmmi.Class" name="Class">
+    <ownedAttribute xmi:id="umlmmmi.Class.type" name="type" default="">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlmmmi.Class.supers" name="supers" upper="*" type="umlmmmi.Class"
+        opposite="umlmmmi.Class.subs"/>
+    <ownedAttribute xmi:id="umlmmmi.Class.subs" name="subs" upper="*" type="umlmmmi.Class"
+        opposite="umlmmmi.Class.supers"/>
+    <ownedAttribute xmi:id="umlmmmi.Class.name" name="name" isID="true">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlmmmi.dummy" name="dummy">
+    <ownedAttribute xmi:id="umlmmmi.dummy.containsClass" name="containsClass" upper="*"
+        type="umlmmmi.Class" isComposite="true"/>
+  </ownedType>
+</emof:Package>

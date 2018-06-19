@@ -1,0 +1,218 @@
+/*
+ * UML to RDBM
+ * This transformation is similar to the Uml2Rdbm with simple metammodels. 
+ * It delivers an UML class diagram, that represents database tables.  
+ */
+
+transformation uml2rdbm ( uml : uml, rdbm : uml ) 
+{
+   key DataType { name }; 
+   key Class    { name }; 
+   key Property { owner, name, type }; 
+
+   ----------------------------------------------------------------------------
+	
+   top relation Packages 
+   {
+      packageName : String;
+      checkonly domain uml  src : Package { name = packageName };
+      enforce   domain rdbm dst : Package { name = packageName };
+      where 
+      { 
+         Datatypes    ( src, dst ); 
+         Classes      ( src, dst, packageName ); 
+         Associations ( src, dst ); 
+      } 
+   }
+
+   ----------------------------------------------------------------------------
+	
+   relation Classes
+   {
+      className : String;
+      prefix    : String;
+
+      checkonly domain uml  src : uml::Package 
+      { 
+         packagedElement = srcCls:Class { name = className }
+      };
+
+      enforce   domain rdbm dst : uml::Package 
+      { 
+         packagedElement = dstCls:Class 
+         { 
+            name = className, 
+
+            -- a new synthetic attribute for identification
+            ownedAttribute = cl : Property 
+            {
+               owner = dstCls,
+               name = className + '_tid',
+               type = dataType : DataType { name = 'int' } 
+            }
+         }
+      };
+      
+      primitive   domain pName : String; 
+
+     where 
+     {
+        prefix = className;
+        Attributes ( srcCls, dstCls, prefix );
+     }
+   }
+	
+   ----------------------------------------------------------------------------
+
+   relation Attributes 
+   {
+      checkonly domain uml   c : Class {};
+      enforce   domain rdbm  t : Class {};
+      primitive domain prefix  : String;
+      where 
+      {
+         PrimitiveAttributes (c, t, prefix);
+         ComplexAttributes   (c, t, prefix);
+         SuperAttributes     (c, t, prefix);
+      }
+   }
+	
+   ----------------------------------------------------------------------------
+
+   relation PrimitiveAttributes
+   {
+      attributeName : String;
+      className     : String;
+      dt : Type;
+	  
+      checkonly domain uml c : Class 
+      {
+         ownedAttribute = a : Property 
+         {
+            name = attributeName,
+            type = dt
+         }
+      };
+	  
+	  enforce domain rdbm t : Class 
+	  {
+	    ownedAttribute = cl : Property 
+	    {
+	      owner = t,
+	      name  = className,
+	      type  = dt
+	    }
+	  };
+	  
+	  primitive domain prefix : String;
+	  
+	  where 
+	  {
+	    className = getClassname (prefix, attributeName); 
+	  }
+	}
+	
+   ----------------------------------------------------------------------------
+
+	relation SuperAttributes 
+	{
+	  checkonly domain uml  c : Class { general = sc : Class {} };
+	  enforce   domain uml  t : Class {};
+	  primitive domain prefix : String;
+	  where { Attributes ( sc, t, prefix ); }
+	}
+
+   ----------------------------------------------------------------------------
+
+	relation ComplexAttributes 
+	{
+	  an : String;
+	  newPrefix : String;
+	  
+	  checkonly domain uml c : Class 
+	  {
+	    attribute = a : Property 
+	    {
+	      name = an,
+	      type = tc : Class {}
+	    }
+	  };
+	  
+	  enforce   domain rdbm t : Class {};
+	  primitive domain prefix : String;
+	  
+	  where 
+	  {
+	    newPrefix = prefix + '_' + an;
+	    Attributes ( tc, t, newPrefix );
+	  }
+	}
+	
+   ----------------------------------------------------------------------------
+
+	relation Associations 
+	{
+	  associationName : String;
+	  sourceClassName : String;
+	  destClassName   : String;
+	  
+	  checkonly domain uml srcPkg : Package 
+	  {
+         packagedElement = srcAssoc : Association 
+         { 
+            name = associationName,
+            ownedEnd  = src : Property { name = sourceClassName },  
+            ownedEnd  = dst : Property { name = destClassName }  
+         }
+	  };
+	  
+	  enforce   domain rdbm trgPkg : Package 
+	  {
+         packagedElement = cls : Class 
+         { 
+            name = associationName,
+            
+            -- a synthetic attribute for referencing source classes
+            ownedAttribute = pSrcCls : Property 
+            {
+               owner = cls,
+               name = sourceClassName, 
+               type = dataType : DataType { name = 'int' } 
+            },
+
+            -- a synthetic attribute for referencing destination classes
+            ownedAttribute = pDstCls : Property 
+            {
+               owner = cls,
+               name = destClassName,  
+               type = dataType : DataType { name = 'int' } 
+            }
+         }
+	  };
+	}
+
+   ----------------------------------------------------------------------------
+	
+   relation Datatypes
+   {
+      datatypeName : String;
+      checkonly domain uml src : uml::Package 
+      {
+         packagedElement = srcDt:DataType { name = datatypeName }
+      };
+      enforce   domain rdbm dst : uml::Package 
+      {
+         packagedElement = dstDt : DataType { name = datatypeName }
+      }; 
+   }
+
+   ----------------------------------------------------------------------------
+   
+   query getClassname ( prefix : String, attrName : String ) : String
+   {
+      if   prefix = ''                  
+      then attrName
+	  else prefix + '_' + attrName 
+	  endif
+   }
+}

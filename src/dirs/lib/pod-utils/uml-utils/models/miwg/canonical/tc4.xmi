@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="TestCase4" xmi:uuid="725A27D7-D276-4B43-92B9-2E0D0856ACA3">
+    <name>TestCase4</name>
+    <packagedElement xmi:id="TestCase4-Activity1" xmi:uuid="725A27D7-D276-4557-9826-2E0D324C32D4" xmi:type="uml:Activity">
+      <name>Activity1</name>
+      <ownedParameter xmi:id="TestCase4-Activity1-ownedParameter-1" xmi:uuid="725A27D7-D276-4F0E-93F3-2E0D02DDBC0B" xmi:type="uml:Parameter">
+        <name>input</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="TestCase4-Activity1-ownedParameter-2" xmi:uuid="725A27D7-D276-448F-985E-2E0D1180D24B" xmi:type="uml:Parameter">
+        <name>output1</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <direction>out</direction>
+      </ownedParameter>
+      <ownedParameter xmi:id="TestCase4-Activity1-ownedParameter-3" xmi:uuid="725A27D7-D276-49E3-9C68-2E0DA82C96DD" xmi:type="uml:Parameter">
+        <name>output2</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <direction>out</direction>
+      </ownedParameter>
+      <node xmi:id="TestCase4-Activity1-Fork" xmi:uuid="725A27D7-D276-4767-99EF-2E0DD354A534" xmi:type="uml:ForkNode">
+        <name>Fork</name>
+        <outgoing xmi:idref="TestCase4-Activity1-edge-3"/>
+        <outgoing xmi:idref="TestCase4-Activity1-edge-2"/>
+        <incoming xmi:idref="TestCase4-Activity1-edge-1"/>
+      </node>
+      <node xmi:id="TestCase4-Activity1-node-4" xmi:uuid="725A27D7-D276-48BB-9865-2E0D979B2FB7" xmi:type="uml:ActivityParameterNode">
+        <name>output2</name>
+        <incoming xmi:idref="TestCase4-Activity1-edge-3"/>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <parameter xmi:idref="TestCase4-Activity1-ownedParameter-3"/>
+      </node>
+      <node xmi:id="TestCase4-Activity1-node-3" xmi:uuid="725A27D7-D276-4ACF-9A27-2E0D2E6A00E0" xmi:type="uml:ActivityParameterNode">
+        <name>output1</name>
+        <incoming xmi:idref="TestCase4-Activity1-edge-2"/>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <parameter xmi:idref="TestCase4-Activity1-ownedParameter-2"/>
+      </node>
+      <node xmi:id="TestCase4-Activity1-node-1" xmi:uuid="725A27D7-D276-4FAD-9500-2E0D5AC90A68" xmi:type="uml:ActivityParameterNode">
+        <name>input</name>
+        <outgoing xmi:idref="TestCase4-Activity1-edge-1"/>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        <parameter xmi:idref="TestCase4-Activity1-ownedParameter-1"/>
+      </node>
+      <edge xmi:id="TestCase4-Activity1-edge-3" xmi:uuid="725A27D7-D276-43FC-9666-2E0D91519B74" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity1-edge-3-weight" xmi:uuid="725A27D7-D276-42E7-92C7-2E0D42B553C4" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity1-node-4"/>
+        <source xmi:idref="TestCase4-Activity1-Fork"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity1-edge-1" xmi:uuid="725A27D7-D276-4B9E-9932-2E0DAB824854" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity1-edge-1-weight" xmi:uuid="725A27D7-D276-4073-9ADB-2E0D27CF865A" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity1-Fork"/>
+        <source xmi:idref="TestCase4-Activity1-node-1"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity1-edge-2" xmi:uuid="725A27D7-D276-4DB3-915F-2E0D16995880" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity1-edge-2-weight" xmi:uuid="725A27D7-D276-46E8-92EB-2E0DBFA1EA94" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity1-node-3"/>
+        <source xmi:idref="TestCase4-Activity1-Fork"/>
+      </edge>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase4-Activity2" xmi:uuid="725A27D7-D276-4981-9700-2E0D9502B468" xmi:type="uml:Activity">
+      <name>Activity2</name>
+      <node xmi:id="TestCase4-Activity2-Merge" xmi:uuid="725A27D7-D276-421F-982F-2E0D3A5B68AC" xmi:type="uml:MergeNode">
+        <name>Merge</name>
+        <outgoing xmi:idref="TestCase4-Activity2-edge-8"/>
+        <incoming xmi:idref="TestCase4-Activity2-edge-5"/>
+        <incoming xmi:idref="TestCase4-Activity2-edge-6"/>
+        <incoming xmi:idref="TestCase4-Activity2-edge-10"/>
+      </node>
+      <node xmi:id="TestCase4-Activity2-Value" xmi:uuid="725A27D7-D276-42A5-9811-2E0D96C10352" xmi:type="uml:ValueSpecificationAction">
+        <name>Value</name>
+        <incoming xmi:idref="TestCase4-Activity2-edge-1"/>
+        <value xmi:id="TestCase4-Activity2-Value-value" xmi:uuid="725A27D7-D276-4315-9A0B-2E0D0DC658FE" xmi:type="uml:OpaqueExpression">
+          <language>English</language>
+          <body>1</body>
+        </value>
+        <result xmi:id="TestCase4-Activity2-Value-Value.output" xmi:uuid="725A27D7-D276-40FF-968D-2E0D73AB3CD6" xmi:type="uml:OutputPin">
+          <name>Value.output</name>
+          <outgoing xmi:idref="TestCase4-Activity2-edge-2"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </result>
+      </node>
+      <node xmi:id="TestCase4-Activity2-Call1" xmi:uuid="725A27D7-D276-463B-9A46-2E0D4E5EB3AA" xmi:type="uml:CallBehaviorAction">
+        <name>Call1</name>
+        <argument xmi:id="TestCase4-Activity2-Call1-Call1.input" xmi:uuid="725A27D7-D276-430A-9846-2E0D955A1F43" xmi:type="uml:InputPin">
+          <name>Call1.input</name>
+          <incoming xmi:idref="TestCase4-Activity2-edge-2"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </argument>
+        <result xmi:id="TestCase4-Activity2-Call1-Call1.output1" xmi:uuid="725A27D7-D276-437B-9AA4-2E0DBA190BD7" xmi:type="uml:OutputPin">
+          <name>Call1.output1</name>
+          <outgoing xmi:idref="TestCase4-Activity2-edge-3"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </result>
+        <result xmi:id="TestCase4-Activity2-Call1-Call1.output2" xmi:uuid="725A27D7-D276-4C3B-9ABB-2E0D1C3B5DF2" xmi:type="uml:OutputPin">
+          <name>Call1.output2</name>
+          <outgoing xmi:idref="TestCase4-Activity2-edge-7"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </result>
+        <behavior xmi:idref="TestCase4-Activity1"/>
+      </node>
+      <node xmi:id="TestCase4-Activity2-Initial" xmi:uuid="725A27D7-D276-46DC-9D55-2E0DAD186611" xmi:type="uml:InitialNode">
+        <name>Initial</name>
+        <outgoing xmi:idref="TestCase4-Activity2-edge-1"/>
+      </node>
+      <node xmi:id="TestCase4-Activity2-Decision" xmi:uuid="725A27D7-D276-4B55-909F-2E0DC7C6D25E" xmi:type="uml:DecisionNode">
+        <name>Decision</name>
+        <outgoing xmi:idref="TestCase4-Activity2-edge-4"/>
+        <outgoing xmi:idref="TestCase4-Activity2-edge-6"/>
+        <incoming xmi:idref="TestCase4-Activity2-edge-3"/>
+      </node>
+      <node xmi:id="TestCase4-Activity2-Final" xmi:uuid="725A27D7-D276-4B8C-9CC2-2E0D09800464" xmi:type="uml:ActivityFinalNode">
+        <name>Final</name>
+        <incoming xmi:idref="TestCase4-Activity2-edge-9"/>
+      </node>
+      <node xmi:id="TestCase4-Activity2-Call2" xmi:uuid="725A27D7-D276-4C53-9B5F-2E0D0603A926" xmi:type="uml:CallBehaviorAction">
+        <name>Call2</name>
+        <argument xmi:id="TestCase4-Activity2-Call2-Call2.input" xmi:uuid="725A27D7-D276-4D74-9929-2E0D9E4FC970" xmi:type="uml:InputPin">
+          <name>Call2.input</name>
+          <incoming xmi:idref="TestCase4-Activity2-edge-4"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </argument>
+        <result xmi:id="TestCase4-Activity2-Call2-Call2.output1" xmi:uuid="725A27D7-D276-446B-9899-2E0DAB771642" xmi:type="uml:OutputPin">
+          <name>Call2.output1</name>
+          <outgoing xmi:idref="TestCase4-Activity2-edge-5"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </result>
+        <result xmi:id="TestCase4-Activity2-Call2-Call2.output2" xmi:uuid="725A27D7-D276-4FB6-9573-2E0D69E0533B" xmi:type="uml:OutputPin">
+          <name>Call2.output2</name>
+          <outgoing xmi:idref="TestCase4-Activity2-edge-10"/>
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+        </result>
+        <behavior xmi:idref="TestCase4-Activity1"/>
+      </node>
+      <node xmi:id="TestCase4-Activity2-Join" xmi:uuid="725A27D7-D276-4DC6-9712-2E0DF64A7781" xmi:type="uml:JoinNode">
+        <name>Join</name>
+        <outgoing xmi:idref="TestCase4-Activity2-edge-9"/>
+        <incoming xmi:idref="TestCase4-Activity2-edge-7"/>
+        <incoming xmi:idref="TestCase4-Activity2-edge-8"/>
+      </node>
+      <edge xmi:id="TestCase4-Activity2-edge-10" xmi:uuid="725A27D7-D276-4117-9040-2E0D173C748F" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-10-weight" xmi:uuid="725A27D7-D276-475A-951F-2E0D9A69D9DA" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Merge"/>
+        <source xmi:idref="TestCase4-Activity2-Call2-Call2.output2"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-1" xmi:uuid="725A27D7-D276-436E-90A4-2E0DBB322AF8" xmi:type="uml:ControlFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-1-weight" xmi:uuid="725A27D7-D276-4B78-9F02-2E0DF21569FC" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Value"/>
+        <source xmi:idref="TestCase4-Activity2-Initial"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-2" xmi:uuid="725A27D7-D276-4408-9904-2E0D167CFA65" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-2-weight" xmi:uuid="725A27D7-D276-4554-9413-2E0D9DBC3632" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Call1-Call1.input"/>
+        <source xmi:idref="TestCase4-Activity2-Value-Value.output"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-5" xmi:uuid="725A27D7-D276-463D-9269-2E0DA1D953E6" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-5-weight" xmi:uuid="725A27D7-D276-4636-93DC-2E0D86F0330A" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Merge"/>
+        <source xmi:idref="TestCase4-Activity2-Call2-Call2.output1"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-4" xmi:uuid="725A27D7-D276-4757-9CCF-2E0D31B226D7" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-4-weight" xmi:uuid="725A27D7-D276-40AC-9FB7-2E0D438F3DEF" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Call2-Call2.input"/>
+        <source xmi:idref="TestCase4-Activity2-Decision"/>
+        <guard xmi:id="TestCase4-Activity2-edge-4-guard" xmi:uuid="725A27D7-D276-42C4-95A5-2E0DCCB81D31" xmi:type="uml:OpaqueExpression">
+          <body>1</body>
+        </guard>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-8" xmi:uuid="725A27D7-D276-4A21-9505-2E0D8632F312" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-8-weight" xmi:uuid="725A27D7-D276-47AB-95CD-2E0D327262B0" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Join"/>
+        <source xmi:idref="TestCase4-Activity2-Merge"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-7" xmi:uuid="725A27D7-D276-4A28-99CA-2E0D9FFD5541" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-7-weight" xmi:uuid="725A27D7-D276-4EE8-9FE6-2E0DBF1B5F3A" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Join"/>
+        <source xmi:idref="TestCase4-Activity2-Call1-Call1.output2"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-9" xmi:uuid="725A27D7-D276-4C54-9D1E-2E0DCB968C13" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-9-weight" xmi:uuid="725A27D7-D276-41CB-94AE-2E0DA122A6F7" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Final"/>
+        <source xmi:idref="TestCase4-Activity2-Join"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-3" xmi:uuid="725A27D7-D276-4E71-90DC-2E0D7CF25881" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-3-weight" xmi:uuid="725A27D7-D276-4ADB-9A2F-2E0D5FD3340D" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Decision"/>
+        <source xmi:idref="TestCase4-Activity2-Call1-Call1.output1"/>
+      </edge>
+      <edge xmi:id="TestCase4-Activity2-edge-6" xmi:uuid="725A27D7-D276-4EFF-9B84-2E0D68D72419" xmi:type="uml:ObjectFlow">
+        <weight xmi:id="TestCase4-Activity2-edge-6-weight" xmi:uuid="725A27D7-D276-41E4-9EF3-2E0D7B87A150" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>1</value>
+        </weight>
+        <target xmi:idref="TestCase4-Activity2-Merge"/>
+        <source xmi:idref="TestCase4-Activity2-Decision"/>
+        <guard xmi:id="TestCase4-Activity2-edge-6-guard" xmi:uuid="725A27D7-D276-41D2-9BB3-2E0D7679B9D8" xmi:type="uml:OpaqueExpression">
+          <body>0</body>
+        </guard>
+      </edge>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

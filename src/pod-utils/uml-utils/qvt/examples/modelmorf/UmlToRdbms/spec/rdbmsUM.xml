@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="rdbmsMM" xmi:id="_4HK8oNCSEduqp90yRZoxVQ">
+  <containsSchema xmi:id="_44gS8NCSEduqp90yRZoxVQ" name="Company">
+    <table xmi:id="_9BgvsNCSEduqp90yRZoxVQ" name="Employer">
+      <column xmi:id="_CeIwcNCTEduqp90yRZoxVQ" name="Employer_tid" type="NUMBER" hasKey="_JHOkUNCTEduqp90yRZoxVQ"/>
+      <column xmi:id="_ORqo4NCTEduqp90yRZoxVQ" name="Age" type="NUMBER"/>
+      <column xmi:id="_ST0PsNCTEduqp90yRZoxVQ" name="Name" type="VARCHAR"/>
+      <hasKey xmi:id="_JHOkUNCTEduqp90yRZoxVQ" name="Employer_pk" column="_CeIwcNCTEduqp90yRZoxVQ"/>
+    </table>
+    <table xmi:id="__2wegNCSEduqp90yRZoxVQ" name="Employee">
+      <column xmi:id="_YdKMgNCTEduqp90yRZoxVQ" name="Employee_tid" type="NUMBER" hasKey="_dNXMINCTEduqp90yRZoxVQ"/>
+      <column xmi:id="_ixcfwNCTEduqp90yRZoxVQ" name="_Info_EmployeeNo" type="NUMBER"/>
+      <column xmi:id="_lVP5QNCTEduqp90yRZoxVQ" name="Name" type="VARCHAR"/>
+      <hasKey xmi:id="_dNXMINCTEduqp90yRZoxVQ" name="Employee_pk" column="_YdKMgNCTEduqp90yRZoxVQ"/>
+    </table>
+  </containsSchema>
+</null:dummy>

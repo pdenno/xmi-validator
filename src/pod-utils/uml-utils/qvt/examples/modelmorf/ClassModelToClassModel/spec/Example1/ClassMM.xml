@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="ClassMM"
+    name="ClassMM" uri="ClassMM_uri">
+  <ownedType xmi:type="emof:Class" xmi:id="ClassMM.Class" name="Class">
+    <ownedAttribute xmi:id="ClassMM.Class.subs" name="subs" upper="*" type="ClassMM.Class"
+        opposite="ClassMM.Class.supers"/>
+    <ownedAttribute xmi:id="ClassMM.Class.supers" name="supers" upper="*" type="ClassMM.Class"
+        opposite="ClassMM.Class.subs"/>
+    <ownedAttribute xmi:id="ClassMM.Class.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="ClassMM.Dummy" name="Dummy">
+    <ownedAttribute xmi:id="ClassMM.Dummy.hasClass" name="hasClass" upper="*" type="ClassMM.Class"
+        isComposite="true"/>
+  </ownedType>
+</emof:Package>

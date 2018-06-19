@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!-- POD, This is the 20070901 profile found at http://www.omg.org/technology/documents/formal/sysml.htm -->
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1.1" xmi:id="_0" name="SysML" metamodelReference="_packageImport.0">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_packageImport.0" visibility="private" importingNamespace="_0">
+    <importedPackage xmi:type="uml:Model" href="UML4SysML-metamodel.xmi#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Rate" name="Rate">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Rate-base_Parameter" name="base_Parameter" association="Parameter_Rate">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Parameter"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Rate-base_ActivityEdge" name="base_ActivityEdge" association="ActivityEdge_Rate">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#ActivityEdge"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Rate-rate" name="rate">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#InstanceSpecification"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Parameter_Rate" name="Parameter_Rate" memberEnd="Parameter_Rate-extension_Rate Rate-base_Parameter">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Parameter_Rate-extension_Rate" name="extension_Rate" type="Rate" aggregation="composite" owningAssociation="Parameter_Rate" association="Parameter_Rate">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Parameter_Rate-extension_Rate-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="ActivityEdge_Rate" name="ActivityEdge_Rate" memberEnd="ActivityEdge_Rate-extension_Rate Rate-base_ActivityEdge">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="ActivityEdge_Rate-extension_Rate" name="extension_Rate" type="Rate" aggregation="composite" owningAssociation="ActivityEdge_Rate" association="ActivityEdge_Rate">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ActivityEdge_Rate-extension_Rate-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Continuous" name="Continuous">
+    <generalization xmi:type="uml:Generalization" xmi:id="Continuous-_generalization.0" general="Rate" specific="Continuous"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="ControlOperator" name="ControlOperator">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ControlOperator-base_Behavior" name="base_Behavior" association="Behavior_ControlOperator">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Behavior"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ControlOperator-base_Operation" name="base_Operation" association="Operation_ControlOperator">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Operation"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Behavior_ControlOperator" name="Behavior_ControlOperator" memberEnd="Behavior_ControlOperator-extension_ControlOperator ControlOperator-base_Behavior">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Behavior_ControlOperator-extension_ControlOperator" name="extension_ControlOperator" type="ControlOperator" aggregation="composite" owningAssociation="Behavior_ControlOperator" association="Behavior_ControlOperator">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Behavior_ControlOperator-extension_ControlOperator-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Operation_ControlOperator" name="Operation_ControlOperator" memberEnd="Operation_ControlOperator-extension_ControlOperator ControlOperator-base_Operation">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Operation_ControlOperator-extension_ControlOperator" name="extension_ControlOperator" type="ControlOperator" aggregation="composite" owningAssociation="Operation_ControlOperator" association="Operation_ControlOperator">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Operation_ControlOperator-extension_ControlOperator-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Discrete" name="Discrete">
+    <generalization xmi:type="uml:Generalization" xmi:id="Discrete-_generalization.0" general="Rate" specific="Discrete"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="NoBuffer" name="NoBuffer">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="NoBuffer-base_ObjectNode" name="base_ObjectNode" association="ObjectNode_NoBuffer">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#ObjectNode"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="ObjectNode_NoBuffer" name="ObjectNode_NoBuffer" memberEnd="ObjectNode_NoBuffer-extension_NoBuffer NoBuffer-base_ObjectNode">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="ObjectNode_NoBuffer-extension_NoBuffer" name="extension_NoBuffer" type="NoBuffer" aggregation="composite" owningAssociation="ObjectNode_NoBuffer" association="ObjectNode_NoBuffer">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ObjectNode_NoBuffer-extension_NoBuffer-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Optional" name="Optional">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Optional-base_Parameter" name="base_Parameter" association="Parameter_Optional">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Parameter"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Parameter_Optional" name="Parameter_Optional" memberEnd="Parameter_Optional-extension_Optional Optional-base_Parameter">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Parameter_Optional-extension_Optional" name="extension_Optional" type="Optional" aggregation="composite" owningAssociation="Parameter_Optional" association="Parameter_Optional">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Parameter_Optional-extension_Optional-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Overwrite" name="Overwrite">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Overwrite-base_ObjectNode" name="base_ObjectNode" association="ObjectNode_Overwrite">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#ObjectNode"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="ObjectNode_Overwrite" name="ObjectNode_Overwrite" memberEnd="ObjectNode_Overwrite-extension_Overwrite Overwrite-base_ObjectNode">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="ObjectNode_Overwrite-extension_Overwrite" name="extension_Overwrite" type="Overwrite" aggregation="composite" owningAssociation="ObjectNode_Overwrite" association="ObjectNode_Overwrite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ObjectNode_Overwrite-extension_Overwrite-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Probability" name="Probability">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Probability-base_ParameterSet" name="base_ParameterSet" association="ParameterSet_Probability">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#ParameterSet"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Probability-base_ActivityEdge" name="base_ActivityEdge" association="ActivityEdge_Probability">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#ActivityEdge"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Probability-probability" name="probability">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#ValueSpecification"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="ParameterSet_Probability" name="ParameterSet_Probability" memberEnd="ParameterSet_Probability-extension_Probability Probability-base_ParameterSet">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="ParameterSet_Probability-extension_Probability" name="extension_Probability" type="Probability" aggregation="composite" owningAssociation="ParameterSet_Probability" association="ParameterSet_Probability">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ParameterSet_Probability-extension_Probability-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="ActivityEdge_Probability" name="ActivityEdge_Probability" memberEnd="ActivityEdge_Probability-extension_Probability Probability-base_ActivityEdge">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="ActivityEdge_Probability-extension_Probability" name="extension_Probability" type="Probability" aggregation="composite" owningAssociation="ActivityEdge_Probability" association="ActivityEdge_Probability">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ActivityEdge_Probability-extension_Probability-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Allocate" name="Allocate">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Allocate-base_Abstraction" name="base_Abstraction" association="Abstraction_Allocate">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Abstraction"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Abstraction_Allocate" name="Abstraction_Allocate" memberEnd="Abstraction_Allocate-extension_Allocate Allocate-base_Abstraction">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Abstraction_Allocate-extension_Allocate" name="extension_Allocate" type="Allocate" aggregation="composite" owningAssociation="Abstraction_Allocate" association="Abstraction_Allocate">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Abstraction_Allocate-extension_Allocate-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="AllocateActivityPartition" name="AllocateActivityPartition">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="AllocateActivityPartition-base_ActivityPartition" name="base_ActivityPartition" association="ActivityPartition_AllocateActivityPartition">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#ActivityPartition"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="ActivityPartition_AllocateActivityPartition" name="ActivityPartition_AllocateActivityPartition" memberEnd="ActivityPartition_AllocateActivityPartition-extension_AllocateActivityPartition AllocateActivityPartition-base_ActivityPartition">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="ActivityPartition_AllocateActivityPartition-extension_AllocateActivityPartition" name="extension_AllocateActivityPartition" type="AllocateActivityPartition" aggregation="composite" owningAssociation="ActivityPartition_AllocateActivityPartition" association="ActivityPartition_AllocateActivityPartition">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ActivityPartition_AllocateActivityPartition-extension_AllocateActivityPartition-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Allocated" name="Allocated">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Allocated-base_NamedElement" name="base_NamedElement" association="NamedElement_Allocated">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#NamedElement"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Allocated-AllocatedFrom" name="AllocatedFrom" isDerived="true">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#NamedElement"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Allocated-AllocatedFrom-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Allocated-AllocatedFrom-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Allocated-AllocatedTo" name="AllocatedTo" isDerived="true">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#NamedElement"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Allocated-AllocatedTo-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Allocated-AllocatedTo-_lowerValue"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="NamedElement_Allocated" name="NamedElement_Allocated" memberEnd="NamedElement_Allocated-extension_Allocated Allocated-base_NamedElement">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="NamedElement_Allocated-extension_Allocated" name="extension_Allocated" type="Allocated" aggregation="composite" owningAssociation="NamedElement_Allocated" association="NamedElement_Allocated">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="NamedElement_Allocated-extension_Allocated-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Block" name="Block">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Block-base_Class" name="base_Class" association="Class_Block">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Block-isEncapsulated" name="isEncapsulated">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#Boolean"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Class_Block" name="Class_Block" memberEnd="Class_Block-extension_Block Block-base_Class">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Class_Block-extension_Block" name="extension_Block" type="Block" aggregation="composite" owningAssociation="Class_Block" association="Class_Block">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Class_Block-extension_Block-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="DistributedProperty" name="DistributedProperty">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="DistributedProperty-base_Property" name="base_Property" association="Property_DistributedProperty">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Property"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="NestedConnectorEnd" name="NestedConnectorEnd">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="NestedConnectorEnd-base_ConnectorEnd" name="base_ConnectorEnd" association="ConnectorEnd_NestedConnectorEnd">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#ConnectorEnd"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="NestedConnectorEnd-propertyPath" name="propertyPath">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Property"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="ConnectorEnd_NestedConnectorEnd" name="ConnectorEnd_NestedConnectorEnd" memberEnd="ConnectorEnd_NestedConnectorEnd-extension_NestedConnectorEnd NestedConnectorEnd-base_ConnectorEnd">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="ConnectorEnd_NestedConnectorEnd-extension_NestedConnectorEnd" name="extension_NestedConnectorEnd" type="NestedConnectorEnd" aggregation="composite" owningAssociation="ConnectorEnd_NestedConnectorEnd" association="ConnectorEnd_NestedConnectorEnd">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ConnectorEnd_NestedConnectorEnd-extension_NestedConnectorEnd-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="ValueType" name="ValueType">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ValueType-base_DataType" name="base_DataType" association="DataType_ValueType">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#DataType"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ValueType-dimension" name="dimension" type="Dimension"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ValueType-unit" name="unit" type="Unit"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="DataType_ValueType" name="DataType_ValueType" memberEnd="DataType_ValueType-extension_ValueType ValueType-base_DataType">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="DataType_ValueType-extension_ValueType" name="extension_ValueType" type="ValueType" aggregation="composite" owningAssociation="DataType_ValueType" association="DataType_ValueType">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="DataType_ValueType-extension_ValueType-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Unit" name="Unit">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Unit-base_InstanceSpecification" name="base_InstanceSpecification" association="InstanceSpecification_Unit">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#InstanceSpecification"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Unit-dimension" name="dimension" type="Dimension"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Dimension" name="Dimension">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Dimension-base_InstanceSpecification" name="base_InstanceSpecification" association="InstanceSpecification_Dimension">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#InstanceSpecification"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="FlowPort" name="FlowPort">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="FlowPort-base_Port" name="base_Port" association="Port_FlowPort">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Port"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="FlowPort-direction" name="direction" type="FlowDirection"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="FlowPort-isAtomic" name="isAtomic" isDerived="true">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#Boolean"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="FlowPort-isConjugated" name="isConjugated">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#Boolean"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Port_FlowPort" name="Port_FlowPort" memberEnd="Port_FlowPort-extension_FlowPort FlowPort-base_Port">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Port_FlowPort-extension_FlowPort" name="extension_FlowPort" type="FlowPort" aggregation="composite" owningAssociation="Port_FlowPort" association="Port_FlowPort">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Port_FlowPort-extension_FlowPort-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="FlowDirection" name="FlowDirection">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="FlowDirection-in" name="in" enumeration="FlowDirection"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="FlowDirection-out" name="out" enumeration="FlowDirection"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="FlowDirection-inout" name="inout" enumeration="FlowDirection"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="FlowSpecification" name="FlowSpecification">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="FlowSpecification-noOperations" name="noOperations" context="FlowSpecification">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="FlowSpecification-noOperations-noOperations" name="noOperations">
+        <language>OCL</language>
+        <body>self.ownedOperation->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="FlowSpecification-base_Interface" name="base_Interface" association="Interface_FlowSpecification">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Interface"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Interface_FlowSpecification" name="Interface_FlowSpecification" memberEnd="Interface_FlowSpecification-extension_FlowSpecification FlowSpecification-base_Interface">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Interface_FlowSpecification-extension_FlowSpecification" name="extension_FlowSpecification" type="FlowSpecification" aggregation="composite" owningAssociation="Interface_FlowSpecification" association="Interface_FlowSpecification">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Interface_FlowSpecification-extension_FlowSpecification-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="FlowProperty" name="FlowProperty">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="FlowProperty-base_Property" name="base_Property" association="Property_FlowProperty">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Property"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="FlowProperty-direction" name="direction" type="FlowDirection"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Property_FlowProperty" name="Property_FlowProperty" memberEnd="Property_FlowProperty-extension_FlowProperty FlowProperty-base_Property">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Property_FlowProperty-extension_FlowProperty" name="extension_FlowProperty" type="FlowProperty" aggregation="composite" owningAssociation="Property_FlowProperty" association="Property_FlowProperty">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Property_FlowProperty-extension_FlowProperty-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="ItemFlow" name="ItemFlow">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ItemFlow-base_InformationFlow" name="base_InformationFlow" association="InformationFlow_ItemFlow">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#InformationFlow"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ItemFlow-ItemProperty" name="ItemProperty">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Property"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="ItemFlow-ItemProperty-_upperValue" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ItemFlow-ItemProperty-_lowerValue"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="InformationFlow_ItemFlow" name="InformationFlow_ItemFlow" memberEnd="InformationFlow_ItemFlow-extension_ItemFlow ItemFlow-base_InformationFlow">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="InformationFlow_ItemFlow-extension_ItemFlow" name="extension_ItemFlow" type="ItemFlow" aggregation="composite" owningAssociation="InformationFlow_ItemFlow" association="InformationFlow_ItemFlow">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="InformationFlow_ItemFlow-extension_ItemFlow-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="ConstraintBlock" name="ConstraintBlock">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="ConstraintBlock-noOperations" name="noOperations" context="ConstraintBlock">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="ConstraintBlock-noOperations-noOperations" name="noOperations">
+        <language>OCL</language>
+        <body>self.ownedOperation->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="ConstraintBlock-noTemplateSignature" name="noTemplateSignature" context="ConstraintBlock">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="ConstraintBlock-noTemplateSignature-noTemplateSignature" name="noTemplateSignature">
+        <language>OCL</language>
+        <body>self.ownedTemplateSignature->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="ConstraintBlock-noPorts" name="noPorts" context="ConstraintBlock">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="ConstraintBlock-noPorts-noPorts" name="noPorts">
+        <language>OCL</language>
+        <body>self.ownedPort->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="ConstraintBlock-noBehaviors" name="noBehaviors" context="ConstraintBlock">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="ConstraintBlock-noBehaviors-noBehaviors" name="noBehaviors">
+        <language>OCL</language>
+        <body>self.ownedBehavior->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <generalization xmi:type="uml:Generalization" xmi:id="ConstraintBlock-_generalization.0" general="Block" specific="ConstraintBlock"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="ConstraintProperty" name="ConstraintProperty">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ConstraintProperty-base_Property" name="base_Property" association="Property_ConstraintProperty">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Property"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="View" name="View">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="View-base_Package" name="base_Package" association="Package_View">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Package"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="View-viewpoint" name="viewpoint" type="Viewpoint"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Package_View" name="Package_View" memberEnd="Package_View-extension_View View-base_Package">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Package_View-extension_View" name="extension_View" type="View" aggregation="composite" owningAssociation="Package_View" association="Package_View">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Package_View-extension_View-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Viewpoint" name="Viewpoint">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="Viewpoint-noAttributes" name="noAttributes" context="Viewpoint">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="Viewpoint-noAttributes-noAttributes" name="noAttributes">
+        <language>OCL</language>
+        <body>self.ownedAttribute->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="Viewpoint-noOperations" name="noOperations" context="Viewpoint">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="Viewpoint-noOperations-noOperations" name="noOperations">
+        <language>OCL</language>
+        <body>self.ownedOperation->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="Viewpoint-noTemplateSignature" name="noTemplateSignature" context="Viewpoint">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="Viewpoint-noTemplateSignature-noTemplateSignature" name="noTemplateSignature">
+        <language>OCL</language>
+        <body>self.ownedTemplateSignature->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Viewpoint-base_Class" name="base_Class" association="Class_Viewpoint">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Viewpoint-concerns" name="concerns">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#String"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Viewpoint-concerns-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Viewpoint-concerns-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Viewpoint-purpose" name="purpose">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Viewpoint-stakeholders" name="stakeholders">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#String"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Viewpoint-stakeholders-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Viewpoint-stakeholders-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Viewpoint-languages" name="languages">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#String"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Viewpoint-languages-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Viewpoint-languages-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Viewpoint-methods" name="methods">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#String"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Viewpoint-methods-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Viewpoint-methods-_lowerValue"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Class_Viewpoint" name="Class_Viewpoint" memberEnd="Class_Viewpoint-extension_Viewpoint Viewpoint-base_Class">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Class_Viewpoint-extension_Viewpoint" name="extension_Viewpoint" type="Viewpoint" aggregation="composite" owningAssociation="Class_Viewpoint" association="Class_Viewpoint">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Class_Viewpoint-extension_Viewpoint-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Conform" name="Conform">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Conform-base_Dependency" name="base_Dependency" association="Dependency_Conform">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Dependency"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Dependency_Conform" name="Dependency_Conform" memberEnd="Dependency_Conform-extension_Conform Conform-base_Dependency">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Dependency_Conform-extension_Conform" name="extension_Conform" type="Conform" aggregation="composite" owningAssociation="Dependency_Conform" association="Dependency_Conform">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Dependency_Conform-extension_Conform-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Rationale" name="Rationale">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Rationale-base_Comment" name="base_Comment" association="Comment_Rationale">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Comment"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Comment_Rationale" name="Comment_Rationale" memberEnd="Comment_Rationale-extension_Rationale Rationale-base_Comment">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Comment_Rationale-extension_Rationale" name="extension_Rationale" type="Rationale" aggregation="composite" owningAssociation="Comment_Rationale" association="Comment_Rationale">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Comment_Rationale-extension_Rationale-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Problem" name="Problem">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Problem-base_Comment" name="base_Comment" association="Comment_Problem">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Comment"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Comment_Problem" name="Comment_Problem" memberEnd="Comment_Problem-extension_Problem Problem-base_Comment">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Comment_Problem-extension_Problem" name="extension_Problem" type="Problem" aggregation="composite" owningAssociation="Comment_Problem" association="Comment_Problem">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Comment_Problem-extension_Problem-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="VerdictKind" name="VerdictKind">
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="VerdictKind-pass" name="pass" enumeration="VerdictKind"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="VerdictKind-fail" name="fail" enumeration="VerdictKind"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="VerdictKind-inconclusive" name="inconclusive" enumeration="VerdictKind"/>
+    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="VerdictKind-error" name="error" enumeration="VerdictKind"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Copy" name="Copy">
+    <generalization xmi:type="uml:Generalization" xmi:id="Copy-_generalization.0" specific="Copy">
+      <general xmi:type="uml:Stereotype" href="http://schema.omg.org/spec/UML/2.1.1/StandardProfileL2.xmi#Trace"/>
+    </generalization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="DeriveReqt" name="DeriveReqt">
+    <generalization xmi:type="uml:Generalization" xmi:id="DeriveReqt-_generalization.0" specific="DeriveReqt">
+      <general xmi:type="uml:Stereotype" href="http://schema.omg.org/spec/UML/2.1.1/StandardProfileL2.xmi#Trace"/>
+    </generalization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Requirement" name="Requirement">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="Requirement-noAttributes" name="noAttributes" context="Requirement">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="Requirement-noAttributes-noAttributes" name="noAttributes">
+        <language>OCL</language>
+        <body>self.ownedAttribute->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="Requirement-noOperations" name="noOperations" context="Requirement">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="Requirement-noOperations-noOperations" name="noOperations">
+        <language>OCL</language>
+        <body>self.ownedOperation->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="Requirement-noTemplateSignature" name="noTemplateSignature" context="Requirement">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="Requirement-noTemplateSignature-noTemplateSignature" name="noTemplateSignature">
+        <language>OCL</language>
+        <body>self.ownedTemplateSignature->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="Requirement-noPorts" name="noPorts" context="Requirement">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="Requirement-noPorts-noPorts" name="noPorts">
+        <language>OCL</language>
+        <body>self.ownedPort->size() = 0</body>
+      </specification>
+    </ownedRule>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-base_Class" name="base_Class" association="Class_Requirement">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-Id" name="Id">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-Text" name="Text">
+      <type xmi:type="uml:PrimitiveType" href="UML4SysML-metamodel.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-Derived" name="Derived" type="Requirement" isDerived="true">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Requirement-Derived-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Requirement-Derived-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-DerivedFrom" name="DerivedFrom" type="Requirement" isDerived="true">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Requirement-DerivedFrom-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Requirement-DerivedFrom-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-SatisfiedBy" name="SatisfiedBy" isDerived="true">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#NamedElement"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Requirement-SatisfiedBy-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Requirement-SatisfiedBy-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-RefinedBy" name="RefinedBy" isDerived="true">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#NamedElement"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Requirement-RefinedBy-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Requirement-RefinedBy-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-TracedTo" name="TracedTo" isDerived="true">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#NamedElement"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Requirement-TracedTo-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Requirement-TracedTo-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-VerifiedBy" name="VerifiedBy" isDerived="true">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#NamedElement"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Requirement-VerifiedBy-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Requirement-VerifiedBy-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Requirement-Master" name="Master" type="Requirement" isDerived="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Class_Requirement" name="Class_Requirement" memberEnd="Class_Requirement-extension_Requirement Requirement-base_Class">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Class_Requirement-extension_Requirement" name="extension_Requirement" type="Requirement" aggregation="composite" owningAssociation="Class_Requirement" association="Class_Requirement">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Class_Requirement-extension_Requirement-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="RequirementRelated" name="RequirementRelated">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="RequirementRelated-base_NamedElement" name="base_NamedElement" association="NamedElement_RequirementRelated">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#NamedElement"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="RequirementRelated-Satisfies" name="Satisfies" type="Requirement" isDerived="true">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="RequirementRelated-Satisfies-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="RequirementRelated-Satisfies-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="RequirementRelated-TracedFrom" name="TracedFrom" type="Requirement" isDerived="true">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="RequirementRelated-TracedFrom-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="RequirementRelated-TracedFrom-_lowerValue"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="RequirementRelated-Refines" name="Refines" type="Requirement" isDerived="true">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="RequirementRelated-Refines-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="RequirementRelated-Refines-_lowerValue"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="NamedElement_RequirementRelated" name="NamedElement_RequirementRelated" memberEnd="NamedElement_RequirementRelated-extension_RequirementRelated RequirementRelated-base_NamedElement">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="NamedElement_RequirementRelated-extension_RequirementRelated" name="extension_RequirementRelated" type="RequirementRelated" aggregation="composite" owningAssociation="NamedElement_RequirementRelated" association="NamedElement_RequirementRelated">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="NamedElement_RequirementRelated-extension_RequirementRelated-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Satisfy" name="Satisfy">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="Satisfy-base_Realization" name="base_Realization" association="Realization_Satisfy">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Realization"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Realization_Satisfy" name="Realization_Satisfy" memberEnd="Realization_Satisfy-extension_Satisfy Satisfy-base_Realization">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Realization_Satisfy-extension_Satisfy" name="extension_Satisfy" type="Satisfy" aggregation="composite" owningAssociation="Realization_Satisfy" association="Realization_Satisfy">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Realization_Satisfy-extension_Satisfy-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="TestCase" name="TestCase">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="TestCase-base_Behavior" name="base_Behavior" association="Behavior_TestCase">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Behavior"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="TestCase-base_Operation" name="base_Operation" association="Operation_TestCase">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Operation"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="TestCase-Verifies" name="Verifies" type="Requirement" isDerived="true">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="TestCase-Verifies-_upperValue" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="TestCase-Verifies-_lowerValue"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Behavior_TestCase" name="Behavior_TestCase" memberEnd="Behavior_TestCase-extension_TestCase TestCase-base_Behavior">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Behavior_TestCase-extension_TestCase" name="extension_TestCase" type="TestCase" aggregation="composite" owningAssociation="Behavior_TestCase" association="Behavior_TestCase">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Behavior_TestCase-extension_TestCase-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Operation_TestCase" name="Operation_TestCase" memberEnd="Operation_TestCase-extension_TestCase TestCase-base_Operation">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Operation_TestCase-extension_TestCase" name="extension_TestCase" type="TestCase" aggregation="composite" owningAssociation="Operation_TestCase" association="Operation_TestCase">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Operation_TestCase-extension_TestCase-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="TestContext" name="TestContext">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="TestContext-base_Class" name="base_Class" association="Class_TestContext">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Class_TestContext" name="Class_TestContext" memberEnd="Class_TestContext-extension_TestContext TestContext-base_Class">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Class_TestContext-extension_TestContext" name="extension_TestContext" type="TestContext" aggregation="composite" owningAssociation="Class_TestContext" association="Class_TestContext">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Class_TestContext-extension_TestContext-_lowerValue"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="Verify" name="Verify">
+    <generalization xmi:type="uml:Generalization" xmi:id="Verify-_generalization.0" specific="Verify">
+      <general xmi:type="uml:Stereotype" href="http://schema.omg.org/spec/UML/2.1.1/StandardProfileL2.xmi#Trace"/>
+    </generalization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Property_ConstraintProperty" name="Property_ConstraintProperty" memberEnd="Property_ConstraintProperty-extension_ConstraintProperty ConstraintProperty-base_Property">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Property_ConstraintProperty-extension_ConstraintProperty" name="extension_ConstraintProperty" type="ConstraintProperty" aggregation="composite" owningAssociation="Property_ConstraintProperty" association="Property_ConstraintProperty"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Property_DistributedProperty" name="Property_DistributedProperty" memberEnd="Property_DistributedProperty-extension_DistributedProperty DistributedProperty-base_Property">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Property_DistributedProperty-extension_DistributedProperty" name="extension_DistributedProperty" type="DistributedProperty" aggregation="composite" owningAssociation="Property_DistributedProperty" association="Property_DistributedProperty"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="BindingConnector" name="BindingConnector">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="BindingConnector-base_Connector" name="base_Connector" association="Connector_BindingConnector">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Connector"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Connector_BindingConnector" name="Connector_BindingConnector" memberEnd="Connector_BindingConnector-extension_BindingConnector BindingConnector-base_Connector">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Connector_BindingConnector-extension_BindingConnector" name="extension_BindingConnector" type="BindingConnector" aggregation="composite" owningAssociation="Connector_BindingConnector" association="Connector_BindingConnector"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="InstanceSpecification_Dimension" name="InstanceSpecification_Dimension" memberEnd="InstanceSpecification_Dimension-extension_Dimension Dimension-base_InstanceSpecification">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="InstanceSpecification_Dimension-extension_Dimension" name="extension_Dimension" type="Dimension" aggregation="composite" owningAssociation="InstanceSpecification_Dimension" association="InstanceSpecification_Dimension"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="InstanceSpecification_Unit" name="InstanceSpecification_Unit" memberEnd="InstanceSpecification_Unit-extension_Unit Unit-base_InstanceSpecification">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="InstanceSpecification_Unit-extension_Unit" name="extension_Unit" type="Unit" aggregation="composite" owningAssociation="InstanceSpecification_Unit" association="InstanceSpecification_Unit"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="ParticipantProperty" name="ParticipantProperty">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ParticipantProperty-base_Property" name="base_Property" association="Property_ParticipantProperty">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Property"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ParticipantProperty-end" name="end">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Property"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="ParticipantProperty-end-_upperValue" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ParticipantProperty-end-_lowerValue"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Property_ParticipantProperty" name="Property_ParticipantProperty" memberEnd="Property_ParticipantProperty-extension_ParticipantProperty ParticipantProperty-base_Property">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Property_ParticipantProperty-extension_ParticipantProperty" name="extension_ParticipantProperty" type="ParticipantProperty" aggregation="composite" owningAssociation="Property_ParticipantProperty" association="Property_ParticipantProperty"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="ConnectorProperty" name="ConnectorProperty">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ConnectorProperty-base_Property" name="base_Property" association="Property_ConnectorProperty">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Property"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="ConnectorProperty-connector" name="connector">
+      <type xmi:type="uml:Class" href="UML4SysML-metamodel.xmi#Connector"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="ConnectorProperty-connector-_upperValue" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ConnectorProperty-connector-_lowerValue"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="Property_ConnectorProperty" name="Property_ConnectorProperty" memberEnd="Property_ConnectorProperty-extension_ConnectorProperty ConnectorProperty-base_Property">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="Property_ConnectorProperty-extension_ConnectorProperty" name="extension_ConnectorProperty" type="ConnectorProperty" aggregation="composite" owningAssociation="Property_ConnectorProperty" association="Property_ConnectorProperty"/>
+  </packagedElement>
+</uml:Profile>
+

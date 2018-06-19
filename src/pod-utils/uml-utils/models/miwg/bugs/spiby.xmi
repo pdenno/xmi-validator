@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile" xmlns:additional_stereotypes='http://www.magicdraw.com/schemas/additional_stereotypes.xmi'>
+<uml:Model name="Data" xmi:id="_0_Data">
+<packagedElement xmi:type="uml:Package" xmi:id="_0_SysMLfromEXPRESS" name="SysMLfromEXPRESS">
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="BINARY" name="Binary" />
+<packagedElement xmi:type="uml:Enumeration" xmi:id="LOGICAL" name="Logical">
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="TRUE" name="True" classifier="LOGICAL" enumeration="LOGICAL">
+<specification xmi:type="uml:LiteralInteger" xmi:id="TRUE_specification" />
+</ownedLiteral>
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="FALSE" name="False" classifier="LOGICAL" enumeration="LOGICAL">
+<specification xmi:type="uml:LiteralInteger" xmi:id="FALSE_specification" />
+</ownedLiteral>
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="UNKNOWN" name="Unknown" classifier="LOGICAL" enumeration="LOGICAL">
+<specification xmi:type="uml:LiteralInteger" xmi:id="UNKNOWN_specification" />
+</ownedLiteral>
+</packagedElement>
+<packagedElement xmi:type="uml:Package" xmi:id="_1_Test" name="Test" visibility="public">
+<packagedElement xmi:type="uml:Class" xmi:id="_s" name="s" isAbstract="TRUE" visibility="public"></packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_x" name="x" isAbstract="FALSE" visibility="public">
+<generalization xmi:type="uml:Generalization" xmi:id="_2_selectitem_x-s" general="_s" />
+</packagedElement>
+</packagedElement>
+<packagedElement xmi:type="uml:Profile" href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0">
+<xmi:Extension extender='MagicDraw UML 17.0'>
+<referenceExtension referentPath='SysML' referentType='Profile' />
+</xmi:Extension>
+</packagedElement>
+<sysml:ValueType base_DataType="LOGICAL" xmi:id="LOGICAL_VT" />
+<sysml:ValueType base_DataType="BINARY" xmi:id="BINARY_VT" />
+</packagedElement>
+</uml:Model>
+<sysml:Block base_Class="_x" xmi:id="_x-Block" />
+<sysml:Block base_Class="_s" xmi:id="_s-Block" />
+<StandardProfileL2:auxiliary xmi:id="_s-Blockapplication1" base_Class="_s" />
+</xmi:XMI>

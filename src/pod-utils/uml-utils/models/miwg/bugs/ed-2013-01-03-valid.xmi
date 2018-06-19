@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+         xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+   <uml:Model xmi:id="eee_1045467100313_135436_1" name="Test-Case-31">
+      <packagedElement xmi:type="uml:Activity" xmi:id="_17_0_6_12e503d9_1357154106598_403622_1675"
+                       name="Test-Case-31">
+         <node xmi:type="uml:StructuredActivityNode"
+               xmi:id="_17_0_6_12e503d9_1357154311134_277525_1741"
+               name="Structured Node"
+               visibility="public">
+            <variable xmi:type="uml:Variable" xmi:id="_17_0_6_12e503d9_1357154354142_309258_1780"
+                      name="Variable-3"
+                      visibility="public"
+                      isOrdered="true"
+                      isUnique="false">
+               <type xmi:type="uml:PrimitiveType"
+                     href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_17_0_6_12e503d9_1357154467932_461324_1840"
+                           value="*"/>
+               <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_17_0_6_12e503d9_1357154467932_265797_1839"/>
+            </variable>
+            <node xmi:type="uml:ReadVariableAction"
+                  xmi:id="_17_0_6_12e503d9_1357155426089_937377_2380"
+                  name="Read Variable-1"
+                  visibility="public"
+                  variable="_17_0_6_12e503d9_1357154265076_642283_1738">
+               <result xmi:type="uml:OutputPin" xmi:id="_17_0_6_12e503d9_1357155426090_540597_2381"
+                       name="result"
+                       visibility="public">
+                  <type xmi:type="uml:PrimitiveType"
+                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                  <outgoing xmi:idref="_17_0_6_12e503d9_1357240100701_547181_1643"/>
+               </result>
+            </node>
+            <node xmi:type="uml:AddVariableValueAction"
+                  xmi:id="_17_0_6_12e503d9_1357155661017_792806_2592"
+                  name="Add Variable-3"
+                  visibility="public"
+                  variable="_17_0_6_12e503d9_1357154354142_309258_1780">
+               <outgoing xmi:idref="_17_0_6_12e503d9_1357240079947_61511_1625"/>
+               <value xmi:type="uml:InputPin" xmi:id="_17_0_6_12e503d9_1357155687650_708607_2616"
+                      name="value"
+                      visibility="public">
+                  <type xmi:type="uml:PrimitiveType"
+                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+                  <incoming xmi:idref="_17_0_6_12e503d9_1357240100701_547181_1643"/>
+               </value>
+               <insertAt xmi:type="uml:InputPin" xmi:id="_17_0_6_12e503d9_1357156029322_372251_3071"
+                         name="insertAt"
+                         visibility="public">
+                  <type xmi:type="uml:PrimitiveType"
+                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#UnlimitedNatural"/>
+                  <incoming xmi:idref="_17_0_6_12e503d9_1357156166216_342309_3164"/>
+               </insertAt>
+            </node>
+            <node xmi:type="uml:RemoveVariableValueAction"
+                  xmi:id="_17_0_6_12e503d9_1357155745609_19964_2680"
+                  name="Remove Variable-3"
+                  visibility="public"
+                  variable="_17_0_6_12e503d9_1357154354142_309258_1780">
+               <incoming xmi:idref="_17_0_6_12e503d9_1357240079947_61511_1625"/>
+               <removeAt xmi:type="uml:InputPin" xmi:id="_17_0_6_12e503d9_1357156081418_296499_3102"
+                         name="removeAt"
+                         visibility="public">
+                  <type xmi:type="uml:PrimitiveType"
+                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#UnlimitedNatural"/>
+                  <incoming xmi:idref="_17_0_6_12e503d9_1357156173368_94947_3181"/>
+               </removeAt>
+            </node>
+            <node xmi:type="uml:ForkNode" xmi:id="_17_0_6_12e503d9_1357156163439_33154_3152"
+                  visibility="public">
+               <outgoing xmi:idref="_17_0_6_12e503d9_1357156166216_342309_3164"/>
+               <outgoing xmi:idref="_17_0_6_12e503d9_1357156173368_94947_3181"/>
+               <incoming xmi:idref="_17_0_6_12e503d9_1357156331648_260082_3390"/>
+            </node>
+            <node xmi:type="uml:ValueSpecificationAction"
+                  xmi:id="_17_0_6_12e503d9_1357156272607_599601_3306"
+                  name="Value 1"
+                  visibility="public">
+               <value xmi:type="uml:LiteralUnlimitedNatural"
+                      xmi:id="_17_0_6_12e503d9_1357156390788_269265_3443"
+                      value="1"/>
+               <result xmi:type="uml:OutputPin" xmi:id="_17_0_6_12e503d9_1357156272607_828403_3307"
+                       name="result"
+                       visibility="public">
+                  <type xmi:type="uml:PrimitiveType"
+                        href="http://www.omg.org/spec/UML/20090901/UML.xmi#UnlimitedNatural"/>
+                  <outgoing xmi:idref="_17_0_6_12e503d9_1357156331648_260082_3390"/>
+               </result>
+            </node>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_17_0_6_12e503d9_1357156166216_342309_3164"
+                  visibility="public"
+                  source="_17_0_6_12e503d9_1357156163439_33154_3152"
+                  target="_17_0_6_12e503d9_1357156029322_372251_3071">
+               <weight xmi:type="uml:LiteralUnlimitedNatural"
+                       xmi:id="_17_0_6_12e503d9_1357156166217_145305_3165"
+                       value="1"/>
+            </edge>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_17_0_6_12e503d9_1357156173368_94947_3181"
+                  visibility="public"
+                  source="_17_0_6_12e503d9_1357156163439_33154_3152"
+                  target="_17_0_6_12e503d9_1357156081418_296499_3102">
+               <weight xmi:type="uml:LiteralUnlimitedNatural"
+                       xmi:id="_17_0_6_12e503d9_1357156173368_319780_3182"
+                       value="1"/>
+            </edge>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_17_0_6_12e503d9_1357156331648_260082_3390"
+                  visibility="public"
+                  source="_17_0_6_12e503d9_1357156272607_828403_3307"
+                  target="_17_0_6_12e503d9_1357156163439_33154_3152">
+               <weight xmi:type="uml:LiteralUnlimitedNatural"
+                       xmi:id="_17_0_6_12e503d9_1357156331648_839927_3391"
+                       value="1"/>
+            </edge>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_17_0_6_12e503d9_1357240079947_61511_1625"
+                  visibility="public"
+                  source="_17_0_6_12e503d9_1357155661017_792806_2592"
+                  target="_17_0_6_12e503d9_1357155745609_19964_2680">
+               <weight xmi:type="uml:LiteralUnlimitedNatural"
+                       xmi:id="_17_0_6_12e503d9_1357240079947_434961_1626"
+                       value="1"/>
+            </edge>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="_17_0_6_12e503d9_1357240100701_547181_1643"
+                  visibility="public"
+                  source="_17_0_6_12e503d9_1357155426090_540597_2381"
+                  target="_17_0_6_12e503d9_1357155687650_708607_2616">
+               <weight xmi:type="uml:LiteralUnlimitedNatural"
+                       xmi:id="_17_0_6_12e503d9_1357240100701_680587_1644"
+                       value="1"/>
+            </edge>
+         </node>
+         <node xmi:type="uml:ReadVariableAction"
+               xmi:id="_17_0_6_12e503d9_1357154692537_603141_1919"
+               name="Read Variable-1"
+               visibility="public"
+               variable="_17_0_6_12e503d9_1357154265076_642283_1738">
+            <outgoing xmi:idref="_17_0_6_12e503d9_1357155501788_343158_2483"/>
+            <result xmi:type="uml:OutputPin" xmi:id="_17_0_6_12e503d9_1357154692537_280317_1920"
+                    name="result"
+                    visibility="public">
+               <type xmi:type="uml:PrimitiveType"
+                     href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+               <outgoing xmi:idref="_17_0_6_12e503d9_1357155198097_107436_2161"/>
+            </result>
+         </node>
+         <node xmi:type="uml:AddVariableValueAction"
+               xmi:id="_17_0_6_12e503d9_1357154785046_419414_1989"
+               name="Add Variable-2"
+               visibility="public"
+               isReplaceAll="true"
+               variable="_17_0_6_12e503d9_1357154332181_926973_1762">
+            <outgoing xmi:idref="_17_0_6_12e503d9_1357155247758_333372_2212"/>
+            <value xmi:type="uml:InputPin" xmi:id="_17_0_6_12e503d9_1357154825225_921150_2013"
+                   name="value"
+                   visibility="public">
+               <type xmi:type="uml:PrimitiveType"
+                     href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+               <incoming xmi:idref="_17_0_6_12e503d9_1357155198098_330535_2163"/>
+            </value>
+         </node>
+         <node xmi:type="uml:ForkNode" xmi:id="_17_0_6_12e503d9_1357155196003_510026_2157"
+               visibility="public">
+            <outgoing xmi:idref="_17_0_6_12e503d9_1357155198098_330535_2163"/>
+            <outgoing xmi:idref="_17_0_6_12e503d9_1357155289001_167408_2294"/>
+            <incoming xmi:idref="_17_0_6_12e503d9_1357155198097_107436_2161"/>
+         </node>
+         <node xmi:type="uml:RemoveVariableValueAction"
+               xmi:id="_17_0_6_12e503d9_1357155223205_986343_2180"
+               name=" Remove Variable-2"
+               visibility="public"
+               isRemoveDuplicates="true"
+               variable="_17_0_6_12e503d9_1357154332181_926973_1762">
+            <incoming xmi:idref="_17_0_6_12e503d9_1357155247758_333372_2212"/>
+            <value xmi:type="uml:InputPin" xmi:id="_17_0_6_12e503d9_1357155251421_141092_2228"
+                   name="value"
+                   visibility="public">
+               <type xmi:type="uml:PrimitiveType"
+                     href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+               <incoming xmi:idref="_17_0_6_12e503d9_1357155289001_167408_2294"/>
+            </value>
+         </node>
+         <node xmi:type="uml:ClearVariableAction"
+               xmi:id="_17_0_6_12e503d9_1357155464479_22987_2418"
+               name="Clear Variable-1"
+               visibility="public"
+               variable="_17_0_6_12e503d9_1357154265076_642283_1738">
+            <incoming xmi:idref="_17_0_6_12e503d9_1357155501788_343158_2483"/>
+         </node>
+         <variable xmi:type="uml:Variable" xmi:id="_17_0_6_12e503d9_1357154265076_642283_1738"
+                   name="Variable-1"
+                   visibility="public">
+            <type xmi:type="uml:PrimitiveType"
+                  href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+         </variable>
+         <variable xmi:type="uml:Variable" xmi:id="_17_0_6_12e503d9_1357154332181_926973_1762"
+                   name="Variable-2"
+                   visibility="public"
+                   isUnique="false">
+            <type xmi:type="uml:PrimitiveType"
+                  href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                        xmi:id="_17_0_6_12e503d9_1357154454670_25751_1825"
+                        value="*"/>
+            <lowerValue xmi:type="uml:LiteralUnlimitedNatural"
+                        xmi:id="_17_0_6_12e503d9_1357154454670_983277_1824"/>
+         </variable>
+         <edge xmi:type="uml:ObjectFlow" xmi:id="_17_0_6_12e503d9_1357155198097_107436_2161"
+               visibility="public"
+               source="_17_0_6_12e503d9_1357154692537_280317_1920"
+               target="_17_0_6_12e503d9_1357155196003_510026_2157">
+            <weight xmi:type="uml:LiteralUnlimitedNatural"
+                    xmi:id="_17_0_6_12e503d9_1357155198098_311742_2162"
+                    value="1"/>
+         </edge>
+         <edge xmi:type="uml:ObjectFlow" xmi:id="_17_0_6_12e503d9_1357155198098_330535_2163"
+               visibility="public"
+               source="_17_0_6_12e503d9_1357155196003_510026_2157"
+               target="_17_0_6_12e503d9_1357154825225_921150_2013">
+            <weight xmi:type="uml:LiteralUnlimitedNatural"
+                    xmi:id="_17_0_6_12e503d9_1357155198099_302531_2164"
+                    value="1"/>
+         </edge>
+         <edge xmi:type="uml:ControlFlow" xmi:id="_17_0_6_12e503d9_1357155247758_333372_2212"
+               visibility="public"
+               source="_17_0_6_12e503d9_1357154785046_419414_1989"
+               target="_17_0_6_12e503d9_1357155223205_986343_2180">
+            <weight xmi:type="uml:LiteralUnlimitedNatural"
+                    xmi:id="_17_0_6_12e503d9_1357155247758_127893_2213"
+                    value="1"/>
+         </edge>
+         <edge xmi:type="uml:ObjectFlow" xmi:id="_17_0_6_12e503d9_1357155289001_167408_2294"
+               visibility="public"
+               source="_17_0_6_12e503d9_1357155196003_510026_2157"
+               target="_17_0_6_12e503d9_1357155251421_141092_2228">
+            <weight xmi:type="uml:LiteralUnlimitedNatural"
+                    xmi:id="_17_0_6_12e503d9_1357155289001_185485_2295"
+                    value="1"/>
+         </edge>
+         <edge xmi:type="uml:ControlFlow" xmi:id="_17_0_6_12e503d9_1357155501788_343158_2483"
+               visibility="public"
+               source="_17_0_6_12e503d9_1357154692537_603141_1919"
+               target="_17_0_6_12e503d9_1357155464479_22987_2418">
+            <weight xmi:type="uml:LiteralUnlimitedNatural"
+                    xmi:id="_17_0_6_12e503d9_1357155501788_995027_2484"
+                    value="1"/>
+         </edge>
+      </packagedElement>
+   </uml:Model>
+</xmi:XMI>

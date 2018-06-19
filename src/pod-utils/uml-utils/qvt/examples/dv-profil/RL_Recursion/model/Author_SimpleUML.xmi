@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimpleUML:UmlPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SimpleUML="urn:SimpleUML.ecore" xsi:schemaLocation="urn:SimpleUML.ecore ../../metamodels/SimpleUML.ecore" umlName="Author" umlKind="" id="_uv5bQKM4EdySXt78cTDxpg">
+  <umlOwnedElement xsi:type="SimpleUML:UmlClass" xmi:id="_14UPcKM4EdySXt78cTDxpg" umlName="Author" umlKind="Persistent" umlSpecific="_KJd0cKM5EdySXt78cTDxpg">
+    <umlAttribute xmi:id="_9OmggKM4EdySXt78cTDxpg" umlName="name" umlType="_Q3z7wKM5EdySXt78cTDxpg"/>
+    <umlAttribute xmi:id="_GMlvMKM5EdySXt78cTDxpg" umlName="prename" umlType="_Q3z7wKM5EdySXt78cTDxpg"/>
+  </umlOwnedElement>
+  <umlOwnedElement xsi:type="SimpleUML:UmlClass" xmi:id="_KJd0cKM5EdySXt78cTDxpg" umlName="SpecialAuthor" umlKind="Persistent" umlGeneral="_14UPcKM4EdySXt78cTDxpg">
+    <umlAttribute xmi:id="_NLxu4KM5EdySXt78cTDxpg" umlName="title" umlType="_Q3z7wKM5EdySXt78cTDxpg"/>
+  </umlOwnedElement>
+  <umlOwnedElement xsi:type="SimpleUML:UmlPrimitiveDataType" xmi:id="_UV_S0KM5EdySXt78cTDxpg" umlName="INTEGER"/>
+  <umlOwnedElement xsi:type="SimpleUML:UmlPrimitiveDataType" xmi:id="_Q3z7wKM5EdySXt78cTDxpg" umlName="STRING"/>
+</SimpleUML:UmlPackage>

@@ -1,0 +1,19 @@
+/*
+ * QVT Relations Language
+ */
+transformation HelloWorld ( source : MyUML, target : MyRDBM  ) 
+{
+   top relation NewPackage 
+   {
+      packageName : String; 
+      checkonly domain source packge : Package { name = packageName };
+      enforce   domain target schema : Schema  
+      { 
+         -- erzeugt ein Schema mit demselben Namen wie das Package 
+         name  = packageName,
+         
+         -- und erzeugt eine Tabelle namens "HelloWorld"
+         table = t : Table { name = 'HelloWorld' } 
+      };
+   }
+}

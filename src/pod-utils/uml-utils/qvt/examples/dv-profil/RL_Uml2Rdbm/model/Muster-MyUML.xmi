@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<MyUML:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MyUML="urn:MyUML.ecore" xsi:schemaLocation="urn:MyUML.ecore platform:/resource/metamodels/MyUML.ecore" name="HelloWorld" kind="">
+  <ownedElement xsi:type="MyUML:Class" name="ClassName"/>
+</MyUML:Package>

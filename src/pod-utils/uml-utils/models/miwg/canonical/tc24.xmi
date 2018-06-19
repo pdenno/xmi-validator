@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-24" xmi:uuid="725A27D7-D488-4B26-9B62-85B965BE0C51">
+        <packagedElement xmi:id="Test-Case-24-Component-2"
+            xmi:uuid="725A27D7-D488-4F6B-9E1D-85B97B637422" xmi:type="uml:Component">
+            <ownedAttribute xmi:id="Test-Case-24-Component-2-port-2a"
+                xmi:uuid="725A27D7-D488-4D4E-9FA0-85B9E5E313E2" xmi:type="uml:Port">
+                <name>port-2a</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-24-Port-Type-2"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-24-Component-2-port-2b"
+                xmi:uuid="725A27D7-D488-4AE5-9B04-85B97C8B674E" xmi:type="uml:Port">
+                <name>port-2b</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-24-Port-Type-1"/>
+            </ownedAttribute>
+            <name>Component-2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-24-Interface-1"
+            xmi:uuid="725A27D7-D488-43AD-94BD-85B925957859" xmi:type="uml:Interface">
+            <ownedOperation xmi:id="Test-Case-24-Interface-1-operation-a"
+                xmi:uuid="725A27D7-D488-447C-90B5-85B9DBD0FBEA" xmi:type="uml:Operation">
+                <name>operation-a</name>
+                <visibility>public</visibility>
+            </ownedOperation>
+            <ownedOperation xmi:id="Test-Case-24-Interface-1-operation-b"
+                xmi:uuid="725A27D7-D488-4A6E-946F-85B94ED0F846" xmi:type="uml:Operation">
+                <name>operation-b</name>
+                <visibility>public</visibility>
+            </ownedOperation>
+            <name>Interface-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-24-Component-1"
+            xmi:uuid="725A27D7-D488-4716-9600-85B90762AAE1" xmi:type="uml:Component">
+            <ownedAttribute xmi:id="Test-Case-24-Component-1-port-1"
+                xmi:uuid="725A27D7-D488-4A8F-9151-85B9720D1D46" xmi:type="uml:Port">
+                <name>port-1</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-24-Port-Type-1"/>
+            </ownedAttribute>
+            <name>Component-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-24-Port-Type-1"
+            xmi:uuid="725A27D7-D488-4B4D-9B7F-85B9516771C2" xmi:type="uml:Class">
+            <name>Port-Type-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-24-packagedElement-5"
+            xmi:uuid="725A27D7-D488-4ED0-9468-85B9B8895434" xmi:type="uml:Usage">
+            <supplier xmi:idref="Test-Case-24-Interface-1"/>
+            <client xmi:idref="Test-Case-24-Port-Type-1"/>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-24-Component-3"
+            xmi:uuid="725A27D7-D488-4129-9B64-85B94ED4E31E" xmi:type="uml:Component">
+            <ownedAttribute xmi:id="Test-Case-24-Component-3-port-3"
+                xmi:uuid="725A27D7-D488-414C-9BD9-85B9AA6565C8" xmi:type="uml:Port">
+                <name>port-3</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-24-Port-Type-2"/>
+            </ownedAttribute>
+            <name>Component-3</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-24-Port-Type-2"
+            xmi:uuid="725A27D7-D488-4F10-9AAE-85B92242E5F1" xmi:type="uml:Class">
+            <interfaceRealization xmi:id="Test-Case-24-Port-Type-2-interfaceRealization"
+                xmi:uuid="725A27D7-D488-492B-9A6D-85B9C3EE796A" xmi:type="uml:InterfaceRealization">
+                <supplier xmi:idref="Test-Case-24-Interface-1"/>
+                <client xmi:idref="Test-Case-24-Port-Type-2"/>
+                <contract xmi:idref="Test-Case-24-Interface-1"/>
+            </interfaceRealization>
+            <ownedOperation xmi:id="Test-Case-24-Port-Type-2-operation-a"
+                xmi:uuid="725A27D7-D488-465E-9C78-85B949050E72" xmi:type="uml:Operation">
+                <name>operation-a</name>
+                <visibility>public</visibility>
+            </ownedOperation>
+            <ownedOperation xmi:id="Test-Case-24-Port-Type-2-operation-b"
+                xmi:uuid="725A27D7-D488-49A1-9851-85B96C4B0C2F" xmi:type="uml:Operation">
+                <name>operation-b</name>
+                <visibility>public</visibility>
+            </ownedOperation>
+            <name>Port-Type-2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-24-Component-4"
+            xmi:uuid="725A27D7-D488-4E84-9821-85B92D06160B" xmi:type="uml:Component">
+            <ownedAttribute xmi:id="Test-Case-24-Component-4-ownedAttribute-1"
+                xmi:uuid="725A27D7-D488-4EE4-90C4-85B91AB7FFC7" xmi:type="uml:Property">
+                <visibility>private</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-24-Component-1"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-24-Component-4-ownedAttribute-2"
+                xmi:uuid="725A27D7-D488-49A6-91F5-85B987B95D9C" xmi:type="uml:Property">
+                <visibility>private</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-24-Component-2"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="Test-Case-24-Component-4-ownedAttribute-3"
+                xmi:uuid="725A27D7-D488-48C2-94F9-85B90E0F8C60" xmi:type="uml:Property">
+                <visibility>private</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="Test-Case-24-Component-3"/>
+            </ownedAttribute>
+            <ownedConnector xmi:id="Test-Case-24-Component-4-ownedConnector-1"
+                xmi:uuid="725A27D7-D488-47B8-99F3-85B90065EAF4" xmi:type="uml:Connector">
+                <end xmi:id="Test-Case-24-Component-4-ownedConnector-1-end-1"
+                    xmi:uuid="725A27D7-D488-466D-9C61-85B9F7B97A03" xmi:type="uml:ConnectorEnd">
+                    <role xmi:idref="Test-Case-24-Component-1-port-1"/>
+                    <partWithPort xmi:idref="Test-Case-24-Component-4-ownedAttribute-1"/>
+                </end>
+                <end xmi:id="Test-Case-24-Component-4-ownedConnector-1-end-2"
+                    xmi:uuid="725A27D7-D488-4077-988D-85B96CC6C34C" xmi:type="uml:ConnectorEnd">
+                    <role xmi:idref="Test-Case-24-Component-2-port-2a"/>
+                    <partWithPort xmi:idref="Test-Case-24-Component-4-ownedAttribute-2"/>
+                </end>
+                <visibility>public</visibility>
+            </ownedConnector>
+            <ownedConnector xmi:id="Test-Case-24-Component-4-ownedConnector-2"
+                xmi:uuid="725A27D7-D488-4533-9E7C-85B9C759150A" xmi:type="uml:Connector">
+                <end xmi:id="Test-Case-24-Component-4-ownedConnector-2-end-1"
+                    xmi:uuid="725A27D7-D488-42C8-937F-85B9A0CD949B" xmi:type="uml:ConnectorEnd">
+                    <role xmi:idref="Test-Case-24-Component-2-port-2b"/>
+                    <partWithPort xmi:idref="Test-Case-24-Component-4-ownedAttribute-2"/>
+                </end>
+                <end xmi:id="Test-Case-24-Component-4-ownedConnector-2-end-2"
+                    xmi:uuid="725A27D7-D488-4D64-964C-85B9CEF0C268" xmi:type="uml:ConnectorEnd">
+                    <role xmi:idref="Test-Case-24-Component-3-port-3"/>
+                    <partWithPort xmi:idref="Test-Case-24-Component-4-ownedAttribute-3"/>
+                </end>
+                <visibility>public</visibility>
+            </ownedConnector>
+            <name>Component-4</name>
+        </packagedElement>
+        <name>Test-Case-24</name>
+    </uml:Model>
+</xmi:XMI>

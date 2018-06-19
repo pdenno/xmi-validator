@@ -1,0 +1,518 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Readme_files/filelist.xml">
+<title>Mapping between sequence diagrams and state machines (Demonstrates
+Sequence Patterns)</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Azhar</o:Author>
+  <o:LastAuthor>Azhar</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>21</o:TotalTime>
+  <o:Created>2007-03-13T05:37:00Z</o:Created>
+  <o:LastSaved>2007-03-13T05:37:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>875</o:Words>
+  <o:Characters>4989</o:Characters>
+  <o:Company> TCS</o:Company>
+  <o:Lines>41</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>6126</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>7 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>19.05 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-font-kerning:0pt;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:343015560;
+	mso-list-type:hybrid;
+	mso-list-template-ids:22452422 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:1676683918;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1353311776 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoBodyText>Mapping between sequence diagrams and state machines
+(Demonstrates Sequence Patterns)<span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'><o:p></o:p></span></p>
+
+<p class=MsoBodyText2>----------------------------------------------------------------------------------------------------------------------</p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Folder ‘spec’ contains :<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>SeqMM.xml :
+Sequence Diagram Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>StmcMM.xml :
+State Machine Meta Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>SeqUM.xml : A
+sample sequence diagram model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>StmcUM.xml : A
+sample state machine Model<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><span style="mso-spacerun: yes">   </span>SeqToStmc.qvt :
+QVT specification file for sequence diagram to state machine mapping.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Sequence Diagram Meta Model : <o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>A Sequence Diagram has a set of lifelines representing
+objects that exchange messages. A lifeline has events corresponding to
+messages.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The events occurring on a lifeline are ordered in time.
+This can be modeled by creating an ordered association between 'LifeLine' and
+'MessageEvent', where 'MessageEvent' extends 'Event'.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>See figure 'Sequence Diagram Meta Model for example
+SeqToStm_CT' in file SeqToStmc_CT.pdf<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>State Machine Meta Model : <o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The state machine meta model is straight-forward - there
+are states and transitions.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>See figure 'State Machine Meta Model for example
+SeqToStm_CT' in file SeqToStmc_CT.pdf<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The example specifies a mapping between sequence diagrams
+and state machines.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The behavior of a class can be specified by a state machine.
+A lifeline is consistent with the state machine of the class of the object of
+the lifeline if following condition holds : corresponding to the event sequence
+of the lifeline, there exists a transition path in the state machine where the
+events occur in the same relative order.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>This example demonstrates the use of Collection (Sequence)
+Patterns in QVT specification file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample Sequence Diagram model is given in file
+SeqUM.xml file contains:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Class
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ElevatorController
+      : Name='ElevatorController'; object={ElevatorController}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Elevator
+      : Name='Elevator'; object={Elevator}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Object
+     :<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ElevatorController
+      : Name='ElevatorController'; lifeline={ElevatorController}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Elevator
+      : Name='Elevator'; lifeline={Elevator}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>LifeLine
+     :<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ElevatorController
+      : Name='ElevatorController'; object={ElevatorController};
+      event={SendOpenDoor, SendCloseDoor, SendLockDoor}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Elevator
+      : Name='Elevator'; object={Elevator};event={ReceiveOpenDoor,
+      ReceiveCloseDoor, ReceiveLockDoor}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>MessageEvent
+     :<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendOpenDoor
+      : Name='SendOpenDoor'; type=Send<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendCloseDoor
+      : Name='SendCloseDoor'; type=Send<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendLockDoor
+      : Name='SendLockDoor'; tyep=Send<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveOpenDoor
+      : Name='ReceiveOpenDoor'; type=Receive<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveCloseDoor
+      : Name='ReceiveCloseDoor'; type=Receive<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l1 level2 lfo1;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveLockDoor
+      : Name='ReceiveLockDoor'; tyep=Receive<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>See figure 'Sequence Diagram model for example
+SeqToStm_CT' in file SeqToStmc_CT.pdf.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>The sample State Machine model is given in file StmcUM.xml
+file contains:<o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Class
+     : <o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Elevator
+      : Name='Elevator'; stateMachine={Elevator}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ElevatorController
+      : Name='ElevatorController'; stateMachine={ElevatorController}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>StateMachine
+     :<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Elevator
+      : Name='Elevator'; owner={Elevator}; state={START, DoorOpened,
+      DoorClosed, DoorLocked}; transition={ReceiveOpenDoor, ReceiveCloseDoor,
+      ReceiveLockDoor, ReceiveOpenDoor}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ElevatorController
+      : Name='ElevatorController'; owner={ElevatorController}; state={START,
+      DoorOpened, DoorClosed, DoorLocked}; transition={SendOpenDoor,
+      SendCloseDoor, SendLockDoor, SendOpenDoor}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>State
+     :<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>START
+      : Name='START';owner={Elevator}; inTransition={};
+      outTransition={ReceiveOpenDoor} <o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>DoorOpened
+      : Name='DoorOpened'; owner={Elevator}; inTransition={ReceiveOpenDoor,
+      ReceiveOpenDoor}; outTransition={ReceiveCloseDoor}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>DoorClosed
+      : Name='DoorClosed'; owner={Elevator}; inTransition={ReceiveCloseDoor};
+      outTransition={ReceiveLockDoor, ReceiveOpenDoor}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>DoorLocked
+      : Name='DoorLocked'; owner={Elevator}; inTransition={ReceiveLockDoor};
+      outTransition={}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>START
+      : Name='START'; owner={ElevatorController}; inTransition={};
+      outTransition={SendOpenDoor}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>DoorOpened
+      : Name='DoorOpened'; owner={ElevatorController};
+      inTransition={SendOpenDoor, SendOpenDoor};<span style="mso-spacerun:
+      yes">  </span>outTransition={SendCloseDoor}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>DoorClosed
+      : Name='DoorClosed'; owner={ElevatorController};
+      inTransition={SendCloseDoor}; outTransition={SendLockDoor, SendOpenDoor}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>DoorLocked
+      : Name='DoorLocked';
+      owner={ElevatorController};inTransition={SendLockDoor}; outTransition={}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Transition
+     :<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendOpenDoor
+      : Name='SendOpenDoor'; owner={ElevatorController}; fromState={START};
+      toState={DoorOpened}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendCloseDoor
+      : Name='SendCloseDoor'; owner={ElevatorController};
+      fromState={DoorOpened};<span style="mso-spacerun: yes"> 
+      </span>toState={DoorClosed}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendLockDoor
+      : Name='SendLockDoor'; owner={ElevatorController};
+      fromState={DoorClosed}; toState={DoorLocked}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendOpenDoor
+      : Name='SendOpenDoor'; owner={ElevatorController}; fromState={DoorClosed};
+      toState={DoorOpened}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveOpenDoor
+      : Name='ReceiveOpenDoor'; fromState={START}; toState={DoorOpened}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveCloseDoor
+      : Name='ReceiveCloseDoor'; fromState={DoorOpened}; toState={DoorClosed}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveLockDoor
+      : Name='ReceiveLockDoor'; fromState={DoorClosed}; toState={DoorLocked}<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveOpenDoor
+      : Name='ReceiveOpenDoor'; fromState={DoorClosed}; toState={DoorOpened}<o:p></o:p></span></li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Event
+     :<o:p></o:p></span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendOpenDoor
+      : Name='SendOpenDoor' (correspondent to the Transition from START State
+      to DoorOpened State)<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendCloseDoor
+      : Name='SendCloseDoor'<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendLockDoor
+      : Name='SendLockDoor'<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>SendOpenDoor
+      : Name='SendOpenDoor' (correspondent to the Transition from DoorClosed
+      State to DoorOpened State)<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveOpenDoor
+      : Name='ReceiveOpenDoor' (correspondent to the Transition from START
+      State to DoorOpened State)<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveCloseDoor
+      : Name='ReceiveCloseDoor'<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveLockDoor
+      : Name='ReceiveLockDoor'<o:p></o:p></span></li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo2;tab-stops:list 1.0in'><span
+      style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>ReceiveOpenDoor
+      : Name='ReceiveOpenDoor' (correspondent to the Transition from DoorClosed
+      State to DoorOpened State)<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>See figure 'State Machine model for example SeqToStm_CT'
+in file SeqToStmc_CT.pdf.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Example QVT file (SeqToStmc.qvt) is run in checkonly mode
+in stmc direction. It checks whether the sequence of events of a lifeline in a
+Sequence Diagram model is a subsequence in the sequence of states in State
+Machine model. Here the models are consistent.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>To run this example execute the batch file ‘run.bat’ for
+windows or<span style="mso-spacerun: yes">  </span>the shell script ‘run.sh’
+for unix.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

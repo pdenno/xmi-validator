@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Package xmi:type="uml:Package" xmi:id="QVTTemplate" name="QVTTemplate" URI="http://www.omg.org/spec/QVT/20140401/QVTTemplate">
+    <packagedElement xmi:type="uml:Class" xmi:id="CollectionTemplateExp" name="CollectionTemplateExp">
+      <generalization xmi:id="G_CollectionTemplateExp_TemplateExp" general="TemplateExp"/>
+      <ownedAttribute xmi:id="CollectionTemplateExp.member" name="member" aggregation="composite" association="A_CollectionTemplateExp.member_listContainer">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="CollectionTemplateExp.referredCollectionType" name="referredCollectionType" association="A_CollectionTemplateExp.referredCollectionType_collectionTemplateExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#CollectionType"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="CollectionTemplateExp.rest" name="rest" association="A_CollectionTemplateExp.rest_matchingExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ObjectTemplateExp" name="ObjectTemplateExp">
+      <generalization xmi:id="G_ObjectTemplateExp_TemplateExp" general="TemplateExp"/>
+      <ownedAttribute xmi:id="ObjectTemplateExp.part" name="part" type="PropertyTemplateItem" aggregation="composite" association="A_ObjectTemplateExp.part_PropertyTemplateItem.objContainer">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="ObjectTemplateExp.referredClass" name="referredClass" association="A_ObjectTemplateExp.referredClass_objectTemplateExp">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="PropertyTemplateItem" name="PropertyTemplateItem">
+      <generalization xmi:id="G_PropertyTemplateItem_Element">
+        <general xmi:type="uml:Class" href="EMOF.xmi#Element"/>
+      </generalization>
+      <ownedAttribute xmi:id="PropertyTemplateItem.isOpposite" name="isOpposite" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <defaultValue xmi:type="uml:LiteralBoolean">
+          <type xmi:type="uml:PrimitiveType" href="PrimitiveTypes.xmi#Boolean"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="PropertyTemplateItem.objContainer" name="objContainer" type="ObjectTemplateExp" association="A_ObjectTemplateExp.part_PropertyTemplateItem.objContainer"/>
+      <ownedAttribute xmi:id="PropertyTemplateItem.referredProperty" name="referredProperty" association="A_PropertyTemplateItem.referredProperty_propertyItem">
+        <type xmi:type="uml:Class" href="EMOF.xmi#Property"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="PropertyTemplateItem.value" name="value" aggregation="composite" association="A_PropertyTemplateItem.value_propertyItem">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="TemplateExp" name="TemplateExp" isAbstract="true">
+      <generalization xmi:id="G_TemplateExp_LiteralExp">
+        <general xmi:type="uml:Class" href="EssentialOCL.xmi#LiteralExp"/>
+      </generalization>
+      <ownedAttribute xmi:id="TemplateExp.bindsTo" name="bindsTo" association="A_TemplateExp.bindsTo_templateExp">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#Variable"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TemplateExp.where" name="where" aggregation="composite" association="A_TemplateExp.where_owner">
+        <type xmi:type="uml:Class" href="EssentialOCL.xmi#OclExpression"/>
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_CollectionTemplateExp.member_listContainer" name="A_CollectionTemplateExp.member_listContainer"
+        memberEnd="CollectionTemplateExp.member A_CollectionTemplateExp.member_listContainer.listContainer">
+      <ownedEnd xmi:id="A_CollectionTemplateExp.member_listContainer.listContainer" name="listContainer" type="CollectionTemplateExp"
+          association="A_CollectionTemplateExp.member_listContainer">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_CollectionTemplateExp.referredCollectionType_collectionTemplateExp" name="A_CollectionTemplateExp.referredCollectionType_collectionTemplateExp"
+        memberEnd="CollectionTemplateExp.referredCollectionType A_CollectionTemplateExp.referredCollectionType_collectionTemplateExp.collectionTemplateExp">
+      <ownedEnd xmi:id="A_CollectionTemplateExp.referredCollectionType_collectionTemplateExp.collectionTemplateExp" name="collectionTemplateExp"
+          type="CollectionTemplateExp" association="A_CollectionTemplateExp.referredCollectionType_collectionTemplateExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_CollectionTemplateExp.rest_matchingExp" name="A_CollectionTemplateExp.rest_matchingExp"
+        memberEnd="CollectionTemplateExp.rest A_CollectionTemplateExp.rest_matchingExp.matchingExp">
+      <ownedEnd xmi:id="A_CollectionTemplateExp.rest_matchingExp.matchingExp" name="matchingExp" type="CollectionTemplateExp" association="A_CollectionTemplateExp.rest_matchingExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ObjectTemplateExp.part_PropertyTemplateItem.objContainer" name="A_ObjectTemplateExp.part_PropertyTemplateItem.objContainer"
+        memberEnd="ObjectTemplateExp.part PropertyTemplateItem.objContainer"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_ObjectTemplateExp.referredClass_objectTemplateExp" name="A_ObjectTemplateExp.referredClass_objectTemplateExp"
+        memberEnd="ObjectTemplateExp.referredClass A_ObjectTemplateExp.referredClass_objectTemplateExp.objectTemplateExp">
+      <ownedEnd xmi:id="A_ObjectTemplateExp.referredClass_objectTemplateExp.objectTemplateExp" name="objectTemplateExp" type="ObjectTemplateExp"
+          association="A_ObjectTemplateExp.referredClass_objectTemplateExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_PropertyTemplateItem.referredProperty_propertyItem" name="A_PropertyTemplateItem.referredProperty_propertyItem"
+        memberEnd="PropertyTemplateItem.referredProperty A_PropertyTemplateItem.referredProperty_propertyItem.propertyItem">
+      <ownedEnd xmi:id="A_PropertyTemplateItem.referredProperty_propertyItem.propertyItem" name="propertyItem" type="PropertyTemplateItem"
+          association="A_PropertyTemplateItem.referredProperty_propertyItem">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_PropertyTemplateItem.value_propertyItem" name="A_PropertyTemplateItem.value_propertyItem"
+        memberEnd="PropertyTemplateItem.value A_PropertyTemplateItem.value_propertyItem.propertyItem">
+      <ownedEnd xmi:id="A_PropertyTemplateItem.value_propertyItem.propertyItem" name="propertyItem" type="PropertyTemplateItem" association="A_PropertyTemplateItem.value_propertyItem">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_TemplateExp.bindsTo_templateExp" name="A_TemplateExp.bindsTo_templateExp" memberEnd="TemplateExp.bindsTo A_TemplateExp.bindsTo_templateExp.templateExp">
+      <ownedEnd xmi:id="A_TemplateExp.bindsTo_templateExp.templateExp" name="templateExp" type="TemplateExp" association="A_TemplateExp.bindsTo_templateExp">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_TemplateExp.where_owner" name="A_TemplateExp.where_owner" memberEnd="TemplateExp.where A_TemplateExp.where_owner.owner">
+      <ownedEnd xmi:id="A_TemplateExp.where_owner.owner" name="owner" type="TemplateExp" association="A_TemplateExp.where_owner">
+        <lowerValue xmi:type="uml:LiteralInteger"/>
+      </ownedEnd>
+    </packagedElement>
+  </uml:Package>
+  <mofext:Tag xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" value="qvttemplate" element="QVTTemplate"/>
+</xmi:XMI>

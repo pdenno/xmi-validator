@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:cmof="http://schema.omg.org/spec/MOF/2.0/cmof.xml">
+  <uml:Profile xmi:id="_KitXcFtIEd6YpLSSRX9zkg" name="TestCase3_Profile" metamodelReference="_KqwgMVtIEd6YpLSSRX9zkg">
+     <packageImport xmi:type="uml:PackageImport" xmi:id="_KqwgMVtIEd6YpLSSRX9zkg">
+      <importedPackage xmi:type="uml:Model" href="http://www.omg.org/spec/UML/20090901/UML.xmi#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_cjrpkFtIEd6YpLSSRX9zkg" name="Stereotype3">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_eXw2UltIEd6YpLSSRX9zkg" name="base_Class" association="_eXw2UFtIEd6YpLSSRX9zkg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_e0Z5kFtJEd6YpLSSRX9zkg" name="attribute5" visibility="public" type="_gtqWsFtIEd6YpLSSRX9zkg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_1HcKwVzeEd6YpLSSRX9zkg" name="attribute6" visibility="public" aggregation="shared" association="_1HcKwFzeEd6YpLSSRX9zkg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+      </ownedAttribute>
+      <icon xmi:id="_L2ch4GgaEd6GIv0ibkwFLA" content="89504E470D0A1A0A0000000D4948445200000018000000180803000000D7A9CDCA000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000000206348524D00007A26000080840000FA00000080E8000075300000EA6000003A98000017709CBA513C00000300504C54450000000808081010101818182020203030303838384040404848485858586060606868687878787F7F7F4CFF008787878F8F8F9797979F9F9FAFAFAFB7B7B7BFBFBFC7C7C7CFCFCFD7D7D7DFDFDFE7E7E7EFEFEFF7F7F7FFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FB142D3A0000001874455874536F667477617265005061696E742E4E45542076332E3336A9E7E2250000009C494441542853CD91C912832010445B100D18708998B8FDFF6F861910E321D754FA02358F2EBA01FB17E1CFC1E2835E39648AEB8D04ABD08FC818AC371AD541226C2AB611984B88BB4BEA24C4330185EA18D3AA2137764C909F73E71406063DF415B468188C5057D0A065B049E4ABE9C4806289A9C602F5E9D12043ECE143FC52DB20A342A13E17DC579B8A03C2CC6773DA4D1D39AC3F1EEB175FFB068C1D327D1AB319A30000000049454E44AE426082" format="PNG"/>
+      <icon xmi:id="_NBZ5IGgaEd6GIv0ibkwFLA" content="89504E470D0A1A0A0000000D4948445200000018000000180803000000D7A9CDCA000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000000206348524D00007A26000080840000FA00000080E8000075300000EA6000003A98000017709CBA513C00000300504C54450000000808081010101818182020203030303838384040404848485858586060606868687878787F7F7F4CFF008787878F8F8F9797979F9F9FAFAFAFB7B7B7BFBFBFC7C7C7CFCFCFD7D7D7DFDFDFE7E7E7EFEFEFF7F7F7FFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FB142D3A0000001874455874536F667477617265005061696E742E4E45542076332E3336A9E7E2250000009C494441542853CD91C912832010445B100D18708998B8FDFF6F861910E321D754FA02358F2EBA01FB17E1CFC1E2835E39648AEB8D04ABD08FC818AC371AD541226C2AB611984B88BB4BEA24C4330185EA18D3AA2137764C909F73E71406063DF415B468188C5057D0A065B049E4ABE9C4806289A9C602F5E9D12043ECE143FC52DB20A342A13E17DC579B8A03C2CC6773DA4D1D39AC3F1EEB175FFB068C1D327D1AB319A30000000049454E44AE426082" format="PNG"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_eXw2UFtIEd6YpLSSRX9zkg" memberEnd="_eXw2UVtIEd6YpLSSRX9zkg _eXw2UltIEd6YpLSSRX9zkg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_eXw2UVtIEd6YpLSSRX9zkg" name="extension_Stereotype3" type="_cjrpkFtIEd6YpLSSRX9zkg" aggregation="composite" association="_eXw2UFtIEd6YpLSSRX9zkg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_gtqWsFtIEd6YpLSSRX9zkg" name="Color">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hRIQIFtIEd6YpLSSRX9zkg" name="RED" classifier="_gtqWsFtIEd6YpLSSRX9zkg">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="_v-2BwFtIEd6YpLSSRX9zkg"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hc5bQFtIEd6YpLSSRX9zkg" name="GREEN" classifier="_gtqWsFtIEd6YpLSSRX9zkg">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="_4M1W4FtIEd6YpLSSRX9zkg" value="1"/>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_1HcKwFzeEd6YpLSSRX9zkg" memberEnd="_1HcKwVzeEd6YpLSSRX9zkg _1HlUslzeEd6YpLSSRX9zkg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_1HlUslzeEd6YpLSSRX9zkg" name="stereotype1" visibility="private" type="_cjrpkFtIEd6YpLSSRX9zkg" association="_1HcKwFzeEd6YpLSSRX9zkg">
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_5XOk8FzeEd6YpLSSRX9zkg" name="Stereotype1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ZAvT4FzgEd6YpLSSRX9zkg" name="attribute1" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_gz7jYFzgEd6YpLSSRX9zkg" name="attribute2" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zp4VslzgEd6YpLSSRX9zkg" name="base_Operation" association="_zp4VsFzgEd6YpLSSRX9zkg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Operation"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0Fc3YlzgEd6YpLSSRX9zkg" name="base_Property" association="_0Fc3YFzgEd6YpLSSRX9zkg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_FbscYFzfEd6YpLSSRX9zkg" name="Stereotype2">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_rPDecFzgEd6YpLSSRX9zkg" name="attribute3" visibility="public" aggregation="shared" association="_rO5tcFzgEd6YpLSSRX9zkg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Classifier"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rPDecVzgEd6YpLSSRX9zkg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_sEstAFzgEd6YpLSSRX9zkg" name="attribute4" visibility="public" aggregation="shared" association="_sEi8AFzgEd6YpLSSRX9zkg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sEstAlzgEd6YpLSSRX9zkg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sEstAVzgEd6YpLSSRX9zkg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9YgZU1zvEd6YpLSSRX9zkg" name="base_Property" association="_9YgZUFzvEd6YpLSSRX9zkg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_rO5tcFzgEd6YpLSSRX9zkg" memberEnd="_rPDecFzgEd6YpLSSRX9zkg _rPDec1zgEd6YpLSSRX9zkg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_rPDec1zgEd6YpLSSRX9zkg" name="stereotype3" visibility="private" type="_FbscYFzfEd6YpLSSRX9zkg" association="_rO5tcFzgEd6YpLSSRX9zkg">
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_sEi8AFzgEd6YpLSSRX9zkg" memberEnd="_sEstAFzgEd6YpLSSRX9zkg _sEstA1zgEd6YpLSSRX9zkg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_sEstA1zgEd6YpLSSRX9zkg" name="stereotype3" visibility="private" type="_FbscYFzfEd6YpLSSRX9zkg" association="_sEi8AFzgEd6YpLSSRX9zkg">
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_zp4VsFzgEd6YpLSSRX9zkg" memberEnd="_zp4VsVzgEd6YpLSSRX9zkg _zp4VslzgEd6YpLSSRX9zkg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_zp4VsVzgEd6YpLSSRX9zkg" name="extension_Stereotype1" type="_5XOk8FzeEd6YpLSSRX9zkg" aggregation="composite" association="_zp4VsFzgEd6YpLSSRX9zkg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_0Fc3YFzgEd6YpLSSRX9zkg" memberEnd="_0Fc3YVzgEd6YpLSSRX9zkg _0Fc3YlzgEd6YpLSSRX9zkg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_0Fc3YVzgEd6YpLSSRX9zkg" name="extension_Stereotype1" type="_5XOk8FzeEd6YpLSSRX9zkg" aggregation="composite" association="_0Fc3YFzgEd6YpLSSRX9zkg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_2MzI8FzhEd6YpLSSRX9zkg" name="Stereotype4">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_in-MgFzjEd6YpLSSRX9zkg" constrainedElement="_2MzI8FzhEd6YpLSSRX9zkg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_iokCYFzjEd6YpLSSRX9zkg">
+          <language>OCL</language>
+          <body>self.base_Class.ownedOperation->forAll(o| o.visibility = uml::VisibilityKind::protected)</body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KGRFYlzwEd6YpLSSRX9zkg" name="base_Class" association="_KGRFYFzwEd6YpLSSRX9zkg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__FJJEGEHEd6g0fRT_FUATQ" name="attribute7" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_6G4moFzmEd6YpLSSRX9zkg" name="Stereotype5">
+      <generalization xmi:type="uml:Generalization" xmi:id="_63K0EFzmEd6YpLSSRX9zkg" general="_2MzI8FzhEd6YpLSSRX9zkg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_AM-T0GEIEd6g0fRT_FUATQ" name="attribute8" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_9YgZUFzvEd6YpLSSRX9zkg" memberEnd="_9YgZUVzvEd6YpLSSRX9zkg _9YgZU1zvEd6YpLSSRX9zkg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_9YgZUVzvEd6YpLSSRX9zkg" name="extension_Stereotype2" type="_FbscYFzfEd6YpLSSRX9zkg" aggregation="composite" association="_9YgZUFzvEd6YpLSSRX9zkg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9YgZUlzvEd6YpLSSRX9zkg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_KGRFYFzwEd6YpLSSRX9zkg" memberEnd="_KGRFYVzwEd6YpLSSRX9zkg _KGRFYlzwEd6YpLSSRX9zkg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_KGRFYVzwEd6YpLSSRX9zkg" name="extension_Stereotype4" type="_2MzI8FzhEd6YpLSSRX9zkg" aggregation="composite" association="_KGRFYFzwEd6YpLSSRX9zkg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_KWp5kGEIEd6g0fRT_FUATQ" name="Stereotype6">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_d8bmUWEIEd6g0fRT_FUATQ" name="attribute9" visibility="public" type="_bFcyIGEIEd6g0fRT_FUATQ" aggregation="shared" association="_d8bmUGEIEd6g0fRT_FUATQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d8lXUGEIEd6g0fRT_FUATQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UmCPkmz5Ed6PP-C81v-frg" name="base_Interface" association="_UmCPkGz5Ed6PP-C81v-frg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Interface"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_bFcyIGEIEd6g0fRT_FUATQ" name="Stereotype7">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Vk5rkmz5Ed6PP-C81v-frg" name="base_Interface" association="_Vk5rkGz5Ed6PP-C81v-frg">
+        <type xmi:type="uml:Class" href="http://www.omg.org/spec/UML/20090901/UML.xmi#Interface"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_d8bmUGEIEd6g0fRT_FUATQ" memberEnd="_d8bmUWEIEd6g0fRT_FUATQ _d84SQGEIEd6g0fRT_FUATQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_d84SQGEIEd6g0fRT_FUATQ" name="attribute10" visibility="private" type="_KWp5kGEIEd6g0fRT_FUATQ" association="_d8bmUGEIEd6g0fRT_FUATQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d84SQWEIEd6g0fRT_FUATQ"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_UmCPkGz5Ed6PP-C81v-frg" memberEnd="_UmCPkWz5Ed6PP-C81v-frg _UmCPkmz5Ed6PP-C81v-frg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_UmCPkWz5Ed6PP-C81v-frg" name="extension_Stereotype6" type="_KWp5kGEIEd6g0fRT_FUATQ" aggregation="composite" association="_UmCPkGz5Ed6PP-C81v-frg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_Vk5rkGz5Ed6PP-C81v-frg" memberEnd="_Vk5rkWz5Ed6PP-C81v-frg _Vk5rkmz5Ed6PP-C81v-frg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Vk5rkWz5Ed6PP-C81v-frg" name="extension_Stereotype7" type="_bFcyIGEIEd6g0fRT_FUATQ" aggregation="composite" association="_Vk5rkGz5Ed6PP-C81v-frg"/>
+    </packagedElement>
+  </uml:Profile>
+  <cmof:Tag xmi:id="tag1" name="org.omg.xmi.nsPrefix" value="TestCase3_Profile" element="_0"/>
+  <cmof:Tag xmi:id="tag2" name="org.omg.xmi.nsURI" value="http:///schemas/TestCase3_Profile.xmi" element="_0"/>
+ </xmi:XMI>

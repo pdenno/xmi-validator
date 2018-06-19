@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+<uml:Package xmlns:uml="http://www.omg.org/spec/UML/20131001" xmi:type="uml:Package" xmi:id="_17_0_1_42801a6_1331665652384_572939_3873" name="SACM" URI="http://www.omg.org/spec/SACM/141201/">
+<ownedComment xmi:type="uml:Comment" xmi:id="_18_2_f55036c_1443097261487_123078_7289" body="Author:.&#10;Created:.&#10;Title:.&#10;Comment:.&#10;">
+<annotatedElement xmi:idref="_17_0_1_42801a6_1331665652384_572939_3873"/>
+</ownedComment>
+<packagedElement xmi:type="uml:Package" xmi:id="_17_0_1_42801a6_1332253583446_17108_2423" name="Argumentation" URI="http://www.omg.org/spec/SACM/150821/Argumentation/">
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254095436_979443_2568" name="ArgumentPackage">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1333112272446_877705_2174" general="_17_0_1_42801a6_1333112113993_331161_2150"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332254764181_518636_2921" name="argumentationPackage" aggregation="composite" type="_17_0_1_42801a6_1332254095436_979443_2568" association="_17_0_1_42801a6_1332254764181_394806_2920">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_42801a6_1332254782179_776393_2932"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_42801a6_1332254782179_248486_2933" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332254831962_278483_2941" name="argumentAsset" aggregation="composite" type="_17_0_1_42801a6_1332254104184_750149_2588" association="_17_0_1_42801a6_1332254831962_169879_2940">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_42801a6_1332254850812_696844_2952"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_42801a6_1332254850812_55123_2953" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440141534177_666441_6872" name="interface" type="_18_2_f55036c_1440141491494_791122_6863" association="_18_2_f55036c_1440141534177_865993_6871">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440146251261_34767_8137"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440146251262_124239_8138" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254104184_750149_2588" name="ArgumentAsset" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1333112283496_6805_2175" general="_17_0_1_42801a6_1333112113993_331161_2150"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254113443_891205_2608" name="ArgumentAssetCitation">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332254436679_954432_2868" general="_17_0_1_42801a6_1332254104184_750149_2588"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332254906462_238409_2961" name="citedAsset" type="_17_0_1_42801a6_1332254104184_750149_2588" association="_17_0_1_42801a6_1332254906462_597517_2960"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254167598_115917_2668" name="Assertion" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439975742734_741708_7817" general="_17_0_1_42801a6_1332254104184_750149_2588"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440146336444_13859_8164" name="metaClaim" type="_17_0_1_42801a6_1332254203094_489343_2728" association="_18_2_f55036c_1440146336444_25198_8163">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440146367777_326792_8186"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440146367777_339240_8187" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254174268_66955_2688" name="ArgumentReasoning">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439975735341_800675_7814" general="_17_0_1_42801a6_1332254104184_750149_2588"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332255114345_518462_2985" name="structure" type="_17_0_1_42801a6_1332254095436_979443_2568" association="_17_0_1_42801a6_1332255114345_761179_2984">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_2_42801a6_1337193492098_340506_3109"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_2_42801a6_1337193492099_899673_3110" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254192412_518961_2708" name="AssertedRelationship" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332254470991_772236_2877" general="_17_0_1_42801a6_1332254167598_115917_2668"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332255210027_437443_3035" name="source" type="_17_0_1_42801a6_1332254104184_750149_2588" association="_17_0_1_42801a6_1332255210027_674574_3034">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_42801a6_1332255233812_461299_3045"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_42801a6_1332255233813_266171_3046" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332255248703_339896_3054" name="target" type="_17_0_1_42801a6_1332254104184_750149_2588" association="_17_0_1_42801a6_1332255248703_746659_3053">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_42801a6_1332255265365_325085_3064"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_42801a6_1332255265366_150963_3065" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439975135647_161069_7764" name="reasoning" type="_17_0_1_42801a6_1332254174268_66955_2688" association="_18_2_f55036c_1439975135647_473710_7763">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1439975191103_641208_7786"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254203094_489343_2728" name="Claim">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332254476041_32639_2880" general="_17_0_1_42801a6_1332254167598_115917_2668"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332255015204_787936_2976" name="assumed" type="_17_0_1_42801a6_1332517847674_770015_3160"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332255042372_434367_2978" name="toBeSupported" type="_17_0_1_42801a6_1332517847674_770015_3160"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254311534_336615_2748" name="AssertedInference">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332254483497_553221_2883" general="_17_0_1_42801a6_1332254192412_518961_2708"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254324150_339611_2768" name="AssertedEvidence">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332254487711_620963_2886" general="_17_0_1_42801a6_1332254192412_518961_2708"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254332478_306159_2788" name="AssertedContext">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332254493501_110137_2889" general="_17_0_1_42801a6_1332254192412_518961_2708"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254342178_224929_2810" name="AssertedChallenge">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332254498643_404266_2892" general="_17_0_1_42801a6_1332254192412_518961_2708"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254351650_87381_2830" name="AssertedCounterEvidence">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332254509286_867739_2895" general="_17_0_1_42801a6_1332254192412_518961_2708"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332254764181_394806_2920">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332254764181_518636_2921"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332254764181_99952_2922"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332254764181_99952_2922" type="_17_0_1_42801a6_1332254095436_979443_2568" association="_17_0_1_42801a6_1332254764181_394806_2920"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332254831962_169879_2940">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332254831962_278483_2941"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332254831963_405096_2942"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332254831963_405096_2942" type="_17_0_1_42801a6_1332254095436_979443_2568" association="_17_0_1_42801a6_1332254831962_169879_2940"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332254906462_597517_2960">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332254906462_238409_2961"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332254906462_79105_2962"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332254906462_79105_2962" type="_17_0_1_42801a6_1332254113443_891205_2608" association="_17_0_1_42801a6_1332254906462_597517_2960"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332255114345_761179_2984">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332255114345_518462_2985"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332255114346_50166_2986"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332255114346_50166_2986" type="_17_0_1_42801a6_1332254174268_66955_2688" association="_17_0_1_42801a6_1332255114345_761179_2984"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332255210027_674574_3034">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332255210027_437443_3035"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332255210027_772937_3036"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332255210027_772937_3036" type="_17_0_1_42801a6_1332254192412_518961_2708" association="_17_0_1_42801a6_1332255210027_674574_3034"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332255248703_746659_3053">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332255248703_339896_3054"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332255248704_577493_3055"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332255248704_577493_3055" type="_17_0_1_42801a6_1332254192412_518961_2708" association="_17_0_1_42801a6_1332255248703_746659_3053"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1333112113993_331161_2150" name="ArgumentationElement" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1333112327586_87463_2197" general="_17_0_1_42801a6_1332275972987_755032_2302"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1333112134880_629571_2170" name="content" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_0_2_f55036c_1415801178499_106738_5468" name="ArtefactElementCitation">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_0_2_f55036c_1415801182378_937449_5490" general="_17_0_1_42801a6_1332254104184_750149_2588"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_0_2_f55036c_1415801300824_795284_5494" name="externalReference" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440141722591_974000_6970" name="citedArtefact" type="_18_2_f55036c_1439972977506_291980_7269" association="_18_2_f55036c_1440141722591_246773_6969">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440141733896_794385_6993"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1439975135647_473710_7763">
+<memberEnd xmi:idref="_18_2_f55036c_1439975135647_161069_7764"/>
+<memberEnd xmi:idref="_18_2_f55036c_1439975135647_208112_7765"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439975135647_208112_7765" type="_17_0_1_42801a6_1332254192412_518961_2708" association="_18_2_f55036c_1439975135647_473710_7763"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440141368229_912773_6803" name="ArgumentPackageCitation">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440141368243_717066_6804" general="_17_0_1_42801a6_1332254095436_979443_2568"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440141424737_441381_6834" name="citedPackage" type="_17_0_1_42801a6_1332254095436_979443_2568" association="_18_2_f55036c_1440141424737_889736_6833"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440141424737_889736_6833">
+<memberEnd xmi:idref="_18_2_f55036c_1440141424737_441381_6834"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440141424738_462672_6835"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440141424738_462672_6835" type="_18_2_f55036c_1440141368229_912773_6803" association="_18_2_f55036c_1440141424737_889736_6833"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440141451545_881279_6858" name="ArgumentPackageBinding">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440141451556_803146_6859" general="_17_0_1_42801a6_1332254095436_979443_2568"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440141586366_563639_6912" name="participantPackage" type="_18_2_f55036c_1440141491494_791122_6863" association="_18_2_f55036c_1440141586365_986546_6911">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440146031386_926328_8119" value="2"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440146031386_355948_8120" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440141491494_791122_6863" name="ArgumentPackageInterface">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440141491505_334387_6864" general="_17_0_1_42801a6_1332254095436_979443_2568"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440141534177_865993_6871">
+<memberEnd xmi:idref="_18_2_f55036c_1440141534177_666441_6872"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440141534177_471360_6873"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440141534177_471360_6873" type="_17_0_1_42801a6_1332254095436_979443_2568" association="_18_2_f55036c_1440141534177_865993_6871"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440141586365_986546_6911">
+<memberEnd xmi:idref="_18_2_f55036c_1440141586366_563639_6912"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440141586366_768862_6913"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440141586366_768862_6913" type="_18_2_f55036c_1440141451545_881279_6858" association="_18_2_f55036c_1440141586365_986546_6911"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440141722591_246773_6969">
+<memberEnd xmi:idref="_18_2_f55036c_1440141722591_974000_6970"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440141722592_190807_6971"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440141722592_190807_6971" type="_18_0_2_f55036c_1415801178499_106738_5468" association="_18_2_f55036c_1440141722591_246773_6969"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440146336444_25198_8163">
+<memberEnd xmi:idref="_18_2_f55036c_1440146336444_13859_8164"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440146336445_715754_8165"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440146336445_715754_8165" type="_17_0_1_42801a6_1332254167598_115917_2668" association="_18_2_f55036c_1440146336444_25198_8163"/>
+</packagedElement>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254027907_143519_2507" name="Note">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_2_42801a6_1334785768252_463581_2936" general="_17_0_1_42801a6_1332276133840_86368_2322"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332271381827_845707_2091" name="AssuranceCasePackage">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_2_42801a6_1336009882129_906416_3491" general="_17_0_1_42801a6_1332275972987_755032_2302"/>
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439973116401_482056_7357" general="_18_2_f55036c_1439972977506_291980_7269"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332275524184_708651_2259" name="argumentPackage" aggregation="composite" type="_17_0_1_42801a6_1332254095436_979443_2568" association="_17_0_1_42801a6_1332275524184_663605_2258">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_42801a6_1332536878688_105098_2097"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_42801a6_1332536878690_822872_2098" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_0_2_f55036c_1415800405816_557163_5390" name="assuranceCasePackage" aggregation="composite" type="_17_0_1_42801a6_1332271381827_845707_2091" association="_18_0_2_f55036c_1415800405816_715187_5389">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_2_f55036c_1415800421538_636288_5406"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_2_f55036c_1415800421539_497969_5407" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439973234256_489323_7393" name="interface" type="_18_2_f55036c_1439973195734_819208_7384" association="_18_2_f55036c_1439973234256_338656_7392">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1439973619467_509937_7492"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1439973619467_313689_7493" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439973942749_75123_7589" name="artefactPackage" aggregation="composite" type="_18_2_f55036c_1439973838290_272644_7560" association="_18_2_f55036c_1439973942749_90297_7588">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1439974017619_386590_7613"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1439974017619_532928_7614" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439974245813_111287_7712" name="terminologyPackage" aggregation="composite" type="_18_2_f55036c_1439974126572_653935_7679" association="_18_2_f55036c_1439974245813_206084_7711">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1439974299916_557882_7734"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1439974299916_396300_7735" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332275524184_663605_2258">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332275524184_708651_2259"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332275524184_675449_2260"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332275524184_675449_2260" type="_17_0_1_42801a6_1332271381827_845707_2091" association="_17_0_1_42801a6_1332275524184_663605_2258"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332275972987_755032_2302" name="ModelElement" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332276187530_418044_2342" general="_17_0_1_42801a6_1332267514890_86523_1970"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332276210916_812697_2348" name="taggedValue" aggregation="composite" type="_17_0_1_42801a6_1332254017735_274491_2487" association="_17_0_1_42801a6_1332276210915_881345_2346">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_42801a6_1332276210916_391749_2350"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_42801a6_1332276210916_777486_2349" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332276216762_898949_2353" name="note" aggregation="composite" type="_17_0_1_42801a6_1332254027907_143519_2507" association="_17_0_1_42801a6_1332276216761_977508_2351">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_17_0_1_42801a6_1332276216762_873527_2355"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17_0_1_42801a6_1332276216762_588049_2354" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332276504437_326991_2404" name="gid" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439972442772_619640_7105" name="description" aggregation="composite" type="_18_2_f55036c_1439972223733_481779_7040" association="_18_2_f55036c_1439972442771_24475_7104">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1439972542824_634824_7127"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439972641763_53521_7174" name="implementationConstraint" aggregation="composite" type="_18_2_f55036c_1439972198433_646113_7032" association="_18_2_f55036c_1439972641763_523723_7173">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1439972680028_96502_7196"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1439972680028_67890_7197" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440173932943_865391_10123" name="name" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440173957063_346318_10130" name="isAbstract">
+<type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332276216761_977508_2351">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332276216762_898949_2353"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332276216762_962484_2352"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332276216762_962484_2352" type="_17_0_1_42801a6_1332275972987_755032_2302" association="_17_0_1_42801a6_1332276216761_977508_2351"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_17_0_1_42801a6_1332276210915_881345_2346">
+<memberEnd xmi:idref="_17_0_1_42801a6_1332276210916_812697_2348"/>
+<memberEnd xmi:idref="_17_0_1_42801a6_1332276210916_362101_2347"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_17_0_1_42801a6_1332276210916_362101_2347" type="_17_0_1_42801a6_1332275972987_755032_2302" association="_17_0_1_42801a6_1332276210915_881345_2346"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332267514890_86523_1970" name="SACMElement" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_2_42801a6_1335883644993_545284_2483" general="_17_0_1_42801a6_1331665652404_345274_4055"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332254017735_274491_2487" name="TaggedValue">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_2_42801a6_1334785801293_244039_2939" general="_17_0_1_42801a6_1332276133840_86368_2322"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1443038106046_531312_6861" name="key" aggregation="composite" type="_18_2_f55036c_1439998880213_246438_7837" association="_18_2_f55036c_1443038106046_852685_6860"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1332276133840_86368_2322" name="UtilityElement" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_17_0_1_42801a6_1332276192102_24925_2345" general="_17_0_1_42801a6_1332267514890_86523_1970"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1443013673615_7496_6875" name="expression" aggregation="composite" type="_18_2_f55036c_1439998880213_246438_7837" association="_18_2_f55036c_1443013673615_959493_6874"/>
+</packagedElement>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="_17_0_1_42801a6_1332517847674_770015_3160" name="Boolean">
+<ownedComment xmi:type="uml:Comment" xmi:id="4BAB772902DE_Document">
+<annotatedElement xmi:idref="_17_0_1_42801a6_1332517847674_770015_3160"/>
+</ownedComment>
+</packagedElement>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="_17_0_1_42801a6_1332517828285_713447_3126" name="Integer">
+<ownedComment xmi:type="uml:Comment" xmi:id="4BAB77220157_Document">
+<annotatedElement xmi:idref="_17_0_1_42801a6_1332517828285_713447_3126"/>
+</ownedComment>
+</packagedElement>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="_17_0_1_42801a6_1332517838863_287845_3143" name="String">
+<ownedComment xmi:type="uml:Comment" xmi:id="4BAB771B01A5_Document">
+<annotatedElement xmi:idref="_17_0_1_42801a6_1332517838863_287845_3143"/>
+</ownedComment>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_17_0_1_42801a6_1331665652404_345274_4055" name="Element" isAbstract="true">
+<ownedComment xmi:type="uml:Comment" xmi:id="47A9F1F60000_Document">
+<annotatedElement xmi:idref="_17_0_1_42801a6_1331665652404_345274_4055"/>
+</ownedComment>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_0_2_f55036c_1415800405816_715187_5389">
+<memberEnd xmi:idref="_18_0_2_f55036c_1415800405816_557163_5390"/>
+<memberEnd xmi:idref="_18_0_2_f55036c_1415800405817_182519_5391"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_0_2_f55036c_1415800405817_182519_5391" type="_17_0_1_42801a6_1332271381827_845707_2091" association="_18_0_2_f55036c_1415800405816_715187_5389"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439972198433_646113_7032" name="ImplementationConstraint">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439972198444_747748_7033" general="_17_0_1_42801a6_1332276133840_86368_2322"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439972223733_481779_7040" name="Description">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439972223744_744144_7041" general="_17_0_1_42801a6_1332276133840_86368_2322"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1439972442771_24475_7104">
+<memberEnd xmi:idref="_18_2_f55036c_1439972442772_619640_7105"/>
+<memberEnd xmi:idref="_18_2_f55036c_1439972442772_631052_7106"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439972442772_631052_7106" type="_17_0_1_42801a6_1332275972987_755032_2302" association="_18_2_f55036c_1439972442771_24475_7104"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1439972641763_523723_7173">
+<memberEnd xmi:idref="_18_2_f55036c_1439972641763_53521_7174"/>
+<memberEnd xmi:idref="_18_2_f55036c_1439972641763_461033_7175"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439972641763_461033_7175" type="_17_0_1_42801a6_1332275972987_755032_2302" association="_18_2_f55036c_1439972641763_523723_7173"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Package" xmi:id="_18_2_f55036c_1439972840926_31758_7210" name="Artefact" URI="http://www.omg.org/spec/SACM/150821/Artefact/">
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439972977506_291980_7269" name="ArtefactElement" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439972977516_441105_7270" general="_17_0_1_42801a6_1332275972987_755032_2302"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439973838290_272644_7560" name="ArtefactPackage">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439973838300_48809_7561" general="_18_2_f55036c_1439972977506_291980_7269"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143737546_474305_7530" name="artefactPackage" aggregation="composite" type="_18_2_f55036c_1439973838290_272644_7560" association="_18_2_f55036c_1440143737546_624948_7529">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440143743527_74793_7546"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440143743527_941223_7547" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143806273_163962_7562" name="interface" type="_18_2_f55036c_1440143764860_61460_7553" association="_18_2_f55036c_1440143806273_914769_7561">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1443042556453_99826_7219"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1443042556454_226969_7220" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144205671_279394_7661" name="artefactAsset" aggregation="composite" type="_18_2_f55036c_1440144172449_108469_7648" association="_18_2_f55036c_1440144205671_52300_7660">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440144325098_137099_7696"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440144325098_328914_7697" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440143621456_135003_7460" name="ArtefactPackageCitation">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440143621465_18382_7461" general="_18_2_f55036c_1439973838290_272644_7560"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143634608_741873_7469" name="citedPackage" type="_18_2_f55036c_1439973838290_272644_7560" association="_18_2_f55036c_1440143634608_982156_7468"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440143634608_982156_7468">
+<memberEnd xmi:idref="_18_2_f55036c_1440143634608_741873_7469"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440143634608_388608_7470"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143634608_388608_7470" type="_18_2_f55036c_1440143621456_135003_7460" association="_18_2_f55036c_1440143634608_982156_7468"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440143737546_624948_7529">
+<memberEnd xmi:idref="_18_2_f55036c_1440143737546_474305_7530"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440143737546_45683_7531"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143737546_45683_7531" type="_18_2_f55036c_1439973838290_272644_7560" association="_18_2_f55036c_1440143737546_624948_7529"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440143764860_61460_7553" name="ArtefactPackageInterface">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440143764871_20252_7554" general="_18_2_f55036c_1439973838290_272644_7560"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440143806273_914769_7561" name="hasInterface">
+<memberEnd xmi:idref="_18_2_f55036c_1440143806273_163962_7562"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440143806273_435970_7563"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143806273_435970_7563" type="_18_2_f55036c_1439973838290_272644_7560" association="_18_2_f55036c_1440143806273_914769_7561"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144172449_108469_7648" name="ArtefactAsset" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144172460_697981_7649" general="_18_2_f55036c_1439972977506_291980_7269"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440144205671_52300_7660">
+<memberEnd xmi:idref="_18_2_f55036c_1440144205671_279394_7661"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440144205672_3019_7662"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144205672_3019_7662" type="_18_2_f55036c_1439973838290_272644_7560" association="_18_2_f55036c_1440144205671_52300_7660"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144383230_439828_7713" name="ArtefactAssetCitation">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144383240_450889_7714" general="_18_2_f55036c_1440144172449_108469_7648"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144394706_841403_7722" name="citedAsset" type="_18_2_f55036c_1440144172449_108469_7648" association="_18_2_f55036c_1440144394706_446592_7721"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440144394706_446592_7721">
+<memberEnd xmi:idref="_18_2_f55036c_1440144394706_841403_7722"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440144394706_733155_7723"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144394706_733155_7723" type="_18_2_f55036c_1440144383230_439828_7713" association="_18_2_f55036c_1440144394706_446592_7721"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144419894_378600_7751" name="ArtefactAssetRelationship">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144419903_541254_7752" general="_18_2_f55036c_1440144172449_108469_7648"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144442417_484810_7760" name="source" type="_18_2_f55036c_1440144172449_108469_7648" association="_18_2_f55036c_1440144442417_87241_7759">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440144473059_462200_7805"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440144473060_474724_7806" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144449539_310320_7781" name="target" type="_18_2_f55036c_1440144172449_108469_7648" association="_18_2_f55036c_1440144449539_112763_7780">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440144489268_514431_7815"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440144489268_667398_7816" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440144442417_87241_7759">
+<memberEnd xmi:idref="_18_2_f55036c_1440144442417_484810_7760"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440144442418_689497_7761"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144442418_689497_7761" type="_18_2_f55036c_1440144419894_378600_7751" association="_18_2_f55036c_1440144442417_87241_7759"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440144449539_112763_7780">
+<memberEnd xmi:idref="_18_2_f55036c_1440144449539_310320_7781"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440144449539_312777_7782"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144449539_312777_7782" type="_18_2_f55036c_1440144419894_378600_7751" association="_18_2_f55036c_1440144449539_112763_7780"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144591807_671384_7828" name="ArtefactRelationship">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144591817_899681_7829" general="_18_2_f55036c_1440144419894_378600_7751"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144625703_368234_7836" name="ActivityRelationship">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144625712_263517_7837" general="_18_2_f55036c_1440144419894_378600_7751"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144638550_74482_7840" name="ArtefactActivityRelationship">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144638560_368792_7841" general="_18_2_f55036c_1440144419894_378600_7751"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144658025_363607_7844" name="ArtefactTechniqueRelationship">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144658034_777227_7845" general="_18_2_f55036c_1440144419894_378600_7751"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144681177_129468_7848" name="ParticpantRoleRelationship">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144681186_367985_7849" general="_18_2_f55036c_1440144419894_378600_7751"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144726864_619028_7858" name="Artefact">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144726874_698151_7859" general="_18_2_f55036c_1440144172449_108469_7648"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144745617_849119_7861" name="version" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144803870_617652_7863" name="date">
+<type href="UML_Standard_Profile.emof#_be00301_1073305590699_364818_1"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440145185326_797966_7910" name="artefactProperty" aggregation="composite" type="_18_2_f55036c_1440145161689_956552_7896" association="_18_2_f55036c_1440145185326_34597_7909">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440145221587_42784_7945"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440145221588_136882_7946" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440145375092_206944_7965" name="artefactEvent" aggregation="composite" type="_18_2_f55036c_1440145251355_678655_7956" association="_18_2_f55036c_1440145375092_111358_7964">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440145408441_329546_7987"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440145408441_468815_7988" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144845980_145698_7866" name="Resource">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144845989_357591_7867" general="_18_2_f55036c_1440144172449_108469_7648"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144860064_178011_7869" name="location" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440144916281_936502_7874" name="Activity">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440144916291_344860_7875" general="_18_2_f55036c_1440144172449_108469_7648"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144952461_331371_7877" name="starttime">
+<type href="UML_Standard_Profile.emof#_be00301_1073305590699_364818_1"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440144972643_66000_7879" name="endtime">
+<type href="UML_Standard_Profile.emof#_be00301_1073305590699_364818_1"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440145007520_568224_7882" name="Participant">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440145007529_863959_7883" general="_18_2_f55036c_1440144172449_108469_7648"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440145045354_653112_7888" name="Technique">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440145045364_802740_7889" general="_18_2_f55036c_1440144172449_108469_7648"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440145161689_956552_7896" name="ArtefactProperty">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440145161698_823849_7897" general="_18_2_f55036c_1440144172449_108469_7648"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440145185326_34597_7909">
+<memberEnd xmi:idref="_18_2_f55036c_1440145185326_797966_7910"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440145185326_784503_7911"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440145185326_784503_7911" type="_18_2_f55036c_1440144726864_619028_7858" association="_18_2_f55036c_1440145185326_34597_7909"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440145251355_678655_7956" name="ArtefactEvent">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440145251367_752604_7957" general="_18_2_f55036c_1440144172449_108469_7648"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440145375092_111358_7964">
+<memberEnd xmi:idref="_18_2_f55036c_1440145375092_206944_7965"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440145375092_433691_7966"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440145375092_433691_7966" type="_18_2_f55036c_1440144726864_619028_7858" association="_18_2_f55036c_1440145375092_111358_7964"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440149179331_481439_8248" name="ArtefactResourceRelationship">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440149179347_157387_8249" general="_18_2_f55036c_1440144419894_378600_7751"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1443042343422_950365_7146" name="ArtefactPackageBinding">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1443042467343_924884_7202" general="_18_2_f55036c_1439973838290_272644_7560"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1443042380749_795011_7173" name="participantPackage" type="_18_2_f55036c_1440143764860_61460_7553" association="_18_2_f55036c_1443042380749_152943_7172">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1443042438180_429816_7195" value="2"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1443042438180_166033_7196" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1443042380749_152943_7172">
+<memberEnd xmi:idref="_18_2_f55036c_1443042380749_795011_7173"/>
+<memberEnd xmi:idref="_18_2_f55036c_1443042380749_759434_7174"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1443042380749_759434_7174" type="_18_2_f55036c_1443042343422_950365_7146" association="_18_2_f55036c_1443042380749_152943_7172"/>
+</packagedElement>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439973195734_819208_7384" name="AssuranceCasePackageInterface">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439973195747_80593_7385" general="_17_0_1_42801a6_1332271381827_845707_2091"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1439973234256_338656_7392">
+<memberEnd xmi:idref="_18_2_f55036c_1439973234256_489323_7393"/>
+<memberEnd xmi:idref="_18_2_f55036c_1439973234256_873465_7394"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439973234256_873465_7394" type="_17_0_1_42801a6_1332271381827_845707_2091" association="_18_2_f55036c_1439973234256_338656_7392"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439973329903_318762_7432" name="AssuranceCasePackageCitation">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440143427427_52419_7451" general="_17_0_1_42801a6_1332271381827_845707_2091"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439973728492_787777_7521" name="citedPackage" type="_17_0_1_42801a6_1332271381827_845707_2091" association="_18_2_f55036c_1439973728492_107384_7520"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1439973728492_107384_7520">
+<memberEnd xmi:idref="_18_2_f55036c_1439973728492_787777_7521"/>
+<memberEnd xmi:idref="_18_2_f55036c_1439973728492_259167_7522"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439973728492_259167_7522" type="_18_2_f55036c_1439973329903_318762_7432" association="_18_2_f55036c_1439973728492_107384_7520"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1439973942749_90297_7588">
+<memberEnd xmi:idref="_18_2_f55036c_1439973942749_75123_7589"/>
+<memberEnd xmi:idref="_18_2_f55036c_1439973942750_864734_7590"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439973942750_864734_7590" type="_17_0_1_42801a6_1332271381827_845707_2091" association="_18_2_f55036c_1439973942749_90297_7588"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Package" xmi:id="_18_2_f55036c_1439974037421_665129_7619" name="Terminology" URI="http://www.omg.org/spec/SACM/150821/Terminology/">
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439974096265_180931_7675" name="TerminologyElement" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439974096275_875773_7676" general="_17_0_1_42801a6_1332275972987_755032_2302"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439974126572_653935_7679" name="TerminologyPackage">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439974126582_891475_7680" general="_18_2_f55036c_1439974096265_180931_7675"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142254739_825561_7125" name="terminologyAsset" aggregation="composite" type="_18_2_f55036c_1440142242338_405896_7116" association="_18_2_f55036c_1440142254739_150294_7124">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440142270163_666706_7141"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440142270163_968104_7142" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142333576_188190_7191" name="terminologyPackageCitation" aggregation="composite" type="_18_2_f55036c_1440142301412_687169_7148" association="_18_2_f55036c_1440142333576_459362_7190"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143034914_187516_7368" name="terminologyPackage" aggregation="composite" type="_18_2_f55036c_1439974126572_653935_7679" association="_18_2_f55036c_1440143034914_26942_7367">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440143064057_824706_7384"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440143064057_220263_7385" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439998880213_246438_7837" name="Expression">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439998976250_999634_7880" general="_18_2_f55036c_1439998699361_778279_7825"/>
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440142433678_937693_7230" general="_18_2_f55036c_1440142408770_405471_7226"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142654527_825569_7296" name="element" type="_18_2_f55036c_1440142408770_405471_7226" association="_18_2_f55036c_1440142654527_142581_7295">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440142665032_934554_7319"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440142665032_705513_7320" value="*"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143139776_700706_7395" name="form" type="_18_2_f55036c_1439998880213_246438_7837" association="_18_2_f55036c_1440143139776_662503_7394">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440143162145_49442_7411"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1443036423069_145111_6824" name="value" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440142242338_405896_7116" name="TerminologyAsset" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440142242348_632936_7117" general="_18_2_f55036c_1439974096265_180931_7675"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440142254739_150294_7124">
+<memberEnd xmi:idref="_18_2_f55036c_1440142254739_825561_7125"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440142254739_30956_7126"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142254739_30956_7126" type="_18_2_f55036c_1439974126572_653935_7679" association="_18_2_f55036c_1440142254739_150294_7124"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440142301412_687169_7148" name="TerminologyPackageCitation">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440142301422_609041_7149" general="_18_2_f55036c_1439974096265_180931_7675"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440145821708_597883_8063" name="citedPackage" type="_18_2_f55036c_1439974126572_653935_7679" association="_18_2_f55036c_1440145821708_797227_8062"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440142333576_459362_7190">
+<memberEnd xmi:idref="_18_2_f55036c_1440142333576_188190_7191"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440142333576_185346_7192"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142333576_185346_7192" type="_18_2_f55036c_1439974126572_653935_7679" association="_18_2_f55036c_1440142333576_459362_7190">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440142341621_440987_7207"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440142341622_216798_7208" value="*"/>
+</ownedEnd>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440142408770_405471_7226" name="ExpressionElement" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440142408779_159457_7227" general="_18_2_f55036c_1440142242338_405896_7116"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440145673238_608547_8012" name="category" type="_18_2_f55036c_1440145662655_558233_8003" association="_18_2_f55036c_1440145673238_903017_8011">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440145685364_403767_8032"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_2_f55036c_1440145685365_866393_8033" value="*"/>
+</ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440142444298_158540_7233" name="Term">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440142444309_906955_7234" general="_18_2_f55036c_1440142408770_405471_7226"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1443036453070_422325_6826" name="value" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142958717_370731_7334" name="origin" type="_17_0_1_42801a6_1332275972987_755032_2302" association="_18_2_f55036c_1440142958717_331900_7333">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_2_f55036c_1440142983779_988760_7357"/>
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142744989_30624_7325" name="externalReference" type="_17_0_1_42801a6_1332517838863_287845_3143"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440142459327_896152_7243" name="TerminologyAssetCitation">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440142459336_436657_7244" general="_18_2_f55036c_1440142408770_405471_7226"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142505285_741555_7252" name="citedAsset" type="_18_2_f55036c_1440142242338_405896_7116" association="_18_2_f55036c_1440142505284_999360_7251"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440142505284_999360_7251">
+<memberEnd xmi:idref="_18_2_f55036c_1440142505285_741555_7252"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440142505285_410333_7253"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142505285_410333_7253" type="_18_2_f55036c_1440142459327_896152_7243" association="_18_2_f55036c_1440142505284_999360_7251"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440142654527_142581_7295">
+<memberEnd xmi:idref="_18_2_f55036c_1440142654527_825569_7296"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440142654528_107560_7297"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142654528_107560_7297" type="_18_2_f55036c_1439998880213_246438_7837" association="_18_2_f55036c_1440142654527_142581_7295"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440142958717_331900_7333">
+<memberEnd xmi:idref="_18_2_f55036c_1440142958717_370731_7334"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440142958718_360755_7335"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440142958718_360755_7335" type="_18_2_f55036c_1440142444298_158540_7233" association="_18_2_f55036c_1440142958717_331900_7333"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440143034914_26942_7367">
+<memberEnd xmi:idref="_18_2_f55036c_1440143034914_187516_7368"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440143034915_969839_7369"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143034915_969839_7369" type="_18_2_f55036c_1439974126572_653935_7679" association="_18_2_f55036c_1440143034914_26942_7367"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1440145662655_558233_8003" name="Category">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1440145662665_369837_8004" general="_18_2_f55036c_1440142242338_405896_7116"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440145673238_903017_8011">
+<memberEnd xmi:idref="_18_2_f55036c_1440145673238_608547_8012"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440145673238_66863_8013"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440145673238_66863_8013" type="_18_2_f55036c_1440142408770_405471_7226" association="_18_2_f55036c_1440145673238_903017_8011"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440145821708_797227_8062">
+<memberEnd xmi:idref="_18_2_f55036c_1440145821708_597883_8063"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440145821708_700898_8064"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440145821708_700898_8064" type="_18_2_f55036c_1440142301412_687169_7148" association="_18_2_f55036c_1440145821708_797227_8062"/>
+</packagedElement>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1439974245813_206084_7711">
+<memberEnd xmi:idref="_18_2_f55036c_1439974245813_111287_7712"/>
+<memberEnd xmi:idref="_18_2_f55036c_1439974245813_733373_7713"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1439974245813_733373_7713" type="_17_0_1_42801a6_1332271381827_845707_2091" association="_18_2_f55036c_1439974245813_206084_7711"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_18_2_f55036c_1439998699361_778279_7825" name="Expression" isAbstract="true">
+<generalization xmi:type="uml:Generalization" xmi:id="_18_2_f55036c_1439998699384_778765_7826" general="_17_0_1_42801a6_1332267514890_86523_1970"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1440143139776_662503_7394">
+<memberEnd xmi:idref="_18_2_f55036c_1440143139776_700706_7395"/>
+<memberEnd xmi:idref="_18_2_f55036c_1440143139776_822703_7396"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1440143139776_822703_7396" type="_18_2_f55036c_1439998880213_246438_7837" association="_18_2_f55036c_1440143139776_662503_7394"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1443013673615_959493_6874">
+<memberEnd xmi:idref="_18_2_f55036c_1443013673615_7496_6875"/>
+<memberEnd xmi:idref="_18_2_f55036c_1443013673615_742079_6876"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1443013673615_742079_6876" type="_17_0_1_42801a6_1332276133840_86368_2322" association="_18_2_f55036c_1443013673615_959493_6874"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_18_2_f55036c_1443038106046_852685_6860">
+<memberEnd xmi:idref="_18_2_f55036c_1443038106046_531312_6861"/>
+<memberEnd xmi:idref="_18_2_f55036c_1443038106046_15909_6862"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_18_2_f55036c_1443038106046_15909_6862" type="_17_0_1_42801a6_1332254017735_274491_2487" association="_18_2_f55036c_1443038106046_852685_6860"/>
+</packagedElement>
+</uml:Package>
+<mofext:Tag xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmi:type="mofext:Tag" xmi:id="_18_0_2_ce20300_1418066462493_938467_6555_nsPrefix" name="nsPrefix" element="_17_0_1_42801a6_1332253583446_17108_2423" value="SACM"/>
+<mofext:Tag xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmi:type="mofext:Tag" xmi:id="_18_0_2_ce20300_1418066404961_838204_6551_nsPrefix" name="nsPrefix" element="_17_0_1_42801a6_1331665652384_572939_3873" value="SACM"/>
+<mofext:Tag xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmi:type="mofext:Tag" xmi:id="_18_2_f55036c_1439974453364_22373_7740_nsPrefix" name="nsPrefix" element="_18_2_f55036c_1439974037421_665129_7619" value="SACM"/>
+<mofext:Tag xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmi:type="mofext:Tag" xmi:id="_18_2_f55036c_1439974483110_29523_7741_nsPrefix" name="nsPrefix" element="_18_2_f55036c_1439972840926_31758_7210" value="SACM"/>
+</xmi:XMI>

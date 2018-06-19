@@ -1,0 +1,17 @@
+transformation HelloOCL ( target : MyRDBM  ) 
+{
+   top relation NewSchemaWithTables 
+   {
+      hello : Sequence (String);
+      enforce   domain target tgtSma  : Schema  
+      { 
+         name = 'HelloWorld',    
+         table = t1 : Table {name = hello->at(1)},
+         table = t2 : Table {name = hello->at(2)}
+      };
+      where  
+      { 
+         hello = Sequence{'Hello', 'World'};  
+      }
+   }
+}

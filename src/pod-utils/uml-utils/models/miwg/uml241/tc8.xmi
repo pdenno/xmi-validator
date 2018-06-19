@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20110701" xmi:id="_j3QjiPPvEd6piZRwLZpx_A" name="TestCase8">
+  <packagedElement xmi:type="uml:Package" xmi:id="_j3QjifPvEd6piZRwLZpx_A" name="Package1">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_j3QjivPvEd6piZRwLZpx_A" annotatedElement="_j3Qji_PvEd6piZRwLZpx_A _j3QjjvPvEd6piZRwLZpx_A _j3QjkPPvEd6piZRwLZpx_A">
+      <body>Comment: All actors, use cases 1 though 4, Class1 and this comment scoped to Package1. Use Cases 1 through 4 have no subject. Use Case5 has Class1 as both its owner and its subject.</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_j3Qji_PvEd6piZRwLZpx_A" name="Actor1"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_j3QjjPPvEd6piZRwLZpx_A" name="Actor2">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Vt8J8PluEd6SmcPeKp4z0Q" general="_j3Qji_PvEd6piZRwLZpx_A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_j3QjjfPvEd6piZRwLZpx_A" name="Class1" useCase="_g45mgPluEd6SmcPeKp4z0Q">
+      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_g45mgPluEd6SmcPeKp4z0Q" name="Use Case5" subject="_j3QjjfPvEd6piZRwLZpx_A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_j3QjjvPvEd6piZRwLZpx_A" name="Use Case1">
+      <include xmi:type="uml:Include" xmi:id="_Q9D04PluEd6SmcPeKp4z0Q" addition="_j3QjkPPvEd6piZRwLZpx_A"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_TNAeQPluEd6SmcPeKp4z0Q" name="ExtensionPoint1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_j3Qjj_PvEd6piZRwLZpx_A" name="Use Case2">
+      <extend xmi:type="uml:Extend" xmi:id="_TM2tQPluEd6SmcPeKp4z0Q" extendedCase="_j3QjjvPvEd6piZRwLZpx_A" extensionLocation="_TNAeQPluEd6SmcPeKp4z0Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_j3QjkPPvEd6piZRwLZpx_A" name="Use Case3"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_j3QjkfPvEd6piZRwLZpx_A" name="Use Case4">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Oe0Q0PluEd6SmcPeKp4z0Q" general="_j3QjkPPvEd6piZRwLZpx_A"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_j3QjkvPvEd6piZRwLZpx_A" name="Package2">
+    <packagedElement xmi:type="uml:Actor" xmi:id="_j3Qjk_PvEd6piZRwLZpx_A" name="Actor3"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_j3QjlPPvEd6piZRwLZpx_A" name="Class2">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j3QjlfPvEd6piZRwLZpx_A" name="theActor" visibility="private" type="_j3Qjk_PvEd6piZRwLZpx_A" isUnique="false" association="_j3QjnfPvEd6piZRwLZpx_A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_j3QjmPPvEd6piZRwLZpx_A" name="Class3" clientDependency="_j3QjovPvEd6piZRwLZpx_A"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_j3QjmfPvEd6piZRwLZpx_A" name="Use Case6" clientDependency="_j3Qjo_PvEd6piZRwLZpx_A _j3QjpPPvEd6piZRwLZpx_A"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_j3QjmvPvEd6piZRwLZpx_A" name="Use Case7">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_j3Qjm_PvEd6piZRwLZpx_A" name="Activity1">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_j3QjnPPvEd6piZRwLZpx_A" annotatedElement="_j3Qjm_PvEd6piZRwLZpx_A">
+          <body>Comment: Activity1 is an Activity, this comment is owned by and annotates it</body>
+        </ownedComment>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_j3QjnfPvEd6piZRwLZpx_A" name="Association1" memberEnd="_j3Qjn_PvEd6piZRwLZpx_A _j3QjlfPvEd6piZRwLZpx_A">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_j3QjnvPvEd6piZRwLZpx_A" annotatedElement="_j3QjnfPvEd6piZRwLZpx_A">
+        <body>Comment: theActor is owned by Class2, theClass2 is owned by Association1, this comment annotates and is owned by Association1</body>
+      </ownedComment>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_j3Qjn_PvEd6piZRwLZpx_A" name="theClass2" visibility="private" type="_j3QjlPPvEd6piZRwLZpx_A" isUnique="false" association="_j3QjnfPvEd6piZRwLZpx_A">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j3QjoPPvEd6piZRwLZpx_A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_j3QjofPvEd6piZRwLZpx_A"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_j3QjovPvEd6piZRwLZpx_A" name="Dependency1" supplier="_j3QjmfPvEd6piZRwLZpx_A" client="_j3QjmPPvEd6piZRwLZpx_A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_j3Qjo_PvEd6piZRwLZpx_A" name="Dependency2" supplier="_j3QjmvPvEd6piZRwLZpx_A" client="_j3QjmfPvEd6piZRwLZpx_A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_j3QjpPPvEd6piZRwLZpx_A" name="Dependency3" supplier="_j3QjmPPvEd6piZRwLZpx_A" client="_j3QjmfPvEd6piZRwLZpx_A"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_j3QjpfPvEd6piZRwLZpx_A" name="" memberEnd="_j3QjpvPvEd6piZRwLZpx_A _j3Qjp_PvEd6piZRwLZpx_A" navigableOwnedEnd="_j3Qjp_PvEd6piZRwLZpx_A _j3QjpvPvEd6piZRwLZpx_A">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_j3QjpvPvEd6piZRwLZpx_A" name="" type="_j3QjjvPvEd6piZRwLZpx_A" association="_j3QjpfPvEd6piZRwLZpx_A"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_j3Qjp_PvEd6piZRwLZpx_A" name="" type="_j3Qji_PvEd6piZRwLZpx_A" association="_j3QjpfPvEd6piZRwLZpx_A"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

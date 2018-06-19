@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:updm="http://www.omg.org/spec/UPDM/20120301">
+  <updm:ArchitecturalDescription xmi:id="_-ArchitecturalDescription" xmi:uuid="725A27D7-D41D-4368-97F1-393450150144">
+    <base_Package xmi:idref="Tesctcase21_CV2-CapabilityViews"/>
+    <viewpoint>Capability</viewpoint>
+    <architectureFramework>DoDAF</architectureFramework>
+    <views xmi:idref="_-View"/>
+  </updm:ArchitecturalDescription>
+  <updm:Capability xmi:id="_-Capability-2" xmi:uuid="725A27D7-D41D-42EE-96E5-3934ABDE7BE4">
+    <base_Class xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-capability_4"/>
+  </updm:Capability>
+  <updm:Capability xmi:id="_-Capability-3" xmi:uuid="725A27D7-D41D-4AA2-990F-3934099ED7E2">
+    <base_Class xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-capability_6"/>
+  </updm:Capability>
+  <updm:Capability xmi:id="_-Capability-1" xmi:uuid="725A27D7-D41D-4D29-9B6C-39342C805F5B">
+    <base_Class xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-capability_2"/>
+  </updm:Capability>
+  <updm:CapabilityOfPerformer xmi:id="_-CapabilityOfPerformer" xmi:uuid="725A27D7-D41D-448A-9C48-3934D8201A01">
+    <base_Dependency xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-packagedElement-6"/>
+    <environmentalConditions xmi:idref="_-Condition"/>
+  </updm:CapabilityOfPerformer>
+  <updm:Condition xmi:id="_-Condition" xmi:uuid="725A27D7-D41D-4EED-9F4F-39340561A9BB">
+    <base_DataType xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-condition_4"/>
+    <conditionKind>some condition</conditionKind>
+  </updm:Condition>
+  <updm:DesiredEffect xmi:id="_-DesiredEffect" xmi:uuid="725A27D7-D41D-4A64-981A-39349418191F">
+    <base_Dependency xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-Active"/>
+  </updm:DesiredEffect>
+  <uml:Model xmi:id="Tesctcase21_CV2" xmi:uuid="725A27D7-D41D-419A-99AD-3934D52CFB84">
+    <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews" xmi:uuid="725A27D7-D41D-4A9F-9D1A-3934C8F52479" xmi:type="uml:Package">
+      <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-CV2_View" xmi:uuid="725A27D7-D41D-440A-9429-3934ACCBB85E" xmi:type="uml:Package">
+        <packageImport xmi:id="Tesctcase21_CV2-CapabilityViews-CV2_View-packageImport" xmi:uuid="725A27D7-D41D-4368-90D9-39349F2302EA" xmi:type="uml:PackageImport">
+          <importedPackage xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21"/>
+        </packageImport>
+        <name>CV2_View</name>
+      </packagedElement>
+      <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-TC21" xmi:uuid="725A27D7-D41D-4797-9B38-39341785D61F" xmi:type="uml:Package">
+        <ownedComment xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-ownedComment-1" xmi:uuid="725A27D7-D41D-40DF-9916-3934A018BB95" xmi:type="uml:Comment">
+          <body>Condition and CapabilityOfPerformer are DoDAF stereotypes for the MODAF terms Environment and Exhibits</body>
+          <annotatedElement xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-condition_4"/>
+          <annotatedElement xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0"/>
+        </ownedComment>
+        <ownedComment xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-ownedComment-2" xmi:uuid="725A27D7-D41D-4DC8-93A3-39343D40F444" xmi:type="uml:Comment">
+          <body>EnvironmentalConditions is a tag typed by a condition on the dependency stereotyped CapabilityOfPerformer </body>
+          <annotatedElement xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-packagedElement-6"/>
+        </ownedComment>
+        <ownedComment xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-ownedComment-3" xmi:uuid="725A27D7-D41D-40DF-91AA-3934A9C25CFF" xmi:type="uml:Comment">
+          <body>Active is a state on a statechart owned by performer_0. It may not be possible to show the state on the diagram in some tools but the DesiredEffect dependency must be present in the model</body>
+          <annotatedElement xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-Active"/>
+        </ownedComment>
+        <ownedComment xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-ownedComment-4" xmi:uuid="725A27D7-D41D-45AC-9362-3934829CCF76" xmi:type="uml:Comment">
+          <body>All elements are contained in a package TC21</body>
+          <annotatedElement xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21"/>
+        </ownedComment>
+        <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-capability_2" xmi:uuid="725A27D7-D41D-4C90-978F-39346BA68F49" xmi:type="uml:Class">
+          <name>capability_2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-Active" xmi:uuid="725A27D7-D41D-461D-945B-39344B4A9793" xmi:type="uml:Dependency">
+          <name>Active</name>
+          <supplier xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-Active"/>
+          <client xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-capability_4"/>
+        </packagedElement>
+        <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-capability_4" xmi:uuid="725A27D7-D41D-4533-97FE-3934911AE2F4" xmi:type="uml:Class">
+          <generalization xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-capability_4-generalization" xmi:uuid="725A27D7-D41D-4FCD-93E3-3934C8B0CF7D" xmi:type="uml:Generalization">
+            <general xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-capability_2"/>
+          </generalization>
+          <name>capability_4</name>
+          <clientDependency xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-Active"/>
+        </packagedElement>
+        <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-capability_6" xmi:uuid="725A27D7-D41D-428A-955D-39346BDD8F59" xmi:type="uml:Class">
+          <generalization xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-capability_6-generalization" xmi:uuid="725A27D7-D41D-4A96-9CA6-39345777F9AA" xmi:type="uml:Generalization">
+            <general xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-capability_2"/>
+          </generalization>
+          <name>capability_6</name>
+        </packagedElement>
+        <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-condition_4" xmi:uuid="725A27D7-D41D-4842-9615-39344C717A48" xmi:type="uml:DataType">
+          <name>condition_4</name>
+        </packagedElement>
+        <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-packagedElement-6" xmi:uuid="725A27D7-D41D-4447-9BF1-3934F476D60E" xmi:type="uml:Dependency">
+          <supplier xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-capability_4"/>
+          <client xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0"/>
+        </packagedElement>
+        <packagedElement xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-performer_0" xmi:uuid="725A27D7-D41D-44E4-924E-39342AC8AB05" xmi:type="uml:Class">
+          <ownedBehavior xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1" xmi:uuid="725A27D7-D41D-4129-9FD3-3934746FCBA2" xmi:type="uml:StateMachine">
+            <region xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT" xmi:uuid="725A27D7-D41D-4946-9A30-39348F68EE3B" xmi:type="uml:Region">
+              <subvertex xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-Active" xmi:uuid="725A27D7-D41D-4837-9E59-393426D539EC" xmi:type="uml:State">
+                <name>Active</name>
+                <visibility>public</visibility>
+                <incoming xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-0"/>
+              </subvertex>
+              <subvertex xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-ROOT" xmi:uuid="725A27D7-D41D-4C3F-9052-3934D426A7A9" xmi:type="uml:Pseudostate">
+                <name>ROOT</name>
+                <visibility>public</visibility>
+              </subvertex>
+              <transition xmi:id="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-0" xmi:uuid="725A27D7-D41D-4D13-9A73-39347F5F3C73" xmi:type="uml:Transition">
+                <name>0</name>
+                <visibility>public</visibility>
+                <target xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-Active"/>
+                <source xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-ROOT"/>
+              </transition>
+              <name>ROOT</name>
+              <visibility>public</visibility>
+            </region>
+            <name>ov-6b state transition description_1</name>
+          </ownedBehavior>
+          <name>performer_0</name>
+          <clientDependency xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-packagedElement-6"/>
+          <classifierBehavior xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1"/>
+        </packagedElement>
+        <name>TC21</name>
+      </packagedElement>
+      <name>CapabilityViews</name>
+    </packagedElement>
+    <profileApplication xmi:id="Tesctcase21_CV2-profileApplication" xmi:uuid="725A27D7-D41D-43EA-99D4-393494265584" xmi:type="uml:ProfileApplication">
+      <appliedProfile href="http://www.omg.org/spec/UPDM/20120301/UPDM-Profile.xmi#UPDM"/>
+    </profileApplication>
+    <name>Tesctcase21_CV2</name>
+  </uml:Model>
+  <updm:OperationalState xmi:id="_-OperationalState" xmi:uuid="725A27D7-D41D-4C72-907C-3934CA6B42E5">
+    <base_State xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0-ov-6b_state_transition_description_1-ROOT-Active"/>
+  </updm:OperationalState>
+  <updm:Performer xmi:id="_-Performer" xmi:uuid="725A27D7-D41D-480D-9A06-3934E66D019C">
+    <base_Class xmi:idref="Tesctcase21_CV2-CapabilityViews-TC21-performer_0"/>
+  </updm:Performer>
+  <updm:View xmi:id="_-View" xmi:uuid="725A27D7-D41D-4994-9017-3934269FEC1A">
+    <base_Package xmi:idref="Tesctcase21_CV2-CapabilityViews-CV2_View"/>
+    <architecturalElements xmi:idref="_-Performer"/>
+    <architecturalElements xmi:idref="_-Condition"/>
+    <architecturalElements xmi:idref="_-CapabilityOfPerformer"/>
+    <architecturalElements xmi:idref="_-Capability-1"/>
+    <architecturalElements xmi:idref="_-Capability-2"/>
+    <architecturalElements xmi:idref="_-Capability-3"/>
+    <architecturalElements xmi:idref="_-DesiredEffect"/>
+    <architecturalElements xmi:idref="_-OperationalState"/>
+  </updm:View>
+</xmi:XMI>

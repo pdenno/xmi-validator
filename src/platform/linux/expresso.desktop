@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name[en_US.ISO8859-1]=expresso
+Comment[en_US.ISO8859-1]=EXPRESS/EXPRESS-X development environment
+Name=expresso
+Comment=EXPRESS/EXPRESS-X development environment
+Exec=/usr/bin/expresso
+Icon=/usr/share/pixmaps/expresso.png
+Terminal=false
+MultipleArgs=false
+Type=Application

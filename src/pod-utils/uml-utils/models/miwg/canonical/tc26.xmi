@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20090901"
+    xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+    <uml:Model xmi:id="Test-Case-26" xmi:uuid="725A27D7-D488-4BEC-9A4C-8BC2A67C41BB">
+        <packagedElement xmi:id="Test-Case-26-Template-1"
+            xmi:uuid="725A27D7-D488-49DD-9AE1-8BC238A1A8A4" xmi:type="uml:Class">
+            <ownedTemplateSignature xmi:id="Test-Case-26-Template-1-ownedTemplateSignature"
+                xmi:uuid="725A27D7-D488-4680-9BC1-8BC2BF8D4675"
+                xmi:type="uml:RedefinableTemplateSignature">
+                <parameter
+                    xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1"/>
+                <parameter
+                    xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-2"/>
+                <ownedParameter
+                    xmi:id="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1"
+                    xmi:uuid="725A27D7-D488-4940-9E27-8BC24B134009"
+                    xmi:type="uml:ClassifierTemplateParameter">
+                    <ownedParameteredElement
+                        xmi:id="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1-ownedParameteredElement"
+                        xmi:uuid="725A27D7-D488-4D71-932B-8BC2CBE141E7" xmi:type="uml:Class">
+                        <name>Parameter-1</name>
+                        <templateParameter
+                            xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1"
+                        />
+                    </ownedParameteredElement>
+                    <allowSubstitutable>false</allowSubstitutable>
+                    <parameteredElement
+                        xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1-ownedParameteredElement"
+                    />
+                </ownedParameter>
+                <ownedParameter
+                    xmi:id="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-2"
+                    xmi:uuid="725A27D7-D488-4678-9BE7-8BC21193537F"
+                    xmi:type="uml:ClassifierTemplateParameter">
+                    <constrainingClassifier xmi:idref="Test-Case-26-Class-2"/>
+                    <parameteredElement xmi:idref="Test-Case-26-Template-1-Parameter-2"/>
+                </ownedParameter>
+                <visibility>public</visibility>
+            </ownedTemplateSignature>
+            <ownedAttribute xmi:id="Test-Case-26-Template-1-x"
+                xmi:uuid="725A27D7-D488-46D7-9129-8BC28C56398E" xmi:type="uml:Property">
+                <name>x</name>
+                <visibility>public</visibility>
+                <type
+                    xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1-ownedParameteredElement"
+                />
+            </ownedAttribute>
+            <nestedClassifier xmi:id="Test-Case-26-Template-1-Parameter-2"
+                xmi:uuid="725A27D7-D488-4EC5-92F9-8BC2056FE00E" xmi:type="uml:Class">
+                <name>Parameter-2</name>
+                <templateParameter
+                    xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-2"/>
+            </nestedClassifier>
+            <ownedOperation xmi:id="Test-Case-26-Template-1-op1"
+                xmi:uuid="725A27D7-D488-4429-9109-8BC2033973F4" xmi:type="uml:Operation">
+                <ownedParameter xmi:id="Test-Case-26-Template-1-op1-ownedParameter"
+                    xmi:uuid="725A27D7-D488-49D7-90E2-8BC29B161CF6" xmi:type="uml:Parameter">
+                    <visibility>public</visibility>
+                    <direction>return</direction>
+                    <type
+                        xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1-ownedParameteredElement"
+                    />
+                </ownedParameter>
+                <name>op1</name>
+                <visibility>public</visibility>
+            </ownedOperation>
+            <name>Template-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-26-Class-2"
+            xmi:uuid="725A27D7-D488-47C8-940F-8BC262C5F2CC" xmi:type="uml:Class">
+            <name>Class-2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-26-Bound-1"
+            xmi:uuid="725A27D7-D488-4D89-93C6-8BC2A66624C9" xmi:type="uml:Class">
+            <templateBinding xmi:id="Test-Case-26-Bound-1-templateBinding"
+                xmi:uuid="725A27D7-D488-4B96-9492-8BC2414A4513" xmi:type="uml:TemplateBinding">
+                <parameterSubstitution
+                    xmi:id="Test-Case-26-Bound-1-templateBinding-parameterSubstitution-1"
+                    xmi:uuid="725A27D7-D488-4066-97B6-8BC2EF538E75"
+                    xmi:type="uml:TemplateParameterSubstitution">
+                    <formal
+                        xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1"/>
+                    <actual xmi:idref="Test-Case-26-Class-1"/>
+                </parameterSubstitution>
+                <parameterSubstitution
+                    xmi:id="Test-Case-26-Bound-1-templateBinding-parameterSubstitution-2"
+                    xmi:uuid="725A27D7-D488-4FF4-943B-8BC243F834B8"
+                    xmi:type="uml:TemplateParameterSubstitution">
+                    <formal
+                        xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-2"/>
+                    <actual xmi:idref="Test-Case-26-Class-3"/>
+                </parameterSubstitution>
+                <signature xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature"/>
+            </templateBinding>
+            <name>Bound-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-26-Class-3"
+            xmi:uuid="725A27D7-D488-4C31-91CC-8BC2D96C738B" xmi:type="uml:Class">
+            <generalization xmi:id="Test-Case-26-Class-3-generalization"
+                xmi:uuid="725A27D7-D488-48FD-984F-8BC2314E0BB2" xmi:type="uml:Generalization">
+                <general xmi:idref="Test-Case-26-Class-2"/>
+            </generalization>
+            <name>Class-3</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-26-Class-1"
+            xmi:uuid="725A27D7-D488-4F9B-9F33-8BC2F3F59EC3" xmi:type="uml:Class">
+            <name>Class-1</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-26-Template-2"
+            xmi:uuid="725A27D7-D488-4785-9239-8BC22AECFC4D" xmi:type="uml:Class">
+            <ownedTemplateSignature xmi:id="Test-Case-26-Template-2-ownedTemplateSignature"
+                xmi:uuid="725A27D7-D488-497B-9F7B-8BC23977B11F"
+                xmi:type="uml:RedefinableTemplateSignature">
+                <parameter
+                    xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-1"/>
+                <parameter
+                    xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature-ownedParameter-2"/>
+                <parameter xmi:idref="Test-Case-26-Template-2-ownedTemplateSignature-ownedParameter"/>
+                <extendedSignature xmi:idref="Test-Case-26-Template-1-ownedTemplateSignature"/>
+                <ownedParameter
+                    xmi:id="Test-Case-26-Template-2-ownedTemplateSignature-ownedParameter"
+                    xmi:uuid="725A27D7-D488-405F-9761-8BC2FBE4FF2A"
+                    xmi:type="uml:ClassifierTemplateParameter">
+                    <constrainingClassifier xmi:idref="Test-Case-26-Class-3"/>
+                    <ownedParameteredElement
+                        xmi:id="Test-Case-26-Template-2-ownedTemplateSignature-ownedParameter-ownedParameteredElement"
+                        xmi:uuid="725A27D7-D488-4B8F-9384-8BC2D52FDA08" xmi:type="uml:Class">
+                        <name>Parameter-3</name>
+                        <templateParameter
+                            xmi:idref="Test-Case-26-Template-2-ownedTemplateSignature-ownedParameter"
+                        />
+                    </ownedParameteredElement>
+                    <parameteredElement
+                        xmi:idref="Test-Case-26-Template-2-ownedTemplateSignature-ownedParameter-ownedParameteredElement"/>
+                    <default xmi:idref="Test-Case-26-Class-4"/>
+                </ownedParameter>
+                <visibility>public</visibility>
+            </ownedTemplateSignature>
+            <generalization xmi:id="Test-Case-26-Template-2-generalization"
+                xmi:uuid="725A27D7-D488-4ACF-9000-8BC221C5507D" xmi:type="uml:Generalization">
+                <general xmi:idref="Test-Case-26-Template-1"/>
+            </generalization>
+            <name>Template-2</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-26-Class-4"
+            xmi:uuid="725A27D7-D488-4859-9F32-8BC22C605B96" xmi:type="uml:Class">
+            <generalization xmi:id="Test-Case-26-Class-4-generalization"
+                xmi:uuid="725A27D7-D488-4413-9E57-8BC26596AD43" xmi:type="uml:Generalization">
+                <general xmi:idref="Test-Case-26-Class-3"/>
+            </generalization>
+            <name>Class-4</name>
+        </packagedElement>
+        <packagedElement xmi:id="Test-Case-26-Bound-2"
+            xmi:uuid="725A27D7-D488-4EA3-9A19-8BC2D90D74F1" xmi:type="uml:Class">
+            <templateBinding xmi:id="Test-Case-26-Bound-2-templateBinding"
+                xmi:uuid="725A27D7-D488-47B3-9894-8BC24DDFA345" xmi:type="uml:TemplateBinding">
+                <signature xmi:idref="Test-Case-26-Template-2-ownedTemplateSignature"/>
+            </templateBinding>
+            <name>Bound-2</name>
+        </packagedElement>
+        <name>Test-Case-26</name>
+    </uml:Model>
+</xmi:XMI>

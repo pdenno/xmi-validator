@@ -1,0 +1,83 @@
+transformation ClassModelToClassModel(uml1:umlMM; uml2:umlMM)
+{
+	key umlMM::Class{name};
+	
+	top relation classToClass
+	{
+		cn : String;
+		
+		enforce domain uml1 
+		c1:Class
+		{
+			name = cn
+		};
+		
+		enforce domain uml2 
+		c2:Class
+		{
+			name = cn
+		};
+	}
+	
+	top relation classToClassHierarchy
+	{
+		cn : String;
+		
+		enforce domain uml1 
+		c1:Class
+		{
+			supers = c1s:Set(Class){}
+		};
+		
+		enforce domain uml2 
+		c2:Class
+		{
+			supers = c2s:Set(Class){}
+		};
+
+		when
+		{
+			classToClass(c1, c2);
+		}
+
+		where
+		{
+			classSupersToClassSupers(c1s, c2s);
+		}
+	}
+
+	relation classSupersToClassSupers
+	{
+		cn : String;
+		c1 : umlMM::Class;
+		c2 : umlMM::Class;
+		restC1s : Set(umlMM::Class);
+		restC2s : Set(umlMM::Class);
+
+		enforce domain uml1 
+		c1s:Set(Class)
+		{
+			c1 ++ restC1s
+		}
+		default_values
+		{
+			restC1s = Set{};
+		};
+
+		enforce domain uml2 
+		c2s:Set(Class)
+		{
+			c2 ++ restC2s
+		}
+		default_values
+		{
+			restC2s = Set{};
+		};
+
+		where 
+		{
+			classToClass(c1, c2);
+			classSupersToClassSupers(restC1s, restC2s);
+		}
+	}
+}

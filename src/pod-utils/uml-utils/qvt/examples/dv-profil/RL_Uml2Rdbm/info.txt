@@ -1,0 +1,5 @@
+Project outline:
+model  - the input models
+qvt    - the QVT scripts
+result - the target models
+traces - trace files of the transformation  

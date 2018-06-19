@@ -1,0 +1,64 @@
+transformation SimpleUml2Rdbm ( uml : SimpleUML, rdbms : SimpleRDBMS ) 
+{
+	top relation PackageToSchema 
+	{
+	  pn : String;
+	  checkonly domain uml   p : SimpleUML::UmlPackage    { umlName   = pn };
+	  enforce   domain rdbms s : SimpleRDBMS::RdbmsSchema { rdbmsName = pn };
+	}
+	
+	top relation ClassToTable 
+	{
+	  cn : String;
+	  
+	  checkonly domain uml c : SimpleUML::UmlClass 
+	  {
+	    umlNamespace = p : SimpleUML::UmlPackage { },
+	    umlKind = 'Persistent',
+	    umlName = cn
+	  };
+	  
+	  enforce domain rdbms t : SimpleRDBMS::RdbmsTable 
+	  {
+	    rdbmsSchema = s : SimpleRDBMS::RdbmsSchema { },
+	    rdbmsName = cn
+	  };
+	  
+	  when  { PackageToSchema   (p, s); }
+	  where { AttributeToColumn (c, t); }
+	}
+	
+	relation AttributeToColumn 
+	{
+	  checkonly domain uml   c : SimpleUML::UmlClass { };
+	  enforce   domain rdbms t : SimpleRDBMS::RdbmsTable {};
+	  where 
+	  {
+	    SuperAttributeToColumn     (c, t);
+	    PrimitiveAttributeToColumn (c, t);
+	  }
+	}
+	
+	relation PrimitiveAttributeToColumn 
+	{
+	  an : String;
+	  checkonly domain uml c : SimpleUML::UmlClass 
+	  {
+	    umlAttribute = a : SimpleUML::UmlAttribute { umlName = an  }
+	  };
+	  enforce   domain rdbms t : SimpleRDBMS::RdbmsTable 
+	  {
+	    rdbmsColumn = cl : SimpleRDBMS::RdbmsColumn { rdbmsName = an }
+	  };
+	}
+	
+	relation SuperAttributeToColumn 
+	{
+	  checkonly domain uml c : SimpleUML::UmlClass 
+	  {
+	    umlGeneral = sc : SimpleUML::UmlClass {  }
+	  };
+	  enforce   domain rdbms t : SimpleRDBMS::RdbmsTable {};
+	  where { AttributeToColumn(sc, t);  }
+	}
+}

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="TestCase17b" xmi:uuid="725A27D7-D419-44F8-9525-C06D218EA819">
+    <packagedElement xmi:id="TestCase17b-Message_Types" xmi:uuid="725A27D7-D419-4463-9150-C06D8CAED722" xmi:type="uml:Package">
+      <packagedElement xmi:id="TestCase17b-Message_Types-Delivery_Confirmation" xmi:uuid="725A27D7-D419-447A-9742-C06DDC68E929" xmi:type="uml:DataType">
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Delivery_Confirmation-waybill_number" xmi:uuid="725A27D7-D419-4968-9A5A-C06DC87DFCE2" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>waybill number</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Delivery_Confirmation-shipment_ID" xmi:uuid="725A27D7-D419-479E-901E-C06DA2E543D9" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>shipment ID</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Delivery_Confirmation-delivery_date" xmi:uuid="725A27D7-D419-4015-91A1-C06D1703A6B9" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>delivery date</name>
+        </ownedAttribute>
+        <name>Delivery Confirmation</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Message_Types-Order" xmi:uuid="725A27D7-D419-4E0F-9112-C06DE3949716" xmi:type="uml:DataType">
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Order-customer_ID" xmi:uuid="725A27D7-D419-471C-91AC-C06D60973CAD" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>customer ID</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Order-customer_order_ID" xmi:uuid="725A27D7-D419-49DD-9FC6-C06D9178FC03" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>customer order ID</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Order-product_ID" xmi:uuid="725A27D7-D419-43E3-98FC-C06D5E43634A" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>product ID</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Order-quantity" xmi:uuid="725A27D7-D419-479D-974B-C06D305F9C04" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"> </type>
+          <visibility>public</visibility>
+          <name>quantity</name>
+        </ownedAttribute>
+        <name>Order</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Message_Types-US_Dollars" xmi:uuid="725A27D7-D419-4404-9F48-C06DAC24F2CE" xmi:type="uml:DataType">
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-US_Dollars-dollars" xmi:uuid="725A27D7-D419-461B-9307-C06D1FA62E04" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"> </type>
+          <visibility>public</visibility>
+          <name>dollars</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-US_Dollars-cents" xmi:uuid="725A27D7-D419-4689-9ABE-C06D9E15DF04" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"> </type>
+          <visibility>public</visibility>
+          <name>cents</name>
+        </ownedAttribute>
+        <name>US Dollars</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Message_Types-Order_Confirmation" xmi:uuid="725A27D7-D419-40CE-9BBE-C06DA1F3B535" xmi:type="uml:DataType">
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Order_Confirmation-customer_order_ID" xmi:uuid="725A27D7-D419-4C9E-9178-C06D158C9EDF" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>customer order ID</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Order_Confirmation-provider_order_ID" xmi:uuid="725A27D7-D419-4641-9278-C06DB8A38E60" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>provider order ID</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Order_Confirmation-confirmation" xmi:uuid="725A27D7-D419-4B3A-9DCD-C06DB4D09639" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Boolean"> </type>
+          <visibility>public</visibility>
+          <name>confirmation</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Order_Confirmation-shipment_ID" xmi:uuid="725A27D7-D419-4770-90A2-C06D69ED882C" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>shipment ID</name>
+        </ownedAttribute>
+        <name>Order Confirmation</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Message_Types-Quote" xmi:uuid="725A27D7-D419-40C2-9862-C06D4B9731E0" xmi:type="uml:DataType">
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Quote-request" xmi:uuid="725A27D7-D419-45F7-9780-C06D4723EE4C" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>request</name>
+          <type xmi:idref="TestCase17b-Message_Types-Quote_Request"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Quote-price" xmi:uuid="725A27D7-D419-4353-9473-C06DFB134609" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>price</name>
+          <type xmi:idref="TestCase17b-Message_Types-US_Dollars"/>
+        </ownedAttribute>
+        <name>Quote</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Message_Types-Quote_Request" xmi:uuid="725A27D7-D419-461F-9171-C06D09327438" xmi:type="uml:DataType">
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Quote_Request-customer_ID" xmi:uuid="725A27D7-D419-4823-9DB6-C06D63BB6EBD" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"> </type>
+          <visibility>public</visibility>
+          <name>customer ID</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Quote_Request-product_ID" xmi:uuid="725A27D7-D419-49EF-9A1F-C06DC8E5300C" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>product ID</name>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Message_Types-Quote_Request-quantity" xmi:uuid="725A27D7-D419-494D-9FE1-C06DF2718900" xmi:type="uml:Property">
+          <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"> </type>
+          <visibility>public</visibility>
+          <name>quantity</name>
+        </ownedAttribute>
+        <name>Quote Request</name>
+      </packagedElement>
+      <name>Message Types</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase17b-Service_Contract" xmi:uuid="725A27D7-D419-4447-9A57-C06D5A450E11" xmi:type="uml:Package">
+      <packagedElement xmi:id="TestCase17b-Service_Contract-Orderer" xmi:uuid="725A27D7-D419-461A-97C2-C06D5B6F01DD" xmi:type="uml:Interface">
+        <ownedOperation xmi:id="TestCase17b-Service_Contract-Orderer-receive_delivery_confirmation" xmi:uuid="725A27D7-D419-41DB-977A-C06D623EF99D" xmi:type="uml:Operation">
+          <ownedParameter xmi:id="TestCase17b-Service_Contract-Orderer-receive_delivery_confirmation-confirmation" xmi:uuid="725A27D7-D419-457C-9CB7-C06D03107C69" xmi:type="uml:Parameter">
+            <name>confirmation</name>
+            <type xmi:idref="TestCase17b-Message_Types-Delivery_Confirmation"/>
+          </ownedParameter>
+          <visibility>public</visibility>
+          <name>receive delivery confirmation</name>
+        </ownedOperation>
+        <name>Orderer</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Service_Contract-Vendor" xmi:uuid="725A27D7-D419-4F8F-9A92-C06D2403471A" xmi:type="uml:Interface">
+        <ownedOperation xmi:id="TestCase17b-Service_Contract-Vendor-request_quote" xmi:uuid="725A27D7-D419-4A4D-9E36-C06DC838A4EB" xmi:type="uml:Operation">
+          <ownedParameter xmi:id="TestCase17b-Service_Contract-Vendor-request_quote-request" xmi:uuid="725A27D7-D419-4872-9D05-C06D55B86E7E" xmi:type="uml:Parameter">
+            <name>request</name>
+            <type xmi:idref="TestCase17b-Message_Types-Quote_Request"/>
+          </ownedParameter>
+          <visibility>public</visibility>
+          <name>request quote</name>
+        </ownedOperation>
+        <ownedOperation xmi:id="TestCase17b-Service_Contract-Vendor-place_order" xmi:uuid="725A27D7-D419-44D7-98B9-C06D5FB7795B" xmi:type="uml:Operation">
+          <ownedParameter xmi:id="TestCase17b-Service_Contract-Vendor-place_order-order" xmi:uuid="725A27D7-D419-43CB-9F24-C06DC0C1F9F1" xmi:type="uml:Parameter">
+            <name>order</name>
+            <type xmi:idref="TestCase17b-Message_Types-Order"/>
+          </ownedParameter>
+          <visibility>public</visibility>
+          <name>place order</name>
+        </ownedOperation>
+        <name>Vendor</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Service_Contract-Place_Order" xmi:uuid="725A27D7-D419-4577-9B09-C06D26301100" xmi:type="uml:Collaboration">
+        <ownedAttribute xmi:id="TestCase17b-Service_Contract-Place_Order-vendor" xmi:uuid="725A27D7-D419-4CD7-9F80-C06DF71E7805" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>vendor</name>
+          <aggregation>composite</aggregation>
+          <type xmi:idref="TestCase17b-Service_Contract-Vendor"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Service_Contract-Place_Order-orderer" xmi:uuid="725A27D7-D419-4C0E-9F31-C06D74A98293" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>orderer</name>
+          <aggregation>composite</aggregation>
+          <type xmi:idref="TestCase17b-Service_Contract-Orderer"/>
+        </ownedAttribute>
+        <ownedConnector xmi:id="TestCase17b-Service_Contract-Place_Order-ownedConnector" xmi:uuid="725A27D7-D419-4937-9EE1-C06D29A4B4B8" xmi:type="uml:Connector">
+          <end xmi:id="TestCase17b-Service_Contract-Place_Order-ownedConnector-end-1" xmi:uuid="725A27D7-D419-40B6-90D8-C06D9161DE24" xmi:type="uml:ConnectorEnd">
+            <role xmi:idref="TestCase17b-Service_Contract-Place_Order-orderer"/>
+          </end>
+          <end xmi:id="TestCase17b-Service_Contract-Place_Order-ownedConnector-end-2" xmi:uuid="725A27D7-D419-43FD-9B03-C06D28DDAD39" xmi:type="uml:ConnectorEnd">
+            <role xmi:idref="TestCase17b-Service_Contract-Place_Order-vendor"/>
+          </end>
+        </ownedConnector>
+        <name>Place Order</name>
+      </packagedElement>
+      <name>Service Contract</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase17b-Services_Architecture" xmi:uuid="725A27D7-D419-41E2-9467-C06D73413451" xmi:type="uml:Package">
+      <packagedElement xmi:id="TestCase17b-Services_Architecture-Manufacturer" xmi:uuid="725A27D7-D419-405A-98DC-C06D0F3088C7" xmi:type="uml:Class">
+        <interfaceRealization xmi:id="TestCase17b-Services_Architecture-Manufacturer-interfaceRealization" xmi:uuid="725A27D7-D419-4431-9B45-C06D8AD7C3CB" xmi:type="uml:InterfaceRealization">
+          <supplier xmi:idref="TestCase17b-Service_Contract-Vendor"/>
+          <client xmi:idref="TestCase17b-Services_Architecture-Manufacturer"/>
+          <contract xmi:idref="TestCase17b-Service_Contract-Vendor"/>
+        </interfaceRealization>
+        <name>Manufacturer</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Services_Architecture-Ordering" xmi:uuid="725A27D7-D419-4A29-9EE7-C06D19739EEE" xmi:type="uml:Collaboration">
+        <collaborationUse xmi:id="TestCase17b-Services_Architecture-Ordering-collaborationUse" xmi:uuid="725A27D7-D419-414C-928F-C06D59EA4102" xmi:type="uml:CollaborationUse">
+          <roleBinding xmi:id="TestCase17b-Services_Architecture-Ordering-collaborationUse-roleBinding-1" xmi:uuid="725A27D7-D419-49DA-9E8B-C06D44ADEA9D" xmi:type="uml:Dependency">
+            <supplier xmi:idref="TestCase17b-Service_Contract-Place_Order-orderer"/>
+            <client xmi:idref="TestCase17b-Services_Architecture-Ordering-customer"/>
+          </roleBinding>
+          <roleBinding xmi:id="TestCase17b-Services_Architecture-Ordering-collaborationUse-roleBinding-2" xmi:uuid="725A27D7-D419-4C3F-9C3A-C06D7A300F80" xmi:type="uml:Dependency">
+            <supplier xmi:idref="TestCase17b-Service_Contract-Place_Order-vendor"/>
+            <client xmi:idref="TestCase17b-Services_Architecture-Ordering-mfg"/>
+          </roleBinding>
+          <type xmi:idref="TestCase17b-Service_Contract-Place_Order"/>
+        </collaborationUse>
+        <ownedAttribute xmi:id="TestCase17b-Services_Architecture-Ordering-customer" xmi:uuid="725A27D7-D419-45CC-9774-C06DF9C1DF3C" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>customer</name>
+          <isUnique>false</isUnique>
+          <aggregation>composite</aggregation>
+          <type xmi:idref="TestCase17b-Services_Architecture-Customer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase17b-Services_Architecture-Ordering-mfg" xmi:uuid="725A27D7-D419-4DCD-9324-C06D955409AB" xmi:type="uml:Property">
+          <visibility>public</visibility>
+          <name>mfg</name>
+          <aggregation>composite</aggregation>
+          <type xmi:idref="TestCase17b-Services_Architecture-Manufacturer"/>
+        </ownedAttribute>
+        <name>Ordering</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase17b-Services_Architecture-Customer" xmi:uuid="725A27D7-D419-4E26-970C-C06DFCF8307D" xmi:type="uml:Class">
+        <interfaceRealization xmi:id="TestCase17b-Services_Architecture-Customer-interfaceRealization" xmi:uuid="725A27D7-D419-416B-992B-C06DE331E8BB" xmi:type="uml:InterfaceRealization">
+          <supplier xmi:idref="TestCase17b-Service_Contract-Orderer"/>
+          <client xmi:idref="TestCase17b-Services_Architecture-Customer"/>
+          <contract xmi:idref="TestCase17b-Service_Contract-Orderer"/>
+        </interfaceRealization>
+        <name>Customer</name>
+      </packagedElement>
+      <name>Services Architecture</name>
+    </packagedElement>
+    <name>TestCase17b</name>
+  </uml:Model>
+</xmi:XMI>

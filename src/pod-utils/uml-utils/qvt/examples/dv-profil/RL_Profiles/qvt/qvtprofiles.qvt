@@ -1,0 +1,68 @@
+/*
+ * This example transformation script is similar to the simple UML 
+ * to simple RDBM sample of the QVT spec. It generates a simple RDBM 
+ * table from an UML class. It is UML2 now and not SimpleUML, so the 
+ * information, whether the class ist persistent or not is not taken 
+ * from a kind attribute but from a stereotype <<persistent>> that is 
+ * applied to the class. Therefore we will need an UML-Profile that 
+ * contributes the stereotype. 
+ * The source metamodel is UML2, passed through the QVT metamodel list. 
+ * The target metamodel is SimpleRDBM (concrete MyRDBM), passed through 
+ * the QVT metamodel list, too. 
+ * The Profile is "ProfileDef.uml", that is passed through the "first 
+ * set of models". 
+ * The souce model is first set of models as well.
+ * The target model is second set of models.
+ */
+transformation QvtWithProfiles ( source : uml, target : MyRDBM ) 
+{
+   top relation Model
+   {
+      modelName : String;
+      checkonly domain source srcModel : Model  { name = modelName };
+      enforce   domain target dstModel : Schema { name = modelName };
+   }
+
+   -- There should be tables generated from classes that are marked
+   -- as 'persistent'.
+   top relation Classes
+   {
+      className : String;
+      st        : Stereotype;
+
+      checkonly domain source srcCls : Class 
+      { 
+	     namespace = ns : Namespace {},
+         name      = className
+      };
+      enforce   domain target dstTbl : Table 
+      {
+	     schema = s : Schema {},
+         name   = className
+      };
+      when
+      {
+         -- retrieve a stereotype with name 'persistent' 
+         st  = getStereotype ( 'persistent' );
+         
+         -- Is this stereotype applied to the current class?
+         srcCls.isStereotypeApplied(st);
+         
+         Model (ns,s);
+      }
+   }
+
+   -- delivers the first occurrence of the named stereotype 
+   query getStereotype ( stName : String ) : Stereotype 
+   {
+      Stereotype.allInstances()->select
+         (x : uml::Stereotype | x.name = stName)->asSequence()->first()
+   } 
+
+   -- delivers all occurrences of the named stereotype 
+   query getStereotypes ( stName : String ) : Sequence(Stereotype) 
+   {
+      Stereotype.allInstances()->select
+         (x : uml::Stereotype | x.name = stName)->asSequence()
+   } 
+}   

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emof:Package xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:emof="http://schema.omg.org/spec/mof/2.0/emof.xmi" xmi:id="umlMM2"
+    name="umlMM2" uri="umlMM2">
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM2.Dummy" name="Dummy">
+    <ownedAttribute xmi:id="umlMM2.Dummy.hasClass" name="hasClass" upper="*" type="umlMM2.Class"
+        isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM2.Class" name="Class">
+    <ownedAttribute xmi:id="umlMM2.Class.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM2.Class.attribute" name="attribute" upper="*" type="umlMM2.Attribute"
+        isComposite="true"/>
+  </ownedType>
+  <ownedType xmi:type="emof:Class" xmi:id="umlMM2.Attribute" name="Attribute">
+    <ownedAttribute xmi:id="umlMM2.Attribute.name" name="name">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="umlMM2.Attribute.type" name="type">
+      <type xmi:type="emof:PrimitiveType" href="http://schema.omg.org/spec/mof/2.0/emof.xmi#String"/>
+    </ownedAttribute>
+  </ownedType>
+</emof:Package>

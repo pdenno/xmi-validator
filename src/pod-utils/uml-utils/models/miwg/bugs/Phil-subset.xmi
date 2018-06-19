@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:StandardProfileL2="http://schema.omg.org/spec/UML/2.3/StandardProfileL2.xmi" xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile">
+<uml:Model name="Data" xmi:id="_0_Data">
+<packagedElement xmi:type="uml:Package" xmi:id="_0_SysMLfromEXPRESS" name="SysMLfromEXPRESS">
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="BINARY" name="Binary" />
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="STRING" name="String" />
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="NUMBER" name="Number" isAbstract="TRUE"/>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="REAL" name="Real">
+<generalization xmi:type="uml:Generalization" xmi:id="_generalization-REAL_NUMBER" general="NUMBER"/>
+</packagedElement>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="INTEGER" name="Integer">
+<generalization xmi:type="uml:Generalization" xmi:id="_generalization-INTEGER_NUMBER" general="NUMBER"/>
+</packagedElement>
+<packagedElement xmi:type = "uml:Enumeration" xmi:id = "LOGICAL" name = "Logical">
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="UNKNOWN" name="Unknown" classifier="LOGICAL">
+<specification xmi:type="uml:LiteralInteger" xmi:id="UNKNOWN_specification"/>
+</ownedLiteral>
+</packagedElement>
+<packagedElement xmi:type = "uml:Enumeration" xmi:id = "BOOLEAN" name = "Boolean">
+<generalization xmi:type="uml:Generalization" xmi:id="_generalization-BOOLEAN-LOGICAL" general="LOGICAL"/>
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="TRUE" name="True" classifier="BOOLEAN">
+<specification xmi:type="uml:LiteralInteger" xmi:id="TRUE_specification"/>
+</ownedLiteral>
+<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="FALSE" name="False" classifier="BOOLEAN">
+<specification xmi:type="uml:LiteralInteger" xmi:id="FALSE_specification"/>
+</ownedLiteral>
+</packagedElement>
+<packagedElement xmi:type = "uml:Package" xmi:id = "_1_Ap239Ap233Psm" name = "Ap239Ap233Psm">
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Ap239Ap233Psm-Uri" name="Uri" >
+
+<generalization xmi:type="uml:Generalization" xmi:id="_supertype_Ap239Ap233Psm-Uri" general="STRING"/>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="_Ap239Ap233Psm-IdentificationContextSelect" name="IdentificationContextSelect" isAbstract="TRUE">
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Description-identifications" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Description-identifications"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Description-identifications-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Description-identifications-end" type="_Ap239Ap233Psm-Description" association="_1_association_Ap239Ap233Psm-Description-identifications">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Description-identifications-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Description-identifications-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Description-classifiedAs" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Description-classifiedAs"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Description-classifiedAs-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Description-classifiedAs-end" type="_Ap239Ap233Psm-Description" association="_1_association_Ap239Ap233Psm-Description-classifiedAs">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Description-classifiedAs-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Description-classifiedAs-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Description-descriptionContext" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Description-descriptionContext"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Description-descriptionContext-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Description-descriptionContext-end" type="_Ap239Ap233Psm-Description" association="_1_association_Ap239Ap233Psm-Description-descriptionContext">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Description-descriptionContext-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Description-descriptionContext-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-descriptions" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-ExternalItem-descriptions"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-ExternalItem-descriptions-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-descriptions-end" type="_Ap239Ap233Psm-ExternalItem" association="_1_association_Ap239Ap233Psm-ExternalItem-descriptions">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-descriptions-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-descriptions-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-externalIdentification" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-ExternalItem-externalIdentification"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-ExternalItem-externalIdentification-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-externalIdentification-end" type="_Ap239Ap233Psm-ExternalItem" association="_1_association_Ap239Ap233Psm-ExternalItem-externalIdentification">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-externalIdentification-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-externalIdentification-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-sourceIdentification" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-ExternalItem-sourceIdentification"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-ExternalItem-sourceIdentification-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-sourceIdentification-end" type="_Ap239Ap233Psm-ExternalItem" association="_1_association_Ap239Ap233Psm-ExternalItem-sourceIdentification">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-sourceIdentification-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-ExternalItem-sourceIdentification-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Identification-classifiedAs" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Identification-classifiedAs"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Identification-classifiedAs-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Identification-classifiedAs-end" type="_Ap239Ap233Psm-Identification" association="_1_association_Ap239Ap233Psm-Identification-classifiedAs">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Identification-classifiedAs-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Identification-classifiedAs-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Identification-identificationContext" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Identification-identificationContext"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Identification-identificationContext-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Identification-identificationContext-end" type="_Ap239Ap233Psm-Identification" association="_1_association_Ap239Ap233Psm-Identification-identificationContext">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Identification-identificationContext-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Identification-identificationContext-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Identification-descriptions" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Identification-descriptions"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Identification-descriptions-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Identification-descriptions-end" type="_Ap239Ap233Psm-Identification" association="_1_association_Ap239Ap233Psm-Identification-descriptions">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Identification-descriptions-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Identification-descriptions-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Organization-identifications" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Organization-identifications"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Organization-identifications-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Organization-identifications-end" type="_Ap239Ap233Psm-Organization" association="_1_association_Ap239Ap233Psm-Organization-identifications">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Organization-identifications-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Organization-identifications-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Organization-descriptions" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Organization-descriptions"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Organization-descriptions-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Organization-descriptions-end" type="_Ap239Ap233Psm-Organization" association="_1_association_Ap239Ap233Psm-Organization-descriptions">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Organization-descriptions-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Organization-descriptions-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Organization-classifiedBy" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Organization-classifiedBy"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Organization-classifiedBy-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Organization-classifiedBy-end" type="_Ap239Ap233Psm-Organization" association="_1_association_Ap239Ap233Psm-Organization-classifiedBy">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Organization-classifiedBy-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Organization-classifiedBy-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type="uml:Association" xmi:id="_1_association_Ap239Ap233Psm-Organization-sameAs" name="">
+<memberEnd xmi:idref="_2_attr_Ap239Ap233Psm-Organization-sameAs"/>
+<memberEnd xmi:idref="_1_association_Ap239Ap233Psm-Organization-sameAs-end"/>
+<ownedEnd xmi:type="uml:Property" xmi:id="_1_association_Ap239Ap233Psm-Organization-sameAs-end" type="_Ap239Ap233Psm-Organization" association="_1_association_Ap239Ap233Psm-Organization-sameAs">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1_association_Ap239Ap233Psm-Organization-sameAs-lowerValue"/>
+<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1_association_Ap239Ap233Psm-Organization-sameAs-upperValue" value="*"/>
+</ownedEnd>
+
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-Classifier" name = "Classifier" isAbstract = "TRUE">
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-Description" name = "Description" >
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Description-identifications" name="identifications"   type="_Ap239Ap233Psm-Identification"  association="_1_association_Ap239Ap233Psm-Description-identifications">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Description-identifications-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Description-identifications-upperValue" value="*"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Description-classifiedAs" name="classifiedAs"   type="_Ap239Ap233Psm-Classifier"  association="_1_association_Ap239Ap233Psm-Description-classifiedAs">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Description-classifiedAs-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Description-classifiedAs-upperValue" value="*"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Description-description" name="description" 
+	
+type="STRING">
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Description-descriptionContext" name="descriptionContext"   type="_Ap239Ap233Psm-IdentificationContextSelect"  association="_1_association_Ap239Ap233Psm-Description-descriptionContext">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Description-descriptionContext-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Description-descriptionContext-upperValue" value="*"/></ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-ExternalClass" name = "ExternalClass" >
+<generalization xmi:type="uml:Generalization" xmi:id="_2_supertype_Ap239Ap233Psm-ExternalClass-Classifier" general="_Ap239Ap233Psm-Classifier"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-ExternalClass-externalItem" name="externalItem" 
+	
+type="STRING">
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-ExternalClass-externalSource" name="externalSource" 
+	
+type="STRING">
+</ownedAttribute>
+<ownedRule xmi:type="uml:Constraint" xmi:id="_3_uniq_Ap239Ap233Psm-ExternalClass-ur1" name="ur1">
+<constrainedElement xmi:idref="_Ap239Ap233Psm-ExternalClass"/>
+<specification xmi:type="uml:OpaqueExpression" xmi:id="_3_uniq_Ap239Ap233Psm-ExternalClass-ur1-spec">
+<body>ExternalClass::allInstance()-&gt;isUnique(Sequence{externalItem, externalSource})</body>
+<language>OCL2.0</language>
+</specification>
+</ownedRule>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-ExternalOwlClass" name = "ExternalOwlClass" >
+<generalization xmi:type="uml:Generalization" xmi:id="_2_supertype_Ap239Ap233Psm-ExternalOwlClass-Classifier" general="_Ap239Ap233Psm-Classifier"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-ExternalOwlClass-class" name="class" type="_Ap239Ap233Psm-Uri"  >
+</ownedAttribute>
+<ownedRule xmi:type="uml:Constraint" xmi:id="_3_uniq_Ap239Ap233Psm-ExternalOwlClass-ur1" name="ur1">
+<constrainedElement xmi:idref="_Ap239Ap233Psm-ExternalOwlClass"/>
+<specification xmi:type="uml:OpaqueExpression" xmi:id="_3_uniq_Ap239Ap233Psm-ExternalOwlClass-ur1-spec">
+<body>ExternalOwlClass::allInstance()-&gt;isUnique(class)</body>
+<language>OCL2.0</language>
+</specification>
+</ownedRule>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-ExternalItem" name = "ExternalItem" >
+<generalization xmi:type="uml:Generalization" xmi:id="_2_supertype_Ap239Ap233Psm-ExternalItem-SameAs" general="_Ap239Ap233Psm-SameAs"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-ExternalItem-descriptions" name="descriptions"   type="_Ap239Ap233Psm-Description"  association="_1_association_Ap239Ap233Psm-ExternalItem-descriptions">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-ExternalItem-descriptions-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-ExternalItem-descriptions-upperValue" value="*"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-ExternalItem-externalIdentification" name="externalIdentification"   type="_Ap239Ap233Psm-Identification"  association="_1_association_Ap239Ap233Psm-ExternalItem-externalIdentification">
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-ExternalItem-sourceIdentification" name="sourceIdentification"   type="_Ap239Ap233Psm-Identification"  association="_1_association_Ap239Ap233Psm-ExternalItem-sourceIdentification">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-ExternalItem-sourceIdentification-lowerValue"/></ownedAttribute>
+<ownedRule xmi:type="uml:Constraint" xmi:id="_3_uniq_Ap239Ap233Psm-ExternalItem-ur1" name="ur1">
+<constrainedElement xmi:idref="_Ap239Ap233Psm-ExternalItem"/>
+<specification xmi:type="uml:OpaqueExpression" xmi:id="_3_uniq_Ap239Ap233Psm-ExternalItem-ur1-spec">
+<body>ExternalItem::allInstance()-&gt;isUnique(Sequence{externalIdentification, sourceIdentification})</body>
+<language>OCL2.0</language>
+</specification>
+</ownedRule>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-ExternalOwlObject" name = "ExternalOwlObject" >
+<generalization xmi:type="uml:Generalization" xmi:id="_2_supertype_Ap239Ap233Psm-ExternalOwlObject-SameAs" general="_Ap239Ap233Psm-SameAs"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-ExternalOwlObject-individual" name="individual" type="_Ap239Ap233Psm-Uri"  >
+</ownedAttribute>
+<ownedRule xmi:type="uml:Constraint" xmi:id="_3_uniq_Ap239Ap233Psm-ExternalOwlObject-ur1" name="ur1">
+<constrainedElement xmi:idref="_Ap239Ap233Psm-ExternalOwlObject"/>
+<specification xmi:type="uml:OpaqueExpression" xmi:id="_3_uniq_Ap239Ap233Psm-ExternalOwlObject-ur1-spec">
+<body>ExternalOwlObject::allInstance()-&gt;isUnique(individual)</body>
+<language>OCL2.0</language>
+</specification>
+</ownedRule>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-Identification" name = "Identification" >
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Identification-classifiedAs" name="classifiedAs"   type="_Ap239Ap233Psm-Classifier"  association="_1_association_Ap239Ap233Psm-Identification-classifiedAs">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Identification-classifiedAs-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Identification-classifiedAs-upperValue" value="*"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Identification-identifier" name="identifier" 
+	
+type="STRING">
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Identification-identificationContext" name="identificationContext"   type="_Ap239Ap233Psm-IdentificationContextSelect"  association="_1_association_Ap239Ap233Psm-Identification-identificationContext">
+</ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Identification-descriptions" name="descriptions"   type="_Ap239Ap233Psm-Description"  association="_1_association_Ap239Ap233Psm-Identification-descriptions">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Identification-descriptions-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Identification-descriptions-upperValue" value="*"/></ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-Organization" name = "Organization" >
+<generalization xmi:type="uml:Generalization" xmi:id="_2_selectitem_Ap239Ap233Psm-Organization-IdentificationContextSelect" general="_Ap239Ap233Psm-IdentificationContextSelect"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Organization-identifications" name="identifications"   type="_Ap239Ap233Psm-Identification"  association="_1_association_Ap239Ap233Psm-Organization-identifications">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Organization-identifications-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Organization-identifications-upperValue" value="*"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Organization-descriptions" name="descriptions"   type="_Ap239Ap233Psm-Description"  association="_1_association_Ap239Ap233Psm-Organization-descriptions">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Organization-descriptions-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Organization-descriptions-upperValue" value="*"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Organization-classifiedBy" name="classifiedBy"   type="_Ap239Ap233Psm-Classifier"  association="_1_association_Ap239Ap233Psm-Organization-classifiedBy">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Organization-classifiedBy-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Organization-classifiedBy-upperValue" value="*"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="_2_attr_Ap239Ap233Psm-Organization-sameAs" name="sameAs"   type="_Ap239Ap233Psm-SameAs"  association="_1_association_Ap239Ap233Psm-Organization-sameAs">
+<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2_attr_Ap239Ap233Psm-Organization-sameAs-lowerValue"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2_attr_Ap239Ap233Psm-Organization-sameAs-upperValue" value="*"/></ownedAttribute>
+</packagedElement>
+<packagedElement xmi:type = "uml:Class" xmi:id = "_Ap239Ap233Psm-SameAs" name = "SameAs" isAbstract = "TRUE">
+</packagedElement>
+</packagedElement>
+<profileApplication xmi:type="uml:ProfileApplication" xmi:id="_profileApplication0">
+<appliedProfile xmi:type="uml:Profile" href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0" />
+</profileApplication>
+</packagedElement>
+</uml:Model>
+<sysml:Block base_Class = "_Ap239Ap233Psm-Classifier" xmi:id = "_Ap239Ap233Psm-Classifier-Block"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-Description" xmi:id = "_Ap239Ap233Psm-Description-Block"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-ExternalClass" xmi:id = "_Ap239Ap233Psm-ExternalClass-Block"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-ExternalOwlClass" xmi:id = "_Ap239Ap233Psm-ExternalOwlClass-Block"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-ExternalItem" xmi:id = "_Ap239Ap233Psm-ExternalItem-Block"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-ExternalOwlObject" xmi:id = "_Ap239Ap233Psm-ExternalOwlObject-Block"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-Identification" xmi:id = "_Ap239Ap233Psm-Identification-Block"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-Organization" xmi:id = "_Ap239Ap233Psm-Organization-Block"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-SameAs" xmi:id = "_Ap239Ap233Psm-SameAs-Block"/>
+<sysml:ValueType base_DataType = "_Ap239Ap233Psm-Uri" xmi:id = "_Ap239Ap233Psm-Uri-ValueType"/>
+<sysml:Block base_Class = "_Ap239Ap233Psm-IdentificationContextSelect" xmi:id = "_Ap239Ap233Psm-IdentificationContextSelect-Block"/>
+<StandardProfileL2:auxiliary xmi:id="_Ap239Ap233Psm-IdentificationContextSelect-Blockapplication1" base_Class="_Ap239Ap233Psm-IdentificationContextSelect"/>
+<sysml:ValueType base_DataType = "LOGICAL" xmi:id = "LOGICAL_VT"/>
+<sysml:ValueType base_DataType = "BOOLEAN" xmi:id = "BOOLEAN_VT"/>
+<sysml:ValueType base_DataType = "NUMBER" xmi:id = "NUMBER_VT"/>
+<sysml:ValueType base_DataType = "REAL" xmi:id = "REAL_VT"/>
+<sysml:ValueType base_DataType = "INTEGER" xmi:id = "INTEGER_VT"/>
+<sysml:ValueType base_DataType = "STRING" xmi:id = "STRING_VT"/>
+<sysml:ValueType base_DataType = "BINARY" xmi:id = "BINARY_VT"/>
+</xmi:XMI>

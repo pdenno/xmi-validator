@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20110701"
+         xmlns:xmi="http://www.omg.org/spec/XMI/2.4.1">
+   <uml:Model xmi:type="uml:Model" xmi:id="_17_0_2beta_e4a0319_1340022158085_182779_2224"
+              name="Model2">
+      <packagedElement xmi:type="uml:Class" xmi:id="_17_0_2beta_e4a0319_1340022456885_176430_2145"
+                       name="M2C1">
+         <generalization xmi:type="uml:Generalization"
+                         xmi:id="_17_0_2beta_e4a0319_1340022462565_187514_2165">
+            <general href="valid-model1.xmi#_17_0_2beta_e4a0319_1340021990885_527740_2247"/>
+         </generalization>
+         <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_2beta_e4a0319_1340022489295_207140_2189"
+                         name="m1C2"
+                         visibility="private"
+                         association="_17_0_2beta_e4a0319_1340022489295_433674_2188">
+            <type href="valid-model1.xmi#_17_0_2beta_e4a0319_1340022027155_344135_2285"/>
+         </ownedAttribute>
+         <ownedAttribute xmi:type="uml:Property" xmi:id="_17_0_2beta_e4a0319_1340022642396_352222_2483"
+                         name="m2Att1">
+            <type href="valid-model1.xmi#_17_0_2beta_e4a0319_1340022008345_701939_2267"/>
+         </ownedAttribute>
+         <ownedOperation xmi:type="uml:Operation" xmi:id="_17_0_2beta_e4a0319_1340022705116_980408_2620"
+                         name="m2O1"
+                         visibility="public">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_17_0_2beta_e4a0319_1340022730186_812619_2623"
+                            name="p1"
+                            visibility="public">
+               <type href="valid-model1.xmi#_17_0_2beta_e4a0319_1340022008345_701939_2267"/>
+            </ownedParameter>
+         </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association"
+                       xmi:id="_17_0_2beta_e4a0319_1340022489295_433674_2188"
+                       name="M2A1">
+         <memberEnd xmi:idref="_17_0_2beta_e4a0319_1340022489295_207140_2189"/>
+         <memberEnd xmi:idref="_17_0_2beta_e4a0319_1340022489295_474183_2190"/>
+         <navigableOwnedEnd xmi:idref="_17_0_2beta_e4a0319_1340022489295_474183_2190"/>
+         <ownedEnd xmi:type="uml:Property" xmi:id="_17_0_2beta_e4a0319_1340022489295_474183_2190"
+                   name="m2C1"
+                   visibility="private"
+                   type="_17_0_2beta_e4a0319_1340022456885_176430_2145"
+                   association="_17_0_2beta_e4a0319_1340022489295_433674_2188"/>
+      </packagedElement>
+   </uml:Model>
+</xmi:XMI>

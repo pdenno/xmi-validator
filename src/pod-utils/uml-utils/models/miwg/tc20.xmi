@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:updm="http://www.omg.org/spec/UPDM/20120301" xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile">
+  <updm:ArchitecturalDescription xmi:id="_-ArchitecturalDescription" xmi:uuid="725A27D7-D416-407A-9870-C96ACDDCBE48">
+    <base_Package xmi:idref="TestCase20-Architectural_Description1"/>
+    <viewpoint/>
+    <purpose/>
+    <recommendations/>
+    <assumptionAndConstraint/>
+    <creatingOrganization/>
+    <summaryOfFindings/>
+    <toBe>false</toBe>
+    <toolsUsed/>
+    <architect/>
+    <architectureFramework>DoDAF</architectureFramework>
+  </updm:ArchitecturalDescription>
+  <sysml:Block xmi:id="_-Block" xmi:uuid="725A27D7-D416-4A16-9C7E-C96A94CE648C">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Capability1"/>
+  </sysml:Block>
+  <updm:Capability xmi:id="_-Capability" xmi:uuid="725A27D7-D416-4509-94E7-C96A7F3CE486">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Capability1"/>
+  </updm:Capability>
+  <updm:EnterpriseGoal xmi:id="_-EnterpriseGoal" xmi:uuid="725A27D7-D416-4E14-91A4-C96A6B6F1FB4">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Enterprise_Goal1"/>
+    <enterprisePhase xmi:idref="_-WholeLifeEnterprise"/>
+  </updm:EnterpriseGoal>
+  <updm:EnterprisePhase xmi:id="_-EnterprisePhase-2" xmi:uuid="725A27D7-D416-4169-9E0A-C96AC822B6EC">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Enterprise_Phase2"/>
+    <endDate xmi:idref="_-ISO8601DateTime"/>
+    <startDate xmi:idref="_-ISO8601DateTime"/>
+    <vision xmi:idref="_-Vision-3"/>
+  </updm:EnterprisePhase>
+  <updm:EnterprisePhase xmi:id="_-EnterprisePhase-1" xmi:uuid="725A27D7-D416-4A86-9AC9-C96A7A318951">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Enterprise_Phase1"/>
+    <endDate xmi:idref="_-ISO8601DateTime"/>
+    <startDate xmi:idref="_-ISO8601DateTime"/>
+    <vision xmi:idref="_-Vision-2"/>
+  </updm:EnterprisePhase>
+  <updm:Exhibits xmi:id="_-Exhibits" xmi:uuid="725A27D7-D416-4EAF-9528-C96A8C77198B">
+    <base_Dependency xmi:idref="TestCase20-Architectural_Description1-packagedElement-11"/>
+  </updm:Exhibits>
+  <updm:ISO8601DateTime xmi:id="_-ISO8601DateTime" xmi:uuid="725A27D7-D416-4AC2-9D4F-C96A90CD9C07">
+    <base_LiteralString xmi:idref="TestCase20-Architectural_Description1-packagedElement-12"/>
+  </updm:ISO8601DateTime>
+  <uml:Model xmi:id="TestCase20" xmi:uuid="725A27D7-D416-4EDD-97B2-C96A66ABA3DA">
+    <packagedElement xmi:id="TestCase20-Architectural_Description1" xmi:uuid="725A27D7-D416-4CBC-964B-C96A698E8EDB" xmi:type="uml:Package">
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-Capability1" xmi:uuid="725A27D7-D416-4716-9599-C96A6393BFC2" xmi:type="uml:Class">
+        <name>Capability1</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-Enterprise_Goal1" xmi:uuid="725A27D7-D416-419E-9579-C96AF6573642" xmi:type="uml:Class">
+        <name>Enterprise Goal1</name>
+        <isAbstract>true</isAbstract>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-Enterprise_Phase1" xmi:uuid="725A27D7-D416-4E84-9B63-C96AEDCD0F27" xmi:type="uml:Class">
+        <name>Enterprise Phase1</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-Enterprise_Phase2" xmi:uuid="725A27D7-D416-419C-93B3-C96A8B99527B" xmi:type="uml:Class">
+        <name>Enterprise Phase2</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-Vision1" xmi:uuid="725A27D7-D416-44BC-9B0F-C96AEF183B99" xmi:type="uml:Class">
+        <name>Vision1</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-Vision2" xmi:uuid="725A27D7-D416-4E7C-9DC5-C96AB717D7A8" xmi:type="uml:Class">
+        <name>Vision2</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-Vision3" xmi:uuid="725A27D7-D416-48F9-948E-C96A9760A017" xmi:type="uml:Class">
+        <name>Vision3</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-Whole_Life_Enterprise1" xmi:uuid="725A27D7-D416-4E29-9729-C96A31966DBE" xmi:type="uml:Class">
+        <ownedAttribute xmi:id="TestCase20-Architectural_Description1-Whole_Life_Enterprise1-Structual_Part1" xmi:uuid="725A27D7-D416-4090-9361-C96A7996B32E" xmi:type="uml:Property">
+          <name>Structual Part1</name>
+          <type xmi:idref="TestCase20-Architectural_Description1-Enterprise_Phase1"/>
+          <visibility>public</visibility>
+          <aggregation>composite</aggregation>
+          <association xmi:idref="TestCase20-Architectural_Description1-packagedElement-10"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase20-Architectural_Description1-Whole_Life_Enterprise1-Temporal_Part1" xmi:uuid="725A27D7-D416-4BFA-9AA0-C96A1704C55E" xmi:type="uml:Property">
+          <name>Temporal Part1</name>
+          <type xmi:idref="TestCase20-Architectural_Description1-Enterprise_Phase2"/>
+          <visibility>public</visibility>
+          <aggregation>composite</aggregation>
+          <association xmi:idref="TestCase20-Architectural_Description1-packagedElement-9"/>
+        </ownedAttribute>
+        <name>Whole Life Enterprise1</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-packagedElement-9" xmi:uuid="725A27D7-D416-4225-98D5-C96AE0888B18" xmi:type="uml:Association">
+        <ownedEnd xmi:id="TestCase20-Architectural_Description1-packagedElement-9-ownedEnd" xmi:uuid="725A27D7-D416-4DA9-9CD6-C96A1312D0AB" xmi:type="uml:Property">
+          <type xmi:idref="TestCase20-Architectural_Description1-Whole_Life_Enterprise1"/>
+          <visibility>private</visibility>
+          <association xmi:idref="TestCase20-Architectural_Description1-packagedElement-9"/>
+        </ownedEnd>
+        <name>Composition</name>
+        <memberEnd xmi:idref="TestCase20-Architectural_Description1-packagedElement-9-ownedEnd"/>
+        <memberEnd xmi:idref="TestCase20-Architectural_Description1-Whole_Life_Enterprise1-Temporal_Part1"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-packagedElement-10" xmi:uuid="725A27D7-D416-4A68-9F40-C96A574FC474" xmi:type="uml:Association">
+        <ownedEnd xmi:id="TestCase20-Architectural_Description1-packagedElement-10-ownedEnd" xmi:uuid="725A27D7-D416-4083-9529-C96A59F3C62B" xmi:type="uml:Property">
+          <type xmi:idref="TestCase20-Architectural_Description1-Whole_Life_Enterprise1"/>
+          <visibility>private</visibility>
+          <association xmi:idref="TestCase20-Architectural_Description1-packagedElement-10"/>
+        </ownedEnd>
+        <name>Composition</name>
+        <memberEnd xmi:idref="TestCase20-Architectural_Description1-packagedElement-10-ownedEnd"/>
+        <memberEnd xmi:idref="TestCase20-Architectural_Description1-Whole_Life_Enterprise1-Structual_Part1"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-packagedElement-11" xmi:uuid="725A27D7-D416-4FFC-99A3-C96A38C0E175" xmi:type="uml:Dependency">
+        <client xmi:idref="TestCase20-Architectural_Description1-Whole_Life_Enterprise1"/>
+        <supplier xmi:idref="TestCase20-Architectural_Description1-Capability1"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase20-Architectural_Description1-packagedElement-12" xmi:uuid="725A27D7-D416-4D5D-97C6-C96A91E66D8A" xmi:type="uml:LiteralString">
+        <value>2012-08-16 00:00:00</value>
+      </packagedElement>
+      <name>Architectural Description1</name>
+    </packagedElement>
+    <profileApplication xmi:id="TestCase20-profileApplication-1" xmi:uuid="725A27D7-D416-4C51-9822-C96ADC0C615C" xmi:type="uml:ProfileApplication">
+      <appliedProfile href="http://www.omg.org/spec/UPDM/20120301/UPDM-Profile.xmi#UPDM"/>
+    </profileApplication>
+    <profileApplication xmi:id="TestCase20-profileApplication-2" xmi:uuid="725A27D7-D416-49F9-9902-C96AA4DC7579" xmi:type="uml:ProfileApplication">
+      <appliedProfile href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+    </profileApplication>
+    <name>TestCase20</name>
+  </uml:Model>
+  <sysml:Requirement xmi:id="_-Requirement" xmi:uuid="725A27D7-D416-4203-9FE4-C96A5E387499">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Enterprise_Goal1"/>
+    <Text>The Enterprise shall...</Text>
+  </sysml:Requirement>
+  <updm:Vision xmi:id="_-Vision-2" xmi:uuid="725A27D7-D416-41BC-9412-C96A2D5C433D">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Vision2"/>
+    <enterprisePhase xmi:idref="_-EnterprisePhase-1"/>
+  </updm:Vision>
+  <updm:Vision xmi:id="_-Vision-1" xmi:uuid="725A27D7-D416-4305-9FD1-C96ADD0A0449">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Vision1"/>
+    <enterprisePhase xmi:idref="_-WholeLifeEnterprise"/>
+  </updm:Vision>
+  <updm:Vision xmi:id="_-Vision-3" xmi:uuid="725A27D7-D416-467A-9447-C96AC802BBA8">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Vision3"/>
+    <enterprisePhase xmi:idref="_-EnterprisePhase-2"/>
+  </updm:Vision>
+  <updm:WholeLifeEnterprise xmi:id="_-WholeLifeEnterprise" xmi:uuid="725A27D7-D416-44B4-9ECB-C96AE781724C">
+    <base_Class xmi:idref="TestCase20-Architectural_Description1-Whole_Life_Enterprise1"/>
+    <desribedBy xmi:idref="_-ArchitecturalDescription"/>
+    <endDate xmi:idref="_-ISO8601DateTime"/>
+    <goal xmi:idref="_-EnterpriseGoal"/>
+    <startDate xmi:idref="_-ISO8601DateTime"/>
+    <vision xmi:idref="_-Vision-1"/>
+  </updm:WholeLifeEnterprise>
+</xmi:XMI>

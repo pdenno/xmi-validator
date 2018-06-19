@@ -1,0 +1,3 @@
+The umldi-files are the Topcased diagram-files.
+You may do the modeling with Topcased and take the model-files (uml) 
+for transformation.

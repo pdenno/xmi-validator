@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<null:dummy xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:null="umlmmmi" xmi:id="_pqqNkELpEdu4D7MpmOwj_g">
+  <containsClass xmi:id="_r-B-YELpEdu4D7MpmOwj_g" type="DomainRoot" subs="_sSS-MELpEdu4D7MpmOwj_g _skLYYELpEdu4D7MpmOwj_g _s1KasELpEdu4D7MpmOwj_g" name="Vehicle"/>
+  <containsClass xmi:id="_sSS-MELpEdu4D7MpmOwj_g" supers="_r-B-YELpEdu4D7MpmOwj_g _uSmCAELpEdu4D7MpmOwj_g" name="TwoWheeler"/>
+  <containsClass xmi:id="_skLYYELpEdu4D7MpmOwj_g" supers="_r-B-YELpEdu4D7MpmOwj_g _uSmCAELpEdu4D7MpmOwj_g" name="ThreeWheeler"/>
+  <containsClass xmi:id="_s1KasELpEdu4D7MpmOwj_g" supers="_r-B-YELpEdu4D7MpmOwj_g _ujSJYELpEdu4D7MpmOwj_g" name="FourWheeler"/>
+  <containsClass xmi:id="_tGJdAELpEdu4D7MpmOwj_g" subs="_tsmZAELpEdu4D7MpmOwj_g _uAHx8ELpEdu4D7MpmOwj_g" name="Engine"/>
+  <containsClass xmi:id="_tsmZAELpEdu4D7MpmOwj_g" supers="_tGJdAELpEdu4D7MpmOwj_g" name="SteamEngine"/>
+  <containsClass xmi:id="_uAHx8ELpEdu4D7MpmOwj_g" supers="_tGJdAELpEdu4D7MpmOwj_g" subs="_uSmCAELpEdu4D7MpmOwj_g _ujSJYELpEdu4D7MpmOwj_g" name="ICEngine"/>
+  <containsClass xmi:id="_uSmCAELpEdu4D7MpmOwj_g" supers="_uAHx8ELpEdu4D7MpmOwj_g" subs="_sSS-MELpEdu4D7MpmOwj_g _skLYYELpEdu4D7MpmOwj_g" name="TwoStrokeEngine"/>
+  <containsClass xmi:id="_ujSJYELpEdu4D7MpmOwj_g" supers="_uAHx8ELpEdu4D7MpmOwj_g" subs="_s1KasELpEdu4D7MpmOwj_g" name="FourStrokeEngine"/>
+</null:dummy>

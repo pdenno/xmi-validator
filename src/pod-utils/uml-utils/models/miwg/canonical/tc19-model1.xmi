@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="Model1" xmi:uuid="df080afb-b93f-11e1-bf7f-f7ef382941c6" xmi:type="uml:Model">
+    <packagedElement xmi:id="Model1-M1C1" xmi:uuid="829abce3-b940-11e1-bf7f-f7ef382941c6" xmi:type="uml:Class">
+      <ownedAttribute xmi:id="Model1-M1C1-c2" xmi:uuid="829abce4-b940-11e1-bf7f-f7ef382941c6" xmi:type="uml:Property">
+        <name>c2</name>
+        <visibility>private</visibility>
+        <type xmi:idref="Model1-M1C2"/>
+        <association xmi:idref="Model1-M1A1"/>
+      </ownedAttribute>
+      <name>M1C1</name>
+    </packagedElement>
+    <packagedElement xmi:id="Model1-M1D1" xmi:uuid="829c4385-b940-11e1-bf7f-f7ef382941c6" xmi:type="uml:DataType">
+      <name>M1D1</name>
+    </packagedElement>
+    <packagedElement xmi:id="Model1-M1C2" xmi:uuid="829c4386-b940-11e1-bf7f-f7ef382941c6" xmi:type="uml:Class">
+      <ownedAttribute xmi:id="Model1-M1C2-c1" xmi:uuid="829c4387-b940-11e1-bf7f-f7ef382941c6" xmi:type="uml:Property">
+        <name>c1</name>
+        <visibility>private</visibility>
+        <type xmi:idref="Model1-M1C1"/>
+        <association xmi:idref="Model1-M1A1"/>
+      </ownedAttribute>
+      <name>M1C2</name>
+    </packagedElement>
+    <packagedElement xmi:id="Model1-M1A1" xmi:uuid="829c4388-b940-11e1-bf7f-f7ef382941c6" xmi:type="uml:Association">
+      <memberEnd xmi:idref="Model1-M1C1-c2"/>
+      <memberEnd xmi:idref="Model1-M1C2-c1"/>
+      <name>M1A1</name>
+    </packagedElement>
+    <name>Model1</name>
+  </uml:Model>
+</xmi:XMI>

@@ -1,0 +1,10 @@
+transformation common ( u : MyUML, r : MyRDBM ) 
+{
+    query GetPrefix ( pref : String, cname : String ) : String
+	{
+       if    pref = ''        
+       then  cname
+	   else  pref + '_' + cname 
+	   endif
+	}
+}
