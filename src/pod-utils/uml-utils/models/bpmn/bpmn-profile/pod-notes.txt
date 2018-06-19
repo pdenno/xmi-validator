@@ -1,3 +1,0 @@
-
-This directory contains the profile generated from Conrad's work, not the profile used in MD 17.0, 
-that was used in the PSU work. 
