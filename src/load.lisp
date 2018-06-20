@@ -1,6 +1,5 @@
-;;; -*- Mode: Lisp; -*-
-;;;
 ;;; Author: Peter Denno
+;;; Load and start the xmi-validator. This has only been tested on SBCL. 
 
 (pushnew :iface-http *features*)  
 (pushnew :miwg *features*)
@@ -9,7 +8,7 @@
 (pushnew :qvt *features*)
 ;;;(push :home *features*)
 
-(require :asdf)
+(require :quicklisp)
 (asdf:initialize-source-registry)
 (ql:quickload "hunchentoot")
 (ql:quickload "cl-who")
@@ -53,26 +52,6 @@
 ;;;==================================================
 ;;; Load package files
 ;;;==================================================
-#+:lispworks(load (lpath :lisplib "closer/current/closer-mop-packages.lisp"))
-
-;;; Note some ediware .asd files define packages
-;(load (lpath :lisplib "rfc2388/current/rfc2388.asd"))
-;(load (lpath :lisplib "md5/current/md5.asd"))
-;(load (lpath :lisplib "flexi-streams/current/flexi-streams.asd"))
-
-;18(load (lpath :lisplib "rfc2388/current/packages.lisp"))
-;18(load (lpath :lisplib "url-rewrite/current/packages.lisp"))
-;18(load (lpath :lisplib "cl-who/current/packages.lisp"))
-;18(load (lpath :lisplib "cl-fad/current/packages.lisp"))
-;18(load (lpath :lisplib "trivial-gray-streams/current/trivial-gray-streams.asd"))
-;18(load (lpath :lisplib "trivial-gray-streams/current/package.lisp"))
-;18(load (lpath :lisplib "flexi-streams/current/packages.lisp"))
-;18(load (lpath :lisplib "cl-fad/current/packages.lisp"))
-;18(load (lpath :lisplib "chunga/current/packages.lisp"))
-;18(load (lpath :lisplib "hunchentoot/current/hunchentoot.asd"))
-;18(load (lpath :lisplib "hunchentoot/current/packages.lisp"))
-;18(load (lpath :lisplib "trivial-backtrace/trivial-backtrace/trivial-backtrace.asd"))
-
 (load (lpath :mylib "trie/package.lisp"))
 (load (lpath :mylib "xpath/package.lisp"))
 (load (lpath :mylib "uml-utils/ocl/package.lisp"))
@@ -91,7 +70,7 @@
 (in-package :mofi)
 
 (defvar *cmpkg* nil "Package for #. compiler directive -- determines whether processing
-   UML or CMOF into lisp. Set to either :CMOF of a UML (e.g. :UML23).")
+   UML or CMOF into lisp. Set to any of the :CMOFs of a UML (e.g. :UML23).")
 
 (load (compile-file (pod:lpath :sei "xqdm-fix.lisp")))
 
@@ -116,10 +95,7 @@
 	      do (ocl:compile-operations class  :gf-name 'ocl:ocl-constraints-cmof)
 	      do (ocl:compile-constraints class :gf-name 'ocl:ocl-constraints-cmof))))
 
-(unless (member :sei.exe *features*)
-  (if (member :home *features*)
-      (phttp:sei-start-home-version)
-      (phttp:sei-start)))
+(phttp:sei-start)
 (format t "~2%;;;============ Server Started ========================")
 
 
