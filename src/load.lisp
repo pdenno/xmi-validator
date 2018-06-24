@@ -1,20 +1,20 @@
 ;;; Author: Peter Denno
-;;; Load and start the xmi-validator. This has only been tested on SBCL. 
+;;; Load and start the xmi-validator. This has been designed for SBCL. 
 
 (pushnew :iface-http *features*)  
 (pushnew :miwg *features*)
 (pushnew :sei *features*)
 (pushnew :hunchentoot-no-ssl *features*)
 (pushnew :qvt *features*)
-;;;(push :home *features*)
 
+(require :asdf)
 (require :quicklisp)
 (asdf:initialize-source-registry)
-(ql:quickload "hunchentoot")
 (ql:quickload "cl-who")
+(ql:quickload "cl-ppcre")
 (ql:quickload "closer-mop")
 
-(progn
+(handler-bind ((style-warning #'muffle-warning))
   (load "./pod-utils/packages.lisp")
   (load "./pod-utils/utils.lisp"))
 
@@ -30,24 +30,40 @@
 			   (:tmp     . "/local/tmp/")
 			   ;18(:miwg    . "/home/pdenno/projects/miwg/Tests/")
 			   )
-     do (setf (gethash key pod:*lpath-ht*) val))
+   do (setf (gethash key pod:*lpath-ht*) val))
 
 (defpackage :user-system
   (:use :cl :asdf :pod-utils))
 
 (in-package :user-system)
 
-#+SBCL
-(progn
-  (setf *compile-verbose* nil)
-  (setf *compile-print* nil)
-  #-asdf (require :asdf))
+;;; cl-xml has its own system definition system. It was defined in cl-user.
+;;; Without modification it defines 'system' which hoses ASDF. I changed its
+;;; package to jaa-defsystem. This is an attempt to isolate it.
+(require :sb-introspect)
+(require :sb-bsd-sockets)
+(require :sb-grovel)
+(require :sb-executable)
+(require :sb-posix)
+(load (compile-file (merge-pathnames (make-pathname :name "define-system" :directory '(:relative "library"))
+				     (lpath :lisplib "cl-xml/"))))
+(let ((*package* (find-package :jaa-defsystem))
+      (*load-verbose* t)
+      (*load-truename* (lpath :lisplib "cl-xml/")))
+  (jaa-def:register-system-definition :xparser (merge-pathnames (make-pathname :name "sysdcl")
+								(lpath :lisplib "cl-xml/")))
+  (pushnew :xml-symbols *features*)
+  (setf *features* (remove :nameset-tokenizer *features*))
+  (jaa-def:execute-system-operations :xparser '(:compile :load :verbose)))
+
+;;; This will load most all of edi-ware.
+(ql:quickload "hunchentoot")
+
+;(setf *compile-verbose* nil)
+;(setf *compile-print* nil)
 
 (defparameter *load-source-pathname-types* '("lisp" nil))
-(defparameter *load-binary-pathname-types* 
-  #+ANSI-CL `(,(pathname-type (compile-file-pathname "foo.lisp")))
-  #-(or ANSI-CL)
-  (error "Can't find binary file type for ~A" (lisp-implementation-type)))
+(defparameter *load-binary-pathname-types*  "fasl")
 
 ;;;==================================================
 ;;; Load package files

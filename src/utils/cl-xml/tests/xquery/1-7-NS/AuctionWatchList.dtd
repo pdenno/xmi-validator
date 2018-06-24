@@ -1,0 +1,132 @@
+
+
+<!ELEMENT ma:AuctionWatchList (ma:Auction*) >
+
+<!ATTLIST ma:AuctionWatchList
+
+  xmlns:ma      CDATA  #FIXED "http://www.example.com/AuctionWatch"
+
+  xmlns:xlink   CDATA  #FIXED "http://www.w3.org/1999/xlink"
+
+  >
+
+
+
+<!ELEMENT ma:Auction (ma:AuctionHomepage, ma:Schedule, ma:Price,
+
+                      ma:Trading_Partners, ma:Details) >
+
+
+
+<!ELEMENT ma:AuctionHomepage EMPTY >
+
+<!ATTLIST ma:AuctionHomepage
+
+  xlink:type    CDATA  #FIXED "simple"
+
+  xlink:href    CDATA  #IMPLIED
+
+  >
+
+
+
+<!ELEMENT ma:Schedule (ma:Open, ma:Close) >
+
+
+
+<!ELEMENT ma:Open (#PCDATA) >
+
+<!ATTLIST ma:Open
+
+  xmlns:dt      CDATA  #FIXED "http://www.w3.org/1999/XMLSchema-datatypes"
+
+  dt:type       CDATA  #FIXED "timeInstant"
+
+  >
+
+
+
+<!ELEMENT ma:Close (#PCDATA) >
+
+<!ATTLIST ma:Close
+
+  xmlns:dt      CDATA  #FIXED "http://www.w3.org/1999/XMLSchema-datatypes"
+
+  dt:type       CDATA  #FIXED "timeInstant"
+
+  >
+
+
+
+<!ELEMENT ma:Price (ma:Start, ma:Current, ma:Number_of_Bids) >
+
+
+
+<!ELEMENT ma:Start (#PCDATA) >
+
+<!ATTLIST ma:Start
+
+  ma:currency   CDATA  #IMPLIED
+
+  >
+
+
+
+<!ELEMENT ma:Current (#PCDATA) >
+
+<!ATTLIST ma:Current
+
+  ma:currency   CDATA  #IMPLIED
+
+  >
+
+
+
+<!ELEMENT ma:Number_of_Bids (#PCDATA) >
+
+
+
+<!ELEMENT ma:Trading_Partners (ma:High_Bidder, ma:Seller) >
+
+
+
+<!ENTITY % High_Bidder.content "ma:MemberInfoPage" >
+
+<!ELEMENT ma:High_Bidder ( %High_Bidder.content; ) >
+
+
+
+<!ENTITY % Seller.content "ma:MemberInfoPage" >
+
+<!ELEMENT ma:Seller ( %Seller.content; ) >
+
+
+
+<!ELEMENT ma:MemberInfoPage EMPTY >
+
+<!ATTLIST ma:MemberInfoPage
+
+  xlink:type    CDATA #FIXED "simple"
+
+  xlink:href    CDATA #REQUIRED
+
+  xlink:role    CDATA #FIXED "ma:MemberInfoPage"
+
+  >
+
+
+
+<!ENTITY % Details.content "ANY" >
+
+
+
+<!ELEMENT ma:Details %Details.content; >
+
+
+
+
+
+
+
+  
+
