@@ -79,7 +79,7 @@
     (when (or (cl-ppcre:scan "(?i)<script>" str) 
 	      (cl-ppcre:scan "[<,>]" str)
               (cl-ppcre:scan "(?i)alert\\(\\s*\\d+\\\s*\\)" str))
-      (tbnl:log-message :warn "Cross-site scripting attempt from ~A" (tbnl:remote-addr tbnl:*request*))
+      ;(tbnl:log-message :warn "Cross-site scripting attempt from ~A" (tbnl:remote-addr tbnl:*request*))
       t)))
 
 ;;; Perhaps this should just use escape-string. 

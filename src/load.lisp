@@ -11,6 +11,8 @@
 (require :asdf)
 (require :quicklisp)
 (asdf:initialize-source-registry)
+
+;;; POD DO I really need these? xmi-validator.asd should do it. 
 (ql:quickload "cl-who")
 (ql:quickload "cl-ppcre")
 (ql:quickload "closer-mop")
@@ -37,36 +39,7 @@
 
 (defpackage :user-system
   (:use :cl :asdf :pod-utils))
-
 (in-package :user-system)
-
-#|
-;;; cl-xml has its own system definition system. It was defined in cl-user.
-;;; Without modification it defines 'system' which hoses ASDF. I changed its
-;;; package to jaa-defsystem. This is an attempt to isolate it.
-;;; More screwing around was needed.
-(require :sb-introspect)
-(require :sb-bsd-sockets)
-(require :sb-grovel)
-(require :sb-executable)
-(require :sb-posix)
-(load (compile-file (lpath :lisplib "cl-xml/library/define-system.lisp")))
-(load (compile-file (lpath :lisplib "cl-xml/sysdcl.lisp")))
-(let ((*package* (find-package :jaa-defsystem))
-      (*load-verbose* t)
-      (*load-truename* (lpath :lisplib "cl-xml/")))
-  (jaa-def:register-system-definition :xparser (lpath :lisplib "cl-xml/sysdcl.lisp"))
-  (pushnew :xml-symbols *features*)
-  (setf *features* (remove :nameset-tokenizer *features*))
-  (load (compile-file (lpath :lisplib "cl-xml/library/de/setf/utility/package.lisp")))
-  (load (compile-file (lpath :lisplib "cl-xml/code/base/package.lisp")))
-  (sb-ext:without-package-locks
-    (jaa-def:execute-system-operations :xparser '(:compile :load :verbose))))
-|#
-
-
-;(setf *compile-verbose* nil)
-;(setf *compile-print* nil)
 
 (defparameter *load-source-pathname-types* '("lisp" nil))
 (defparameter *load-binary-pathname-types*  "fasl")
@@ -86,8 +59,10 @@
 ;(load (lpath :mylib "pod-utils/uml-utils/models/packages.lisp"))
 (load (lpath :mylib "uml-utils/browser/packages.lisp"))
 
-(handler-bind ((style-warning #'muffle-warning))
-    (asdf:load-system :xmi-validator))
+;;;(handler-bind ((style-warning #'muffle-warning))
+;;;    (asdf:load-system :xmi-validator))
+(ql:quickload :xmi-validator)
+
 
 ;;; I gave up trying to understand how ASDF is organized. The documentation is not helpful.
 (in-package :mofi)

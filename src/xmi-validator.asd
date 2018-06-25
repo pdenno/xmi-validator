@@ -3,9 +3,12 @@
 (in-package :user-system)
 
 (asdf:defsystem :xmi-validator
-  :depends-on (:hunchentoot ;18
-	       :closer-mop  ;18
-	       :clxml-adds
+  :depends-on (:cxml
+	       :closer-mop
+	       :cl-who
+	       :cl-ppcre
+	       :closer-mop
+	       :hunchentoot
 	       :miwg
 	       #+qvt :qvt)
   :components ())
