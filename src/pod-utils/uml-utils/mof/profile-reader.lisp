@@ -19,11 +19,11 @@
     `(pod:def-parse parse-profile package ,@args)))
 
 ;;; (process-pro :profile-name :sysml 
-;;;              :in-file #P"lisplib:pod-utils;uml-utils;data;sysml12;sysml1-2-ptc20100301-v5;sysml-profile.xmi"
-;;;              :out-file #P"lisplib:pod-utils;uml-utils;models;sysml-profile-new.lisp") 
+;;;              :in-file (lpath :mylib "uml-utils/data;/ysml12/sysml1-2-ptc20100301-v5/sysml-profile.xmi")
+;;;              :out-file (lpath :mylib "uml-utils/models/sysml-profile-new.lisp")) 
 ;;; (process-pro :profile-name :uml-profile-l2 
-;;;              :in-file  #P"lisplib:pod-utils;uml-utils;data;std-uml-profiles;10-08-22-uml-l2-profile.xmi"
-;;;              :out-file #P"lisplib:pod-utils;uml-utils;models;uml-std-profile-l2.lisp")
+;;;              :in-file  (lpath :mylib "uml-utils/data/std-uml-profiles;10-08-22-uml-l2-profile.xmi")
+;;;              :out-file (lpath :mylib "uml-utils/models/uml-std-profile-l2.lisp"))
 (defun process-pro (&key profile-name in-file out-file uml-xqdm)
   "Toplevel function to produce the SYSML meta-model file."
   (let* ((doc (or uml-xqdm (xmlp:document-parser in-file)))

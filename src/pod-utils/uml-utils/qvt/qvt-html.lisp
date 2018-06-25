@@ -116,7 +116,7 @@
 		   (:tr (:td :colspan 2 :align "center" (:input :type :submit :value "Load Model")))))
       (nonsense-and-action qvt-handle-metamodel-file)))
 
-;(qvt-handle-metamodel-file "/local/lisp/pod-utils/uml-utils/qvt/examples/uml2rdbms/simplerdbms.mdxml")
+;(qvt-handle-metamodel-file (pod:lpath :mylib "uml-utils/qvt/examples/uml2rdbms/simplerdbms.mdxml"))
 ;;; Not wrapping in   results-handler-bind -- don't care. 
 (defun qvt-handle-metamodel-file (file-path)
   "Move the file from IN-PATH, (where the server placed it) to a place managed by us.
@@ -188,12 +188,12 @@
 (defun tryme ()
   (with-vo (qvt-map-info)
     (setf qvt-map-info (make-instance 'qvt-map-info))
-    (qvt-handle-qvtr-file "/local/lisp/pod-utils/uml-utils/qvt/examples/uml2fuml/example.qvt")))
+    (qvt-handle-qvtr-file (pod:lpath :mylib "uml-utils/qvt/examples/uml2fuml/example.qvt"))))
 
 (defun tryme2 ()
   (with-vo (qvt-map-info)
     (setf qvt-map-info (make-instance 'qvt-map-info))
-    (qvt-handle-qvtr-file "/local/lisp/pod-utils/uml-utils/qvt/examples/bpmn/bpmn2uml.qvt")))
+    (qvt-handle-qvtr-file (pod:lpath :mylib "uml-utils/qvt/examples/bpmn/bpmn2uml.qvt"))))
 
 
 ;;; /se-interop/qvt/load-models 

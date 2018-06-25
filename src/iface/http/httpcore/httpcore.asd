@@ -11,7 +11,6 @@
 		 :pod-utils
 		 :html-utils
 		 :xml-utils
-;		 :xpath     removed 2012-01-16	(might be used in CRE???) xpath-stream collision needs to be fixed.
 		 :trie
 		 :mof-browser
 		 :cl-json)
