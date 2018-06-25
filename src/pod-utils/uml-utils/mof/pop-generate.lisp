@@ -8,11 +8,11 @@
 
 ;;; How to use: (out of date)
 ;;;             (1) Upload a file. It works on (mut *spare-session-vo*)
-;;;                    e.g.: (simple-run-validator  "/local/lisp/pod-utils/uml-utils/data/uml25/UML-20131001.xmi")
+;;;                    e.g.: (simple-run-validator  (lpath :mylib "uml-utils/data/uml25/UML-20131001.xmi"))
 ;;;             (2) Set *cmpkg* to name the metamodel under which the uploaded file is an instance. 
 ;;;             (3) Depending on the goal, you might have to run just-those-owned-by, with suitable arguments.
 ;;;             (4) (pop-gen tpkg) - where TPKG is the target package.
-;;;             (5) Result: /local/lisp/pod-utils/uml-utils/models/tryme.lisp
+;;;             (5) Result: (lpath :mylib "uml-utils/models/tryme.lisp")
 
 ;;; NOTES 
 ;;;  2010-10-17: As of this date, I got a relative clean read of the UML2.4 infrastructure library
@@ -46,18 +46,18 @@
 ;;; (simple-run-validator  "/home/pdenno/win-pdenno/podenno@gmail.com/modelica-metamodel.mdxml")
 ;;; (pop-gen :uml241 "mmm" :keep-pkg-info nil :outfile "/local/tmp/tryme.lisp")
 
-;;; (simple-run-validator  "/home/pdenno/rt/projects/lisp/pod-utils/uml-utils/data/odm/13-11-01/ODM-metamodel-20131101.xmi")
+;;; (simple-run-validator  (pod:lpath :mylib "uml-utils/data/odm/13-11-01/ODM-metamodel-20131101.xmi"))
 ;;; (pop-gen :uml241 "ODM" :keep-pkg-info t :outfile "/local/tmp/tryme.lisp")
 
-;;; (simple-run-validator  "/home/pdenno/rt/projects/lisp/pod-utils/uml-utils/data/odm/13-11-01/RDFProfile.xmi")
+;;; (simple-run-validator  (pod:lpath :mylib "uml-utils/data/odm/13-11-01/RDFProfile.xmi"))
 ;;; (pop-gen :uml241 :rdf-profile :keep-pkg-info nil :outfile "/local/tmp/tryme.lisp")
 
-;;;(simple-run-validator  "/home/pdenno/rt/projects/lisp/pod-utils/uml-utils/data/odm/13-11-01/OWLProfile.xmi")
+;;;(simple-run-validator  (pod:lpath :mylib "uml-utils/data/odm/13-11-01/OWLProfile.xmi"))
 ;;; (pop-gen :uml241 :owl-profile :keep-pkg-info nil :outfile "/local/tmp/tryme.lisp")
 
-;;; (simple-run-validator  "/home/pdenno/rt/projects/lisp/pod-utils/uml-utils/data/upr/mars-2017-08-06.xmi")
+;;; (simple-run-validator  (pod:lpath :mylib "uml-utils/data/upr/mars-2017-08-06.xmi"))
 ;;;  --- OR ---
-;;; (simple-run-validator  "/home/pdenno/rt/projects/lisp/pod-utils/uml-utils/data/upr/UPR.xmi")
+;;; (simple-run-validator  (pod:lpath :mylib "uml-utils/data/upr/UPR.xmi"))
 ;;; (pop-gen :uml25 :upr :keep-pkg-info nil :outfile "/local/tmp/tryme.lisp")
 
 (defparameter *keep-pkg-info* nil "Because I'm not passing :keep-pkg-info deep enough!")
@@ -271,7 +271,7 @@
 (defmethod pop-gen ((version (eql #.*cmpkg*))
 		    tpkg &key 
 			   (model (mut *spare-session-vo*))
-			   (outfile #P"/local/lisp/pod-utils/uml-utils/models/tryme.lisp" )
+			   (outfile (pod:lpath :mylib "uml-utils/models/tryme.lisp" ))
 			   (keep-pkg-info nil))
   "Top-level function to print CMOF as def-meta- forms. 
    TPKG is the mofi:model name into which code will be generated.
@@ -1058,8 +1058,8 @@
 			 :ns-uri ,ns-uri
 			 :classes-path 
 			 (pod:lpath 
-			  :lisplib 
-			  ,(format nil "pod-utils/uml-utils/models/~A.lisp" ns-prefix))))))
+			  :mylib
+			  ,(format nil "uml-utils/models/~A.lisp" ns-prefix))))))
 
 (defmethod calculate-cpl-thru-%general ((class #.(cmsym "Class")))
   "Return the CLP for CLASS (a UML:Class) using the %general derived attribute."
@@ -1108,7 +1108,7 @@
 						     :key #'(lambda (x) (cmfuncall "%GENERAL" x))))))))))))))
 
 
-; (setf ppp (xmlp:document-parser "/local/lisp/pod-utils/uml-utils/data/bpmn/magicdraw/bpmn-profile-very-clean.xml"))
+; (setf ppp (xmlp:document-parser (pod:lpath :mylib "uml-utils/data/bpmn/magicdraw/bpmn-profile-very-clean.xml")))
 ; (clean-md ppp)
 ; (xqdm:write-node ppp *standard-output*)
 #+nil
