@@ -5,24 +5,42 @@
 (defpackage xqdm 
   (:use cl)
   (:export
+   #:attributes 
    #:children
    #:clone-node
-   #:local-part 
-   #:prefix 
-   #:name 
+   #:comment-node
    #:document 
-   #:root 
-   #:parent
+   #:elem-node
    #:element-p 
+   #:local-part
+   #:name 
    #:namespace
-   #:namespaces 
-   #:value 
-   #:attributes 
+   #:namespace-error
+   #:namespaces
+   #:node-graph-error
+   #:ordinal-node
    #:ordinality
+   #:parent
+   #:prefix
+   #:production-error
+   #:root
+   #:string-attr-node
+   #:validity-cerror
+   #:value
+   #:wellformedness-error 
    #:*xml-clone2old*))
+
+
+
+
+
+
+
 
 (defpackage xmlp
   (:use cl)
   (:export
+   #:*default-namespaces*
+   #:*input-line*
    #:document-parser
    #:write-node))

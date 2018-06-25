@@ -2,10 +2,10 @@
 ;;; Purpose:  - Read MOF XMI 2.1, producing instances of MOF/MOP classes (an M2 model such as UML MM). 
 ;;;             Thus this could read XMI files produces by UML modeling tools INTO INSTANCES.
 ;;;             It is used by the MIWG Validator, for example. 
-;;; (xmi2model-instance :file "/local/lisp/pod-utils/uml-utils/models/miwg/tc3.xmi")
+;;; (xmi2model-instance :file (pod:lpath :mylib "uml-utils/models/miwg/tc3.xmi"))
 ;;; (xmi2model-instance :file "/home/pdenno/projects/miwg/vendor-exports/release-9/tc3/canonical/valid-canonical.xml")
 ;;; (xmi2model-instance :file "/home/pdenno/projects/miwg/vendor-exports/release-9/tc3/md165-export.xml")
-;;; (xmi2model-instance :file "/local/lisp/pod-utils/uml-utils/data/infralib/10-08-07-cleanup.cmof")
+;;; (xmi2model-instance :file (pod:lpath :mylib "uml-utils/data/infralib/10-08-07-cleanup.cmof"))
 
 (in-package :mofi)
 
@@ -1203,58 +1203,3 @@ Full XMI:
 (defmethod href-made-memo (obj href &key)
   (declare (ignore href))
   obj)
-
-;;;=======================
-;;; Stuff for reporting
-;;;=======================
-#+debug
-(defun whats-not-an-element? ()
-  (loop for c across (types :uml)  with elem = (find-class 'uml22:|Element|)
-	unless (member elem (closer-mop:class-precedence-list c))
-	collect c))
-  
-
-;;;===================================================
-;;; Stuff to process Steve Cook's UML 2.5 fragments
-;;;===================================================
-#+nil
-(defparameter *filenames* 
-  '("Actions.fragment"
-    "Activities.fragment"
-    "Classification.fragment"
-    "CommonBehavior.fragment"
-    "CommonStructure.fragment"
-    "Deployments.fragment"
-    "InformationFlows.fragment"
-    "Interactions.fragment"
-    "Packages.fragment"
-    "PrimitiveTypes"
-    "SimpleClassifiers.fragment"
-    "StateMachines.fragment"
-    "StructuredClassifiers.fragment"
-    "UseCases.fragment"
-    "Values.fragment"))
-#+nil
-(defparameter *cook-xmiid-ht* (make-hash-table :test 'equal))
-#+nil
-(defun combine-cook-files ()
-  "Change hrefs to xmi:id, removing the prefix 'whatever.fragment.' Write a one big freaking file."
-  (with-open-file (out (lpath :lisplib "pod-utils/uml-utils/data/uml25/uml25-2012-06-01.xmi") :direction :output
-		       :if-exists :supersede :external-format :utf-8)
-    (loop for f in *filenames*
-       for filename = (merge-pathnames (make-pathname :name f :type "xmi")
-				       #|(lpath :lisplib "pod-utils/uml-utils/data/uml25/XMI/")|#
-				       "/home/pdenno/projects/miwg/uml25-svn/Specification/XMI/") do
-	 (VARS filename)
-	 (let ((doc (xmlp:document-parser filename))
-	       (href-sym (intern "href" "")))
-	   (depth-first-search (xqdm:root doc) #'fail #'xqdm:children
-			       :do #'(lambda (x)
-				       (when (xqdm:element-p x)
-					 (when-bind (href (find href-sym (xqdm:attributes x) :key #'xqdm:name))
-					   (setf (xqdm:name href) 'xmi::|idref|)
-					   (setf (xqdm:children href)
-						 (list (second (split (car (xqdm:children href)) #\#))))))))
-	   (format t "~3%=======FILE ~A" filename)
-	   (xqdm:write-node doc out :element-type 'simple-char))))) ;<==================
-

@@ -51,7 +51,7 @@
    ;; Object used to describe qvt map
    (qvt-map-info :initform nil)))
 
-(defconstant +patch-level+ (now :form :yyyymmddhhmmss-colon))
+(defvar +patch-level+ (now :form :yyyymmddhhmmss-colon))
 
 ;;; Object used to describe qvt map
 (defclass qvt-map-info ()
@@ -68,14 +68,14 @@
 
 (defun set-tbnl-vars ()
   "Set hunchentoot configuration, depending on whether running production or development."
-  (let ((debug-p (member "--debug" sys:*line-arguments-list* :test 'string=)))
+  (let ((debug-p nil)) ;18 (member "--debug" sys:*line-arguments-list* :test 'string=)))
     (when debug-p
       (format t "~% Debugging: tbln:*slow-lisp-errors-p* and *catch-errors-p* are T."))
     (tbnl::def-http-return-code tbnl:+http-internal-server-error+ 
 	500 
       "An error occurred in the NIST Validator.<br/> You may email xmi-interop@omg.org to report the error.") 
     (setf tbnl:*tmp-directory* (namestring (pod:lpath :tmp "hunchentoot/")))
-    (setf tbnl:*message-log-pathname* (pod:lpath :tmp "hunchentoot/log.txt"))
+    ;(setf tbnl:*message-log-pathname* (pod:lpath :tmp "hunchentoot/log.txt")) ;18 gone in qlisp version.
     ;; Print the error in html. See hunchentoot/request.lisp
     (setf tbnl:*show-lisp-errors-p* (if (and (member :sei.exe *features*) (not debug-p)) t nil))
     ;; *catch-errors-p = nil --> invoke debugger
@@ -93,30 +93,6 @@
   "Allow error reporting like sei.exe (production compilation)."
   (setf tbnl:*catch-errors-p* nil)
   (setf tbnl:*show-lisp-errors-p* nil))
-
-#+home
-(defun sei-start-home-version ()
-  "Start the gui, then start the http server."
-  (gui:sei-start-gui)
-  (let ((stream (gui:sei-collector-stream))
-	(base (if (member :sei.exe *features*)
-		  (make-pathname 
-		   :directory (pathname-directory 
-			       (pathname (car sys:*line-arguments-list*))))
-		  #+mswindows #P"z:/bigfuzzpdenno/projects/sei/source/"
-		  #+linux     #P"/home/pdenno/projects/sei/source/")))
-    (lpath-init ; reset the logical pathanmes...
-     (list (cons :sei  base)
-	   (cons :expo base)
-	   (cons :lisplib (merge-pathnames (make-pathname :directory '(:relative "dirs" "lib")) base))
-	   (cons :tmp     (merge-pathnames (make-pathname :directory '(:relative "dirs" "tmp")) base))
-	   (cons :miwg    (merge-pathnames (make-pathname :directory '(:relative "dirs" "miwg")) base))))
-    ;(format stream "~%args = ~A~%base = ~A" sys:*line-arguments-list* base)
-    ;(format stream "~%Features includes sei.exe: ~A" (member :sei.exe *features*))
-    (cl-fad:walk-directory ; clean up the tmp directory
-     (lpath :tmp "") #'(lambda (name) (when (probe-file name) (delete-file name))))
-    (sei-start :stream stream)))
-
 
 (defun sei-start (&key (port 3000) (stream *standard-output*))
   "Called once, when the .exe starts. This is THE entry point (excluding possible GUI stuff)."
@@ -221,6 +197,7 @@
 ;;;==================================================================
 (defparameter *pod-worker-process-timeout* 0 "Number of seconds to wait before killing the request.")
 
+#| POD 18
 (defun tbnl::process-run-function (name function &rest args)
   (let ((p (apply #'mp:process-run-function name nil function args)))
     (start-reaper-process p)
@@ -237,6 +214,7 @@
 	 (when (member p (mp:list-all-processes))
 	   (when (mp:process-alive-p p)
 	     (mp:process-kill p)))))))
+|#
 
 ;;;==================================================
 ;;; Homepages

@@ -13,12 +13,12 @@
 		 :xml-utils
 		 :trie
 		 :mof-browser
-		 :cl-json)
+		 #|POD18 :cl-json|#)
     :components
     ((:file "package")
      (:file "homepage")
      (:file "dispatch")
-     (:file "json-out")
+    ;18 (:file "json-out")
      ))
 
 

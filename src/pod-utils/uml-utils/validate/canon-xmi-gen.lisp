@@ -47,7 +47,6 @@
     (xmi-reset-xqdm-ordinality doc)
     ;; Write it
     (let ((*print-pretty* nil))
-      (declare (special *print-pretty*))
       (with-slots (xmi-namespace) (processing-results mut)
 	(let ((xmlp::*default-namespaces*
 	       (append (list (cons "xmi" xmi-namespace)) xmlp::*default-namespaces*)))
@@ -78,7 +77,7 @@
 	      (remove-if 
 	       #'(lambda (x) 
 		   (or (eql (xqdm:name x) (xmi-sym "version"))
-		       (eql (xqdm:name x) '|http://www.w3.org/2001/XMLSchema-instance|::|schemaLocation|)))
+		       #|pod18 (eql (xqdm:name x) '|http://www.w3.org/2001/XMLSchema-instance|::|schemaLocation|)|#))
 	       (xqdm:attributes whatever)))
 	(setf (xqdm:children doc) (list new-root))
 	(setf (xqdm:root doc) new-root)))
@@ -607,7 +606,6 @@ Names and Tokens
 	 (owner-fn (intern "%OWNER"))
 	 (name-fn  (intern "%NAME"))
 	 (ne-type  (intern "NamedElement")))
-    (declare (special *package*))
     (flet ((name-list (root)
 	     (when (typep root ne-type)
 	       (loop for next = root then (and (typep next ne-type) (funcall owner-fn next))

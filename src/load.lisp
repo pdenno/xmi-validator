@@ -5,14 +5,13 @@
 (pushnew :miwg *features*)
 (pushnew :sei *features*)
 (pushnew :hunchentoot-no-ssl *features*)
-(pushnew :qvt *features*)
+;(pushnew :qvt *features*) 
 (pushnew :closure-xml *features*)
 
 (require :asdf)
 (require :quicklisp)
 (asdf:initialize-source-registry)
 
-;;; POD DO I really need these? xmi-validator.asd should do it. 
 (ql:quickload "cl-who")
 (ql:quickload "cl-ppcre")
 (ql:quickload "closer-mop")
@@ -32,7 +31,7 @@
 			   (:testlib . ,(truename "./pod-utils"))
 			   (:mylib   . ,(truename "./pod-utils"))
 			   ;18(:models  . "/home/pdenno/win-pdenno/rt/projects/mm/models/")
-			   (:tmp     . "/local/tmp/")
+			   (:tmp     . "/usr/local/tmp/")
 			   ;18(:miwg    . "/home/pdenno/projects/miwg/Tests/")
 			   )
    do (setf (gethash key pod:*lpath-ht*) val))
@@ -49,31 +48,26 @@
 ;;;==================================================
 (load (lpath :mylib "trie/package.lisp"))
 (load (lpath :mylib "xml-utils/package.lisp"))
-(load (lpath :mylib "xpath/package.lisp"))
 (load (lpath :mylib "uml-utils/ocl/package.lisp"))
 (load (lpath :mylib "uml-utils/mof/package.lisp"))
 ;;; Don't load it if you don't need it; screws up ocl debugging.
 (load (lpath :sei "iface/http/httpcore/package.lisp"))
 ;;; I think load the qvt package even if you don't use it. (Some stuff in OCL refers to it?)
 (load (lpath :mylib "uml-utils/qvt/package.lisp"))
-;(load (lpath :mylib "pod-utils/uml-utils/models/packages.lisp"))
+;(load (lpath :mylib "uml-utils/models/packages.lisp"))
 (load (lpath :mylib "uml-utils/browser/packages.lisp"))
 
 ;;;(handler-bind ((style-warning #'muffle-warning))
 ;;;    (asdf:load-system :xmi-validator))
 (ql:quickload :xmi-validator)
 
-
-;;; I gave up trying to understand how ASDF is organized. The documentation is not helpful.
 (in-package :mofi)
 
 (defvar *cmpkg* nil "Package for #. compiler directive -- determines whether processing
    UML or CMOF into lisp. Set to any of the :CMOFs of a UML (e.g. :UML23).")
 
-(load (compile-file (pod:lpath :sei "xqdm-fix.lisp")))
-
 (defun comp-it ()
-  (let ((po.lisp (pod:lpath :mylib "pod-utils/uml-utils/mof/pop-generate.lisp")))
+  (let ((po.lisp (pod:lpath :mylib "uml-utils/mof/pop-generate.lisp")))
     (setf *cmpkg* :uml23)
     (load (compile-file po.lisp))
     (setf *cmpkg* :uml241)
@@ -88,7 +82,7 @@
       do (let ((*package* (lisp-package model))
 	       (*model* model))
 	   (format t "~2%;;;======== Adding CMOF constraints to ~A ===========" model)
-	   (load (pod:lpath :mylib "pod-utils/uml-utils/data/cmof-constraints/cmof-constraints.lisp"))
+	   (load (pod:lpath :mylib "uml-utils/data/cmof-constraints/cmof-constraints.lisp"))
 	   (loop for class across (types model) 
 	      do (ocl:compile-operations class  :gf-name 'ocl:ocl-constraints-cmof)
 	      do (ocl:compile-constraints class :gf-name 'ocl:ocl-constraints-cmof))))

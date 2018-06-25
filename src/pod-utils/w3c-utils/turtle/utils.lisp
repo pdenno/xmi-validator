@@ -104,7 +104,7 @@
 
 (defun dogfood2 (doc)
   (with-open-file (stream 
-		   (lpath :lisplib "pod-utils/w3c-utils/turtle/dogfood.ttl") 
+		   (lpath :mylib "w3c-utils/turtle/dogfood.ttl") 
 		   :direction :output :if-exists :supersede)
     (odm2ttl doc stream)))
 

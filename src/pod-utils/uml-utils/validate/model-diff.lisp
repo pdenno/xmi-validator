@@ -228,7 +228,7 @@
      with high = 0
      when (and (eql u (if reverse (cdr k) (car k))) (> v high))
      do (setf high v)
-     finally return high))
+     finally (return high)))
 
 #-sei.exe
 (defun report-matches (u v ht perfect u-no-v v-no-u)
@@ -329,7 +329,7 @@
 	      (push (if reverse (car k) (cdr k)) best-objs)
 	      (progn (setf best-objs (list (if reverse (car k) (cdr k))))
 		     (setf best-val val)))
-     finally return (values best-val best-objs)))
+     finally (return (values best-val best-objs))))
 
 (defun score (u v)
   "Return a score for resemblance of u to v."
@@ -356,7 +356,7 @@
 		   for (test-name . worth) in pass-tests
 		   for result = (crit-test test-name u v) 
 		   when result return worth
-		   finally return 0.0)
+		   finally (return 0.0))
 		(loop ; Deduct worth for each one it passes
 		   for (test-name . worth) in penalty-tests
 		   for result = (crit-test test-name u v)
@@ -557,7 +557,7 @@
 		     (if (= score best-score)
 			 (push (second s) bests)
 			 (progn (setf best-score score) (setf bests (list (second s)))))
-		   finally return bests)))
+		   finally (return bests))))
       (cond ((single-p best)
 	     (install-perfect (caar best) (cdar best)))
 	    ((null best) (when-debugging (:match 2) (warn "No match")))

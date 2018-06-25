@@ -88,15 +88,6 @@
        (make-pathname :name (format nil "~A-~A" (pathname-name pname) (string user-id)))
        pname)))
 
-;;; 2012-09-10 To get around problem described in notes.
-;;; I'm guessing here that this method is associated with the :report slot of the defcondition.
-;;; But there is a problem, because this isn't being executed.
-(defmethod de.setf.xml.names.implementation::report-condition ((obj xml-utils:|NSC: Prefix Declared|) stream)
-;(defmethod print-object ((obj xml-utils:|NSC: Prefix Declared|) stream)
-  (declare (ignore stream))
-  (format nil "Prefix is not declared: ~A"
-	  (slot-value obj 'de.setf.xml.names.implementation::name)))
-
 (defmacro handle-xml-parse-errors (&body body)
   "Arrange to report information available about XML parse errors."
   `(handler-bind 
@@ -402,7 +393,7 @@
 	       (typep vobj 'uml23:|LiteralSpecification|))
     (let ((space  (loop for o = (or uobj vobj) then (uml23:%owner o) while o
 		     for str = "" then (strcat str "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-		     finally return str)))
+		     finally (return str))))
       (format stream "<tr><td>~A~A</td><td>~A~A</td><td>~{~A~^,~}</td></tr>" 
 	      space (if uobj (mofb:url-object-browser uobj) "")
 	      space (if vobj (mofb:url-object-browser vobj) "")

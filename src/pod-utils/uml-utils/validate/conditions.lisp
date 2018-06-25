@@ -163,7 +163,6 @@
     (when-bind (node (or elem (and (typep object 'mm-root-supertype) (mofi:%source-elem object))))
       (setf (slot-value c 'elem) 
 	    (let ((*print-pretty* t))
-	      (declare (special *print-pretty*))
 	      (with-output-to-string (str) (xmlp:write-node node str)))))))
 
 (defgeneric xqdm-copy-elem (obj))
@@ -913,7 +912,6 @@
      (with-slots (elem) c
        (format stream "xmi:type was used with an href:<br/>~A"
 	       (let ((*print-pretty* t))
-		 (declare (special *print-pretty*))
 		 (with-output-to-string (str) (xmlp:write-node elem str))))))))
 
 #+iface-http

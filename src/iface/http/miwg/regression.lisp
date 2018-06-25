@@ -84,7 +84,7 @@
 			(loop for c across (conditions (processing-results mut))
 			   when (string= title (get :title (class-name (class-of c))))
 			   do (incf found)
-			   finally do 
+			   finally 
 			     (unless (= cnt found)
 			       (format *debug-io* "~% '~A' (expected ~A, got ~A)" title cnt found))))))))
 	(when run-canonical-p (test-canonical mut))
