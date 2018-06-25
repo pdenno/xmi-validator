@@ -128,7 +128,7 @@ as type and sets speed to 3 with safety 0 within its scope."
                                          (declare (optimize (speed 3) (safety 0)) . ,type-dcls)
                                          ,@body)))))
 
-#-genera
+#+nil ; POD was #-genera 2018
 (defun http::copy-vector-portion (from-vector from-start from-end to-vector to-start to-end)
   (with-fast-array-references ((from-vector from-vector vector)
 			       (to-vector to-vector vector))
@@ -137,5 +137,6 @@ as type and sets speed to 3 with safety 0 within its scope."
 	  do (setf (aref to-vector idx2) (aref from-vector idx1)))
     t))
 
-
+;;; POD 2018 commented it out.
+#+nil 
 (defParameter http:*standard-character-type* 'character)

@@ -40,6 +40,7 @@
 ;;; cl-xml has its own system definition system. It was defined in cl-user.
 ;;; Without modification it defines 'system' which hoses ASDF. I changed its
 ;;; package to jaa-defsystem. This is an attempt to isolate it.
+;;; More screwing around was needed.
 (require :sb-introspect)
 (require :sb-bsd-sockets)
 (require :sb-grovel)
@@ -54,7 +55,9 @@
 								(lpath :lisplib "cl-xml/")))
   (pushnew :xml-symbols *features*)
   (setf *features* (remove :nameset-tokenizer *features*))
-  (jaa-def:execute-system-operations :xparser '(:compile :load :verbose)))
+  (load (compile-file (lpath :lisplib "cl-xml/code/base/package.lisp")))
+  (sb-ext:without-package-locks
+    (jaa-def:execute-system-operations :xparser '(:compile :load :verbose))))
 
 ;;; This will load most all of edi-ware.
 (ql:quickload "hunchentoot")
