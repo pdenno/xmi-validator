@@ -7,11 +7,11 @@
 
 (eval-when (:execute :load-toplevel :compile-toplevel)
   (unless (find-package :de.setf.utility.implementation)
-    (defPackage :de.setf.utility.implementation (:use #+:CCL :CCL :COMMON-LISP))))
+    (defpackage :de.setf.utility.implementation (:use :COMMON-LISP))))
 
 (in-package :de.setf.utility.implementation)
 
-(defPackage :de.setf.utility.package
+(defpackage :de.setf.utility.package
   (:use )
   (:export
    :*package-operations*
@@ -37,17 +37,19 @@
              de.setf.utility.package:package-version)
           :common-lisp-user))
 
-(defParameter *package-operations*
+(defparameter *package-operations*
   '(:purge  :clear 
     :like :shadow :shadowing-import-from :use-only :use
     :import-only :import-from :intern-only :intern :export-from
     :export-only :unexport :export :alias :nicknames
     :shadowing-import-to :use-by :export-through :version))
 
-(defParameter *package-search-path* (list (logical-pathname "packages:"))
+#| POD
+(defparameter *package-search-path* (list (logical-pathname "packages:"))
   "Used by <code>ensure-package</code>.
    The <code>*package-search-path*</code> variable should be bound to a list of logical hosts, each of which
    designates translations which comprise the possible locations of loadable package implementations.")
+|#
 
 (defparameter *binary-type* (pathname-type (compile-file-pathname "packages:dummy.LISP")))
 
@@ -365,7 +367,7 @@
 (defGeneric pathname-package-name (pathname)
   (:method ((pathname pathname)) (format nil "~{~a.~}~@[~a~]"
                                          (rest (pathname-directory pathname)) (pathname-name pathname))))
-
+#| POD
 (defGeneric load-package (designator)
   (:method ((designator t))
            (load-package (package-pathname designator)))
@@ -385,7 +387,9 @@
                  (return (or (find-package (pathname-package-name hosted-pathname))
                              (error 'package-not-found
                                     :name (pathname-package-name designator) :pathname hosted-truename))))))))
+|#
 
+#| POD
 (defGeneric edit-package (designator)
   (:method ((designator t))
            (edit-package (package-pathname designator)))
@@ -403,6 +407,8 @@
                (when hosted-truename
                  (ed hosted-truename)
                  (return hosted-truename))))))
+|#
+
 ;(edit-package :de.setf.utility.package)
 ;(trace edit-package)
   
@@ -453,7 +459,7 @@
     `(when (find ,feature *features* :test #'string-equal)
        (warn "compile-time non-feature present upon load: ~s: ~s." ',feature *load-pathname*))))
 
-(defParameter *package-version-indicator-name* (string '#:*PACKAGE-VERSION*))
+(defparameter *package-version-indicator-name* (string '#:*PACKAGE-VERSION*))
 
 (defun package-version (&optional (designator *package*) &aux version-indicator package)
   "if provided a package designator, returns the values of the version identifier in that package. if provided the value t, returns a plist of package names and version values."

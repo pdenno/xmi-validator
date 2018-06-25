@@ -6,6 +6,7 @@
 (pushnew :sei *features*)
 (pushnew :hunchentoot-no-ssl *features*)
 (pushnew :qvt *features*)
+(pushnew :closure-xml *features*)
 
 (require :asdf)
 (require :quicklisp)
@@ -13,6 +14,8 @@
 (ql:quickload "cl-who")
 (ql:quickload "cl-ppcre")
 (ql:quickload "closer-mop")
+(ql:quickload "hunchentoot")
+(ql:quickload "cxml")
 
 (handler-bind ((style-warning #'muffle-warning))
   (load "./pod-utils/packages.lisp")
@@ -37,6 +40,7 @@
 
 (in-package :user-system)
 
+#|
 ;;; cl-xml has its own system definition system. It was defined in cl-user.
 ;;; Without modification it defines 'system' which hoses ASDF. I changed its
 ;;; package to jaa-defsystem. This is an attempt to isolate it.
@@ -46,21 +50,20 @@
 (require :sb-grovel)
 (require :sb-executable)
 (require :sb-posix)
-(load (compile-file (merge-pathnames (make-pathname :name "define-system" :directory '(:relative "library"))
-				     (lpath :lisplib "cl-xml/"))))
+(load (compile-file (lpath :lisplib "cl-xml/library/define-system.lisp")))
+(load (compile-file (lpath :lisplib "cl-xml/sysdcl.lisp")))
 (let ((*package* (find-package :jaa-defsystem))
       (*load-verbose* t)
       (*load-truename* (lpath :lisplib "cl-xml/")))
-  (jaa-def:register-system-definition :xparser (merge-pathnames (make-pathname :name "sysdcl")
-								(lpath :lisplib "cl-xml/")))
+  (jaa-def:register-system-definition :xparser (lpath :lisplib "cl-xml/sysdcl.lisp"))
   (pushnew :xml-symbols *features*)
   (setf *features* (remove :nameset-tokenizer *features*))
+  (load (compile-file (lpath :lisplib "cl-xml/library/de/setf/utility/package.lisp")))
   (load (compile-file (lpath :lisplib "cl-xml/code/base/package.lisp")))
   (sb-ext:without-package-locks
     (jaa-def:execute-system-operations :xparser '(:compile :load :verbose))))
+|#
 
-;;; This will load most all of edi-ware.
-(ql:quickload "hunchentoot")
 
 ;(setf *compile-verbose* nil)
 ;(setf *compile-print* nil)
@@ -72,6 +75,7 @@
 ;;; Load package files
 ;;;==================================================
 (load (lpath :mylib "trie/package.lisp"))
+(load (lpath :mylib "xml-utils/package.lisp"))
 (load (lpath :mylib "xpath/package.lisp"))
 (load (lpath :mylib "uml-utils/ocl/package.lisp"))
 (load (lpath :mylib "uml-utils/mof/package.lisp"))

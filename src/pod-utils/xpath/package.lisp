@@ -1,4 +1,4 @@
 
 (defpackage :xpath 
-(:use :cl :pod :xml-query-data-model)
+(:use :cl :pod :xqdm)
 (:export xpath2lisp dataval datavals xpath-evaluate))

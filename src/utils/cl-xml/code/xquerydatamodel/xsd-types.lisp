@@ -51,96 +51,102 @@
  </DOCUMENTATION>
 |#
 
-(in-package "XML-QUERY-DATA-MODEL") 
+(in-package "XML-QUERY-DATA-MODEL")
 
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defClass xsd::type-specifier (unamed)
-    ((resolved :initform nil)
-     (direct-subtypes :initform nil :initarg :direct-subtypes
-                      :accessor type.direct-subtypes)
-     (direct-supertypes :initform nil :initarg :direct-supertypes
-                        :writer (setf type.direct-supertypes))
-     (direct-predicate :initform nil :initarg :direct-predicate
-                       :accessor type.direct-predicate)
-     (predicate :initform nil :initarg :predicate
-                :accessor type.predicate))
-    (:metaclass abstract-class))
-  
-  (defMethod print-object ((instance xsd::type-specifier) stream)
-    (with-slots (name) instance
-      (print-unreadable-object (instance stream :type nil)
-        (write-string "XSD:" stream)
-        (princ (type-of instance) stream)
-        (write-char #\space stream)
-        (if (slot-boundp instance 'name)
+(defclass xsd::|element| () ()) ; POD added
+(defclass def-elem-type  () ()) ; POD added
+(defclass elem-node  () ()) ; POD added
+(defclass uri-ref-value () ()) ; POD added
+(defclass ref-elem-property-node () ()) ; POD added
+
+
+(defclass xsd::type-specifier (#|POD unamed|#)
+  ((resolved :initform nil)
+   (direct-subtypes :initform nil :initarg :direct-subtypes
+                    :accessor type.direct-subtypes)
+   (direct-supertypes :initform nil :initarg :direct-supertypes
+                      :writer (setf type.direct-supertypes))
+   (direct-predicate :initform nil :initarg :direct-predicate
+                     :accessor type.direct-predicate)
+   (predicate :initform nil :initarg :predicate
+              :accessor type.predicate))
+  (:metaclass standard-class #|POD abstract-class|#))
+
+(defmethod print-object ((instance xsd::type-specifier) stream)
+  (with-slots (name) instance
+    (print-unreadable-object (instance stream :type nil)
+      (write-string "XSD:" stream)
+      (princ (type-of instance) stream)
+      (write-char #\space stream)
+      (if (slot-boundp instance 'name)
           (prin1 name stream)
           (write-string "<unnamed>" stream)))))
-  
-  (defParameter *xschema-types* (make-hash-table)
-    "binds a global dictionary for type specifications.
+
+(defparameter *xschema-types* (make-hash-table)
+  "binds a global dictionary for type specifications.
    this is augmented for each given document with a local dictionary")
+
+;;
+;; mixin types
+
+(defclass xsd::pattern-type-specifier ()
+  ((pattern :initform nil :reader type.pattern)
+   (pattern-predicate :reader type.pattern-predicate)))
+(defmethod initialize-instance :after ((instance xsd::pattern-type-specifier)
+                                       &key pattern)
+  (when pattern (setf (type.pattern instance) pattern)))
+(defgeneric (setf type.pattern) (pattern type-specifier)
+  (:method ((new-pattern string) (instance xsd::pattern-type-specifier)
+            &aux (pattern-atn (regular-expression-to-regex-atn new-pattern)))
+    (with-slots (pattern pattern-predicate) instance
+      (setf pattern-predicate #'(lambda (string)
+                                  (and (stringp string)
+                                       (match-regex pattern-atn string)))
+            pattern new-pattern)))
+  (:method ((new-pattern null) (instance xsd::pattern-type-specifier))
+    (with-slots (pattern pattern-predicate) instance
+      (setf pattern-predicate (default-pattern-predicate instance)
+            pattern nil))))
   
-  ;;
-  ;; mixin types
-  
-  (defClass xsd::pattern-type-specifier ()
-    ((pattern :initform nil :reader type.pattern)
-     (pattern-predicate :reader type.pattern-predicate)))
-  (defMethod initialize-instance :after ((instance xsd::pattern-type-specifier)
-                                         &key pattern)
-    (when pattern (setf (type.pattern instance) pattern)))
-  (defGeneric (setf type.pattern) (pattern type-specifier)
-    (:method ((new-pattern string) (instance xsd::pattern-type-specifier)
-              &aux (pattern-atn (regular-expression-to-regex-atn new-pattern)))
-             (with-slots (pattern pattern-predicate) instance
-               (setf pattern-predicate #'(lambda (string)
-                                           (and (stringp string)
-                                                (match-regex pattern-atn string)))
-                     pattern new-pattern)))
-    (:method ((new-pattern null) (instance xsd::pattern-type-specifier))
-             (with-slots (pattern pattern-predicate) instance
-               (setf pattern-predicate (default-pattern-predicate instance)
-                     pattern nil))))
-  
-  
-  (defClass xsd::whitespace-type-specifier ()
-    ())
-  (defClass xsd::collapse-whitespace-type-specifier (xsd::whitespace-type-specifier)
-    ())
-  (defMethod type.whitespace ((type-specifier xsd::collapse-whitespace-type-specifier))
-    :collapse)
-  (defClass xsd::preserve-whitespace-type-specifier (xsd::whitespace-type-specifier)
-    ())
-  (defMethod type.whitespace ((type-specifier xsd::preserve-whitespace-type-specifier))
-    :preserve)
-  (defClass xsd::declare-whitespace-type-specifier ()
-    ((whitespace :initform nil :initarg :whitespace :accessor type.whitespace)))
-  (defClass xsd::enumerated-type-specifier ()
-    ((enumeration :initform nil :initarg :enumeration :accessor type.enumeration)))
-  (defClass xsd::bounded-type-specifier ()
-    ((min-inclusive :initform nil :initarg :min-inclusive
-                    :accessor type.min-inclusive)
-     (min-exclusive :initform nil :initarg :min-exclusive
-                    :accessor type.min-exclusive)
-     (max-inclusive :initform nil :initarg :max-inclusive
-                    :accessor type.max-inclusive)
-     (max-exclusive :initform nil :initarg :max-exclusive
-                    :accessor type.max-exclusive)))
-  (defClass xsd::sequence-type-specifier ()
-    ((length :initarg :length :initform nil :accessor type.length)
-     (min-length :initarg :min-length :initform nil :accessor type.min-length)
-     (max-length :initarg :max-length :initform nil :accessor type.max-length)))
-  (defClass xsd::number-type-specifier (xsd::pattern-type-specifier
-                                        xsd::enumerated-type-specifier
-                                        xsd::collapse-whitespace-type-specifier
-                                        xsd::bounded-type-specifier)
-    ())
-  
-  (defClass xsd::universal-time-type-specifier (xsd::pattern-type-specifier
-                                                xsd::enumerated-type-specifier
-                                                xsd::collapse-whitespace-type-specifier
-                                                xsd::bounded-type-specifier)
-    ())
+
+(defclass xsd::whitespace-type-specifier ()
+  ())
+(defclass xsd::collapse-whitespace-type-specifier (xsd::whitespace-type-specifier)
+  ())
+(defmethod type.whitespace ((type-specifier xsd::collapse-whitespace-type-specifier))
+  :collapse)
+(defclass xsd::preserve-whitespace-type-specifier (xsd::whitespace-type-specifier)
+  ())
+(defmethod type.whitespace ((type-specifier xsd::preserve-whitespace-type-specifier))
+  :preserve)
+(defclass xsd::declare-whitespace-type-specifier ()
+  ((whitespace :initform nil :initarg :whitespace :accessor type.whitespace)))
+(defclass xsd::enumerated-type-specifier ()
+  ((enumeration :initform nil :initarg :enumeration :accessor type.enumeration)))
+(defclass xsd::bounded-type-specifier ()
+  ((min-inclusive :initform nil :initarg :min-inclusive
+                  :accessor type.min-inclusive)
+   (min-exclusive :initform nil :initarg :min-exclusive
+                  :accessor type.min-exclusive)
+   (max-inclusive :initform nil :initarg :max-inclusive
+                  :accessor type.max-inclusive)
+   (max-exclusive :initform nil :initarg :max-exclusive
+                  :accessor type.max-exclusive)))
+(defclass xsd::sequence-type-specifier ()
+  ((length :initarg :length :initform nil :accessor type.length)
+   (min-length :initarg :min-length :initform nil :accessor type.min-length)
+   (max-length :initarg :max-length :initform nil :accessor type.max-length)))
+(defclass xsd::number-type-specifier (xsd::pattern-type-specifier
+                                      xsd::enumerated-type-specifier
+                                      xsd::collapse-whitespace-type-specifier
+                                      xsd::bounded-type-specifier)
+  ())
+
+(defclass xsd::universal-time-type-specifier (xsd::pattern-type-specifier
+                                              xsd::enumerated-type-specifier
+                                              xsd::collapse-whitespace-type-specifier
+                                              xsd::bounded-type-specifier)
+  ())
   
   
   ;;
@@ -148,130 +154,129 @@
   ;;
   ;; primitive v/s derived
   
-  (defClass xsd::derived-type-specifier (xsd::type-specifier)
-    ())
-  
-  (defClass xsd::primitive-type-specifier (xsd::type-specifier)
-    ())
-  
-  ;;
-  ;; atomic v/s list v/s union
-  
-  (defClass xsd::atomic-type-specifier (xsd::type-specifier)
-    ())
-  
-  (defClass xsd::list-type-specifier (xsd::sequence-type-specifier
-                                      xsd::derived-type-specifier)
-    ((element-type :initarg :element-type :initform '{xsd}anyType
-                   :writer (setf type.element-type))))
-  (defMethod type.element-type ((spec xsd::list-type-specifier))
-    (with-slots (element-type) spec
-      (etypecase element-type
-        (xsd::type-specifier element-type)
-        (symbol (if (eq element-type t)
+(defclass xsd::derived-type-specifier (xsd::type-specifier)
+  ())
+
+(defclass xsd::primitive-type-specifier (xsd::type-specifier)
+  ())
+
+;;
+;; atomic v/s list v/s union
+
+(defclass xsd::atomic-type-specifier (xsd::type-specifier)
+  ())
+
+(defclass xsd::list-type-specifier (xsd::sequence-type-specifier
+                                    xsd::derived-type-specifier)
+  ((element-type :initarg :element-type :initform '{xsd}anyType
+                 :writer (setf type.element-type))))
+(defmethod type.element-type ((spec xsd::list-type-specifier))
+  (with-slots (element-type) spec
+    (etypecase element-type
+      (xsd::type-specifier element-type)
+      (symbol (if (eq element-type t)
                   t
                   (setf element-type (find-type element-type))))
-        (abstract-name (setf element-type (find-type element-type)))
-        (cons (let* ((prototype (find-type (first element-type)))
-                     (new-spec (clone-type-specifier prototype)))
-                (apply #'reinitialize-instance new-spec (rest element-type))
-                (setf element-type new-spec))))))
-  
-  (defClass xsd::union-type-specifier (xsd::derived-type-specifier)
-    ())
-  
-  ;;
-  ;; built-in v/s user-derived
-  
-  (defClass xsd::builtin-type-specifier (xsd::type-specifier)
-    ())
-  
-  (defClass xsd::user-derived-type-specifier (xsd::type-specifier)
-    ())
-  
-  (defClass xsd::complex-type-specifier (xsd::type-specifier)
-    ())
-  
-  
-  
-  ;; ...
-  
-  (defClass xsd::primitive-atomic-builtin-type-specifier
+      (abstract-name (setf element-type (find-type element-type)))
+      (cons (let* ((prototype (find-type (first element-type)))
+                   (new-spec (clone-type-specifier prototype)))
+              (apply #'reinitialize-instance new-spec (rest element-type))
+              (setf element-type new-spec))))))
+
+(defclass xsd::union-type-specifier (xsd::derived-type-specifier)
+  ())
+
+;;
+;; built-in v/s user-derived
+
+(defclass xsd::builtin-type-specifier (xsd::type-specifier)
+  ())
+
+(defclass xsd::user-derived-type-specifier (xsd::type-specifier)
+  ())
+
+(defclass xsd::complex-type-specifier (xsd::type-specifier)
+  ())
+
+
+
+;; ...
+
+(defclass xsd::primitive-atomic-builtin-type-specifier
     (xsd::primitive-type-specifier xsd::atomic-type-specifier xsd::builtin-type-specifier)
-    ())
-  
-  (defClass xsd::derived-atomic-builtin-type-specifier
+  ())
+
+(defclass xsd::derived-atomic-builtin-type-specifier
     (xsd::derived-type-specifier xsd::atomic-type-specifier xsd::builtin-type-specifier)
-    ())
-  
-  (defClass xsd::derived-list-builtin-type-specifier
+  ())
+
+(defclass xsd::derived-list-builtin-type-specifier
     (xsd::list-type-specifier xsd::builtin-type-specifier)
-    ())
-  
-  (defClass xsd::complex-builtin-type-specifier
+  ())
+
+(defclass xsd::complex-builtin-type-specifier
     (xsd::complex-type-specifier xsd::builtin-type-specifier)
-    ())
-  
-  
-  ;;
-  ;;
-  
-  
-  (defun find-type (name &optional (errorp t))
-    (or (etypecase *xschema-types*
-          (hash-table (gethash name *xschema-types*))
-          (cons (or (gethash name (first *xschema-types*))
-                    (gethash name (rest *xschema-types*)))))
-        (when errorp
-          (error "type definition not found: ~s." name))))
-  (defun (setf find-type) (type name)
-    (etypecase *xschema-types*
-      (hash-table (setf (gethash name *xschema-types*) type))
-      (cons (setf (gethash name (first *xschema-types*)) type))))
-  
-  (defMethod type.direct-supertypes
-             ((type xsd::type-specifier))
-    (with-slots (direct-supertypes resolved) type
-      (cond (resolved
-             direct-supertypes)
-            (t
-             (setf direct-supertypes
-                   (mapcar #'(lambda (supertype)
-                               (etypecase supertype
-                                 (xsd::type-specifier)
-                                 (name (setf supertype (find-type supertype))))
-                               (pushnew type (type.direct-subtypes supertype))
-                               supertype)
-                           direct-supertypes))
-             (setf resolved t)
-             direct-supertypes))))
-  
-  (defun define-type (name supertypes class &rest initargs
-                           &aux (type (find-type name nil)))
-    (cond (type
-           (when (typep type 'xsd::builtin-type-specifier)
-             (unless (subtypep class 'xsd::builtin-type-specifier)
-               (error "redefinition of builtin type not allowed: ~s." name)))
-           (with-slots (direct-supertypes resolved) type
-             (when resolved
-               (dolist (supertype (type.direct-supertypes type))
-                 (setf (type.direct-subtypes supertype)
-                       (remove type (type.direct-subtypes supertype))))
-               (setf resolved nil))
-             (apply #'reinitialize-instance type :direct-supertypes supertypes
-                    initargs)))
+  ())
+
+
+;;
+;;
+
+
+(defun find-type (name &optional (errorp t))
+  (or (etypecase *xschema-types*
+        (hash-table (gethash name *xschema-types*))
+        (cons (or (gethash name (first *xschema-types*))
+                  (gethash name (rest *xschema-types*)))))
+      (when errorp
+        (error "type definition not found: ~s." name))))
+(defun (setf find-type) (type name)
+  (etypecase *xschema-types*
+    (hash-table (setf (gethash name *xschema-types*) type))
+    (cons (setf (gethash name (first *xschema-types*)) type))))
+
+(defmethod type.direct-supertypes
+    ((type xsd::type-specifier))
+  (with-slots (direct-supertypes resolved) type
+    (cond (resolved
+           direct-supertypes)
           (t
-           (setf type (apply #'make-instance class :name name
-                             :direct-supertypes supertypes
-                             initargs))
-           (setf (find-type name) type)))
-    type)
+           (setf direct-supertypes
+                 (mapcar #'(lambda (supertype)
+                             (etypecase supertype
+                               (xsd::type-specifier)
+                               (name (setf supertype (find-type supertype))))
+                             (pushnew type (type.direct-subtypes supertype))
+                             supertype)
+                         direct-supertypes))
+           (setf resolved t)
+           direct-supertypes))))
+
+(defun define-type (name supertypes class &rest initargs
+                    &aux (type (find-type name nil)))
+  (cond (type
+         (when (typep type 'xsd::builtin-type-specifier)
+           (unless (subtypep class 'xsd::builtin-type-specifier)
+             (error "redefinition of builtin type not allowed: ~s." name)))
+         (with-slots (direct-supertypes resolved) type
+           (when resolved
+             (dolist (supertype (type.direct-supertypes type))
+               (setf (type.direct-subtypes supertype)
+                     (remove type (type.direct-subtypes supertype))))
+             (setf resolved nil))
+           (apply #'reinitialize-instance type :direct-supertypes supertypes
+                  initargs)))
+        (t
+         (setf type (apply #'make-instance class :name name
+                           :direct-supertypes supertypes
+                           initargs))
+         (setf (find-type name) type)))
+  type)
   
-  )
 ;;
 ;; validation operators
 
-(defMethod validate-properties
+(defmethod validate-properties
            ((def list) (elem elem-node))
   (dolist (attr-def def)
     (unless (find-if #'(lambda (attr-node)
@@ -279,7 +284,7 @@
                      (attributes elem))
       (return nil))))
 
-(defGeneric xsd:validate-name (name constraints)
+(defgeneric xsd:validate-name (name constraints)
   (:method ((name t) (constraints t)) nil)
   (:method ((name symbol) (constraints null)) t)
   (:method ((name abstract-name) (constraints null)) t)
@@ -314,7 +319,7 @@
                                t)
              (unless (xsd:validate-name name constraint) (return nil)))))
 
-(defGeneric xsd:validate-string (string constraints)
+(defgeneric xsd:validate-string (string constraints)
   (:method ((string t) (constraints t)) nil)
   (:method ((string string) (constriants null)) t)
   (:method ((string string) (constraints (eql *wild-name*))) t)
@@ -329,13 +334,13 @@
 ;; types
 ;; nb. the order follows that of xmlschema-2 (datatypes)
 
-(defMacro defTypeClass (name supertypes facets &rest options
+(defMacro deftypeclass (name supertypes facets &rest options
                              &aux metatype class-name)
   (when (setf metatype (rest (assoc :metatype options)))
     (setf options (remove :metatype options :key #'first)))
   (setf class-name (intern (local-part name) "XSD"))
   `(eval-when (:load-toplevel :execute :compile-toplevel)
-     (defClass ,class-name
+     (defclass ,class-name
        ,(or metatype '(xsd::builtin-atomic-type-specifier))
        ((direct-supertypes :initform ',supertypes)
         ,@facets)
@@ -348,49 +353,49 @@
 ;;
 ;; abstract types
 
-(defTypeClass {xsd}anyType ()
+(deftypeclass {xsd}anyType ()
   ()
   (:metatype xsd::builtin-type-specifier))
 
-(defTypeClass {xsd}anySimpleType ({xsd}anyType)
+(deftypeclass {xsd}anySimpleType ({xsd}anyType)
   ()
   (:metatype xsd::builtin-type-specifier))
 
-(defTypeClass {xsd}anyListType ({xsd}anyType)
+(deftypeclass {xsd}anyListType ({xsd}anyType)
   ()
   (:metatype xsd::derived-list-builtin-type-specifier))
 
-(defTypeClass {xsd}anyComplexType ({xsd}anyType)
+(deftypeclass {xsd}anyComplexType ({xsd}anyType)
   ()
   (:metatype xsd::builtin-type-specifier))
 
-(defTypeClass {xsd}anyTreeType ({xsd}anyComplexType)
+(deftypeclass {xsd}anyTreeType ({xsd}anyComplexType)
   ()
   (:metatype xsd::builtin-type-specifier))
 
 ;;
 ;; primitive types
 
-(defTypeClass {xsd}anyURI ({xsd}anySimpleType)
+(deftypeclass {xsd}anyURI ({xsd}anySimpleType)
   ()
   (:metatype xsd::sequence-type-specifier
              xsd::pattern-type-specifier xsd::enumerated-type-specifier
              xsd::collapse-whitespace-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}string ({xsd}anySimpleType)
+(deftypeclass {xsd}string ({xsd}anySimpleType)
   ()
   (:metatype xsd::sequence-type-specifier
              xsd::pattern-type-specifier xsd::enumerated-type-specifier
              xsd::preserve-whitespace-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}boolean ({xsd}anySimpleType)
+(deftypeclass {xsd}boolean ({xsd}anySimpleType)
   ()
   (:metatype xsd::pattern-type-specifier xsd::collapse-whitespace-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}decimal ({xsd}anySimpleType)
+(deftypeclass {xsd}decimal ({xsd}anySimpleType)
   ((total-digits :initarg :total-digits :initform nil
                  :accessor type.total-digits)
    (fraction-digits :initarg :fraction-digits :initform nil
@@ -398,7 +403,7 @@
   (:metatype xsd::number-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}element ({xsd}anyComplexType)
+(deftypeclass {xsd}element ({xsd}anyComplexType)
   ((reference :initform nil :initarg :reference 
               :documentation
               "a reference to a type definition is used where an element
@@ -414,76 +419,76 @@
              xsd::complex-type-specifier
              def-elem-type))
 
-(defTypeClass {xsd}float ({xsd}anySimpleType)
+(deftypeclass {xsd}float ({xsd}anySimpleType)
   ()
   (:metatype xsd::number-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}double '({xsd}anySimpleType)
+(deftypeclass {xsd}double '({xsd}anySimpleType)
   ()
   (:metatype xsd::number-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}duration ({xsd}anySimpleType)
+(deftypeclass {xsd}duration ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}dateTime ({xsd}anySimpleType)
+(deftypeclass {xsd}dateTime ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}time ({xsd}anySimpleType)
+(deftypeclass {xsd}time ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}date ({xsd}anySimpleType)
+(deftypeclass {xsd}date ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}gYearMonth ({xsd}anySimpleType)
+(deftypeclass {xsd}gYearMonth ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}gYear ({xsd}anySimpleType)
+(deftypeclass {xsd}gYear ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}gMonthDay ({xsd}anySimpleType)
+(deftypeclass {xsd}gMonthDay ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}gDay ({xsd}anySimpleType)
+(deftypeclass {xsd}gDay ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}gMonth ({xsd}anySimpleType)
+(deftypeclass {xsd}gMonth ({xsd}anySimpleType)
   ()
   (:metatype xsd::universal-time-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}hexBinary '({xsd}anySimpleType)
+(deftypeclass {xsd}hexBinary '({xsd}anySimpleType)
   ()
   (:metatype xsd::sequence-type-specifier
              xsd::pattern-type-specifier xsd::enumerated-type-specifier
              xsd::collapse-whitespace-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}base64Binary ({xsd}anySimpleType)
+(deftypeclass {xsd}base64Binary ({xsd}anySimpleType)
   ()
   (:metatype xsd::sequence-type-specifier
              xsd::pattern-type-specifier xsd::enumerated-type-specifier
              xsd::collapse-whitespace-type-specifier
              xsd::primitive-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}UName ({xsd}anySimpleType)
+(deftypeclass {xsd}UName ({xsd}anySimpleType)
   ((name-type :initarg :name-type :initform t)
    (uri-type :initarg :uri-type :initform t))
   (:metatype xsd::sequence-type-specifier
@@ -495,7 +500,7 @@
     nb. the standard naming 'QName' is nonsense; 'UName' is used instead,
     in keeping with the domains present in the query model."))
 
-(defTypeClass {xsd}NOTATION ({xsd}anySimpleType)
+(deftypeclass {xsd}NOTATION ({xsd}anySimpleType)
   ()
   (:metatype xsd::sequence-type-specifier
              xsd::pattern-type-specifier xsd::enumerated-type-specifier
@@ -505,139 +510,139 @@
 ;;
 ;; derived types
 
-(defTypeClass {xsd}normalizedString ({xsd}string)
+(deftypeclass {xsd}normalizedString ({xsd}string)
   ()
   (:metatype xsd::|string|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}token ({xsd}normalizedString)
+(deftypeclass {xsd}token ({xsd}normalizedString)
   ()
   (:metatype xsd::|normalizedString|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}language ({xsd}token)
+(deftypeclass {xsd}language ({xsd}token)
   ()
   (:metatype xsd::|token|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}NMTOKEN ({xsd}token)
+(deftypeclass {xsd}NMTOKEN ({xsd}token)
   ()
   (:metatype xsd::|token|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}NMTOKENS ({xsd}anyListType)
+(deftypeclass {xsd}NMTOKENS ({xsd}anyListType)
   ((element-type :initform '{xsd}NMTOKEN))
   (:metatype xsd::derived-list-builtin-type-specifier))
 
-(defTypeClass {xsd}Name ({xsd}token)
+(deftypeclass {xsd}Name ({xsd}token)
   ()
   (:metatype xsd::|token|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}NCName ({xsd}Name)
+(deftypeclass {xsd}NCName ({xsd}Name)
   ()
   (:metatype xsd::|Name|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}ID ({xsd}NCName)
+(deftypeclass {xsd}ID ({xsd}NCName)
   ()
   (:metatype xsd::|NCName|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}IDREF ({xsd}NCName)
+(deftypeclass {xsd}IDREF ({xsd}NCName)
   ()
   (:metatype xsd::|NCName|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}IDREFS ({xsd}anyListType)
+(deftypeclass {xsd}IDREFS ({xsd}anyListType)
   ((element-type :initform '{xsd}IDREF))
   (:metatype xsd::derived-list-builtin-type-specifier))
 
-(defTypeClass {xsd}ENTITY ({xsd}token)
+(deftypeclass {xsd}ENTITY ({xsd}token)
   ()
   (:metatype xsd::|token|
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}ENTITIES ({xsd}anyListType)
+(deftypeclass {xsd}ENTITIES ({xsd}anyListType)
   ((element-type :initform '{xsd}ENTITY))
   (:metatype xsd::derived-list-builtin-type-specifier))
 
-(defTypeClass {xsd}integer '({xsd}decimal)
+(deftypeclass {xsd}integer '({xsd}decimal)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}nonPositiveInteger ({xsd}integer)
+(deftypeclass {xsd}nonPositiveInteger ({xsd}integer)
   ((max-inclusive :initform 0))
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}negativeInteger ({xsd}nonPositiveInteger)
+(deftypeclass {xsd}negativeInteger ({xsd}nonPositiveInteger)
   ((max-exclusive :initform 0))
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}long ({xsd}integer)
+(deftypeclass {xsd}long ({xsd}integer)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}int ({xsd}long)
+(deftypeclass {xsd}int ({xsd}long)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}short ({xsd}int)
+(deftypeclass {xsd}short ({xsd}int)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}byte ({xsd}short)
+(deftypeclass {xsd}byte ({xsd}short)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}nonNegativeInteger ({xsd}integer)
+(deftypeclass {xsd}nonNegativeInteger ({xsd}integer)
   ((min-inclusive :initform 0))
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}positiveInteger ({xsd}integer)
+(deftypeclass {xsd}positiveInteger ({xsd}integer)
   ((min-exclusive :initform 0))
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}unsignedLong ({xsd}nonNegativeInteger {xsd}long)
+(deftypeclass {xsd}unsignedLong ({xsd}nonNegativeInteger {xsd}long)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}unsignedInt ({xsd}nonNegativeInteger {xsd}unsignedLong)
+(deftypeclass {xsd}unsignedInt ({xsd}nonNegativeInteger {xsd}unsignedLong)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}unsignedShort ({xsd}nonNegativeInteger {xsd}unsignedInt)
+(deftypeclass {xsd}unsignedShort ({xsd}nonNegativeInteger {xsd}unsignedInt)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
-(defTypeClass {xsd}unsignedByte ({xsd}nonNegativeInteger {xsd}unsignedShort)
+(deftypeclass {xsd}unsignedByte ({xsd}nonNegativeInteger {xsd}unsignedShort)
   ()
   (:metatype xsd::number-type-specifier
              xsd::derived-atomic-builtin-type-specifier))
 
 
-(defTypeClass {xsd}pi ({xsd}anyComplexType)
+(deftypeclass {xsd}pi ({xsd}anyComplexType)
   ((name-type :initarg :name-type :initform t)
    (value-type :initarg :value-type :initform t))
   (:metatype xsd::complex-builtin-type-specifier))
 
-(defTypeClass {xsd}attribute ({xsd}anyComplexType)
+(deftypeclass {xsd}attribute ({xsd}anyComplexType)
   ()
   (:metatype xsd::complex-builtin-type-specifier))
 
-(defTypeClass {xsd}comment ({xsd}anyComplexType)
+(deftypeclass {xsd}comment ({xsd}anyComplexType)
   ()
   (:metatype xsd::complex-builtin-type-specifier))
 
@@ -645,7 +650,7 @@
 ;;
 ;;
 
-(defMethod type.attribute-predicate ((spec xsd::|element|))
+(defmethod type.attribute-predicate ((spec xsd::|element|))
   (with-slots (attribute-model attribute-predicate reference) spec
     (cond (attribute-predicate)
           ((or (eq attribute-model *wild-name*)
@@ -665,7 +670,7 @@
                    #'(lambda (datum)
                        (validate-properties datum attribute-model))))))))
 
-(defMethod type.content-predicate ((spec xsd::|element|))
+(defmethod type.content-predicate ((spec xsd::|element|))
   (with-slots (content-model content-predicate reference) spec
     (cond (content-predicate)
           ((or (eq content-model *wild-name*)
@@ -696,7 +701,7 @@
                         (validate-content datum
                                           (node-validator spec)))))))))
 
-(defMethod type.name-predicate ((spec xsd::|element|))
+(defmethod type.name-predicate ((spec xsd::|element|))
   (with-slots (name name-predicate) spec
     (cond (name-predicate)
           (t
@@ -708,7 +713,7 @@
 ;;
 ;;
 
-(defGeneric clone-type-specifier (type-specifier)
+(defgeneric clone-type-specifier (type-specifier)
   (:method ((spec xsd::type-specifier) &aux new)
            (setf new (allocate-instance (class-of spec)))
            (setf (slot-value new 'resolved) (slot-value spec 'resolved)
@@ -749,7 +754,7 @@
            new))
 
 
-(defGeneric test-type-specifier (datum type-specifier)
+(defgeneric test-type-specifier (datum type-specifier)
   (:documentation
    "combine specialized type predicates for individual facets.")
   (:method-combination and)
@@ -823,7 +828,7 @@
                                            (xsd::typep element element-type)))
                            datum)))))
 
-(defGeneric default-pattern-predicate (type-specifier)
+(defgeneric default-pattern-predicate (type-specifier)
   (:method ((spec xsd::pattern-type-specifier)) #'stringp)
   (:method ((spec xsd::|NCName|)) #'is-ncname)
   (:method ((spec xsd::|NMTOKEN|)) #'is-namechardata)
@@ -889,7 +894,7 @@
 ;;
 ;; type predicates
 
-(defGeneric xsd:typep (object type-specifier)
+(defgeneric xsd:typep (object type-specifier)
   (:argument-precedence-order type-specifier object)
   (:method ((datum t) (type-specifier null))
            nil)
@@ -969,7 +974,7 @@
   (cond ((xsd:|IS-anySimpleType| datum t) t)
         ((xsd:|IS-anyComplexType| datum t) t)))
 
-(defGeneric xsd:|IS-anyURI| (datum type-specifier)
+(defgeneric xsd:|IS-anyURI| (datum type-specifier)
   (:method ((datum uri-ref-value) (spec (eql t))) t)
   (:method ((datum uri) (spec (eql t))) t)
   (:method ((datum uri-ref-value) (spec xsd::|anyURI|))
@@ -980,7 +985,7 @@
            (test-type-specifier datum spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-attribute| (datum type-specifier)
+(defgeneric xsd:|IS-attribute| (datum type-specifier)
   (:method ((datum attr-node) (spec (eql t))) t)
   (:method ((datum attr-node) (spec xsd::|attribute|))
            (with-slots (name-type value-type) spec
@@ -990,7 +995,7 @@
            (xsd:|IS-attribute| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-base64Binary| (datum type-specifier)
+(defgeneric xsd:|IS-base64Binary| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum string-value) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|base64Binary|))
@@ -1001,7 +1006,7 @@
 
 (defun xsd::is-boolean (datum) (xsd::|IS-boolean| datum t))
 
-(defGeneric xsd:|IS-boolean| (datum type-specifier)
+(defgeneric xsd:|IS-boolean| (datum type-specifier)
   (:method ((datum string) (spec xsd::|boolean|))
            (test-type-specifier datum spec))
   (:method ((datum bool-value) (spec (eql t))) t)
@@ -1015,7 +1020,7 @@
            (test-type-specifier datum spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-byte| (datum type-specifier)
+(defgeneric xsd:|IS-byte| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (typep datum '(signed-byte 8)))
   (:method ((datum integer) (spec xsd::|byte|))
@@ -1025,7 +1030,7 @@
            (xsd:|IS-byte| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-comment| (datum &optional text)
+(defgeneric xsd:|IS-comment| (datum &optional text)
   (:method ((datum comment-node) &optional text)
            (if text (string= text (value datum)) t))
   (:method ((datum t) &optional text)
@@ -1038,7 +1043,7 @@
        (dolist (datum datum t)
          (unless (xsd:|IS-anyTreeType| datum) (return)))))
 
-(defGeneric xsd:|IS-dateTime| (datum type-specifier)
+(defgeneric xsd:|IS-dateTime| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|dateTime|))
            (test-type-specifier datum spec))
@@ -1046,7 +1051,7 @@
            (xsd:|IS-dateTime| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-date| (datum type-specifier)
+(defgeneric xsd:|IS-date| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|date|))
            (test-type-specifier datum spec))
@@ -1054,7 +1059,7 @@
            (xsd:|IS-date| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-decimal| (datum type-specifier)
+(defgeneric xsd:|IS-decimal| (datum type-specifier)
   (:method ((datum rational) (spec (eql t))) t)
   (:method ((datum rational) (spec xsd::|decimal|))
            (test-type-specifier datum spec))
@@ -1062,7 +1067,7 @@
            (xsd:|IS-decimal| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-double| (datum type-specifier)
+(defgeneric xsd:|IS-double| (datum type-specifier)
   (:method ((datum double-float) (spec (eql t))) t)
   (:method ((datum double-float) (spec xsd::|double|))
            (test-type-specifier datum spec))
@@ -1070,7 +1075,7 @@
            (xsd:|IS-double| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-duration| (datum type-specifier)
+(defgeneric xsd:|IS-duration| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|duration|))
            ;; this will fail on boundary cases
@@ -1080,7 +1085,7 @@
   (:method ((datum t) (spec t)) nil))
   
 
-(defGeneric xsd:|IS-element| (datum type-specifier)
+(defgeneric xsd:|IS-element| (datum type-specifier)
   (:method ((datum elem-node) (spec (eql t))) t)
   (:method ((datum elem-node) (spec xsd::|element|))
            (and (funcall (type.name-predicate spec) datum)
@@ -1090,7 +1095,7 @@
            (xsd:|IS-element| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-ENTITY| (datum type-specifier)
+(defgeneric xsd:|IS-ENTITY| (datum type-specifier)
   (:method ((datum symbol) (spec (eql t))) t)
   (:method ((datum abstract-name) (spec (eql t))) t)
   (:method ((datum symbol) (type xsd::|ENTITY|))
@@ -1103,7 +1108,7 @@
            (xsd:|IS-ENTITY| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-ENTITIES| (datum type-specifier)
+(defgeneric xsd:|IS-ENTITIES| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum nmtokens-attr-node) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|ENTITIES|))
@@ -1116,7 +1121,7 @@
   (:method ((datum t) (spec t)) nil))
 
 ;; nb. allegro does not support short-float
-(defGeneric xsd:|IS-float| (datum type-specifier)
+(defgeneric xsd:|IS-float| (datum type-specifier)
   (:method ((datum float) (spec (eql t))) t)
   (:method ((datum float) (spec xsd::|float|))
            (test-type-specifier datum spec))
@@ -1124,7 +1129,7 @@
            (xsd:|IS-float| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-gDay| (datum type-specifier)
+(defgeneric xsd:|IS-gDay| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|gDay|))
            (test-type-specifier datum spec))
@@ -1132,7 +1137,7 @@
            (xsd:|IS-gDay| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-gMonth| (datum type-specifier)
+(defgeneric xsd:|IS-gMonth| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|gMonth|))
            (test-type-specifier datum spec))
@@ -1140,7 +1145,7 @@
            (xsd:|IS-gMonth| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-gMonthDay| (datum type-specifier)
+(defgeneric xsd:|IS-gMonthDay| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|gMonthDay|))
            (test-type-specifier datum spec))
@@ -1148,7 +1153,7 @@
            (xsd:|IS-gMonthDay| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-gYear| (datum type-specifier)
+(defgeneric xsd:|IS-gYear| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|gYear|))
            (test-type-specifier datum spec))
@@ -1156,7 +1161,7 @@
            (xsd:|IS-gYear| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-hexBinary| (datum type-specifier)
+(defgeneric xsd:|IS-hexBinary| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum string-value) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|hexBinary|))
@@ -1165,7 +1170,7 @@
            (xsd:|IS-hexBinary| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-ID| (datum type-specifier)
+(defgeneric xsd:|IS-ID| (datum type-specifier)
   (:method ((datum symbol) (spec (eql t))) t)
   (:method ((datum abstract-name) (spec (eql t))) t)
   (:method ((datum symbol) (type xsd::|ID|))
@@ -1178,7 +1183,7 @@
            (xsd:|IS-ID| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-IDREF| (datum type-specifier)
+(defgeneric xsd:|IS-IDREF| (datum type-specifier)
   (:method ((datum symbol) (spec (eql t))) t)
   (:method ((datum abstract-name) (spec (eql t))) t)
   (:method ((datum symbol) (type xsd::|IDREF|))
@@ -1191,7 +1196,7 @@
            (xsd:|IS-IDREF| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-IDREFS| (datum type-specifier)
+(defgeneric xsd:|IS-IDREFS| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum nmtokens-attr-node) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|IDREFS|))
@@ -1203,7 +1208,7 @@
            (test-type-specifier datum spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-int| (datum type-specifier)
+(defgeneric xsd:|IS-int| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (typep datum '(signed-byte 32)))
   (:method ((datum integer) (spec xsd::|int|))
@@ -1213,7 +1218,7 @@
            (xsd:|IS-int| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-integer| (datum type-specifier)
+(defgeneric xsd:|IS-integer| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|integer|))
            (test-type-specifier datum spec))
@@ -1221,7 +1226,7 @@
            (xsd:|IS-integer| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-language| (datum type-specifier)
+(defgeneric xsd:|IS-language| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum string-value) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|language|))
@@ -1230,7 +1235,7 @@
            (xsd:|IS-language| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-long| (datum type-specifier)
+(defgeneric xsd:|IS-long| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (typep datum '(signed-byte 64)))
   (:method ((datum integer) (spec xsd::|long|))
@@ -1240,14 +1245,14 @@
            (xsd:|IS-long| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-Name| (datum type-specifier)
+(defgeneric xsd:|IS-Name| (datum type-specifier)
   (:method ((datum symbol) (spec (eql t))) t)
   (:method ((datum abstract-name) (spec (eql t))) t)
   (:method ((datum abstract-name) (spec xsd::|Name|))
            (test-type-specifier (local-part datum) spec))
   (:method ((datum t) (spec (eql t))) nil))
 
-(defGeneric xsd:|IS-NCName| (datum type-specifier)
+(defgeneric xsd:|IS-NCName| (datum type-specifier)
   (:method ((datum symbol) (spec (eql t))) t)
   (:method ((datum abstract-name) (spec (eql t))) t)
   (:method ((datum symbol) (type xsd::|NCName|))
@@ -1258,7 +1263,7 @@
            (test-type-specifier datum type))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-negativeInteger| (datum type-specifier)
+(defgeneric xsd:|IS-negativeInteger| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (not (plusp datum)))
   (:method ((datum integer) (spec xsd::|negativeInteger|))
@@ -1267,7 +1272,7 @@
            (xsd:|IS-negativeInteger| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-NMTOKEN| (datum type-specifier)
+(defgeneric xsd:|IS-NMTOKEN| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum nmtoken-attr-node) (spec (eql t))) t)
   (:method ((datum abstract-name) (spec (eql t))) t)
@@ -1282,7 +1287,7 @@
            (test-type-specifier (symbol-name datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-NMTOKENS| (datum type-specifier)
+(defgeneric xsd:|IS-NMTOKENS| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum nmtokens-attr-node) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|NMTOKENS|))
@@ -1294,7 +1299,7 @@
            (test-type-specifier datum spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-nonNegativeInteger| (datum type-specifier)
+(defgeneric xsd:|IS-nonNegativeInteger| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (not (plusp datum)))
   (:method ((datum integer) (spec xsd::|nonNegativeInteger|))
@@ -1303,7 +1308,7 @@
            (xsd:|IS-nonNegativeInteger| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-nonPositiveInteger| (datum type-specifier)
+(defgeneric xsd:|IS-nonPositiveInteger| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (not (plusp datum)))
   (:method ((datum integer) (spec xsd::|nonPositiveInteger|))
@@ -1312,7 +1317,7 @@
            (xsd:|IS-nonPositiveInteger| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-normalizedString| (datum type-specifier)
+(defgeneric xsd:|IS-normalizedString| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum string-value) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|normalizedString|))
@@ -1321,7 +1326,7 @@
            (xsd:|IS-normalizedString| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-NOTATION| (datum type-specifier)
+(defgeneric xsd:|IS-NOTATION| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum notation-attr-node) (spec (eql t))) t)
   (:method ((datum notation-value) (spec (eql t))) t)
@@ -1333,7 +1338,7 @@
            (test-type-specifier (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-pi| (datum type-specifier)
+(defgeneric xsd:|IS-pi| (datum type-specifier)
   (:method ((datum pi-node) (spec (eql t))) t)
   (:method ((datum pi-node) (spec xsd::|pi|))
            (with-slots (name-type value-type) spec
@@ -1341,7 +1346,7 @@
                   (xsd::|IS-string| (value datum) value-type))))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-positiveInteger| (datum type-specifier)
+(defgeneric xsd:|IS-positiveInteger| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (not (plusp datum)))
   (:method ((datum integer) (spec xsd::|positiveInteger|))
@@ -1358,7 +1363,7 @@
       (xsd:|IS-string| datum t)
       (xsd:|IS-anyURI| datum t)))
 
-(defGeneric xsd:|IS-short| (datum type-specifier)
+(defgeneric xsd:|IS-short| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (typep datum '(signed-byte 16)))
   (:method ((datum integer) (spec xsd::|short|))
@@ -1375,7 +1380,7 @@
            (dolist (element datum t)
              (unless (xsd:|IS-scalar| element) (return))))))
 
-(defGeneric xsd:|IS-string| (datum type-specifier)
+(defgeneric xsd:|IS-string| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum string-value) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|string|))
@@ -1384,7 +1389,7 @@
            (xsd:|IS-string| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-time| (datum type-specifier)
+(defgeneric xsd:|IS-time| (datum type-specifier)
   (:method ((datum integer) (spec (eql t))) t)
   (:method ((datum integer) (spec xsd::|time|))
            (test-type-specifier datum spec))
@@ -1392,7 +1397,7 @@
            (xsd:|IS-time| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-token| (datum type-specifier)
+(defgeneric xsd:|IS-token| (datum type-specifier)
   (:method ((datum string) (spec (eql t))) t)
   (:method ((datum string-value) (spec (eql t))) t)
   (:method ((datum string) (spec xsd::|token|))
@@ -1401,7 +1406,7 @@
            (xsd:|IS-token| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-UName| (datum type-specifier)
+(defgeneric xsd:|IS-UName| (datum type-specifier)
   (:method ((datum symbol) (spec (eql t))) t)
   (:method ((datum uname) (spec (eql t))) t)
   (:method ((datum symbol) (spec xsd::|UName|))
@@ -1415,7 +1420,7 @@
                   (xsd:|IS-anyURI| (namespace-name datum) uri-type))))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-unsignedByte| (datum type-specifier)
+(defgeneric xsd:|IS-unsignedByte| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (typep datum '(unsigned-byte 8)))
   (:method ((datum integer) (spec xsd::|unsignedByte|))
@@ -1425,7 +1430,7 @@
            (xsd:|IS-unsignedByte| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-unsignedInt| (datum type-specifier)
+(defgeneric xsd:|IS-unsignedInt| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (not (plusp datum)))
   (:method ((datum integer) (spec xsd::|unsignedInt|))
@@ -1435,7 +1440,7 @@
            (xsd:|IS-unsignedInt| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-unsignedLong| (datum type-specifier)
+(defgeneric xsd:|IS-unsignedLong| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (typep datum '(unsigned-byte 64)))
   (:method ((datum integer) (spec xsd::|unsignedLong|))
@@ -1445,7 +1450,7 @@
            (xsd:|IS-unsignedLong| (value datum) spec))
   (:method ((datum t) (spec t)) nil))
 
-(defGeneric xsd:|IS-unsignedShort| (datum type-specifier)
+(defgeneric xsd:|IS-unsignedShort| (datum type-specifier)
   (:method ((datum integer) (spec (eql t)))
            (typep datum '(unsigned-byte 16)))
   (:method ((datum integer) (spec xsd::|unsignedShort|))
