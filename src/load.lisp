@@ -32,8 +32,7 @@
 			   (:mylib   . ,(truename "./pod-utils"))
 			   ;18(:models  . "/home/pdenno/win-pdenno/rt/projects/mm/models/")
 			   (:tmp     . "/usr/local/tmp/")
-			   ;18(:miwg    . "/home/pdenno/projects/miwg/Tests/")
-			   )
+			   (:models  . ,(truename "../models/")))
    do (setf (gethash key pod:*lpath-ht*) val))
 
 (defpackage :user-system

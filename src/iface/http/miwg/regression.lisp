@@ -38,8 +38,8 @@
 (defun suite-canonical-path (suite)
   "Return the path where SUITE writes files."
   (ecase suite
-    (:miwg   (pod:lpath :lisplib "pod-utils/uml-utils/models/miwg/canonical/"))
-    (:miwg23 (pod:lpath :lisplib "pod-utils/uml-utils/models/miwg/canonical/"))))
+    (:miwg   (pod:lpath :models "miwg/canonical/"))
+    (:miwg23 (pod:lpath :models "miwg/canonical/"))))
 
 (defun name2tc (name suite)
   "Return the testcase name keyword given a suite and name"
