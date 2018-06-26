@@ -6,6 +6,6 @@
 (defparameter 
     *essential-pops*
   (list
-   (cons :tc3  (pod:lpath :mylib "/uml-utils/models;miwg;canonical;tc3.xmi"))))
+   (cons :tc3  (pod:lpath :models "miwg/canonical/tc3.xmi"))))
 
     

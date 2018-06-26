@@ -30,8 +30,8 @@
 	    	           (:lisplib . ,(truename "./utils"))
 			   (:testlib . ,(truename "./pod-utils"))
 			   (:mylib   . ,(truename "./pod-utils"))
-			   ;18(:models  . "/home/pdenno/win-pdenno/rt/projects/mm/models/")
 			   (:tmp     . "/usr/local/tmp/")
+			   (:data    . ,(truename "../data/"))
 			   (:models  . ,(truename "../models/")))
    do (setf (gethash key pod:*lpath-ht*) val))
 
@@ -53,8 +53,9 @@
 (load (lpath :sei "iface/http/httpcore/package.lisp"))
 ;;; I think load the qvt package even if you don't use it. (Some stuff in OCL refers to it?)
 (load (lpath :mylib "uml-utils/qvt/package.lisp"))
-;(load (lpath :mylib "uml-utils/models/packages.lisp"))
 (load (lpath :mylib "uml-utils/browser/packages.lisp"))
+(load (lpath :models "sei/essential-models.asd"))
+(load (lpath :models "sei/sei-essential-models.asd"))
 
 ;;;(handler-bind ((style-warning #'muffle-warning))
 ;;;    (asdf:load-system :xmi-validator))

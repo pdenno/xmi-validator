@@ -54,7 +54,7 @@
  :force t :verbose t
  :features '(:always)
  :model-class 'essential-compiled-model
- :classes-path (pod:lpath :mylib "uml-utils/models/mof/mof-mm.lisp")
+ :classes-path (pod:lpath :models "mof/mof-mm.lisp")
  :ns-prefix "MOFI")
 
 (ensure-model :xmi21
@@ -120,8 +120,8 @@
  :documentation "Generated from infralib/10-08-15-cleanup.xmi (which is a metamodel specified in UML).
                  updated with OCL from uml23 only where appropriate. (I hope!)"
  :model-class 'mofi:essential-compiled-model
- :classes-path (pod:lpath :mylib "uml-utils/models/cmof/cmof.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/cmof/cmof-postload.lisp")
+ :classes-path (pod:lpath :models "cmof/cmof.lisp")
+ :postload-path (pod:lpath :models "cmof/cmof-postload.lisp")
  :ns-uri "http://schema.omg.org/spec/MOF/2.0/"
  :href-uri "http://schema.omg.org/spec/MOF/2.0/cmof.xml"
  :ns-prefix "cmof")
@@ -140,8 +140,8 @@
  :depends-on-models '(:ocl)
  :documentation "Produced from http://www.omg.org/cgi-bin/doc?ptc/09-09-23 (Updated UML 2.3 L3.merged.xmi)
                 CMOF_file (1194956 bytes)"
- :classes-path (pod:lpath :mylib "uml-utils/models/uml/uml23.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/uml/uml23-postload.lisp")
+ :classes-path (pod:lpath :models "uml/uml23.lisp")
+ :postload-path (pod:lpath :models "uml/uml23-postload.lisp")
  :ns-uri "http://www.omg.org/spec/UML/20090901"
  :href-uri "http://www.omg.org/spec/UML/20090901/UML.xmi"
  :ns-prefix "uml"
@@ -157,8 +157,8 @@
  :depends-on-models '(:ocl)
  :documentation "Retrieved from http://www.omg.org/spec/UML/2.4.1/ Validator-generated version
   created 2012-01-22, back-filling edits from 2.3."
- :classes-path (pod:lpath :mylib "uml-utils/models/uml/uml241.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/uml/uml241-postload.lisp")
+ :classes-path (pod:lpath :models "uml/uml241.lisp")
+ :postload-path (pod:lpath :models "uml/uml241-postload.lisp")
  :ns-uri   "http://www.omg.org/spec/UML/20110701"
  :href-uri "http://www.omg.org/spec/UML/20110701/UML.xmi"
  :ns-prefix "uml"
@@ -168,8 +168,8 @@
  :qvt :force t :verbose t
  :model-class 'mofi:essential-lexical-model
  :features '(:qvt) ; is that an 'and'?
- :classes-path (pod:lpath :mylib "uml-utils/models/qvt/qvt-mm.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/qvt/qvt-postload.lisp")
+ :classes-path (pod:lpath :models "qvt/qvt-mm.lisp")
+ :postload-path (pod:lpath :models "qvt/qvt-postload.lisp")
  :nicknames '("QVT" "Not applicable" "Also not applicable")
  :documentation "Implemented to specification ptc/07-07-07 with updates for ptc/11-01-01"
  :reserved-words

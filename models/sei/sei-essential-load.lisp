@@ -34,7 +34,7 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :documentation "Generated from ptc/10-08-22.xmi for UML 2.4"
  :model-class 'mofi::profile
  :model-n+1 :uml23
- :classes-path (pod:lpath :mylib "uml-utils/models/uml/uml-std-profile-l2-20090901.lisp")
+ :classes-path (pod:lpath :models "uml/uml-std-profile-l2-20090901.lisp")
  :ns-uri "http://www.omg.org/spec/UML/20090901/StandardProfileL2"      ; Use this one for xmlns
  :href-uri "http://www.omg.org/spec/UML/20090901/StandardProfileL2.xmi"
  :ns-prefix "StandardProfileL2")
@@ -49,7 +49,7 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :href-uri "http://www.omg.org/spec/UML/20110701/StandardProfileL2.xmi"
  :model-class 'mofi::profile
  :model-n+1 :uml241
- :classes-path (pod:lpath :mylib "uml-utils/models/uml/uml-std-profile-l2-20110701.lisp")
+ :classes-path (pod:lpath :models "uml/uml-std-profile-l2-20110701.lisp")
  :href-uri "http://www.omg.org/spec/UML/20110701/StandardProfileL2.xmi"
  :ns-uri "http://www.omg.org/spec/UML/20110701/StandardProfileL2"      ; Use this one for xmlns
  :ns-prefix "StandardProfileL2")
@@ -65,9 +65,8 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :depends-on-models '(:ocl #|:uml-profile-20131001|#)
  :documentation "Compiled from UML/20131001  on 2013-12-12. "
  :model-class 'mofi:essential-compiled-model
-; :classes-path (pod:lpath :mylib "uml-utils/models/uml25.lisp")
- :classes-path (pod:lpath :mylib "uml-utils/models/uml/uml25.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/uml/uml25-postload.lisp")
+ :classes-path (pod:lpath :models "uml/uml25.lisp")
+ :postload-path (pod:lpath :models "uml/uml25-postload.lisp")
  :ns-uri     "http://www.omg.org/spec/UML/2.5"   
  :href-uri   "http://www.omg.org/spec/UML/2.5/UML.xmi"
  :ns-prefix "uml")
@@ -83,7 +82,7 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :href-uri "http://www.omg.org/spec/UML/20131001/StandardProfile.xmi"
  :model-class 'mofi::profile
  :model-n+1 :uml25
- :classes-path (pod:lpath :mylib "uml-utils/models/uml/uml-std-profile-20131001.lisp")
+ :classes-path (pod:lpath :models "uml/uml-std-profile-20131001.lisp")
  :href-uri "http://www.omg.org/spec/UML/20131001/StandardProfile.xmi"
  :ns-uri "http://www.omg.org/spec/UML/20131001/StandardProfile"      ; Use this one for xmlns
  :ns-prefix "StandardProfile")
@@ -99,8 +98,8 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :depends-on-models '(:ocl)
  :documentation "Created from 10-03-15-fuml-cleanup.cmof"
  :model-class 'mofi:essential-compiled-model
- :classes-path (pod:lpath :mylib "uml-utils/models/fuml/fuml.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/fuml/fuml-postload.lisp")
+ :classes-path (pod:lpath :models "fuml/fuml.lisp")
+ :postload-path (pod:lpath :models "fuml/fuml-postload.lisp")
  :ns-uri  "http://www.omg.org/spec/FUML/20100301"
  :ns-prefix "fuml")
 
@@ -118,8 +117,8 @@ Contact: Mr. Kenneth Hussey
 The document is available in the following formats:
 XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi:essential-compiled-model
- :classes-path (pod:lpath :mylib "uml-utils/models/uml/uml22.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/uml/uml22-postload.lisp")
+ :classes-path (pod:lpath :models "uml/uml22.lisp")
+ :postload-path (pod:lpath :models "uml/uml22-postload.lisp")
  :ns-uri "http://schema.omg.org/spec/UML/2.2" 
  :href-uri "http://schema.omg.org/spec/UML/2.2/uml.xml"
  :ns-prefix "uml")
@@ -133,7 +132,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :documentation "Created from magicdraw library si-definitions/QUDV.mdxml 2011-04-26."
  :model-class 'mofi:essential-compiled-model
  :depends-on-models '(:ocl :uml-profile-l2-20090901 :uml23)
- :classes-path (pod:lpath :mylib "uml-utils/models/qudv/qudv.lisp"))
+ :classes-path (pod:lpath :models "qudv/qudv.lisp"))
 
 (ensure-model 
  :sysml14 :force t  :verbose t
@@ -146,7 +145,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml25
  :depends-on-models '(:ocl :uml-profile-20131001 :uml25)
- :classes-path (pod:lpath :mylib "uml-utils/models/sysml/sysml-profile-14.lisp")
+ :classes-path (pod:lpath :models "sysml/sysml-profile-14.lisp")
  :href-uri "http://www.omg.org/spec/SysML/20131001/SysML.xmi"
  :ns-uri "http://www.omg.org/spec/SysML/20131001/SysML"
  :ns-prefix "sysml")
@@ -169,7 +168,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml241
  :depends-on-models '(:ocl :uml-profile-l2-20110701 :uml241 #|:qudv|#)
- :classes-path (pod:lpath :mylib "uml-utils/models/sysml/sysml-profile-13.lisp")
+ :classes-path (pod:lpath :models "sysml/sysml-profile-13.lisp")
  :href-uri "http://www.omg.org/spec/SysML/20120401/SysML.xmi"
  :ns-uri "http://www.omg.org/spec/SysML/20120322/SysML"
  :ns-prefix "sysml")
@@ -185,8 +184,8 @@ XMI_file 	(1510529 bytes) 	alternate"
  :depends-on-models '(:ocl)
  :documentation "Produced from sysml1-2-ptc20100301-v5/UML4SysML-metamodel.uml"
  :model-class 'mofi:essential-compiled-model
- :classes-path (pod:lpath :mylib "uml-utils/models/uml/uml4sysml12.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/uml/um4sysml12-postload.lisp")
+ :classes-path (pod:lpath :models "uml/uml4sysml12.lisp")
+ :postload-path (pod:lpath :models "uml/um4sysml12-postload.lisp")
  :ns-uri "http://www.omg.org/spec/SysML/20100301/UML4SysML"
  :href-uri "UML4SysML-metamodel.uml"
  :ns-prefix "UML4SysML")
@@ -205,7 +204,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml23
  :depends-on-models '(:ocl :uml-profile-l2-20090901 :uml23 #|:qudv|#)
- :classes-path (pod:lpath :mylib "uml-utils/models/sysml/sysml-profile-12.lisp")
+ :classes-path (pod:lpath :models "sysml/sysml-profile-12.lisp")
  :href-uri "http://www.omg.org/spec/SysML/20100301/SysML-profile.uml"
  :ns-uri "http://www.omg.org/spec/SysML/20100301/SysML-profile"
  :ns-prefix "sysml")
@@ -221,7 +220,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml23
  :depends-on-models '(:ocl :uml-profile-l2-20110701 :uml23)
- :classes-path (pod:lpath :mylib "uml-utils/models/soaml/soaml-profile.lisp")
+ :classes-path (pod:lpath :models "soaml/soaml-profile.lisp")
  :ns-uri "http://www.omg.org/spec/SoaML/20120501"
  :href-uri "http://www.omg.org/spec/SoaML/20120501/SoaMLProfile.xmi"
  :ns-prefix "SoaMLProfile")
@@ -236,7 +235,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :documentation "Created from Pete Rivett's file dated 2011-08-08."
  :model-class 'mofi::profile
  :depends-on-models '(:ocl :uml-profile-l2-20090901 :uml23 )
- :classes-path (pod:lpath :mylib "uml-utils/models/niem/niem.lisp")
+ :classes-path (pod:lpath :models "niem/niem.lisp")
  :ns-prefix "NIEM")
 
 (ensure-model 
@@ -250,7 +249,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml23
  :depends-on-models '(:ocl :uml-profile-l2-20110701 :uml23)
- :classes-path (pod:lpath :mylib "uml-utils/models/updm/updm.lisp")
+ :classes-path (pod:lpath :models "updm/updm.lisp")
  :ns-uri "http://www.omg.org/spec/UPDM/20120301"
  :href-uri "http://www.omg.org/spec/UPDM/20120301/UPDM-Profile.xmi"
  :ns-prefix "updm")
@@ -268,7 +267,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml241
  :depends-on-models '(:ocl :uml-profile-l2-20110701 :uml241)
- :classes-path (pod:lpath :mylib "uml-utils/models/odm/13-11-01/rdf-profile.lisp")
+ :classes-path (pod:lpath :models "odm/13-11-01/rdf-profile.lisp")
  :ns-uri "http://www.omg.org/spec/ODM/20131101/RDFProfile.xmi"
  :href-uri "http://www.omg.org/spec/ODM/20131101/RDFProfile.xmi"
  :ns-prefix "RDFProfile")
@@ -282,7 +281,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml241
  :depends-on-models '(:ocl :uml-profile-l2-20110701 :uml241)
- :classes-path (pod:lpath :mylib "uml-utils/models/odm/13-11-01/owl-profile.lisp")
+ :classes-path (pod:lpath :models "odm/13-11-01/owl-profile.lisp")
  :ns-uri "http://www.omg.org/spec/ODM/20131101/OWLProfile.xmi"
  :href-uri "http://www.omg.org/spec/ODM/20131101/OWLProfile.xmi"
  :ns-prefix "OWLProfile")
@@ -297,8 +296,8 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi:essential-compiled-model
  :model-n+1 :uml241
  :depends-on-models '(:ocl :uml241)
- :classes-path (pod:lpath :mylib "uml-utils/models/odm/13-11-01/odm-13-11-01.lisp")
- :postload-path (pod:lpath :mylib "uml-utils/models/odm/13-11-01/odm-13-11-01-postload.lisp")
+ :classes-path (pod:lpath :models "odm/13-11-01/odm-13-11-01.lisp")
+ :postload-path (pod:lpath :models "odm/13-11-01/odm-13-11-01-postload.lisp")
  :ns-uri "http://www.omg.org/spec/ODM/20131101/ODM-metamodels.xmi"
  :href-uri "http://www.omg.org/spec/ODM/20131101/ODM-metamodels.xmi"
  :ns-prefix "odm")
@@ -313,7 +312,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml23
  :depends-on-models '(:ocl :uml-profile-l2-20110701 :uml23)
- :classes-path (pod:lpath :mylib "uml-utils/models/updm/updm-my-2012-11-09.lisp")
+ :classes-path (pod:lpath :models "updm/updm-my-2012-11-09.lisp")
  :ns-uri "http://www.omg.org/spec/UPDM/20121004"
  :href-uri "http://www.omg.org/spec/UPDM/20121004/UPDM-Profile.xmi"
  :ns-prefix "updm")
@@ -328,7 +327,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml25
  :depends-on-models '(:ocl :uml-profile-20131001 :uml25)
- :classes-path (pod:lpath :mylib "uml-utils/models/upr/upr-december.lisp")
+ :classes-path (pod:lpath :models "upr/upr-december.lisp")
  :ns-uri   "http://www.omg.org/spec/ROSETTA/20170805"
  :href-uri "http://www.omg.org/spec/ROSETTA/20170805/Profile.xmi"
  :ns-prefix "upr")
@@ -343,7 +342,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi::profile
  :model-n+1 :uml25
  :depends-on-models '(:ocl :uml-profile-20131001 :uml25)
- :classes-path (pod:lpath :mylib "uml-utils/models/upr/upr-august.lisp")
+ :classes-path (pod:lpath :models "upr/upr-august.lisp")
  :ns-uri   "http://www.omg.org/spec/MARS/20170805/ROSETTA"
  :href-uri "http://www.omg.org/spec/MARS/20170805/ROSETTA/Profile.xmi"
  :ns-prefix "upr")
@@ -362,7 +361,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :model-class 'mofi:essential-compiled-model
  :href-uri "http://www.omg.org/spec/BPMN/20100524/MODEL-XMI"
  :depends-on-models '(:ocl :uml23)
- :classes-path (pod:lpath :mylib "uml-utils/models/bpmn/bpmn.lisp"))
+ :classes-path (pod:lpath :models "bpmn/bpmn.lisp"))
 
 
 ;;; Commented out 2012-11-02 (I assume it is no longer used.)
@@ -376,7 +375,7 @@ XMI_file 	(1510529 bytes) 	alternate"
  :documentation "Created from Conrad's 10i MD file 2012-01-27."
  :model-class 'mofi::profile
  :depends-on-models '(:ocl :uml23)
- :classes-path (pod:lpath :mylib "uml-utils/models/bpmn/bpmn-profile/bpmnpro.lisp")
+ :classes-path (pod:lpath :models "bpmn/bpmn-profile/bpmnpro.lisp")
  :ns-uri "http://schema.nist.gov/validator/bpmnpro/"
  :ns-prefix "bpmnpro")
 
@@ -408,4 +407,4 @@ XMI_file 	(1510529 bytes) 	alternate"
                  unnamed soft-opposite slots."
  :model-class 'mofi::profile
  :depends-on-models '(:ocl :uml241)
- :classes-path (pod:lpath :mylib "uml-utils/models/bpmn/bpmn-profile.lisp"))
+ :classes-path (pod:lpath :models "bpmn/bpmn-profile.lisp"))
