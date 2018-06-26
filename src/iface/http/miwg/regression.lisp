@@ -366,7 +366,7 @@
 (defun run-vendor-xmi (&key (start-at 1) (end-after 100))
   "Toplevel function to run vendor's XMI."
   (cl-fad:walk-directory 
-   (pod:lpath :miwg ".")
+   (pod:lpath :models "miwg/")
    #'(lambda (pname) 
        (when (and (string= "our-export" (pathname-name pname))
 		  (or (string= "xml" (pathname-type pname))

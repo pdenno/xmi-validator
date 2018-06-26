@@ -106,7 +106,7 @@
   (format stream "~%lpath     (sei): ~A" (pod:lpath :sei "iface/http/static/miwg-intro.html"))
   (format stream "~%lpath     (tmp): ~A" (pod:lpath :tmp "hello"))
   (format stream "~%lpath     (lib): ~A" (pod:lpath :lisplib "pod-utils"))
-  (format stream "~%lpath    (miwg): ~A" (pod:lpath :miwg "tc1.xmi"))
+  (format stream "~%lpath    (miwg): ~A" (pod:lpath :models "miwg/tc1.xmi"))
   (when *hunchentoot-server* (sei-stop))
   (setf *spare-session-vo* (make-instance 'sei-session-vo))
   (format stream "~%Loading testcases...")

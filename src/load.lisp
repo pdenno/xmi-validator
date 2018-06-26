@@ -82,7 +82,7 @@
       do (let ((*package* (lisp-package model))
 	       (*model* model))
 	   (format t "~2%;;;======== Adding CMOF constraints to ~A ===========" model)
-	   (load (pod:lpath :mylib "uml-utils/data/cmof-constraints/cmof-constraints.lisp"))
+	   (load (pod:lpath :models "cmof-constraints/cmof-constraints.lisp"))
 	   (loop for class across (types model) 
 	      do (ocl:compile-operations class  :gf-name 'ocl:ocl-constraints-cmof)
 	      do (ocl:compile-constraints class :gf-name 'ocl:ocl-constraints-cmof))))

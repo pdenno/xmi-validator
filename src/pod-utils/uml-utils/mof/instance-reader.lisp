@@ -2,10 +2,10 @@
 ;;; Purpose:  - Read MOF XMI 2.1, producing instances of MOF/MOP classes (an M2 model such as UML MM). 
 ;;;             Thus this could read XMI files produces by UML modeling tools INTO INSTANCES.
 ;;;             It is used by the MIWG Validator, for example. 
-;;; (xmi2model-instance :file (pod:lpath :mylib "uml-utils/models/miwg/tc3.xmi"))
+;;; (xmi2model-instance :file (pod:lpath :models "miwg/tc3.xmi"))
 ;;; (xmi2model-instance :file "/home/pdenno/projects/miwg/vendor-exports/release-9/tc3/canonical/valid-canonical.xml")
 ;;; (xmi2model-instance :file "/home/pdenno/projects/miwg/vendor-exports/release-9/tc3/md165-export.xml")
-;;; (xmi2model-instance :file (pod:lpath :mylib "uml-utils/data/infralib/10-08-07-cleanup.cmof"))
+;;; (xmi2model-instance :file (pod:lpath :data "infralib/10-08-07-cleanup.cmof"))
 
 (in-package :mofi)
 
