@@ -178,17 +178,20 @@
 	     (with-results (user-profile-count)
 	       (format nil "user_profile_~A" (incf user-profile-count))))))
 
-(defmethod xmi-namespace ((doc #-sbcl xqdm:doc-node #+sbcl t))
+(defmethod xmi-namespace ((doc rune-dom::document)) ; POD18 export
   "Return the XMI namespace of the document, or nil if you can't find it."
   (let (ns)
     (depth-first-search 
      (xqdm:root doc)
      #'(lambda (x) 
 	 (and (xqdm:element-p x)
-	      (setf ns (find '|xmlns|::|xmi| (xqdm:namespaces x) :key #'xqdm:name))))
+	      (when-bind (found (find-if #'(lambda (y) (string= "xmlns:xmi" (dom:name y)))
+					 (xqdm:attributes x)))
+		(setf xqdm::*zippy* found)
+		(setf ns (dom:value found)))))
      #'xqdm:children
      :on-fail nil)
-    (when ns (find-package (car (xqdm:children ns))))))
+    (when ns (find-package ns))))
 
 (defun xmi2model-instance (&key  instance-xqdm file (force nil) pop-obj (clone-p t) (linenums-p t))
   "Toplevel function to parse XMI 2.1 and instantiate a Mn+1 Model (MODEL-N+1) with the population 

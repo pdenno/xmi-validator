@@ -124,15 +124,6 @@
   (setf (hunchentoot:content-type*) "text/plain")
   (format nil "Hey~@[ ~A~]!" name))
 
-#|POD18
-(defclass my-acceptor (tbnl:acceptor)
-  ())
-(defmethod handle-request ((tbnl:*acceptor* my-acceptor) (tbnl:*request* request))
-  "Check that the request doesn't have xss stuff in it (including query)"
-  (unless (cl-ppcre:scan "(?i)<script>" (tbnl:url-decode (query-string tbnl:*request*)))
-      (call-next-method)))
-|#
-
 (defun sei-stop ()
   (when *hunchentoot-server*
     (tbnl:stop *hunchentoot-server*)
@@ -260,7 +251,3 @@
   (with-html-output (*standard-output*)
     (:img :src "/se-interop/image/heading.gif"
 	  :width 1000 :height 120 :border 0)))
-
-
-
-

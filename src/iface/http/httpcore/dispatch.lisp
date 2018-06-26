@@ -65,8 +65,6 @@
 ;;; Example: create-static-file-dispatcher create a function that, when (eql (script-name *request*) uri),
 ;;; returns a function that handles the request. (Otherwise it declines by returning nil). 
 
-;;;pod18(setf *default-handler* 'sei-default-handler)
-
 (defun set-tbnl-dispatch-table ()
   (setf *dispatch-table* 
 	(list 
@@ -132,7 +130,6 @@
 	 (create-prefix-dispatcher "/se-interop"            'sei-homepage)
 	 (create-regex-dispatcher "/se-interop/$"           'sei-homepage)
 	 (create-regex-dispatcher "/se-interop$"            'sei-homepage)))
-	 ;pod18 'tbnl:default-dispatcher)) ; tbnl function that returns *default-handler*
   (values))
 
 
