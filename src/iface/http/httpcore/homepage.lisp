@@ -114,18 +114,24 @@
   (format stream "~% Execution mode is ~A." (if (member :sei.exe *features*) "production" "development"))
   (format stream "~% Application is ~A." (find-http-app :sei))
   (format stream "~%Done. (Now starting server on port ~A)~%" port)
-;  (tbnl:start (setf *hunchentoot-server* (make-instance 'tbnl:acceptor :port port)))
-  (tbnl:start (setf *hunchentoot-server* (make-instance 'my-acceptor :port port)))
+  ;;(tbnl:start (setf *hunchentoot-server* (make-instance 'tbnl:acceptor :port port)))
+  ;;18(tbnl:start (setf *hunchentoot-server* (make-instance 'my-acceptor :port port)))
+  (tbnl:start (make-instance 'tbnl:easy-acceptor :port port))
   (format stream "~%Validator available at http://localhost:~A/se-interop/" port)
   (values))
 
+(hunchentoot:define-easy-handler (say-yo :uri "/yo") (name)
+  (setf (hunchentoot:content-type*) "text/plain")
+  (format nil "Hey~@[ ~A~]!" name))
+
+#|POD18
 (defclass my-acceptor (tbnl:acceptor)
   ())
-
 (defmethod handle-request ((tbnl:*acceptor* my-acceptor) (tbnl:*request* request))
   "Check that the request doesn't have xss stuff in it (including query)"
   (unless (cl-ppcre:scan "(?i)<script>" (tbnl:url-decode (query-string tbnl:*request*)))
       (call-next-method)))
+|#
 
 (defun sei-stop ()
   (when *hunchentoot-server*
@@ -134,7 +140,7 @@
 
 (defun sei-default-handler ()
   "The handler that serves the request if no other handler is called."
-  (log-message :info "Default handler called for script ~A" (script-name tbnl:*request*))
+  (tbnl:log-message* :info "Default handler called for script ~A" (script-name tbnl:*request*))
   "<html><head><title>SEI</title></head><body><h2>SEI Default Page</h2>
           <p>The resource you sought was not found on this server.</p>
           <hr>

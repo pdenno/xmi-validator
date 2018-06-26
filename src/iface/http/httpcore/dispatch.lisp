@@ -42,7 +42,7 @@
     (mk-mnode :mm-loader      "Load Metamodels"    "/se-interop/tools/load-metamodels")
     (mk-mnode :frag-loader    "Load Fragments"     "/se-interop/tools/load-fragments")
     (mk-mnode :validator      "Validate Models"    "/se-interop/tools/validator"))
-#+nil   
+#+qvt   
     (mk-mnode :qvt 
 	      "QVT-r" 
 	      "/se-interop/qvt"
@@ -65,7 +65,7 @@
 ;;; Example: create-static-file-dispatcher create a function that, when (eql (script-name *request*) uri),
 ;;; returns a function that handles the request. (Otherwise it declines by returning nil). 
 
-(setf *default-handler* 'sei-default-handler)
+;;;pod18(setf *default-handler* 'sei-default-handler)
 
 (defun set-tbnl-dispatch-table ()
   (setf *dispatch-table* 
@@ -131,8 +131,8 @@
 	 (create-prefix-dispatcher "/se-interop/index.html" 'sei-homepage)
 	 (create-prefix-dispatcher "/se-interop"            'sei-homepage)
 	 (create-regex-dispatcher "/se-interop/$"           'sei-homepage)
-	 (create-regex-dispatcher "/se-interop$"            'sei-homepage)
-	 'default-dispatcher)) ; tbnl function that returns *default-handler*
+	 (create-regex-dispatcher "/se-interop$"            'sei-homepage)))
+	 ;pod18 'tbnl:default-dispatcher)) ; tbnl function that returns *default-handler*
   (values))
 
 

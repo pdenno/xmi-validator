@@ -79,7 +79,7 @@
     (when (or (cl-ppcre:scan "(?i)<script>" str) 
 	      (cl-ppcre:scan "[<,>]" str)
               (cl-ppcre:scan "(?i)alert\\(\\s*\\d+\\\s*\\)" str))
-      ;(tbnl:log-message :warn "Cross-site scripting attempt from ~A" (tbnl:remote-addr tbnl:*request*))
+      (tbnl:log-message* :warn "Cross-site scripting attempt from ~A" (tbnl:remote-addr tbnl:*request*))
       t)))
 
 ;;; Perhaps this should just use escape-string. 
@@ -333,7 +333,7 @@
 	       user 
 	       password
 	       (funcall (app-authorization-fn (find-http-app (safe-app-name))) user password))
-	(tbnl:log-message :info "Failed login attempt user ~A from IP address ~A" user 
+	(tbnl:log-message* :info "Failed login attempt user ~A from IP address ~A" user 
 			  (tbnl:header-in "remote-ip-addr")) ; 2014-05-27 sbcl I #+nil until this is fixed; wants 2 args
 	(tbnl:require-authorization "Interoperability Project, members-only"))))
 
