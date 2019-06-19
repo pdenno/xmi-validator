@@ -1,5 +1,6 @@
 ;;; Author: Peter Denno
-;;; Load and start the xmi-validator. This has been designed for SBCL. 
+;;; Load and start the xmi-validator. This has been designed for SBCL.
+;;; I think .sbclrc should contain (load "~/quicklisp/setup.lisp") 
 
 (pushnew :iface-http *features*)  
 (pushnew :miwg *features*)
@@ -17,6 +18,7 @@
 (ql:quickload "closer-mop")
 (ql:quickload "hunchentoot")
 (ql:quickload "cxml")
+(ql:quickload "inferior-shell")
 
 (handler-bind ((style-warning #'muffle-warning))
   (load "./pod-utils/packages.lisp")

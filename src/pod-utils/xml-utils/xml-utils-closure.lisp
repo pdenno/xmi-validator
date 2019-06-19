@@ -346,7 +346,7 @@
       (collect-aux (if (typep xml 'dom:document) (xqdm:root xml) xml))
       accum)))
 
-#+(and Linux Lispworks)
+#+(and Linux (or Lispworks sbcl))
 (defun usr-bin-xmllint(&key infile instring outfile)
   "Read INFILE a file of xml, and output OUTFILE, if specified, xml formatted by /usr/bin/xmllint.
    If INSTRING is specified, write output to a tmp file before running /usr/bin/xmllint (Useful for debugging).
@@ -355,24 +355,26 @@
     (with-open-file (s (lpath :tmp "xmllint-tmp.xml") :direction :output :if-exists :supersede)
       (write-string instring s))
     (setf infile (lpath :tmp "xmllint-tmp.xml")))
-  (let ((lint-stream  (sys:open-pipe (format nil "/usr/bin/xmllint --format ~A" (namestring (truename infile)))
-				     :direction :input))
-	(outstream (if outfile (open outfile :direction :output :if-exists :supersede) *standard-output*)))
+  (let* ((cmd (format nil "/usr/bin/xmllint --format ~A" (namestring (truename infile))))
+	 (lint-stream  #+Lispworks(sys:open-pipe cmd :direction :input)
+		       #+sbcl (make-string-input-stream (inferior-shell:run/s cmd)))
+	 (outstream (if outfile (open outfile :direction :output :if-exists :supersede) *standard-output*)))
     (loop for line = (read-line lint-stream nil nil)
        while line do (write-line line outstream))
     (when outfile (close outstream))))
 
-#+(and Linux Lispworks)
+#+(and Linux (or Lispworks sbcl))
 (defun usr-bin-diff (&key file1 file2 outfile (args " "))
   "Create a diff file with html escaping."
-  (let ((diff-stream  (sys:open-pipe (format nil "/usr/bin/diff ~A ~A ~A" 
-					     args
-					     (namestring (truename file1))
-					     (namestring (truename file2)))
-				     :direction :input)))
+  (let* ((cmd (format nil "/usr/bin/diff ~A ~A ~A" 
+		      args
+		      (namestring (truename file1))
+		      (namestring (truename file2))))
+	 (diff-stream  #+Lispworks(sys:open-pipe cmd :direction :input)
+		       #+sbcl(make-string-input-stream (inferior-shell:run/s cmd))))
     (with-open-file (outstream outfile :direction :output :if-exists :supersede)
       (loop for line = (read-line diff-stream nil nil)
-	        while line do (write-line line outstream)))))
+	 while line do (write-line line outstream)))))
 
 (defun xml-set-parents (elem)
   "The xqdm:parent is not always set!"

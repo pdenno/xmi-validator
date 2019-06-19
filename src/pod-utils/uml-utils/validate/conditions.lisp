@@ -962,7 +962,7 @@
 ;; XMI Diff checking
 ;;;=========================================================
 (defmacro xqdm-finder (fname attr)
-  `(defmethod ,fname ((elem xqdm:elem-node))
+  `(defmethod ,fname ((elem t)) ; ((elem xqdm:elem-node)) 2019-06-18 I'm going to try to let it slide. 
      "Return the xmi:id of the element. Assumes you don't know what XMI pkg is being used."
      (when (xqdm:element-p elem)
        (loop for pkg in (all-xmis)

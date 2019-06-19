@@ -920,8 +920,7 @@
   "Used to use variable, where (declare (ignore ...)) cannot be used."
   `(progn ,@vars))
 
-#+windows(defun usr-bin-file (filename) :xml)
-
+#+windows(defun usr-bin-file (filename) :xml) ; hey, that's gonna work!
 
 ;;; As of SLED11 file --brief returns:
 ;;;  XML:  XML  document text
@@ -930,11 +929,13 @@
 (defun usr-bin-file (filename)
   "Return results from the /usr/bin/file command as a keyword. Quick and Dirty -- test it!"
   (when (pathname filename) (setf filename (namestring (truename filename))))
-  (let ((types `(("XML" . :xml) ("Zip" . :zip) ("ASCII" . :text) ("UTF-8" . :text)
-		 ("\"\\011XML" . :xml)  ; This one for version of /usr/bin/file on amber.omg.org
-		 ("HTML" . :html)))
-	(stream #+Lispworks(sys:open-pipe (format nil "/usr/bin/file --brief '~A'" filename))
-		#-Lispworks(error 'unknown-platform :string "Don't know how to start a process.")))
+  (let* ((types `(("XML" . :xml) ("Zip" . :zip) ("ASCII" . :text) ("UTF-8" . :text)
+		  ("\"\\011XML" . :xml)  ; This one for version of /usr/bin/file on amber.omg.org
+		  ("HTML" . :html)))
+	 (cmd      (format nil "/usr/bin/file --brief '~A'" filename))
+	 (stream #+Lispworks(sys:open-pipe cmd)
+		 #+sbcl (make-string-input-stream (inferior-shell:run/s cmd))
+		 #-(or Lispworks sbcl)(error 'unknown-platform :string "Don't know how to start a process.")))
     (flet ((find-type (line)
 	      (loop for type in types do 
 		    (when-bind (pos (search (car type) line))
