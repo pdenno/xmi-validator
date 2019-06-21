@@ -204,6 +204,7 @@
     (setf *mmm* (setf user-doc (or instance-xqdm (xmlp:document-parser file)))) ; *mmm* for debugging.
     (xml-set-parents user-doc) ; 2011-03-18, below too.
     (setf xmi-namespace (xmi-namespace user-doc))
+    (setf xqdm-elem2line-ht (xml-record-positions user-doc))
     (cond (clone-p  
 	   (setf xqdm:*xml-clone2old* xqdm-pristine2user-ht) ; used in xqdm:clone-node
 	   (setf pristine-doc (xml-set-parents (xqdm:clone-node user-doc)))
@@ -235,15 +236,9 @@
 	  (post-process-model *population*)
 	  pop-obj)))))
 
-(defun xml-record-positions (doc ht)
-  "Record the line-numbers of every elem that has an xmi:id. Uses tracking code
-   that I added to cl-xml/code/xparser/xml-printer.lisp."
-    (with-output-to-string (s) 
-      (mvb (ignore e2l-ht) (xmlp:write-node doc s)
-	(declare (ignore ignore))
-	(loop for k being the hash-key of e2l-ht using (hash-value v)
-	   do (setf (gethash k ht) v))))
-  (values))
+(defun xml-record-positions (elem ht)
+  "Return a hash-table recording the line-numbers of every elem that has an xmi:id."
+  (setf (gethash ht elem) 
 
 (defun collect-xmiid (doc)
   "Collect (temporarily, into xmiid2obj-ht as T) xmiids from the document.

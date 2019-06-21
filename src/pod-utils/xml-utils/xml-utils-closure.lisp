@@ -3,15 +3,37 @@
 ;;;  Date: 2014-05-16
 ;;;  Purpose: Utilities for reading the various XML model files. Relies on cxml.
 
-;;; Compatibility functions to replace cl-xml with cxml (clozure XML)
+;;; Compatibility functions to replace Anderson's cl-xml with cxml (Closure XML)
+;;; https://common-lisp.net/project/cxml
 
 (in-package :xmlp)
 
-(defmethod document-parser ((file t))
-  (cxml:parse-file file (cxml-dom:make-dom-builder)))
+(defclass line-cnt-dom-builder (rune-dom::dom-builder)
+  ())
 
+(defclass line-cnt-attribute-node-map (rune-dom::attribute-node-map)
+  ((line-num :initform nil)))
+
+;;; See cxml dom/dom-builder.lisp (Is this okay? Lots of unexported symbols!)
+(defmethod sax:start-element :around ((handler line-cnt-dom-builder) namespace-uri local-name qname attributes)
+  (let* ((stack (call-next-method))
+	 (elem  (pop stack))
+	 (amap  (change-class (slot-value elem 'rune-dom::attributes) 'line-cnt-attribute-node-map)))
+    (setf (slot-value amap 'line-num) (sax:line-number handler))
+    (setf (slot-value elem 'rune-dom::attributes) amap)
+    (push elem stack)
+    stack))
+
+(defmethod document-parser ((file t))
+  (cxml:parse-file
+   file
+   (cxml::make-whitespace-normalizer
+    (make-instance 'line-counting-dom-builder));  (cxml-dom:make-dom-builder)))
+   :validate t))
+
+;;; https://common-lisp.net/project/cxml/sax.html#serialization
 (defmethod write-node ((node t) stream)
-  (dom:map-document (cxml:make-octet-stream-sink stream) node))
+  (dom:map-document (cxml:make-character-stream-sink stream) node))
 
 (defpackage |xmlns|)
 
@@ -22,7 +44,7 @@
 
 (defvar *xml-clone2old* nil)
 
-(defun children (elem) (dom:child-nodes elem))
+(defun children (elem) (coerce (dom:child-nodes elem) 'list))
 
 (defun clone-node (node) node) ; POD NYI
 
@@ -62,7 +84,11 @@
 
 (defmethod value ((attr dom:attr)) (dom:value attr))
 
-(defun attributes (elem) (dom:attributes elem))
+(defun attributes (elem)
+  (let ((result (dom:attributes elem)))
+    (if (listp result)
+	result
+	(dom:items result))))
 
 (defun ordinality (elem) 
   (declare (ignore elem))
@@ -91,7 +117,6 @@
 					   (cl-ppcre:scan scanner (dom:data y))))
 				  cs)))))))
   elem)
-
 
 (in-package :pod-utils)
 
@@ -375,6 +400,8 @@
     (with-open-file (outstream outfile :direction :output :if-exists :supersede)
       (loop for line = (read-line diff-stream nil nil)
 	 while line do (write-line line outstream)))))
+
+
 
 (defun xml-set-parents (elem)
   "The xqdm:parent is not always set!"
