@@ -24,23 +24,19 @@
    #:prefix
    #:production-error
    #:root
+   #:squeeze-xml
    #:string-attr-node
    #:validity-cerror
    #:value
    #:wellformedness-error 
    #:*xml-clone2old*))
 
-
-
-
-
-
-
-
 (defpackage xmlp
-  (:use cl)
+  (:use cl :pod-utils)
   (:export
    #:*default-namespaces*
    #:*input-line*
    #:document-parser
+   #:line-num
+   #:vanilla-document-parser
    #:write-node))

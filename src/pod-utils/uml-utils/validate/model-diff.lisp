@@ -698,20 +698,20 @@
 		   for obj = (gethash e xqdm2model-ht)
 		   when (typep obj 'mm-root-supertype) return obj))))
     (with-matches (u-no-v-list v-no-u-list)
-      (with-results (xqdm2model-ht xqdm-elem2line-ht :mut (key2mut tc))
+      (with-results (xqdm2model-ht elem2line-ht :mut (key2mut tc))
         (loop for v in v-no-u-list do
 	     (if-bind (ve (gethash-inv-obj v xqdm2model-ht))
 		(warn 'xmi-diff-user-missing 
-		      :vline (gethash ve xqdm-elem2line-ht) 
+		      :vline (gethash ve elem2line-ht) 
 		      :velem ve
 		      :vobj v)
 		(warn "Couldn't find ve in xmi-diff-user-missing"))))
-      (with-results (xqdm2model-ht  xqdm-elem2line-ht xqdm-pristine2user-ht) 
+      (with-results (xqdm2model-ht  elem2line-ht xqdm-pristine2user-ht) 
 	(loop for u in u-no-v-list do
 	     (if-bind (ue (gethash-inv-obj u xqdm2model-ht))
 		(if-bind (pristine-ue (pristine-up ue)) ; sometimes it doesn't work
 		    (warn 'xmi-diff-valid-missing 
-			  :uline (gethash pristine-ue xqdm-elem2line-ht) 
+			  :uline (gethash pristine-ue elem2line-ht) 
 			  :uelem pristine-ue
 			  :uobj (ue2uo ue))
 		    (warn "Couldn't find pristine element in xmi-diff-valid-missing ~A" ue))
@@ -723,13 +723,13 @@
   (with-matches (perfect-ht)
     (loop for u being the hash-key of perfect-ht using (hash-value v)
 	  unless (eql (type-of u) (type-of v)) do
-	 (with-results (xqdm2model-ht xqdm-elem2line-ht)
+	 (with-results (xqdm2model-ht elem2line-ht)
 	   (let* ((ue (gethash-inv-obj u xqdm2model-ht))
 		  (pristine-ue (pristine-up ue))
-		  (uline (gethash pristine-ue xqdm-elem2line-ht)))
-	     (with-results (xqdm2model-ht xqdm-elem2line-ht :mut (key2mut tc))
+		  (uline (gethash pristine-ue elem2line-ht)))
+	     (with-results (xqdm2model-ht elem2line-ht :mut (key2mut tc))
 	       (let* ((ve (gethash-inv-obj v xqdm2model-ht))
-		      (vline (gethash ve xqdm-elem2line-ht)))
+		      (vline (gethash ve elem2line-ht)))
 		 (warn 'xmi-odd-match 
 		       :uobj u  
 		       :uelem ue
@@ -799,14 +799,14 @@
     (when (typep v (usym "LiteralSpecification")) (setf v (ufuncall "%value" v)))
     ;; 2012-10-03 don't check 'pure-supertypes (they aren't uml:|Element|; the specific method above is not used.
     (unless (or (equal u v) (typep u 'mm-root-supertype) (typep v 'mm-root-supertype))
-      (with-results (tc-matches xqdm2model-ht xqdm-elem2line-ht)
+      (with-results (tc-matches xqdm2model-ht elem2line-ht)
 	(let* ((valid-object (gethash owner (perfect-ht tc-matches)))
 	       (user-elem (pristine-up (gethash-inv-obj owner xqdm2model-ht)))
-	       (user-line-num (gethash user-elem xqdm-elem2line-ht)))
+	       (user-line-num (gethash user-elem elem2line-ht)))
 	  (with-vo (phttp:show-diff-p)
-	    (with-results (xqdm2model-ht xqdm-elem2line-ht :mut (key2mut phttp:show-diff-p))
+	    (with-results (xqdm2model-ht elem2line-ht :mut (key2mut phttp:show-diff-p))
 	      (let* ((valid-elem (gethash-inv-obj valid-object xqdm2model-ht))
-		     (valid-line-num (gethash valid-elem xqdm-elem2line-ht)))
+		     (valid-line-num (gethash valid-elem elem2line-ht)))
 		;; 2013-12-30 Filter out temporary objects.
 		(unless (or (and (typep owner 'mm-root-supertype) (minusp (%debug-id owner)))
 			    (and (typep user-elem 'mm-root-supertype) (minusp (%debug-id user-elem)))

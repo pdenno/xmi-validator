@@ -14,25 +14,33 @@
 (defclass line-cnt-attribute-node-map (rune-dom::attribute-node-map)
   ((line-num :initform nil)))
 
-;;; See cxml dom/dom-builder.lisp (Is this okay? Lots of unexported symbols!)
-(defmethod sax:start-element :around ((handler line-cnt-dom-builder) namespace-uri local-name qname attributes)
-  (let* ((stack (call-next-method))
-	 (elem  (pop stack))
-	 (amap  (change-class (slot-value elem 'rune-dom::attributes) 'line-cnt-attribute-node-map))
-	 (amap  (setf (slot-value amap 'line-num) (sax:line-number handler))))
-    (setf (slot-value elem 'rune-dom::attributes) amap)
-    (push elem stack)
-    stack))
-
 (defun vanilla-document-parser (file)
   (cxml:parse-file file (cxml-dom:make-dom-builder)))
 
 (defmethod document-parser ((file t))
-  (cxml:parse-file
-   file
-   (cxml::make-whitespace-normalizer
-    (make-instance 'line-cnt-dom-builder));  (cxml-dom:make-dom-builder)))
-   :validate nil))
+  (xqdm:squeeze-xml ; whitespace-normalizer not working for me
+   (cxml:parse-file
+    file
+    (make-instance 'line-cnt-dom-builder)
+    :validate nil)))
+
+;;; See cxml dom/dom-builder.lisp (Is this okay? Lots of unexported symbols!)
+(defmethod sax:start-element :around ((handler line-cnt-dom-builder) namespace-uri local-name qname attributes)
+  (let* ((stack (call-next-method))
+	 (elem  (pop stack))
+	 (amap  (change-class (slot-value elem 'rune-dom::attributes) 'line-cnt-attribute-node-map)))
+    (setf (slot-value amap 'line-num) (sax:line-number handler))
+    (setf (slot-value elem 'rune-dom::attributes) amap)
+    (push elem stack)
+    stack))
+
+(defun line-num (elem)
+  "Return the line number where the elem starts. This is possible if parsed with line-cnt-dom-builder."
+  (when (xqdm:element-p elem)
+    (when-bind (amap (dom:attributes elem))
+	(when (and (slot-exists-p amap 'line-num)
+		   (slot-boundp amap 'line-num))
+	  (slot-value amap 'line-num)))))
 
 ;;; https://common-lisp.net/project/cxml/sax.html#serialization
 (defmethod write-node ((node t) stream)
@@ -61,7 +69,9 @@
 
 (defun prefix (name) (dom:prefix name))
 
-(defun name (elem) (dom:node-name elem))
+(defun name (elem-or-attr)
+  (dom:node-name elem-or-attr))
+
 
 (defun document (elem) (dom:document-element elem))
 
@@ -103,18 +113,18 @@
 (defun (setf chilun) (val node)
   (setf (slot-value node 'rune-dom::children) val))
 
-(defun squeeze-xml (elem) ; see also xml-squeeze
+(defun squeeze-xml (elem)
   "Recursively remove empty string content when element has both string and element content children."
   (let ((scanner (cl-ppcre:create-scanner "^\\s+$" :multi-line-mode t)))
-    (depth-first-search 
+    (pod-utils:depth-first-search 
      elem
-     #'fail
+     #'(lambda (x) (declare (ignore x)) nil) ; fail
      #'chilun ; POD Fix this? Write a new depth-first???
      :do #'(lambda (x) ; This part is OK to use sequences
 	     (let ((cs (dom:child-nodes x)))
 	       (when (and (some #'dom:text-node-p cs)
 			  (some #'dom:element-p cs))
-		 (setf (chilun x)
+		 (setf (xqdm:children elem)
 		       (delete-if #'(lambda (y) ; turns it into an svec? 
 				      (and (dom:text-node-p y)
 					   (cl-ppcre:scan scanner (dom:data y))))
@@ -225,18 +235,15 @@
 	       :on-fail nil))
     (xqdm:value (find namespace (xqdm:namespaces elem-with-ns) :key #'xqdm:name))))
 
-;;; Should have been called xml-get-attr-value
+
 (defun xml-get-attr (elem attr-name &key ns)
-  "Get the value of the attribute ATTR-NAME, a string."
-  (flet ((ns-test (attr)
-           (let ((name (xqdm:name attr)))
-             (and (string-equal attr-name (xqdm:local-part name)) 
-                  (when-bind (prefix (xqdm:prefix name)) ; pod no other choice.
-                    (string-equal ns prefix)))))
-         (simple-test (attr) (string-equal attr-name (xqdm:local-part (xqdm:name attr)))))
-    (let ((test (if ns #'ns-test #'simple-test)))
+  "Get the attribute named ATTR-NAME, a string. If :ns (a tring) is supplied test that against the attr's prefix"
+  (flet ((easy-test (attr)      (equal attr-name (xqdm:local-part attr)))
+	 (hard-test (attr) (and (equal attr-name (xqdm:local-part attr))
+				(equal ns        (xqdm:prefix attr)))))
+    (let ((test (if ns #'hard-test #'easy-test)))
       (when-bind (attr (find-if test (xqdm:attributes elem)))
-	(values (first (xqdm:children attr)) attr)))))
+	  (values (first (xqdm:children attr)) attr)))))
 
 (declaim (inline xml-get-attr-value))
 (defun xml-get-attr-value (elem attr-symbol)
@@ -417,7 +424,7 @@
 	      (xml-set-parents c)))))
   elem)
 
-(defun xml-squeeze (elem) ; see also squeeze-xml ... 2014-07-22 This looks like the old one (deprecated)
+#+nil(defun xml-squeeze (elem) ; see also squeeze-xml ... 2014-07-22 This looks like the old one (deprecated)
   "Recursively remove empty string content when element has both string and element content children."
   (depth-first-search
    elem
