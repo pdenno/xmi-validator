@@ -28,7 +28,10 @@
    #:string-attr-node
    #:validity-cerror
    #:value
-   #:wellformedness-error 
+   #:wellformedness-error
+   #:xml-add-attr
+   #:xml-add-element
+   #:xml-set-content
    #:*xml-clone2old*))
 
 (defpackage xmlp

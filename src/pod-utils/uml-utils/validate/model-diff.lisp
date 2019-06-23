@@ -52,7 +52,7 @@
   "Inverse lookup can be one-to-many. The elem we want (out of one of the xqdm2model-ht typically)
    is the one representing the object, not a xmi:idref etc. to it."
   (gethash-inv val  ht :test  #'(lambda (x) (and (xqdm:element-p x)
-						 (xml-get-attr x "type")))))
+						 (xml-get-attr x "type" :prefix "xmi")))))
 
 (defclass tc-matches ()
    ;; These are 'permanent' commitments to a mapping, indexed by u

@@ -246,8 +246,6 @@
    #:xcar
    #:xnth
    #:xml-collect-elem
-   #:xml-elem-name 
-   #:xml-elem-namespace 
    #:xml-find-namespace 
    #:xml-find-cdata-child 
    #:xml-find-child 

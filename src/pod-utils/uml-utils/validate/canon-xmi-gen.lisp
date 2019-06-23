@@ -2,9 +2,6 @@
 ;;; Purposes:  - Write Canonical-form XMI 2.1 for a model.
 ;;;            - Transform uploaded XMI to canonical. 
 
-;;; NOTE: This stuff sometimes uses with-vo, but sometimes looks like it won't!
-;;; 2012-05-25: As of today, the above is no longer true. 
-
 (in-package :mofi)
 
 (shadowing-import '(pod:dbg-msg)) ; 2012-05-25 mystery
@@ -147,13 +144,13 @@
 				 (setf refs? (split (car (xqdm:children attr)) #\Space))
 				 (gethash (car refs?) xmiid2obj-ht)))
 			      (loop for ref in refs?
-				    for new-elem = (add-elem (xqdm:local-part name) node doc) do
-				    (add-attr xmi-idref ref new-elem) 
+				    for new-elem = (xqdm:xml-add-elem (xqdm:local-part name) node doc) do
+				    (xqdm:xml-add-attr new-elem "xmi" "idref" ref)
 				    (if-bind (obj (gethash ref xmiid2obj-ht))
 					    (setf (gethash new-elem xqdm2model-ht) obj)
 					    (format *error-output* "~%No attr to associate with ~A" ref)))
 			      (let ((new-elem (add-elem (xqdm:local-part name) node doc)))
-				(set-content new-elem (car (xqdm:children attr)))
+				(xqdm:xml-set-content new-elem (car (xqdm:children attr)))
 				(when-bind (attr-obj (gethash attr xqdm2model-ht)) ; 2012-09-07 if-bind now when-bind
 				  (setf (gethash new-elem xqdm2model-ht) attr-obj)))))))))))))
 ;				  ;; Still not sure what this is about. Related to stereotype apps.
@@ -212,24 +209,23 @@
    procedure described in Clause B.6 of the Canonical XMI Spec. If no sort-name, (e.g. a tag)
    calculate a name."
   (with-slots (xmiid2obj-ht) (processing-results mut)
-    (let ((xmi-id (xmi-sym "id")))
-      (depth-first-search 
-       doc
-       #'fail 
-       #'xqdm:children 
-       :do #'(lambda (node) 
-	       (when (xqdm:element-p node)
-		 (mvb (old-id attr) (xml-get-attr-value node xmi-id)
-		   (when attr ; POD problem if no old-id...may want to gensym while reading
-		     (if-bind (obj (gethash old-id xmiid2obj-ht))
-			      (let (canon-id) ; 2012 - others are cmof:Tag. 2012-09-07 of no %sort-name alt compute.
-				(if (and (typep obj 'mm-root-supertype) (%sort-name obj))
-				    (setf canon-id (%sort-name obj))
-				    (setf canon-id (xmi-compute-canonical-xmiid-alternative/tags mut doc old-id)))
-				(setf (xqdm:children attr) (list canon-id))
-				(setf (xqdm:value attr) canon-id))
-			      (warn "old xmi:id ~A not in xmiid2obj-ht" old-id))))))))))
-
+    (depth-first-search 
+     doc
+     #'fail 
+     #'xqdm:children 
+     :do #'(lambda (node) 
+	     (when (xqdm:element-p node)
+	       (let* ((attr    (xml-get-attr node "id" :prefix "xmi"))
+		      (old-id  (xqdm:value attr))
+		 (when attr ; POD problem if no old-id...may want to gensym while reading
+		   (if-bind (obj (gethash old-id xmiid2obj-ht))
+			    (let (canon-id) ; 2012 - others are cmof:Tag. 2012-09-07 of no %sort-name alt compute.
+			      (if (and (typep obj 'mm-root-supertype) (%sort-name obj))
+				  (setf canon-id (%sort-name obj))
+				  (setf canon-id (xmi-compute-canonical-xmiid-alternative/tags mut doc old-id)))
+			      (setf (xqdm:children attr) (list canon-id))
+			      (setf (xqdm:value attr) canon-id))
+			    (warn "old xmi:id ~A not in xmiid2obj-ht" old-id))))))))))
 
 (defun xmi-xmiid-xmiuuid-prune-and-place (doc mut)
   "Rule 7 from canonical RFC: xmi:id and xmi:uuid are always present except
@@ -237,29 +233,21 @@
    This removes xmi:id and xmi:uuid from those types and adds an xmi:uuid to 
    all other objects (not datatypes, enums or primitives) that don't have one. "
   (with-slots (xmiid2obj-ht) (processing-results mut)
-    (let ((xmi-id (xmi-sym "id"))
-	  (xmi-uuid (xmi-sym "uuid")))
-      (depth-first-search 
-       doc
-       #'fail 
-       #'xqdm:children 
-       :do #'(lambda (node) 
-	       (when (xqdm:element-p node)
-		 (when-bind (old-id (xml-get-attr-value node xmi-id))
+    (depth-first-search 
+     doc
+     #'fail 
+     #'xqdm:children 
+     :do #'(lambda (node) 
+	     (when (xqdm:element-p node)
+	       (when-bind (old-id (xml-get-attr-value node "id" :prefix "xmi"))
 		   (when-bind (obj (gethash old-id xmiid2obj-ht))
-		     (if (or (datatype-p obj) (primitive-type-p obj) (enum-p obj))
-			 (progn
-			   (mvb (val attr) (xml-get-attr-value node xmi-id)
-			     (declare (ignore val))
-			     (when attr (setf (xqdm:children node) (remove attr (xqdm:children node)))))
-			   (mvb (val attr) (xml-get-attr-value node xmi-uuid)
-			     (declare (ignore val))
-			     (when attr (setf (xqdm:children node) (remove attr (xqdm:children node))))))
-			 (progn
-			   (mvb (val attr) (xml-get-attr-value node xmi-uuid)
-			     (declare (ignore val))
-			     (unless attr (add-attr xmi-uuid (new-uuid) node)))))))))))))
-
+		       (if (or (datatype-p obj) (primitive-type-p obj) (enum-p obj))
+			   (let ((attr      (xml-get-attr node "id"   :prefix "xmi"))
+			         (attr-uuid (xml-get-attr node "uuid" :prefix "xmi")))
+			     (when attr      (setf (xqdm:children node) (remove attr      (xqdm:children node))))
+			     (when attr-uuid (setf (xqdm:children node) (remove attr-uuid (xqdm:children node)))))
+			   (let ((attr (xml-get-attr-value node "uuid" :prefix "xmi"))
+				 (unless attr (xqdm:xml-add-attr node "xmi" "uuid" (new-uuid)))))))))))))
 
 ;;; If the thing isn't found as a model, should this lookup in xmiid2obj-ht???
 ;;; POD Assuming _0 is dangerous. The xmi:id of the object should be used.
@@ -282,7 +270,6 @@
 			     (setf (xqdm:children node) 
 				   (list (format nil "~A#_0" (aref vec 0))))))))))))))))
 
-
 (defun xmi-set-stereo-base-obj (presults)
   "For each xml:element representing a stereotype application, change the
    base object to an xmi:idref attribute, rather than element content."
@@ -296,7 +283,7 @@
 	     (when-bind (old-xmiid (car (xqdm:children base-elem)))
 	       (setf (xqdm:children base-elem) nil)
 	       (when-bind (obj (gethash old-xmiid xmiid2obj-ht))
-		 (add-attr xmi-idref (%sort-name obj) base-elem))))))))
+		 (xqdm:xml-add-attr base-elem "xmi" "idref" (%sort-name obj)))))))))
 
 #|
 B5.1 ORDERING OF ELEMENTS
@@ -350,8 +337,7 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
   "Reorder toplevel elements.
    The order of the top level elements in the XMI file (direct descendants of the XMI element) is 
    alphabetic by XML element name (based on the metamodel classifier) and then alphabetic by xmi:uuid."
-  (let* ((xmi-uuid (xmi-sym "uuid"))
-	 (all-children (xqdm:children (xqdm:root doc)))
+  (let* ((all-children (xqdm:children (xqdm:root doc)))
 	 (doc-node (xml-find-child "Documentation" all-children))
 	 (sorted-children 
 	  (sort
@@ -361,8 +347,8 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 		     (name-y (xqdm:name y)))
 		 (cond ((string<  name-x name-y) t)
 		       ((string<  name-y name-x) nil)
-		       (t (string< (xml-get-attr-value x xmi-uuid)
-				   (xml-get-attr-value y xmi-uuid)))))))))
+		       (t (string< (xml-get-attr-value x "uuid" :prefix "xmi")
+				   (xml-get-attr-value y "uuid" :prefix "xmi")))))))))
     (setf (xqdm:children (xqdm:root doc))
 	  (if doc-node (cons doc-node sorted-children) sorted-children))))
 
@@ -411,12 +397,12 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 	(xmi-idref (xmi-sym "idref"))
 	(xmi-href (xmi-sym "href")))
     (cond ((and (xqdm:element-p x) (xqdm:element-p y))
-	   (let ((uuidx (xml-get-attr-value x xmi-uuid))
-		 (uuidy (xml-get-attr-value y xmi-uuid))
-		 (idrefx  (xml-get-attr-value x xmi-idref))
-		 (idrefy  (xml-get-attr-value y xmi-idref))
-		 (hrefx  (xml-get-attr-value x xmi-href))
-		 (hrefy  (xml-get-attr-value y xmi-href)))
+	   (let ((uuidx   (xml-get-attr-value x "uuid"  :prefix "xmi"))
+		 (uuidy   (xml-get-attr-value y "uuid"  :prefix "xmi"))
+		 (idrefx  (xml-get-attr-value x "idref" :prefix "xmi"))
+		 (idrefy  (xml-get-attr-value y "idref" :prefix "xmi"))
+		 (hrefx   (xml-get-attr-value x "href"  :prefix "xmi"))
+		 (hrefy   (xml-get-attr-value y "href"  :prefix "xmi")))
 	     (cond ((and uuidx uuidy) (string< uuidx uuidy))
 		   (uuidx t)
 		   (uuidy nil)
@@ -437,11 +423,10 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 (defun xmi-reorder-node (node mut)
   "Reorder a single node. This is called by xmi-reorder-model and xmi-reorder-stereos."
   (with-slots (xmiid2obj-ht) (processing-results mut)			 
-    (let ((xmi-id (xmi-sym "id")))
-      (flet ((ename (elem) (string (xqdm:name elem)))
-	     (sname (slot) (string (slot-definition-name slot))))
-	(when (xqdm:element-p node)
-	  (when-bind (obj (gethash (xml-get-attr-value node xmi-id) xmiid2obj-ht))
+    (flet ((ename (elem) (string (xqdm:name elem)))
+	   (sname (slot) (string (slot-definition-name slot))))
+      (when (xqdm:element-p node)
+	(when-bind (obj (gethash (xml-get-attr-value node "id" :prefix "xmi") xmiid2obj-ht))
 	    (when (typep obj 'mm-root-supertype) ; not T <============= POD INVESTIGATE! TC11
 	      (let* ((slots (reverse (mapped-slots (class-of obj))))
 		     (xml-properties 
@@ -468,7 +453,7 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 						     (ename x) class))
 				    ;; Else sort by property name
 				    (> (length (member (ename x) xml-properties :test #'string=))
-				       (length (member (ename y) xml-properties :test #'string=)))))))))))))))
+				       (length (member (ename y) xml-properties :test #'string=))))))))))))))
 
 ;;; This is probably a waste of time.
 (defun xmi-reset-xqdm-ordinality (doc)
@@ -481,38 +466,6 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
      :do #'(lambda (node) 
 	     (when (typep node 'xqdm:ordinal-node)
 	       (setf (xqdm:ordinality node) (incf count)))))))
-
-(defun add-elem (name parent doc)
-  "Add an element named NAME to PARENT."
-  (let (elem)
-    (setf (xqdm:children parent) 
-	  (append (xqdm:children parent) 
-		  (list (setq elem (xml-make-node doc parent name nil :type 'xqdm:elem-node)))))
-    elem))
-
-
-(defun add-attr (name value parent)
-  "Add and attribute named NAME with value VALUE to PARENT, an xqdm:elem-node."
-  (let (result)
-    (push 
-     (setf result
-	   (make-instance 'xqdm:string-attr-node
-			  :name name
-			  :value value
-			  :children (list value)
-			  :parent parent
-			  :document (xqdm:document parent)))
-     (xqdm:attributes parent))
-    result))
-
-
-(defun set-content (elem value)
-  "Set text/number content of PARENT to VALUE."
-  (when value
-    (unless (or (stringp value) (numberp value)) (error "set-content args"))
-    (setf (xqdm:children elem) (list (if (stringp value) value (format nil "~A" value))))
-    elem))
-
 
 ;;;=============================================================================================
 ;;; xmi:id naming for canonical
@@ -663,34 +616,30 @@ Names and Tokens
    B.6: 'Use the xmi:id of the parent XML element (or “_” for top level elements),
    followed by the separator ‘-‘, followed by the name of the property (XML element)
    Return the sort-name."
-  (let ((xmi-id (xmi-sym "id"))
-	(xmi-xmi (xmi-sym "XMI")))
-    (flet ((find-obj (id)
-	     (breadth-first-search doc 
-				   #'(lambda (n)
-				       (and (xqdm:element-p n)
-					    (mvb (my-id ignore) (xml-get-attr-value n xmi-id)
-					      (declare (ignore ignore))
-					      (eql my-id id))))
+  (flet ((find-obj (id)
+	   (breadth-first-search doc 
+				 #'(lambda (n)
+				     (and (xqdm:element-p n)
+					  (let ((my-id (xml-get-attr-value n "id" :prefix "xmi")))
+					    (eql my-id id))))
 				   #'xqdm:children)))
-      (if-bind (node (or elem (and id (find-obj id))))
-	       (let* ((elem-name (string (xqdm:local-part (xqdm:name node))))
-		      (base-name ; name without -<sequence number>
-		       (format nil "~A-~A"
-			       (if-bind (pelem (xqdm:parent node))
-					(if (xml-typep pelem xmi-xmi)
-					    "_"
-					    (xmi-compute-canonical-xmiid-alternative/tags mut doc nil :elem pelem))
-					"_") 
-			       elem-name))
-		      ;; B.6: "If there is more than one value for the property this is further followed by ‘-‘ followed by 
-		      ;; the sequence number (from 1) within the parent element and the property. Note that named elements 
-		      ;; (which satisfy the first rule) are still included in this count."
-		      (siblings (loop for cand in (xqdm:children (xqdm:parent node))
-				   when (string= elem-name (xqdm:local-part (xqdm:name cand)))
-				   collect cand)))
-		 (if (= (length siblings) 1)
-		     base-name
-		     (format nil "~A-~A" base-name (1+ (position node siblings)))))
-	       (warn "Couldn't find elem in compute-canonical-xmiid-alternative/tag for ~A" id)))))
-
+    (if-bind (node (or elem (and id (find-obj id))))
+	     (let* ((elem-name (string (xqdm:local-part (xqdm:name node))))
+		    (base-name ; name without -<sequence number>
+		     (format nil "~A-~A"
+			     (if-bind (pelem (xqdm:parent node))
+				      (if (xml-typep pelem xmi-xmi)
+					  "_"
+					  (xmi-compute-canonical-xmiid-alternative/tags mut doc nil :elem pelem))
+				      "_") 
+			     elem-name))
+		    ;; B.6: "If there is more than one value for the property this is further followed by ‘-‘ followed by 
+		    ;; the sequence number (from 1) within the parent element and the property. Note that named elements 
+		    ;; (which satisfy the first rule) are still included in this count."
+		    (siblings (loop for cand in (xqdm:children (xqdm:parent node))
+				 when (string= elem-name (xqdm:local-part (xqdm:name cand)))
+				 collect cand)))
+	       (if (= (length siblings) 1)
+		   base-name
+		   (format nil "~A-~A" base-name (1+ (position node siblings)))))
+	     (warn "Couldn't find elem in compute-canonical-xmiid-alternative/tag for ~A" id))))

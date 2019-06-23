@@ -961,35 +961,18 @@
 ;;;=========================================================
 ;; XMI Diff checking
 ;;;=========================================================
+;;; POD This would be useful in a new file called pod-utils/xmi-utils.lisp.
 (defmacro xqdm-finder (fname attr)
   `(defmethod ,fname ((elem t)) ; ((elem xqdm:elem-node)) 2019-06-18 I'm going to try to let it slide. 
      "Return the xmi:id of the element. Assumes you don't know what XMI pkg is being used."
      (when (xqdm:element-p elem)
        (loop for pkg in (all-xmis)
-	  for val = (xml-get-attr-value elem (intern ,attr (lisp-package (find-model pkg))))
+	  for val = (xml-get-attr-value elem ,attr :prefix "xmi")
 	  when val return val))))
 
 (xqdm-finder xmi-id    "id")
 (xqdm-finder xmi-idref "idref")
 (xqdm-finder uuid      "uuid")
-
-#|
-(defmethod xmi-id ((elem xqdm:elem-node))
-  "Return the xmi:id of the element. Assumes you don't know what XMI pkg is being used."
-  (when (xqdm:element-p elem)
-    (loop for pkg in (all-xmis)
-	  for val = (xml-get-attr-value elem (intern "id" (lisp-package (find-model pkg))))
-	  when val return val)))
-
-;;; POD What is assurrence that MUT is the correct model!
-(declaim (inline xmi-idref))
-(defun xmi-idref (elem)
-  "Return the xmi:id of the element."
-  (with-vo (mut)
-    (with-slots (model-xmi) mut
-      (when (xqdm:element-p elem)
-	(xml-get-attr-value elem (intern "idref" (lisp-package model-xmi)))))))
-|#
 
 (defun xmi-abbrev (elem &key (len 250))
   "Return a string describing the element concisely."
@@ -1054,7 +1037,9 @@
   (:report
    (lambda (c stream)
      (with-slots (velem vobj red-regex) c
-       (setf red-regex (if-bind (id (xml-get-attr velem "id")) (format nil "(~A)" id) "forget it"))
+       (setf red-regex (if-bind (id (xml-get-attr-value velem "id" :prefix "xmi"))
+				(format nil "(~A)" id)
+				"forget it"))
        (format stream "~A"
 	       (with-output-to-string (out)
 		 (format out "Valid.xmi, has element <font color='green'>~A</font>."
@@ -1086,7 +1071,9 @@
   (:report
    (lambda (c stream)
      (with-slots (uelem red-regex uobj) c
-       (setf red-regex (if-bind (id (xml-get-attr uelem "id")) (format nil "(~A)" id) "forget it"))
+       (setf red-regex (if-bind (id (xml-get-attr-value uelem "id" :prefix "xmi"))
+				(format nil "(~A)" id)
+				"forget it"))
        (format stream "~A"
 	       (with-output-to-string (out)
 		 (format out "The user's file has element <font color='red'>~A</font>."

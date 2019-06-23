@@ -67,7 +67,8 @@
 
 (declaim (inline xmi-sym))
 (defun xmi-sym (results str)
-  "Memoized symbol intern for xmi STRING (e.g. 'id' --> xmi:id, 'uuid' --> xmi:uuid, etc.)"
+  "Memoized symbol intern for xmi STRING (e.g. 'id' --> XMI21:|id|, 'uuid' --> XMI21:|uuid|, etc.)
+   This deals the problem that there are different XMI packages for each version of XMI."
   (with-slots (xmi-sym-ht) results
     (or
      (gethash str xmi-sym-ht)
@@ -128,10 +129,10 @@
                 Provide the standard URI for xmlns:uml (or xmlns:cmof if it is appropriate).<br/>
                 A list of these is provided <a href='se-interop/tools-overview#preloads'>here</a>."))))
 
-(defun discover-model-xmi-model (xqdm-doc)
-   "Returns the lisp package of DOC an xqdm:document."
+(defun discover-model-xmi-model (doc)
+  "Returns the lisp package of DOC. "
    (when-bind (xmi-elem (depth-first-search 
-			 (xqdm:root xqdm-doc)
+			 (xqdm:root doc)
 			 #'(lambda (x) 
 			     (or (xml-typep x "XMI") 
 				 (xml-typep x "Model")
@@ -143,26 +144,30 @@
        (or (mofi:find-model (package-name pkg) :error-p nil)
 	   (error 'mofi:xmi-namespace-unknown :provided (package-name pkg))))))
 
+;;; POD 2019 I'm need and example before I can finish this. What I need now is a hashtable
+;;;          indexed by prefix that provides the ns-uri, whether or not this exists.
+;;;
+;;; Examples of the latter:
+;;; <mofext:Tag xmi:type="mofext:Tag" xmi:id="_1" name="org.omg.xmi.nsPrefix" value="uml" element="_0"/>
+;;;   <cmof:Tag xmi:id="_1" name="org.omg.xmi.nsURI" value="http://schema.omg.org/spec/ODM/1.0/odm.xml" element="_15_..."/>
 (defun discover-ns-prefix/uri (doc)
   "Looking not too deep into DOC, return values ns-prefix ns-uri."
   (let* ((lev1 (loop for c in (xqdm:children (xqdm:root doc)) when (xml-typep c 'cmof::|Tag|) collect c))
 	 (lev2 (mapappend 
 		#'(lambda (x) (loop for c in (xqdm:children x) when (xml-typep c 'cmof::|Tag|) collect c)) lev1))
-	 (lev1+2 (append lev1 lev2))
-	 (n-sym (intern "name" ""))
-	 (v-sym (intern "value" "")))
+	 (lev1+2 (append lev1 lev2)))
     (values
-     (when-bind (pre (find-if #'(lambda (x) (string= (xml-get-attr-value x n-sym) "org.omg.xmi.nsPrefix")) lev1+2))
-       (xml-get-attr-value pre v-sym))
-     (when-bind (uri (find-if #'(lambda (x) (string= (xml-get-attr-value x n-sym) "org.omg.xmi.nsURI")) lev1+2))
-       (xml-get-attr-value uri v-sym)))))
+     (when-bind (pre (find-if #'(lambda (x) (string= (xml-get-attr-value x "name") "org.omg.xmi.nsPrefix")) lev1+2))
+       (xml-get-attr-value pre "value"))
+     (when-bind (uri (find-if #'(lambda (x) (string= (xml-get-attr-value x "name") "org.omg.xmi.nsURI")) lev1+2))
+       (xml-get-attr-value uri "value")))))
 
 (defun discover-profiles-used (xqdm-doc)
   "Return hrefs for all profiles used."
   (let ((applied-profs (xml-collect-elem #'(lambda (x) (xml-typep x "appliedProfile")) xqdm-doc)))
     (remove-duplicates 
      (mapcar #'(lambda (x) (car (split x #\#)))
-	     (mapcar #'(lambda (x) (xml-get-attr x "href")) applied-profs))
+	     (mapcar #'(lambda (x) (xml-get-attr-value x "href" :prefix "xmi")) applied-profs))
      :test #'string=)))
 
 (defmemo-equal profile-namespace (href)
@@ -222,12 +227,14 @@
 	    (*population* pop-obj))
 	(declare (special *model* *population*))
 	(with-vo (mut) (setf mut *population*))  ;allow ocl:allInstances to work... IFFY! ; 2011-11-16 was *s-s-vo*
-	(collect-xmiid *results* user-doc) 
+	(collect-xmiid *results* user-doc)
+	;; The ns-prefix and ns-uri are also defined explicitly in ensure-model "essential-load"
+	;; They are slots in mofi:*model*
 	(with-slots (members ns-prefix ns-uri) *population*
 	  (mvb (prefix uri) (discover-ns-prefix/uri user-doc)
 	    (setf ns-prefix prefix)
-	    (setf ns-uri uri))
-	  (setf (fill-pointer members) 0)
+	    (setf ns-uri uri)
+	  (setf (fill-pointer members) 0))
 	  (setf stereo-elems (pp-find-stereo-objs user-doc))
 	  (parse-model-and-profiles model-elem *results* profiles)
 	  (dbg-message :time 1 "~%Created ~A Elements: ~A" (fill-pointer members) (now))
@@ -239,12 +246,11 @@
    The table is indexed by xmi:id."
   (when elem
     (format t "~% elem = ~A" elem)
-    (let ((xmi-id (xmi-sym results "id")))
-      (with-slots (elem2line-ht) results
-	(when-bind (xmi-id (xml-get-attr elem xmi-id))
-	    (setf (gethash xmi-id elem2line-ht) (xmlp:line-num elem)))
-	(loop for c in (xqdm:children elem)
-	   do (xml-record-positions results c))))))
+    (with-slots (elem2line-ht) results
+      (when-bind (xmi-id (xml-get-attr-value elem "id" :prefix "xmi"))
+	  (setf (gethash xmi-id elem2line-ht) (xmlp:line-num elem)))
+      (loop for c in (xqdm:children elem)
+	 do (xml-record-positions results c)))))
   
 (defun collect-xmiid (results doc)
   "Collect (temporarily, into xmiid2obj-ht as T) xmiids from the document.
@@ -252,15 +258,14 @@
    then the reference is not know. There are places where checking for T
    has to be performed."
   (with-slots (xmiid2obj-ht) results
-    (let ((xmi-id (xmi-sym results "id")))
-      (depth-first-search 
-       doc 
-       #'fail 
-       #'xqdm:children
-       :do #'(lambda (node) 
-	       (when (xqdm:element-p node)
-		 (when-bind (id (xml-get-attr-value node xmi-id))
-		   (setf (gethash id xmiid2obj-ht) t))))))))
+    (depth-first-search 
+     doc 
+     #'fail 
+     #'xqdm:children
+     :do #'(lambda (node) 
+	     (when (xqdm:element-p node)
+	       (when-bind (id (xml-get-attr-value node "id" :prefix "xmi"))
+		   (setf (gethash id xmiid2obj-ht) t)))))))
 
 ;;; Note that this parses PROFILES, not stereotype applications (done in post-process-model).
 (defun parse-model-and-profiles (results model-elem profiles)
@@ -268,7 +273,8 @@
   (with-slots (xmiid2obj-ht) results
     (setf (gethash "+The-Model+" xmiid2obj-ht) (parse-elem results model-elem nil))
       (loop for profile in profiles do 
-	    (setf (gethash (xml-get-attr profile "id") xmiid2obj-ht) (parse-elem results profile nil)))))
+	   (setf (gethash (xml-get-attr-value profile "id" :prefix "xmi") xmiid2obj-ht)
+		 (parse-elem results profile nil)))))
 
 (defun reader-ensure-population-model (doc file force)
   "Create the population object for DOC."
@@ -298,26 +304,26 @@
        #'(lambda (p) ; was #'xqdm:children -- very wasteful!
 	   (when (or
 		  (and (xqdm:element-p p)
-		       (member (xml-elem-name p) '("XMI" "Model" "Package" "Profile") :test #'string=))
+		       (member (dom:local-name p) '("XMI" "Model" "Package" "Profile") :test #'string=))
 		  #-sbcl(typep p 'xqdm:doc-node))
 	     (xqdm:children p)))
        :do  #'(lambda (n)
 		(when (xqdm:element-p n)
-		  (let ((name (xml-elem-name n))) ; RepositorySet for edbark MMM (2012 "Schema"
+		  (let ((name (dom:local-name n))) ; RepositorySet for edbark MMM (2012 "Schema"
 		    (cond ((or (string= name "Model") (string= name "Schema")) (setf model-elem n))
 			  ((string= name "Profile")   (push n profiles))
 			  ((string= name "Package")
 			   (let ((parent (xqdm:parent n)))
 			     (when (or 
-				    (string= "_0" (xml-get-attr n "id"))
+				    (string= "_0" (xml-get-attr-value n "id" :prefix "xmi"))
 				    (not parent)
 				    (and
 				     parent
 				     (or #-sbcl(typep parent 'xqdm:doc-node)
-					 (string= (xml-elem-name parent) "XMI"))))
+					 (string= (dom:local-name parent) "XMI"))))
 			       (setf model-elem n))))
 			  #|((and (string= name "packagedElement") ; 2016-01-06 for ODM (possibly the new 2.5 way for MOF models)
-				(string= "XMI" (xml-elem-name (xqdm:parent n))))
+				(string= "XMI" (dom:local-name (xqdm:parent n))))
 			   (format t "~% further..."))|#)))))
       (unless model-elem ; model is a profile. Better only be one!
 	(setf model-elem (car profiles))
@@ -388,7 +394,7 @@
    Tries 3 approaches to identify class. Returns the class object."
   (let (type slot)
     (with-slots (lisp-package) (or profile *model*)
-    (cond ((setf type (xml-get-attr elem "type" :ns "xmi")) ;(1) Type is specified by xmi:type=
+    (cond ((setf type (xml-get-attr-value elem "type" :prefix "xmi")) ;(1) Type is specified by xmi:type=
 	   (let ((class-name (intern
 			      (if-bind (pos (position #\: type)) (subseq type (1+ pos)) type)
 			      lisp-package)))
@@ -463,7 +469,7 @@
 	(xmi-extension  (xmi-sym results "extension")))
     (loop for child in (xqdm:children elem)
        when (xqdm:element-p child) do
-	 (let ((property-name (xml-elem-name child)))
+	 (let ((property-name (dom:local-name child)))
 	   (if-bind (slot (m1-find-slot-named class property-name))
 		    (when-bind (val (parse-elem results child class))
 		      (when (slot-definition-is-derived-p slot)
@@ -522,7 +528,7 @@
    (unless *suppress-install* is true)."
   (with-slots (xmiid2obj-ht) *results* 
     (let ((obj (make-instance (class-name class) :source-elem elem)))
-      (when-bind (id (xml-get-attr elem "id" :ns "xmi"))
+      (when-bind (id (xml-get-attr-value elem "id" :prefix "xmi"))
 	;; 2014-04-26 added next, then commented it out same day. (It is better design than xmiid2obj, but...
 	;(setf (%token-position obj) id) 
 	(when-bind (orig (gethash id xmiid2obj-ht))
@@ -554,9 +560,9 @@
     (declare (special *suppress-install*))
     (check-xmi-type-in-href results elem)
     (with-slots (xqdm2model-ht) results
-      (cond ((setq name (xml-get-attr elem "idref" :ns "xmi"))
+      (cond ((setq name (xml-get-attr-value elem "idref" :prefix "xmi"))
 	     (setf (gethash elem xqdm2model-ht) (make-xmi-idref :-name name))) ;track relationship
-	    ((setq name (xml-get-attr elem "href"))
+	    ((setq name (xml-get-attr-value elem "href"))
 	     (setf (gethash elem xqdm2model-ht) (make-xmi-href :-name name)))  ;track relationship
 	    (t
 	     (setq class (class-of-elem elem parent-class :warn-p warn-p :profile profile))
@@ -648,7 +654,7 @@ Full XMI:
       (loop for elem across stereo-elems 
 	 for stereo-class = (elem2stereo-class elem) do ; 2012-09-07 store-p was nil
 	   (when-bind (stereo-obj (parse-elem results elem nil :store-p t :warn-p nil :profile (of-model stereo-class)))
-	     (when-bind (xmi-id (xml-get-attr elem "id"))
+	     (when-bind (xmi-id (xml-get-attr-value elem "id"))
 	       (setf (gethash xmi-id xmiid2obj-ht) stereo-obj))
 	     (if-bind (xmiid/attr-name (stereo-obj-base-xmiid/attr-name results elem (class-of stereo-obj)))
 		      (if-bind (base-obj (gethash (car xmiid/attr-name) xmiid2obj-ht))

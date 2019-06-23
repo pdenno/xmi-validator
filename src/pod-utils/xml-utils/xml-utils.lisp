@@ -18,10 +18,10 @@
   (cxml:parse-file file (cxml-dom:make-dom-builder)))
 
 (defmethod document-parser ((file t))
-  (xqdm:squeeze-xml ; whitespace-normalizer not working for me
+  (xqdm:squeeze-xml 
    (cxml:parse-file
     file
-    (make-instance 'line-cnt-dom-builder)
+     (make-instance 'line-cnt-dom-builder)
     :validate nil)))
 
 ;;; See cxml dom/dom-builder.lisp (Is this okay? Lots of unexported symbols!)
@@ -47,33 +47,26 @@
   (dom:map-document (cxml:make-character-stream-sink stream) node))
 
 (defpackage |xmlns|)
-
 (in-package :xqdm)
-
-;(declaim (inline children local-part prefix name document root parent 
-;                 element-p namespaces attributes ordinality))
 
 (defvar *xml-clone2old* nil)
 
 (defun children (elem) (coerce (dom:child-nodes elem) 'list))
 
-(defun clone-node (node) node) ; POD NYI
-
 (defun (setf children) (val node)
   (setf (slot-value node 'rune-dom::children) val))
+
+(defun clone-node (node) node) ; POD NYI
+
 
 (defun (setf parent) (val node)
   (setf (slot-value node 'rune-dom::parent) val))
 
-(defun local-part (name) (dom:local-name name))
-
-(defun prefix (name) (dom:prefix name))
-
 (defun name (elem-or-attr)
   (dom:node-name elem-or-attr))
 
-
-(defun document (elem) (dom:document-element elem))
+(defun document (elem)
+  (slot-value elem 'rune-dom::owner))
 
 ;;; POD Guessing 
 (defun root (elem) 
@@ -83,14 +76,6 @@
 
 (defun element-p (x) 
   (dom:element-p x))
-
-(defun namespaces (elem) 
-  (declare (ignore elem))
-  (break "namespaces"))
-
-(defun namespace (elem) 
-  (declare (ignore elem))
-  (break "namespace"))
 
 (defmethod value (ns) 
   (dom:value ns))
@@ -107,29 +92,63 @@
   (declare (ignore elem))
   (break "ordinality"))
 
-(defun chilun (elem)
-  (coerce (dom:child-nodes elem) 'list))
-
-(defun (setf chilun) (val node)
-  (setf (slot-value node 'rune-dom::children) val))
-
 (defun squeeze-xml (elem)
   "Recursively remove empty string content when element has both string and element content children."
   (let ((scanner (cl-ppcre:create-scanner "^\\s+$" :multi-line-mode t)))
     (pod-utils:depth-first-search 
      elem
      #'(lambda (x) (declare (ignore x)) nil) ; fail
-     #'chilun ; POD Fix this? Write a new depth-first???
+     #'children 
      :do #'(lambda (x) ; This part is OK to use sequences
 	     (let ((cs (dom:child-nodes x)))
 	       (when (and (some #'dom:text-node-p cs)
 			  (some #'dom:element-p cs))
-		 (setf (xqdm:children elem)
+		 (setf (xqdm:children x)
 		       (delete-if #'(lambda (y) ; turns it into an svec? 
 				      (and (dom:text-node-p y)
 					   (cl-ppcre:scan scanner (dom:data y))))
 				  cs)))))))
   elem)
+
+;;; The next three were once in canon-xmi-gen.lisp
+(defun xml-add-attr (owner prefix name value)
+  "Add an attribute named PREFIX:NAME with value VALUE to OWNER, a rune-dom:element. Return the elem."
+  (let* ((doc     (xqdm:document owner))
+	 (ns      (dom:namespace-uri owner))
+	 (text    (make-instance 'rune-dom::text :children #() :owner doc))
+	 ;; I'm guessing that the nmap (which is in every attribute, yet lists all attributs) already exists. 
+	 ;(nmap    (make-instance 'xmlp::line-cnt-attribute-node-map))
+	 (attr    (make-instance 'rune-dom::attribute
+				 :children (coerce (list text) 'vector)
+				 :owner doc
+				 :prefix prefix
+				 :local-name name
+				 :name (pod-utils:strcat prefix ":" name)
+				 :owner-element owner)))
+    ;; :ns ns  :element-type :attribute  :specified t
+    (setf (slot-value attr 'rune-dom::namespace-uri) ns)
+    (setf (slot-value attr 'rune-dom::specified-p) t)
+    (setf (slot-value attr 'rune-dom::map) (dom:attributes owner))
+    
+    (setf (slot-value text 'rune-dom::parent) attr)
+    (setf (slot-value text 'rune-dom::value) value)
+    (pod-utils:push-last attr (slot-value (dom:attributes owner) 'rune-dom::items))
+    owner))
+
+(defun xml-add-elem (name parent doc)
+  "Add an element named NAME to PARENT."
+  (let (elem)
+    (setf (xqdm:children parent) 
+	  (append (xqdm:children parent) 
+		  (list (setq elem (xml-make-node doc parent name nil :type 'xqdm:elem-node)))))
+    elem))
+
+(defun xml-set-content (elem value)
+  "Set text/number content of PARENT to VALUE."
+  (when value
+    (unless (or (stringp value) (numberp value)) (error "set-content args"))
+    (setf (xqdm:children elem) (list (if (stringp value) value (format nil "~A" value))))
+    elem))
 
 (in-package :pod-utils)
 
@@ -150,8 +169,8 @@
            (when error-p (error "No child element ~A" type))))
 
 (defmethod xml-find-child ((type string) (children list) &key (error-p nil))
-  "Return first xqdm:element from list CHILDREN whose tag xqdm:local-part is TYPE, a string."
-  (if-bind (child (find type children :key #'(lambda (x) (xqdm:local-part (xqdm:name x))) :test #'string-equal))
+  "Return first xqdm:element from list CHILDREN whose tag dom:local-name is TYPE, a string."
+  (if-bind (child (find type children :key #'(lambda (x) (dom:local-name x)) :test #'string-equal))
            child
            (when error-p (error "No child element ~A" type))))
 
@@ -171,7 +190,7 @@
   "Return a list of children of type TYPE a string matching the local-part of the tag. 
    Second elem is a list of elements."
   (loop for child in children
-        when (string-equal (xqdm:local-part (xqdm:name child)) type)
+        when (string-equal (dom:local-name child) type)
         collect child))
 
 (defmethod xml-find-children ((type symbol) (children list))
@@ -199,59 +218,31 @@
 (defun xml-siblings (node)
   (xqdm:children (xqdm:parent node)))
 
-(proclaim '(inline xml-elem-name))
-(defun xml-elem-name (elem)
-  (xqdm:local-part (xqdm:name elem)))
+#+nil(defun namespaces (elem &key result)
+  "Return an alist of the namespace-URIs of the namespaces found in elem and its children."
+  (breadth-first-search 
+   elem 
+   #'(lambda (x) (find namespace (xqdm:namespaces x) :key #'xqdm:name))
+   #'(lambda (x) (remove-if-not #'xqdm:element-p (xqdm:children x)))
+   :on-fail nil)
+    (xqdm:value (find namespace (xqdm:namespaces elem-with-ns) :key #'xqdm:name)))
 
-(proclaim '(inline xml-elem-namespace))
-(defun xml-elem-namespace (elem)
-  (slot-value (xqdm:name elem) 'xqdm:prefix))
-
-#|
-(defun xml-find-namespace (namespace doc)
-  "Return the xml namespace value (a string) 
-    with attribute name NAMESPACE (a symbol, for example |xmlns|::|uml|)
-    in DOC (and xqdm:doc-node or descendent thereof."    
-  (when-bind (elem-with-ns
-	      (breadth-first-search 
-	       doc 
-	       #'(lambda (x) 
-		   (when (xqdm:element-p x)
-		     (find namespace (xqdm:namespaces x) :key #'xqdm:name)))
-	       #'xqdm:children 
-	       :on-fail nil))
-    (xqdm:value (find namespace (xqdm:namespaces elem-with-ns) :key #'xqdm:name))))
-|#
-
-(defun xml-find-namespace (namespace doc)
-   "Return the xml namespace value (a string) 
-    with attribute name NAMESPACE (a symbol, for example |xmlns|::|uml|)
-    in DOC (and xqdm:doc-node or descendent thereof."    
-  (when-bind (elem-with-ns
-	      (breadth-first-search 
-	       doc 
-	       #'(lambda (x) (find namespace (xqdm:namespaces x) :key #'xqdm:name))
-	       #'(lambda (x) (remove-if-not #'xqdm:element-p (xqdm:children x)))
-	       :on-fail nil))
-    (xqdm:value (find namespace (xqdm:namespaces elem-with-ns) :key #'xqdm:name))))
-
-
-(defun xml-get-attr (elem attr-name &key ns)
-  "Get the attribute named ATTR-NAME, a string. If :ns (a tring) is supplied test that against the attr's prefix"
-  (flet ((easy-test (attr)      (equal attr-name (xqdm:local-part attr)))
-	 (hard-test (attr) (and (equal attr-name (xqdm:local-part attr))
-				(equal ns        (xqdm:prefix attr)))))
-    (let ((test (if ns #'hard-test #'easy-test)))
-      (when-bind (attr (find-if test (xqdm:attributes elem)))
-	  (values (first (xqdm:children attr)) attr)))))
+(defun xml-get-attr (elem attr-name-string &key prefix)
+  "Get the attribute named ATTR-NAME, a string. If :prefix (a string) is supplied, test it
+   against the attr's prefix. (Thus it doesn't get confused by versioned XMI packages.)"
+  (flet ((easy-test (attr)      (equal attr-name-string (dom:local-name attr)))
+	 (hard-test (attr) (and (equal attr-name-string (dom:local-name attr))
+				(equal prefix           (dom:prefix attr)))))
+    (let ((test (if prefix #'hard-test #'easy-test)))
+       (find-if test (xqdm:attributes elem)))))
 
 (declaim (inline xml-get-attr-value))
-(defun xml-get-attr-value (elem attr-symbol)
+(defun xml-get-attr-value (elem attr-name-string &key prefix)
   "Return the value of the attribute of elem identified by ATTR-SYMBOL, a symbol
    interned in a package useds as the xml namespace of the attribute. Return nil
    if no attribute found."
-  (when-bind (attr (find attr-symbol (xqdm:attributes elem) :key #'xqdm:name))
-    (values (xqdm:value attr) attr)))
+  (when-bind (attr (xml-get-attr elem attr-name-string :prefix prefix))
+      (xqdm:value attr)))
 
 (defun xml-get-logical (name elem &key (error-p t))
   "Get the value of attribute or CHILD string content content named NAME from ELEM."
@@ -265,20 +256,18 @@
 (defmethod xml-typep (elem (type string))
   "Like typep, except TYPE is a string tested against ELEM.name.local-part."
   (and (xqdm:element-p elem)
-       (string-equal type (xqdm:local-part (xqdm:name elem)))))
+       (string-equal type (dom:local-name elem))))
 
 (defmethod xml-typep (elem (type symbol))
   "Like typep, except TYPE is a string tested against ELEM.name.local-part."
   (and (xqdm:element-p elem)
-       (string-equal type (xqdm:local-part (xqdm:name elem)))))
+       (string-equal type (dom:local-name elem))))
 
 
 (proclaim '(inline xml-typep-2))
 (defun xml-typep-2 (elem ns type)
-  (and (xqdm:element-p elem)
-       (let ((name (xqdm:name elem)))
-	 (and (string-equal type (xqdm:local-part name))
-	      (string-equal ns (xqdm:prefix name))))))
+  (and (string-equal type (dom:local-name elem))
+       (string-equal ns (dom:prefix elem))))
 
 (defun xml-typep-3 (elem type)
   (and (xqdm:element-p elem)
@@ -468,12 +457,3 @@
      #'xqdm:children)
     (when base-ns (xqdm:value base-ns))))
 |#
-
-
-
-	    
-  
-
-
-
-
