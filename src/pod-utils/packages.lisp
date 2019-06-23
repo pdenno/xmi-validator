@@ -250,6 +250,7 @@
    #:xml-attributes
    #:xml-children
    #:xml-collect-elem
+   #:xml-document-parser
    #:xml-find-attrs
    #:xml-find-cdata-child 
    #:xml-find-child 
@@ -258,7 +259,11 @@
    #:xml-get-attr 
    #:xml-get-attr-value
    #:xml-get-logical
-   #:xml-indent 
+   #:xml-indent
+   #:xml-line-num
+   #:xml-parent
+   #:xml-prefix2uri
+   #:xml-root
    #:xml-set-content
    #:xml-set-parents
    #:xml-siblings 
@@ -266,6 +271,7 @@
    #:xml-typep
    #:xml-typep-2
    #:xml-typep-3
+   #:xml-value
    #:xml-follow-back))
 
 #+nil(defpackage xqdm 

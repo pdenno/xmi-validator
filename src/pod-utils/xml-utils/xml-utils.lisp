@@ -214,6 +214,11 @@
 		 (setf attrs (append attrs more)))))
     (mapcar #'(lambda (x) (cons (dom:local-name x) (dom:value x))) attrs)))
 
+(defun xml-prefix2uri (prefix namespaces)
+  "Return the URI string associated with PREFIX. NAMESPACES is an alist such as produced by xml-namespaces."
+  (when-bind (found (find prefix namespaces :key #'car :test #'equal))
+      (cdr found)))
+
 (defun xml-get-attr (elem attr-name-string &key prefix)
   "Get the attribute named ATTR-NAME, a string. If :prefix (a string) is supplied, test it
    against the attr's prefix. (Thus it doesn't get confused by versioned XMI packages.)"
