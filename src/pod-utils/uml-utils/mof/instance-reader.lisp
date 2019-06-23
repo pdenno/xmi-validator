@@ -132,12 +132,12 @@
 (defun discover-model-xmi-model (doc)
   "Returns the lisp package of DOC. "
    (when-bind (xmi-elem (depth-first-search 
-			 (xqdm:root doc)
+			 (xml-root doc)
 			 #'(lambda (x) 
 			     (or (xml-typep x "XMI") 
 				 (xml-typep x "Model")
 				 (xml-typep x "Profile")))
-			 #'xqdm:children
+			 #'xml-children
 			 :on-fail nil))
      (let* ((xmi-ns (find '|xmlns|::|xmi| (xqdm:namespaces xmi-elem) :key #'xqdm:name))
 	    (pkg (xqdm:namespace xmi-ns)))
@@ -152,9 +152,9 @@
 ;;;   <cmof:Tag xmi:id="_1" name="org.omg.xmi.nsURI" value="http://schema.omg.org/spec/ODM/1.0/odm.xml" element="_15_..."/>
 (defun discover-ns-prefix/uri (doc)
   "Looking not too deep into DOC, return values ns-prefix ns-uri."
-  (let* ((lev1 (loop for c in (xqdm:children (xqdm:root doc)) when (xml-typep c 'cmof::|Tag|) collect c))
+  (let* ((lev1 (loop for c in (xml-children (xml-root doc)) when (xml-typep c 'cmof::|Tag|) collect c))
 	 (lev2 (mapappend 
-		#'(lambda (x) (loop for c in (xqdm:children x) when (xml-typep c 'cmof::|Tag|) collect c)) lev1))
+		#'(lambda (x) (loop for c in (xml-children x) when (xml-typep c 'cmof::|Tag|) collect c)) lev1))
 	 (lev1+2 (append lev1 lev2)))
     (values
      (when-bind (pre (find-if #'(lambda (x) (string= (xml-get-attr-value x "name") "org.omg.xmi.nsPrefix")) lev1+2))
@@ -186,13 +186,13 @@
   "Return the XMI namespace of the document, or nil if you can't find it."
   (let (ns)
     (depth-first-search 
-     (xqdm:root doc)
+     (xml-root doc)
      #'(lambda (x) 
-	 (and (xqdm:element-p x)
+	 (and (dom:element-p x)
 	      (when-bind (found (find-if #'(lambda (y) (string= "xmlns:xmi" (dom:name y)))
-					 (xqdm:attributes x)))
+					 (xml-attributes x)))
 		(setf ns (dom:value found)))))
-     #'xqdm:children
+     #'xml-children
      :on-fail nil)
     (when ns (find-package ns))))
 
@@ -204,7 +204,7 @@
   (setf *results* (make-instance 'processing-results))
   (with-slots (conditions user-doc pristine-doc stereo-elems namespaces 
 	       xqdm-pristine2user-ht elem2line-ht xmi-namespace) *results*
-    (setf *mmm* (setf user-doc (or instance-xqdm (xmlp:document-parser file)))) ; *mmm* for debugging.
+    (setf *mmm* (setf user-doc (or instance-xqdm (xml-document-parser file)))) ; *mmm* for debugging.
     (xml-set-parents user-doc) ; 2011-03-18, below too.
     (setf xmi-namespace (xmi-namespace user-doc))
     (setf elem2line-ht (xml-record-positions *results* user-doc))
@@ -248,8 +248,8 @@
     (format t "~% elem = ~A" elem)
     (with-slots (elem2line-ht) results
       (when-bind (xmi-id (xml-get-attr-value elem "id" :prefix "xmi"))
-	  (setf (gethash xmi-id elem2line-ht) (xmlp:line-num elem)))
-      (loop for c in (xqdm:children elem)
+	  (setf (gethash xmi-id elem2line-ht) (xml-line-num elem)))
+      (loop for c in (xml-children elem)
 	 do (xml-record-positions results c)))))
   
 (defun collect-xmiid (results doc)
@@ -261,9 +261,9 @@
     (depth-first-search 
      doc 
      #'fail 
-     #'xqdm:children
+     #'xml-children
      :do #'(lambda (node) 
-	     (when (xqdm:element-p node)
+	     (when (dom:element-p node)
 	       (when-bind (id (xml-get-attr-value node "id" :prefix "xmi"))
 		   (setf (gethash id xmiid2obj-ht) t)))))))
 
@@ -301,29 +301,27 @@
       (breadth-first-search 
        doc 
        #'fail
-       #'(lambda (p) ; was #'xqdm:children -- very wasteful!
+       #'(lambda (p) ; was #'xml-children -- very wasteful!
 	   (when (or
-		  (and (xqdm:element-p p)
+		  (and (dom:element-p p)
 		       (member (dom:local-name p) '("XMI" "Model" "Package" "Profile") :test #'string=))
-		  #-sbcl(typep p 'xqdm:doc-node))
-	     (xqdm:children p)))
+	     (xml-children p)))
        :do  #'(lambda (n)
-		(when (xqdm:element-p n)
+		(when (dom:element-p n)
 		  (let ((name (dom:local-name n))) ; RepositorySet for edbark MMM (2012 "Schema"
 		    (cond ((or (string= name "Model") (string= name "Schema")) (setf model-elem n))
 			  ((string= name "Profile")   (push n profiles))
 			  ((string= name "Package")
-			   (let ((parent (xqdm:parent n)))
+			   (let ((parent (xml-parent n)))
 			     (when (or 
 				    (string= "_0" (xml-get-attr-value n "id" :prefix "xmi"))
 				    (not parent)
 				    (and
 				     parent
-				     (or #-sbcl(typep parent 'xqdm:doc-node)
-					 (string= (dom:local-name parent) "XMI"))))
+				     (string= (dom:local-name parent) "XMI")))
 			       (setf model-elem n))))
 			  #|((and (string= name "packagedElement") ; 2016-01-06 for ODM (possibly the new 2.5 way for MOF models)
-				(string= "XMI" (dom:local-name (xqdm:parent n))))
+				(string= "XMI" (dom:local-name (xml-parent n))))
 			   (format t "~% further..."))|#)))))
       (unless model-elem ; model is a profile. Better only be one!
 	(setf model-elem (car profiles))
@@ -363,29 +361,27 @@
 (declaim (inline namespace-names-model-p))
 (defun namespace-names-model-p (results str)
   (with-slots (namespaces) results
-    (when-bind (ns-node (find str namespaces :key #'xqdm:name :test #'string=))
+    (when-bind (ns-node (find str namespaces :key #'dom:node-name :test #'string=))
       (eql (lisp-package *model*) (xqdm:namespace ns-node)))))
 
 ;;; 2010-10-12 POD Was def-memo-equal (was class/attr, a list) I don't see why, attr is unique!
 (defun attr-is-slot-p (results class attr)
   "Returns slot if ATTR (an xqdm:string-attr-node) refers to a slot in CLASS.
    Uses m1-find-slot-named, above."
-  (let* ((name (xqdm:name attr))
-	 (prefix (xqdm:prefix name)))
+  (let* ((prefix (dom:prefix attr)))
     (and (or (string= "" prefix) 
 	     (namespace-names-model-p results prefix))
-	 (m1-find-slot-named class (xqdm:local-part name)))))
+	 (m1-find-slot-named class (dom:local-name attr)))))
 
 #|
 (defun attr-is-tag-p (class attr)
   "Returns slot if ATTR (an xqdm:string-attr-node) refers to a slot in CLASS.
    Uses m1-find-slot-named, above."
-  (let* ((name (xqdm:name attr))
-	 (prefix (xqdm:prefix name)))
+  (let* ((prefix (dom:prefix attr)))
     (and 
      (stereotype-p class)
      (or (string= "" prefix) (namespace-names-model-p prefix))
-     (m1-find-slot-named class (xqdm:local-part name)))))
+     (m1-find-slot-named class (dom:local-name attr)))))
 |#
 
 
@@ -403,7 +399,7 @@
 		 (if warn-p
 		     (warn 'mof-class-not-found :class-name class-name :elem elem)
 		     (return-from class-of-elem nil)))))
-	  ((setf slot (m1-find-slot-named parent-class (xqdm:name elem))) ;(2) Use XMI rule 2g to infer type
+	  ((setf slot (m1-find-slot-named parent-class (dom:node-name elem))) ;(2) Use XMI rule 2g to infer type
 ;;; 2010-09-29: POD Commenting out. Stereotyping makes this not quite valid. Needs thought.
 	   (when-bind (range (slot-definition-range slot))
 ;	     (unless (null (closer-mop:class-direct-subclasses range))
@@ -414,13 +410,11 @@
 	     ;; 2008-03-10 In this case, we need to find the base_<type> and programmatically 
 	     ;; create the instance. Otherwise while parsing we may encounter slots (from the base type)
 	     ;; that we can't handle. 
-	   (let* ((name (xqdm:name elem))
-		  (local-name (xqdm:local-part name))
-		  (class (find-class (intern local-name lisp-package) nil)))
-	     (or class 
-		 (if warn-p
-		     (warn 'mof-class-not-found :class-name name :elem elem)
-		     (return-from class-of-elem nil)))))))))
+	   (if-bind (class (find-class (intern (dom:local-name attr) lisp-package) nil))
+		    class
+		    (if warn-p
+			(warn 'mof-class-not-found :class-name name :elem elem)
+			(return-from class-of-elem nil))))))))
 
 ;;; mofi:substitute-ocl-range in ALL UMLs now. 
 (defun parse-primitive-value (value class)
@@ -451,7 +445,7 @@
 (defun parse-enum-elem (elem class)
   "Return a keyword. Usually only called on canonical XMI."
   (declare (ignore class)) ; POD type checking NYI????
-  (kintern (car (xqdm:children elem))))
+  (kintern (car (xml-children elem))))
 
 (declaim (inline xmi-stereotype-p))
 (defun xmi-stereotype-p (name class)
@@ -467,8 +461,8 @@
    CLASS is the class of OBJ (defined in the parent to ELEM)."
   (let ((xmi-eextension (xmi-sym results "Extension"))
 	(xmi-extension  (xmi-sym results "extension")))
-    (loop for child in (xqdm:children elem)
-       when (xqdm:element-p child) do
+    (loop for child in (xml-children elem)
+       when (dom:element-p child) do
 	 (let ((property-name (dom:local-name child)))
 	   (if-bind (slot (m1-find-slot-named class property-name))
 		    (when-bind (val (parse-elem results child class))
@@ -481,10 +475,10 @@
 			    (push-last val (slot-value obj slot-name))
 			    (setf (slot-value obj slot-name) (list val))))) ; 2011-08-02 (list val)
 		    ;; No slot
-		    (cond ((xmi-stereotype-p (xqdm:name child) class)
+		    (cond ((xmi-stereotype-p (dom:node-name child) class)
 			   (unless profile (warn 'mof-stereotype-application-in-model :elem child)))
 			  ((string= property-name "href") 
-			   (setf (%source-elem obj) (car (xqdm:children child))))
+			   (setf (%source-elem obj) (car (xml-children child))))
 			  ((not (or (xml-typep child xmi-eextension) ; MD 16.5
 				    (xml-typep child xmi-extension)))
 			   (warn 'mof-no-such-attr :class class :slot-name property-name :elem elem))))))))
@@ -497,13 +491,13 @@
     (let ((xmi-type (xmi-sym results "type"))
 	  (xmi-id   (xmi-sym results "id"))
 	  (xmi-uuid (xmi-sym results "uuid"))
-	  (attrs (xqdm:attributes elem)))
+	  (attrs (xml-attributes elem)))
       (loop for attr in attrs do
-	   (let ((name (xqdm:name attr))
+	   (let ((name (dom:node-name attr))
 		 slot)
 	     (cond ((or (eq name xmi-type) (eq name xmi-id) (eq name xmi-uuid)) t) ; ignore
 		   ((setf slot (attr-is-slot-p results class attr))
-		    (let ((val (parse-attr (xqdm:value attr) class (xqdm:local-part name))))
+		    (let ((val (parse-attr (xml-value attr) class (dom:local-name attr))))
 		      (when (slot-definition-is-derived-p slot)
 			(warn 'xmi-serializes-derived :class class :slot slot :elem elem :object obj))
 		      (when (eql val (slot-definition-default slot))
@@ -542,9 +536,9 @@
 
 (defun check-xmi-type-in-href (results elem)
   "Check whether xmi:type is used in an element using href; it should not be post xmi 2.4."
-  (let ((attrs (xqdm:attributes elem)))
+  (let ((attrs (xml-attributes elem)))
     (when (and (member (xmi-sym results "type") attrs :key 'xqdm:name)
-	       (member "href" attrs :key #'(lambda (x) (symbol-name (xqdm:name x))) :test #'string=)
+	       (member "href" attrs :key #'(lambda (x) (symbol-name (dom:node-name x))) :test #'string=)
 	       (with-vo (mut) (member (model-name (model-n+1 mut))
 				      (member :uml241 (reverse (all-umls))))))
       (warn 'xmi-type-in-href :elem elem))))
@@ -568,7 +562,7 @@
 	     (setq class (class-of-elem elem parent-class :warn-p warn-p :profile profile))
 	     (cond ((primitive-type-p class)
 		    (setf (gethash elem xqdm2model-ht) class)
-		    (parse-primitive-value (car (xqdm:children elem)) class))
+		    (parse-primitive-value (car (xml-children elem)) class))
 		   ((enum-p class) 
 		    (setf (gethash elem xqdm2model-ht) class)
 		    (parse-enum-elem elem class))
@@ -579,7 +573,7 @@
 		      (parse-elem-child-loop results elem obj class profile)
 		      (parse-elem-attr-loop  results elem obj class)
 		      obj))
-		   (t (error 'xmi-general-error :str (format nil "~%Could not find class of elem: ~S" (xqdm:name elem))))))))))
+		   (t (error 'xmi-general-error :str (format nil "~%Could not find class of elem: ~S" (dom:node-name elem))))))))))
 
 #| Note: Full XMI allows strings to be interpreted as references whereas Canonical XMI 
    would require an xmi:idref."
@@ -618,14 +612,14 @@ Full XMI:
 	  "Return children of the XML elem NODE, except when NODE is uml:Model or xmi:Extension."
 	  (unless (or (xml-typep-2 node "uml" "Model")
 		      (xml-typep-2 node "xmi" "Extension"))
-	    (xqdm:children node))))
+	    (xml-children node))))
     (let ((stereo-elems (make-array 100 :adjustable t :fill-pointer 0)))
       (depth-first-search 
        doc 
        #'fail 
        #'interesting-children 
        :do #'(lambda (node) 
-	       (when (and (xqdm:element-p node) (elem2stereo-class node))
+	       (when (and (dom:element-p node) (elem2stereo-class node))
 		 (vector-push-extend node stereo-elems))))
       stereo-elems)))
 
@@ -635,8 +629,8 @@ Full XMI:
    the XML ELEM, if any. If non-nil returned, ELEM is a stereotype application."
   (with-vo (session-models)
     (with-slots (namespaces) *results*
-      (when-bind (name (xqdm:name elem))
-	(when-bind (ns (find (get name :prefix) namespaces :key #'xqdm:name :test #'string=))
+      (when-bind (name (dom:node-name elem))
+	(when-bind (ns (find (get name :prefix) namespaces :key #'dom:node-name :test #'string=))
 	  (when-bind (model (or (find-model (string (package-name (xqdm:namespace ns))) :error-p nil)
 				(find (string (package-name (xqdm:namespace ns)))
 				      session-models
@@ -644,7 +638,7 @@ Full XMI:
 				      :key #'(lambda (x) (and (typep x 'user-profile)
 							      (ns-uri x)))))) ; 2012-09-05 was href-uri
 	    (when (typep model 'abstract-profile) 
-	       (find (xqdm:local-part name) (coerce (types model) 'list)
+	       (find (dom:local-name elem) (coerce (types model) 'list)
 		     :test #'(lambda (x y) (string-equal x (string (class-name y))))))))))))
 
 (defun pp-mixin-stereo-objs (results)
@@ -1132,7 +1126,7 @@ Full XMI:
     (when-bind (obj (depth-first-search 
 		     xqdm-elem
 		     #'(lambda (x) (gethash x xqdm2model-ht))
-		     #'(lambda (x) (list (xqdm:parent x)))))
+		     #'(lambda (x) (list (xml-parent x)))))
       (lisp-package (of-model (class-of (gethash obj xqdm2model-ht)))))))
 
 (defgeneric href-made-memo (obj href &key &allow-other-keys))

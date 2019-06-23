@@ -6,7 +6,8 @@
 ;;; Compatibility functions to replace Anderson's cl-xml with cxml (Closure XML)
 ;;; https://common-lisp.net/project/cxml
 
-(in-package :xmlp)
+;;; =================================== XMLP =================================
+(in-package :pod-utils) 
 
 (defclass line-cnt-dom-builder (rune-dom::dom-builder)
   ())
@@ -14,11 +15,11 @@
 (defclass line-cnt-attribute-node-map (rune-dom::attribute-node-map)
   ((line-num :initform nil)))
 
-(defun vanilla-document-parser (file)
+(defun xml-vanilla-document-parser (file)
   (cxml:parse-file file (cxml-dom:make-dom-builder)))
 
-(defmethod document-parser ((file t))
-  (xqdm:squeeze-xml 
+(defmethod xml-document-parser ((file t))
+  (squeeze-xml 
    (cxml:parse-file
     file
      (make-instance 'line-cnt-dom-builder)
@@ -34,55 +35,43 @@
     (push elem stack)
     stack))
 
-(defun line-num (elem)
+(defun xml-line-num (elem)
   "Return the line number where the elem starts. This is possible if parsed with line-cnt-dom-builder."
-  (when (xqdm:element-p elem)
+  (when (dom:element-p elem)
     (when-bind (amap (dom:attributes elem))
 	(when (and (slot-exists-p amap 'line-num)
 		   (slot-boundp amap 'line-num))
 	  (slot-value amap 'line-num)))))
 
 ;;; https://common-lisp.net/project/cxml/sax.html#serialization
-(defmethod write-node ((node t) stream)
+(defmethod xml-write-node ((node t) stream)
   (dom:map-document (cxml:make-character-stream-sink stream) node))
 
+;;; =================================== XQDM =================================
 (defpackage |xmlns|)
-(in-package :xqdm)
 
 (defvar *xml-clone2old* nil)
 
-(defun children (elem) (coerce (dom:child-nodes elem) 'list))
+(defun xml-children (elem) (coerce (dom:child-nodes elem) 'list))
 
-(defun (setf children) (val node)
+(defun (setf xml-children) (val node)
   (setf (slot-value node 'rune-dom::children) val))
 
 (defun clone-node (node) node) ; POD NYI
 
-
 (defun (setf parent) (val node)
   (setf (slot-value node 'rune-dom::parent) val))
 
-(defun name (elem-or-attr)
-  (dom:node-name elem-or-attr))
-
-(defun document (elem)
+(defun xml-root (elem)
   (slot-value elem 'rune-dom::owner))
 
-;;; POD Guessing 
-(defun root (elem) 
-  (dom:document-element elem))
+(defun xml-parent (elem)
+  (dom:parent-node elem))
 
-(defun parent (elem) (dom:parent-node elem))
+(defun xml-value (attr)
+  (dom:value attr))
 
-(defun element-p (x) 
-  (dom:element-p x))
-
-(defmethod value (ns) 
-  (dom:value ns))
-
-(defmethod value ((attr dom:attr)) (dom:value attr))
-
-(defun attributes (elem)
+(defun xml-attributes (elem)
   (let ((result (dom:attributes elem)))
     (if (listp result)
 	result
@@ -98,12 +87,12 @@
     (pod-utils:depth-first-search 
      elem
      #'(lambda (x) (declare (ignore x)) nil) ; fail
-     #'children 
+     #'xml-children 
      :do #'(lambda (x) ; This part is OK to use sequences
 	     (let ((cs (dom:child-nodes x)))
 	       (when (and (some #'dom:text-node-p cs)
 			  (some #'dom:element-p cs))
-		 (setf (xqdm:children x)
+		 (setf (xml-children x)
 		       (delete-if #'(lambda (y) ; turns it into an svec? 
 				      (and (dom:text-node-p y)
 					   (cl-ppcre:scan scanner (dom:data y))))
@@ -113,11 +102,10 @@
 ;;; The next three were once in canon-xmi-gen.lisp
 (defun xml-add-attr (owner prefix name value)
   "Add an attribute named PREFIX:NAME with value VALUE to OWNER, a rune-dom:element. Return the elem."
-  (let* ((doc     (xqdm:document owner))
+  (let* ((doc     (xml-document owner))
 	 (ns      (dom:namespace-uri owner))
 	 (text    (make-instance 'rune-dom::text :children #() :owner doc))
-	 ;; I'm guessing that the nmap (which is in every attribute, yet lists all attributs) already exists. 
-	 ;(nmap    (make-instance 'xmlp::line-cnt-attribute-node-map))
+	 ;; nmap (which is in every attribute, yet lists all attributs) is automatically updated
 	 (attr    (make-instance 'rune-dom::attribute
 				 :children (coerce (list text) 'vector)
 				 :owner doc
@@ -125,69 +113,61 @@
 				 :local-name name
 				 :name (pod-utils:strcat prefix ":" name)
 				 :owner-element owner)))
-    ;; :ns ns  :element-type :attribute  :specified t
     (setf (slot-value attr 'rune-dom::namespace-uri) ns)
     (setf (slot-value attr 'rune-dom::specified-p) t)
     (setf (slot-value attr 'rune-dom::map) (dom:attributes owner))
-    
     (setf (slot-value text 'rune-dom::parent) attr)
     (setf (slot-value text 'rune-dom::value) value)
     (pod-utils:push-last attr (slot-value (dom:attributes owner) 'rune-dom::items))
     owner))
 
-(defun xml-add-elem (name parent doc)
-  "Add an element named NAME to PARENT."
-  (let (elem)
-    (setf (xqdm:children parent) 
-	  (append (xqdm:children parent) 
-		  (list (setq elem (xml-make-node doc parent name nil :type 'xqdm:elem-node)))))
+(defun xml-add-elem (owner prefix name)
+  "Add an element named PREFIX:NAME to OWNER."
+  (let ((elem (make-instance 'rune-dom::element
+			     :tag-name (strcat prefix ":" name)
+			     :prefix prefix 
+			     :local-name name
+			     :owner owner
+			     :namespace-uri (dom:namespace-uri owner))))
+    (setf (slot-value owner 'rune-dom::children) 
+	  (coerce (append (coerce (slot-value owner 'rune-dom::children) 'list)
+			  (list elem))
+		  'vector))
     elem))
 
 (defun xml-set-content (elem value)
   "Set text/number content of PARENT to VALUE."
   (when value
     (unless (or (stringp value) (numberp value)) (error "set-content args"))
-    (setf (xqdm:children elem) (list (if (stringp value) value (format nil "~A" value))))
+    (setf (xml-children elem) (list (if (stringp value) value (format nil "~A" value))))
     elem))
 
-(in-package :pod-utils)
-
-(declaim (inline xcar))
-(defun xcar (elem)
-  "CAR of xqdm:children of ELEM."
-  (car (xqdm:children elem)))
-
-(declaim (inline xnth))
-(defun xnth (n elem)
-  "NTHof xqdm:children of ELEM."
-  (nth n (xqdm:children elem)))
-
 (defmethod xml-find-child ((type symbol) (children list) &key (error-p nil))
-  "Return first xqdm:element from list CHILDREN whose tag is TYPE, a symbol."
+  "Return first dom:element from list CHILDREN whose tag is TYPE, a symbol."
   (if-bind (child (find-if #'(lambda (x) (xml-typep-3 x type)) children)) ; 2013-03-06 I make thes typep-3 OK?
 	   child
            (when error-p (error "No child element ~A" type))))
 
 (defmethod xml-find-child ((type string) (children list) &key (error-p nil))
-  "Return first xqdm:element from list CHILDREN whose tag dom:local-name is TYPE, a string."
+  "Return first dom:element from list CHILDREN whose tag dom:local-name is TYPE, a string."
   (if-bind (child (find type children :key #'(lambda (x) (dom:local-name x)) :test #'string-equal))
            child
            (when error-p (error "No child element ~A" type))))
 
 (defmethod xml-find-child (type (elem dom:element) &key (error-p nil))
   "Return first child of element TYPE whose tag is TYPE."
-  (xml-find-child type (xqdm:children elem) :error-p error-p))
+  (xml-find-child type (xml-children elem) :error-p error-p))
 
 (defmethod xml-find-child (type  (elem dom:document) &key (error-p nil))
   "Return first child of the document node's root whose tag is TYPE."
-  (xml-find-child type (xqdm:root elem) :error-p error-p))
+  (xml-find-child type (xml-root elem) :error-p error-p))
 
 (defmethod xml-find-children ((type string) (elem dom:element))
   "Return a list of children of type TYPE. Second elem is a element."
-  (xml-find-children type (xqdm:children elem)))
+  (xml-find-children type (xml-children elem)))
 
 (defmethod xml-find-children ((type string) (children list))
-  "Return a list of children of type TYPE a string matching the local-part of the tag. 
+  "Return a list of children of type TYPE a string matching the local-name of the tag. 
    Second elem is a list of elements."
   (loop for child in children
         when (string-equal (dom:local-name child) type)
@@ -200,12 +180,12 @@
 
 (defmethod xml-find-children ((type symbol) (elem dom:element))
   "Return a list of children of type TYPE type. Second elem is a list of elements."
-  (loop for child in (xqdm:children elem)
+  (loop for child in (xml-children elem)
         when (xml-typep child type) collect child))
 
 (defun xml-find-cdata-child (elem)
   (when elem
-    (when-bind (str (loop for child in (xqdm:children elem)
+    (when-bind (str (loop for child in (xml-children elem)
                        when (stringp child) return child))
       (loop for pos from 0 to (1- (length str))
          when (alphanumericp (char str pos)) return str))))
@@ -215,23 +195,24 @@
 (defun xml-find-string-child (elem)
   (xml-find-cdata-child elem))
 
-(defun xml-siblings (node)
-  (xqdm:children (xqdm:parent node)))
+(defun fail (ignore)
+  (declare (ignore ignore))
+  nil)
 
-(defun namespaces (elem &key result stop-at)
-  "Return an alist of the namespace-URIs of the namespaces found in elem and its children.
-   When all the prefixes in STOP-AT are found, stop searching. If stop-at is nil do a complete search."
-  (let ((result-prefix '())
-	(result-uri    '()))
+(defun xml-siblings (node)
+  (xml-children (xml-parent node)))
+
+(defun xml-namespaces (elem)
+  "Return an alist of the namespace-URIs of the namespaces found in elem and its descendants."
+  (let ((attrs '()))
     (breadth-first-search 
      elem
-     #'(lambda (ignore)
-	 (declare (ignore ignore)
-		  (every #'(lambda (x) (member x stop-at :test #'equal)) result-prefix)))
-     #'(lambda (x) (xqdm:children x))
-     :on-fail nil
-     :do #'(lambda (e) 
-    
+     #'fail
+     #'(lambda (x) (xml-children x))
+     :do #'(lambda (x)
+	     (when-bind (more (xml-find-attrs x #'(lambda (y) (string= (dom:prefix y) "xmlns"))))
+		 (setf attrs (append attrs more)))))
+    (mapcar #'(lambda (x) (cons (dom:local-name x) (dom:value x))) attrs)))
 
 (defun xml-get-attr (elem attr-name-string &key prefix)
   "Get the attribute named ATTR-NAME, a string. If :prefix (a string) is supplied, test it
@@ -240,7 +221,7 @@
 	 (hard-test (attr) (and (equal attr-name-string (dom:local-name attr))
 				(equal prefix           (dom:prefix attr)))))
     (let ((test (if prefix #'hard-test #'easy-test)))
-       (find-if test (xqdm:attributes elem)))))
+       (find-if test (xml-attributes elem)))))
 
 (declaim (inline xml-get-attr-value))
 (defun xml-get-attr-value (elem attr-name-string &key prefix)
@@ -248,27 +229,32 @@
    interned in a package useds as the xml namespace of the attribute. Return nil
    if no attribute found."
   (when-bind (attr (xml-get-attr elem attr-name-string :prefix prefix))
-      (xqdm:value attr)))
+      (xml-value attr)))
+
+(defun xml-find-attrs (elem test)
+  "Return a list of attributes of ELEM that pass TEST."
+  (loop for attr in (xml-attributes elem)
+       when (funcall test attr)
+     collect attr))
 
 (defun xml-get-logical (name elem &key (error-p t))
   "Get the value of attribute or CHILD string content content named NAME from ELEM."
   (let ((result
 	 (or (xml-get-attr elem name)
 	     (when-bind (c (xml-find-child name elem))
-	       (let ((val (car (xqdm:children c))))
+	       (let ((val (car (xml-children c))))
 		 (when (stringp val) val))))))
     (or result (when error-p (error "Elem does not contain child/attr '~A'." name)))))
 
 (defmethod xml-typep (elem (type string))
-  "Like typep, except TYPE is a string tested against ELEM.name.local-part."
-  (and (xqdm:element-p elem)
+  "Like typep, except TYPE is a string tested against ELEM.local-name."
+  (and (dom:element-p elem)
        (string-equal type (dom:local-name elem))))
 
 (defmethod xml-typep (elem (type symbol))
-  "Like typep, except TYPE is a string tested against ELEM.name.local-part."
-  (and (xqdm:element-p elem)
+  "Like typep, except TYPE is a string tested against ELEM.local-name."
+  (and (dom:element-p elem)
        (string-equal type (dom:local-name elem))))
-
 
 (proclaim '(inline xml-typep-2))
 (defun xml-typep-2 (elem ns type)
@@ -276,22 +262,8 @@
        (string-equal ns (dom:prefix elem))))
 
 (defun xml-typep-3 (elem type)
-  (and (xqdm:element-p elem)
-       (eql (xqdm:name elem) type)))
-
-
-(defun xml-make-node (document parent name children &key (type 'dom::attribute)) ; POD was xqdm:string-attr-node
-  "Create a node of TYPE for DOCUMENT with ROOT (xqdm concept?) and NAME. 
-   (NAME is either an attribute name, an element name, of if a xqdm:comment-node nil).
-    NIL is often provided for CHILDREN, which can be set later."
-  (if (eql type 'dom:comment)
-      (make-instance type
-		     :document document :parent parent 
-		     :children (if (listp children) children (list children)))
-      (make-instance type
-		     :name name
-		     :document document :parent parent 
-		     :children (if (listp children) children (list children)))))
+  (and (dom:element-p elem)
+       (eql (dom:node-name elem) type)))
 
 ;;; Inspired by Vasilis M.'s cells-gtk/widgets.lisp (in the sense that it has 'subtypes').
 (defmacro def-parse (method-name pass-downward (type &rest binds) &body body)
@@ -303,7 +275,7 @@
       `(defmethod ,method-name ((elem-type (eql ,type)) dself &key ,pass-downward ,@keys)
          (declare (ignorable dself ,pass-downward))
          (let* ((,sint? nil)
-		(,chilun (xqdm::children dself))
+		(,chilun (xml-children dself))
                 ,@(loop #:for attr #:in attrs #:collect
 			`(,(intern (string-upcase (c-name2lisp attr)))
 			  (or (string-integer-p (setq ,sint? (xml-get-attr dself ,attr))) 
@@ -342,11 +314,11 @@
 			     finally (return result)))))
 
 (defun xml-follow-back (node path-back &optional accum)
-  "Follow the xqdm:parent link from node back through the types (strings)
+  "Follow the xml-parent link from node back through the types (strings)
    of the list PATH-BACK. Return the object at the end of the list or nil
    if at some navigation the correct elem isn't found."
   (cond ((null path-back) (nreverse accum))
-	(t (let ((parent (xqdm:parent node)))
+	(t (let ((parent (xml-parent node)))
 	     (when (xml-typep parent (car path-back))
 	       (xml-follow-back parent (cdr path-back) (push parent accum)))))))
 
@@ -354,15 +326,15 @@
 ;;; This is useless??? Use *print-pretty* with cl-xml or usr-bin-xmllint, below
 (defun xml-indent (elem) 
   (depth-first-search 
-   elem #'fail #'xqdm:children :tracking t
+   elem #'fail #'xml-children :tracking t
    :do 
    #'(lambda (node)
-       (when (xqdm:element-p node)
+       (when (dom:element-p node)
 	 (let* ((depth (length (tree-search-path)))
 		(spaces (spaces depth)))
-	   (setf (xqdm:children node)
-		 (loop for c in (xqdm:children node)
-		       when (xqdm:element-p c) collect spaces
+	   (setf (xml-children node)
+		 (loop for c in (xml-children node)
+		       when (dom:element-p c) collect spaces
 		       collect c)))))))
 
 (defun xml-collect-elem (predicate xml)
@@ -370,10 +342,10 @@
    PREDICATE, a function of one argument."
   (let (accum)
     (labels ((collect-aux (x)
-	       (when (xqdm:element-p x)
+	       (when (dom:element-p x)
 		 (when (funcall predicate x) (push x accum))
-		 (loop for e in (xqdm:children x) do (collect-aux e)))))
-      (collect-aux (if (typep xml 'dom:document) (xqdm:root xml) xml))
+		 (loop for e in (xml-children x) do (collect-aux e)))))
+      (collect-aux (if (typep xml 'dom:document) (xml-root xml) xml))
       accum)))
 
 #+(and Linux (or Lispworks sbcl))
@@ -406,47 +378,28 @@
       (loop for line = (read-line diff-stream nil nil)
 	 while line do (write-line line outstream)))))
 
-
-
 (defun xml-set-parents (elem)
-  "The xqdm:parent is not always set!"
+  "The xml-parent is not always set!"
   (cond ((null elem) nil)
 	((stringp elem) nil)
 	((typep elem 'dom:node)
-	 (loop for c in (xqdm:children elem) do 
-	    (when (xqdm:element-p c) 
-	      (when (null (xqdm:parent c)) (setf (xqdm:parent c) elem))
+	 (loop for c in (xml-children elem) do 
+	    (when (dom:element-p c) 
+	      (when (null (xml-parent c)) (setf (xml-parent c) elem))
 	      (xml-set-parents c)))))
   elem)
-
-#+nil(defun xml-squeeze (elem) ; see also squeeze-xml ... 2014-07-22 This looks like the old one (deprecated)
-  "Recursively remove empty string content when element has both string and element content children."
-  (depth-first-search
-   elem
-   #'fail
-   #'xqdm:children
-   :do
-   #'(lambda (x) 
-       (when (and (some #'stringp (xqdm:children x))
-		  (some #'xqdm:element-p (xqdm:children x)))
-	 (setf (xqdm:children x)
-	       (remove-if #'(lambda (y)
-			      (and (stringp y)
-				   (cl-ppcre:scan "^\\s*$" y)))
-			  (xqdm:children x))))))
-   elem)
 
 (defun xml-remove-xmi-extensions (doc)
   "Return the document with xmi:extension elements removed."
   (let ((esym (intern "Extension" (find-package :xmi))))
-    (depth-first-search (xqdm:root doc)
+    (depth-first-search (xml-root doc)
 			#'fail
-			#'xqdm:children
+			#'xml-children
 			:do #'(lambda (n)
-				(when (xqdm:element-p n)
-				  (setf (xqdm:children n)
+				(when (dom:element-p n)
+				  (setf (xml-children n)
 					(remove-if #'(lambda (x) (xml-typep x esym))
-						   (xqdm:children n))))))))
+						   (xml-children n))))))))
 
 
 
@@ -456,10 +409,10 @@
   (error "NYI"))
 #|  (let (base-ns)
     (breadth-first-search
-     (xqdm:root doc)
+     (xml-root doc)
      #'(lambda (x) 
-	 (and (xqdm:element-p x)
-	      (setf base-ns (find '|xmlns|:|| (xqdm:namespaces x) :key #'xqdm:name))))
-     #'xqdm:children)
-    (when base-ns (xqdm:value base-ns))))
+	 (and (dom:element-p x)
+	      (setf base-ns (find '|xmlns|:|| (xqdm:namespaces x) :key #'dom:node-name))))
+     #'xml-children)
+    (when base-ns (xml-value base-ns))))
 |#

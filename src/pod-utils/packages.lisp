@@ -241,12 +241,16 @@
    #:def-parse 
    #:dtd-find-child 
    #:dself
-   #:string-squeeze 
+   #:xml-namespaces
+   #:string-squeeze
+   #:squeeze-xml
    #:with-xml-attrs 
-   #:xcar
-   #:xnth
+   #:xml-add-attr
+   #:xml-add-element
+   #:xml-attributes
+   #:xml-children
    #:xml-collect-elem
-   #:xml-find-namespace 
+   #:xml-find-attrs
    #:xml-find-cdata-child 
    #:xml-find-child 
    #:xml-find-children 
@@ -255,7 +259,7 @@
    #:xml-get-attr-value
    #:xml-get-logical
    #:xml-indent 
-   #:xml-make-node
+   #:xml-set-content
    #:xml-set-parents
    #:xml-siblings 
    #:xml-squeeze
@@ -263,6 +267,32 @@
    #:xml-typep-2
    #:xml-typep-3
    #:xml-follow-back))
+
+#+nil(defpackage xqdm 
+  (:use cl)
+  (:export
+   #:clone-node
+   #:comment-node
+   #:document 
+   #:elem-node
+   #:namespace
+   #:namespace-error
+   #:namespaces
+   #:node-graph-error
+   #:ordinal-node
+   #:ordinality
+   #:parent
+   #:prefix
+   #:production-error
+   #:root
+   #:string-attr-node
+   #:validity-cerror
+   #:value
+   #:wellformedness-error
+   #:*xml-clone2old*))
+
+
+   
 
 ;;; Because this file is used by many applications, it is not possible to use 
 ;;; #:+iface-http (a compile time thing) to specify the package use-list

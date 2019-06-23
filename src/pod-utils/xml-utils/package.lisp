@@ -2,39 +2,8 @@
 
 ;;; For closure-xml. 
 
-(defpackage xqdm 
-  (:use cl)
-  (:export
-   #:attributes 
-   #:children
-   #:clone-node
-   #:comment-node
-   #:document 
-   #:elem-node
-   #:element-p 
-   #:local-part
-   #:name 
-   #:namespace
-   #:namespace-error
-   #:namespaces
-   #:node-graph-error
-   #:ordinal-node
-   #:ordinality
-   #:parent
-   #:prefix
-   #:production-error
-   #:root
-   #:squeeze-xml
-   #:string-attr-node
-   #:validity-cerror
-   #:value
-   #:wellformedness-error
-   #:xml-add-attr
-   #:xml-add-element
-   #:xml-set-content
-   #:*xml-clone2old*))
 
-(defpackage xmlp
+#+nil(defpackage xmlp
   (:use cl :pod-utils)
   (:export
    #:*default-namespaces*
@@ -43,3 +12,15 @@
    #:line-num
    #:vanilla-document-parser
    #:write-node))
+
+(defpackage xqdm 
+  (:use cl)
+  (:export
+   #:namespace-error
+   #:node-graph-error
+   #:production-error
+   #:validity-cerror
+   #:wellformedness-error))
+
+
+

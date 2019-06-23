@@ -51,7 +51,7 @@
 (defun gethash-inv-obj (val ht)
   "Inverse lookup can be one-to-many. The elem we want (out of one of the xqdm2model-ht typically)
    is the one representing the object, not a xmi:idref etc. to it."
-  (gethash-inv val  ht :test  #'(lambda (x) (and (xqdm:element-p x)
+  (gethash-inv val  ht :test  #'(lambda (x) (and (dom:element-p x)
 						 (xml-get-attr x "type" :prefix "xmi")))))
 
 (defclass tc-matches ()
@@ -677,7 +677,7 @@
   "UE is an xqdm elem in user xmi (messed up by canoncialized).
    Return the corresponding object in the pristine doc."
   (with-results (xqdm-pristine2user-ht)
-    (loop for elem = ue then (xqdm:parent elem) while elem
+    (loop for elem = ue then (xml-parent elem) while elem
        for pristine = (gethash-inv elem xqdm-pristine2user-ht) ; ht is 1-1?
        when pristine return pristine)))
 
@@ -694,7 +694,7 @@
   (flet ((ue2uo (elem-node)
 	   "Navigating up through xml elements, return the first related uml object found."
 	   (with-results (xqdm2model-ht)
-	     (loop for e = elem-node then (and e (xqdm:parent e)) while e 
+	     (loop for e = elem-node then (and e (xml-parent e)) while e 
 		   for obj = (gethash e xqdm2model-ht)
 		   when (typep obj 'mm-root-supertype) return obj))))
     (with-matches (u-no-v-list v-no-u-list)

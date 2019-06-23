@@ -1108,7 +1108,7 @@
 						     :key #'(lambda (x) (cmfuncall "%GENERAL" x))))))))))))))
 
 
-; (setf ppp (xmlp:document-parser (pod:lpath :data "bpmn/magicdraw/bpmn-profile-very-clean.xml")))
+; (setf ppp (xml-document-parser (pod:lpath :data "bpmn/magicdraw/bpmn-profile-very-clean.xml")))
 ; (clean-md ppp)
 ; (xqdm:write-node ppp *standard-output*)
 #+nil
@@ -1117,17 +1117,17 @@
   (depth-first-search 
    xqdm-doc
    #'fail
-   #'xqdm:children
+   #'xml-children
    :do #'(lambda (node)
-	   (when (xqdm:element-p node)
-	     (setf (xqdm:children node)
+	   (when (dom:element-p node)
+	     (setf (xml-children node)
 		   (remove-if #'(lambda (x)
 				  (or 
 				   (xml-typep x "icon")
 				   (xml-typep-3 x '|http://schema.omg.org/spec/XMI/2.1|::|Association|)
-				   (and (xqdm:element-p x)
+				   (and (dom:element-p x)
 					(string= "MagicDraw_Profile" (xqdm:prefix (xqdm:name x))))))
-			      (xqdm:children node)))))))
+			      (xml-children node)))))))
    
 
 

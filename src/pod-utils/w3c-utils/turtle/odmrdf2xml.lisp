@@ -83,13 +83,13 @@
 (defun write-rdf (odm-graph roots stream)
   "Write ODM-GRAPH, an ODM:RDFGraph object, to STREAM."
   (declare (ignore stream)) ; POD!
-  (let ((doc (xmlp:document-parser 
+  (let ((doc (xml-document-parser 
 	      "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'></rdf:RDF>")))
-    (setf (xqdm:namespaces (xqdm:root doc)) 
-	  (append (xqdm:namespaces (xqdm:root doc))
+    (setf (xml-namespaces (xml-root doc))         ; POD 2019 broken
+	  (append (xml-namespaces (xml-root doc)) ; POD 2019 broken
 		  (make-namespaces doc (mofi:%source-elem odm-graph))))
     (VARS roots)
-    (loop for r in roots do (add-node r (xqdm:root doc) doc))
+    (loop for r in roots do (add-node r (xml-root doc) doc))
     (format t "~3%")
     (usr-bin-xmllint :instring
 		     (with-output-to-string (str)
@@ -102,9 +102,9 @@
   (let ((elem (xqdm:make-elem-node :name '|rdf|::|Description| :parent parent :document doc))
 	leaves non-leaves)
     (mvs (leaves non-leaves) (leaf-objects node))
-    (push elem (xqdm:children parent))
+    (push elem (xml-children parent))
     ;; attributes
-    (setf (xqdm:attributes elem)
+    (setf (xml-attributes elem)
 	  (append
 	   (unless (typep node 'rdfb:|BlankNode|) 
 	     (list (mk-about-attr (odm:%name (odm:%uri (odm:%uri-ref node))) elem)))
@@ -115,13 +115,13 @@
     (loop for (pred . obj) in leaves
        when (typep obj 'rdfb:|Node|) do
 	 (push (mk-leaf-elem (pred2elem-name pred) obj elem doc)
-	       (xqdm:children elem))
+	       (xml-children elem))
 	 (setf (serialized-p pred) t))
     ;; Non-leaf objects
     (loop for (pred . obj) in non-leaves
 	  for child = (xqdm:make-elem-node :name (pred2elem-name pred) :parent elem :document doc) do
 	  (add-node obj child doc) 
-	  (push-last child (xqdm:children elem)))
+	  (push-last child (xml-children elem)))
     elem))
 
 ;;; Purpose: element name of a predicate
@@ -149,7 +149,7 @@
   (setf (serialized-p obj-node) t)
   (let ((elem (xqdm:make-elem-node :name elem-name :parent parent :document doc))
 	(uri (odm:%name (odm:%uri (odm:%uri-ref obj-node)))))
-    (setf (xqdm:attributes elem)
+    (setf (xml-attributes elem)
 	  (list (xqdm:make-string-attr-node 
 		 :name '|rdf|::|resource|
 		 :value uri
@@ -175,7 +175,7 @@
    :parent parent))
 
 (defun make-namespaces (doc ns-list)
-  "Make xqdm:ns-nodes for xqdm:document DOC. NS-LIST is (prefix . longstring)."
+  "Make xqdm:ns-nodes for dom:document DOC. NS-LIST is (prefix . longstring)."
   (loop for (prefix . ns) in (remove-if #'(lambda (x) (string= "rdf" (car x))) ns-list)
         for namespace = (or (find-package ns) 
 			    (make-package ns 
@@ -183,7 +183,7 @@
         collect (xqdm:make-ns-node :prefix (intern prefix '|xmlns|)
 				   :namespace namespace
 				   :document doc 
-				   :parent (xqdm:root doc))))
+				   :parent (xml-root doc))))
 
 
 ;;; When a predicate arc in an RDF graph points to an object node which has no further predicate arcs, 

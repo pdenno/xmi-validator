@@ -109,7 +109,7 @@
 			    (format nil "<strong> ~A.</strong>" (string (class-name (class-of e))))
 			    (format nil "<strong> ~A, at line ~A.</strong>" 
 				    (string (class-name (class-of e)))
-				    xmlp::*input-line*))
+				    "POD 2019: Fix this"))
 			"<br/><br/>"
 			(mvb (success vec)
 			    (cl-ppcre:scan-to-strings "(.+)parser error with-state" err-str)

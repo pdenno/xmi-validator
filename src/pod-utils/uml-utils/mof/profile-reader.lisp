@@ -26,8 +26,8 @@
 ;;;              :out-file (lpath :models "uml/uml-std-profile-l2.lisp"))
 (defun process-pro (&key profile-name in-file out-file uml-xqdm)
   "Toplevel function to produce the SYSML meta-model file."
-  (let* ((doc (or uml-xqdm (xmlp:document-parser in-file)))
-	 (profile (xml-find-child "Profile" (xqdm:children doc))))
+  (let* ((doc (or uml-xqdm (xml-document-parser in-file)))
+	 (profile (xml-find-child "Profile" (xml-children doc))))
     (setf *mmm* doc)
     (ensure-trie-db :profile-db) ; clears it too.
     (with-trie-db (:profile-db)
@@ -114,16 +114,16 @@
 
 (def-parse-profile (:language &key rule-id)
   (:self
-   (unless (equal "OCL" (string-trim '(#\Space) (car (xqdm:children dself))))
+   (unless (equal "OCL" (string-trim '(#\Space) (car (xml-children dself))))
      (warn "Language is not OCL: ~A" rule-id))))
 
 (def-parse-profile (:body &key comment-id rule-id)
   (:self
    (if comment-id
        (trie-add ; Swap #\' for #\" for easier printing later
-	`(comment ,comment-id ,(substitute #\' #\" (car (xqdm:children dself)))))
+	`(comment ,comment-id ,(substitute #\' #\" (car (xml-children dself)))))
      (trie-add
-      `(rule.body ,rule-id ,(car (xqdm:children dself)))))))
+      `(rule.body ,rule-id ,(car (xml-children dself)))))))
 
 (def-parse-profile (:owned-comment &key id)
   ("body" :comment-id id))
@@ -218,8 +218,8 @@
 					   (when-bind (name (slot-value x 'xqdm::name))
 					     (and (equal (string name) "type")
 						  (eql (find-package "") (symbol-package name))))))
-				  (xqdm:attributes elem)))
-     (car (xqdm:children type-attr))))
+				  (xml-attributes elem)))
+     (car (xml-children type-attr))))
 
 #|
 (defvar *profile-constraints/operations* (make-hash-table) 

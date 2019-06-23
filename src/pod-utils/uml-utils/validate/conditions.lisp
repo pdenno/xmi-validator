@@ -163,7 +163,7 @@
     (when-bind (node (or elem (and (typep object 'mm-root-supertype) (mofi:%source-elem object))))
       (setf (slot-value c 'elem) 
 	    (let ((*print-pretty* t))
-	      (with-output-to-string (str) (xmlp:write-node node str)))))))
+	      (with-output-to-string (str) (xml-write-node node str)))))))
 
 (defgeneric xqdm-copy-elem (obj))
 
@@ -912,7 +912,7 @@
      (with-slots (elem) c
        (format stream "xmi:type was used with an href:<br/>~A"
 	       (let ((*print-pretty* t))
-		 (with-output-to-string (str) (xmlp:write-node elem str))))))))
+		 (with-output-to-string (str) (xml-write-node elem str))))))))
 
 #+iface-http
 (def-combine-errors xmi-type-in-href
@@ -963,9 +963,9 @@
 ;;;=========================================================
 ;;; POD This would be useful in a new file called pod-utils/xmi-utils.lisp.
 (defmacro xqdm-finder (fname attr)
-  `(defmethod ,fname ((elem t)) ; ((elem xqdm:elem-node)) 2019-06-18 I'm going to try to let it slide. 
+  `(defmethod ,fname ((elem t)) ; 2019-06-18 I'm going to try to let it slide. 
      "Return the xmi:id of the element. Assumes you don't know what XMI pkg is being used."
-     (when (xqdm:element-p elem)
+     (when (dom:element-p elem)
        (loop for pkg in (all-xmis)
 	  for val = (xml-get-attr-value elem ,attr :prefix "xmi")
 	  when val return val))))
@@ -976,11 +976,11 @@
 
 (defun xmi-abbrev (elem &key (len 250))
   "Return a string describing the element concisely."
-  (let ((str (with-output-to-string (s) (xmlp:write-node elem s))))
+  (let ((str (with-output-to-string (s) (xml-write-node elem s))))
     (if (< (length str) len)
 	str
 	(if-bind (id (xmi-id elem))
-	  (format nil "<~A xmi:id='~A'...>" (xqdm:name elem) id)
+	  (format nil "<~A xmi:id='~A'...>" (dom:name elem) id)
 	  (format nil "~A..." (subseq str 0 len))))))
 
 (define-condition mof-diff-warning (mof-warning) 
@@ -1106,7 +1106,7 @@
        (when uelem
 	 (setf red-regex 
 	       (format nil "(~A)" 
-		       (with-output-to-string (s) (xmlp:write-node (car (xqdm:children uelem)) s)))))
+		       (with-output-to-string (s) (xml-write-node (car (xml-children uelem)) s)))))
         (format stream "User object ~A, property ~A has value '~A' where valid.xmi has '~A'.
                         <br/>
                         Valid object is ~A"
@@ -1260,7 +1260,7 @@
 ;;; Problem is that elem is coming in as a string!
 (defun relevant-xmi-pretty (elem title stream &key red-regex (color "red"))
   "Auxiliary function for relevant-xmi. Prints LEN characers of ELEM xmi on STREAM."
-  (let* ((str (with-output-to-string (s) (xmlp:write-node elem s)))
+  (let* ((str (with-output-to-string (s) (xml-write-node elem s)))
 	 (len (length str))
 	 (textlen (if-bind (len (safe-get-parameter "text-length")) (read-from-string len) 512))
 	 (pretty (pretty-xmi
@@ -1283,7 +1283,7 @@
 (defun relevant-xmi-tree (elem title stream &key (color "red"))
   "Auxiliary function for relevant-xmi. Output an abreviated tree of XML leading to the error."
     (format stream title)
-    (loop for p in (cdr (reverse (loop for p = elem then (xqdm:parent p) while p collect p)) )
+    (loop for p in (cdr (reverse (loop for p = elem then (xml-parent p) while p collect p)) )
        for i from 1 do 
 	 (write-string "<br/>" stream)
 	 (loop for j from 1 to i do (write-string "&nbsp;&nbsp;" stream))

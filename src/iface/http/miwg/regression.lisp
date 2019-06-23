@@ -120,7 +120,7 @@
 	  (when test-case
 	    (when-bind (tc-canon (mofi:find-tc-canonical test-case))
 	      (mofi:with-results (mofi:valid-doc)
-		(setf mofi:valid-doc (xmlp:document-parser tc-canon)))
+		(setf mofi:valid-doc (xml-document-parser tc-canon)))
 	      (with-vo (phttp:diffing-possible)
 		(when phttp:diffing-possible
 		  (with-debugging (:match 0)
