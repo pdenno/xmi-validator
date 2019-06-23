@@ -218,14 +218,20 @@
 (defun xml-siblings (node)
   (xqdm:children (xqdm:parent node)))
 
-#+nil(defun namespaces (elem &key result)
-  "Return an alist of the namespace-URIs of the namespaces found in elem and its children."
-  (breadth-first-search 
-   elem 
-   #'(lambda (x) (find namespace (xqdm:namespaces x) :key #'xqdm:name))
-   #'(lambda (x) (remove-if-not #'xqdm:element-p (xqdm:children x)))
-   :on-fail nil)
-    (xqdm:value (find namespace (xqdm:namespaces elem-with-ns) :key #'xqdm:name)))
+(defun namespaces (elem &key result stop-at)
+  "Return an alist of the namespace-URIs of the namespaces found in elem and its children.
+   When all the prefixes in STOP-AT are found, stop searching. If stop-at is nil do a complete search."
+  (let ((result-prefix '())
+	(result-uri    '()))
+    (breadth-first-search 
+     elem
+     #'(lambda (ignore)
+	 (declare (ignore ignore)
+		  (every #'(lambda (x) (member x stop-at :test #'equal)) result-prefix)))
+     #'(lambda (x) (xqdm:children x))
+     :on-fail nil
+     :do #'(lambda (e) 
+    
 
 (defun xml-get-attr (elem attr-name-string &key prefix)
   "Get the attribute named ATTR-NAME, a string. If :prefix (a string) is supplied, test it
