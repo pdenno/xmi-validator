@@ -255,7 +255,8 @@
    #:xml-find-cdata-child 
    #:xml-find-child 
    #:xml-find-children 
-   #:xml-find-string-child 
+   #:xml-find-string-child
+   #:xml-follow-back
    #:xml-get-attr 
    #:xml-get-attr-value
    #:xml-get-logical
@@ -272,7 +273,8 @@
    #:xml-typep-2
    #:xml-typep-3
    #:xml-value
-   #:xml-follow-back))
+   #:xml-write-node))
+
 
 #+nil(defpackage xqdm 
   (:use cl)

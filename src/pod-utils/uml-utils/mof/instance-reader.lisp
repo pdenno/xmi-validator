@@ -52,6 +52,8 @@
    (tc-matches :reader tc-matches :initform nil)
    ;; An association list of ( <prefix> . <URI-namestring>) of the namespaces found in the document. 
    (model-namespaces :reader model-namespaces :initform nil)
+   ;; The lisp package of the XMI used
+   (xmi-namespace :reader xmi-namespace :initform nil)
    ;; look up the interned symbol in the documents xmi namespace
    (xmi-sym-ht :initform (make-hash-table :test 'equal))))
 
@@ -181,7 +183,7 @@
 	     (with-results (user-profile-count)
 	       (format nil "user_profile_~A" (incf user-profile-count))))))
 
-(defmethod xmi-namespace ((doc rune-dom::document)) ; POD18 export
+(defmethod find-xmi-namespace ((doc rune-dom::document)) ; POD18 export
   "Return the XMI namespace of the document, or nil if you can't find it."
   (let (ns)
     (depth-first-search 
@@ -205,6 +207,7 @@
     (setf *mmm* (setf user-doc (or preread-xml (xml-document-parser file)))) ; *mmm* for debugging.
     (xml-set-parents user-doc) ; 2011-03-18, below too.
     (setf model-namespaces (xml-namespaces user-doc))
+    (setf xmi-namespace (find-xmi-namespace user-doc))
     (xml-record-positions user-doc) ; updates elem2line-ht of *results*
     (when clone-p (setf pristine-doc (dom:clone-node user-doc t)))
     (clear-memoize 'profile-namespace)
@@ -292,13 +295,13 @@
   (let (;(is-cmof-p (eql (discover-model-n+1 doc) (find-model :cmof)))
 	model-elem profiles)
       (breadth-first-search 
-       doc 
+       (xml-root doc)
        #'fail
        #'(lambda (p) ; was #'xml-children -- very wasteful!
 	   (when (or
 		  (and (dom:element-p p)
 		       (member (dom:local-name p) '("XMI" "Model" "Package" "Profile") :test #'string=))
-	     (xml-children p)))
+	     (xml-children p))))
        :do  #'(lambda (n)
 		(when (dom:element-p n)
 		  (let ((name (dom:local-name n))) ; RepositorySet for edbark MMM (2012 "Schema"
@@ -309,10 +312,8 @@
 			     (when (or 
 				    (string= "_0" (xml-get-attr-value n "id" :prefix "xmi"))
 				    (not parent)
-				    (and
-				     parent
-				     (string= (dom:local-name parent) "XMI")))
-			       (setf model-elem n))))))))))
+				    (and parent (string= (dom:local-name parent) "XMI")))
+			       (setf model-elem n)))))))))
       (unless model-elem ; model is a profile. Better only be one!
 	(setf model-elem (car profiles))
 	(setf profiles nil))
@@ -390,10 +391,10 @@
 	     ;; 2008-03-10 In this case, we need to find the base_<type> and programmatically 
 	     ;; create the instance. Otherwise while parsing we may encounter slots (from the base type)
 	     ;; that we can't handle. 
-	   (if-bind (class (find-class (intern (dom:local-name attr) lisp-package) nil))
+	   (if-bind (class (find-class (intern (dom:local-name elem) lisp-package) nil))
 		    class
 		    (if warn-p
-			(warn 'mof-class-not-found :class-name name :elem elem)
+			(warn 'mof-class-not-found :class-name (dom:name elem) :elem elem)
 			(return-from class-of-elem nil))))))))
 
 ;;; mofi:substitute-ocl-range in ALL UMLs now. 
@@ -467,33 +468,30 @@
 (defun parse-elem-attr-loop (elem obj class)
   "Parse the attributes of the argument ELEM into properties of OBJ.
    CLASS is the class of OBJ (defined in the parent to ELEM)."
-  (with-slots (xqdm2model-ht xmi-namespace) *results* ; track relationship between xml and model.
-    (let ((xmi-type (xmi-sym "type"))
-	  (xmi-id   (xmi-sym "id"))
-	  (xmi-uuid (xmi-sym "uuid"))
-	  (attrs (xml-attributes elem)))
-      (loop for attr in attrs do
-	   (let ((name (dom:node-name attr))
-		 slot)
-	     (cond ((or (eq name xmi-type) (eq name xmi-id) (eq name xmi-uuid)) t) ; ignore
-		   ((setf slot (attr-is-slot-p class attr))
-		    (let ((val (parse-attr (xml-value attr) class (dom:local-name attr))))
-		      (when (slot-definition-is-derived-p slot)
-			(warn 'xmi-serializes-derived :class class :slot slot :elem elem :object obj))
-		      (when (eql val (slot-definition-default slot))
-			(warn 'xmi-serializes-default :class class :slot slot :elem elem :object obj))
-		      (setf (gethash attr xqdm2model-ht) slot)
-		      (setf (slot-value obj (closer-mop:slot-definition-name slot)) val)))
-		   ((cl-ppcre:scan "^base_" (string name)) 
-		    (setf (gethash attr xqdm2model-ht) class)) ; not used?
-		   ((and ; In this case it is xmi:version etc push in by cl-xml.
-		     (let ((sp (symbol-package name)))
-		       (or (eql sp xmi-namespace)
-			   (eql sp (find-package '|http://www.w3.org/2001/XMLSchema-instance|))))
-		     (or (eql class (find-class (intern "Model" (symbol-package (class-name class)))))
-			 (eql class (find-class (intern "Profile" (symbol-package (class-name class)))))))
-		    t)
-		   (t (warn 'mof-no-such-attr :class class :slot-name name :elem elem))))))))
+  (with-slots (xqdm2model-ht xmi-namespace model-namespaces) *results* ; track relationship between xml and model.
+    (loop for attr in (xml-attributes elem) do
+	 (let ((name (dom:node-name attr))
+	       slot)
+	   (VARS class name)
+	   (cond ((member name '("xmi-id" "xmi-type" "xmi-uuid") :test #'equal) t) ; ignore
+		 ((setf slot (attr-is-slot-p class attr))
+		  (let ((val (parse-attr (xml-value attr) class (dom:local-name attr))))
+		    (when (slot-definition-is-derived-p slot)
+		      (warn 'xmi-serializes-derived :class class :slot slot :elem elem :object obj))
+		    (when (eql val (slot-definition-default slot))
+		      (warn 'xmi-serializes-default :class class :slot slot :elem elem :object obj))
+		    (setf (gethash attr xqdm2model-ht) slot)
+		    (setf (slot-value obj (closer-mop:slot-definition-name slot)) val)))
+		 ((cl-ppcre:scan "^base_" (string name)) 
+		  (setf (gethash attr xqdm2model-ht) class)) ; not used?
+		 ((and ; In this case it is xmi:version etc push in by cl-xml.
+		   (let ((sp (find-package (xml-prefix2uri (dom:prefix attr) model-namespaces))))
+		     (or (eql sp xmi-namespace)
+			 (eql sp (find-package '|http://www.w3.org/2001/XMLSchema-instance|))))
+		   (or (eql class (find-class (intern "Model" (symbol-package (class-name class)))))
+		       (eql class (find-class (intern "Profile" (symbol-package (class-name class)))))))
+		  t)
+		 (t (warn 'mof-no-such-attr :class class :slot-name name :elem elem)))))))
 
 ;(declaim (inline ireader-make-obj))
 (defun ireader-make-obj (class elem)
@@ -518,7 +516,7 @@
   "Check whether xmi:type is used in an element using href; it should not be post xmi 2.4."
   (let ((attrs (xml-attributes elem)))
     (when (and (member "xmi:type" attrs :key #'dom:name :test #'equal)
-	       (member "href" attrs :key #'(lambda (x) (symbol-name (dom:node-name x))) :test #'string=)
+	       (member "href" attrs :key #'(lambda (x) (dom:node-name x)) :test #'string=)
 	       (with-vo (mut) (member (model-name (model-n+1 mut))
 				      (member :uml241 (reverse (all-umls))))))
       (warn 'xmi-type-in-href :elem elem))))

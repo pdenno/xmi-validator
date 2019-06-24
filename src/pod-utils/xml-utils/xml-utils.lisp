@@ -62,8 +62,11 @@
 (defun (setf parent) (val node)
   (setf (slot-value node 'rune-dom::parent) val))
 
-(defun xml-root (elem)
-  (slot-value elem 'rune-dom::owner))
+(defmethod xml-root ((elem dom:document))
+  (first (xml-children elem)))
+
+(defmethod xml-root ((elem dom:element))
+  (xml-root (slot-value elem 'rune-dom::owner)))
 
 (defun xml-parent (elem)
   (dom:parent-node elem))
