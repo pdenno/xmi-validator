@@ -2,17 +2,7 @@
 
 ;;; For closure-xml. 
 
-
-#+nil(defpackage xmlp
-  (:use cl :pod-utils)
-  (:export
-   #:*default-namespaces*
-   #:*input-line*
-   #:document-parser
-   #:line-num
-   #:vanilla-document-parser
-   #:write-node))
-
+;;; POD This remains only for conditions!
 (defpackage xqdm 
   (:use cl)
   (:export

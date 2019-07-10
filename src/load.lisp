@@ -29,7 +29,7 @@
 
 (loop for (key . val) in `((:sei     . ,(truename "."))
 			   (:expo    . ,(truename "."))
-	    	           (:lisplib . ,(truename "./utils"))
+	    	           (:lisplib . ,(truename "./pod-utils"))
 			   (:testlib . ,(truename "./pod-utils"))
 			   (:mylib   . ,(truename "./pod-utils"))
 			   (:tmp     . "/usr/local/tmp/")

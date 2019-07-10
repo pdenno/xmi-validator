@@ -74,15 +74,18 @@
 (defun xml-value (attr)
   (dom:value attr))
 
+(defun (setf xml-value) (attr val)
+  (setf (dom:value attr) val))
+
 (defun xml-attributes (elem)
   (let ((result (dom:attributes elem)))
     (if (listp result)
 	result
 	(dom:items result))))
 
-(defun ordinality (elem) 
-  (declare (ignore elem))
-  (break "ordinality"))
+(defun (setf xml-attributes) (elem val)  ;<===========================??????????????
+  (let ((nmap (make-instance 'line-cnt-attribute-node-map)))
+    (setf (slot-value elem 'rune-dom::attributes) val)))
 
 (defun squeeze-xml (elem)
   "Recursively remove empty string content when element has both string and element content children."
@@ -138,7 +141,7 @@
 		  'vector))
     elem))
 
-(defun xml-set-content (elem value)
+(defun xml-set-content (elem value) ; <========================================== STILL Anderson ============
   "Set text/number content of PARENT to VALUE."
   (when value
     (unless (or (stringp value) (numberp value)) (error "set-content args"))
