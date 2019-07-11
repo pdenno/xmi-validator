@@ -297,14 +297,11 @@
       (breadth-first-search 
        (xml-root doc)
        #'fail
-       #'(lambda (p) ; was #'xml-children -- very wasteful!
-	   (when (or
-		  (and (dom:element-p p)
-		       (member (dom:local-name p) '("XMI" "Model" "Package" "Profile") :test #'string=))
-	     (xml-children p))))
+       #'xml-children
        :do  #'(lambda (n)
-		(when (dom:element-p n)
-		  (let ((name (dom:local-name n))) ; RepositorySet for edbark MMM (2012 "Schema"
+		(when (and (dom:element-p n)
+			   (member (dom:local-name n) '("XMI" "Model" "Package" "Profile") :test #'string=))
+		  (let ((name (dom:local-name n))) 
 		    (cond ((or (string= name "Model") (string= name "Schema")) (setf model-elem n))
 			  ((string= name "Profile")   (push n profiles))
 			  ((string= name "Package")
@@ -473,7 +470,7 @@
 	 (let ((name (dom:node-name attr))
 	       slot)
 	   (VARS class name)
-	   (cond ((member name '("xmi-id" "xmi-type" "xmi-uuid") :test #'equal) t) ; ignore
+	   (cond ((member name '("xmi:id" "xmi:type" "xmi:uuid") :test #'equal) t) ; ignore
 		 ((setf slot (attr-is-slot-p class attr))
 		  (let ((val (parse-attr (xml-value attr) class (dom:local-name attr))))
 		    (when (slot-definition-is-derived-p slot)
@@ -491,7 +488,8 @@
 		   (or (eql class (find-class (intern "Model" (symbol-package (class-name class)))))
 		       (eql class (find-class (intern "Profile" (symbol-package (class-name class)))))))
 		  t)
-		 (t (warn 'mof-no-such-attr :class class :slot-name name :elem elem)))))))
+		 (t
+		  (warn 'mof-no-such-attr :class class :slot-name name :elem elem)))))))
 
 ;(declaim (inline ireader-make-obj))
 (defun ireader-make-obj (class elem)
@@ -520,7 +518,6 @@
 	       (with-vo (mut) (member (model-name (model-n+1 mut))
 				      (member :uml241 (reverse (all-umls))))))
       (warn 'xmi-type-in-href :elem elem))))
-
 
 ;;; The main routine, into which much of the above stuff is inlined. 
 ;;; Post-processing is done elsewehre to set scalar slots to scalar values,

@@ -1310,3 +1310,9 @@
 	    (subseq utime 4)
 	    ;; POD 4294... is 16^8 -- larger than most-postive-fixnum. OK?
 	    (format nil "~8,'0X" (random 4294967296)))))
+
+;;; I'm sick of those warning about undefined variables and I'm not about to type 
+;;; 'defparameter' at the REPL every time I need an ad hoc global. 
+#+sbcl
+(defmacro defp (var val &optional doc)
+  `(defparameter ,var ,val ,doc))

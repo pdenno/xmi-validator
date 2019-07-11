@@ -39,7 +39,8 @@
    #:definition
    #:defmemo 
    #:defmemo!
-   #:defmemo-equal 
+   #:defmemo-equal
+   #:defp
    #:defun-memoize 
    #:depth-first-search 
    #:depth-search-tracking
@@ -246,10 +247,11 @@
    #:squeeze-xml
    #:with-xml-attrs 
    #:xml-add-attr
-   #:xml-add-element
+   #:xml-add-elem
    #:xml-attributes
    #:xml-children
    #:xml-collect-elem
+   #:xml-create-elem
    #:xml-document-parser
    #:xml-find-attrs
    #:xml-find-cdata-child 

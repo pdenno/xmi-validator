@@ -55,26 +55,35 @@
 (defun xml-children (elem) (coerce (dom:child-nodes elem) 'list))
 
 (defun (setf xml-children) (val node)
-  (setf (slot-value node 'rune-dom::children) val))
+  (setf (slot-value node 'rune-dom::children)
+	(coerce val 'vector)))
 
 (defun clone-node (node) node) ; POD NYI
 
 (defun (setf parent) (val node)
   (setf (slot-value node 'rune-dom::parent) val))
 
+;;; Pretty much has to be this, though the dom doesn't seem to have this concept...
 (defmethod xml-root ((elem dom:document))
   (first (xml-children elem)))
 
+;;; ...though everything element has the document as owner.
 (defmethod xml-root ((elem dom:element))
   (xml-root (slot-value elem 'rune-dom::owner)))
+
+(defmethod (setf xml-root) (val (elem dom:document))
+  (setf (xml-children elem) (list val)))
 
 (defun xml-parent (elem)
   (dom:parent-node elem))
 
+(defun xml-document (elem)
+  (slot-value elem 'rune-dom::owner))
+
 (defun xml-value (attr)
   (dom:value attr))
 
-(defun (setf xml-value) (attr val)
+(defun (setf xml-value) (val attr)
   (setf (dom:value attr) val))
 
 (defun xml-attributes (elem)
@@ -83,7 +92,7 @@
 	result
 	(dom:items result))))
 
-(defun (setf xml-attributes) (elem val)  ;<===========================??????????????
+(defun (setf xml-attributes) (val elem) 
   (let ((nmap (make-instance 'line-cnt-attribute-node-map)))
     (setf (slot-value elem 'rune-dom::attributes) val)))
 
@@ -127,20 +136,32 @@
     (pod-utils:push-last attr (slot-value (dom:attributes owner) 'rune-dom::items))
     owner))
 
-(defun xml-add-elem (owner prefix name)
+;;; This is re-factored out of xml-create-elem, which was in canon-xmi-gen.lisp. 
+(defun xml-add-elem (owner elem)
+  (setf (slot-value owner 'rune-dom::children) 
+	(coerce (append (coerce (slot-value owner 'rune-dom::children) 'list)
+			(list elem))
+		'vector))
+  owner)
+
+;;; Was in canon-xmi-gen.lisp (was xml-add-elem)
+(defun xml-create-elem (doc prefix name)
   "Add an element named PREFIX:NAME to OWNER."
   (let ((elem (make-instance 'rune-dom::element
 			     :tag-name (strcat prefix ":" name)
 			     :prefix prefix 
 			     :local-name name
-			     :owner owner
-			     :namespace-uri (dom:namespace-uri owner))))
-    (setf (slot-value owner 'rune-dom::children) 
-	  (coerce (append (coerce (slot-value owner 'rune-dom::children) 'list)
-			  (list elem))
-		  'vector))
+			     :owner doc
+			     :namespace-uri (dom:namespace-uri doc))))
+    ;; POD Wow, does this seem wrong!
+    (setf (slot-value elem 'rune-dom::attributes)
+	  (make-instance 'line-cnt-attribute-node-map
+			 :element elem
+			 :owner doc
+			 :element-type :attribute))
     elem))
 
+;;; Was in canon-xmi-gen.lisp
 (defun xml-set-content (elem value) ; <========================================== STILL Anderson ============
   "Set text/number content of PARENT to VALUE."
   (when value
@@ -257,6 +278,7 @@
 		 (when (stringp val) val))))))
     (or result (when error-p (error "Elem does not contain child/attr '~A'." name)))))
 
+;;; POD This and the next probably ought to use dom:node-name and ns-qualified string. 
 (defmethod xml-typep (elem (type string))
   "Like typep, except TYPE is a string tested against ELEM.local-name."
   (and (dom:element-p elem)
