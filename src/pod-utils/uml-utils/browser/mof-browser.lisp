@@ -966,7 +966,8 @@
 
 (defmethod mof-object-browser ((obj ocl:|Ocl-type-proxy|) &optional open-slots obj-key)
   "Produce html for a |Collection|, H1 header and everything."
-    (with-html-output-to-string (stream) stream
+  (declare (ignore open-slots obj-key))
+  (with-html-output-to-string (stream) stream
       (htm 
        (:h1 (str (cl-who:escape-string  (format nil "Primitive Type OCL::~A"  (ocl:%proxy-name obj))))))))
 
@@ -979,6 +980,7 @@
 ;;; lisp lists with ocl:|Collections
 (defmethod mof-object-browser ((obj list) &optional open-slots obj-key)
   "Produce html for a list, H1 header and everything."
+    (declare (ignore open-slots obj-key))
     (with-html-output-to-string (stream) stream
       (htm 
        (:h1 (str (cl-who:escape-string  (funcall *list-title-fn* obj))))

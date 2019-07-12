@@ -4,7 +4,7 @@
 
 (defpackage :mof-browser
   (:nicknames :mofb)
-  (:use :cl :pod-utils :cl-who :hunchentoot :mofi)
+  (:use :cl :closer-mop :pod-utils :cl-who :hunchentoot :mofi)
   (:shadowing-import-from :closer-mop #:standard-class #:ensure-generic-function
 			  #:defgeneric #:standard-generic-function #:defclass #:defmethod)
   (:export #:*application-url-key-fn*

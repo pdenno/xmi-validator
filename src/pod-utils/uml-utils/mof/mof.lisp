@@ -1091,7 +1091,6 @@
 (defmethod class-finalize-slots ((class mm-type-mo) &key suppress-export)
   "Finalize inheritance, make accessors, export them, resolve slot-range and -source
    to the class objects the symbol represents, set slot mapped-slots in class object."
-  (setf *zippy* class)
   (closer-mop:finalize-inheritance class)
   (let ((*package* (lisp-package *model*))
 	(class-name (class-name class)))

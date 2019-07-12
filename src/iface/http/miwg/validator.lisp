@@ -285,7 +285,6 @@
 	 (str (mofi:validation-details 'mofi:mof-warning normal-classes conditions))
 	 (when diff-p (str (mofi:validation-details 'mofi:mof-diff-warning diff-classes conditions))))))))
 
-
 ;;;================ XMI 'Example' generation ===========================
 ;"/se-interop/sysml/validator/xmi-example" 
 (defun sysml-xmi-example-dsp ()
@@ -300,35 +299,32 @@
 		    (setf real-key :one-key))
 	   ;; pod7 real-key isn't real. The actual key may have classes where the parameter has symbols
 	   (when-bind (errs (gethash real-key unique-ht))
-	     (when-bind (c (nth count errs))
-	       (htm (:h1 (str (format nil "~A: <em>~A</em>, instance ~A of ~A" 
-				      (if (typep c 'mofi:mof-diff-warning) "Difference" "Error")
-				      (get :title (type-of c))
-				      (1+ count)
-				      (length errs))))
-		    (:strong (str (funcall (slot-value c 
-						       #+LispWorks 'conditions::reporter-function
-						       #+sbcl 'reporter-function ; pod7 guessing
-						       ) 
-					   c nil)))
-		    (str (mofi:relevant-xmi c))
-		    (htm 
-		     (when (< count (1- (length errs)))
-		      (htm
-		       (:p)
-		       (htm
-			(if-bind (key (safe-get-parameter "key"))
-			  (htm (:a :href 
-				   (format nil "/se-interop/validator/xmi-example?key=~A&type=~A&count=~A"
-					   key type (1+ count))
-				   "Next instance"))
-			  (htm (:a :href 
-				   (format nil "/se-interop/validator/xmi-example?one-key=true&type=~A&count=~A"
-						 type (1+ count))
-				   "Next instance"))))))
-		     (:br)
-		     (:br)
-		     (:a :href "/se-interop/sysml/validator/results" "Back to report page")))))))))))
+	       (when-bind (c (nth count errs))
+		   (htm (:h1 (str (format nil "~A: <em>~A</em>, instance ~A of ~A" 
+					  (if (typep c 'mofi:mof-diff-warning) "Difference" "Error")
+					  (get :title (type-of c))
+					  (1+ count)
+					  (length errs))))
+			(:strong (str #+LispWorks(funcall (slot-value c 'conditions::reporter-function c nil))
+				      #+sbcl     (funcall (get :report (type-of c)) c nil)))
+			(str (mofi:relevant-xmi c))
+			(htm 
+			 (when (< count (1- (length errs)))
+			   (htm
+			    (:p)
+			    (htm
+			     (if-bind (key (safe-get-parameter "key"))
+				      (htm (:a :href 
+					       (format nil "/se-interop/validator/xmi-example?key=~A&type=~A&count=~A"
+						       key type (1+ count))
+					       "Next instance"))
+				      (htm (:a :href 
+					       (format nil "/se-interop/validator/xmi-example?one-key=true&type=~A&count=~A"
+						       type (1+ count))
+					       "Next instance"))))))
+			 (:br)
+			 (:br)
+			 (:a :href "/se-interop/sysml/validator/results" "Back to report page")))))))))))
 
 
 (defun validation-criteria-html ()
@@ -635,7 +631,7 @@
     (rename-file in-path (ensure-directories-exist new-path))
     (handler-bind ((simple-warning #'(lambda (c) (declare (ignore c)) (muffle-warning))))
       (with-debugging (:readers 0) ; (:readers 5)
-	(xmi2model-instance :file new-path :clone-p nil :linenums-p nil)))))
+	(xmi2model-instance :file new-path :clone-p nil)))))
 
 #+nil
 (defun canonical-xmi-dsp ()

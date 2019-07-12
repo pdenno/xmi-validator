@@ -138,7 +138,8 @@
      (pushnew ',name *mofi-all-conditions*)
      (define-condition ,name ,superclasses ,slots
        (:documentation ,(cadr (assoc :documentation options)))
-       (:report ,(cadr (assoc :report options))))
+       #+LispWorks(:report ,(cadr (assoc :report options))))
+     #+sbcl(setf (get :report ',name) ,(cadr (assoc :report options)))
      (setf (get :title ',name) ,(cadr (assoc :title options)))
      (setf (get :id-num ',name) ,(or (cadr (assoc :id-num options)) 1000))
      (setf (get :explanation ',name) ,(cadr (assoc :explanation options)))
@@ -146,11 +147,12 @@
 
 (defcondition mof-error (error) 
   ()
-  (:documentation "Abstract condition. Superclass of others here."))
+  (:documentation "Abstract condition. Superclass of some others here."))
 
 (defcondition mof-warning (simple-warning) 
   ((object :initarg :object :initform nil)
    (elem :initarg :elem :initform nil)
+   #+sbcl(reporter-function :initarg :report :initform nil)
    (red-regex :initform nil))
   (:documentation "Abstract condition. Superclass of others here."))
 
