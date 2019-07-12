@@ -5,9 +5,20 @@
 
 ;;; Compatibility functions to replace Anderson's cl-xml with cxml (Closure XML)
 ;;; https://common-lisp.net/project/cxml
+;;; Here are some things to work into my code (most of these have a -ns or -node version too):
+;;;  dom:get-named-item
+;;;  dom:set-named-item
+;;;  dom:remove-named-item
+;;;  dom:item
+;;;  dom:has-attribute
+;;;  dom:get-attribute-node
+;;;  dom:set-attribute
+;;;  dom:remove-attribute
+;;;  dom:remove-named-item
+;;;  dom:clone-node
 
 ;;; =================================== XMLP =================================
-(in-package :pod-utils) 
+(in-package :xml-utils) 
 
 (defclass line-cnt-dom-builder (rune-dom::dom-builder)
   ())
@@ -47,7 +58,9 @@
 (defmethod xml-write-node ((node t) stream)
   (dom:map-document (cxml:make-character-stream-sink stream) node))
 
-;;; =================================== XQDM =================================
+;;; =================================== XQDM ==========================================
+;;; ToDo: Look through cxml-20181018-git/dom/dom-impl.lisp much of this might be goofy.
+;;; =================================== XQDM ==========================================
 (defpackage |xmlns|)
 
 (defvar *xml-clone2old* nil)
@@ -77,24 +90,45 @@
 (defun xml-parent (elem)
   (dom:parent-node elem))
 
-(defun xml-document (elem)
-  (slot-value elem 'rune-dom::owner))
+(defun xml-document (node)
+  (slot-value node 'rune-dom::owner))
 
-(defun xml-value (attr)
-  (dom:value attr))
+(defmethod xml-value ((attr rune-dom::attribute)) ; really this class!
+  (xml-value (first (xml-children attr)))) ; a rune-dom::text
 
-(defun (setf xml-value) (val attr)
-  (setf (dom:value attr) val))
+(defmethod xml-value ((text dom:text))
+  (slot-value text 'rune-dom::value))
+
+(defmethod (setf xml-value) ((val string) (attr rune-dom::attribute))
+  (let* ((doc (xml-document attr))
+	 (text (make-rune-text val attr doc)))
+    (setf (xml-children attr) (list text))
+    attr))
+
+;;;The object is a STANDARD-OBJECT of type RUNE-DOM::TEXT.
+;;;0. PARENT: #<RUNE-DOM::ATTRIBUTE xmlns:uml="http://www.omg.org/spec/UML/20090901" {1002716753}>
+;;;1. CHILDREN: #()
+;;;2. OWNER: #<RUNE-DOM::DOCUMENT {10025AEFF3}>
+;;;3. READ-ONLY-P: NIL
+;;;4. MAP: NIL
+;;;5. VALUE: "http://www.omg.org/spec/UML/20090901"
+(defun make-rune-text (val attr doc)
+  (let ((obj (make-instance 'rune-dom::text :children #() :owner doc)))
+    (setf (slot-value obj 'rune-dom::value) val)
+    (setf (slot-value obj 'rune-dom::parent) attr)
+    obj))
 
 (defun xml-attributes (elem)
-  (let ((result (dom:attributes elem)))
-    (if (listp result)
-	result
-	(dom:items result))))
+  (when-bind (attrs (dom:attributes elem))
+      (dom:items attrs)))
 
 (defun (setf xml-attributes) (val elem) 
-  (let ((nmap (make-instance 'line-cnt-attribute-node-map)))
-    (setf (slot-value elem 'rune-dom::attributes) val)))
+  (let ((nmap (make-instance 'line-cnt-attribute-node-map
+			     :items val
+			     :owner (dom:owner-document elem)
+			     :element-type :attribute
+			     :element elem)))
+    (setf (slot-value elem 'rune-dom::attributes) nmap)))
 
 (defun squeeze-xml (elem)
   "Recursively remove empty string content when element has both string and element content children."
@@ -114,26 +148,39 @@
 				  cs)))))))
   elem)
 
+;;;The object is a STANDARD-OBJECT of type RUNE-DOM::ATTRIBUTE.
+;;;0. PARENT: NIL
+;;;1. CHILDREN: #(#<RUNE-DOM::TEXT {1002975333}>)
+;;;2. OWNER: #<RUNE-DOM::DOCUMENT {10025AEFF3}>
+;;;3. READ-ONLY-P: NIL
+;;;4. MAP: #<XML-UTILS::LINE-CNT-ATTRIBUTE-NODE-MAP {1002816A63}>
+;;;5. PREFIX: "xmlns"
+;;;6. LOCAL-NAME: "uml"
+;;;7. NAMESPACE-URI: "http://www.w3.org/2000/xmlns/"
+;;;8. NAME: "xmlns:uml"
+;;;9. OWNER-ELEMENT: #<RUNE-DOM::ELEMENT uml:Model {10025AEF73}>
+;;;10. SPECIFIED-P: T
+
+
 ;;; The next three were once in canon-xmi-gen.lisp
 (defun xml-add-attr (owner prefix name value)
   "Add an attribute named PREFIX:NAME with value VALUE to OWNER, a rune-dom:element. Return the elem."
   (let* ((doc     (xml-document owner))
 	 (ns      (dom:namespace-uri owner))
-	 (text    (make-instance 'rune-dom::text :children #() :owner doc))
 	 ;; nmap (which is in every attribute, yet lists all attributs) is automatically updated
+	 ;; see cxml/dom-impl.lisp dom:create-attribute
 	 (attr    (make-instance 'rune-dom::attribute
-				 :children (coerce (list text) 'vector)
-				 :owner doc
-				 :prefix prefix
+				 :name (strcat prefix ":" name)
 				 :local-name name
-				 :name (pod-utils:strcat prefix ":" name)
-				 :owner-element owner)))
+				 :prefix prefix
+				 :namespace-uri nil
+				 :owner-element owner
+				 :owner doc)))
+    (setf (xml-value attr) value)
     (setf (slot-value attr 'rune-dom::namespace-uri) ns)
     (setf (slot-value attr 'rune-dom::specified-p) t)
     (setf (slot-value attr 'rune-dom::map) (dom:attributes owner))
-    (setf (slot-value text 'rune-dom::parent) attr)
-    (setf (slot-value text 'rune-dom::value) value)
-    (pod-utils:push-last attr (slot-value (dom:attributes owner) 'rune-dom::items))
+    (setf (xml-attributes owner) (append (xml-attributes owner) (list attr)))
     owner))
 
 ;;; This is re-factored out of xml-create-elem, which was in canon-xmi-gen.lisp. 
@@ -145,24 +192,25 @@
   owner)
 
 ;;; Was in canon-xmi-gen.lisp (was xml-add-elem)
+;;; See cxml/dom-impl.lisp dom:create-element 
 (defun xml-create-elem (doc prefix name)
   "Add an element named PREFIX:NAME to OWNER."
-  (let ((elem (make-instance 'rune-dom::element
-			     :tag-name (strcat prefix ":" name)
-			     :prefix prefix 
-			     :local-name name
-			     :owner doc
-			     :namespace-uri (dom:namespace-uri doc))))
-    ;; POD Wow, does this seem wrong!
-    (setf (slot-value elem 'rune-dom::attributes)
-	  (make-instance 'line-cnt-attribute-node-map
-			 :element elem
+  (let ((result (make-instance 'rune-dom::element
+			       :tag-name (strcat prefix ":" name)
+			       :prefix prefix    ; dom:c-e has it nil
+			       :local-name name  ; dom:c-e has it nil (???)
+			       :owner doc
+			       :namespace-uri (dom:namespace-uri doc))))
+    (setf (slot-value result 'rune-dom::attributes)
+	  (make-instance 'line-cnt-attribute-node-map ; maybe doesn't matter
+			 :element-type :attribute
 			 :owner doc
-			 :element-type :attribute))
-    elem))
+			 :element result))
+    (rune-dom::add-default-attributes result)
+    result))
 
 ;;; Was in canon-xmi-gen.lisp
-(defun xml-set-content (elem value) ; <========================================== STILL Anderson ============
+#+nil(defun xml-set-content (elem value)
   "Set text/number content of PARENT to VALUE."
   (when value
     (unless (or (stringp value) (numberp value)) (error "set-content args"))
@@ -255,13 +303,12 @@
     (let ((test (if prefix #'hard-test #'easy-test)))
        (find-if test (xml-attributes elem)))))
 
-(declaim (inline xml-get-attr-value))
-(defun xml-get-attr-value (elem attr-name-string &key prefix)
-  "Return the value of the attribute of elem identified by ATTR-SYMBOL, a symbol
-   interned in a package useds as the xml namespace of the attribute. Return nil
-   if no attribute found."
-  (when-bind (attr (xml-get-attr elem attr-name-string :prefix prefix))
-      (xml-value attr)))
+#+nil(declaim (inline xml-get-attr-value))
+(defun xml-get-attr-value (elem name)
+  "Return the value of the attribute of elem identified by local-name.
+   Return nil if no attribute found."
+  (when-bind (attr (dom:get-named-item (dom:attributes elem) name))
+      (dom:value attr)))
 
 (defun xml-find-attrs (elem test)
   "Return a list of attributes of ELEM that pass TEST."
@@ -411,8 +458,8 @@
       (loop for line = (read-line diff-stream nil nil)
 	 while line do (write-line line outstream)))))
 
-(defun xml-set-parents (elem)
-  "The xml-parent is not always set!"
+#+nil(defun xml-set-parents (elem)
+  "The xml-parent is not always set (In Anderson XML)!"
   (cond ((null elem) nil)
 	((stringp elem) nil)
 	((typep elem 'dom:node)

@@ -2,7 +2,7 @@
 (in-package :cl-user)
 
 (defpackage mofi
-  (:use :cl :pod :tr :closer-mop)
+  (:use :cl :pod :xmlu :tr :closer-mop)
   (:nicknames :mof-implementation)
   (:shadowing-import-from :closer-mop #:standard-class #:ensure-generic-function
 			  #:defgeneric #:standard-generic-function #:defclass #:defmethod)

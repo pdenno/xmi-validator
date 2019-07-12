@@ -57,7 +57,8 @@
    #:gather-duplicates
    #:gethash-inv
    #:group 
-   #:ht2list 
+   #:ht2list
+   #:ht2dotted-list 
    #:if-bind 
    #:intersect-predicates 
    #:it
@@ -237,8 +238,13 @@
    #:sidebox-menu 
    #:view-objects
    #:with-html 
-   #:with-vo
-   ;; from xml/xml-utils.lisp
+   #:with-vo))
+
+(defpackage xml-utils
+  (:nicknames :xmlu)
+  (:use :cl :pod-utils)
+  ;; from xml/xml-utils.lisp
+  (:export 
    #:def-parse 
    #:dtd-find-child 
    #:dself
@@ -276,7 +282,6 @@
    #:xml-typep-3
    #:xml-value
    #:xml-write-node))
-
 
 ;;; Because this file is used by many applications, it is not possible to use 
 ;;; #:+iface-http (a compile time thing) to specify the package use-list

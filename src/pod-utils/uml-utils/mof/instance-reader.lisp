@@ -168,7 +168,7 @@
   (let ((applied-profs (xml-collect-elem #'(lambda (x) (xml-typep x "appliedProfile")) xqdm-doc)))
     (remove-duplicates 
      (mapcar #'(lambda (x) (car (split x #\#)))
-	     (mapcar #'(lambda (x) (xml-get-attr-value x "href" :prefix "xmi")) applied-profs))
+	     (mapcar #'(lambda (x) (xml-get-attr-value x "xmi:href")) applied-profs))
      :test #'string=)))
 
 (defmemo-equal profile-namespace (href)
@@ -199,13 +199,14 @@
 
 (defun xmi2model-instance (&key preread-xml file (force nil) pop-obj (clone-p t))
   "Toplevel function to parse XMI 2.1 and instantiate a Mn+1 Model (MODEL-N+1) with the population 
-  defined in FILE, returning the Mn Model object. The function expects a uml:Model instance in the XMI, 
-  which is what is processed. If pop-obj is specified, it came through essential-load.lisp."
+   defined in FILE, returning the Mn Model object. The function expects a uml:Model instance in the XMI, 
+   which is what is processed. If pop-obj is specified, it came through essential-load.lisp.
+   Returns the pop-object."
   (dbg-message :time 1 "~%Start process: ~A" (now))
   (setf *results* (make-instance 'processing-results))
   (with-slots (conditions user-doc pristine-doc stereo-elems namespaces xqdm-pristine2user-ht xmi-namespace model-namespaces) *results*
     (setf *mmm* (setf user-doc (or preread-xml (xml-document-parser file)))) ; *mmm* for debugging.
-    (xml-set-parents user-doc) ; 2011-03-18, below too.
+    #+nil(xml-set-parents user-doc) ; 2011-03-18, below too.
     (setf model-namespaces (xml-namespaces user-doc))
     (setf xmi-namespace (find-xmi-namespace user-doc))
     (xml-record-positions user-doc) ; updates elem2line-ht of *results*
@@ -238,15 +239,15 @@
 	  pop-obj)))))
 
 (defun xml-record-positions (elem)
-  "Update processing-results to record the line-numbers of every elem that has an xmi:id.
+  "Set values is the elem2line-ht.  to the line-numbers of every elem that has an xmi:id.
    The table is indexed by xmi:id."
   (when elem
     (format t "~% elem = ~A" elem)
     (with-slots (elem2line-ht) *results*
-      (when-bind (xmi-id (xml-get-attr-value elem "id" :prefix "xmi"))
-	  (setf (gethash xmi-id elem2line-ht) (xml-line-num elem)))
-      (loop for c in (xml-children elem)
-	 do (xml-record-positions c)))))
+      (when-bind (attr (dom:get-named-item (dom:attributes elem) "xmi:id"))
+	  (setf (gethash (dom:value attr) elem2line-ht) (xml-line-num elem))
+	(loop for c in (xml-children elem)
+	   do (xml-record-positions c))))))
   
 (defun collect-xmiid (doc)
   "Collect (temporarily, into xmiid2obj-ht as T) xmiids from the document.
@@ -260,7 +261,7 @@
      #'xml-children
      :do #'(lambda (node) 
 	     (when (dom:element-p node)
-	       (when-bind (id (xml-get-attr-value node "id" :prefix "xmi"))
+	       (when-bind (id (xml-get-attr-value node "xmi:id"))
 		   (setf (gethash id xmiid2obj-ht) t)))))))
 
 ;;; Note that this parses PROFILES, not stereotype applications (done in post-process-model).
@@ -269,7 +270,7 @@
   (with-slots (xmiid2obj-ht) *results*
     (setf (gethash "+The-Model+" xmiid2obj-ht) (parse-elem model-elem nil))
       (loop for profile in profiles do 
-	   (setf (gethash (xml-get-attr-value profile "id" :prefix "xmi") xmiid2obj-ht)
+	   (setf (gethash (xml-get-attr-value profile "xmi:id") xmiid2obj-ht)
 		 (parse-elem profile nil)))))
 
 (defun reader-ensure-population-model (doc file force)
@@ -307,7 +308,7 @@
 			  ((string= name "Package")
 			   (let ((parent (xml-parent n)))
 			     (when (or 
-				    (string= "_0" (xml-get-attr-value n "id" :prefix "xmi"))
+				    (string= "_0" (xml-get-attr-value n "xmi:id"))
 				    (not parent)
 				    (and parent (string= (dom:local-name parent) "XMI")))
 			       (setf model-elem n)))))))))
@@ -368,7 +369,7 @@
    Tries 3 approaches to identify class. Returns the class object."
   (let (type slot)
     (with-slots (lisp-package) (or profile *model*)
-    (cond ((setf type (xml-get-attr-value elem "type" :prefix "xmi")) ;(1) Type is specified by xmi:type=
+    (cond ((setf type (xml-get-attr-value elem "xmi:type")) ;(1) Type is specified by xmi:type=
 	   (let ((class-name (intern
 			      (if-bind (pos (position #\: type)) (subseq type (1+ pos)) type)
 			      lisp-package)))
@@ -498,7 +499,7 @@
    (unless *suppress-install* is true)."
   (with-slots (xmiid2obj-ht) *results* 
     (let ((obj (make-instance (class-name class) :source-elem elem)))
-      (when-bind (id (xml-get-attr-value elem "id" :prefix "xmi"))
+      (when-bind (id (xml-get-attr-value elem "xmi:id"))
 	;; 2014-04-26 added next, then commented it out same day. (It is better design than xmiid2obj, but...
 	;(setf (%token-position obj) id) 
 	(when-bind (orig (gethash id xmiid2obj-ht))
@@ -529,7 +530,7 @@
     (declare (special *suppress-install*))
     (check-xmi-type-in-href elem)
     (with-slots (xqdm2model-ht) *results*
-      (cond ((setq name (xml-get-attr-value elem "idref" :prefix "xmi"))
+      (cond ((setq name (xml-get-attr-value elem "xmi:idref"))
 	     (setf (gethash elem xqdm2model-ht) (make-xmi-idref :-name name))) ;track relationship
 	    ((setq name (xml-get-attr-value elem "href"))
 	     (setf (gethash elem xqdm2model-ht) (make-xmi-href :-name name)))  ;track relationship
@@ -624,7 +625,7 @@ Full XMI:
       (loop for elem across stereo-elems 
 	 for stereo-class = (elem2stereo-class elem) do ; 2012-09-07 store-p was nil
 	   (when-bind (stereo-obj (parse-elem elem nil :store-p t :warn-p nil :profile (of-model stereo-class)))
-	     (when-bind (xmi-id (xml-get-attr-value elem "id"))
+	     (when-bind (xmi-id (xml-get-attr-value elem "xmi:id"))
 	       (setf (gethash xmi-id xmiid2obj-ht) stereo-obj))
 	     (if-bind (xmiid/attr-name (stereo-obj-base-xmiid/attr-name elem (class-of stereo-obj)))
 		      (if-bind (base-obj (gethash (car xmiid/attr-name) xmiid2obj-ht))
@@ -642,12 +643,11 @@ Full XMI:
 (defun stereo-obj-base-xmiid/attr-name (elem stereo-class)
   "Return a cons (xmi:id . attr-name) found in ELEM a stereotype application of 
    type STEREO-OBJ or NIL if failure."
-  (let ((xmi-idref (xmi-sym "idref")))
-    (loop for base-name in (stereotype-base-names stereo-class) ; base-name e.g. base_Class
-       for xmi-id = (or (xml-get-logical base-name elem :error-p nil) 
-			(when-bind (c (xml-find-child base-name elem :error-p nil)) ; POD 2012-12-08 (never used?)
-			  (xml-get-attr-value c xmi-idref)))
-       when xmi-id return (cons xmi-id base-name))))
+  (loop for base-name in (stereotype-base-names stereo-class) ; base-name e.g. base_Class
+     for xmi-id = (or (xml-get-logical base-name elem :error-p nil) 
+		      (when-bind (c (xml-find-child base-name elem :error-p nil)) ; POD 2012-12-08 (never used?)
+			  (xml-get-attr-value c "xmi:idref")))
+     when xmi-id return (cons xmi-id base-name)))
 
 (defun update-object-for-stereotype (base-obj stereo-obj)
   "Change-class of BASE-OBJ to add the STEREO-OBJ mixin. 

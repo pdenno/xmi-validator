@@ -134,7 +134,7 @@
 				 (or (and (typep slot/stereo 'slot-definition) 
 					  (not (primitive-type-p (slot-definition-range slot/stereo))))
 				     (stereotype-p slot/stereo))
-				 (setf refs? (split (car (xml-children attr)) #\Space))
+				 (setf refs? (split (xml-value attr) #\Space))
 				 (gethash (car refs?) xmiid2obj-ht)))
 			      (loop for ref in refs?
  				    for new-elem = (xml-create-elem node (dom:prefix attr) (dom:local-name attr)) do
@@ -145,13 +145,11 @@
 					    (format *error-output* "~%No attr to associate with ~A" ref)))
 			      (let ((new-elem (xml-create-elem node (dom:prefix attr) (dom:local-name attr))))
 				(xml-add-elem node new-elem)
-				(xml-set-content new-elem (car (xml-children attr)))
+				;; 2019 was xml-set-content
+				(setf (xml-children new-elem) (list (car (xml-children attr))))
+				#+nil(xml-set-content new-elem (car (xml-children attr)))
 				(when-bind (attr-obj (gethash attr xqdm2model-ht)) ; 2012-09-07 if-bind now when-bind
 				  (setf (gethash new-elem xqdm2model-ht) attr-obj)))))))))))))
-;				  ;; Still not sure what this is about. Related to stereotype apps.
-;				  (format *error-output* 
-;					  "~%No XML attr for new-elem: new-elem = ~A attr = ~A"
-;					  new-elem attr)))))))))))))
 
 (defun xmi-set-object-references (doc mut)
   "Walk through every dom:element-p (this after elementizing), replace xmi:idref 
@@ -230,14 +228,14 @@
      #'xml-children 
      :do #'(lambda (node) 
 	     (when (dom:element-p node)
-	       (when-bind (old-id (xml-get-attr-value node "id" :prefix "xmi"))
+	       (when-bind (old-id (xml-get-attr-value node "xmi:id"))
 		   (when-bind (obj (gethash old-id xmiid2obj-ht))
 		       (if (or (datatype-p obj) (primitive-type-p obj) (enum-p obj))
-			   (let ((attr      (xml-get-attr node "id"   :prefix "xmi"))
-			         (attr-uuid (xml-get-attr node "uuid" :prefix "xmi")))
+			   (let ((attr      (xml-get-attr node "xmi:id"))
+			         (attr-uuid (xml-get-attr node "xmi:uuid")))
 			     (when attr      (setf (xml-children node) (remove attr      (xml-children node))))
 			     (when attr-uuid (setf (xml-children node) (remove attr-uuid (xml-children node)))))
-			   (let ((attr (xml-get-attr-value node "uuid" :prefix "xmi")))
+			   (let ((attr (xml-get-attr-value node "xmi:uuid")))
 			     (unless attr (xml-add-attr node "xmi" "uuid" (new-uuid))))))))))))
 
 ;;; If the thing isn't found as a model, should this lookup in xmiid2obj-ht???
@@ -337,8 +335,8 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 		     (name-y (dom:node-name y)))
 		 (cond ((string<  name-x name-y) t)
 		       ((string<  name-y name-x) nil)
-		       (t (string< (xml-get-attr-value x "uuid" :prefix "xmi")
-				   (xml-get-attr-value y "uuid" :prefix "xmi")))))))))
+		       (t (string< (xml-get-attr-value x "xmi:uuid")
+				   (xml-get-attr-value y "xmi:uuid")))))))))
     (setf (xml-children (xml-root doc))
 	  (if doc-node (cons doc-node sorted-children) sorted-children))))
 
@@ -384,12 +382,12 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 (defun unordered-slot-test (x y)
   "Implements B5.3 and B5.4 shown above."
   (cond ((and (dom:element-p x) (dom:element-p y))
-	 (let ((uuidx   (xml-get-attr-value x "uuid"  :prefix "xmi"))
-	       (uuidy   (xml-get-attr-value y "uuid"  :prefix "xmi"))
-	       (idrefx  (xml-get-attr-value x "idref" :prefix "xmi"))
-	       (idrefy  (xml-get-attr-value y "idref" :prefix "xmi"))
-	       (hrefx   (xml-get-attr-value x "href"  :prefix "xmi"))
-	       (hrefy   (xml-get-attr-value y "href"  :prefix "xmi")))
+	 (let ((uuidx   (xml-get-attr-value x "xmi:uuid"))
+	       (uuidy   (xml-get-attr-value y "xmi:uuid"))
+	       (idrefx  (xml-get-attr-value x "xmi:idref"))
+	       (idrefy  (xml-get-attr-value y "xmi:idref"))
+	       (hrefx   (xml-get-attr-value x "href"))
+	       (hrefy   (xml-get-attr-value y "href")))
 	   (cond ((and uuidx uuidy) (string< uuidx uuidy))
 		 (uuidx t)
 		 (uuidy nil)
@@ -413,7 +411,7 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
     (flet ((ename (elem) (string (dom:node-name elem)))
 	   (sname (slot) (string (slot-definition-name slot))))
       (when (dom:element-p node)
-	(when-bind (obj (gethash (xml-get-attr-value node "id" :prefix "xmi") xmiid2obj-ht))
+	(when-bind (obj (gethash (xml-get-attr-value node "xmi:id") xmiid2obj-ht))
 	    (when (typep obj 'mm-root-supertype) ; not T <============= POD INVESTIGATE! TC11
 	      (let* ((slots (reverse (mapped-slots (class-of obj))))
 		     (xml-properties 
@@ -607,7 +605,7 @@ Names and Tokens
 	   (breadth-first-search doc 
 				 #'(lambda (n)
 				     (and (dom:element-p n)
-					  (let ((my-id (xml-get-attr-value n "id" :prefix "xmi")))
+					  (let ((my-id (xml-get-attr-value n "xmi:id")))
 					    (eql my-id id))))
 				   #'xml-children)))
     (if-bind (node (or elem (and id (find-obj id))))

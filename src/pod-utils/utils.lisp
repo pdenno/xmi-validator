@@ -912,6 +912,9 @@
   "Return a list of the values in a hashtable."
   (loop for val being the hash-value of ht collect val))
 
+(defun ht2dotted-list (ht)
+  (loop for key being the hash-key of ht collect (cons key (gethash key ht))))
+
 (defun file-size (path)
   (with-open-file (s path)
      (file-length s)))
@@ -1315,4 +1318,5 @@
 ;;; 'defparameter' at the REPL every time I need an ad hoc global. 
 #+sbcl
 (defmacro defp (var val &optional doc)
-  `(defparameter ,var ,val ,doc))
+  `(progn (defparameter ,var ,val ,doc)
+	  ,val))

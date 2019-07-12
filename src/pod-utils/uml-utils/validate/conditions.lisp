@@ -967,7 +967,7 @@
      "Return the xmi:id of the element. Assumes you don't know what XMI pkg is being used."
      (when (dom:element-p elem)
        (loop for pkg in (all-xmis)
-	  for val = (xml-get-attr-value elem ,attr :prefix "xmi")
+	  for val = (xml-get-attr-value elem ,(strcat "xmi:" attr))
 	  when val return val))))
 
 (xqdm-finder xmi-id    "id")
@@ -1037,7 +1037,7 @@
   (:report
    (lambda (c stream)
      (with-slots (velem vobj red-regex) c
-       (setf red-regex (if-bind (id (xml-get-attr-value velem "id" :prefix "xmi"))
+       (setf red-regex (if-bind (id (xml-get-attr-value velem "xmi:id"))
 				(format nil "(~A)" id)
 				"forget it"))
        (format stream "~A"
@@ -1071,7 +1071,7 @@
   (:report
    (lambda (c stream)
      (with-slots (uelem red-regex uobj) c
-       (setf red-regex (if-bind (id (xml-get-attr-value uelem "id" :prefix "xmi"))
+       (setf red-regex (if-bind (id (xml-get-attr-value uelem "xmi:id"))
 				(format nil "(~A)" id)
 				"forget it"))
        (format stream "~A"
