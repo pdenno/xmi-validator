@@ -241,7 +241,7 @@
 (defun xml-record-positions (elem)
   "Set values is the elem2line-ht.  to the line-numbers of every elem that has an xmi:id.
    The table is indexed by xmi:id."
-  (when elem
+  (when (dom:element-p elem)
     (format t "~% elem = ~A" elem)
     (with-slots (elem2line-ht) *results*
       (when-bind (attr (dom:get-named-item (dom:attributes elem) "xmi:id"))

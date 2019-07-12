@@ -55,8 +55,13 @@
 	  (slot-value amap 'line-num)))))
 
 ;;; https://common-lisp.net/project/cxml/sax.html#serialization
-(defmethod xml-write-node ((node t) stream)
+(defmethod xml-write-node ((node t) (stream stream))
   (dom:map-document (cxml:make-character-stream-sink stream) node))
+
+(defmethod xml-write-node ((node t) (path pathname))
+  (with-open-file (stream path :direction :output :if-exists :supersede)
+    (dom:map-document (cxml:make-character-stream-sink stream) node)))
+
 
 ;;; =================================== XQDM ==========================================
 ;;; ToDo: Look through cxml-20181018-git/dom/dom-impl.lisp much of this might be goofy.
@@ -206,7 +211,7 @@
 			 :element-type :attribute
 			 :owner doc
 			 :element result))
-    (rune-dom::add-default-attributes result)
+    ;(rune-dom::add-default-attributes result) ; Need a DTD for this.
     result))
 
 ;;; Was in canon-xmi-gen.lisp

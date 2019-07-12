@@ -194,7 +194,7 @@
 				(xml-attributes node))))))))
 
 (defun xmi-reset-xmiid (doc mut)
-  "Set the XMI-ID to the value in sort-name (if exists), which was calculated using the
+  "Set the xmi:id attribute to the value in sort-name (if exists), which was calculated using the
    procedure described in Clause B.6 of the Canonical XMI Spec. If no sort-name, (e.g. a tag)
    calculate a name."
   (with-slots (xmiid2obj-ht) (processing-results mut)
@@ -204,8 +204,8 @@
      #'xml-children 
      :do #'(lambda (node) 
 	     (when (dom:element-p node)
-	       (let* ((attr    (xml-get-attr node "id" :prefix "xmi"))
-		      (old-id  (xml-value attr)))
+	       (let* ((attr (dom:get-named-item (dom:attributes node) "xmi:id"))
+		      (old-id  (when attr (dom:value attr))))
 		 (when attr ; POD problem if no old-id...may want to gensym while reading
 		   (if-bind (obj (gethash old-id xmiid2obj-ht))
 			    (let (canon-id) ; 2012 - others are cmof:Tag. 2012-09-07 of no %sort-name alt compute.
@@ -362,8 +362,7 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 (defun xmi-reorder-attrs (doc)
   "Make every attribute but xmi:id, xmi:idref, xmi:uuid and xmi:type an element.
    Place the remaining attributes in that order."
-  (let ((keep-attrs (cons (intern "href" "") 
-			  (mapcar #'xmi-sym '("id" "idref" "uuid" "type")))))
+  (let ((keep-attrs '("href" "xmi:id" "xmi:idref" "xmi:uuid" "xmi:type")))
     (depth-first-search 
      (xml-root doc)
      #'fail 
@@ -375,8 +374,8 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 		     (sort 
 		      (xml-attributes node) 
 		      #'(lambda (x y)
-			  (> (length (member (dom:node-name x) keep-attrs))
-			     (length (member (dom:node-name y) keep-attrs)))))))))))
+			  (> (length (member (dom:node-name x) keep-attrs :test #'string=))
+			     (length (member (dom:node-name y) keep-attrs :test #'string=)))))))))))
 
 (declaim (inline unordered-slot-test))
 (defun unordered-slot-test (x y)
