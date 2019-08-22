@@ -24,9 +24,9 @@
 ;;; (process-pro :profile-name :uml-profile-l2 
 ;;;              :in-file  (lpath :data "std-uml-profiles;10-08-22-uml-l2-profile.xmi")
 ;;;              :out-file (lpath :models "uml/uml-std-profile-l2.lisp"))
-(defun process-pro (&key profile-name in-file out-file uml-xqdm)
+(defun process-pro (&key profile-name in-file out-file uml-xml)
   "Toplevel function to produce the SYSML meta-model file."
-  (let* ((doc (or uml-xqdm (xml-document-parser in-file)))
+  (let* ((doc (or uml-xml (xml-document-parser in-file)))
 	 (profile (xml-find-child "Profile" (xml-children doc))))
     (setf *mmm* doc)
     (ensure-trie-db :profile-db) ; clears it too.
@@ -214,8 +214,8 @@
   "Find an attribute of ELEM named 'type' in the package whose name is a null string.
    (All this extra work because there is also an xmi:type attribute.)"
    (when-bind (type-attr (find-if #'(lambda (x) 
-				      (and (typep x 'xqdm:string-attr-node)
-					   (when-bind (name (slot-value x 'xqdm::name))
+				      (and (typep x 'xmlu:string-attr-node)
+					   (when-bind (name (slot-value x 'xml-name))
 					     (and (equal (string name) "type")
 						  (eql (find-package "") (symbol-package name))))))
 				  (xml-attributes elem)))

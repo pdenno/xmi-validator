@@ -94,7 +94,7 @@
   (setf tbnl:*catch-errors-p* nil)
   (setf tbnl:*show-lisp-errors-p* nil))
 
-(defun sei-start (&key (port 3000) (stream *standard-output*))
+(defun sei-start (&key (port 3330) (stream *standard-output*))
   "Called once, when the .exe starts. This is THE entry point (excluding possible GUI stuff)."
   (system-clear-memoized-fns)
   (set-tbnl-vars)

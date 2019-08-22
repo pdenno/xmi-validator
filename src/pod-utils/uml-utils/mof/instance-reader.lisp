@@ -25,9 +25,9 @@
    (count-conditions :reader count-conditions :initform (make-hash-table))
    ;; keyed by xmi:id, value is uml object. But 'first time through' just T
    (xmiid2obj-ht :initform (make-hash-table :test #'equal) :reader xmiid2obj-ht)
-   ;; keyed by xqdm object (xqdm:elem-node or xqdm:attr-node), it is the instance (of mm-root-supertype) created 
+   ;; keyed by xml object (elem-node or attr-node), it is the instance (of mm-root-supertype) created 
    ;; or an effective slot definition, where a whole object isn't created by the XML object.
-   (xqdm2model-ht :initform (make-hash-table) :reader xqdm2model-ht)
+   (xml2model-ht :initform (make-hash-table) :reader xml2model-ht)
    ;; A alist (2019) of (prefix . ns) of namespaces used in the document.
    (namespaces :initform nil)
    ;; A list of stereo xml elements, found outside the Model element
@@ -36,12 +36,12 @@
    (stereo2base-ht :initform (make-hash-table) :reader stereo2base-ht)
    ;; This one is a clone of user-doc before it is canonicalized.
    (pristine-doc :reader pristine-doc :initform nil)
-   ;; The xqdm:doc-elem. This one gets transformed to Canonical XMI.
+   ;; The doc-elem. This one gets transformed to Canonical XMI.
    (user-doc :reader user-doc :initform nil)
-   ;; The xqdm:doc-elem of corresponding valid.xmi (if any). 
+   ;; The doc-elem of corresponding valid.xmi (if any). 
    (valid-doc :reader valid-doc :initform nil)
    ;; "Cleared by user, keyed by 'to' abstract-node, value is 'from' abstract node"
-   (xqdm-pristine2user-ht :initform (make-hash-table))
+   (xml-pristine2user-ht :initform (make-hash-table))
    ;; Maps from elems to line numbers
    (elem2line-ht :initform (make-hash-table))
    ;; Counts profiles. Only used to give a name POD investigate.
@@ -163,9 +163,9 @@
      (when-bind (uri (find-if #'(lambda (x) (string= (xml-get-attr-value x "name") "org.omg.xmi.nsURI")) lev1+2))
        (xml-get-attr-value uri "value")))))
 
-(defun discover-profiles-used (xqdm-doc)
+(defun discover-profiles-used (xml-doc)
   "Return hrefs for all profiles used."
-  (let ((applied-profs (xml-collect-elem #'(lambda (x) (xml-typep x "appliedProfile")) xqdm-doc)))
+  (let ((applied-profs (xml-collect-elem #'(lambda (x) (xml-typep x "appliedProfile")) xml-doc)))
     (remove-duplicates 
      (mapcar #'(lambda (x) (car (split x #\#)))
 	     (mapcar #'(lambda (x) (xml-get-attr-value x "xmi:href")) applied-profs))
@@ -204,7 +204,7 @@
    Returns the pop-object."
   (dbg-message :time 1 "~%Start process: ~A" (now))
   (setf *results* (make-instance 'processing-results))
-  (with-slots (conditions user-doc pristine-doc stereo-elems namespaces xqdm-pristine2user-ht xmi-namespace model-namespaces) *results*
+  (with-slots (conditions user-doc pristine-doc stereo-elems namespaces xml-pristine2user-ht xmi-namespace model-namespaces) *results*
     (setf *mmm* (setf user-doc (or preread-xml (xml-document-parser file)))) ; *mmm* for debugging.
     #+nil(xml-set-parents user-doc) ; 2011-03-18, below too.
     (setf model-namespaces (xml-namespaces user-doc))
@@ -356,7 +356,7 @@
 
 ;;; 2010-10-12 POD Was def-memo-equal (was class/attr, a list) I don't see why, attr is unique!
 (defun attr-is-slot-p (class attr)
-  "Returns slot if ATTR (an xqdm:string-attr-node) refers to a slot in CLASS.
+  "Returns slot if ATTR (an string-attr-node) refers to a slot in CLASS.
    Uses m1-find-slot-named, above."
   (let* ((prefix (dom:prefix attr)))
     (and (or (not prefix)
@@ -466,7 +466,7 @@
 (defun parse-elem-attr-loop (elem obj class)
   "Parse the attributes of the argument ELEM into properties of OBJ.
    CLASS is the class of OBJ (defined in the parent to ELEM)."
-  (with-slots (xqdm2model-ht xmi-namespace model-namespaces) *results* ; track relationship between xml and model.
+  (with-slots (xml2model-ht xmi-namespace model-namespaces) *results* ; track relationship between xml and model.
     (loop for attr in (xml-attributes elem) do
 	 (let ((name (dom:node-name attr))
 	       slot)
@@ -478,10 +478,10 @@
 		      (warn 'xmi-serializes-derived :class class :slot slot :elem elem :object obj))
 		    (when (eql val (slot-definition-default slot))
 		      (warn 'xmi-serializes-default :class class :slot slot :elem elem :object obj))
-		    (setf (gethash attr xqdm2model-ht) slot)
+		    (setf (gethash attr xml2model-ht) slot)
 		    (setf (slot-value obj (closer-mop:slot-definition-name slot)) val)))
 		 ((cl-ppcre:scan "^base_" (string name)) 
-		  (setf (gethash attr xqdm2model-ht) class)) ; not used?
+		  (setf (gethash attr xml2model-ht) class)) ; not used?
 		 ((and ; In this case it is xmi:version etc push in by cl-xml.
 		   (let ((sp (find-package (xml-prefix2uri (dom:prefix attr) model-namespaces))))
 		     (or (eql sp xmi-namespace)
@@ -529,22 +529,22 @@
   (let ((*suppress-install* (not store-p)) name class)
     (declare (special *suppress-install*))
     (check-xmi-type-in-href elem)
-    (with-slots (xqdm2model-ht) *results*
+    (with-slots (xml2model-ht) *results*
       (cond ((setq name (xml-get-attr-value elem "xmi:idref"))
-	     (setf (gethash elem xqdm2model-ht) (make-xmi-idref :-name name))) ;track relationship
+	     (setf (gethash elem xml2model-ht) (make-xmi-idref :-name name))) ;track relationship
 	    ((setq name (xml-get-attr-value elem "href"))
-	     (setf (gethash elem xqdm2model-ht) (make-xmi-href :-name name)))  ;track relationship
+	     (setf (gethash elem xml2model-ht) (make-xmi-href :-name name)))  ;track relationship
 	    (t
 	     (setq class (class-of-elem elem parent-class :warn-p warn-p :profile profile))
 	     (cond ((primitive-type-p class)
-		    (setf (gethash elem xqdm2model-ht) class)
+		    (setf (gethash elem xml2model-ht) class)
 		    (parse-primitive-value (car (xml-children elem)) class))
 		   ((enum-p class) 
-		    (setf (gethash elem xqdm2model-ht) class)
+		    (setf (gethash elem xml2model-ht) class)
 		    (parse-enum-elem elem class))
 		   (class ; It is a new object. Make it, call recursively to fill it.
 		    (let ((obj (ireader-make-obj class elem)))
-		      (setf (gethash elem xqdm2model-ht) obj) ; added 2011-03-21
+		      (setf (gethash elem xml2model-ht) obj) ; added 2011-03-21
 		      (dbg-message :readers 5 "~%Parse-elem: class = ~A" class)
 		      (parse-elem-child-loop elem obj class profile)
 		      (parse-elem-attr-loop  elem obj class)
@@ -583,7 +583,7 @@ Full XMI:
 ;;; Stereotyped object processing
 ;;;=========================================
 (defun pp-find-stereo-objs (doc)
-  "Search for xqdm:elems defined by stereotypes. They are outside of the uml:Model"
+  "Search for elems defined by stereotypes. They are outside of the uml:Model"
   (flet ((interesting-children (node)
 	  "Return children of the XML elem NODE, except when NODE is uml:Model or xmi:Extension."
 	  (unless (or (xml-typep-2 node "uml" "Model")
@@ -621,7 +621,7 @@ Full XMI:
 (defun pp-mixin-stereo-objs ()
   "Specialize (by change-class, etc.) stereo-elems found earlier.
    Set the xmiid2obj-ht value to the new 'mixin instance' too."
-    (with-slots (xmiid2obj-ht stereo-elems xqdm2model-ht) *results*
+    (with-slots (xmiid2obj-ht stereo-elems xml2model-ht) *results*
       (loop for elem across stereo-elems 
 	 for stereo-class = (elem2stereo-class elem) do ; 2012-09-07 store-p was nil
 	   (when-bind (stereo-obj (parse-elem elem nil :store-p t :warn-p nil :profile (of-model stereo-class)))
@@ -630,8 +630,8 @@ Full XMI:
 	     (if-bind (xmiid/attr-name (stereo-obj-base-xmiid/attr-name elem (class-of stereo-obj)))
 		      (if-bind (base-obj (gethash (car xmiid/attr-name) xmiid2obj-ht))
 			       (progn
-				;(setf (gethash base-obj-xqdm-obj xqdm2model-ht) base-obj)
-				 (setf (gethash elem              xqdm2model-ht) stereo-class)
+				;(setf (gethash base-obj-xml-obj xml2model-ht) base-obj)
+				 (setf (gethash elem              xml2model-ht) stereo-class)
 				 (update-object-for-stereotype base-obj stereo-obj))
 			       (warn 'mof-no-object-for-stereotyping 
 				     :elem elem :object stereo-obj 
@@ -698,12 +698,12 @@ Full XMI:
     (loop for obj across members do 
 	 (pp-resolve-xmi-idref-href obj)
 	 (pp-raw2collection/scalar obj)))
-  (pp-resolve-xmi-idref-href-in-xqdm-ht mut)
+  (pp-resolve-xmi-idref-href-in-xml-ht mut)
   (with-results (stereo2base-ht :mut *population*)
     (loop for obj being the hash-key of stereo2base-ht do 
 	 (pp-resolve-xmi-idref-href obj)
 	 (pp-raw2collection/scalar obj)))
-  (pp-resolve-xmi-idref-href-in-xqdm-ht mut)
+  (pp-resolve-xmi-idref-href-in-xml-ht mut)
   (pp-check-no-mapped-opposites)
   ;; Odd looking, but don't use OR or won't get the second one
   (let ((progress t)) 
@@ -812,16 +812,16 @@ Full XMI:
 		       (resolve-one val obj slot))))))))
 
 
-(defun pp-resolve-xmi-idref-href-in-xqdm-ht (mut)
-  "Loop through the xqdm2model-ht and resolve references in the xqdm2model-ht."
-  (with-results (xqdm2model-ht xmiid2obj-ht :mut mut)
+(defun pp-resolve-xmi-idref-href-in-xml-ht (mut)
+  "Loop through the xml2model-ht and resolve references in the xml2model-ht."
+  (with-results (xml2model-ht xmiid2obj-ht :mut mut)
     (flet ((resolve-one (v)
 	     (typecase v
 	       (xmi-idref (gethash (xmi-idref--name v) xmiid2obj-ht))
 	       (xmi-href (lookup-href (xmi-href--name v))))))
-      (loop for val being the hash-value of xqdm2model-ht using (hash-key key)
+      (loop for val being the hash-value of xml2model-ht using (hash-key key)
 	    for resolved = (resolve-one val)
-	    when resolved do (setf (gethash key xqdm2model-ht) resolved)))))
+	    when resolved do (setf (gethash key xml2model-ht) resolved)))))
  
 (defun pp-raw2collection/scalar (obj)
   "Given 'raw' slot either create a collection, or a scaler."
@@ -1096,14 +1096,14 @@ Full XMI:
 		      (find-package :sysml12))
 		 (find-class (intern "ControlValue" :sysml12) nil))))))))
 
-(defun find-model-pkg-from-xqdm (xqdm-elem)
-  "Return the model 'lisp-package' using the xml elements, starting with the argument XQDM-ELEM."
-  (with-results (xqdm2model-ht)
+(defun find-model-pkg-from-xml (xml-elem)
+  "Return the model 'lisp-package' using the xml elements, starting with the argument XML-ELEM."
+  (with-results (xml2model-ht)
     (when-bind (obj (depth-first-search 
-		     xqdm-elem
-		     #'(lambda (x) (gethash x xqdm2model-ht))
+		     xml-elem
+		     #'(lambda (x) (gethash x xml2model-ht))
 		     #'(lambda (x) (list (xml-parent x)))))
-      (lisp-package (of-model (class-of (gethash obj xqdm2model-ht)))))))
+      (lisp-package (of-model (class-of (gethash obj xml2model-ht)))))))
 
 (defgeneric href-made-memo (obj href &key &allow-other-keys))
 
@@ -1166,7 +1166,7 @@ Full XMI:
 		(make-instance (if (typep model 'profile)
 				   (intern "Profile" (lisp-package (find-model (model-n+1 model))))
 				   (if (eql model (find-model :ptypes))
-				       (if-bind (pkg (find-model-pkg-from-xqdm source-elem))
+				       (if-bind (pkg (find-model-pkg-from-xml source-elem))
 						(intern "Package" pkg) ; 2014-02-21 Workaround for ptypes, error from edbark.
 						(intern "Package" :uml241)) ; 2014-02-21 Workaround for ptypes, guessing!
 				       (intern "Model" (lisp-package model))))

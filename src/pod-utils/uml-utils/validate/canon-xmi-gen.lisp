@@ -41,7 +41,6 @@
     (dbg-msg :validate 5 "~%Set object refs")
     #+nil(xmi-fix-namespace-uri doc)  
     #+nil(dbg-msg :validate 5 "~%Set fix namespace uri")
-    #+nil(xmi-reset-xqdm-ordinality doc)
     ;; Write it
     (let ((*print-pretty* nil))
       (xml-write-node doc (phttp::user-pathname (pod:lpath :tmp "diff/canonical-pre-reflow.xml")))
@@ -83,7 +82,7 @@
   (loop for (prefix . ns-string) in (xml-namespaces (xml-root doc)) do
        (when-bind (model (find-model ns-string :error-p nil))
 	 (when-bind (nick (second (nicknames model)))
-	   (setf (slot-value ns 'xqdm::value) nick)  ; not necessary?
+	   (setf (slot-value ns 'xml-value) nick)  ; not necessary?
 	   (setf (xml-children ns) (list nick)))))) ; necessary!
 
 (defun xmi-remove-extensions (doc)
@@ -117,7 +116,7 @@
 (defun xmi-elementize (doc mut)
   "Make every attribute but xmi:id, xmi:idref, xmi:uuid and xmi:type an element.
    Place the remaining attributes in that order."
-  (with-slots (xmiid2obj-ht xqdm2model-ht) (processing-results mut)
+  (with-slots (xmiid2obj-ht xml2model-ht) (processing-results mut)
     (let ((keep-attrs '("href" "xmi:id" "xmi:idref" "xmi:uuid" "xmi:type")))
       (depth-first-search 
        (xml-root doc)
@@ -129,7 +128,7 @@
 		      (unless (member (dom:node-name attr) keep-attrs :test #'equal)
 			(setf (xml-attributes node) (remove attr (xml-attributes node)))
 			(let (refs?) ; Check whether XML attr is xmi:idref (one or more).
-			  (if (when-bind (slot/stereo (gethash attr xqdm2model-ht))
+			  (if (when-bind (slot/stereo (gethash attr xml2model-ht))
 				(and 
 				 (or (and (typep slot/stereo 'slot-definition) 
 					  (not (primitive-type-p (slot-definition-range slot/stereo))))
@@ -141,15 +140,15 @@
 				    (xml-add-elem node new-elem)
 				    (xml-add-attr new-elem "xmi" "idref" ref)
 				    (if-bind (obj (gethash ref xmiid2obj-ht))
-					    (setf (gethash new-elem xqdm2model-ht) obj)
+					    (setf (gethash new-elem xml2model-ht) obj)
 					    (format *error-output* "~%No attr to associate with ~A" ref)))
 			      (let ((new-elem (xml-create-elem node (dom:prefix attr) (dom:local-name attr))))
 				(xml-add-elem node new-elem)
 				;; 2019 was xml-set-content
 				(setf (xml-children new-elem) (list (car (xml-children attr))))
 				#+nil(xml-set-content new-elem (car (xml-children attr)))
-				(when-bind (attr-obj (gethash attr xqdm2model-ht)) ; 2012-09-07 if-bind now when-bind
-				  (setf (gethash new-elem xqdm2model-ht) attr-obj)))))))))))))
+				(when-bind (attr-obj (gethash attr xml2model-ht)) ; 2012-09-07 if-bind now when-bind
+				  (setf (gethash new-elem xml2model-ht) attr-obj)))))))))))))
 
 (defun xmi-set-object-references (doc mut)
   "Walk through every dom:element-p (this after elementizing), replace xmi:idref 
@@ -440,16 +439,16 @@ Note that for structured Datatypes the properties will be ordered as per B5.1.
 				       (length (member (ename y) xml-properties :test #'string=))))))))))))))
 
 ;;; This is probably a waste of time.
-#+nil(defun xmi-reset-xqdm-ordinality (doc)
-  "Set the xqdm:ordinal value breadth-first."
+#+nil(defun xmi-reset-xml-ordinality (doc)
+  "Set the xml:ordinal value breadth-first."
   (let ((count 0))
     (breadth-first-search 
      (xml-root doc)
      #'fail
      #'xml-children
      :do #'(lambda (node) 
-	     (when (typep node 'xqdm:ordinal-node)
-	       (setf (xqdm:ordinality node) (incf count)))))))
+	     (when (typep node 'xml:ordinal-node)
+	       (setf (xml:ordinality node) (incf count)))))))
 
 ;;;=============================================================================================
 ;;; xmi:id naming for canonical
@@ -504,8 +503,8 @@ Names and Tokens
     ;; Make a hash-table indexed by sort-name. Useful elsewhere.
     (loop for o in mem-list do (push o (gethash (%sort-name o) name-ht)))
     ;; Use alternative naming approach for those that don't have unique qualified names. 
-    (loop for obj in (gethash nil name-ht) with xqdm2obj-ht = (xqdm2model-ht (processing-results mut))
-       do (xmi-compute-canonical-xmiid-alternative obj name-ht xqdm2obj-ht))
+    (loop for obj in (gethash nil name-ht) with xml2obj-ht = (xml2model-ht (processing-results mut))
+       do (xmi-compute-canonical-xmiid-alternative obj name-ht xml2obj-ht))
     (loop for obj in mem-list 
        for sort-name = (%sort-name obj) do
 	 (if sort-name ; POD to be safest, this should move to wherever the name is created.
@@ -562,7 +561,7 @@ Names and Tokens
       (values))))
 
 ;;; Calls itself recursively when a parent doesn't have a sort-name. 
-(defun xmi-compute-canonical-xmiid-alternative (obj name-ht xqdm2model-ht)
+(defun xmi-compute-canonical-xmiid-alternative (obj name-ht xml2model-ht)
   "Calculate names where there wasn't a unique qualified name. 
    B.6: 'Use the xmi:id of the parent XML element (or “_” for top level elements),
    followed by the separator ‘-‘, followed by the name of the property (XML element)
@@ -573,9 +572,9 @@ Names and Tokens
 	   (base-name ; name without -<sequence number>
 	    (format nil "~A-~A"
 		    (if-bind (pelem (xml-parent node))
-			     (if-bind (pobj (gethash pelem xqdm2model-ht))
+			     (if-bind (pobj (gethash pelem xml2model-ht))
 				      (or (%sort-name pobj) 
-					  (xmi-compute-canonical-xmiid-alternative pobj name-ht xqdm2model-ht))
+					  (xmi-compute-canonical-xmiid-alternative pobj name-ht xml2model-ht))
 				      "_") ; this one if parent is xmi:xmi (root)
 			     "_")
 		    elem-name))

@@ -8,8 +8,6 @@
   (:nicknames :pod)
   (:use :cl)
   (:shadowing-import-from :cl-who #:str)
-;  #+cells(:shadow utils-kt:define-constant utils-kt:with-gensyms utils-kt:ensure-gethash
-;		  utils-kt:trc)
   (:export 
    ;; from utils.lisp
    #:*null-stream* 

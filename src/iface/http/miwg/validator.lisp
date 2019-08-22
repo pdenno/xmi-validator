@@ -91,10 +91,7 @@
 (defmacro handle-xml-parse-errors (&body body)
   "Arrange to report information available about XML parse errors."
   `(handler-bind 
-       (((or xqdm::wellformedness-error xqdm::validity-cerror
-	     xqdm::validity-cerror xqdm::production-error 
-	     xqdm::node-graph-error xqdm::namespace-error)
-	 ;; The above are all subclasses of xml-utils:xml-condition. But I don't think I want to generalize.
+       ((mofi:mof-duplicate-xmi-id ; 2019 POD was a bunch of anderson xqdm classes. 
 	 #'(lambda (e)
 	     (with-vo (mut) 
 	       (let ((err-str 
@@ -105,11 +102,9 @@
 				    ))))
 		 (setf mut 
 		       (strcat
-			(if (or (typep e 'xqdm::node-graph-error) (typep e 'xqdm::namespace-error))
-			    (format nil "<strong> ~A.</strong>" (string (class-name (class-of e))))
-			    (format nil "<strong> ~A, at line ~A.</strong>" 
-				    (string (class-name (class-of e)))
-				    "POD 2019: Fix this"))
+			(format nil "<strong> ~A, at line ~A.</strong>" 
+				(string (class-name (class-of e)))
+				"POD 2019: Fix this")
 			"<br/><br/>"
 			(mvb (success vec)
 			    (cl-ppcre:scan-to-strings "(.+)parser error with-state" err-str)

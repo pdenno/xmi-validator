@@ -93,13 +93,13 @@
     (format t "~3%")
     (usr-bin-xmllint :instring
 		     (with-output-to-string (str)
-		       (xqdm:write-node doc str)))))
+		       (xml-write-node doc str)))))
 
 ;;; Subject is an IRI or blank node
 ;;; Predicate is an IRI
 ;;; Object is an IRI, literal or blank node.
 (defun add-node (node parent doc)
-  (let ((elem (xqdm:make-elem-node :name '|rdf|::|Description| :parent parent :document doc))
+  (let ((elem (xmlu:make-elem-node :name '|rdf|::|Description| :parent parent :document doc))
 	leaves non-leaves)
     (mvs (leaves non-leaves) (leaf-objects node))
     (push elem (xml-children parent))
@@ -119,7 +119,7 @@
 	 (setf (serialized-p pred) t))
     ;; Non-leaf objects
     (loop for (pred . obj) in non-leaves
-	  for child = (xqdm:make-elem-node :name (pred2elem-name pred) :parent elem :document doc) do
+	  for child = (xmlu:make-elem-node :name (pred2elem-name pred) :parent elem :document doc) do
 	  (add-node obj child doc) 
 	  (push-last child (xml-children elem)))
     elem))
@@ -147,10 +147,10 @@
 ;;;  <ex:homePage rdf:resource="http://purl.org/net/dajobe/" />
 (defun mk-leaf-elem (elem-name obj-node parent doc)
   (setf (serialized-p obj-node) t)
-  (let ((elem (xqdm:make-elem-node :name elem-name :parent parent :document doc))
+  (let ((elem (xmlu:make-elem-node :name elem-name :parent parent :document doc))
 	(uri (odm:%name (odm:%uri (odm:%uri-ref obj-node)))))
     (setf (xml-attributes elem)
-	  (list (xqdm:make-string-attr-node 
+	  (list (xmlu:make-string-attr-node 
 		 :name '|rdf|::|resource|
 		 :value uri
 		 :children (list uri)
@@ -160,7 +160,7 @@
 (defun mk-leaf-attr (pred obj parent)
   "Make an XML attribute for a predicate with a terminal object."
   (setf (serialized-p pred) t)
-  (xqdm:make-string-attr-node 
+  (xmlu:make-string-attr-node 
    :name pred
    :value obj
    :children (list obj)
@@ -168,19 +168,19 @@
 
 (defun mk-about-attr (uri parent)
   "Make an rdf:about XML attribute."
-  (xqdm:make-string-attr-node 
+  (xmlu:make-string-attr-node 
    :name '|rdf|:|about|
    :value uri
    :children (list uri)
    :parent parent))
 
 (defun make-namespaces (doc ns-list)
-  "Make xqdm:ns-nodes for dom:document DOC. NS-LIST is (prefix . longstring)."
+  "Make xmlu:ns-nodes for dom:document DOC. NS-LIST is (prefix . longstring)."
   (loop for (prefix . ns) in (remove-if #'(lambda (x) (string= "rdf" (car x))) ns-list)
         for namespace = (or (find-package ns) 
 			    (make-package ns 
 					  :nicknames (unless (find-package prefix) (list prefix))))
-        collect (xqdm:make-ns-node :prefix (intern prefix '|xmlns|)
+        collect (xmlu:make-ns-node :prefix (intern prefix '|xmlns|)
 				   :namespace namespace
 				   :document doc 
 				   :parent (xml-root doc))))

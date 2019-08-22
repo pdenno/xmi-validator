@@ -1,7 +1,7 @@
 
 ;;;
 ;;; Purpose: Implements "post-canonical era" model diff capability. 
-;;;          Reports using the bookkeeping approach from xqdm diffing. 
+;;;          Reports using the bookkeeping approach from xml diffing. 
 ;;; Date: 2011-06-19 (not a particularly good time, BTW!)
 
 #|
@@ -49,7 +49,7 @@
 
 (declaim (inline gethash-inv-obj))
 (defun gethash-inv-obj (val ht)
-  "Inverse lookup can be one-to-many. The elem we want (out of one of the xqdm2model-ht typically)
+  "Inverse lookup can be one-to-many. The elem we want (out of one of the xml2model-ht typically)
    is the one representing the object, not a xmi:idref etc. to it."
   (gethash-inv val  ht :test  #'(lambda (x) (and (dom:element-p x)
 						 (xml-get-attr x "type" :prefix "xmi")))))
@@ -674,11 +674,11 @@
     ht))
 
 (defun pristine-up (ue)
-  "UE is an xqdm elem in user xmi (messed up by canoncialized).
+  "UE is an xml elem in user xmi (messed up by canoncialized).
    Return the corresponding object in the pristine doc."
-  (with-results (xqdm-pristine2user-ht)
+  (with-results (xml-pristine2user-ht)
     (loop for elem = ue then (xml-parent elem) while elem
-       for pristine = (gethash-inv elem xqdm-pristine2user-ht) ; ht is 1-1?
+       for pristine = (gethash-inv elem xml-pristine2user-ht) ; ht is 1-1?
        when pristine return pristine)))
 
 ;;;===========================================================================
@@ -693,22 +693,22 @@
   "Report the stuff that couldn't be matched."
   (flet ((ue2uo (elem-node)
 	   "Navigating up through xml elements, return the first related uml object found."
-	   (with-results (xqdm2model-ht)
+	   (with-results (xml2model-ht)
 	     (loop for e = elem-node then (and e (xml-parent e)) while e 
-		   for obj = (gethash e xqdm2model-ht)
+		   for obj = (gethash e xml2model-ht)
 		   when (typep obj 'mm-root-supertype) return obj))))
     (with-matches (u-no-v-list v-no-u-list)
-      (with-results (xqdm2model-ht elem2line-ht :mut (key2mut tc))
+      (with-results (xml2model-ht elem2line-ht :mut (key2mut tc))
         (loop for v in v-no-u-list do
-	     (if-bind (ve (gethash-inv-obj v xqdm2model-ht))
+	     (if-bind (ve (gethash-inv-obj v xml2model-ht))
 		(warn 'xmi-diff-user-missing 
 		      :vline (gethash ve elem2line-ht) 
 		      :velem ve
 		      :vobj v)
 		(warn "Couldn't find ve in xmi-diff-user-missing"))))
-      (with-results (xqdm2model-ht  elem2line-ht xqdm-pristine2user-ht) 
+      (with-results (xml2model-ht  elem2line-ht xml-pristine2user-ht) 
 	(loop for u in u-no-v-list do
-	     (if-bind (ue (gethash-inv-obj u xqdm2model-ht))
+	     (if-bind (ue (gethash-inv-obj u xml2model-ht))
 		(if-bind (pristine-ue (pristine-up ue)) ; sometimes it doesn't work
 		    (warn 'xmi-diff-valid-missing 
 			  :uline (gethash pristine-ue elem2line-ht) 
@@ -723,12 +723,12 @@
   (with-matches (perfect-ht)
     (loop for u being the hash-key of perfect-ht using (hash-value v)
 	  unless (eql (type-of u) (type-of v)) do
-	 (with-results (xqdm2model-ht elem2line-ht)
-	   (let* ((ue (gethash-inv-obj u xqdm2model-ht))
+	 (with-results (xml2model-ht elem2line-ht)
+	   (let* ((ue (gethash-inv-obj u xml2model-ht))
 		  (pristine-ue (pristine-up ue))
 		  (uline (gethash pristine-ue elem2line-ht)))
-	     (with-results (xqdm2model-ht elem2line-ht :mut (key2mut tc))
-	       (let* ((ve (gethash-inv-obj v xqdm2model-ht))
+	     (with-results (xml2model-ht elem2line-ht :mut (key2mut tc))
+	       (let* ((ve (gethash-inv-obj v xml2model-ht))
 		      (vline (gethash ve elem2line-ht)))
 		 (warn 'xmi-odd-match 
 		       :uobj u  
@@ -799,13 +799,13 @@
     (when (typep v (usym "LiteralSpecification")) (setf v (ufuncall "%value" v)))
     ;; 2012-10-03 don't check 'pure-supertypes (they aren't uml:|Element|; the specific method above is not used.
     (unless (or (equal u v) (typep u 'mm-root-supertype) (typep v 'mm-root-supertype))
-      (with-results (tc-matches xqdm2model-ht elem2line-ht)
+      (with-results (tc-matches xml2model-ht elem2line-ht)
 	(let* ((valid-object (gethash owner (perfect-ht tc-matches)))
-	       (user-elem (pristine-up (gethash-inv-obj owner xqdm2model-ht)))
+	       (user-elem (pristine-up (gethash-inv-obj owner xml2model-ht)))
 	       (user-line-num (gethash user-elem elem2line-ht)))
 	  (with-vo (phttp:show-diff-p)
-	    (with-results (xqdm2model-ht elem2line-ht :mut (key2mut phttp:show-diff-p))
-	      (let* ((valid-elem (gethash-inv-obj valid-object xqdm2model-ht))
+	    (with-results (xml2model-ht elem2line-ht :mut (key2mut phttp:show-diff-p))
+	      (let* ((valid-elem (gethash-inv-obj valid-object xml2model-ht))
 		     (valid-line-num (gethash valid-elem elem2line-ht)))
 		;; 2013-12-30 Filter out temporary objects.
 		(unless (or (and (typep owner 'mm-root-supertype) (minusp (%debug-id owner)))

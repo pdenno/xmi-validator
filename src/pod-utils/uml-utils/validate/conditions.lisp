@@ -133,13 +133,14 @@
 ;;; (LW uses clos for conditions, but it isn't required.)
 (defparameter *mofi-all-conditions* nil "A list of condition names.")
 
+;;; Put properties :report, :title, :id-num :explanation on the symbol. 
 (defmacro defcondition (name superclasses slots &rest options)
   `(progn
      (pushnew ',name *mofi-all-conditions*)
      (define-condition ,name ,superclasses ,slots
        (:documentation ,(cadr (assoc :documentation options)))
-       #+LispWorks(:report ,(cadr (assoc :report options))))
-     #+sbcl(setf (get :report ',name) ,(cadr (assoc :report options)))
+       (:report ,(cadr (assoc :report options))))
+     (setf (get :report ',name) ,(cadr (assoc :report options)))
      (setf (get :title ',name) ,(cadr (assoc :title options)))
      (setf (get :id-num ',name) ,(or (cadr (assoc :id-num options)) 1000))
      (setf (get :explanation ',name) ,(cadr (assoc :explanation options)))
@@ -147,34 +148,49 @@
 
 (defcondition mof-error (error) 
   ()
-  (:documentation "Abstract condition. Superclass of some others here."))
+  (:documentation "Abstract condition. Superclass of some others here.")
+  (:report 
+   (lambda (arg stream) 
+     (format stream "Generic mof-error (should not occur): ~A." arg))))
+
+
+(defmethod initialize-instance :after ((obj mof-class-not-found) &key)
+  (setf (slot-value obj 'sb-kernel::format-control) (get :report 'mof-class-not-found)))
+
 
 (defcondition mof-warning (simple-warning) 
   ((object :initarg :object :initform nil)
    (elem :initarg :elem :initform nil)
    #+sbcl(reporter-function :initarg :report :initform nil)
    (red-regex :initform nil))
-  (:documentation "Abstract condition. Superclass of others here."))
+  (:documentation "Abstract condition. Superclass of others here.")
+  (:report
+   (lambda (arg stream) 
+     (format stream "Generic mof-warning (should not occur): ~A." arg))))
 
 (defmethod initialize-instance :around ((c mof-warning) &key)
-  "The original xqdm object will be transformed to canonical;
+  "The original xml object will be transformed to canonical;
    this saves a serialization of the element as it appears 
    before transformation."
   (call-next-method)
+  #+sbcl(setf (slot-value c 'sb-kernel::format-control) (get :report (class-name (class-of c)))) ; 2019
   (with-slots (elem object) c
     (when-bind (node (or elem (and (typep object 'mm-root-supertype) (mofi:%source-elem object))))
       (setf (slot-value c 'elem) 
 	    (let ((*print-pretty* t))
 	      (with-output-to-string (str) (xml-write-node node str)))))))
 
-(defgeneric xqdm-copy-elem (obj))
+(defgeneric xml-copy-elem (obj))
 
-(defmethod xqdm-copy-elem (obj) obj)
+(defmethod xml-copy-elem (obj) obj)
 
 (defcondition tool-limitation (simple-warning) 
   ()
   (:documentation "Abstract condition. Reports on a limitation 
-   of this validation tool's capabilities."))
+   of this validation tool's capabilities.")
+  (:report
+   (lambda (arg stream) 
+     (format stream "Generic tool-limitation (should not occur): ~A." arg))))
 
 ;;;====================
 ;;; mof-warnings types
@@ -964,7 +980,7 @@
 ;; XMI Diff checking
 ;;;=========================================================
 ;;; POD This would be useful in a new file called pod-utils/xmi-utils.lisp.
-(defmacro xqdm-finder (fname attr)
+(defmacro xml-finder (fname attr)
   `(defmethod ,fname ((elem t)) ; 2019-06-18 I'm going to try to let it slide. 
      "Return the xmi:id of the element. Assumes you don't know what XMI pkg is being used."
      (when (dom:element-p elem)
@@ -972,9 +988,9 @@
 	  for val = (xml-get-attr-value elem ,(strcat "xmi:" attr))
 	  when val return val))))
 
-(xqdm-finder xmi-id    "id")
-(xqdm-finder xmi-idref "idref")
-(xqdm-finder uuid      "uuid")
+(xml-finder xmi-id    "id")
+(xml-finder xmi-idref "idref")
+(xml-finder uuid      "uuid")
 
 (defun xmi-abbrev (elem &key (len 250))
   "Return a string describing the element concisely."

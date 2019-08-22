@@ -57,7 +57,7 @@ URLs had different dates than the URI, and now we still have a similar problem w
 (mofi:ensure-model 
  :uml25 :force t  :verbose t
  :nicknames '("UML 2.5" 
-	      "http://www.omg.org/spec/UML/2.5" 
+      	      "http://www.omg.org/spec/UML/20131001"  ; 2019 "http://www.omg.org/spec/UML/2.5" 
 	      "http://www.omg.org/spec/UML/2.5/UML.xmi"
 	      "http://www.omg.org/spec/UML/20131001"
 	      "http://www.omg.org/spec/UML/20131001/UML.xmi")

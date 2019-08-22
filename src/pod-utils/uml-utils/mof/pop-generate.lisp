@@ -1110,12 +1110,12 @@
 
 ; (setf ppp (xml-document-parser (pod:lpath :data "bpmn/magicdraw/bpmn-profile-very-clean.xml")))
 ; (clean-md ppp)
-; (xqdm:write-node ppp *standard-output*)
+; (xmlu:write-node ppp *standard-output*)
 #+nil
-(defun clean-md (xqdm-doc)
+(defun clean-md (xml-doc)
   "Clean MagicDraw BPMN XMI (19MB) of associations and icons."
   (depth-first-search 
-   xqdm-doc
+   xml-doc
    #'fail
    #'xml-children
    :do #'(lambda (node)
@@ -1126,7 +1126,7 @@
 				   (xml-typep x "icon")
 				   (xml-typep-3 x '|http://schema.omg.org/spec/XMI/2.1|::|Association|)
 				   (and (dom:element-p x)
-					(string= "MagicDraw_Profile" (xqdm:prefix (xqdm:name x))))))
+					(string= "MagicDraw_Profile" (xml-prefix (xml-name x))))))
 			      (xml-children node)))))))
    
 

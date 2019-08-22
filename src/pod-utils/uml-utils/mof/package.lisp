@@ -2,7 +2,7 @@
 (in-package :cl-user)
 
 (defpackage mofi
-  (:use :cl :pod :xmlu :tr :closer-mop)
+  (:use :cl :pod :xmlu :xmlv :tr :closer-mop)
   (:nicknames :mof-implementation)
   (:shadowing-import-from :closer-mop #:standard-class #:ensure-generic-function
 			  #:defgeneric #:standard-generic-function #:defclass #:defmethod)
@@ -51,7 +51,7 @@
 	   #:derived-slots-no-fn
 	   #:diffs
 	   #:diff-models
-	   #:diff-xqdm
+	   #:diff-xml
 	   #:editor-note
 	   #:encode-for-url
 	   #:endpoints

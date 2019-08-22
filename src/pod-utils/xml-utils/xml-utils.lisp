@@ -489,7 +489,7 @@
 
 
 (defun base-namespace (doc)
-  "Return the base namespace (string) of a xqdm:document DOC."
+  "Return the base namespace (string) of a xml:document DOC."
   (declare (ignore doc))
   (error "NYI"))
 #|  (let (base-ns)
@@ -497,7 +497,7 @@
      (xml-root doc)
      #'(lambda (x) 
 	 (and (dom:element-p x)
-	      (setf base-ns (find '|xmlns|:|| (xqdm:namespaces x) :key #'dom:node-name))))
+	      (setf base-ns (find '|xmlns|:|| (xml:namespaces x) :key #'dom:node-name))))
      #'xml-children)
     (when base-ns (xml-value base-ns))))
 |#
