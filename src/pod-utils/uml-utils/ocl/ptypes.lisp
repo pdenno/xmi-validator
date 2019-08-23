@@ -25,35 +25,28 @@
 (defmethod mofi:%of-model ((obj |Ptype-type-proxy|)) (mofi:find-model :ptypes))
 (defmethod mofi:of-model ((obj |Ptype-type-proxy|)) (mofi:find-model :ptypes))
 
-(defmacro deftype-ptype (name satisfies)
+(defmacro deftype-ptype (name)
   (with-gensyms (obj)
   `(unless (find-class ',name nil) ; avoid duplicates types
-    (deftype ,name () ',satisfies)
-    (setf (get ',name 'mofi:mof-type-proxy) t) ; so mofi:mapped-slots doesn't process.
-    (let ((,obj (make-instance '|Ptype-type-proxy| :proxy-name ',name :name ',name))) ; 2010-10-03 added :name
-      (setf (get ',name 'mofi:mof-type-proxy) ,obj)
-      (vector-push ,obj (mofi:types (mofi:find-model :ptypes)))
-      (setf (find-class ',name) ,obj)))))
+     (setf (get ',name 'mofi:mof-type-proxy) t) ; so mofi:mapped-slots doesn't process.
+     (let ((,obj (make-instance '|Ptype-type-proxy| :proxy-name ',name :name ',name))) ; 2010-10-03 added :name
+       (setf (get ',name 'mofi:mof-type-proxy) ,obj)
+       (vector-push ,obj (mofi:types (mofi:find-model :ptypes)))
+       (setf (find-class ',name) ,obj)))))
 
 ;;;================ Primitive Types ================
-(deftype-ptype |String| (satisfies stringp))
-(deftype-ptype |Integer| (satisfies integerp))
-(deftype-ptype |Real| (satisfies numberp)) ; for UML2.4 and later
+(deftype-ptype |String|)
+(deftype |String| () 'string)
+(deftype-ptype |Integer|)
+(deftype |Integer| () 'integer)
+(deftype-ptype |Real|)
+(deftype |Real| () 'number)
 
-(defun unlimited-natural-p (val)
-  (or
-   (eql val :*)
-   (and (integerp val)
-	(or (plusp val) (zerop val)))))
+(deftype-ptype |UnlimitedNatural|)
+(deftype |UnlimitedNatural| () '(or integer (member :*)))
 
-(deftype-ptype |UnlimitedNatural| (satisfies unlimited-natural-p))
-
-(defun boolean-val-p (val)
-  "Used in the 'satisfies' of deftype |Boolean|"
-  (or (eql val :true) (eql val :false)))
-
-(deftype-ptype |Boolean| (satisfies boolean-val-p))
-
+(deftype-ptype |Boolean|)
+(deftype |Boolean| () '(member :true :false))
 
 (setf (slot-value (mofi:find-model :ptypes) 'mofi:types)
       (make-array 5

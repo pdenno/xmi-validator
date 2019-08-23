@@ -12,9 +12,11 @@
   (defmacro ufun (string) `(symbol-function ',(usym string)))
 )
 
-(defun warn- (type &rest ignore)
+(setf *zippy* '())
+(defun warn- (type &rest args)
   "'Abbreviated warn' don't create the object."
-  (declare (ignore ignore))
+  ;;(declare (ignore ignore))
+  (push (list type args) *zippy*)
   (with-vo (mut)
     (let ((count-ht (count-conditions (processing-results mut))))
       (if-bind (count (gethash type count-ht))

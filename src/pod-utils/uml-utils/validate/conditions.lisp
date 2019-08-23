@@ -646,8 +646,8 @@
     This is the error correctly reported when the OCL is valid but, in the manner defined
     by that OCL code, your model isn't. Identifying what it is about your exchange file
     that the the OCL is objecting to is a typical debugging exercise, and due to the 
-    lack of debugging tools, can be hard to grasp. If you can't see the problem, and you 
-    are part of the MIWG, send a note to xmi-interop@omg.org.
+    lack of debugging tools, can be hard to grasp. If you can't see the problem, send a note 
+    to xmi-interop@omg.org.
     <p/>
     Whether or not processors will behave 
     properly when faced with OCL constraint violations depends on the details of the constraint. 
@@ -714,7 +714,7 @@
    (reader-name :initarg :reader-name :initform nil)
    (lisp-error :initarg :lisp-error :initform nil))
   (:id-num 11.5)
-  (:title "OCL errors while evaluating derived attribute")
+  (:title "OCL errors while evaluating a derived attribute")
   (:documentation "There was an error while executing OCL that provides the value of a derived attribute.")
   (:explanation 
    "There was an 'exceptional situation' (e.g. program exception) while evaluating OCL code.
@@ -722,7 +722,7 @@
     bug in the metamodel's (or profile's) OCL code. It might even be due to a fault in the
     XMI exchange file being processed. (Every effort has been made to eliminate this last source.)
     Detailed explanation of these errors in not yet provided because the explanations are so various
-    and can be complex. If you are really interested, ask in the MIWG.")
+    and can be complex. If you are really interested, send email to xmi-interop@omg.org.")
   (:report
    (lambda (c stream)
      (with-slots (object class-name reader-name lisp-error) c
@@ -1015,11 +1015,14 @@
   (:id-num 100)
   (:title "Imperfect matching of a User.xmi object to a Valid.xmi object")
   (:documentation "The user indicated that the file is a MIWG test case. Two objects that 
-                   seemed to match each other in many respects are nonetheless of differing type.")
+                   seemed to match each other in many respects are nonetheless of differing type.
+                   The validator isn't currently implementing MIWG test cases.
+                   If you need this, send email to xmi-interop@omg.org.")
   (:explanation "The user stated that the file he is uploading is a MIWG Test Case. The validator 
     compared objects in the two files, seeking corresponding objects. The corresponding objects
     that are the subject of this report are not of identical types. No further matching into
-    these objects was performed.")
+    these objects was performed. The validator isn't currently implementing MIWG test cases.
+    If you need this, send email to xmi-interop@omg.org.")
   (:report
    (lambda (c stream)
      (with-slots (uobj vobj) c
@@ -1046,7 +1049,8 @@
     The user stated that the file he is uploading is a MIWG Test Case. The validator compared the
     canonical form of his XMI (the XML shown at the link) with a stored Canonical XMI file 
     generated from valid.xmi.<p/> Each error report of this type describes a significant
-    difference between the generated canonical XMI and the stored valid canonical XMI.")
+    difference between the generated canonical XMI and the stored valid canonical XMI.
+    The validator isn't currently implementing MIWG test cases. If you need this, send email to xmi-interop@omg.org.")
   (:report
    (lambda (c stream)
      (with-slots (velem vobj red-regex) c
@@ -1072,7 +1076,9 @@
   (:id-num 102)
   (:title "User.xmi contains an element not present in valid.xmi")
   (:documentation "The user indicated that the file is a MIWG test case; the user's (canonical XMI-transformed) file
-                   contains an element not found in valid.xmi")
+                   contains an element not found in valid.xmi
+ 		   The validator isn't currently implementing MIWG test cases. If you need this,
+                   send email to xmi-interop@omg.org.")
   (:explanation "The Validator generates canonical XMI; you can see it by navigating the link on
     the validator report called 'Canonical XMI'. (See the MIWG Wiki for discussion of the notion of Canonical XMI).
     The user stated that the file he is uploading is a MIWG Test Case. The validator compared the
@@ -1080,7 +1086,9 @@
     generated from valid.xmi. Each error report of this type describes a significant
     difference between the generated canonical XMI and the stored valid canonical XMI.
     <p/>NOTE: This error will be reported for each instance where the user file serializes
-    a default or derived value. It is easiest to fix those errors before studying these.")
+    a default or derived value. It is easiest to fix those errors before studying these.
+    The validator isn't currently implementing MIWG test cases. If you need this,
+    send email to xmi-interop@omg.org.")
   (:report
    (lambda (c stream)
      (with-slots (uelem red-regex uobj) c
@@ -1108,11 +1116,13 @@
   (:title "An object property value in user.xmi differs from that of valid.xmi")
   (:documentation "The user indicated that the file is a MIWG test case. An object property
                    in the user's file differs from that of the corresponding object in 
-                   valid.xmi.")
+                   valid.xmi. The validator isn't currently implementing MIWG test cases.
+                   If you need this, send email to xmi-interop@omg.org.")
   (:explanation " The user stated that the file he is uploading is a MIWG Test Case. 
     The validator compared the user's XMI with a stored Canonical XMI file (valid.xmi)
     Each error report of this type describes a significant difference between user's
-    file and the valid canonical XMI.")
+    file and the valid canonical XMI. The validator isn't currently implementing MIWG test cases.
+    If you need this, send email to xmi-interop@omg.org.")
   (:report
    (lambda (c stream)
      (with-slots (uobj vobj prop-name uval vval red-regex uelem) c
@@ -1153,11 +1163,14 @@
   (:id-num 105)
   (:title "User object missing a value specified in valid.xmi")
   (:documentation "The user indicated that the file is a MIWG test case. An object property
-                   in the user's file does not specify a value where valid.xmi does.")
+                   in the user's file does not specify a value where valid.xmi does.
+  		   The validator isn't currently implementing MIWG test cases.
+                   If you need this, send email to xmi-interop@omg.org.")
   (:explanation " The user stated that the file he is uploading is a MIWG Test Case. 
     The validator compared the user's XMI with a stored Canonical XMI file (valid.xmi)
     Each error report of this type describes a significant difference between user's
-    file and the valid canonical XMI.")
+    file and the valid canonical XMI. The validator isn't currently implementing MIWG test cases.
+    If you need this, send email to xmi-interop@omg.org.")
   (:report
    (lambda (c stream)
      (with-slots (uobj vobj prop-name vval) c
