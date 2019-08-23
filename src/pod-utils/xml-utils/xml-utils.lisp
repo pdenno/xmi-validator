@@ -127,6 +127,7 @@
   (when-bind (attrs (dom:attributes elem))
       (dom:items attrs)))
 
+
 (defun (setf xml-attributes) (val elem) 
   (let ((nmap (make-instance 'line-cnt-attribute-node-map
 			     :items val

@@ -27,7 +27,7 @@
      -- its content is what is validated."
     (:p) "Processing speed is currently about 600 uml:Elements / minute. If your file is large (more than about 2000
     elements), it is possible that validation will 'timeout' before completion. For large files, you might consider
-    trying the downloadable NIST Validator found " (:a :href "/se-interop/get-validator" "here.")
+    trying the Docker XMI Validator found " (:a :href "https://hub.docker.com/r/podenno/xmi-validator/" "here.")
     (:h3 "Uploaded models and profiles: ")
     (with-vo (session-models)
       (if session-models
@@ -41,14 +41,14 @@
 			     session-models)))))
 	  (str "<strong>None.</strong><br/>")))
     "Enter below a file to upload and process."
-    "<br/>If the file is a MIWG Test Case, you can specify which one,"
-    "so that the Validator can compare it to the reference file."
-    "Otherwise, ignore the 'Test Case' field below."
+;;;    "<br/>If the file is a MIWG Test Case, you can specify which one,"
+;;;    "so that the Validator can compare it to the reference file."
+;;;    "Otherwise, ignore the 'Test Case' field below."
     (:form :method :post :enctype "multipart/form-data"
 	   (:table :border 0 :cellpadding 10 :cellspacing 0 :bgcolor "#FDFDD8"
 	     (:tr (:td "XMI file: ") 
                   (:td (:input :type :file :name "uml-file")))
-	     (:tr (:td "Test Case: ")    
+	     #+nil(:tr (:td "Test Case: ")    
 		  (:td (:select :name "exercise"
 				(:option :value "ignore" "ignore")
 				(str
@@ -91,20 +91,18 @@
 (defmacro handle-xml-parse-errors (&body body)
   "Arrange to report information available about XML parse errors."
   `(handler-bind 
-       ((mofi:mof-duplicate-xmi-id ; 2019 POD was a bunch of anderson xqdm classes. 
+       ((cxml:xml-parse-error
 	 #'(lambda (e)
 	     (with-vo (mut) 
 	       (let ((err-str 
 		      (substitute #\Space #\Newline
 				  (with-output-to-string (s)
 				    (format s "~A" e) ; 2012-09-10 calling report-condition has become a problem.
-				    ;(setf.conditions:report-condition e s)
+					;(setf.conditions:report-condition e s)
 				    ))))
 		 (setf mut 
 		       (strcat
-			(format nil "<strong> ~A, at line ~A.</strong>" 
-				(string (class-name (class-of e)))
-				"POD 2019: Fix this")
+			(format nil "~A" e)
 			"<br/><br/>"
 			(mvb (success vec)
 			    (cl-ppcre:scan-to-strings "(.+)parser error with-state" err-str)

@@ -468,10 +468,10 @@
    CLASS is the class of OBJ (defined in the parent to ELEM)."
   (with-slots (xml2model-ht xmi-namespace model-namespaces) *results* ; track relationship between xml and model.
     (loop for attr in (xml-attributes elem) do
-	 (let ((name (dom:node-name attr))
+	 (let ((attr-name (dom:node-name attr))
 	       slot)
-	   (VARS class name)
-	   (cond ((member name '("xmi:id" "xmi:type" "xmi:uuid") :test #'equal) t) ; ignore
+	   ;(VARS class attr-name)
+	   (cond ((member attr-name '("xmi:id" "xmi:type" "xmi:uuid") :test #'equal) t) ; ignore
 		 ((setf slot (attr-is-slot-p class attr))
 		  (let ((val (parse-attr (xml-value attr) class (dom:local-name attr))))
 		    (when (slot-definition-is-derived-p slot)
@@ -480,7 +480,7 @@
 		      (warn 'xmi-serializes-default :class class :slot slot :elem elem :object obj))
 		    (setf (gethash attr xml2model-ht) slot)
 		    (setf (slot-value obj (closer-mop:slot-definition-name slot)) val)))
-		 ((cl-ppcre:scan "^base_" (string name)) 
+		 ((cl-ppcre:scan "^base_" (string attr-name)) 
 		  (setf (gethash attr xml2model-ht) class)) ; not used?
 		 ((and ; In this case it is xmi:version etc push in by cl-xml.
 		   (let ((sp (find-package (xml-prefix2uri (dom:prefix attr) model-namespaces))))
@@ -490,7 +490,7 @@
 		       (eql class (find-class (intern "Profile" (symbol-package (class-name class)))))))
 		  t)
 		 (t
-		  (warn 'mof-no-such-attr :class class :slot-name name :elem elem)))))))
+		  (warn 'mof-no-such-attr :class class :slot-name attr-name :elem elem)))))))
 
 ;(declaim (inline ireader-make-obj))
 (defun ireader-make-obj (class elem)
@@ -549,7 +549,7 @@
 		      (parse-elem-child-loop elem obj class profile)
 		      (parse-elem-attr-loop  elem obj class)
 		      obj))
-		   (t (error 'xmi-general-error :str (format nil "~%Could not find class of elem: ~S" (dom:node-name elem))))))))))
+		   (t (warn 'mof-class-not-found :class-name (dom:node-name elem) :elem elem))))))))
 
 #| Note: Full XMI allows strings to be interpreted as references whereas Canonical XMI 
    would require an xmi:idref."

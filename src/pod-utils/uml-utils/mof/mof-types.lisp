@@ -94,13 +94,14 @@
 			   val)
 			 d-value))))))))
 
-;;; Added 2012-05-01 for UPDM
+;;; 2019: Mostly these are handled by umlxxx-postload.lisp
 (defmethod print-object ((obj mm-root-supertype) stream)
-  (format stream "<~A:~A, id=~A>" 
-	  (or (car (package-nicknames (lisp-package (of-model (class-of obj)))))
-	      (model-name (of-model (class-of obj))))
-	  (class-name (class-of obj))
-	  (mofi:%debug-id obj))) ; <============ I sometimes get mofi:%debug-id Why? I use it here? 
+  (let ((model (of-model (class-of obj))))
+    (format stream "<~A:~A, id=~A>" 
+	    (or (package-name (lisp-package model))
+		(model-name model))
+	    (class-name (class-of obj))
+	    (%debug-id obj))))
 
 ;;; Added 2012-07-30 for searching for objects by xmi:id in lookup-href (TC19 multi-file model)
 #-cre

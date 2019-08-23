@@ -48,7 +48,6 @@
 ;;; Load package files
 ;;;==================================================
 (load (lpath :mylib "trie/package.lisp"))
-(load (lpath :mylib "xml-utils/package.lisp"))
 (load (lpath :mylib "uml-utils/ocl/package.lisp"))
 (load (lpath :mylib "uml-utils/mof/package.lisp"))
 ;;; Don't load it if you don't need it; screws up ocl debugging.

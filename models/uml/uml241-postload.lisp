@@ -7,7 +7,7 @@
   (format stream "<~A:~A, id=~A>" 
 	  (if (find :sei.exe *features*)
 	      (mofi:ns-prefix (of-model (class-of obj)))
-	      (car (mofi:nicknames (of-model (class-of obj)))))
+	      (package-name (lisp-package (of-model (class-of obj)))))
 	  (class-name (class-of obj))
 	  (mofi:%debug-id obj)))
 
@@ -16,7 +16,7 @@
     (format stream "<~A:~A ~A, id=~A>" 
 	  (if (find :sei.exe *features*)
 	      (mofi:ns-prefix (of-model (class-of obj)))
-	      (car (mofi:nicknames (of-model (class-of obj)))))
+	      (package-name (lisp-package (of-model (class-of obj)))))
 	    (class-name (class-of obj))
 	    (cond ((and (or (stringp name) (symbolp name)) (string= "" name)) "[unnamed]")
 		  ((find #\Space name) (format nil "'~A'" name))

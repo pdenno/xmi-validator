@@ -153,11 +153,6 @@
    (lambda (arg stream) 
      (format stream "Generic mof-error (should not occur): ~A." arg))))
 
-
-(defmethod initialize-instance :after ((obj mof-class-not-found) &key)
-  (setf (slot-value obj 'sb-kernel::format-control) (get :report 'mof-class-not-found)))
-
-
 (defcondition mof-warning (simple-warning) 
   ((object :initarg :object :initform nil)
    (elem :initarg :elem :initform nil)
