@@ -9,7 +9,7 @@ For the time being under linux and MacOS, if you a little bit comfortable with C
 2. Install [quicklisp](https://www.quicklisp.org/beta/). 
 
 3. Add the following to `~/.config/common-lisp/source-registry.conf`, where "Documents/git/xmi-validator/src"
-is replaced with the src directory under wherever you cloned/forked the repository. 
+is replaced with the src directory under which you cloned/forked the repository. 
 
 ``` 
 (:source-registry
