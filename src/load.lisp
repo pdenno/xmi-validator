@@ -58,8 +58,8 @@
 (load (lpath :models "sei/essential-models.asd"))
 (load (lpath :models "sei/sei-essential-models.asd"))
 
-;;;(handler-bind ((style-warning #'muffle-warning))
-;;;    (asdf:load-system :xmi-validator))
+;(handler-bind ((style-warning #'muffle-warning))
+;    (asdf:load-system :xmi-validator))
 (ql:quickload :xmi-validator)
 
 (in-package :mofi)
