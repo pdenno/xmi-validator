@@ -441,36 +441,122 @@
   (let ((xmi-eextension (xmi-sym "Extension"))
 	(xmi-extension  (xmi-sym "extension")))
     (loop for child in (xml-children elem)
-       when (dom:element-p child) do
-	 (let ((property-name (dom:local-name child)))
-	   (if-bind (slot (m1-find-slot-named class property-name))
-		    (when-bind (val (parse-elem child class))
-		      (when (slot-definition-is-derived-p slot)
-			(warn 'xmi-serializes-derived :class class :slot slot :elem elem :object obj))
-		      (let ((slot-name (closer-mop:slot-definition-name slot)))
-			(when (eql val (slot-definition-default slot))
-			  (warn 'xmi-serializes-default :class class :slot slot :elem elem :object obj))
-			(if (listp (slot-value obj slot-name)) ; "raw" collection
-			    (push-last val (slot-value obj slot-name))
-			    (setf (slot-value obj slot-name) (list val))))) ; 2011-08-02 (list val)
-		    ;; No slot
-		    (cond ((xmi-stereotype-p (dom:node-name child) class)
-			   (unless profile (warn 'mof-stereotype-application-in-model :elem child)))
-			  ((string= property-name "href") 
-			   (setf (%source-elem obj) (car (xml-children child))))
-			  ((not (or (xml-typep child xmi-eextension) ; MD 16.5
-				    (xml-typep child xmi-extension)))
-			   (warn 'mof-no-such-attr :class class :slot-name property-name :elem elem))))))))
+	  when (dom:element-p child) do
+	  ;(setf *zippy* (list elem obj class profile child))
+	  ;(break (format nil "elem-child-loop, child = ~A" child))  
+	    (let ((property-name (dom:local-name child)))
+	      ;(format t "property-name = ~A" property-name)
+	      (if-bind (slot (m1-find-slot-named class property-name))
+		       (when-bind (val (parse-elem child class))
+			 (when (slot-definition-is-derived-p slot)
+			   (warn 'xmi-serializes-derived :class class :slot slot :elem elem :object obj))
+			 (let ((slot-name (closer-mop:slot-definition-name slot)))
+			   (when (eql val (slot-definition-default slot))
+			     (warn 'xmi-serializes-default :class class :slot slot :elem elem :object obj))
+			   (if (listp (slot-value obj slot-name)) ; "raw" collection
+			       (push-last val (slot-value obj slot-name))
+			       (setf (slot-value obj slot-name) (list val))))) ; 2011-08-02 (list val)
+		       ;; No slot
+		       (cond ((xmi-stereotype-p (dom:node-name child) class)
+			      (unless profile (warn 'mof-stereotype-application-in-model :elem child)))
+			     ((string= property-name "href") 
+			      (setf (%source-elem obj) (car (xml-children child))))
+			     ((not (or (xml-typep child xmi-eextension) ; MD 16.5
+				       (xml-typep child xmi-extension)))
+			      (warn 'mof-no-such-attr :class class :slot-name property-name :elem elem))))))))
+
+(defun tryme (elem obj class profile)
+  (let ((*model* (find-model :uml25)) ; <==== TRYME ONLY
+	(xmi-eextension (xmi-sym "Extension"))
+	(xmi-extension  (xmi-sym "extension")))
+    (loop for child in (list (first (xml-children elem)))
+	  when (dom:element-p child) do
+	  ;(setf *zippy* (list elem obj class profile child))
+	  ;(break (format nil "elem-child-loop, child = ~A" child))  
+	    (let ((property-name (dom:local-name child)))
+	      (format t "property-name = ~A" property-name)
+	      (if-bind (slot (m1-find-slot-named class property-name))
+		       (when-bind (val (tryme-parse-elem child class))
+			 ;(format t "~% val = ~A" val)
+			 (when (slot-definition-is-derived-p slot)
+			   (warn 'xmi-serializes-derived :class class :slot slot :elem elem :object obj))
+			 (let ((slot-name (closer-mop:slot-definition-name slot)))
+			   (when (eql val (slot-definition-default slot))
+			     (warn 'xmi-serializes-default :class class :slot slot :elem elem :object obj))
+			   (if (listp (slot-value obj slot-name)) ; "raw" collection
+			       (push-last val (slot-value obj slot-name))
+			       (setf (slot-value obj slot-name) (list val))))) ; 2011-08-02 (list val)
+		       ;; No slot
+		       (cond ((xmi-stereotype-p (dom:node-name child) class)
+			      (unless profile (warn 'mof-stereotype-application-in-model :elem child)))
+			     ((string= property-name "href") 
+			      (setf (%source-elem obj) (car (xml-children child))))
+			     ((not (or (xml-typep child xmi-eextension) ; MD 16.5
+				       (xml-typep child xmi-extension)))
+			      (warn 'mof-no-such-attr :class class :slot-name property-name :elem elem)))))
+	  collect child)))
+
+
+(defun tryme-parse-elem (elem parent-class &key (store-p t) (warn-p t) profile)
+  "Process ELEM, returning an xmi-idref or xmi-href, or an object with its attributes set.
+   Returns nil when nothing can be created (error)."
+  (let ((*suppress-install* (not store-p)) name class)
+    (declare (special *suppress-install*))
+    (check-xmi-type-in-href elem)
+    (with-slots (xml2model-ht) *results*
+      (cond ((setq name (xml-get-attr-value elem "xmi:idref"))
+	     (setf (gethash elem xml2model-ht) (make-xmi-idref :-name name))) ;track relationship
+	    ((setq name (xml-get-attr-value elem "href"))
+	     (setf (gethash elem xml2model-ht) (make-xmi-href :-name name)))  ;track relationship
+	    (t
+	     (setq class (class-of-elem elem parent-class :warn-p warn-p :profile profile))
+	     (cond ((primitive-type-p class)
+		    (setf (gethash elem xml2model-ht) class)
+		    (parse-primitive-value (car (xml-children elem)) class))
+		   ((enum-p class) 
+		    (setf (gethash elem xml2model-ht) class)
+		    (parse-enum-elem elem class))
+		   (class ; It is a new object. Make it, call recursively to fill it.
+		    (let ((obj (ireader-make-obj class elem)))
+		      (setf (gethash elem xml2model-ht) obj) ; added 2011-03-21
+		      (dbg-message :readers 5 "~%Parse-elem: class = ~A" class)
+		      (parse-elem-child-loop elem obj class profile)
+		      (parse-elem-attr-loop  elem obj class)
+		      obj))
+		   (t (warn 'mof-class-not-found :class-name (dom:node-name elem) :elem elem))))))))
+
+;;; 2022: Returned from my convenience function for cxml, xml-attributes, are attributes AND children,
+;;;       That is actually the rational thing to do. (XML was idiotic to make that distinction.)
+;;;       That notwithstanding, it isn't something that can should be encouraged here!
+;;;
+;;;  <ownedComment xmi:type="uml:Comment"
+;;;                xmi:id="Activity-_ownedComment.0"
+;;;                body="An Activity is the specification of parameterized Behavior as the coordinated sequencing of subordinate units.">
+;;;        <annotatedElement xmi:idref="Activity"/>
+;;;  </ownedComment>
+;;;
+;;; has CHILDREN: #(#<RUNE-DOM::ELEMENT body {100DACB503}>)
+;;;   ATTRIBUTES: #<XML-UTILS::LINE-CNT-ATTRIBUTE-NODE-MAP {100D900E23}>
+;;; the latter containing
+;;; The object is a STANDARD-OBJECT of type XML-UTILS::LINE-CNT-ATTRIBUTE-NODE-MAP.
+;;;      ITEMS: (#<RUNE-DOM::ATTRIBUTE xmi:type="uml:Comment" {1011A3F783}>
+;;;              #<RUNE-DOM::ATTRIBUTE xmi:id="Activity-_ownedComment.0" {1011A3F793}>
+;;;              #<RUNE-DOM::ATTRIBUTE annotatedElement="Activity" {100DACB513}>)
+;;;
+;;; So as it show, body is a RUNE-DOM::ELEMENT, and annotatedElement is an RUNE-DOM::ATTRIBUTE. Reverse of what I'd expect.
+
 
 (declaim (notinline parse-elem-attr-loop))
 (defun parse-elem-attr-loop (elem obj class)
   "Parse the attributes of the argument ELEM into properties of OBJ.
    CLASS is the class of OBJ (defined in the parent to ELEM)."
   (with-slots (xml2model-ht xmi-namespace model-namespaces) *results* ; track relationship between xml and model.
+    ;(setf *zippy* elem)
+    ;(break "attr loop")
     (loop for attr in (xml-attributes elem) do
 	 (let ((attr-name (dom:node-name attr))
 	       slot)
-	   ;(VARS class attr-name)
+	   (VARS class attr-name)
 	   (cond ((member attr-name '("xmi:id" "xmi:type" "xmi:uuid") :test #'equal) t) ; ignore
 		 ((setf slot (attr-is-slot-p class attr))
 		  (let ((val (parse-attr (xml-value attr) class (dom:local-name attr))))

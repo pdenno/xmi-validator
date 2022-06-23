@@ -1,16 +1,16 @@
 ;;; Author: Peter Denno
 ;;; Load and start the xmi-validator. This has been designed for SBCL.
-;;; I think .sbclrc should contain (load "~/quicklisp/setup.lisp") 
+;;; I think .sbclrc should contain (load "~/quicklisp/setup.lisp")
 
-(pushnew :iface-http *features*)  
+(pushnew :iface-http *features*)
 (pushnew :miwg *features*)
 (pushnew :sei *features*)
 (pushnew :hunchentoot-no-ssl *features*)
-;(pushnew :qvt *features*) 
+;(pushnew :qvt *features*)
 (pushnew :closure-xml *features*)
 
-(require :asdf)
-(require :quicklisp)
+(load "~/quicklisp/setup.lisp")
+(asdf:clear-configuration)
 (asdf:initialize-source-registry)
 
 (ql:quickload "cl-who")
@@ -18,18 +18,19 @@
 (ql:quickload "closer-mop")
 (ql:quickload "hunchentoot")
 (ql:quickload "cxml")
+(ql:quickload "cxml-stp")
 (ql:quickload "inferior-shell")
 
 (handler-bind ((style-warning #'muffle-warning))
   (load "./pod-utils/packages.lisp")
   (load "./pod-utils/utils.lisp"))
 
-;;; Bootstrap logical pathnames. 
+;;; Bootstrap logical pathnames.
 (defvar pod:*lpath-ht* (make-hash-table))
 
 (loop for (key . val) in `((:sei     . ,(truename "."))
 			   (:expo    . ,(truename "."))
-	    	           (:lisplib . ,(truename "./pod-utils"))
+			   (:lisplib . ,(truename "./pod-utils"))
 			   (:testlib . ,(truename "./pod-utils"))
 			   (:mylib   . ,(truename "./pod-utils"))
 			   (:tmp     . "/usr/local/tmp/")
@@ -78,17 +79,15 @@
 
 (comp-it)
 
-;;; Add CMOF constraints and operations (there is just one) to every UML. 
+;;; Add CMOF constraints and operations (there is just one) to every UML.
 (loop for model in (loop for m in *models* when (string= "uml" (ns-prefix m)) collect m)
       do (let ((*package* (lisp-package model))
 	       (*model* model))
 	   (format t "~2%;;;======== Adding CMOF constraints to ~A ===========" model)
 	   (load (pod:lpath :models "cmof-constraints/cmof-constraints.lisp"))
-	   (loop for class across (types model) 
+	   (loop for class across (types model)
 	      do (ocl:compile-operations class  :gf-name 'ocl:ocl-constraints-cmof)
 	      do (ocl:compile-constraints class :gf-name 'ocl:ocl-constraints-cmof))))
 
 (phttp:sei-start)
 (format t "~2%;;;============ Server Started ========================")
-
-

@@ -53,11 +53,19 @@
 		   (mofb:url-ocl-operator op)))
 	       (format nil "~A.~A" type op-name))))
     (app-page-wrapper :sei (:menu-pos '(:root :changelog))
-      (:h1 "MIWG Tools Changelog")
-      "This page describes changes that affect the behavior of the MIWG tools
+      (:h1 "Tools Changelog")
+      "This page describes changes that affect the behavior of the tools
       (Validator, Class Browser, Model Diff)."
-      (:h2 "NIST Validator Changes")
+      (:h2 "XMI Validator Changes")
       (:ul
+       (:li (:strong "2022-06-22:")
+	    (:ul
+	     (:li "Changed the URI for UML 2.5 from http://www.omg.org/spec/UML/2.5 to http://www.omg.org/spec/UML/20131001.")
+	     (:li "Pre-loaded SysML https://www.omg.org/spec/SysML/20181001/SysML.xmi.")
+	     (:li "Created a Docker image."))) ; ToDo: More on this!
+       (:li (:strong "2022-06-22:")
+	    (:ul
+	     (:li "Removed text about being able to download a copy of the Validator.")))
        (:li (:strong "2017-12-21:")
 	    (:ul
 	     (:li "Correct a problem preventing compilation of operators in loaded profiles.")))
@@ -794,19 +802,11 @@
 		 (loop for line = (read-line doc nil nil) while line do
 		      (format out "~A<br/>" line))))))))))
 
-
 ;;; /se-interop/get-validator
 (defun get-validator-dsp ()
-  "Mostly static page allowing downloading of the validator."
+  "Mostly static page that was once about downloading of the validator." ; 2022-06-22 Now it is just about the disclaimer
   (app-page-wrapper :sei (:menu-pos '(:root :changelog))
-    (:h1 "Validator Executable for MS Windows")
-    "A downloadable (.exe) version of the NIST Validator is now available for experimental use. 
-     Use of this program indicates your acceptance of the terms of the General Disclaimer below. 
-     <p/>
-     Note: As of this writing (2012-06-01), the executable is only lightly tested on MS Windows 7.
-    It has not been tested at all on other versions of Windows. I'd appreciate feedback on how
-    the software performs. Send bug reports to xmi-interop@omg.org. Thanks!"
-    (:h2 "General Disclaimer")
+    (:h1 "General Disclaimer")
     "This software was developed at the National Institute of Standards and Technology by employees of 
      the Federal Government in the course of their official duties. Pursuant to title 17 Section 105 of 
      the United States Code this software is not subject to copyright protection and is in the public domain. 
@@ -815,6 +815,4 @@
      characteristic. We would appreciate acknowledgement if the software is used. This software can be 
      redistributed and/or modified freely provided that any derivative works bear some notice that they 
      are derived from it, and any modified versions bear some notice that they have been modified."
-    (:p)
-    (:a :href "/se-interop/static/validator.zip"
-	"I accept the terms of the General Disclaimer above. Download here.")))
+    (:p)))

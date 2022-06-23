@@ -1,0 +1,1851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:SysML="http://www.omg.org/spec/SysML/20161101/SysML" xmlns:StandardProfile="http://www.omg.org/spec/UML/20131001/StandardProfile"><script/>
+  <uml:Profile xmi:id="SysML" URI="http://www.omg.org/spec/SysML/20161101/SysML" name="SysML">
+    <metamodelReference xmi:id="SysML._packageImport.UML" xmi:type="uml:PackageImport">
+      <importedPackage href="http://www.omg.org/spec/UML/20131001/UML.xmi#_0"/>
+    </metamodelReference>
+    <packageImport xmi:idref="SysML._packageImport.UML"/>
+    <packageImport xmi:id="SysML._packageImport.StandardProfile" xmi:type="uml:PackageImport">
+      <importedPackage href="http://www.omg.org/spec/UML/20131001/StandardProfile.xmi#_0"/>
+    </packageImport>
+    <packagedElement xmi:id="SysML.PortsAndFlows" xmi:type="uml:Package" name="Ports&amp;amp;Flows">
+      <packageImport xmi:id="SysML.PortsAndFlows._packageImport.SysML.Blocks" xmi:type="uml:PackageImport">
+        <importedPackage xmi:idref="SysML.Blocks"/>
+      </packageImport>
+      <packagedElement xmi:id="SysML.ItemFlow" xmi:type="uml:Stereotype" name="ItemFlow">
+        <ownedAttribute xmi:id="SysML.ItemFlow.base_InformationFlow" xmi:type="uml:Property" name="base_InformationFlow">
+          <association xmi:idref="SysML.E_extension_ItemFlow_base_InformationFlow"/>
+          <lowerValue xmi:id="SysML.ItemFlow.base_InformationFlow.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#InformationFlow"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ItemFlow.itemProperty" xmi:type="uml:Property" name="itemProperty">
+          <lowerValue xmi:id="SysML.ItemFlow.itemProperty.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.ItemFlow.itemProperty._comment0" xmi:type="uml:Comment" body="An optional property that relates the flowing item to the instances of the connector’s enclosing block. This property is applicable only for item flows assigned to connectors. The multiplicity is zero if the item flow is assigned to an Association.">
+</ownedComment>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.ItemFlow._comment0" xmi:type="uml:Comment" body="             An ItemFlow describes the flow of items across a connector or an association. It may constrain the item exchange between blocks, block usages, or flow ports as specified by their flow properties. For example, a pump connected to a tank: the pump has an “out” flow property of type Liquid and the tank has an “in” FlowProperty of type Liquid. To signify that only water flows between the pump and the tank, we can specify an ItemFlow of type Water on the connector.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ProxyPort" xmi:type="uml:Stereotype" name="ProxyPort">
+        <ownedAttribute xmi:id="SysML.ProxyPort.base_Port" xmi:type="uml:Property" name="base_Port">
+          <association xmi:idref="SysML.E_extension_ProxyPort_base_Port"/>
+          <lowerValue xmi:id="SysML.ProxyPort.base_Port.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Port"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_triggerOnNestedPort_onNestedPort" xmi:type="uml:Association" name="A_triggerOnNestedPort_onNestedPort">
+        <generalization xmi:id="SysML.A_triggerOnNestedPort_onNestedPort._generalization.SysML.A_elementPropertyPath_propertyPath" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.A_elementPropertyPath_propertyPath"/>
+        </generalization>
+        <memberEnd xmi:idref="SysML.A_triggerOnNestedPort_onNestedPort.triggerOnNestedPort"/>
+        <memberEnd xmi:idref="SysML.TriggerOnNestedPort.onNestedPort"/>
+        <ownedEnd xmi:id="SysML.A_triggerOnNestedPort_onNestedPort.triggerOnNestedPort" xmi:type="uml:Property" name="triggerOnNestedPort">
+          <association xmi:idref="SysML.A_triggerOnNestedPort_onNestedPort"/>
+          <lowerValue xmi:id="SysML.A_triggerOnNestedPort_onNestedPort.triggerOnNestedPort.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.A_elementPropertyPath_propertyPath.elementPropertyPath"/>
+          <type xmi:idref="SysML.TriggerOnNestedPort"/>
+          <upperValue xmi:id="SysML.A_triggerOnNestedPort_onNestedPort.triggerOnNestedPort.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ProxyPort_base_Port" xmi:type="uml:Extension" name="E_extension_ProxyPort_base_Port">
+        <memberEnd xmi:idref="SysML.ProxyPort.base_Port"/>
+        <memberEnd xmi:idref="SysML.E_extension_ProxyPort_base_Port.extension_ProxPort"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ProxyPort_base_Port.extension_ProxPort"/>
+        <ownedEnd xmi:id="SysML.E_extension_ProxyPort_base_Port.extension_ProxPort" xmi:type="uml:ExtensionEnd" name="extension_ProxPort">
+          <association xmi:idref="SysML.E_extension_ProxyPort_base_Port"/>
+          <lowerValue xmi:id="SysML.E_extension_ProxyPort_base_Port.extension_ProxPort.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ProxyPort"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_FlowProperty_base_Property" xmi:type="uml:Extension" name="E_extension_FlowProperty_base_Property">
+        <memberEnd xmi:idref="SysML.E_extension_FlowProperty_base_Property.extension_FlowProperty"/>
+        <memberEnd xmi:idref="SysML.FlowProperty.base_Property"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_FlowProperty_base_Property.extension_FlowProperty"/>
+        <ownedEnd xmi:id="SysML.E_extension_FlowProperty_base_Property.extension_FlowProperty" xmi:type="uml:ExtensionEnd" name="extension_FlowProperty">
+          <association xmi:idref="SysML.E_extension_FlowProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.E_extension_FlowProperty_base_Property.extension_FlowProperty.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.FlowProperty"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.FullPort" xmi:type="uml:Stereotype" name="FullPort">
+        <ownedAttribute xmi:id="SysML.FullPort.base_Port" xmi:type="uml:Property" name="base_Port">
+          <association xmi:idref="SysML.E_extension_FullPort_base_Port"/>
+          <lowerValue xmi:id="SysML.FullPort.base_Port.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Port"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_InvocationOnNestedPortAction_base_InvocationAction" xmi:type="uml:Extension" name="E_extension_InvocationOnNestedPortAction_base_InvocationAction">
+        <generalization xmi:id="SysML.E_extension_InvocationOnNestedPortAction_base_InvocationAction._generalization.SysML.E_extension_ElementPropertyPath_base_Element" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element"/>
+        </generalization>
+        <memberEnd xmi:idref="SysML.InvocationOnNestedPortAction.base_InvocationAction"/>
+        <memberEnd xmi:idref="SysML.E_extension_InvocationOnNestedPortAction_base_InvocationAction.extension_InvocationOnNestedPortAction"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_InvocationOnNestedPortAction_base_InvocationAction.extension_InvocationOnNestedPortAction"/>
+        <ownedEnd xmi:id="SysML.E_extension_InvocationOnNestedPortAction_base_InvocationAction.extension_InvocationOnNestedPortAction" xmi:type="uml:ExtensionEnd" name="extension_InvocationOnNestedPortAction">
+          <association xmi:idref="SysML.E_extension_InvocationOnNestedPortAction_base_InvocationAction"/>
+          <lowerValue xmi:id="SysML.E_extension_InvocationOnNestedPortAction_base_InvocationAction.extension_InvocationOnNestedPortAction.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element.extension_ElementPropertyPath"/>
+          <type xmi:idref="SysML.InvocationOnNestedPortAction"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.InvocationOnNestedPortAction" xmi:type="uml:Stereotype" name="InvocationOnNestedPortAction">
+        <generalization xmi:id="SysML.InvocationOnNestedPortAction._generalization.SysML.ElementPropertyPath" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.ElementPropertyPath"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.InvocationOnNestedPortAction.base_InvocationAction" xmi:type="uml:Property" name="base_InvocationAction">
+          <association xmi:idref="SysML.E_extension_InvocationOnNestedPortAction_base_InvocationAction"/>
+          <lowerValue xmi:id="SysML.InvocationOnNestedPortAction.base_InvocationAction.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.ElementPropertyPath.base_Element"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#InvocationAction"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.InvocationOnNestedPortAction.onNestedPort" xmi:type="uml:Property" isOrdered="true" isUnique="false" name="onNestedPort">
+          <association xmi:idref="SysML.A_invocationOnNestedPortAction_onNestedPort"/>
+          <redefinedProperty xmi:idref="SysML.ElementPropertyPath.propertyPath"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Port"/>
+          <upperValue xmi:id="SysML.InvocationOnNestedPortAction.onNestedPort.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.InterfaceBlock" xmi:type="uml:Stereotype" name="InterfaceBlock">
+        <generalization xmi:id="SysML.InterfaceBlock._generalization.SysML.Block" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.Block"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ItemFlow_base_InformationFlow" xmi:type="uml:Extension" name="E_extension_ItemFlow_base_InformationFlow">
+        <memberEnd xmi:idref="SysML.E_extension_ItemFlow_base_InformationFlow.extension_ItemFlow"/>
+        <memberEnd xmi:idref="SysML.ItemFlow.base_InformationFlow"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ItemFlow_base_InformationFlow.extension_ItemFlow"/>
+        <ownedEnd xmi:id="SysML.E_extension_ItemFlow_base_InformationFlow.extension_ItemFlow" xmi:type="uml:ExtensionEnd" name="extension_ItemFlow">
+          <association xmi:idref="SysML.E_extension_ItemFlow_base_InformationFlow"/>
+          <lowerValue xmi:id="SysML.E_extension_ItemFlow_base_InformationFlow.extension_ItemFlow.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ItemFlow"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_TriggerOnNestedPort_base_Trigger" xmi:type="uml:Extension" name="E_extension_TriggerOnNestedPort_base_Trigger">
+        <generalization xmi:id="SysML.E_extension_TriggerOnNestedPort_base_Trigger._generalization.SysML.E_extension_ElementPropertyPath_base_Element" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element"/>
+        </generalization>
+        <memberEnd xmi:idref="SysML.TriggerOnNestedPort.base_Trigger"/>
+        <memberEnd xmi:idref="SysML.E_extension_TriggerOnNestedPort_base_Trigger.extension_TriggerOnNestedPort"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_TriggerOnNestedPort_base_Trigger.extension_TriggerOnNestedPort"/>
+        <ownedEnd xmi:id="SysML.E_extension_TriggerOnNestedPort_base_Trigger.extension_TriggerOnNestedPort" xmi:type="uml:ExtensionEnd" name="extension_TriggerOnNestedPort">
+          <association xmi:idref="SysML.E_extension_TriggerOnNestedPort_base_Trigger"/>
+          <lowerValue xmi:id="SysML.E_extension_TriggerOnNestedPort_base_Trigger.extension_TriggerOnNestedPort.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element.extension_ElementPropertyPath"/>
+          <type xmi:idref="SysML.TriggerOnNestedPort"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_invocationOnNestedPortAction_onNestedPort" xmi:type="uml:Association" name="A_invocationOnNestedPortAction_onNestedPort">
+        <generalization xmi:id="SysML.A_invocationOnNestedPortAction_onNestedPort._generalization.SysML.A_elementPropertyPath_propertyPath" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.A_elementPropertyPath_propertyPath"/>
+        </generalization>
+        <memberEnd xmi:idref="SysML.A_invocationOnNestedPortAction_onNestedPort.invocationOnNestedPortAction"/>
+        <memberEnd xmi:idref="SysML.InvocationOnNestedPortAction.onNestedPort"/>
+        <ownedEnd xmi:id="SysML.A_invocationOnNestedPortAction_onNestedPort.invocationOnNestedPortAction" xmi:type="uml:Property" name="invocationOnNestedPortAction">
+          <association xmi:idref="SysML.A_invocationOnNestedPortAction_onNestedPort"/>
+          <lowerValue xmi:id="SysML.A_invocationOnNestedPortAction_onNestedPort.invocationOnNestedPortAction.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.A_elementPropertyPath_propertyPath.elementPropertyPath"/>
+          <type xmi:idref="SysML.InvocationOnNestedPortAction"/>
+          <upperValue xmi:id="SysML.A_invocationOnNestedPortAction_onNestedPort.invocationOnNestedPortAction.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.FlowProperty" xmi:type="uml:Stereotype" name="FlowProperty">
+        <ownedAttribute xmi:id="SysML.FlowProperty.base_Property" xmi:type="uml:Property" name="base_Property">
+          <association xmi:idref="SysML.E_extension_FlowProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.FlowProperty.base_Property.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.FlowProperty.direction" xmi:type="uml:Property" name="direction">
+          <defaultValue xmi:id="SysML.FlowProperty.direction.defaultValue0" xmi:type="uml:InstanceValue">
+            <instance xmi:idref="SysML.inout"/>
+          </defaultValue>
+          <ownedComment xmi:id="SysML.FlowProperty.direction._comment0" xmi:type="uml:Comment" body="Specifies if the property value is received from an external block (direction=“in”), transmitted to an external Block (direction=“out”) or both (direction=“inout”)."/>
+          <type xmi:idref="SysML_dataType.FlowDirection"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.FlowProperty._comment0" xmi:type="uml:Comment" body="             A FlowProperty signifies a single flow element that can flow to/from a block. A flow property’s values are either received from or transmitted to an external block. Flow properties are defined directly on blocks or flow specifications that are those specifications which type the flow ports. Flow properties enable item flows across connectors connecting parts of the corresponding block types, either directly (in case of the property is defined on the block) or via flowPorts. For Block, Data Type, and Value Type properties, setting an “out” FlowProperty value of a block usage on one end of a connector will result in assigning the same value of an “in” FlowProperty of a block usage at the other end of the connector, provided the flow properties are matched. Flow properties of type Signal imply sending and/or receiving of a signal usage. An “out” FlowProperty of type Signal means that the owning Block may broadcast the signal via connectors and an “in” FlowProperty means that the owning block is able to receive the Signal.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ChangeStructuralFeatureEvent_base_ChangeEvent" xmi:type="uml:Extension" name="E_extension_ChangeStructuralFeatureEvent_base_ChangeEvent">
+        <memberEnd xmi:idref="SysML.ChangeStructuralFeatureEvent.base_ChangeEvent"/>
+        <memberEnd xmi:idref="SysML.E_extension_ChangeStructuralFeatureEvent_base_ChangeEvent.extension_ChangeStructuralFeatureEvent"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ChangeStructuralFeatureEvent_base_ChangeEvent.extension_ChangeStructuralFeatureEvent"/>
+        <ownedEnd xmi:id="SysML.E_extension_ChangeStructuralFeatureEvent_base_ChangeEvent.extension_ChangeStructuralFeatureEvent" xmi:type="uml:ExtensionEnd" name="extension_ChangeStructuralFeatureEvent">
+          <association xmi:idref="SysML.E_extension_ChangeStructuralFeatureEvent_base_ChangeEvent"/>
+          <lowerValue xmi:id="SysML.E_extension_ChangeStructuralFeatureEvent_base_ChangeEvent.extension_ChangeStructuralFeatureEvent.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ChangeStructuralFeatureEvent"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_DirectedFeature_base_Feature" xmi:type="uml:Extension" name="E_extension_DirectedFeature_base_Feature">
+        <memberEnd xmi:idref="SysML.DirectedFeature.base_Feature"/>
+        <memberEnd xmi:idref="SysML.E_extension_DirectedFeature_base_Feature.extension_DirectedFeature"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_DirectedFeature_base_Feature.extension_DirectedFeature"/>
+        <ownedEnd xmi:id="SysML.E_extension_DirectedFeature_base_Feature.extension_DirectedFeature" xmi:type="uml:ExtensionEnd" name="extension_DirectedFeature">
+          <association xmi:idref="SysML.E_extension_DirectedFeature_base_Feature"/>
+          <lowerValue xmi:id="SysML.E_extension_DirectedFeature_base_Feature.extension_DirectedFeature.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.DirectedFeature"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ChangeStructuralFeatureEvent" xmi:type="uml:Stereotype" name="ChangeStructuralFeatureEvent">
+        <ownedAttribute xmi:id="SysML.ChangeStructuralFeatureEvent.base_ChangeEvent" xmi:type="uml:Property" name="base_ChangeEvent">
+          <association xmi:idref="SysML.E_extension_ChangeStructuralFeatureEvent_base_ChangeEvent"/>
+          <lowerValue xmi:id="SysML.ChangeStructuralFeatureEvent.base_ChangeEvent.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ChangeEvent"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ChangeStructuralFeatureEvent.structuralFeature" xmi:type="uml:Property" name="structuralFeature">
+          <association xmi:idref="SysML.A_changeStructuralFeatureEvent_structuralFeature"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#StructuralFeature"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_changeStructuralFeatureEvent_structuralFeature" xmi:type="uml:Association" name="A_changeStructuralFeatureEvent_structuralFeature">
+        <memberEnd xmi:idref="SysML.A_changeStructuralFeatureEvent_structuralFeature.changeStructuralFeatureEvent"/>
+        <memberEnd xmi:idref="SysML.ChangeStructuralFeatureEvent.structuralFeature"/>
+        <ownedEnd xmi:id="SysML.A_changeStructuralFeatureEvent_structuralFeature.changeStructuralFeatureEvent" xmi:type="uml:Property" name="changeStructuralFeatureEvent">
+          <association xmi:idref="SysML.A_changeStructuralFeatureEvent_structuralFeature"/>
+          <lowerValue xmi:id="SysML.A_changeStructuralFeatureEvent_structuralFeature.changeStructuralFeatureEvent.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ChangeStructuralFeatureEvent"/>
+          <upperValue xmi:id="SysML.A_changeStructuralFeatureEvent_structuralFeature.changeStructuralFeatureEvent.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.TriggerOnNestedPort" xmi:type="uml:Stereotype" name="TriggerOnNestedPort">
+        <generalization xmi:id="SysML.TriggerOnNestedPort._generalization.SysML.ElementPropertyPath" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.ElementPropertyPath"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.TriggerOnNestedPort.base_Trigger" xmi:type="uml:Property" name="base_Trigger">
+          <association xmi:idref="SysML.E_extension_TriggerOnNestedPort_base_Trigger"/>
+          <redefinedProperty xmi:idref="SysML.ElementPropertyPath.base_Element"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Trigger"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.TriggerOnNestedPort.onNestedPort" xmi:type="uml:Property" isOrdered="true" isUnique="false" name="onNestedPort">
+          <association xmi:idref="SysML.A_triggerOnNestedPort_onNestedPort"/>
+          <redefinedProperty xmi:idref="SysML.ElementPropertyPath.propertyPath"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Port"/>
+          <upperValue xmi:id="SysML.TriggerOnNestedPort.onNestedPort.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.AcceptChangeStructuralFeatureEventAction" xmi:type="uml:Stereotype" name="AcceptChangeStructuralFeatureEventAction">
+        <ownedAttribute xmi:id="SysML.AcceptChangeStructuralFeatureEventAction.base_AcceptEventAction" xmi:type="uml:Property" name="base_AcceptEventAction">
+          <association xmi:idref="SysML.E_extension_AcceptChangeStructuralFeatureEventAction_base_AcceptEventAction"/>
+          <lowerValue xmi:id="SysML.AcceptChangeStructuralFeatureEventAction.base_AcceptEventAction.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#AcceptEventAction"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_AcceptChangeStructuralFeatureEventAction_base_AcceptEventAction" xmi:type="uml:Extension" name="E_extension_AcceptChangeStructuralFeatureEventAction_base_AcceptEventAction">
+        <memberEnd xmi:idref="SysML.AcceptChangeStructuralFeatureEventAction.base_AcceptEventAction"/>
+        <memberEnd xmi:idref="SysML.E_extension_AcceptChangeStructuralFeatureEventAction_base_AcceptEventAction.extension_AcceptChangeStructuralFeatureEventAction"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_AcceptChangeStructuralFeatureEventAction_base_AcceptEventAction.extension_AcceptChangeStructuralFeatureEventAction"/>
+        <ownedEnd xmi:id="SysML.E_extension_AcceptChangeStructuralFeatureEventAction_base_AcceptEventAction.extension_AcceptChangeStructuralFeatureEventAction" xmi:type="uml:ExtensionEnd" name="extension_AcceptChangeStructuralFeatureEventAction">
+          <association xmi:idref="SysML.E_extension_AcceptChangeStructuralFeatureEventAction_base_AcceptEventAction"/>
+          <lowerValue xmi:id="SysML.E_extension_AcceptChangeStructuralFeatureEventAction_base_AcceptEventAction.extension_AcceptChangeStructuralFeatureEventAction.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.AcceptChangeStructuralFeatureEventAction"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.DirectedFeature" xmi:type="uml:Stereotype" name="DirectedFeature">
+        <ownedAttribute xmi:id="SysML.DirectedFeature.base_Feature" xmi:type="uml:Property" name="base_Feature">
+          <association xmi:idref="SysML.E_extension_DirectedFeature_base_Feature"/>
+          <lowerValue xmi:id="SysML.DirectedFeature.base_Feature.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Feature"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.DirectedFeature.featureDirection" xmi:type="uml:Property" name="featureDirection">
+          <type xmi:idref="SysML_dataType.FeatureDirection"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML_dataType.FeatureDirection" xmi:type="uml:Enumeration" name="FeatureDirection">
+        <ownedLiteral xmi:id="SysML.provided" xmi:type="uml:EnumerationLiteral" name="provided"/>
+        <ownedLiteral xmi:id="SysML.providedRequired" xmi:type="uml:EnumerationLiteral" name="providedRequired"/>
+        <ownedLiteral xmi:id="SysML.required" xmi:type="uml:EnumerationLiteral" name="required"/>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_FullPort_base_Port" xmi:type="uml:Extension" name="E_extension_FullPort_base_Port">
+        <memberEnd xmi:idref="SysML.FullPort.base_Port"/>
+        <memberEnd xmi:idref="SysML.E_extension_FullPort_base_Port.extension_FullPort"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_FullPort_base_Port.extension_FullPort"/>
+        <ownedEnd xmi:id="SysML.E_extension_FullPort_base_Port.extension_FullPort" xmi:type="uml:ExtensionEnd" name="extension_FullPort">
+          <association xmi:idref="SysML.E_extension_FullPort_base_Port"/>
+          <lowerValue xmi:id="SysML.E_extension_FullPort_base_Port.extension_FullPort.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.FullPort"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML_dataType.FlowDirection" xmi:type="uml:Enumeration" name="FlowDirection">
+        <ownedComment xmi:id="SysML_dataType.FlowDirection._comment0" xmi:type="uml:Comment" body="FlowDirection is an enumeration type that defines literals used for specifying input and output directions. FlowDirection is used by flow properties to indicate if a property is an input or an output with respect to its owner.">
+</ownedComment>
+        <ownedLiteral xmi:id="SysML.in" xmi:type="uml:EnumerationLiteral" name="in">
+          <ownedComment xmi:id="SysML.in._comment0" xmi:type="uml:Comment" body="Indicates that the flow property is input to the owning block."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="SysML.inout" xmi:type="uml:EnumerationLiteral" name="inout">
+          <ownedComment xmi:id="SysML.inout._comment0" xmi:type="uml:Comment" body="Indicates that the flow property is both an input and an output of the owning block."/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="SysML.out" xmi:type="uml:EnumerationLiteral" name="out">
+          <ownedComment xmi:id="SysML.out._comment0" xmi:type="uml:Comment" body="Indicates that the flow property is an output of the owning block."/>
+        </ownedLiteral>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="SysML.Activities" xmi:type="uml:Package" name="Activities">
+      <packagedElement xmi:id="SysML.E_extension_ControlOperator_base_Operation" xmi:type="uml:Extension" name="E_extension_ControlOperator_base_Operation">
+        <memberEnd xmi:idref="SysML.E_extension_ControlOperator_base_Operation.extension_ControlOperator"/>
+        <memberEnd xmi:idref="SysML.ControlOperator.base_Operation"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ControlOperator_base_Operation.extension_ControlOperator"/>
+        <ownedEnd xmi:id="SysML.E_extension_ControlOperator_base_Operation.extension_ControlOperator" xmi:type="uml:ExtensionEnd" name="extension_ControlOperator">
+          <association xmi:idref="SysML.E_extension_ControlOperator_base_Operation"/>
+          <lowerValue xmi:id="SysML.E_extension_ControlOperator_base_Operation.extension_ControlOperator.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ControlOperator"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Optional" xmi:type="uml:Stereotype" name="Optional">
+        <ownedAttribute xmi:id="SysML.Optional.base_Parameter" xmi:type="uml:Property" name="base_Parameter">
+          <association xmi:idref="SysML.E_extension_Optional_base_Parameter"/>
+          <lowerValue xmi:id="SysML.Optional.base_Parameter.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Parameter"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Optional._comment0" xmi:type="uml:Comment" body="When the «optional» stereotype is applied to parameters, the lower multiplicity shall be equal to zero. This means the parameter is not required to have a value for the activity or any behavior to begin or end execution. Otherwise, the lower multiplicity shall be greater than zero, which is called “required.” The absence of this stereotype indicates a constraint, see below.">
+</ownedComment>
+        <ownedRule xmi:id="SysML.Optional._rule.Constraint1" xmi:type="uml:Constraint" name="Constraint1">
+          <constrainedElement xmi:idref="SysML.Optional"/>
+          <specification xmi:id="SysML.Optional._rule.Constraint1.constraintSpec1" xmi:type="uml:LiteralString" name="constraintSpec1" value="A parameter with the «optional» stereotypes applied shall have multiplicity.lower equal to zero, otherwise multiplicity.lower shall be greater than zero."/>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Continuous" xmi:type="uml:Stereotype" name="Continuous">
+        <generalization xmi:id="SysML.Continuous._generalization.SysML.Rate" xmi:type="uml:Generalization" isSubstitutable="false">
+          <general xmi:idref="SysML.Rate"/>
+        </generalization>
+        <ownedComment xmi:id="SysML.Continuous._comment0" xmi:type="uml:Comment" body="Continuous rate is a special case of rate of flow (see Rate) where the increment of time between items approaches zero. It is intended to represent continuous flows that may correspond to water flowing through a pipe, a time continuous signal, or continuous energy flow. It is independent from UML streaming, see 11.3.2.8, Rate. A streaming parameter may or may not apply to continuous flow, and a continuous flow may or may not apply to streaming parameters.  UML places no restriction on the rate at which tokens flow. In particular, the time between tokens can approach as close to zero as needed, for example to simulate continuous flow. There is also no restriction in UML on the kind of values that flow through an activity. In particular, the value may represent as small a number as needed, for example to simulate continuous material or energy flow. Finally, the exact timing of token flow is not completely prescribed in UML. In particular, token flow on different edges may be coordinated to occur in a clocked fashion, as in time march algorithms for numerical solvers of ordinary differential equations, such as Runge-Kutta.">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ControlOperator" xmi:type="uml:Stereotype" name="ControlOperator">
+        <ownedAttribute xmi:id="SysML.ControlOperator.base_Behavior" xmi:type="uml:Property" name="base_Behavior">
+          <association xmi:idref="SysML.E_extension_ControlOperator_base_Behavior"/>
+          <lowerValue xmi:id="SysML.ControlOperator.base_Behavior.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Behavior"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ControlOperator.base_Operation" xmi:type="uml:Property" name="base_Operation">
+          <association xmi:idref="SysML.E_extension_ControlOperator_base_Operation"/>
+          <lowerValue xmi:id="SysML.ControlOperator.base_Operation.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.ControlOperator._comment0" xmi:type="uml:Comment" body="A control operator is a behavior that is intended to represent an arbitrarily complex logical operator that can be used to enable and disable other actions. When the «controlOperator» stereotype is applied to behaviors, the behavior takes control values as inputs or provides them as outputs, that is, it treats control as data (see 11.3.3.1.1, ControlValue). When the «controlOperator» stereotype is not applied, the behavior may not have a parameter typed by ControlValue. The «controlOperator» stereotype also applies to operations with the same semantics.  The control value inputs do not enable or disable the control operator execution based on their value, they only enable based on their presence as data. Pins for control parameters are regular pins, not UML control pins. This is so the control value can be passed into or out of the action and the invoked behavior, rather than control the starting of the action, or indicating the ending of it.           ">
+</ownedComment>
+        <ownedRule xmi:id="SysML.ControlOperator._rule.Constraint1" xmi:type="uml:Constraint" name="Constraint1">
+          <constrainedElement xmi:idref="SysML.ControlOperator"/>
+          <specification xmi:id="SysML.ControlOperator._rule.Constraint1.constraintSpec1" xmi:type="uml:LiteralString" name="constraintSpec1" value="When the «controlOperator» stereotype is applied, the behavior or operation shall have at least one parameter typed by ControlValue. If the stereotype is not applied, the behavior or operation may not have any parameter typed by ControlValue.">
+</specification>
+        </ownedRule>
+        <ownedRule xmi:id="SysML.ControlOperator._rule.Constraint2" xmi:type="uml:Constraint" name="Constraint2">
+          <constrainedElement xmi:idref="SysML.ControlOperator"/>
+          <specification xmi:id="SysML.ControlOperator._rule.Constraint2.constraintSpec2" xmi:type="uml:LiteralString" name="constraintSpec2" value="A behavior shall have the «controlOperator» stereotype applied if it is a method of an operation that has the «controlOperator» stereotype applied."/>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Discrete" xmi:type="uml:Stereotype" name="Discrete">
+        <generalization xmi:id="SysML.Discrete._generalization.SysML.Rate" xmi:type="uml:Generalization" isSubstitutable="false">
+          <general xmi:idref="SysML.Rate"/>
+        </generalization>
+        <ownedComment xmi:id="SysML.Discrete._comment0" xmi:type="uml:Comment" body="Discrete rate is a special case of rate of flow (see 11.3.2.8, Rate) where the increment of time between items is a non-zero. Examples include the production of assemblies in a factory and signals set at periodic time intervals.">
+</ownedComment>
+        <ownedRule xmi:id="SysML.Discrete._rule.Constraint1" xmi:type="uml:Constraint" name="Constraint1">
+          <constrainedElement xmi:idref="SysML.Discrete"/>
+          <specification xmi:id="SysML.Discrete._rule.Constraint1.constraintSpec1" xmi:type="uml:LiteralString" name="constraintSpec1" value="The «discrete» and «continuous» stereotypes shall not be applied to the same element at the same time."/>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Overwrite" xmi:type="uml:Stereotype" name="Overwrite">
+        <ownedAttribute xmi:id="SysML.Overwrite.base_ObjectNode" xmi:type="uml:Property" name="base_ObjectNode">
+          <association xmi:idref="SysML.E_extension_Overwrite_base_ObjectNode"/>
+          <lowerValue xmi:id="SysML.Overwrite.base_ObjectNode.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ObjectNode"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Overwrite._comment0" xmi:type="uml:Comment" body="When the «overwrite» stereotype is applied to object nodes, a token arriving at a full object node removes one that is already there before being added (a full object node has as many tokens as allowed by its upper bound). This is typically used on an input pin with an upper bound of 1 to ensure that stale data is overridden at an input pin. For upper bounds greater than one, the token removed is the one that has been in the object node the longest. For FIFO ordering, this is the token that is next to be selected, for LIFO it is the token that would be last to be selected. Tokens arriving at a full object node with the Overwrite stereotype applied take up their positions in the ordering as normal, if any. The arriving tokens do not take the positions of the removed tokens. A null token removes all the tokens already there. The number of tokens replaced is equal to the weight of the incoming edge, which defaults to 1. For object nodes that are the target of continuous flows, «overwrite» and «nobuffer» have the same effect. The stereotype does not override UML token offering semantics, just indicates what happens to the token when it is accepted. When the stereotype is not applied, the semantics is as in UML, specifically, tokens arriving at object nodes do not replace ones that are already there.">
+</ownedComment>
+        <ownedRule xmi:id="SysML.Overwrite._rule.Constraint1" xmi:type="uml:Constraint" name="Constraint1">
+          <constrainedElement xmi:idref="SysML.Overwrite"/>
+          <specification xmi:id="SysML.Overwrite._rule.Constraint1.constraintSpec1" xmi:type="uml:LiteralString" name="constraintSpec1" value="The «overwrite» and «nobuffer» stereotypes cannot be applied to the same element at the same time."/>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Rate_base_ObjectNode" xmi:type="uml:Extension" name="E_extension_Rate_base_ObjectNode">
+        <memberEnd xmi:idref="SysML.E_extension_Rate_base_ObjectNode.extension_Rate"/>
+        <memberEnd xmi:idref="SysML.Rate.base_ObjectNode"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Rate_base_ObjectNode.extension_Rate"/>
+        <ownedEnd xmi:id="SysML.E_extension_Rate_base_ObjectNode.extension_Rate" xmi:type="uml:ExtensionEnd" name="extension_Rate">
+          <association xmi:idref="SysML.E_extension_Rate_base_ObjectNode"/>
+          <lowerValue xmi:id="SysML.E_extension_Rate_base_ObjectNode.extension_Rate.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Rate"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Probability_base_ParameterSet" xmi:type="uml:Extension" name="E_extension_Probability_base_ParameterSet">
+        <memberEnd xmi:idref="SysML.E_extension_Probability_base_ParameterSet.extension_Probability"/>
+        <memberEnd xmi:idref="SysML.Probability.base_ParameterSet"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Probability_base_ParameterSet.extension_Probability"/>
+        <ownedEnd xmi:id="SysML.E_extension_Probability_base_ParameterSet.extension_Probability" xmi:type="uml:ExtensionEnd" name="extension_Probability">
+          <association xmi:idref="SysML.E_extension_Probability_base_ParameterSet"/>
+          <lowerValue xmi:id="SysML.E_extension_Probability_base_ParameterSet.extension_Probability.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Probability"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Overwrite_base_ObjectNode" xmi:type="uml:Extension" name="E_extension_Overwrite_base_ObjectNode">
+        <memberEnd xmi:idref="SysML.E_extension_Overwrite_base_ObjectNode.extension_Overwrite"/>
+        <memberEnd xmi:idref="SysML.Overwrite.base_ObjectNode"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Overwrite_base_ObjectNode.extension_Overwrite"/>
+        <ownedEnd xmi:id="SysML.E_extension_Overwrite_base_ObjectNode.extension_Overwrite" xmi:type="uml:ExtensionEnd" name="extension_Overwrite">
+          <association xmi:idref="SysML.E_extension_Overwrite_base_ObjectNode"/>
+          <lowerValue xmi:id="SysML.E_extension_Overwrite_base_ObjectNode.extension_Overwrite.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Overwrite"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Probability_base_ActivityEdge" xmi:type="uml:Extension" name="E_extension_Probability_base_ActivityEdge">
+        <memberEnd xmi:idref="SysML.E_extension_Probability_base_ActivityEdge.extension_Probability"/>
+        <memberEnd xmi:idref="SysML.Probability.base_ActivityEdge"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Probability_base_ActivityEdge.extension_Probability"/>
+        <ownedEnd xmi:id="SysML.E_extension_Probability_base_ActivityEdge.extension_Probability" xmi:type="uml:ExtensionEnd" name="extension_Probability">
+          <association xmi:idref="SysML.E_extension_Probability_base_ActivityEdge"/>
+          <lowerValue xmi:id="SysML.E_extension_Probability_base_ActivityEdge.extension_Probability.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Probability"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ControlOperator_base_Behavior" xmi:type="uml:Extension" name="E_extension_ControlOperator_base_Behavior">
+        <memberEnd xmi:idref="SysML.E_extension_ControlOperator_base_Behavior.extension_ControlOperator"/>
+        <memberEnd xmi:idref="SysML.ControlOperator.base_Behavior"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ControlOperator_base_Behavior.extension_ControlOperator"/>
+        <ownedEnd xmi:id="SysML.E_extension_ControlOperator_base_Behavior.extension_ControlOperator" xmi:type="uml:ExtensionEnd" name="extension_ControlOperator">
+          <association xmi:idref="SysML.E_extension_ControlOperator_base_Behavior"/>
+          <lowerValue xmi:id="SysML.E_extension_ControlOperator_base_Behavior.extension_ControlOperator.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ControlOperator"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Rate_base_ActivityEdge" xmi:type="uml:Extension" name="E_extension_Rate_base_ActivityEdge">
+        <memberEnd xmi:idref="SysML.E_extension_Rate_base_ActivityEdge.extension_Rate"/>
+        <memberEnd xmi:idref="SysML.Rate.base_ActivityEdge"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Rate_base_ActivityEdge.extension_Rate"/>
+        <ownedEnd xmi:id="SysML.E_extension_Rate_base_ActivityEdge.extension_Rate" xmi:type="uml:ExtensionEnd" name="extension_Rate">
+          <association xmi:idref="SysML.E_extension_Rate_base_ActivityEdge"/>
+          <lowerValue xmi:id="SysML.E_extension_Rate_base_ActivityEdge.extension_Rate.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Rate"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Rate_base_Parameter" xmi:type="uml:Extension" name="E_extension_Rate_base_Parameter">
+        <memberEnd xmi:idref="SysML.E_extension_Rate_base_Parameter.extension_Rate"/>
+        <memberEnd xmi:idref="SysML.Rate.base_Parameter"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Rate_base_Parameter.extension_Rate"/>
+        <ownedEnd xmi:id="SysML.E_extension_Rate_base_Parameter.extension_Rate" xmi:type="uml:ExtensionEnd" name="extension_Rate">
+          <association xmi:idref="SysML.E_extension_Rate_base_Parameter"/>
+          <lowerValue xmi:id="SysML.E_extension_Rate_base_Parameter.extension_Rate.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Rate"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.NoBuffer" xmi:type="uml:Stereotype" name="NoBuffer">
+        <ownedAttribute xmi:id="SysML.NoBuffer.base_ObjectNode" xmi:type="uml:Property" name="base_ObjectNode">
+          <association xmi:idref="SysML.E_extension_NoBuffer_base_ObjectNode"/>
+          <lowerValue xmi:id="SysML.NoBuffer.base_ObjectNode.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ObjectNode"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.NoBuffer._comment0" xmi:type="uml:Comment" body="When the «nobuffer» stereotype is applied to object nodes, tokens arriving at the node are discarded if they are refused by outgoing edges, or refused by actions for object nodes that are input pins. This is typically used with fast or continuously flowing data values, to prevent buffer overrun, or to model transient values, such as electrical signals. For object nodes that are the target of continuous flows, «nobuffer» and «overwrite» have the same effect. The stereotype does not override UML token offering semantics; it just indicates what happens to the token when it is accepted. When the stereotype is not applied, the semantics are as in UML, specifically, tokens arriving at an object node that are refused by outgoing edges, or action for input pins, are held until they can leave the object node.">
+</ownedComment>
+        <ownedRule xmi:id="SysML.NoBuffer._rule.Constraint1" xmi:type="uml:Constraint" name="Constraint1">
+          <constrainedElement xmi:idref="SysML.NoBuffer"/>
+          <specification xmi:id="SysML.NoBuffer._rule.Constraint1.constraintSpec1" xmi:type="uml:LiteralString" name="constraintSpec1" value="The «nobuffer» and «overwrite» stereotypes cannot be applied to the same element at the same time."/>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Optional_base_Parameter" xmi:type="uml:Extension" name="E_extension_Optional_base_Parameter">
+        <memberEnd xmi:idref="SysML.E_extension_Optional_base_Parameter.extension_Optional"/>
+        <memberEnd xmi:idref="SysML.Optional.base_Parameter"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Optional_base_Parameter.extension_Optional"/>
+        <ownedEnd xmi:id="SysML.E_extension_Optional_base_Parameter.extension_Optional" xmi:type="uml:ExtensionEnd" name="extension_Optional">
+          <association xmi:idref="SysML.E_extension_Optional_base_Parameter"/>
+          <lowerValue xmi:id="SysML.E_extension_Optional_base_Parameter.extension_Optional.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Optional"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Probability" xmi:type="uml:Stereotype" name="Probability">
+        <ownedAttribute xmi:id="SysML.Probability.base_ActivityEdge" xmi:type="uml:Property" name="base_ActivityEdge">
+          <association xmi:idref="SysML.E_extension_Probability_base_ActivityEdge"/>
+          <lowerValue xmi:id="SysML.Probability.base_ActivityEdge.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ActivityEdge"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Probability.base_ParameterSet" xmi:type="uml:Property" name="base_ParameterSet">
+          <association xmi:idref="SysML.E_extension_Probability_base_ParameterSet"/>
+          <lowerValue xmi:id="SysML.Probability.base_ParameterSet.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ParameterSet"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Probability.probability" xmi:type="uml:Property" name="probability">
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ValueSpecification"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Probability._comment0" xmi:type="uml:Comment" body="When the «probability» stereotype is applied to edges coming out of decision nodes and object nodes, it provides an expression for the probability that the edge will be traversed. These shall be between zero and one inclusive, and add up to one for edges with same source at the time the probabilities are used.  When the «probability» stereotype is applied to output parameter sets, it gives the probability the parameter set will be given values at runtime. These shall be between zero and one inclusive, and add up to one for output parameter sets of the same behavior at the time the probabilities are used.">
+</ownedComment>
+        <ownedRule xmi:id="SysML.Probability._rule.Constraint4" xmi:type="uml:Constraint" name="Constraint4">
+          <constrainedElement xmi:idref="SysML.Probability"/>
+          <specification xmi:id="SysML.Probability._rule.Constraint4.constraintSpec4" xmi:type="uml:LiteralString" name="constraintSpec4" value="When the «probability» stereotype is applied to an output parameter set, all the output parameters shall be in some parameter set."/>
+        </ownedRule>
+        <ownedRule xmi:id="SysML.Probability._rule.Constraint3" xmi:type="uml:Constraint" name="Constraint3">
+          <constrainedElement xmi:idref="SysML.Probability"/>
+          <specification xmi:id="SysML.Probability._rule.Constraint3.constraintSpec3" xmi:type="uml:LiteralString" name="constraintSpec3" value="When the «probability» stereotype is applied to an output parameter set, it shall be applied to all the parameter sets of the behavior or operation owning the original parameter set.">
+</specification>
+        </ownedRule>
+        <ownedRule xmi:id="SysML.Probability._rule.Constraint1" xmi:type="uml:Constraint" name="Constraint1">
+          <constrainedElement xmi:idref="SysML.Probability"/>
+          <specification xmi:id="SysML.Probability._rule.Constraint1.constraintSpec1" xmi:type="uml:LiteralString" name="constraintSpec1" value="The «probability» stereotype shall only be applied to activity edges that have decision nodes or object nodes as sources, or to output parameter sets."/>
+        </ownedRule>
+        <ownedRule xmi:id="SysML.Probability._rule.Constraint2" xmi:type="uml:Constraint" name="Constraint2">
+          <constrainedElement xmi:idref="SysML.Probability"/>
+          <specification xmi:id="SysML.Probability._rule.Constraint2.constraintSpec2" xmi:type="uml:LiteralString" name="constraintSpec2" value="When the «probability» stereotype is applied to an activity edge, then it shall be applied to all edges coming out of the same source."/>
+        </ownedRule>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_NoBuffer_base_ObjectNode" xmi:type="uml:Extension" name="E_extension_NoBuffer_base_ObjectNode">
+        <memberEnd xmi:idref="SysML.E_extension_NoBuffer_base_ObjectNode.extension_NoBuffer"/>
+        <memberEnd xmi:idref="SysML.NoBuffer.base_ObjectNode"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_NoBuffer_base_ObjectNode.extension_NoBuffer"/>
+        <ownedEnd xmi:id="SysML.E_extension_NoBuffer_base_ObjectNode.extension_NoBuffer" xmi:type="uml:ExtensionEnd" name="extension_NoBuffer">
+          <association xmi:idref="SysML.E_extension_NoBuffer_base_ObjectNode"/>
+          <lowerValue xmi:id="SysML.E_extension_NoBuffer_base_ObjectNode.extension_NoBuffer.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.NoBuffer"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Rate" xmi:type="uml:Stereotype" name="Rate">
+        <ownedAttribute xmi:id="SysML.Rate.base_ActivityEdge" xmi:type="uml:Property" name="base_ActivityEdge">
+          <association xmi:idref="SysML.E_extension_Rate_base_ActivityEdge"/>
+          <lowerValue xmi:id="SysML.Rate.base_ActivityEdge.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ActivityEdge"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Rate.base_ObjectNode" xmi:type="uml:Property" name="base_ObjectNode">
+          <association xmi:idref="SysML.E_extension_Rate_base_ObjectNode"/>
+          <lowerValue xmi:id="SysML.Rate.base_ObjectNode.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ObjectNode"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Rate.base_Parameter" xmi:type="uml:Property" name="base_Parameter">
+          <association xmi:idref="SysML.E_extension_Rate_base_Parameter"/>
+          <lowerValue xmi:id="SysML.Rate.base_Parameter.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Parameter"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Rate.rate" xmi:type="uml:Property" name="rate">
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#InstanceSpecification"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Rate._comment0" xmi:type="uml:Comment" body="When the «rate» stereotype is applied to an activity edge, it specifies the expected value of the number of objects and values that traverse the edge per time interval, that is, the expected value rate at which they leave the source node and arrive at the target node. It does not refer to the rate at which a value changes over time. When the stereotype is applied to a parameter, the parameter shall be streaming, and the stereotype gives the number of objects or values that flow in or out of the parameter per time interval while the behavior or operation is executing. Streaming is a characteristic of UML behavior parameters that supports the input and output of items while a behavior is executing, rather than only when the behavior starts and stops. The flow may be continuous or discrete, see the specialized rates in 11.3.2.1, Continuous and 11.3.2.3, Discrete. The «rate» stereotype has a rate property of type InstanceSpecification. The values of this property shall be instances of classifiers stereotyped by «valueType» or «distributionDefinition», see Clause 8, “Blocks.” In particular, the denominator for units used in the rate property shall be time units.">
+</ownedComment>
+        <ownedRule xmi:id="SysML.Rate._rule.Constraint2" xmi:type="uml:Constraint" name="Constraint2">
+          <constrainedElement xmi:idref="SysML.Rate"/>
+          <specification xmi:id="SysML.Rate._rule.Constraint2.constraintSpec2" xmi:type="uml:LiteralString" name="constraintSpec2" value="The rate of a parameter shall be less than or equal to rates on edges that come into or go out from pins and parameters nodes corresponding to the parameter."/>
+        </ownedRule>
+        <ownedRule xmi:id="SysML.Rate._rule.Constraint1" xmi:type="uml:Constraint" name="Constraint1">
+          <constrainedElement xmi:idref="SysML.Rate"/>
+          <specification xmi:id="SysML.Rate._rule.Constraint1.constraintSpec1" xmi:type="uml:LiteralString" name="constraintSpec1" value="When the «rate» stereotype is applied to a parameter, the parameter shall be streaming."/>
+        </ownedRule>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="SysML.Blocks" xmi:type="uml:Package" name="Blocks">
+      <packagedElement xmi:id="SysML.A_elementPropertyPath_propertyPath" xmi:type="uml:Association" name="A_elementPropertyPath_propertyPath">
+        <memberEnd xmi:idref="SysML.A_elementPropertyPath_propertyPath.elementPropertyPath"/>
+        <memberEnd xmi:idref="SysML.ElementPropertyPath.propertyPath"/>
+        <ownedEnd xmi:id="SysML.A_elementPropertyPath_propertyPath.elementPropertyPath" xmi:type="uml:Property" name="elementPropertyPath">
+          <association xmi:idref="SysML.A_elementPropertyPath_propertyPath"/>
+          <lowerValue xmi:id="SysML.A_elementPropertyPath_propertyPath.elementPropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ElementPropertyPath"/>
+          <upperValue xmi:id="SysML.A_elementPropertyPath_propertyPath.elementPropertyPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_adjunctProperty_principal" xmi:type="uml:Association" name="A_adjunctProperty_principal">
+        <memberEnd xmi:idref="SysML.AdjunctProperty.principal"/>
+        <memberEnd xmi:idref="SysML.A_adjunctProperty_principal.adjunctProperty"/>
+        <ownedEnd xmi:id="SysML.A_adjunctProperty_principal.adjunctProperty" xmi:type="uml:Property" name="adjunctProperty">
+          <association xmi:idref="SysML.A_adjunctProperty_principal"/>
+          <lowerValue xmi:id="SysML.A_adjunctProperty_principal.adjunctProperty.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.AdjunctProperty"/>
+          <upperValue xmi:id="SysML.A_adjunctProperty_principal.adjunctProperty.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ValueType_base_DataType" xmi:type="uml:Extension" name="E_extension_ValueType_base_DataType">
+        <memberEnd xmi:idref="SysML.E_extension_ValueType_base_DataType.extension_ValueType"/>
+        <memberEnd xmi:idref="SysML.ValueType.base_DataType"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ValueType_base_DataType.extension_ValueType"/>
+        <ownedEnd xmi:id="SysML.E_extension_ValueType_base_DataType.extension_ValueType" xmi:type="uml:ExtensionEnd" name="extension_ValueType">
+          <association xmi:idref="SysML.E_extension_ValueType_base_DataType"/>
+          <lowerValue xmi:id="SysML.E_extension_ValueType_base_DataType.extension_ValueType.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ValueType"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ClassifierBehaviorProperty_base_Property" xmi:type="uml:Extension" name="E_extension_ClassifierBehaviorProperty_base_Property">
+        <memberEnd xmi:idref="SysML.ClassifierBehaviorProperty.base_Property"/>
+        <memberEnd xmi:idref="SysML.E_extension_ClassifierBehaviorProperty_base_Property.extension_ClassifierBehaviorProperty"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ClassifierBehaviorProperty_base_Property.extension_ClassifierBehaviorProperty"/>
+        <ownedEnd xmi:id="SysML.E_extension_ClassifierBehaviorProperty_base_Property.extension_ClassifierBehaviorProperty" xmi:type="uml:ExtensionEnd" name="extension_ClassifierBehaviorProperty">
+          <association xmi:idref="SysML.E_extension_ClassifierBehaviorProperty_base_Property"/>
+          <type xmi:idref="SysML.ClassifierBehaviorProperty"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_DistributedProperty_base_Property" xmi:type="uml:Extension" name="E_extension_DistributedProperty_base_Property">
+        <memberEnd xmi:idref="SysML.E_extension_DistributedProperty_base_Property.extension_DistributedProperty"/>
+        <memberEnd xmi:idref="SysML.DistributedProperty.base_Property"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_DistributedProperty_base_Property.extension_DistributedProperty"/>
+        <ownedEnd xmi:id="SysML.E_extension_DistributedProperty_base_Property.extension_DistributedProperty" xmi:type="uml:ExtensionEnd" name="extension_DistributedProperty">
+          <association xmi:idref="SysML.E_extension_DistributedProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.E_extension_DistributedProperty_base_Property.extension_DistributedProperty.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.DistributedProperty"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.DistributedProperty" xmi:type="uml:Stereotype" name="DistributedProperty">
+        <ownedAttribute xmi:id="SysML.DistributedProperty.base_Property" xmi:type="uml:Property" name="base_Property">
+          <association xmi:idref="SysML.E_extension_DistributedProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.DistributedProperty.base_Property.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.DistributedProperty._comment0" xmi:type="uml:Comment" body="             DistributedProperty is a stereotype of Property used to apply a probability distribution to the values of the property. Specific distributions should be defined as subclasses of the DistributedProperty stereotype with the operands of the distributions represented by properties of those stereotype subclasses.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_PropertySpecificType_base_Classifier" xmi:type="uml:Extension" name="E_extension_PropertySpecificType_base_Classifier">
+        <memberEnd xmi:idref="SysML.E_extension_PropertySpecificType_base_Classifier.extension_PropertySpecificType"/>
+        <memberEnd xmi:idref="SysML.PropertySpecificType.base_Classifier"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_PropertySpecificType_base_Classifier.extension_PropertySpecificType"/>
+        <ownedEnd xmi:id="SysML.E_extension_PropertySpecificType_base_Classifier.extension_PropertySpecificType" xmi:type="uml:ExtensionEnd" name="extension_PropertySpecificType">
+          <association xmi:idref="SysML.E_extension_PropertySpecificType_base_Classifier"/>
+          <lowerValue xmi:id="SysML.E_extension_PropertySpecificType_base_Classifier.extension_PropertySpecificType.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.PropertySpecificType"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ElementPropertyPath" xmi:type="uml:Stereotype" isAbstract="true" name="ElementPropertyPath">
+        <ownedAttribute xmi:id="SysML.ElementPropertyPath.base_Element" xmi:type="uml:Property" name="base_Element">
+          <association xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element"/>
+          <lowerValue xmi:id="SysML.ElementPropertyPath.base_Element.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ElementPropertyPath.propertyPath" xmi:type="uml:Property" isOrdered="true" isUnique="false" name="propertyPath">
+          <association xmi:idref="SysML.A_elementPropertyPath_propertyPath"/>
+          <ownedComment xmi:id="SysML.ElementPropertyPath.propertyPath._comment0" xmi:type="uml:Comment" body="               The propertyPath list of the NestedConnectorEnd stereotype must identify a path of containing properties that identify the connected property in the context of the block that owns the connector. The ordering of properties is from a property of the block that owns the connector, through a property of each intermediate block that types the preceding property, until a property is reached that contains a connector end property within its type. The connector end property is not included in the propertyPath list, but instead is held by the role property of the UML ConnectorEnd metaclass.             ">
+</ownedComment>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+          <upperValue xmi:id="SysML.ElementPropertyPath.propertyPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.AdjunctProperty" xmi:type="uml:Stereotype" name="AdjunctProperty">
+        <ownedAttribute xmi:id="SysML.AdjunctProperty.base_Property" xmi:type="uml:Property" name="base_Property">
+          <association xmi:idref="SysML.E_extension_AdjunctProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.AdjunctProperty.base_Property.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AdjunctProperty.principal" xmi:type="uml:Property" name="principal">
+          <association xmi:idref="SysML.A_adjunctProperty_principal"/>
+          <ownedComment xmi:id="SysML.AdjunctProperty.principal._comment0" xmi:type="uml:Comment" body="Gives the element that determines the values of the property. Must be a connector, call action, object node, variable, or parameter."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.AdjunctProperty._comment0" xmi:type="uml:Comment" body="             The AdjunctProperty stereotype can be applied to properties to constrain their values to the values of connectors typed by association blocks, call actions, object nodes, variables, or parameters, interaction uses, and submachine states.  The values of connectors typed by association blocks are the instances of the association block typing a connector in the block having the stereotyped property.  The values of call actions are the executions of behaviors invoked by the behavior having the call action and the stereotyped property (see Subclause 11.3.1.1.1 for more about this use of the stereotype).  The values of object nodes are the values of tokens in the object nodes of the behavior having the stereotyped property (see Subclause 11.3.1.4.1 for more about this use of the stereotype).  The values of variables are those assigned by executions of activities that have the stereotyped property.  The values of parameters are those assigned by executions of behaviors that have the stereotyped property.  The keyword «adjunct» before a property name indicates the property is stereotyped by AdjunctProperty.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_directedRelationshipPropertyPath_targetContext" xmi:type="uml:Association" name="A_directedRelationshipPropertyPath_targetContext">
+        <memberEnd xmi:idref="SysML.DirectedRelationshipPropertyPath.targetContext"/>
+        <memberEnd xmi:idref="SysML.A_directedRelationshipPropertyPath_targetContext.directedRelationshipPropertyPath"/>
+        <ownedEnd xmi:id="SysML.A_directedRelationshipPropertyPath_targetContext.directedRelationshipPropertyPath" xmi:type="uml:Property" name="directedRelationshipPropertyPath">
+          <association xmi:idref="SysML.A_directedRelationshipPropertyPath_targetContext"/>
+          <lowerValue xmi:id="SysML.A_directedRelationshipPropertyPath_targetContext.directedRelationshipPropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.DirectedRelationshipPropertyPath"/>
+          <upperValue xmi:id="SysML.A_directedRelationshipPropertyPath_targetContext.directedRelationshipPropertyPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ElementPropertyPath_base_Element" xmi:type="uml:Extension" name="E_extension_ElementPropertyPath_base_Element">
+        <memberEnd xmi:idref="SysML.ElementPropertyPath.base_Element"/>
+        <memberEnd xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element.extension_ElementPropertyPath"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element.extension_ElementPropertyPath"/>
+        <ownedEnd xmi:id="SysML.E_extension_ElementPropertyPath_base_Element.extension_ElementPropertyPath" xmi:type="uml:ExtensionEnd" name="extension_ElementPropertyPath">
+          <association xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element"/>
+          <lowerValue xmi:id="SysML.E_extension_ElementPropertyPath_base_Element.extension_ElementPropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ElementPropertyPath"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.EndPathMultiplicity" xmi:type="uml:Stereotype" name="EndPathMultiplicity">
+        <ownedAttribute xmi:id="SysML.EndPathMultiplicity.base_Property" xmi:type="uml:Property" name="base_Property">
+          <association xmi:idref="SysML.E_extension_EndPathMultiplicity_base_Property"/>
+          <lowerValue xmi:id="SysML.EndPathMultiplicity.base_Property.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.EndPathMultiplicity.lower" xmi:type="uml:Property" name="lower">
+          <defaultValue xmi:id="SysML.EndPathMultiplicity.lower.defaultValue0" xmi:type="uml:LiteralInteger"/>
+          <lowerValue xmi:id="SysML.EndPathMultiplicity.lower.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.EndPathMultiplicity.lower._comment0" xmi:type="uml:Comment" body="Gives the minimum number of values of the property at the end of the related bindingPath, for each object reached by navigation along the bindingPath from an instance of the block owning the property to which EndPathMultiplicity is applied">
+</ownedComment>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.EndPathMultiplicity.upper" xmi:type="uml:Property" name="upper">
+          <defaultValue xmi:id="SysML.EndPathMultiplicity.upper.defaultValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          <lowerValue xmi:id="SysML.EndPathMultiplicity.upper.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.EndPathMultiplicity.upper._comment0" xmi:type="uml:Comment" body="Gives the maximum number of values of the property at the end of the related bindingPath, for each object reached by navigation along the bindingPath from an instance of the block owning the property to which EndPathMultiplicity is applied.">
+</ownedComment>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#UnlimitedNatural"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ParticipantProperty" xmi:type="uml:Stereotype" name="ParticipantProperty">
+        <ownedAttribute xmi:id="SysML.ParticipantProperty.base_Property" xmi:type="uml:Property" name="base_Property">
+          <association xmi:idref="SysML.E_extension_ParticipantProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.ParticipantProperty.base_Property.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ParticipantProperty.end" xmi:type="uml:Property" name="end">
+          <ownedComment xmi:id="SysML.ParticipantProperty.end._comment0" xmi:type="uml:Comment" body="A member end of the association block owning the property on which the stereotype is applied."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.ParticipantProperty._comment0" xmi:type="uml:Comment" body="             The Block stereotype extends Class, so it can be applied to any specialization of Class, including Association Classes. These are informally called “association blocks.” An association block can own properties and connectors, like any other block. Each instance of an association block can link together instances of the end classifiers of the association. To refer to linked objects and values of an instance of an association block, it is necessary for the modeler to specify which (participant) properties of the association block identify the instances being linked at which end of the association. The value of a participant property on an instance (link) of the association block is the value or object at the end of the link corresponding to this end of the association.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Block_base_Class" xmi:type="uml:Extension" name="E_extension_Block_base_Class">
+        <memberEnd xmi:idref="SysML.E_extension_Block_base_Class.extension_Block"/>
+        <memberEnd xmi:idref="SysML.Block.base_Class"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Block_base_Class.extension_Block"/>
+        <ownedEnd xmi:id="SysML.E_extension_Block_base_Class.extension_Block" xmi:type="uml:ExtensionEnd" name="extension_Block">
+          <association xmi:idref="SysML.E_extension_Block_base_Class"/>
+          <lowerValue xmi:id="SysML.E_extension_Block_base_Class.extension_Block.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Block"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Block" xmi:type="uml:Stereotype" name="Block">
+        <ownedAttribute xmi:id="SysML.Block.base_Class" xmi:type="uml:Property" name="base_Class">
+          <association xmi:idref="SysML.E_extension_Block_base_Class"/>
+          <lowerValue xmi:id="SysML.Block.base_Class.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Block.isEncapsulated" xmi:type="uml:Property" name="isEncapsulated">
+          <lowerValue xmi:id="SysML.Block.isEncapsulated.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.Block.isEncapsulated._comment0" xmi:type="uml:Comment" body="               If true, then the block is treated as a black box; a part typed by this black box can only be connected via its ports or directly to its outer boundary. If false, or if a value is not present, then connections can be established to elements of its internal structure via deep-nested connector ends.             ">
+</ownedComment>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Block._comment0" xmi:type="uml:Comment" body="             A Block is a modular unit that describes the structure of a system or element. It may include both structural and behavioral features, such as properties and operations, that represent the state of the system and behavior that the system may exhibit. Some of these properties may hold parts of a system, which can also be described by blocks. A block may include a structure of connectors between its properties to indicate how its parts or other properties relate to one another. SysML blocks provide a general-purpose capability to describe the architecture of a system. They provide the ability to represent a system hierarchy, in which a system at one level is composed of systems at a more basic level. They can describe not only the connectivity relationships between the systems at any level, but also quantitative values or other information about a system. SysML does not restrict the kind of system or system element that may be described by a block. Any reusable form of description that may be applied to a system or a set of system characteristics may be described by a block. Such reusable descriptions, for example, may be applied to purely conceptual aspects of a system design, such as relationships that hold between parts or properties of a system. Connectors owned by SysML blocks may be used to define relationships between parts or other properties of the same containing block. The type of a connector or its connected ends may specify the semantic interpretation of a specific connector.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_directedRelationshipPropertyPath_sourceContext" xmi:type="uml:Association" name="A_directedRelationshipPropertyPath_sourceContext">
+        <memberEnd xmi:idref="SysML.DirectedRelationshipPropertyPath.sourceContext"/>
+        <memberEnd xmi:idref="SysML.A_directedRelationshipPropertyPath_sourceContext.directedRelationshipPropertyPath"/>
+        <ownedEnd xmi:id="SysML.A_directedRelationshipPropertyPath_sourceContext.directedRelationshipPropertyPath" xmi:type="uml:Property" name="directedRelationshipPropertyPath">
+          <association xmi:idref="SysML.A_directedRelationshipPropertyPath_sourceContext"/>
+          <lowerValue xmi:id="SysML.A_directedRelationshipPropertyPath_sourceContext.directedRelationshipPropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.DirectedRelationshipPropertyPath"/>
+          <upperValue xmi:id="SysML.A_directedRelationshipPropertyPath_sourceContext.directedRelationshipPropertyPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_EndPathMultiplicity_base_Property" xmi:type="uml:Extension" name="E_extension_EndPathMultiplicity_base_Property">
+        <memberEnd xmi:idref="SysML.EndPathMultiplicity.base_Property"/>
+        <memberEnd xmi:idref="SysML.E_extension_EndPathMultiplicity_base_Property.extension_EndPathMultiplicity"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_EndPathMultiplicity_base_Property.extension_EndPathMultiplicity"/>
+        <ownedEnd xmi:id="SysML.E_extension_EndPathMultiplicity_base_Property.extension_EndPathMultiplicity" xmi:type="uml:ExtensionEnd" name="extension_EndPathMultiplicity">
+          <association xmi:idref="SysML.E_extension_EndPathMultiplicity_base_Property"/>
+          <lowerValue xmi:id="SysML.E_extension_EndPathMultiplicity_base_Property.extension_EndPathMultiplicity.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.EndPathMultiplicity"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ConnectorProperty_base_Property" xmi:type="uml:Extension" name="E_extension_ConnectorProperty_base_Property">
+        <memberEnd xmi:idref="SysML.E_extension_ConnectorProperty_base_Property.extension_ConnectorProperty"/>
+        <memberEnd xmi:idref="SysML.ConnectorProperty.base_Property"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ConnectorProperty_base_Property.extension_ConnectorProperty"/>
+        <ownedEnd xmi:id="SysML.E_extension_ConnectorProperty_base_Property.extension_ConnectorProperty" xmi:type="uml:ExtensionEnd" name="extension_ConnectorProperty">
+          <association xmi:idref="SysML.E_extension_ConnectorProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.E_extension_ConnectorProperty_base_Property.extension_ConnectorProperty.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ConnectorProperty"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ParticipantProperty_base_Property" xmi:type="uml:Extension" name="E_extension_ParticipantProperty_base_Property">
+        <memberEnd xmi:idref="SysML.E_extension_ParticipantProperty_base_Property.extension_ParticipantProperty"/>
+        <memberEnd xmi:idref="SysML.ParticipantProperty.base_Property"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ParticipantProperty_base_Property.extension_ParticipantProperty"/>
+        <ownedEnd xmi:id="SysML.E_extension_ParticipantProperty_base_Property.extension_ParticipantProperty" xmi:type="uml:ExtensionEnd" name="extension_ParticipantProperty">
+          <association xmi:idref="SysML.E_extension_ParticipantProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.E_extension_ParticipantProperty_base_Property.extension_ParticipantProperty.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ParticipantProperty"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ConnectorProperty" xmi:type="uml:Stereotype" name="ConnectorProperty">
+        <ownedAttribute xmi:id="SysML.ConnectorProperty.base_Property" xmi:type="uml:Property" name="base_Property">
+          <association xmi:idref="SysML.E_extension_ConnectorProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.ConnectorProperty.base_Property.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ConnectorProperty.connector" xmi:type="uml:Property" name="connector">
+          <ownedComment xmi:id="SysML.ConnectorProperty.connector._comment0" xmi:type="uml:Comment" body="A connector of the block owning the property on which the stereotype is applied."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Connector"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.ConnectorProperty._comment0" xmi:type="uml:Comment" body="             Connectors can be typed by association classes that are stereotyped by Block (association blocks). These connectors specify instances (links) of the association block that exist due to instantiation of the block owning or inheriting the connector. The value of a connector property on an instance of a block will be exactly those link objects that are instances of the association block typing the connector referred to by the connector property.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.BindingConnector" xmi:type="uml:Stereotype" name="BindingConnector">
+        <ownedAttribute xmi:id="SysML.BindingConnector.base_Connector" xmi:type="uml:Property" name="base_Connector">
+          <association xmi:idref="SysML.E_extension_BindingConnector_base_Connector"/>
+          <lowerValue xmi:id="SysML.BindingConnector.base_Connector.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Connector"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.BindingConnector._comment0" xmi:type="uml:Comment" body="             A Binding Connector is a connector which specifies that the properties at both ends of the connector have equal values. If the properties at the ends of a binding connector are typed by a DataType or ValueType, the connector specifies that the instances of the properties must hold equal values, recursively through any nested properties within the connected properties. If the properties at the ends of a binding connector are typed by a Block, the connector specifies that the instances of the properties must refer to the same block instance. As with any connector owned by a SysML Block, the ends of a binding connector may be nested within a multi-level path of properties accessible from the owning block. The NestedConnectorEnd stereotype is used to represent such nested ends just as for nested ends of other SysML connectors.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_directedRelationshipPropertyPath_targetPropertyPath" xmi:type="uml:Association" name="A_directedRelationshipPropertyPath_targetPropertyPath">
+        <memberEnd xmi:idref="SysML.DirectedRelationshipPropertyPath.targetPropertyPath"/>
+        <memberEnd xmi:idref="SysML.A_directedRelationshipPropertyPath_targetPropertyPath.directedRelationshipPropertyPath"/>
+        <ownedEnd xmi:id="SysML.A_directedRelationshipPropertyPath_targetPropertyPath.directedRelationshipPropertyPath" xmi:type="uml:Property" name="directedRelationshipPropertyPath">
+          <association xmi:idref="SysML.A_directedRelationshipPropertyPath_targetPropertyPath"/>
+          <lowerValue xmi:id="SysML.A_directedRelationshipPropertyPath_targetPropertyPath.directedRelationshipPropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.DirectedRelationshipPropertyPath"/>
+          <upperValue xmi:id="SysML.A_directedRelationshipPropertyPath_targetPropertyPath.directedRelationshipPropertyPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ClassifierBehaviorProperty" xmi:type="uml:Stereotype" name="ClassifierBehaviorProperty">
+        <ownedAttribute xmi:id="SysML.ClassifierBehaviorProperty.base_Property" xmi:type="uml:Property" name="base_Property">
+          <association xmi:idref="SysML.E_extension_ClassifierBehaviorProperty_base_Property"/>
+          <lowerValue xmi:id="SysML.ClassifierBehaviorProperty.base_Property.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.ClassifierBehaviorProperty._comment0" xmi:type="uml:Comment" body="             The ClassifierBehaviorProperty stereotype can be applied to properties to constrain their values to be the executions of classifier behaviors.  The value of properties with ClassifierBehaviorProperty  applied are the executions of classifier behaviors invoked by instantiation of the block that owns the stereotyped property or one of its specializations.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.BoundReference" xmi:type="uml:Stereotype" name="BoundReference">
+        <generalization xmi:id="SysML.BoundReference._generalization.SysML.EndPathMultiplicity" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.EndPathMultiplicity"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.BoundReference.bindingPath" xmi:type="uml:Property" isDerived="true" isOrdered="true" isUnique="false" name="bindingPath">
+          <ownedComment xmi:id="SysML.BoundReference.bindingPath._comment0" xmi:type="uml:Comment" body="Gives the propertyPath of the NestedConnectorEnd applied, if any, to the boundEnd, appended to the role of the boundEnd. "/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+          <upperValue xmi:id="SysML.BoundReference.bindingPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.BoundReference.boundEnd" xmi:type="uml:Property" name="boundEnd">
+          <ownedComment xmi:id="SysML.BoundReference.boundEnd._comment0" xmi:type="uml:Comment" body="Gives a connector end of a binding connector opposite to the end linked to the stereotyped property, or linked to a property that generalizes the stereotyped one through redefinition."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ConnectorEnd"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_BindingConnector_base_Connector" xmi:type="uml:Extension" name="E_extension_BindingConnector_base_Connector">
+        <memberEnd xmi:idref="SysML.E_extension_BindingConnector_base_Connector.extension_BindingConnector"/>
+        <memberEnd xmi:idref="SysML.BindingConnector.base_Connector"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_BindingConnector_base_Connector.extension_BindingConnector"/>
+        <ownedEnd xmi:id="SysML.E_extension_BindingConnector_base_Connector.extension_BindingConnector" xmi:type="uml:ExtensionEnd" name="extension_BindingConnector">
+          <association xmi:idref="SysML.E_extension_BindingConnector_base_Connector"/>
+          <lowerValue xmi:id="SysML.E_extension_BindingConnector_base_Connector.extension_BindingConnector.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.BindingConnector"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_directedRelationshipPropertyPath_sourcePropertyPath" xmi:type="uml:Association" name="A_directedRelationshipPropertyPath_sourcePropertyPath">
+        <memberEnd xmi:idref="SysML.DirectedRelationshipPropertyPath.sourcePropertyPath"/>
+        <memberEnd xmi:idref="SysML.A_directedRelationshipPropertyPath_sourcePropertyPath.directedRelationshipPropertyPath"/>
+        <ownedEnd xmi:id="SysML.A_directedRelationshipPropertyPath_sourcePropertyPath.directedRelationshipPropertyPath" xmi:type="uml:Property" name="directedRelationshipPropertyPath">
+          <association xmi:idref="SysML.A_directedRelationshipPropertyPath_sourcePropertyPath"/>
+          <lowerValue xmi:id="SysML.A_directedRelationshipPropertyPath_sourcePropertyPath.directedRelationshipPropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.DirectedRelationshipPropertyPath"/>
+          <upperValue xmi:id="SysML.A_directedRelationshipPropertyPath_sourcePropertyPath.directedRelationshipPropertyPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship" xmi:type="uml:Extension" name="E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship">
+        <memberEnd xmi:idref="SysML.DirectedRelationshipPropertyPath.base_DirectedRelationship"/>
+        <memberEnd xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship.extension_DirectedRelationshipPropertyPath"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship.extension_DirectedRelationshipPropertyPath"/>
+        <ownedEnd xmi:id="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship.extension_DirectedRelationshipPropertyPath" xmi:type="uml:ExtensionEnd" name="extension_DirectedRelationshipPropertyPath">
+          <association xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship"/>
+          <lowerValue xmi:id="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship.extension_DirectedRelationshipPropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.DirectedRelationshipPropertyPath"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_NestedConnectorEnd_base_ConnectorEnd" xmi:type="uml:Extension" name="E_extension_NestedConnectorEnd_base_ConnectorEnd">
+        <generalization xmi:id="SysML.E_extension_NestedConnectorEnd_base_ConnectorEnd._generalization.SysML.E_extension_ElementPropertyPath_base_Element" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element"/>
+        </generalization>
+        <memberEnd xmi:idref="SysML.E_extension_NestedConnectorEnd_base_ConnectorEnd.extension_NestedConnectorEnd"/>
+        <memberEnd xmi:idref="SysML.NestedConnectorEnd.base_ConnectorEnd"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_NestedConnectorEnd_base_ConnectorEnd.extension_NestedConnectorEnd"/>
+        <ownedEnd xmi:id="SysML.E_extension_NestedConnectorEnd_base_ConnectorEnd.extension_NestedConnectorEnd" xmi:type="uml:ExtensionEnd" name="extension_NestedConnectorEnd">
+          <association xmi:idref="SysML.E_extension_NestedConnectorEnd_base_ConnectorEnd"/>
+          <lowerValue xmi:id="SysML.E_extension_NestedConnectorEnd_base_ConnectorEnd.extension_NestedConnectorEnd.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.E_extension_ElementPropertyPath_base_Element.extension_ElementPropertyPath"/>
+          <type xmi:idref="SysML.NestedConnectorEnd"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.PropertySpecificType" xmi:type="uml:Stereotype" name="PropertySpecificType">
+        <ownedAttribute xmi:id="SysML.PropertySpecificType.base_Classifier" xmi:type="uml:Property" name="base_Classifier">
+          <association xmi:idref="SysML.E_extension_PropertySpecificType_base_Classifier"/>
+          <lowerValue xmi:id="SysML.PropertySpecificType.base_Classifier.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.PropertySpecificType._comment0" xmi:type="uml:Comment" body="The PropertySpecificType stereotype should automatically be applied to the classifier which types a property with a propertyspecific type. This classifier can contain definitions of new or redefined features which extend the original classifier referenced by the property-specific type.">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_valueType_unit" xmi:type="uml:Association" name="A_valueType_unit">
+        <memberEnd xmi:idref="SysML.A_valueType_unit.valueType"/>
+        <memberEnd xmi:idref="SysML.ValueType.unit"/>
+        <ownedEnd xmi:id="SysML.A_valueType_unit.valueType" xmi:type="uml:Property" name="valueType">
+          <association xmi:idref="SysML.A_valueType_unit"/>
+          <lowerValue xmi:id="SysML.A_valueType_unit.valueType.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ValueType"/>
+          <upperValue xmi:id="SysML.A_valueType_unit.valueType.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.NestedConnectorEnd" xmi:type="uml:Stereotype" name="NestedConnectorEnd">
+        <generalization xmi:id="SysML.NestedConnectorEnd._generalization.SysML.ElementPropertyPath" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.ElementPropertyPath"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.NestedConnectorEnd.base_ConnectorEnd" xmi:type="uml:Property" name="base_ConnectorEnd">
+          <association xmi:idref="SysML.E_extension_NestedConnectorEnd_base_ConnectorEnd"/>
+          <lowerValue xmi:id="SysML.NestedConnectorEnd.base_ConnectorEnd.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.ElementPropertyPath.base_Element"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ConnectorEnd"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.NestedConnectorEnd._comment0" xmi:type="uml:Comment" body="The NestedConnectorEnd stereotype of UML ConnectorEnd extends a UML ConnectorEnd so that the connected property may be identified by a multi-level path of accessible properties from the block that owns the connector.">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ValueType" xmi:type="uml:Stereotype" name="ValueType">
+        <ownedAttribute xmi:id="SysML.ValueType.base_DataType" xmi:type="uml:Property" name="base_DataType">
+          <association xmi:idref="SysML.E_extension_ValueType_base_DataType"/>
+          <lowerValue xmi:id="SysML.ValueType.base_DataType.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#DataType"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ValueType.quantityKind" xmi:type="uml:Property" name="quantityKind">
+          <association xmi:idref="SysML.A_valueType_quantityKind"/>
+          <lowerValue xmi:id="SysML.ValueType.quantityKind.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.ValueType.quantityKind._comment0" xmi:type="uml:Comment" body="               A kind of quantity that may be stated by means of defined units, as identified by an instance of the Dimension stereotype. A value type may optionally specify a dimension without any unit. Such a value has no concrete representation, but may be used to express a value in an abstract form independent of any specific units.             ">
+</ownedComment>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#InstanceSpecification"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ValueType.unit" xmi:type="uml:Property" name="unit">
+          <association xmi:idref="SysML.A_valueType_unit"/>
+          <lowerValue xmi:id="SysML.ValueType.unit.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.ValueType.unit._comment0" xmi:type="uml:Comment" body="A quantity in terms of which the magnitudes of other quantities that have the same dimension can be stated, as identified by an instance of the Unit stereotype."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#InstanceSpecification"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.ValueType._comment0" xmi:type="uml:Comment" body="             A ValueType defines types of values that may be used to express information about a system, but cannot be identified as the target of any reference. Since a value cannot be identified except by means of the value itself, each such value within a model is independent of any other, unless other forms of constraints are imposed. Value types may be used to type properties, operation parameters, or potentially other elements within SysML. SysML defines ValueType as a stereotype of UML DataType to establish a more neutral term for system values that may never be given a concrete data representation.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.A_valueType_quantityKind" xmi:type="uml:Association" name="A_valueType_quantityKind">
+        <memberEnd xmi:idref="SysML.A_valueType_quantityKind.valueType"/>
+        <memberEnd xmi:idref="SysML.ValueType.quantityKind"/>
+        <ownedEnd xmi:id="SysML.A_valueType_quantityKind.valueType" xmi:type="uml:Property" name="valueType">
+          <association xmi:idref="SysML.A_valueType_quantityKind"/>
+          <lowerValue xmi:id="SysML.A_valueType_quantityKind.valueType.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ValueType"/>
+          <upperValue xmi:id="SysML.A_valueType_quantityKind.valueType.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.DirectedRelationshipPropertyPath" xmi:type="uml:Stereotype" isAbstract="true" name="DirectedRelationshipPropertyPath">
+        <ownedAttribute xmi:id="SysML.DirectedRelationshipPropertyPath.base_DirectedRelationship" xmi:type="uml:Property" name="base_DirectedRelationship">
+          <association xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship"/>
+          <lowerValue xmi:id="SysML.DirectedRelationshipPropertyPath.base_DirectedRelationship.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#DirectedRelationship"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.DirectedRelationshipPropertyPath.sourceContext" xmi:type="uml:Property" name="sourceContext">
+          <association xmi:idref="SysML.A_directedRelationshipPropertyPath_sourceContext"/>
+          <lowerValue xmi:id="SysML.DirectedRelationshipPropertyPath.sourceContext.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.DirectedRelationshipPropertyPath.sourcePropertyPath" xmi:type="uml:Property" isOrdered="true" isUnique="false" name="sourcePropertyPath">
+          <association xmi:idref="SysML.A_directedRelationshipPropertyPath_sourcePropertyPath"/>
+          <lowerValue xmi:id="SysML.DirectedRelationshipPropertyPath.sourcePropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+          <upperValue xmi:id="SysML.DirectedRelationshipPropertyPath.sourcePropertyPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.DirectedRelationshipPropertyPath.targetContext" xmi:type="uml:Property" name="targetContext">
+          <association xmi:idref="SysML.A_directedRelationshipPropertyPath_targetContext"/>
+          <lowerValue xmi:id="SysML.DirectedRelationshipPropertyPath.targetContext.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.DirectedRelationshipPropertyPath.targetPropertyPath" xmi:type="uml:Property" isOrdered="true" isUnique="false" name="targetPropertyPath">
+          <association xmi:idref="SysML.A_directedRelationshipPropertyPath_targetPropertyPath"/>
+          <lowerValue xmi:id="SysML.DirectedRelationshipPropertyPath.targetPropertyPath.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Property"/>
+          <upperValue xmi:id="SysML.DirectedRelationshipPropertyPath.targetPropertyPath.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_AdjunctProperty_base_Property" xmi:type="uml:Extension" name="E_extension_AdjunctProperty_base_Property">
+        <memberEnd xmi:idref="SysML.AdjunctProperty.base_Property"/>
+        <memberEnd xmi:idref="SysML.E_extension_AdjunctProperty_base_Property.extension_AdjunctProperty"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_AdjunctProperty_base_Property.extension_AdjunctProperty"/>
+        <ownedEnd xmi:id="SysML.E_extension_AdjunctProperty_base_Property.extension_AdjunctProperty" xmi:type="uml:ExtensionEnd" name="extension_AdjunctProperty">
+          <association xmi:idref="SysML.E_extension_AdjunctProperty_base_Property"/>
+          <type xmi:idref="SysML.AdjunctProperty"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="SysML.Allocations" xmi:type="uml:Package" name="Allocations">
+      <packagedElement xmi:id="SysML.E_extension_AllocateActivityPartition_base_ActivityPartition" xmi:type="uml:Extension" name="E_extension_AllocateActivityPartition_base_ActivityPartition">
+        <memberEnd xmi:idref="SysML.E_extension_AllocateActivityPartition_base_ActivityPartition.extension_AllocateActivityPartition"/>
+        <memberEnd xmi:idref="SysML.AllocateActivityPartition.base_ActivityPartition"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_AllocateActivityPartition_base_ActivityPartition.extension_AllocateActivityPartition"/>
+        <ownedEnd xmi:id="SysML.E_extension_AllocateActivityPartition_base_ActivityPartition.extension_AllocateActivityPartition" xmi:type="uml:ExtensionEnd" name="extension_AllocateActivityPartition">
+          <association xmi:idref="SysML.E_extension_AllocateActivityPartition_base_ActivityPartition"/>
+          <lowerValue xmi:id="SysML.E_extension_AllocateActivityPartition_base_ActivityPartition.extension_AllocateActivityPartition.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.AllocateActivityPartition"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Allocate_base_Abstraction" xmi:type="uml:Extension" name="E_extension_Allocate_base_Abstraction">
+        <generalization xmi:id="SysML.E_extension_Allocate_base_Abstraction._generalization.SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship"/>
+        </generalization>
+        <memberEnd xmi:idref="SysML.E_extension_Allocate_base_Abstraction.extension_Allocate"/>
+        <memberEnd xmi:idref="SysML.Allocate.base_Abstraction"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Allocate_base_Abstraction.extension_Allocate"/>
+        <ownedEnd xmi:id="SysML.E_extension_Allocate_base_Abstraction.extension_Allocate" xmi:type="uml:ExtensionEnd" name="extension_Allocate">
+          <association xmi:idref="SysML.E_extension_Allocate_base_Abstraction"/>
+          <lowerValue xmi:id="SysML.E_extension_Allocate_base_Abstraction.extension_Allocate.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship.extension_DirectedRelationshipPropertyPath"/>
+          <type xmi:idref="SysML.Allocate"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Allocate" xmi:type="uml:Stereotype" name="Allocate">
+        <generalization xmi:id="SysML.Allocate._generalization.SysML.DirectedRelationshipPropertyPath" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.DirectedRelationshipPropertyPath"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.Allocate.base_Abstraction" xmi:type="uml:Property" name="base_Abstraction">
+          <association xmi:idref="SysML.E_extension_Allocate_base_Abstraction"/>
+          <lowerValue xmi:id="SysML.Allocate.base_Abstraction.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.DirectedRelationshipPropertyPath.base_DirectedRelationship"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Abstraction"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Allocate._comment0" xmi:type="uml:Comment" body="             Allocate is a dependency based on UML::abstraction. It is a mechanism for associating elements of different types, or in different hierarchies, at an abstract level. Allocate is used for assessing user model consistency and directing future design activity. It is expected that an «allocate» relationship between model elements is a precursor to a more concrete relationship between the elements, their properties, operations, attributes, or sub-classes.           ">
+</ownedComment>
+        <ownedOperation xmi:id="SysML.Allocate.getAllocatedFrom_NamedElement" xmi:type="uml:Operation" isQuery="true" isStatic="true" name="getAllocatedFrom">
+          <ownedParameter xmi:id="SysML.Allocate.getAllocatedFrom_NamedElement.ref" xmi:type="uml:Parameter" effect="create" name="ref">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="SysML.Allocate.getAllocatedFrom_NamedElement.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.Allocate.getAllocatedFrom_NamedElement.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+            <upperValue xmi:id="SysML.Allocate.getAllocatedFrom_NamedElement.result.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.Allocate.getAllocatedTo_NamedElement" xmi:type="uml:Operation" isQuery="true" isStatic="true" name="getAllocatedTo">
+          <ownedParameter xmi:id="SysML.Allocate.getAllocatedTo_NamedElement.ref" xmi:type="uml:Parameter" effect="create" name="ref">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="SysML.Allocate.getAllocatedTo_NamedElement.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.Allocate.getAllocatedTo_NamedElement.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+            <upperValue xmi:id="SysML.Allocate.getAllocatedTo_NamedElement.result.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.AllocateActivityPartition" xmi:type="uml:Stereotype" name="AllocateActivityPartition">
+        <ownedAttribute xmi:id="SysML.AllocateActivityPartition.base_ActivityPartition" xmi:type="uml:Property" name="base_ActivityPartition">
+          <association xmi:idref="SysML.E_extension_AllocateActivityPartition_base_ActivityPartition"/>
+          <lowerValue xmi:id="SysML.AllocateActivityPartition.base_ActivityPartition.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#ActivityPartition"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.AllocateActivityPartition._comment0" xmi:type="uml:Comment" body="AllocateActivityPartition is used to depict an «allocate» relationship on an Activity diagram. The AllocateActivityPartition is a standard UML2::ActivityPartition, with modified constraints as stated in the paragraph below.">
+</ownedComment>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="SysML.Requirements" xmi:type="uml:Package" name="Requirements">
+      <packagedElement xmi:id="SysML.Copy" xmi:type="uml:Stereotype" name="Copy">
+        <generalization xmi:id="SysML.Copy._generalization.SysML.Trace" xmi:type="uml:Generalization" isSubstitutable="false">
+          <general xmi:idref="SysML.Trace"/>
+        </generalization>
+        <ownedComment xmi:id="SysML.Copy._comment0" xmi:type="uml:Comment" body="A Copy relationship is a dependency between a supplier requirement and a client requirement that specifies that the text of the client requirement is a read-only copy of the text of the supplier requirement."/>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Refine_base_Abstraction" xmi:type="uml:Extension" name="E_extension_Refine_base_Abstraction">
+        <generalization xmi:id="SysML.E_extension_Refine_base_Abstraction._generalization.StandardProfile.Abstraction_Refine" xmi:type="uml:Generalization">
+          <general href="http://www.omg.org/spec/UML/20131001/StandardProfile.xmi#Abstraction_Refine"/>
+        </generalization>
+        <generalization xmi:id="SysML.E_extension_Refine_base_Abstraction._generalization.SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship"/>
+        </generalization>
+        <memberEnd xmi:idref="SysML.Refine.base_Abstraction"/>
+        <memberEnd xmi:idref="SysML.E_extension_Refine_base_Abstraction.extension_Refine"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Refine_base_Abstraction.extension_Refine"/>
+        <ownedEnd xmi:id="SysML.E_extension_Refine_base_Abstraction.extension_Refine" xmi:type="uml:ExtensionEnd" name="extension_Refine">
+          <association xmi:idref="SysML.E_extension_Refine_base_Abstraction"/>
+          <lowerValue xmi:id="SysML.E_extension_Refine_base_Abstraction.extension_Refine.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty href="http://www.omg.org/spec/UML/20131001/StandardProfile.xmi#Abstraction_Refine-extension_Refine"/>
+          <redefinedProperty xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship.extension_DirectedRelationshipPropertyPath"/>
+          <type xmi:idref="SysML.Refine"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Trace" xmi:type="uml:Stereotype" name="Trace">
+        <generalization xmi:id="SysML.Trace._generalization.SysML.DirectedRelationshipPropertyPath" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.DirectedRelationshipPropertyPath"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.Trace.base_Abstraction" xmi:type="uml:Property" name="base_Abstraction">
+          <association xmi:idref="SysML.E_extension_Trace_base_Abstraction"/>
+          <lowerValue xmi:id="SysML.Trace.base_Abstraction.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.DirectedRelationshipPropertyPath.base_DirectedRelationship"/>
+          <redefinedProperty href="http://www.omg.org/spec/UML/20131001/StandardProfile.xmi#Trace-base_Abstraction"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Abstraction"/>
+          <upperValue xmi:id="SysML.Trace.base_Abstraction.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="SysML.Trace.getTracedFrom_NamedElement" xmi:type="uml:Operation" isQuery="true" isStatic="true" name="getTracedFrom">
+          <bodyCondition xmi:id="SysML.Trace.getTracedFrom_NamedElement._rule.getTracedFrom_body" xmi:type="uml:Constraint" name="getTracedFrom_body">
+            <specification xmi:id="SysML.Trace.getTracedFrom_NamedElement._rule.getTracedFrom_body.getTracedFrom_body_specification" xmi:type="uml:OpaqueExpression" body=" AbstractRequirement.allInstances()-&amp;gt;select(tracedTo-&amp;gt;includes(ref)) " language=" OCL" name="getTracedFrom_body_specification">
+              <type xmi:idref="SysML.AbstractRequirement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.Trace.getTracedFrom_NamedElement.ref" xmi:type="uml:Parameter" effect="create" name="ref">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="SysML.Trace.getTracedFrom_NamedElement.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.Trace.getTracedFrom_NamedElement.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.AbstractRequirement"/>
+            <upperValue xmi:id="SysML.Trace.getTracedFrom_NamedElement.result.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.Trace.getTracedFrom_NamedElement._rule.getTracedFrom_body"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Trace_base_Abstraction" xmi:type="uml:Extension" name="E_extension_Trace_base_Abstraction">
+        <generalization xmi:id="SysML.E_extension_Trace_base_Abstraction._generalization.StandardProfile.Abstraction_Trace" xmi:type="uml:Generalization">
+          <general href="http://www.omg.org/spec/UML/20131001/StandardProfile.xmi#Abstraction_Trace"/>
+        </generalization>
+        <generalization xmi:id="SysML.E_extension_Trace_base_Abstraction._generalization.SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship"/>
+        </generalization>
+        <memberEnd xmi:idref="SysML.Trace.base_Abstraction"/>
+        <memberEnd xmi:idref="SysML.E_extension_Trace_base_Abstraction.extension_Trace"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Trace_base_Abstraction.extension_Trace"/>
+        <ownedEnd xmi:id="SysML.E_extension_Trace_base_Abstraction.extension_Trace" xmi:type="uml:ExtensionEnd" name="extension_Trace">
+          <association xmi:idref="SysML.E_extension_Trace_base_Abstraction"/>
+          <lowerValue xmi:id="SysML.E_extension_Trace_base_Abstraction.extension_Trace.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty href="http://www.omg.org/spec/UML/20131001/StandardProfile.xmi#Abstraction_Trace-extension_Trace"/>
+          <redefinedProperty xmi:idref="SysML.E_extension_DirectedRelationshipPropertyPath_base_DirectedRelationship.extension_DirectedRelationshipPropertyPath"/>
+          <type xmi:idref="SysML.Trace"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML_dataType.VerdictKind" xmi:type="uml:Enumeration" name="VerdictKind">
+        <ownedComment xmi:id="SysML_dataType.VerdictKind._comment0" xmi:type="uml:Comment" body="Type of a return parameter of a TestCase must be VerdictKind, consistent with the UML Testing Profile."/>
+        <ownedLiteral xmi:id="SysML.error" xmi:type="uml:EnumerationLiteral" name="error"/>
+        <ownedLiteral xmi:id="SysML.fail" xmi:type="uml:EnumerationLiteral" name="fail"/>
+        <ownedLiteral xmi:id="SysML.inconclusive" xmi:type="uml:EnumerationLiteral" name="inconclusive"/>
+        <ownedLiteral xmi:id="SysML.pass" xmi:type="uml:EnumerationLiteral" name="pass"/>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.DeriveReqt" xmi:type="uml:Stereotype" name="DeriveReqt">
+        <generalization xmi:id="SysML.DeriveReqt._generalization.SysML.Trace" xmi:type="uml:Generalization" isSubstitutable="false">
+          <general xmi:idref="SysML.Trace"/>
+        </generalization>
+        <ownedComment xmi:id="SysML.DeriveReqt._comment0" xmi:type="uml:Comment" body="             A DeriveReqt relationship is a dependency between two requirements in which a client requirement can be derived from the supplier requirement. As with other dependencies, the arrow direction points from the derived (client) requirement to the (supplier) requirement from which it is derived.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.AbstractRequirement" xmi:type="uml:Stereotype" isAbstract="true" name="AbstractRequirement">
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.base_NamedElement" xmi:type="uml:Property" name="base_NamedElement">
+          <lowerValue xmi:id="SysML.AbstractRequirement.base_NamedElement.lowerValue0" xmi:type="uml:LiteralInteger" value="1"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          <upperValue xmi:id="SysML.AbstractRequirement.base_NamedElement.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.derived" xmi:type="uml:Property" isDerived="true" name="derived">
+          <lowerValue xmi:id="SysML.AbstractRequirement.derived.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.derived._comment0" xmi:type="uml:Comment" body="Derived from all requirements that are the client of a «deriveReqt» relationship for which this requirement is a supplier."/>
+          <type xmi:idref="SysML.AbstractRequirement"/>
+          <upperValue xmi:id="SysML.AbstractRequirement.derived.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.derivedFrom" xmi:type="uml:Property" isDerived="true" name="derivedFrom">
+          <lowerValue xmi:id="SysML.AbstractRequirement.derivedFrom.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.derivedFrom._comment0" xmi:type="uml:Comment" body="Derived from all requirements that are the supplier of a «deriveReqt» relationship for which this requirement is a client."/>
+          <type xmi:idref="SysML.AbstractRequirement"/>
+          <upperValue xmi:id="SysML.AbstractRequirement.derivedFrom.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.id" xmi:type="uml:Property" name="id">
+          <defaultValue xmi:id="SysML.AbstractRequirement.id.defaultValue0" xmi:type="uml:LiteralString" value=""/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.id._comment0" xmi:type="uml:Comment" body="The unique id of the requirement."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.master" xmi:type="uml:Property" isDerived="true" name="master">
+          <lowerValue xmi:id="SysML.AbstractRequirement.master.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.master._comment0" xmi:type="uml:Comment" body="This is a derived property that lists the master requirement for this slave requirement. The master attribute is derived from the supplier of the Copy dependency that has this requirement as the slave."/>
+          <type xmi:idref="SysML.AbstractRequirement"/>
+          <upperValue xmi:id="SysML.AbstractRequirement.master.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.refinedBy" xmi:type="uml:Property" isDerived="true" name="refinedBy">
+          <lowerValue xmi:id="SysML.AbstractRequirement.refinedBy.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.refinedBy._comment0" xmi:type="uml:Comment" body="Derived from all elements that are the client of a «refine» relationship for which this requirement is a supplier."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          <upperValue xmi:id="SysML.AbstractRequirement.refinedBy.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.satisfiedBy" xmi:type="uml:Property" isDerived="true" name="satisfiedBy">
+          <lowerValue xmi:id="SysML.AbstractRequirement.satisfiedBy.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.satisfiedBy._comment0" xmi:type="uml:Comment" body="Derived from all elements that are the client of a «satisfy» relationship for which this requirement is a supplier."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          <upperValue xmi:id="SysML.AbstractRequirement.satisfiedBy.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.text" xmi:type="uml:Property" name="text">
+          <defaultValue xmi:id="SysML.AbstractRequirement.text.defaultValue0" xmi:type="uml:LiteralString" value=""/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.text._comment0" xmi:type="uml:Comment" body="The textual representation or a reference to the textual representation of the requirement."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.tracedTo" xmi:type="uml:Property" isDerived="true" name="tracedTo">
+          <lowerValue xmi:id="SysML.AbstractRequirement.tracedTo.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.tracedTo._comment0" xmi:type="uml:Comment" body="Derived from all elements that are the client of a «trace» relationship for which this requirement is a supplier."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          <upperValue xmi:id="SysML.AbstractRequirement.tracedTo.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.AbstractRequirement.verifiedBy" xmi:type="uml:Property" isDerived="true" name="verifiedBy">
+          <lowerValue xmi:id="SysML.AbstractRequirement.verifiedBy.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.AbstractRequirement.verifiedBy._comment0" xmi:type="uml:Comment" body="Derived from all elements that are the client of a «verify» relationship for which this requirement is a supplier."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          <upperValue xmi:id="SysML.AbstractRequirement.verifiedBy.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.AbstractRequirement._comment0" xmi:type="uml:Comment" body="An AbstractRequirement establishes the attributes and relationships essential to any potential  kind of requirement.  Any intended requirement kind should subclass AbstractRequirement.  The only normative stereotype based on AbstractRequirement is the Requirement stereotype, described in section 16.3.2.5.   Examples of additional non-normative stereotypes based on AbstractRequirement are included in Annex E.8.">
+</ownedComment>
+        <ownedOperation xmi:id="SysML.AbstractRequirement.getSatisfiedBy_" xmi:type="uml:Operation" name="getSatisfiedBy">
+          <bodyCondition xmi:id="SysML.AbstractRequirement.getSatisfiedBy_._rule.getSatisfiedBy_body" xmi:type="uml:Constraint" name="getSatisfiedBy_body">
+            <specification xmi:id="SysML.AbstractRequirement.getSatisfiedBy_._rule.getSatisfiedBy_body.getSatisfiedBy_body_specification" xmi:type="uml:OpaqueExpression" body=" Satisfy.allInstances()-&amp;gt;select(base_Abstraction.supplier=self).base_Abstraction.client " language=" OCL" name="getSatisfiedBy_body_specification">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.AbstractRequirement.getSatisfiedBy_.return" xmi:type="uml:Parameter" direction="_return" effect="read" name="return">
+            <lowerValue xmi:id="SysML.AbstractRequirement.getSatisfiedBy_.return.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+            <upperValue xmi:id="SysML.AbstractRequirement.getSatisfiedBy_.return.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.AbstractRequirement.getSatisfiedBy_._rule.getSatisfiedBy_body"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.AbstractRequirement.getVerifiedBy_" xmi:type="uml:Operation" isQuery="true" name="getVerifiedBy">
+          <bodyCondition xmi:id="SysML.AbstractRequirement.getVerifiedBy_._rule.getVerifiedBy_body" xmi:type="uml:Constraint" name="getVerifiedBy_body">
+            <specification xmi:id="SysML.AbstractRequirement.getVerifiedBy_._rule.getVerifiedBy_body.getVerifiedBy_body_specification" xmi:type="uml:OpaqueExpression" body=" Verify.allInstances()-&amp;gt;select(base_Abstraction.supplier=self).base_Abstraction.client" language=" OCL" name="getVerifiedBy_body_specification">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.AbstractRequirement.getVerifiedBy_.return" xmi:type="uml:Parameter" direction="_return" effect="read" name="return">
+            <lowerValue xmi:id="SysML.AbstractRequirement.getVerifiedBy_.return.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+            <upperValue xmi:id="SysML.AbstractRequirement.getVerifiedBy_.return.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.AbstractRequirement.getVerifiedBy_._rule.getVerifiedBy_body"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.AbstractRequirement.getTracedTo_" xmi:type="uml:Operation" isQuery="true" name="getTracedTo">
+          <bodyCondition xmi:id="SysML.AbstractRequirement.getTracedTo_._rule.getTracedTo_body" xmi:type="uml:Constraint" name="getTracedTo_body">
+            <specification xmi:id="SysML.AbstractRequirement.getTracedTo_._rule.getTracedTo_body.getTracedTo_body_specification" xmi:type="uml:OpaqueExpression" body=" Trace.allInstances()-&amp;gt;select(base_Abstraction.client=self).base_Abstraction.supplier" language=" OCL" name="getTracedTo_body_specification">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.AbstractRequirement.getTracedTo_.return" xmi:type="uml:Parameter" direction="_return" effect="read" name="return">
+            <lowerValue xmi:id="SysML.AbstractRequirement.getTracedTo_.return.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+            <upperValue xmi:id="SysML.AbstractRequirement.getTracedTo_.return.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.AbstractRequirement.getTracedTo_._rule.getTracedTo_body"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.AbstractRequirement.getDerived_" xmi:type="uml:Operation" isQuery="true" name="getDerived">
+          <bodyCondition xmi:id="SysML.AbstractRequirement.getDerived_._rule.getDerived_body" xmi:type="uml:Constraint" name="getDerived_body">
+            <specification xmi:id="SysML.AbstractRequirement.getDerived_._rule.getDerived_body.getDerived_body_specification" xmi:type="uml:OpaqueExpression" body=" DeriveReqt.allInstances()-&amp;gt;select(base_Abstraction.supplier=self).base_Abstraction.client" language=" OCL" name="getDerived_body_specification">
+              <type xmi:idref="SysML.AbstractRequirement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.AbstractRequirement.getDerived_.return" xmi:type="uml:Parameter" direction="_return" effect="read" name="return">
+            <lowerValue xmi:id="SysML.AbstractRequirement.getDerived_.return.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.AbstractRequirement"/>
+            <upperValue xmi:id="SysML.AbstractRequirement.getDerived_.return.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.AbstractRequirement.getDerived_._rule.getDerived_body"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.AbstractRequirement.getDerivedFrom_" xmi:type="uml:Operation" isQuery="true" name="getDerivedFrom">
+          <bodyCondition xmi:id="SysML.AbstractRequirement.getDerivedFrom_._rule.getDerivedFrom_body" xmi:type="uml:Constraint" name="getDerivedFrom_body">
+            <specification xmi:id="SysML.AbstractRequirement.getDerivedFrom_._rule.getDerivedFrom_body.getDerivedFrom_body_specification" xmi:type="uml:OpaqueExpression" body=" DeriveReqt.allInstances()-&amp;gt;select(base_Abstraction.client=self).base_Abstraction.supplier" language=" OCL" name="getDerivedFrom_body_specification">
+              <type xmi:idref="SysML.AbstractRequirement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.AbstractRequirement.getDerivedFrom_.return" xmi:type="uml:Parameter" direction="_return" effect="read" name="return">
+            <lowerValue xmi:id="SysML.AbstractRequirement.getDerivedFrom_.return.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.AbstractRequirement"/>
+            <upperValue xmi:id="SysML.AbstractRequirement.getDerivedFrom_.return.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.AbstractRequirement.getDerivedFrom_._rule.getDerivedFrom_body"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.AbstractRequirement.getRefinedBy_" xmi:type="uml:Operation" isQuery="true" name="getRefinedBy">
+          <bodyCondition xmi:id="SysML.AbstractRequirement.getRefinedBy_._rule.getRefinedBy_body" xmi:type="uml:Constraint" name="getRefinedBy_body">
+            <specification xmi:id="SysML.AbstractRequirement.getRefinedBy_._rule.getRefinedBy_body.getRefinedBy_body_specification" xmi:type="uml:OpaqueExpression" body=" Refine.allInstances()-&amp;gt;select(base_Abstraction.supplier=self).base_Abstraction.client" language=" OCL" name="getRefinedBy_body_specification">
+              <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.AbstractRequirement.getRefinedBy_.return" xmi:type="uml:Parameter" direction="_return" effect="read" name="return">
+            <lowerValue xmi:id="SysML.AbstractRequirement.getRefinedBy_.return.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+            <upperValue xmi:id="SysML.AbstractRequirement.getRefinedBy_.return.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.AbstractRequirement.getRefinedBy_._rule.getRefinedBy_body"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.AbstractRequirement.getMaster_" xmi:type="uml:Operation" isQuery="true" name="getMaster">
+          <bodyCondition xmi:id="SysML.AbstractRequirement.getMaster_._rule.getMaster_body" xmi:type="uml:Constraint" name="getMaster_body">
+            <specification xmi:id="SysML.AbstractRequirement.getMaster_._rule.getMaster_body.getMaster_body_specification" xmi:type="uml:OpaqueExpression" body=" Copy.allInstances()-&amp;gt;select(base_Abstraction.client=self).base_Abstraction.supplier" language=" OCL" name="getMaster_body_specification">
+              <type xmi:idref="SysML.AbstractRequirement"/>
+            </specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.AbstractRequirement.getMaster_.return" xmi:type="uml:Parameter" direction="_return" effect="read" name="return">
+            <lowerValue xmi:id="SysML.AbstractRequirement.getMaster_.return.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.AbstractRequirement"/>
+            <upperValue xmi:id="SysML.AbstractRequirement.getMaster_.return.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.AbstractRequirement.getMaster_._rule.getMaster_body"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Verify" xmi:type="uml:Stereotype" name="Verify">
+        <generalization xmi:id="SysML.Verify._generalization.SysML.Trace" xmi:type="uml:Generalization" isSubstitutable="false">
+          <general xmi:idref="SysML.Trace"/>
+        </generalization>
+        <ownedComment xmi:id="SysML.Verify._comment0" xmi:type="uml:Comment" body="A Verify relationship is a dependency between a requirement and a test case or other model element that can determine whether a system fulfills the requirement. As with other dependencies, the arrow direction points from the (client) element to the (supplier) requirement.">
+</ownedComment>
+        <ownedOperation xmi:id="SysML.Verify.getVerifies_NamedElement" xmi:type="uml:Operation" isQuery="true" isStatic="true" name="getVerifies">
+          <bodyCondition xmi:id="SysML.Verify.getVerifies_NamedElement._rule.getVerifies_body" xmi:type="uml:Constraint" name="getVerifies_body">
+            <specification xmi:id="SysML.Verify.getVerifies_NamedElement._rule.getVerifies_body.getVerifies_body_specification" xmi:type="uml:OpaqueExpression" body=" Verify.allInstances()-&amp;gt;select(base_Abstraction.client=ref).base_Abstraction.supplier" language=" OCL" name="getVerifies_body_specification">
+              <type xmi:idref="SysML.AbstractRequirement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.Verify.getVerifies_NamedElement.ref" xmi:type="uml:Parameter" effect="create" name="ref">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="SysML.Verify.getVerifies_NamedElement.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.Verify.getVerifies_NamedElement.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.AbstractRequirement"/>
+            <upperValue xmi:id="SysML.Verify.getVerifies_NamedElement.result.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.Verify.getVerifies_NamedElement._rule.getVerifies_body"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_TestCase_base_Operation" xmi:type="uml:Extension" name="E_extension_TestCase_base_Operation">
+        <memberEnd xmi:idref="SysML.E_extension_TestCase_base_Operation.extension_TestCase"/>
+        <memberEnd xmi:idref="SysML.TestCase.base_Operation"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_TestCase_base_Operation.extension_TestCase"/>
+        <ownedEnd xmi:id="SysML.E_extension_TestCase_base_Operation.extension_TestCase" xmi:type="uml:ExtensionEnd" name="extension_TestCase">
+          <association xmi:idref="SysML.E_extension_TestCase_base_Operation"/>
+          <lowerValue xmi:id="SysML.E_extension_TestCase_base_Operation.extension_TestCase.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.TestCase"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Requirement_base_Class" xmi:type="uml:Extension" name="E_extension_Requirement_base_Class">
+        <memberEnd xmi:idref="SysML.E_extension_Requirement_base_Class.extension_Requirement"/>
+        <memberEnd xmi:idref="SysML.Requirement.base_Class"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Requirement_base_Class.extension_Requirement"/>
+        <ownedEnd xmi:id="SysML.E_extension_Requirement_base_Class.extension_Requirement" xmi:type="uml:ExtensionEnd" name="extension_Requirement">
+          <association xmi:idref="SysML.E_extension_Requirement_base_Class"/>
+          <lowerValue xmi:id="SysML.E_extension_Requirement_base_Class.extension_Requirement.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Requirement"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Refine" xmi:type="uml:Stereotype" name="Refine">
+        <generalization xmi:id="SysML.Refine._generalization.SysML.DirectedRelationshipPropertyPath" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.DirectedRelationshipPropertyPath"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.Refine.base_Abstraction" xmi:type="uml:Property" name="base_Abstraction">
+          <association xmi:idref="SysML.E_extension_Refine_base_Abstraction"/>
+          <lowerValue xmi:id="SysML.Refine.base_Abstraction.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <redefinedProperty xmi:idref="SysML.DirectedRelationshipPropertyPath.base_DirectedRelationship"/>
+          <redefinedProperty href="http://www.omg.org/spec/UML/20131001/StandardProfile.xmi#Refine-base_Abstraction"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Abstraction"/>
+          <upperValue xmi:id="SysML.Refine.base_Abstraction.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="SysML.Refine.getRefines_NamedElement" xmi:type="uml:Operation" isQuery="true" isStatic="true" name="getRefines">
+          <bodyCondition xmi:id="SysML.Refine.getRefines_NamedElement._rule.getRefines_body" xmi:type="uml:Constraint" name="getRefines_body">
+            <specification xmi:id="SysML.Refine.getRefines_NamedElement._rule.getRefines_body.getRefines_body_specification" xmi:type="uml:OpaqueExpression" body=" Refine.allInstances()-&amp;gt;select(base_Abstraction.client=ref).base_Abstraction.supplier" language=" OCL" name="getRefines_body_specification">
+              <type xmi:idref="SysML.AbstractRequirement"/>
+            </specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.Refine.getRefines_NamedElement.ref" xmi:type="uml:Parameter" effect="create" name="ref">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="SysML.Refine.getRefines_NamedElement.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.Refine.getRefines_NamedElement.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.AbstractRequirement"/>
+            <upperValue xmi:id="SysML.Refine.getRefines_NamedElement.result.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.Refine.getRefines_NamedElement._rule.getRefines_body"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Satisfy" xmi:type="uml:Stereotype" name="Satisfy">
+        <generalization xmi:id="SysML.Satisfy._generalization.SysML.Trace" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.Trace"/>
+        </generalization>
+        <ownedComment xmi:id="SysML.Satisfy._comment0" xmi:type="uml:Comment" body="A Satisfy relationship is a dependency between a requirement and a model element that fulfills the requirement. As with other dependencies, the arrow direction points from the satisfying (client) model element to the (supplier) requirement that is satisfied.">
+</ownedComment>
+        <ownedOperation xmi:id="SysML.Satisfy.getSatisfies_NamedElement" xmi:type="uml:Operation" isQuery="true" isStatic="true" name="getSatisfies">
+          <bodyCondition xmi:id="SysML.Satisfy.getSatisfies_NamedElement._rule.getSatisfies_body" xmi:type="uml:Constraint" name="getSatisfies_body">
+            <specification xmi:id="SysML.Satisfy.getSatisfies_NamedElement._rule.getSatisfies_body.getSatisfies_body_specification" xmi:type="uml:OpaqueExpression" body=" Satisfy.allInstances()-&amp;gt;select(base_Abstraction.client=ref).base_Abstraction.supplier" language=" OCL" name="getSatisfies_body_specification">
+              <type xmi:idref="SysML.AbstractRequirement"/>
+</specification>
+          </bodyCondition>
+          <ownedParameter xmi:id="SysML.Satisfy.getSatisfies_NamedElement.ref" xmi:type="uml:Parameter" effect="create" name="ref">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="SysML.Satisfy.getSatisfies_NamedElement.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.Satisfy.getSatisfies_NamedElement.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.AbstractRequirement"/>
+            <upperValue xmi:id="SysML.Satisfy.getSatisfies_NamedElement.result.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+          <ownedRule xmi:idref="SysML.Satisfy.getSatisfies_NamedElement._rule.getSatisfies_body"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.TestCase" xmi:type="uml:Stereotype" name="TestCase">
+        <ownedAttribute xmi:id="SysML.TestCase.base_Behavior" xmi:type="uml:Property" name="base_Behavior">
+          <association xmi:idref="SysML.E_extension_TestCase_base_Behavior"/>
+          <lowerValue xmi:id="SysML.TestCase.base_Behavior.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Behavior"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.TestCase.base_Operation" xmi:type="uml:Property" name="base_Operation">
+          <association xmi:idref="SysML.E_extension_TestCase_base_Operation"/>
+          <lowerValue xmi:id="SysML.TestCase.base_Operation.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Operation"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.TestCase._comment0" xmi:type="uml:Comment" body="A test case is a method for verifying a requirement is satisfied."/>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Requirement" xmi:type="uml:Stereotype" name="Requirement">
+        <generalization xmi:id="SysML.Requirement._generalization.SysML.AbstractRequirement" xmi:type="uml:Generalization">
+          <general xmi:idref="SysML.AbstractRequirement"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.Requirement.base_Class" xmi:type="uml:Property" name="base_Class">
+          <association xmi:idref="SysML.E_extension_Requirement_base_Class"/>
+          <lowerValue xmi:id="SysML.Requirement.base_Class.lowerValue0" xmi:type="uml:LiteralInteger" value="1"/>
+          <redefinedProperty xmi:idref="SysML.AbstractRequirement.base_NamedElement"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+          <upperValue xmi:id="SysML.Requirement.base_Class.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="1"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Requirement._comment0" xmi:type="uml:Comment" body="             A requirement specifies a capability or condition that must (or should) be satisfied. A requirement may specify a function that a system must perform or a performance condition that a system must satisfy. Requirements are used to establish a contract between the customer (or other stakeholder) and those responsible for designing and implementing the system.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_TestCase_base_Behavior" xmi:type="uml:Extension" name="E_extension_TestCase_base_Behavior">
+        <memberEnd xmi:idref="SysML.E_extension_TestCase_base_Behavior.extension_TestCase"/>
+        <memberEnd xmi:idref="SysML.TestCase.base_Behavior"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_TestCase_base_Behavior.extension_TestCase"/>
+        <ownedEnd xmi:id="SysML.E_extension_TestCase_base_Behavior.extension_TestCase" xmi:type="uml:ExtensionEnd" name="extension_TestCase">
+          <association xmi:idref="SysML.E_extension_TestCase_base_Behavior"/>
+          <lowerValue xmi:id="SysML.E_extension_TestCase_base_Behavior.extension_TestCase.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.TestCase"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="SysML.ModelElements" xmi:type="uml:Package" name="ModelElements">
+      <packagedElement xmi:id="SysML.Conform" xmi:type="uml:Stereotype" name="Conform">
+        <ownedAttribute xmi:id="SysML.Conform.base_Generalization" xmi:type="uml:Property" name="base_Generalization">
+          <association xmi:idref="SysML.E_extension_Conform_base_Generalization"/>
+          <lowerValue xmi:id="SysML.Conform.base_Generalization.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Generalization"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Conform._comment0" xmi:type="uml:Comment" body="             A Conform relationship is a dependency between a view and a viewpoint. The view conforms to the specified rules and conventions detailed in the viewpoint. Conform is a specialization of the UML dependency, and as with other dependencies the arrow direction points from the (client/source) to the (supplier/target).           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Expose_base_Dependency" xmi:type="uml:Extension" name="E_extension_Expose_base_Dependency">
+        <memberEnd xmi:idref="SysML.Expose.base_Dependency"/>
+        <memberEnd xmi:idref="SysML.E_extension_Expose_base_Dependency.extension_Expose"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Expose_base_Dependency.extension_Expose"/>
+        <ownedEnd xmi:id="SysML.E_extension_Expose_base_Dependency.extension_Expose" xmi:type="uml:ExtensionEnd" name="extension_Expose">
+          <association xmi:idref="SysML.E_extension_Expose_base_Dependency"/>
+          <lowerValue xmi:id="SysML.E_extension_Expose_base_Dependency.extension_Expose.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Expose"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Problem" xmi:type="uml:Stereotype" name="Problem">
+        <ownedAttribute xmi:id="SysML.Problem.base_Comment" xmi:type="uml:Property" name="base_Comment">
+          <association xmi:idref="SysML.E_extension_Problem_base_Comment"/>
+          <lowerValue xmi:id="SysML.Problem.base_Comment.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Comment"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Problem._comment0" xmi:type="uml:Comment" body="             A Problem documents a deficiency, limitation, or failure of one or more model elements to satisfy a requirement or need, or other undesired outcome. It may be used to capture problems identified during analysis, design, verification, or manufacture and associate the problem with the relevant model elements. Problem is a stereotype of comment and may be attached to any other model element in the same manner as a comment.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Viewpoint_base_Class" xmi:type="uml:Extension" name="E_extension_Viewpoint_base_Class">
+        <memberEnd xmi:idref="SysML.E_extension_Viewpoint_base_Class.extension_Viewpoint"/>
+        <memberEnd xmi:idref="SysML.Viewpoint.base_Class"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Viewpoint_base_Class.extension_Viewpoint"/>
+        <ownedEnd xmi:id="SysML.E_extension_Viewpoint_base_Class.extension_Viewpoint" xmi:type="uml:ExtensionEnd" name="extension_Viewpoint">
+          <association xmi:idref="SysML.E_extension_Viewpoint_base_Class"/>
+          <lowerValue xmi:id="SysML.E_extension_Viewpoint_base_Class.extension_Viewpoint.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Viewpoint"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Viewpoint" xmi:type="uml:Stereotype" name="Viewpoint">
+        <ownedAttribute xmi:id="SysML.Viewpoint.base_Class" xmi:type="uml:Property" name="base_Class">
+          <association xmi:idref="SysML.E_extension_Viewpoint_base_Class"/>
+          <lowerValue xmi:id="SysML.Viewpoint.base_Class.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Viewpoint.concern" xmi:type="uml:Property" isDerived="true" name="concern">
+          <lowerValue xmi:id="SysML.Viewpoint.concern.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          <upperValue xmi:id="SysML.Viewpoint.concern.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Viewpoint.concernList" xmi:type="uml:Property" name="concernList">
+          <lowerValue xmi:id="SysML.Viewpoint.concernList.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.Viewpoint.concernList._comment0" xmi:type="uml:Comment" body="The interest of the stakeholders."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Comment"/>
+          <upperValue xmi:id="SysML.Viewpoint.concernList.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Viewpoint.language" xmi:type="uml:Property" name="language">
+          <lowerValue xmi:id="SysML.Viewpoint.language.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.Viewpoint.language._comment0" xmi:type="uml:Comment" body="The languages used to construct the viewpoint."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          <upperValue xmi:id="SysML.Viewpoint.language.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Viewpoint.method" xmi:type="uml:Property" isDerived="true" name="method">
+          <lowerValue xmi:id="SysML.Viewpoint.method.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.Viewpoint.method._comment0" xmi:type="uml:Comment" body="The methods used to construct the views for this viewpoint."/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Behavior"/>
+          <upperValue xmi:id="SysML.Viewpoint.method.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Viewpoint.presentation" xmi:type="uml:Property" name="presentation">
+          <lowerValue xmi:id="SysML.Viewpoint.presentation.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          <upperValue xmi:id="SysML.Viewpoint.presentation.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Viewpoint.purpose" xmi:type="uml:Property" name="purpose">
+          <ownedComment xmi:id="SysML.Viewpoint.purpose._comment0" xmi:type="uml:Comment" body="The purpose addresses the stakeholder concerns."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Viewpoint.stakeholder" xmi:type="uml:Property" name="stakeholder">
+          <lowerValue xmi:id="SysML.Viewpoint.stakeholder.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <ownedComment xmi:id="SysML.Viewpoint.stakeholder._comment0" xmi:type="uml:Comment" body="Set of stakeholders."/>
+          <type xmi:idref="SysML.Stakeholder"/>
+          <upperValue xmi:id="SysML.Viewpoint.stakeholder.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Viewpoint._comment0" xmi:type="uml:Comment" body="             A Viewpoint is a specification of the conventions and rules for constructing and using a view for the purpose of addressing a set of stakeholder concerns. The languages and methods for specifying a view may reference languages and methods in another viewpoint. They specify the elements expected to be represented in the view, and may be formally or informally defined. For example, the security viewpoint may require the security requirements, security functional and physical architecture, and security test cases.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Rationale" xmi:type="uml:Stereotype" name="Rationale">
+        <ownedAttribute xmi:id="SysML.Rationale.base_Comment" xmi:type="uml:Property" name="base_Comment">
+          <association xmi:idref="SysML.E_extension_Rationale_base_Comment"/>
+          <lowerValue xmi:id="SysML.Rationale.base_Comment.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Comment"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.Rationale._comment0" xmi:type="uml:Comment" body="             A Rationale documents the justification for decisions and the requirements, design, and other decisions. A Rationale can be attached to any model element including relationships. It allows the user, for example, to specify a rationale that may reference more detailed documentation such as a trade study or analysis report. Rationale is a stereotype of comment and may be attached to any other model element in the same manner as a comment.           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Rationale_base_Comment" xmi:type="uml:Extension" name="E_extension_Rationale_base_Comment">
+        <memberEnd xmi:idref="SysML.E_extension_Rationale_base_Comment.extension_Rationale"/>
+        <memberEnd xmi:idref="SysML.Rationale.base_Comment"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Rationale_base_Comment.extension_Rationale"/>
+        <ownedEnd xmi:id="SysML.E_extension_Rationale_base_Comment.extension_Rationale" xmi:type="uml:ExtensionEnd" name="extension_Rationale">
+          <association xmi:idref="SysML.E_extension_Rationale_base_Comment"/>
+          <lowerValue xmi:id="SysML.E_extension_Rationale_base_Comment.extension_Rationale.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Rationale"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Conform_base_Generalization" xmi:type="uml:Extension" name="E_extension_Conform_base_Generalization">
+        <memberEnd xmi:idref="SysML.Conform.base_Generalization"/>
+        <memberEnd xmi:idref="SysML.E_extension_Conform_base_Generalization.extension_Conform"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Conform_base_Generalization.extension_Conform"/>
+        <ownedEnd xmi:id="SysML.E_extension_Conform_base_Generalization.extension_Conform" xmi:type="uml:ExtensionEnd" name="extension_Conform">
+          <association xmi:idref="SysML.E_extension_Conform_base_Generalization"/>
+          <lowerValue xmi:id="SysML.E_extension_Conform_base_Generalization.extension_Conform.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Conform"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Expose" xmi:type="uml:Stereotype" name="Expose">
+        <ownedAttribute xmi:id="SysML.Expose.base_Dependency" xmi:type="uml:Property" name="base_Dependency">
+          <association xmi:idref="SysML.E_extension_Expose_base_Dependency"/>
+          <lowerValue xmi:id="SysML.Expose.base_Dependency.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Dependency"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_ElementGroup_base_Comment" xmi:type="uml:Extension" name="E_extension_ElementGroup_base_Comment">
+        <memberEnd xmi:idref="SysML.ElementGroup.base_Comment"/>
+        <memberEnd xmi:idref="SysML.E_extension_ElementGroup_base_Comment.extension_ElementGroup"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ElementGroup_base_Comment.extension_ElementGroup"/>
+        <ownedEnd xmi:id="SysML.E_extension_ElementGroup_base_Comment.extension_ElementGroup" xmi:type="uml:ExtensionEnd" name="extension_ElementGroup">
+          <association xmi:idref="SysML.E_extension_ElementGroup_base_Comment"/>
+          <lowerValue xmi:id="SysML.E_extension_ElementGroup_base_Comment.extension_ElementGroup.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ElementGroup"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Stakeholder_base_Classifier" xmi:type="uml:Extension" name="E_extension_Stakeholder_base_Classifier">
+        <memberEnd xmi:idref="SysML.Stakeholder.base_Classifier"/>
+        <memberEnd xmi:idref="SysML.E_extension_Stakeholder_base_Classifier.extension_Stakeholder"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Stakeholder_base_Classifier.extension_Stakeholder"/>
+        <ownedEnd xmi:id="SysML.E_extension_Stakeholder_base_Classifier.extension_Stakeholder" xmi:type="uml:ExtensionEnd" name="extension_Stakeholder">
+          <association xmi:idref="SysML.E_extension_Stakeholder_base_Classifier"/>
+          <lowerValue xmi:id="SysML.E_extension_Stakeholder_base_Classifier.extension_Stakeholder.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Stakeholder"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.View" xmi:type="uml:Stereotype" name="View">
+        <ownedAttribute xmi:id="SysML.View.base_Class" xmi:type="uml:Property" name="base_Class">
+          <association xmi:idref="SysML.E_extension_View_base_Class"/>
+          <lowerValue xmi:id="SysML.View.base_Class.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.View.stakeholder" xmi:type="uml:Property" isDerived="true" name="stakeholder">
+          <lowerValue xmi:id="SysML.View.stakeholder.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Stakeholder"/>
+          <upperValue xmi:id="SysML.View.stakeholder.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.View.viewPoint" xmi:type="uml:Property" isDerived="true" name="viewPoint">
+          <ownedComment xmi:id="SysML.View.viewPoint._comment0" xmi:type="uml:Comment" body="The viewpoint for this View, derived from the supplier of the «conform» dependency whose client is this View."/>
+          <type xmi:idref="SysML.Viewpoint"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.View._comment0" xmi:type="uml:Comment" body="A View is a representation of a whole system or subsystem from the perspective of a single viewpoint. Views are allowed to import other elements including other packages and other views that conform to the viewpoint."/>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_Problem_base_Comment" xmi:type="uml:Extension" name="E_extension_Problem_base_Comment">
+        <memberEnd xmi:idref="SysML.E_extension_Problem_base_Comment.extension_Problem"/>
+        <memberEnd xmi:idref="SysML.Problem.base_Comment"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_Problem_base_Comment.extension_Problem"/>
+        <ownedEnd xmi:id="SysML.E_extension_Problem_base_Comment.extension_Problem" xmi:type="uml:ExtensionEnd" name="extension_Problem">
+          <association xmi:idref="SysML.E_extension_Problem_base_Comment"/>
+          <lowerValue xmi:id="SysML.E_extension_Problem_base_Comment.extension_Problem.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.Problem"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Stakeholder" xmi:type="uml:Stereotype" name="Stakeholder">
+        <ownedAttribute xmi:id="SysML.Stakeholder.base_Classifier" xmi:type="uml:Property" name="base_Classifier">
+          <association xmi:idref="SysML.E_extension_Stakeholder_base_Classifier"/>
+          <lowerValue xmi:id="SysML.Stakeholder.base_Classifier.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Classifier"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Stakeholder.concern" xmi:type="uml:Property" isDerived="true" name="concern">
+          <lowerValue xmi:id="SysML.Stakeholder.concern.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          <upperValue xmi:id="SysML.Stakeholder.concern.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.Stakeholder.concernList" xmi:type="uml:Property" name="concernList">
+          <lowerValue xmi:id="SysML.Stakeholder.concernList.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Comment"/>
+          <upperValue xmi:id="SysML.Stakeholder.concernList.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_View_base_Class" xmi:type="uml:Extension" name="E_extension_View_base_Class">
+        <memberEnd xmi:idref="SysML.View.base_Class"/>
+        <memberEnd xmi:idref="SysML.E_extension_View_base_Class.extension_View"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_View_base_Class.extension_View"/>
+        <ownedEnd xmi:id="SysML.E_extension_View_base_Class.extension_View" xmi:type="uml:ExtensionEnd" name="extension_View">
+          <association xmi:idref="SysML.E_extension_View_base_Class"/>
+          <lowerValue xmi:id="SysML.E_extension_View_base_Class.extension_View.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.View"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ElementGroup" xmi:type="uml:Stereotype" name="ElementGroup">
+        <ownedAttribute xmi:id="SysML.ElementGroup.base_Comment" xmi:type="uml:Property" name="base_Comment">
+          <association xmi:idref="SysML.E_extension_ElementGroup_base_Comment"/>
+          <lowerValue xmi:id="SysML.ElementGroup.base_Comment.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Comment"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ElementGroup.criterion" xmi:type="uml:Property" isDerived="true" name="criterion">
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ElementGroup.member" xmi:type="uml:Property" isDerived="true" name="member">
+          <lowerValue xmi:id="SysML.ElementGroup.member.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+          <upperValue xmi:id="SysML.ElementGroup.member.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ElementGroup.name" xmi:type="uml:Property" name="name">
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ElementGroup.orderedMemeber" xmi:type="uml:Property" isOrdered="true" name="orderedMemeber">
+          <lowerValue xmi:id="SysML.ElementGroup.orderedMemeber.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <subsettedProperty xmi:idref="SysML.ElementGroup.member"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+          <upperValue xmi:id="SysML.ElementGroup.orderedMemeber.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.ElementGroup.size" xmi:type="uml:Property" isDerived="true" name="size">
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="SysML.ElementGroup.allGroups_Element" xmi:type="uml:Operation" isQuery="true" isStatic="true" name="allGroups">
+          <ownedParameter xmi:id="SysML.ElementGroup.allGroups_Element.e" xmi:type="uml:Parameter" effect="create" name="e">
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="SysML.ElementGroup.allGroups_Element.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.ElementGroup.allGroups_Element.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.ElementGroup"/>
+            <upperValue xmi:id="SysML.ElementGroup.allGroups_Element.result.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.ElementGroup.criterion_" xmi:type="uml:Operation" isQuery="true" name="criterion">
+          <ownedParameter xmi:id="SysML.ElementGroup.criterion_.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.ElementGroup.criterion_.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.ElementGroup.member_" xmi:type="uml:Operation" isQuery="true" name="member">
+          <ownedParameter xmi:id="SysML.ElementGroup.member_.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <lowerValue xmi:id="SysML.ElementGroup.member_.result.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+            <upperValue xmi:id="SysML.ElementGroup.member_.result.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="SysML.ElementGroup.size_" xmi:type="uml:Operation" isQuery="true" name="size">
+          <ownedParameter xmi:id="SysML.ElementGroup.size_.result" xmi:type="uml:Parameter" direction="_return" effect="create" name="result">
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="SysML.DeprecatedElements" xmi:type="uml:Package" name="DeprecatedElements">
+      <packagedElement xmi:id="SysML.E_extension_FlowPort_base_Port" xmi:type="uml:Extension" name="E_extension_FlowPort_base_Port">
+        <memberEnd xmi:idref="SysML.E_extension_FlowPort_base_Port.extension_FlowPort"/>
+        <memberEnd xmi:idref="SysML.FlowPort.base_Port"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_FlowPort_base_Port.extension_FlowPort"/>
+        <ownedEnd xmi:id="SysML.E_extension_FlowPort_base_Port.extension_FlowPort" xmi:type="uml:ExtensionEnd" name="extension_FlowPort">
+          <association xmi:idref="SysML.E_extension_FlowPort_base_Port"/>
+          <lowerValue xmi:id="SysML.E_extension_FlowPort_base_Port.extension_FlowPort.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.FlowPort"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.E_extension_FlowSpecification_base_Interface" xmi:type="uml:Extension" name="E_extension_FlowSpecification_base_Interface">
+        <memberEnd xmi:idref="SysML.E_extension_FlowSpecification_base_Interface.extension_FlowSpecification"/>
+        <memberEnd xmi:idref="SysML.FlowSpecification.base_Interface"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_FlowSpecification_base_Interface.extension_FlowSpecification"/>
+        <ownedEnd xmi:id="SysML.E_extension_FlowSpecification_base_Interface.extension_FlowSpecification" xmi:type="uml:ExtensionEnd" name="extension_FlowSpecification">
+          <association xmi:idref="SysML.E_extension_FlowSpecification_base_Interface"/>
+          <lowerValue xmi:id="SysML.E_extension_FlowSpecification_base_Interface.extension_FlowSpecification.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.FlowSpecification"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.FlowPort" xmi:type="uml:Stereotype" name="FlowPort">
+        <ownedAttribute xmi:id="SysML.FlowPort.base_Port" xmi:type="uml:Property" name="base_Port">
+          <association xmi:idref="SysML.E_extension_FlowPort_base_Port"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Port"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.FlowPort.direction" xmi:type="uml:Property" name="direction">
+          <defaultValue xmi:id="SysML.FlowPort.direction.defaultValue0" xmi:type="uml:InstanceValue">
+            <instance xmi:idref="SysML.inout"/>
+          </defaultValue>
+          <ownedComment xmi:id="SysML.FlowPort.direction._comment0" xmi:type="uml:Comment" body="               Indicates the direction in which an atomic flow port relays its items. If the direction is set to “in,” then the items are relayed from an external connector via the flow port into the flow port’s owner (or one of its parts). If the direction is set to “out,” then the items are relayed from the flow port’s owner, via the flow port, through an external connector attached to the flow port. If the direction is set to “inout,” then items can flow both ways. By default, the value is inout.             ">
+</ownedComment>
+          <type xmi:idref="SysML_dataType.FlowDirection"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="SysML.FlowPort.isAtomic" xmi:type="uml:Property" isDerived="true" name="isAtomic">
+          <ownedComment xmi:id="SysML.FlowPort.isAtomic._comment0" xmi:type="uml:Comment" body="This is a derived attribute (derived from the flow port’s type). For a flow port typed by a flow specification the value of this attribute is False, otherwise the value is True."/>
+          <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.FlowPort._comment0" xmi:type="uml:Comment" body="             A FlowPort is an interaction point through which input and/or output of items such as data, material, or energy may flow. This enables the owning block to declare which items it may exchange with its environment and the interaction points through which the exchange is made. We distinguish between atomic flow port and a nonatomic flow port. Atomic flow ports relay items that are classified by a single Block, ValueType, DataType, or Signal classifier. A nonatomic flow port relays items of several types as specified by a FlowSpecification. Flow ports and associated flow specifications define “what can flow” between the block and its environment, whereas item flows specify “what does flow” in a specific usage context. Flow ports relay items to their owning block or to a connector that connects them with their owner’s internal parts (internal connector).           ">
+</ownedComment>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.FlowSpecification" xmi:type="uml:Stereotype" name="FlowSpecification">
+        <ownedAttribute xmi:id="SysML.FlowSpecification.base_Interface" xmi:type="uml:Property" name="base_Interface">
+          <association xmi:idref="SysML.E_extension_FlowSpecification_base_Interface"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Interface"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.FlowSpecification._comment0" xmi:type="uml:Comment" body="A FlowSpecification specifies inputs and outputs as a set of flow properties. A flow specification is used by flow ports to specify what items can flow via the port."/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="SysML.ConstraintBlocks" xmi:type="uml:Package" name="ConstraintBlocks">
+      <packageImport xmi:id="SysML.ConstraintBlocks._packageImport.SysML.Blocks" xmi:type="uml:PackageImport">
+        <importedPackage xmi:idref="SysML.Blocks"/>
+      </packageImport>
+      <packagedElement xmi:id="SysML.E_extension_ConstraintBlock_base_Class" xmi:type="uml:Extension" name="E_extension_ConstraintBlock_base_Class">
+        <memberEnd xmi:idref="SysML.E_extension_ConstraintBlock_base_Class.extension_ConstraintBlock"/>
+        <memberEnd xmi:idref="SysML.ConstraintBlock.base_Class"/>
+        <navigableOwnedEnd xmi:idref="SysML.E_extension_ConstraintBlock_base_Class.extension_ConstraintBlock"/>
+        <ownedEnd xmi:id="SysML.E_extension_ConstraintBlock_base_Class.extension_ConstraintBlock" xmi:type="uml:ExtensionEnd" name="extension_ConstraintBlock">
+          <association xmi:idref="SysML.E_extension_ConstraintBlock_base_Class"/>
+          <lowerValue xmi:id="SysML.E_extension_ConstraintBlock_base_Class.extension_ConstraintBlock.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type xmi:idref="SysML.ConstraintBlock"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.ConstraintBlock" xmi:type="uml:Stereotype" name="ConstraintBlock">
+        <generalization xmi:id="SysML.ConstraintBlock._generalization.SysML.Block" xmi:type="uml:Generalization" isSubstitutable="false">
+          <general xmi:idref="SysML.Block"/>
+        </generalization>
+        <ownedAttribute xmi:id="SysML.ConstraintBlock.base_Class" xmi:type="uml:Property" name="base_Class">
+          <association xmi:idref="SysML.E_extension_ConstraintBlock_base_Class"/>
+          <lowerValue xmi:id="SysML.ConstraintBlock.base_Class.lowerValue0" xmi:type="uml:LiteralInteger"/>
+          <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Class"/>
+        </ownedAttribute>
+        <ownedComment xmi:id="SysML.ConstraintBlock._comment0" xmi:type="uml:Comment" body="             A constraint block is a block that packages the statement of a constraint so it may be applied in a reusable way to constrain properties of other blocks. A constraint block typically defines one or more constraint parameters, which are bound to properties of other blocks in a surrounding context where the constraint is used. Binding connectors, as defined in Chapter 8: Blocks, are used to bind each parameter of the constraint block to a property in the surrounding context. All properties of a constraint block are constraint parameters, with the exception of constraint properties that hold internally nested usages of other constraint blocks.           ">
+</ownedComment>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="SysML.Libraries" xmi:type="uml:Package" name="Libraries">
+      <packagedElement xmi:id="SysML.Libraries.ControlValues" xmi:type="uml:Package" name="ControlValues">
+        <packagedElement xmi:id="SysML_dataType.ControlValue" xmi:type="uml:Enumeration" name="ControlValue">
+          <ownedComment xmi:id="SysML_dataType.ControlValue._comment0" xmi:type="uml:Comment" body="               The ControlValue enumeration is a type for treating control values as data and for UML control pins. It can be used as the type of behavior and operation parameters, object nodes, and attributes, and so on. The possible runtime values are given as enumeration literals. Modelers can extend the enumeration with additional literals, such as suspend, resume, with their own semantics.             ">
+</ownedComment>
+          <ownedLiteral xmi:id="SysML.disable" xmi:type="uml:EnumerationLiteral" name="disable">
+            <ownedComment xmi:id="SysML.disable._comment0" xmi:type="uml:Comment" body="The disable literal means a termination of an executing behavior that can only be started again from the beginning (compare to suspend)."/>
+          </ownedLiteral>
+          <ownedLiteral xmi:id="SysML.enable" xmi:type="uml:EnumerationLiteral" name="enable">
+            <ownedComment xmi:id="SysML.enable._comment0" xmi:type="uml:Comment" body="The enable literal means to start a new execution of a behavior (compare to resume)."/>
+          </ownedLiteral>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Libraries.PrimitiveValueTypes" xmi:type="uml:Package" name="PrimitiveValueTypes">
+        <packagedElement xmi:id="SysML_dataType.Number" xmi:type="uml:DataType" isAbstract="true" name="Number"/>
+        <packagedElement xmi:id="SysML_dataType.Complex" xmi:type="uml:DataType" name="Complex">
+          <generalization xmi:id="SysML_dataType.Complex._generalization.SysML_dataType.Number" xmi:type="uml:Generalization">
+            <general xmi:idref="SysML_dataType.Number"/>
+          </generalization>
+          <ownedAttribute xmi:id="SysML_dataType.Complex.imaginaryPart" xmi:type="uml:Property" name="imaginaryPart">
+            <ownedComment xmi:id="SysML_dataType.Complex.imaginaryPart._comment0" xmi:type="uml:Comment" body="A real number used to express the imaginary part of a complex number."/>
+            <type xmi:idref="SysML_dataType.Real"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="SysML_dataType.Complex.realPart" xmi:type="uml:Property" name="realPart">
+            <ownedComment xmi:id="SysML_dataType.Complex.realPart._comment0" xmi:type="uml:Comment" body="A real number used to express the real part of a complex number."/>
+            <type xmi:idref="SysML_dataType.Real"/>
+          </ownedAttribute>
+          <ownedComment xmi:id="SysML_dataType.Complex._comment0" xmi:type="uml:Comment" body="               A Complex value type represents the mathematical concept of a complex number. A complex number consists of a real part defined by a real number, and an imaginary part defined by a real number multiplied by the square root of -1. Complex numbers are used to express solutions to various forms of mathematical equations.             ">
+</ownedComment>
+        </packagedElement>
+        <packagedElement xmi:id="SysML_dataType.Integer" xmi:type="uml:DataType" name="Integer">
+          <generalization xmi:id="SysML_dataType.Integer._generalization.SysML_dataType.Number" xmi:type="uml:Generalization">
+            <general xmi:idref="SysML_dataType.Number"/>
+          </generalization>
+        </packagedElement>
+        <packagedElement xmi:id="SysML_dataType.String" xmi:type="uml:DataType" name="String"/>
+        <packagedElement xmi:id="SysML_dataType.Real" xmi:type="uml:DataType" name="Real">
+          <generalization xmi:id="SysML_dataType.Real._generalization.SysML_dataType.Number" xmi:type="uml:Generalization">
+            <general xmi:idref="SysML_dataType.Number"/>
+          </generalization>
+          <ownedComment xmi:id="SysML_dataType.Real._comment0" xmi:type="uml:Comment" body="A Real value type represents the mathematical concept of a real number. A Real value type may be used to type values that hold continuous quantities, without committing a specific representation such as a floating point data type with restrictions on precision and scale.">
+</ownedComment>
+        </packagedElement>
+        <packagedElement xmi:id="SysML_dataType.Boolean" xmi:type="uml:DataType" name="Boolean"/>
+      </packagedElement>
+      <packagedElement xmi:id="SysML.Libraries.UnitAndQuantityKind" xmi:type="uml:Package" name="UnitAndQuantityKind">
+        <packagedElement xmi:id="SysML.A_quantityKind_unit" xmi:type="uml:Association" name="A_quantityKind_unit">
+          <memberEnd xmi:idref="SysML.Unit.quantityKind"/>
+          <memberEnd xmi:idref="SysML.A_quantityKind_unit.unit"/>
+          <ownedEnd xmi:id="SysML.A_quantityKind_unit.unit" xmi:type="uml:Property" name="unit">
+            <association xmi:idref="SysML.A_quantityKind_unit"/>
+            <lowerValue xmi:id="SysML.A_quantityKind_unit.unit.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.Unit"/>
+            <upperValue xmi:id="SysML.A_quantityKind_unit.unit.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:id="SysML.QuantityKind" xmi:type="uml:Class" name="QuantityKind">
+          <ownedAttribute xmi:id="SysML.QuantityKind.definitionURI" xmi:type="uml:Property" name="definitionURI">
+            <lowerValue xmi:id="SysML.QuantityKind.definitionURI.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="SysML.QuantityKind.description" xmi:type="uml:Property" name="description">
+            <lowerValue xmi:id="SysML.QuantityKind.description.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="SysML.QuantityKind.symbol" xmi:type="uml:Property" name="symbol">
+            <lowerValue xmi:id="SysML.QuantityKind.symbol.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:id="SysML.Unit" xmi:type="uml:Class" name="Unit">
+          <ownedAttribute xmi:id="SysML.Unit.definitionURI" xmi:type="uml:Property" name="definitionURI">
+            <lowerValue xmi:id="SysML.Unit.definitionURI.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="SysML.Unit.description" xmi:type="uml:Property" name="description">
+            <lowerValue xmi:id="SysML.Unit.description.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="SysML.Unit.quantityKind" xmi:type="uml:Property" name="quantityKind">
+            <association xmi:idref="SysML.A_quantityKind_unit"/>
+            <lowerValue xmi:id="SysML.Unit.quantityKind.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type xmi:idref="SysML.QuantityKind"/>
+            <upperValue xmi:id="SysML.Unit.quantityKind.upperValue0" xmi:type="uml:LiteralUnlimitedNatural" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="SysML.Unit.symbol" xmi:type="uml:Property" name="symbol">
+            <lowerValue xmi:id="SysML.Unit.symbol.lowerValue0" xmi:type="uml:LiteralInteger"/>
+            <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+          </ownedAttribute>
+        </packagedElement>
+      </packagedElement>
+      <profileApplication xmi:id="SysML.Libraries._profileApplication.SysML" xmi:type="uml:ProfileApplication">
+        <appliedProfile xmi:idref="SysML"/>
+      </profileApplication>
+    </packagedElement>
+    <profileApplication xmi:id="SysML._profileApplication.StandardProfile" xmi:type="uml:ProfileApplication">
+      <appliedProfile href="http://www.omg.org/spec/UML/20131001/StandardProfile.xmi#_0"/>
+    </profileApplication>
+  </uml:Profile>
+  <StandardProfile:ModelLibrary xmi:id="StandardProfile.ModelLibrary_appliedOn_SysML.Libraries.UnitAndQuantityKind">
+    <base_Package xmi:idref="SysML.Libraries.UnitAndQuantityKind"/>
+  </StandardProfile:ModelLibrary>
+  <SysML:ValueType xmi:id="SysML.ValueType_appliedOn_SysML_dataType.String">
+    <base_DataType xmi:idref="SysML_dataType.String"/>
+  </SysML:ValueType>
+  <SysML:ValueType xmi:id="SysML.ValueType_appliedOn_SysML_dataType.Boolean">
+    <base_DataType xmi:idref="SysML_dataType.Boolean"/>
+  </SysML:ValueType>
+  <SysML:ValueType xmi:id="SysML.ValueType_appliedOn_SysML_dataType.Real">
+    <base_DataType xmi:idref="SysML_dataType.Real"/>
+  </SysML:ValueType>
+  <SysML:ValueType xmi:id="SysML.ValueType_appliedOn_SysML_dataType.ControlValue">
+    <base_DataType xmi:idref="SysML_dataType.ControlValue"/>
+  </SysML:ValueType>
+  <SysML:ValueType xmi:id="SysML.ValueType_appliedOn_SysML_dataType.Number">
+    <base_DataType xmi:idref="SysML_dataType.Number"/>
+  </SysML:ValueType>
+  <StandardProfile:ModelLibrary xmi:id="StandardProfile.ModelLibrary_appliedOn_SysML.Libraries">
+    <base_Package xmi:idref="SysML.Libraries"/>
+  </StandardProfile:ModelLibrary>
+  <SysML:Block xmi:id="SysML.Block_appliedOn_SysML.QuantityKind" isEncapsulated="false">
+    <base_Class xmi:idref="SysML.QuantityKind"/>
+  </SysML:Block>
+  <StandardProfile:ModelLibrary xmi:id="StandardProfile.ModelLibrary_appliedOn_SysML.Libraries.PrimitiveValueTypes">
+    <base_Package xmi:idref="SysML.Libraries.PrimitiveValueTypes"/>
+  </StandardProfile:ModelLibrary>
+  <SysML:ValueType xmi:id="SysML.ValueType_appliedOn_SysML_dataType.Integer">
+    <base_DataType xmi:idref="SysML_dataType.Integer"/>
+  </SysML:ValueType>
+  <StandardProfile:ModelLibrary xmi:id="StandardProfile.ModelLibrary_appliedOn_SysML.Libraries.ControlValues">
+    <base_Package xmi:idref="SysML.Libraries.ControlValues"/>
+  </StandardProfile:ModelLibrary>
+  <SysML:ValueType xmi:id="SysML.ValueType_appliedOn_SysML_dataType.Complex">
+    <base_DataType xmi:idref="SysML_dataType.Complex"/>
+  </SysML:ValueType>
+  <SysML:Block xmi:id="SysML.Block_appliedOn_SysML.Unit" isEncapsulated="false">
+    <base_Class xmi:idref="SysML.Unit"/>
+  </SysML:Block>
+  <mofext:Tag xmi:id="SysML_mofTag0" xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" element="SysML"/>
+</xmi:XMI>

@@ -13,8 +13,8 @@
 	       "http://www.omg.org/spec/PrimitiveTypes.xmi"  ; this one mine, for Alf.
 	       "http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi" ; 2012, this one for 2.4.1
 	       "http://www.omg.org/spec/UML/20120801/PrimitiveTypes.xmi" ; this one for 2.5 beta
-	       "http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi" ; This one for 2.5
-	       "http://www.omg.org/spec/UML/2.5/PrimitiveTypes.xmi")      ; This one for 2.5
+	       "http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi" ; This one for 2.5 and 2.5.1
+	       "http://www.omg.org/spec/UML/2.5/PrimitiveTypes.xmi")     ; This one for 2.5
   :postload-path (pod:lpath :mylib "uml-utils/ocl/ptypes.lisp")
   :ns-uri   "PrimitiveTypes.cmof"
   :href-uri  "http://www.omg.org/spec/PrimitiveTypes.xmi"

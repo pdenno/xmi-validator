@@ -1,4 +1,3 @@
-
 ;;;  Author: Peter Denno
 ;;;  Date: 2014-05-16
 ;;;  Purpose: Utilities for reading the various XML model files. Relies on cxml.
@@ -16,9 +15,15 @@
 ;;;  dom:remove-attribute
 ;;;  dom:remove-named-item
 ;;;  dom:clone-node
+;;;
+;;;  Here are some things that get used often:
+;;;    dom:node-name  - returns a string e.g. "rdf:RDF"
+;;;    dom:local-name - returns a string e.g. "RDF"
+;;;    dom:prefix     - returns a string e.g. "rdf"
+
 
 ;;; =================================== XMLP =================================
-(in-package :xml-utils) 
+(in-package :xml-utils)
 
 (defclass line-cnt-dom-builder (rune-dom::dom-builder)
   ())
@@ -30,7 +35,7 @@
   (cxml:parse-file file (cxml-dom:make-dom-builder)))
 
 (defmethod xml-document-parser ((file t))
-  (squeeze-xml 
+  (squeeze-xml
    (cxml:parse-file
     file
      (make-instance 'line-cnt-dom-builder)
@@ -69,12 +74,6 @@
 (defpackage |xmlns|)
 
 (defvar *xml-clone2old* nil)
-
-(defun xml-children (elem) (coerce (dom:child-nodes elem) 'list))
-
-(defun (setf xml-children) (val node)
-  (setf (slot-value node 'rune-dom::children)
-	(coerce val 'vector)))
 
 (defun clone-node (node) node) ; POD NYI
 
@@ -123,12 +122,40 @@
     (setf (slot-value obj 'rune-dom::parent) attr)
     obj))
 
+;;; 2022: Returned from my convenience function for cxml, xml-attributes, are attributes AND children,
+;;;       That is actually the rational thing to do. (XML was idiotic to make that distinction.)
+;;;       That notwithstanding, it isn't something that can should be encouraged here!
+;;;       A RUNE-DOM::ELEMENT for xml such as:
+;;;
+;;;  <ownedComment xmi:type="uml:Comment"
+;;;                xmi:id="Activity-_ownedComment.0"
+;;;                body="An Activity is the specification of parameterized Behavior as the coordinated sequencing of subordinate units.">
+;;;        <annotatedElement xmi:idref="Activity"/>
+;;;  </ownedComment>
+;;;
+;;; has CHILDREN: #(#<RUNE-DOM::ELEMENT body {100DACB503}>)
+;;;   ATTRIBUTES: #<XML-UTILS::LINE-CNT-ATTRIBUTE-NODE-MAP {100D900E23}>
+;;; the latter containing
+;;; The object is a STANDARD-OBJECT of type XML-UTILS::LINE-CNT-ATTRIBUTE-NODE-MAP.
+;;;      ITEMS: (#<RUNE-DOM::ATTRIBUTE xmi:type="uml:Comment" {1011A3F783}>
+;;;              #<RUNE-DOM::ATTRIBUTE xmi:id="Activity-_ownedComment.0" {1011A3F793}>
+;;;              #<RUNE-DOM::ATTRIBUTE annotatedElement="Activity" {100DACB513}>)
+;;;
+;;; So as it show, body is a RUNE-DOM::ELEMENT, and annotatedElement is an RUNE-DOM::ATTRIBUTE. Reverse of what I'd expect.
+;;;
+;;; Similarly messed up, xml-children of this element returns body, and not annotatedElement.
+;;; So I'm going to try to fix this! 
+(defun xml-children (elem) (coerce (dom:child-nodes elem) 'list))
+
+(defun (setf xml-children) (val node)
+  (setf (slot-value node 'rune-dom::children)
+	(coerce val 'vector)))
+
 (defun xml-attributes (elem)
   (when-bind (attrs (dom:attributes elem))
       (dom:items attrs)))
 
-
-(defun (setf xml-attributes) (val elem) 
+(defun (setf xml-attributes) (val elem)
   (let ((nmap (make-instance 'line-cnt-attribute-node-map
 			     :items val
 			     :owner (dom:owner-document elem)
@@ -139,16 +166,16 @@
 (defun squeeze-xml (elem)
   "Recursively remove empty string content when element has both string and element content children."
   (let ((scanner (cl-ppcre:create-scanner "^\\s+$" :multi-line-mode t)))
-    (pod-utils:depth-first-search 
+    (pod-utils:depth-first-search
      elem
      #'(lambda (x) (declare (ignore x)) nil) ; fail
-     #'xml-children 
+     #'xml-children
      :do #'(lambda (x) ; This part is OK to use sequences
 	     (let ((cs (dom:child-nodes x)))
 	       (when (and (some #'dom:text-node-p cs)
 			  (some #'dom:element-p cs))
 		 (setf (xml-children x)
-		       (delete-if #'(lambda (y) ; turns it into an svec? 
+		       (delete-if #'(lambda (y) ; turns it into an svec?
 				      (and (dom:text-node-p y)
 					   (cl-ppcre:scan scanner (dom:data y))))
 				  cs)))))))
@@ -189,16 +216,28 @@
     (setf (xml-attributes owner) (append (xml-attributes owner) (list attr)))
     owner))
 
-;;; This is re-factored out of xml-create-elem, which was in canon-xmi-gen.lisp. 
+;;; New for 2022
+(defun xml-make-string-attr-node (prefix local-name value owner)
+  "Replaces xqdm-ignore:make-string-attr-node"
+  (let ((attr (make-instance 'rune-dom::attribute
+			     :name (strcat prefix ":" local-name)
+			     :local-name local-name
+			     :prefix prefix
+			     :namespace-uri nil
+			     :owner-element owner
+			     :owner (xml-document owner))))
+    (setf (xml-value attr) value)))
+
+;;; This is re-factored out of xml-create-elem, which was in canon-xmi-gen.lisp.
 (defun xml-add-elem (owner elem)
-  (setf (slot-value owner 'rune-dom::children) 
+  (setf (slot-value owner 'rune-dom::children)
 	(coerce (append (coerce (slot-value owner 'rune-dom::children) 'list)
 			(list elem))
 		'vector))
   owner)
 
 ;;; Was in canon-xmi-gen.lisp (was xml-add-elem)
-;;; See cxml/dom-impl.lisp dom:create-element 
+;;; See cxml/dom-impl.lisp dom:create-element
 (defun xml-create-elem (doc prefix name)
   "Add an element named PREFIX:NAME to OWNER."
   (let ((result (make-instance 'rune-dom::element
@@ -215,6 +254,12 @@
     ;(rune-dom::add-default-attributes result) ; Need a DTD for this.
     result))
 
+;;; For 2022
+(defun xml-create-elem2 (doc name)
+  (let ((local-name (foo name))
+	(prefix (bar name)))
+    (xml-create-elem doc prefix local-name)))
+
 ;;; Was in canon-xmi-gen.lisp
 #+nil(defun xml-set-content (elem value)
   "Set text/number content of PARENT to VALUE."
@@ -227,13 +272,13 @@
   "Return first dom:element from list CHILDREN whose tag is TYPE, a symbol."
   (if-bind (child (find-if #'(lambda (x) (xml-typep-3 x type)) children)) ; 2013-03-06 I make thes typep-3 OK?
 	   child
-           (when error-p (error "No child element ~A" type))))
+	   (when error-p (error "No child element ~A" type))))
 
 (defmethod xml-find-child ((type string) (children list) &key (error-p nil))
   "Return first dom:element from list CHILDREN whose tag dom:local-name is TYPE, a string."
   (if-bind (child (find type children :key #'(lambda (x) (dom:local-name x)) :test #'string-equal))
-           child
-           (when error-p (error "No child element ~A" type))))
+	   child
+	   (when error-p (error "No child element ~A" type))))
 
 (defmethod xml-find-child (type (elem dom:element) &key (error-p nil))
   "Return first child of element TYPE whose tag is TYPE."
@@ -248,28 +293,28 @@
   (xml-find-children type (xml-children elem)))
 
 (defmethod xml-find-children ((type string) (children list))
-  "Return a list of children of type TYPE a string matching the local-name of the tag. 
+  "Return a list of children of type TYPE a string matching the local-name of the tag.
    Second elem is a list of elements."
   (loop for child in children
-        when (string-equal (dom:local-name child) type)
-        collect child))
+	when (string-equal (dom:local-name child) type)
+	collect child))
 
 (defmethod xml-find-children ((type symbol) (children list))
   "Return a list of children of type TYPE type. Second elem is a list of elements."
   (loop for child in children
-        when (xml-typep child type) collect child))
+	when (xml-typep child type) collect child))
 
 (defmethod xml-find-children ((type symbol) (elem dom:element))
   "Return a list of children of type TYPE type. Second elem is a list of elements."
   (loop for child in (xml-children elem)
-        when (xml-typep child type) collect child))
+	when (xml-typep child type) collect child))
 
 (defun xml-find-cdata-child (elem)
   (when elem
     (when-bind (str (loop for child in (xml-children elem)
-                       when (stringp child) return child))
+		       when (stringp child) return child))
       (loop for pos from 0 to (1- (length str))
-         when (alphanumericp (char str pos)) return str))))
+	 when (alphanumericp (char str pos)) return str))))
 
 ;;; Deprecated!
 (declaim (inline xml-find-string-child))
@@ -283,10 +328,11 @@
 (defun xml-siblings (node)
   (xml-children (xml-parent node)))
 
+;;; ToDo: This can be really slow!
 (defun xml-namespaces (elem)
   "Return an alist of the namespace-URIs of the namespaces found in elem and its descendants."
   (let ((attrs '()))
-    (breadth-first-search 
+    (breadth-first-search
      elem
      #'fail
      #'(lambda (x) (xml-children x))
@@ -310,11 +356,33 @@
        (find-if test (xml-attributes elem)))))
 
 #+nil(declaim (inline xml-get-attr-value))
-(defun xml-get-attr-value (elem name)
+;;; 2022 The following gets an error  on get-named-item when there is no attribute "name"
+#+nil(defun xml-get-attr-value (elem name)
   "Return the value of the attribute of elem identified by local-name.
    Return nil if no attribute found."
   (when-bind (attr (dom:get-named-item (dom:attributes elem) name))
-      (dom:value attr)))
+    (dom:value attr)))
+
+;;; New 2022
+(defmethod xml-get-attr-value (elem (name string))
+  "Return the value of the attribute of elem identified by local-name.
+   Return nil if no attribute found."
+  (let ((attrs (dom:attributes elem)))
+    (when-bind (attr (find-if #'(lambda (x) (string= name (dom:name x)))
+			      (dom:items attrs)))
+      (dom:value attr))))
+
+;;; New 2022
+(defmethod xml-get-attr-value (elem (name symbol))
+  "Return the value of the attribute of elem identified by local-name.
+   Return nil if no attribute found."
+  (let ((attrs (dom:attributes elem))
+	(sname (symbol-name name))
+	(spkg  (symbol-package name)))
+    (when-bind (attr (find-if #'(lambda (x) (and (string= sname (dom:local-name x))
+						 (find-package spkg))) ; ToDo: not quite!
+			      (dom:items attrs)))
+      (dom:value attr))))
 
 (defun xml-find-attrs (elem test)
   "Return a list of attributes of ELEM that pass TEST."
@@ -331,7 +399,7 @@
 		 (when (stringp val) val))))))
     (or result (when error-p (error "Elem does not contain child/attr '~A'." name)))))
 
-;;; POD This and the next probably ought to use dom:node-name and ns-qualified string. 
+;;; POD This and the next probably ought to use dom:node-name and ns-qualified string.
 (defmethod xml-typep (elem (type string))
   "Like typep, except TYPE is a string tested against ELEM.local-name."
   (and (dom:element-p elem)
@@ -347,49 +415,52 @@
   (and (string-equal type (dom:local-name elem))
        (string-equal ns (dom:prefix elem))))
 
+;;; Modified 2022
 (defun xml-typep-3 (elem type)
   (and (dom:element-p elem)
-       (eql (dom:node-name elem) type)))
+       (when-bind (pkg (find-package (dom:prefix elem)))
+	 (let ((sym (intern (dom:local-name elem) pkg)))
+	   (eql sym type)))))
 
 ;;; Inspired by Vasilis M.'s cells-gtk/widgets.lisp (in the sense that it has 'subtypes').
 (defmacro def-parse (method-name pass-downward (type &rest binds) &body body)
   (let* ((aux (cdr (member '&aux binds))) ; can't use dbind, not same idea.
-         (keys (cdr (member '&key binds)))
-         (keys (subseq keys 0 (position '&aux keys)))
-         (attrs (subseq binds 0 (position '&key binds))) action)
+	 (keys (cdr (member '&key binds)))
+	 (keys (subseq keys 0 (position '&aux keys)))
+	 (attrs (subseq binds 0 (position '&key binds))) action)
     (with-gensyms (chilun c sint?)
       `(defmethod ,method-name ((elem-type (eql ,type)) dself &key ,pass-downward ,@keys)
-         (declare (ignorable dself ,pass-downward))
-         (let* ((,sint? nil)
+	 (declare (ignorable dself ,pass-downward))
+	 (let* ((,sint? nil)
 		(,chilun (xml-children dself))
-                ,@(loop #:for attr #:in attrs #:collect
+		,@(loop #:for attr #:in attrs #:collect
 			`(,(intern (string-upcase (c-name2lisp attr)))
-			  (or (string-integer-p (setq ,sint? (xml-get-attr dself ,attr))) 
+			  (or (string-integer-p (setq ,sint? (xml-get-attr dself ,attr)))
 			      (and ,sint? (intern ,sint?)))))
-                ,@aux)
-           (declare (ignorable ,chilun ,sint?))
-           ,@(loop for bod in body collect
-                  (dbind (term &rest action/args) bod
-                    (setf action '#:do)
-                    (cond ((eql :self term)
-                            `(progn ,@action/args))
-                          (t
-                            (unless (stringp term) ; then adjust the args...
-                              (case term 
-                                (:collect (setq action 'collect))
-                                (:append  (setq action 'append))
-                                (t (error "Unknown def-parse action: ~A" term)))
-                              (setf term (first action/args) action/args (second action/args)))
-                            `(loop #:for ,c #:in ,chilun 
+		,@aux)
+	   (declare (ignorable ,chilun ,sint?))
+	   ,@(loop for bod in body collect
+		  (dbind (term &rest action/args) bod
+		    (setf action '#:do)
+		    (cond ((eql :self term)
+			    `(progn ,@action/args))
+			  (t
+			    (unless (stringp term) ; then adjust the args...
+			      (case term
+				(:collect (setq action 'collect))
+				(:append  (setq action 'append))
+				(t (error "Unknown def-parse action: ~A" term)))
+			      (setf term (first action/args) action/args (second action/args)))
+			    `(loop #:for ,c #:in ,chilun
 				   #:when (xml-typep ,c ,term) ,action
-                                  (,method-name ,(kintern (c-name2lisp term)) ,c 
-                                                ,(kintern pass-downward) ,pass-downward ,@action/args)))))))))))
+				  (,method-name ,(kintern (c-name2lisp term)) ,c
+						,(kintern pass-downward) ,pass-downward ,@action/args)))))))))))
 
 (defmacro with-xml-attrs (attrs elem &body body)
   (with-gensyms (e)
   `(let* ((,e ,elem)
 	  ,@(mapcar #'(lambda (x) (list (intern (string-upcase (c-name2lisp x)))
-					`(xml-get-attr ,e ,x))) 
+					`(xml-get-attr ,e ,x)))
 		    attrs))
      ,@body)))
 
@@ -410,10 +481,10 @@
 
 ;;; This doesn't balance the etag (they trail like in well-written lisp ;^)
 ;;; This is useless??? Use *print-pretty* with cl-xml or usr-bin-xmllint, below
-(defun xml-indent (elem) 
-  (depth-first-search 
+(defun xml-indent (elem)
+  (depth-first-search
    elem #'fail #'xml-children :tracking t
-   :do 
+   :do
    #'(lambda (node)
        (when (dom:element-p node)
 	 (let* ((depth (length (tree-search-path)))
@@ -424,7 +495,7 @@
 		       collect c)))))))
 
 (defun xml-collect-elem (predicate xml)
-  "Navigate the XML structure, XML collecting elements that match 
+  "Navigate the XML structure, XML collecting elements that match
    PREDICATE, a function of one argument."
   (let (accum)
     (labels ((collect-aux (x)
@@ -439,7 +510,7 @@
   "Read INFILE a file of xml, and output OUTFILE, if specified, xml formatted by /usr/bin/xmllint.
    If INSTRING is specified, write output to a tmp file before running /usr/bin/xmllint (Useful for debugging).
    If OUTFILE is not specified, write to *standard-output*"
-  (when instring 
+  (when instring
     (with-open-file (s (lpath :tmp "xmllint-tmp.xml") :direction :output :if-exists :supersede)
       (write-string instring s))
     (setf infile (lpath :tmp "xmllint-tmp.xml")))
@@ -454,7 +525,7 @@
 #+(and Linux (or Lispworks sbcl))
 (defun usr-bin-diff (&key file1 file2 outfile (args " "))
   "Create a diff file with html escaping."
-  (let* ((cmd (format nil "/usr/bin/diff ~A ~A ~A" 
+  (let* ((cmd (format nil "/usr/bin/diff ~A ~A ~A"
 		      args
 		      (namestring (truename file1))
 		      (namestring (truename file2))))
@@ -469,8 +540,8 @@
   (cond ((null elem) nil)
 	((stringp elem) nil)
 	((typep elem 'dom:node)
-	 (loop for c in (xml-children elem) do 
-	    (when (dom:element-p c) 
+	 (loop for c in (xml-children elem) do
+	    (when (dom:element-p c)
 	      (when (null (xml-parent c)) (setf (xml-parent c) elem))
 	      (xml-set-parents c)))))
   elem)
@@ -496,7 +567,7 @@
 #|  (let (base-ns)
     (breadth-first-search
      (xml-root doc)
-     #'(lambda (x) 
+     #'(lambda (x)
 	 (and (dom:element-p x)
 	      (setf base-ns (find '|xmlns|:|| (xml:namespaces x) :key #'dom:node-name))))
      #'xml-children)

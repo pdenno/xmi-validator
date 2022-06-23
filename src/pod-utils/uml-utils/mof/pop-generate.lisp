@@ -5,14 +5,10 @@
 
 ;;; Purpose: directly generate MM enum, class, associations, association ends, operation, and constraint forms 
 ;;; from a population of M3 objects (from CMOF or UML), typically from a OMG specification or a user's profile.
-
-;;; How to use: (out of date)
-;;;             (1) Upload a file. It works on (mut *spare-session-vo*)
-;;;                    e.g.: (simple-run-validator  (lpath :data "uml25/UML-20131001.xmi"))
-;;;             (2) Set *cmpkg* to name the metamodel under which the uploaded file is an instance. 
-;;;             (3) Depending on the goal, you might have to run just-those-owned-by, with suitable arguments.
-;;;             (4) (pop-gen tpkg) - where TPKG is the target package.
-;;;             (5) Result: (lpath :models "tryme.lisp")
+;;;
+;;; You can compile this file with slime, but be mindful that you are compiling for a particular CMOF.
+;;; See load.lisp function compi-it to see how it is compiled a startup.
+;;; See also how #.*cmpkg* is used in this file.
 
 ;;; NOTES 
 ;;;  2010-10-17: As of this date, I got a relative clean read of the UML2.4 infrastructure library
@@ -60,6 +56,20 @@
 ;;; (simple-run-validator  (pod:lpath :data "upr/UPR.xmi"))
 ;;; (pop-gen :uml25 :upr :keep-pkg-info nil :outfile "/local/tmp/tryme.lisp")
 
+;;;---- 2022 SysML 1.6 (and prerequisites)------------------------
+;;;
+;;; Now (UML 2.5.1 and probably later) XMI references particular instances of primitives as a models.
+;;; 
+;;; I overwrote the following with some code to simply copy the 5 primitives over from (find-model :ptypes).
+;;; See 20131001/ptypes-postload.lisp
+;;; (simple-run-validator (pod:lpath :data "20131001/PrimitiveTypes.xmi"))
+;;; (pop-gen :uml25 :uml-20131001-ptypes :keep-pkg-info nil :outfile (pod:lpath :models "uml/20131001/ptypes.lisp"))
+;;; 
+;;; (simple-run-validator (pod:lpath :data "uml251/ptc-01-01-UML.xmi"))
+;;; (pop-gen :uml25 :uml251 :keep-pkg-info nil :outfile (pod:lpath :models "uml/20131001/uml251.lisp"))a
+;;;
+;;; (simple-run-validator (pod:lpath :data "sysml/20181001/ptc-18-10-04.xmi"))
+
 (defparameter *keep-pkg-info* nil "Because I'm not passing :keep-pkg-info deep enough!")
 
 (defparameter *pg-objs* nil "PG (pop-gen) objects made. Used for diagnostics.")
@@ -79,8 +89,8 @@
   (defmacro cmfun (string) `(symbol-function ',(intern string *cmpkg*)))
   (defmacro cmfuncall (string &rest args) `(funcall (symbol-function ',(intern string *cmpkg*)) ,@args)))
 
-(defparameter *updated-ocl-model* nil
-  "The model name from which we will borrow updated OCL. Nil if none.")
+(defparameter *updated-ocl-model* :uml25
+  "The model name from which we will borrow updated OCL. Nil if none, otherwise a keyword.")
 
 ;;; For CMOF/infralib: (just-those-owned-by)
 ;;; For  UML/infralib: (just-those-owned-by 
@@ -268,14 +278,18 @@
 ;;; 2013-11-13. This was a defun. I'm lost on how this was supposed to be invoked for multiple metamodels.
 ;;; I think I need a pop-gen METHOD for each metamodel
 
+;;; 2022-06-22 Look at load.lisp function comp-it; it compiles a bunch of these.
+;;  The new calls (ignore the old comments) to pop-gen need to specify a "version" as it shows below
+
 (defmethod pop-gen ((version (eql #.*cmpkg*))
 		    tpkg &key 
 			   (model (mut *spare-session-vo*))
 			   (outfile (pod:lpath :models "tryme.lisp" ))
 			   (keep-pkg-info nil))
-  "Top-level function to print CMOF as def-meta- forms. 
-   TPKG is the mofi:model name into which code will be generated.
-   keep-pkg-info is used to put e.g. (in-package 'ODM-RDFBase') in front of every definition.
+  "Top-level function to print CMOF as def-meta- forms.
+     - VERSION is one of :uml25 etc. See comp-it in load.lisp
+     - TPKG is the mofi:model name into which code will be generated.
+     - KEEP-PKG-INFO is used to put e.g. (in-package 'ODM-RDFBase') in front of every definition.
    This is used where there are multiple objects with the same simple name. (e.g. ODM)." 
   (setf *pod-unnamed-cnt* 0)
   (setf *pg-objs* nil)
@@ -332,7 +346,6 @@
     (if name-only-p
 	name
 	(let ((*package* (find-package tpkg)))
-	  (declare (special *package*))
 	  (real-pprint version (make-pg-instance 'pg-ptype :name name :model tpkg :xmi-id (obj2xmiid ptype model)) stream)
 	  (format stream "~2%")))))
 
@@ -343,7 +356,6 @@
     (if name-only-p
 	name
 	(let ((*package* (find-package tpkg)))
-	  (declare (special *package*))
 	  (real-pprint
 	   version
 	   (make-pg-instance 
@@ -369,7 +381,6 @@
       (if name-only-p
 	  name
 	  (let ((*package* (find-package tpkg)))
-	    (declare (special *package*))
 	     (make-pg-instance 
 	      'pg-assoc
 	      :name name
@@ -491,7 +502,6 @@
 		       (find-package (format nil "~A-~A" tpkg 
 					     (cmfuncall "%NAME" (cmfuncall "%NAMESPACE" class))))
 		       (find-package tpkg))))
-    (declare (special *package*))
     (if name-only-p
 	name
 	;; Otherwise write to STREAM the class, its operations and constraints."
@@ -764,6 +774,8 @@
      
 (defmethod pop2lisp-comments ((obj #.(cmsym "Element")))
   "Concatenate and format comments."
+  (setf *zippy* obj)
+  (break "comment")
   (when-bind (comments (ocl:value (cmfuncall "%OWNED-COMMENT" obj)))
     (apply #'concatenate 'string
 	    (loop for c in comments collect (cmfuncall "%BODY" c)))))
@@ -773,7 +785,6 @@
   (if name-only-p
       (intern (cmfuncall "%NAME" obj) tpkg)
       (let ((*package* (find-package tpkg)))
-	(declare (special *package*))
 	(format stream "~2%(def-meta-package ~S ~S ~S ~%   (~{~S~^~%    ~}) :xmi-id ~S)"
 		(intern (cmfuncall "%NAME" obj) tpkg)
 		;; owner, ownedElement will be resolved to a mm-type-object/mm-package-mo on model-load. 
@@ -857,7 +868,6 @@
 (defgeneric real-pprint (version obj stream &key &allow-other-keys))
 
 (defmethod real-pprint :around (version obj stream &key)
-  (setf *zippy* obj)
    (with-slots (name) obj
      (let ((*package* (if (typep obj 'pg-assoc-end) *package* (symbol-package name))))
        (call-next-method))))
@@ -1028,7 +1038,7 @@
 (defmethod pprint-prolog ((version (eql #.*cmpkg*)) stream tpkg model classes keep-pkg-info)
   "Write miscellaneous information."
   (format stream "~2%(in-package :mofi)~2%")
-  (let ((*package* :mofi))
+  (let ((*package* (find-package "MOFI")))
     (format stream
 	    (strcat
 	     "~%(with-slots (abstract-classes ns-uri ns-prefix) *model*"
