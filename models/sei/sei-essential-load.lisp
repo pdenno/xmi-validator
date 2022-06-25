@@ -72,22 +72,38 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :ns-uri "http://www.omg.org/spec/PrimitiveTypes/20131001/PrimitiveTypes"      ; Use this one for xmlns
  :ns-prefix "PrimitiveTypes")
 
-#+nil(mofi:ensure-model
+(mofi:ensure-model
  :uml251 :force t  :verbose t
  :nicknames '("UML 2.5.1"
 	      "http://www.omg.org/spec/UML/20161101"
 	      "http://www.omg.org/spec/UML/2.5.1/UML.xmi"
 	      "http://www.omg.org/spec/UML/20161101"
 	      "http://www.omg.org/spec/UML/20161101/UML.xmi")
+ :pretty-name "UML"
  :features '(:miwg)
- :depends-on-models '(:ocl :ptypes #|:uml-profile-20131001|#)
+ :depends-on-models '(:ocl :ptypes)
  :documentation "Compiled from ptc-18-01-01-UML.xmi on 2022-06-22."
  :model-class 'mofi:essential-compiled-model
- :classes-path (pod:lpath :models "uml/20131001/uml251.lisp")
- :postload-path (pod:lpath :models "uml/20121001/uml251-postload.lisp")
+ :classes-path (pod:lpath :models "uml/uml251.lisp")
+ :postload-path (pod:lpath :models "uml/uml251-postload.lisp")
  :ns-uri     "http://www.omg.org/spec/UML/20161101"
  :href-uri   "http://www.omg.org/spec/UML/20161101/UML.xmi"
  :ns-prefix "uml")
+
+(ensure-model ; Used by SysML 1.6, at least.
+ :uml-profile-20161101 :force t  :verbose t
+ :features '(:miwg)
+ :nicknames '("StandardProfile-20161101"
+	      "http://www.omg.org/spec/UML/20161101/StandardProfile"      ; Use this one for xmlns
+	      "http://www.omg.org/spec/UML/20161101/StandardProfile.xmi") ; Use this one for hrefs
+ :documentation "Generated from http://www.omg.org/spec/UML/20161101/StandardProfile.xmi on 2022-05-25"
+ :href-uri "http://www.omg.org/spec/UML/20161101/StandardProfile.xmi"
+ :model-class 'mofi::profile
+ :model-n+1 :uml241
+ :classes-path (pod:lpath :models "uml/uml-std-profile-20161101.lisp")
+ :href-uri "http://www.omg.org/spec/UML/20110701/StandardProfile.xmi"
+ :ns-uri "http://www.omg.org/spec/UML/20110701/StandardProfile"      ; Use this one for xmlns
+ :ns-prefix "StandardProfile")
 
 (mofi:ensure-model
  :uml25 :force t  :verbose t
@@ -96,6 +112,7 @@ URLs had different dates than the URI, and now we still have a similar problem w
 	      "http://www.omg.org/spec/UML/2.5/UML.xmi"
 	      "http://www.omg.org/spec/UML/20131001"
 	      "http://www.omg.org/spec/UML/20131001/UML.xmi")
+ :pretty-name "UML"
  :features '(:miwg)
  :depends-on-models '(:ocl #|:uml-profile-20131001|#)
  :documentation "Compiled from UML/20131001  on 2013-12-12. "
@@ -120,7 +137,6 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :href-uri "http://www.omg.org/spec/UML/20131001/StandardProfile.xmi"
  :ns-uri "http://www.omg.org/spec/UML/20131001/StandardProfile"      ; Use this one for xmlns
  :ns-prefix "StandardProfile")
-
 
 #+nil
 (mofi:ensure-model
@@ -169,17 +185,17 @@ XMI_file	(1510529 bytes)		alternate"
        :classes-path (pod:lpath :models "qudv/qudv.lisp"))
 
 ;;; 2022: URI's used below are based on https://www.omg.org/spec/SysML/1.6/About-SysML/ not on the XMI.
-#+nil(ensure-model
+(ensure-model
  :sysml16 :force t  :verbose t
  :features '(:miwg)
  :nicknames '("SysML1.6"
 	      "http://www.omg.org/spec/SysML/20181001"            ; <---- Use for xmlns.
 	      "http://www.omg.org/spec/SysML/20181001/SysML.xmi") ; <---- Use for hrefs.
-;;; Next two are typically set in popgen-erated .lisp
+ :pretty-name "SysML"
  :documentation "Created from https://www.omg.org/spec/SysML/20181001/SysML.xmi on 2022-06-22."
  :model-class 'mofi::profile
- :model-n+1 :uml25
- :depends-on-models '(:ocl :uml-profile-20131001 :uml25)
+ :model-n+1 :uml251
+ :depends-on-models '(:ocl :uml-profile-20161101 :uml251)
  :classes-path (pod:lpath :models "sysml/sysml-profile-16.lisp")
  :href-uri "http://www.omg.org/spec/SysML/20181001/SysML.xmi"
  :ns-uri "http://www.omg.org/spec/SysML/20181001/SysML"
@@ -191,13 +207,14 @@ XMI_file	(1510529 bytes)		alternate"
  :nicknames '("SysML1.4" ; I changed these 2013-04-09. See note from Ed S. 2013-03-28.
 	      "http://www.omg.org/spec/SysML/20131001/SysML"      ; <---- Use for xmlns.  Based on SPEC, not XMI!
 	      "http://www.omg.org/spec/SysML/20131001/SysML.xmi") ; <---- Use for hrefs.
-;;; Next two are typically set in popgen-erated .lisp
+ :pretty-name "SysML"
  :documentation "Created from http://www.omg.org/spec/SysML/20131001/SysML.xmi."
  :model-class 'mofi::profile
  :model-n+1 :uml25
  :depends-on-models '(:ocl :uml-profile-20131001 :uml25)
  :classes-path (pod:lpath :models "sysml/sysml-profile-14.lisp")
  :href-uri "http://www.omg.org/spec/SysML/20131001/SysML.xmi"
+ ;;; Next two are typically set in popgen-erated .lisp
  :ns-uri "http://www.omg.org/spec/SysML/20131001/SysML"
  :ns-prefix "sysml")
 
@@ -214,6 +231,7 @@ XMI_file	(1510529 bytes)		alternate"
  :nicknames '("SysML1.3" ; I changed these 2013-04-09. See note from Ed S. 2013-03-28.
 	      "http://www.omg.org/spec/SysML/20120322/SysML"      ; <---- Use for xmlns.  Based on SPEC, not XMI!
 	      "http://www.omg.org/spec/SysML/20120401/SysML.xmi") ; <---- Use for hrefs.
+ :pretty-name "SysML"
 ;;; Next two are typically set in popgen-erated .lisp
  :documentation "Created from http://www.omg.org/spec/SysML/20110801/SysML.xmi."
  :model-class 'mofi::profile
@@ -248,6 +266,7 @@ XMI_file	(1510529 bytes)		alternate"
  :nicknames '("SysML"
 	      "http://www.omg.org/spec/SysML/20100301/SysML-profile"      ; <---- Use for xmlns.
 	      "http://www.omg.org/spec/SysML/20100301/SysML-profile.uml") ; <---- Use for hrefs.
+ :pretty-name "SysML"
 ;;; Next two are typically set in popgen-erated .lisp
 ;;; :ns-prefix "sysml"
 ;;; :ns-uri "http://www.omg.org/spec/SysML/20100301/SysML-profile"
@@ -296,6 +315,7 @@ XMI_file	(1510529 bytes)		alternate"
 	      "http://www.omg.org/spec/UPDM/20120301"
 	      "http://www.omg.org/spec/UPDM/20120301/UPDM-Profile.xmi"
 	      "http://www.omg.org/spec/UPDM/20120301/UPDM-Profile.xmi#UPDM") ; added 2013-12-30
+ :pretty-name "UPDM"
  :documentation "Compiled 2013-04-11 using dtc/2012-09-10 XMI with hrefs to SoaML updated."
  :model-class 'mofi::profile
  :model-n+1 :uml23

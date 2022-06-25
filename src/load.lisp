@@ -75,6 +75,8 @@
     (setf *cmpkg* :uml241)
     (load (compile-file po.lisp))
     (setf *cmpkg* :uml25)
+    (load (compile-file po.lisp))
+    (setf *cmpkg* :uml251)
     (load (compile-file po.lisp))))
 
 (comp-it)

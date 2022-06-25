@@ -1,5 +1,4 @@
-
-;;; Author: Peter Denno, National Institute of Standards and Technology 
+;;; Author: Peter Denno, National Institute of Standards and Technology
 ;;;         peter.denno@nist.gov
 ;;;
 ;;; Development of this software was funded by the United States Government,
@@ -31,13 +30,13 @@
 	(setf memo
 	      (let ((umls (mofi:all-umls))
 		    (ht (make-hash-table :test #'equal)))
-		(loop for c in (loop for uml in umls 
+		(loop for c in (loop for uml in umls
 				  append (loop for c across (mofi:types (mofi:find-model uml)) collect c))
 		   for name = (string (class-name c))
 		   for pos = (position (mofi:model-name (mofi:of-model c)) umls)
 		   do (if-bind (vec (gethash name ht))
 			       (setf (svref vec pos) c)
-			       (setf (gethash name ht) 
+			       (setf (gethash name ht)
 				     (let ((vec (make-array 3 :initial-element "-")))
 				       (setf (svref vec pos) c) vec))))
 		ht)))))
@@ -49,13 +48,13 @@
 	(setf memo
 	      (let ((uprs '(:upr :upra))
 		    (ht (make-hash-table :test #'equal)))
-		(loop for c in (loop for upr in uprs 
+		(loop for c in (loop for upr in uprs
 				  append (loop for c across (mofi:types (mofi:find-model upr)) collect c))
 		   for name = (string (class-name c))
 		   for pos = (position (mofi:model-name (mofi:of-model c)) uprs)
 		   do (if-bind (vec (gethash name ht))
 			       (setf (svref vec pos) c)
-			       (setf (gethash name ht) 
+			       (setf (gethash name ht)
 				     (let ((vec (make-array 3 :initial-element "-")))
 				       (setf (svref vec pos) c) vec))))
 	  ht)))))
@@ -82,12 +81,12 @@
 	     (result ""))
 	(str (format nil "<table border='0' cellpadding='0' cellspacing='2'>~A~A</table>"
 		     (format nil "<tr>~{<th>~A</th>~}</tr>"
-			     (mapcar #'(lambda (m) (car (nicknames (find-model m)))) 
+			     (mapcar #'(lambda (m) (car (nicknames (find-model m))))
 				     '(:upr :upra)))
 		     (loop for r in rows do
-			  (strcat* result 
+			  (strcat* result
 				   (format nil "<tr>~{<td>~A</td>~}</tr>"
-					   (loop for e across (gethash r ht) 
+					   (loop for e across (gethash r ht)
 					      collect (if (typep e 'class) (mofb:url-class-browser e) e))))
 			  finally (return result)))))))
 
@@ -100,22 +99,22 @@
 		  (strcat* result (mofb:url-class-browser c) "<br/>")
 		finally (return result)))))
     (app-page-wrapper :sei (:view "UML / SysML Class Browser" :js-tree t
-				  :menu-pos '(:root :tools :sysml :mof-browser))
+			    :menu-pos '(:root :tools :sysml :mof-browser))
       (:h1 "Class Browser")
       (:h2 "SysML Stereotypes and Types")
-      (str (string-of-classes (model-classes-sorted :sysml12)))
+      (str (string-of-classes (model-classes-sorted :sysml16)))
       (:h2 "UML Types")
       (let* ((ht (uml-table))
 	     (rows (sort (loop for k being the hash-key of ht collect k) #'string<))
 	     (result ""))
 	(str (format nil "<table border='0' cellpadding='0' cellspacing='2'>~A~A</table>"
 		     (format nil "<tr>~{<th>~A</th>~}</tr>"
-			     (mapcar #'(lambda (m) (car (nicknames (find-model m)))) 
+			     (mapcar #'(lambda (m) (car (nicknames (find-model m))))
 				     (mofi:all-umls)))
 		     (loop for r in rows do
-			  (strcat* result 
+			  (strcat* result
 				   (format nil "<tr>~{<td>~A</td>~}</tr>"
-					   (loop for e across (gethash r ht) 
+					   (loop for e across (gethash r ht)
 					      collect (if (typep e 'class) (mofb:url-class-browser e) e))))
 			  finally (return result))))))))
 
@@ -123,7 +122,7 @@
   "Generate JS for package hierarchy. Not called for leaves"
   (let ((name (mofi:name pack)))
     (with-html-output (*standard-output*)
-	(:div :class "trigger" 
+	(:div :class "trigger"
 	      :onclick (str (format nil "showBranch(\"branch-~A\");swapFolder(\"folder-~A\")"  name name))
 	      (:img :src "/se-interop/image/down-arrow.png" :border "0" :id (str (format nil "folder-~A" name)))
 	      (str (strcat " " (string name))))
@@ -138,6 +137,3 @@
 	       (loop for p in (remove-if-not #'(lambda (x) (typep x 'mofi:mm-package-mo))
 					     (mofi::owned-element pack))
 		  do (build-package-hierarchy p))))))
-
-		 
-

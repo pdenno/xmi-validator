@@ -8,9 +8,9 @@
 ;;; =========================================================
 ;;; ====================== Auxiliary
 ;;; =========================================================
-(def-meta-stereotype |Auxiliary| 
+(def-meta-stereotype |Auxiliary|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Class|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Auxiliary")
  "A class that supports another more central or fundamental class, typically
   by implementing secondary logic or control flow. The class that the auxiliary
@@ -25,9 +25,9 @@
 ;;; =========================================================
 ;;; ====================== Call
 ;;; =========================================================
-(def-meta-stereotype |Call| 
+(def-meta-stereotype |Call|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Usage|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Call")
  "A usage dependency whose source is an operation and whose target is an
   operation. The relationship may also be subsumed to the class containing
@@ -44,9 +44,9 @@
 ;;; =========================================================
 ;;; ====================== Create
 ;;; =========================================================
-(def-meta-stereotype |Create| 
+(def-meta-stereotype |Create|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|BehavioralFeature| UML23:|Usage|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Create")
  "When applied to a usage dependency, it specifies that the client classifier
   creates instances of the supplier classifier. When applied to a BehavioralFeature,
@@ -58,9 +58,9 @@
 ;;; =========================================================
 ;;; ====================== Derive
 ;;; =========================================================
-(def-meta-stereotype |Derive| 
+(def-meta-stereotype |Derive|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Abstraction|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Derive")
  "Specifies a derivation relationship among model elements that are usually,
   but not necessarily, of the same type. A derived dependency specifies that
@@ -76,9 +76,9 @@
 ;;; =========================================================
 ;;; ====================== Destroy
 ;;; =========================================================
-(def-meta-stereotype |Destroy| 
+(def-meta-stereotype |Destroy|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|BehavioralFeature|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Destroy")
  "Specifies that the designated feature destroys an instance of the classifier
   to which the feature is attached."
@@ -88,9 +88,9 @@
 ;;; =========================================================
 ;;; ====================== Document
 ;;; =========================================================
-(def-meta-stereotype |Document| 
+(def-meta-stereotype |Document|
    (:model :UML-PROFILE-L2-20110701 :superclasses (|File|) :extends (UML23:|Artifact|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Document")
  "A specific kind of file that is not an   Executable  ,   Library  ,   Script
     or   Source  . Subclass of   File  ."
@@ -100,9 +100,9 @@
 ;;; =========================================================
 ;;; ====================== Entity
 ;;; =========================================================
-(def-meta-stereotype |Entity| 
+(def-meta-stereotype |Entity|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Component|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Entity")
  "A persistent information component representing a business concept."
   ())
@@ -111,11 +111,11 @@
 ;;; =========================================================
 ;;; ====================== Executable
 ;;; =========================================================
-(def-meta-stereotype |Executable| 
+(def-meta-stereotype |Executable|
    (:model :UML-PROFILE-L2-20110701 :superclasses (|File|) :extends (UML23:|Artifact|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Executable")
- "A program file that can be executed on a computer system. Subclass of 
+ "A program file that can be executed on a computer system. Subclass of
    File  ."
   ())
 
@@ -123,9 +123,9 @@
 ;;; =========================================================
 ;;; ====================== File
 ;;; =========================================================
-(def-meta-stereotype |File| 
+(def-meta-stereotype |File|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Artifact|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "File")
  "A physical file in the context of the system developed."
   ())
@@ -134,9 +134,9 @@
 ;;; =========================================================
 ;;; ====================== Focus
 ;;; =========================================================
-(def-meta-stereotype |Focus| 
+(def-meta-stereotype |Focus|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Class|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Focus")
  "A class that defines the core logic or control flow for one or more auxiliary
   classes that support it. Support classes may be defined explicitly using
@@ -151,9 +151,9 @@
 ;;; =========================================================
 ;;; ====================== Framework
 ;;; =========================================================
-(def-meta-stereotype |Framework| 
+(def-meta-stereotype |Framework|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Package|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Framework")
  "A package that contains model elements that specify a reusable architecture
   for all or part of a system. Frameworks typically include classes, patterns,
@@ -165,9 +165,9 @@
 ;;; =========================================================
 ;;; ====================== Implement
 ;;; =========================================================
-(def-meta-stereotype |Implement| 
+(def-meta-stereotype |Implement|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Component|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Implement")
  "A component definition that is not intended to have a specification itself.
   Rather, it is an implementation for a separate   Specification   to which
@@ -178,9 +178,9 @@
 ;;; =========================================================
 ;;; ====================== ImplementationClass
 ;;; =========================================================
-(def-meta-stereotype |ImplementationClass| 
+(def-meta-stereotype |ImplementationClass|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Class|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "ImplementationClass")
  "The implementation of a class in some programming language (e.g., C++,
   Smalltalk, Java) in which an instance may not have more than one class.
@@ -201,9 +201,9 @@
 ;;; =========================================================
 ;;; ====================== Instantiate
 ;;; =========================================================
-(def-meta-stereotype |Instantiate| 
+(def-meta-stereotype |Instantiate|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Usage|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Instantiate")
  "A usage dependency among classifiers indicating that operations on the
   client create instances of the supplier."
@@ -213,9 +213,9 @@
 ;;; =========================================================
 ;;; ====================== Library
 ;;; =========================================================
-(def-meta-stereotype |Library| 
+(def-meta-stereotype |Library|
    (:model :UML-PROFILE-L2-20110701 :superclasses (|File|) :extends (UML23:|Artifact|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Library")
  "A static or dynamic library file. Subclass of   File  ."
   ())
@@ -224,9 +224,9 @@
 ;;; =========================================================
 ;;; ====================== Metaclass
 ;;; =========================================================
-(def-meta-stereotype |Metaclass| 
+(def-meta-stereotype |Metaclass|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Class|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Metaclass")
  "A class whose instances are also classes."
   ())
@@ -235,9 +235,9 @@
 ;;; =========================================================
 ;;; ====================== ModelLibrary
 ;;; =========================================================
-(def-meta-stereotype |ModelLibrary| 
+(def-meta-stereotype |ModelLibrary|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Package|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "ModelLibrary")
  "A package that contains model elements that are intended to be reused by
   other packages. Model libraries are frequently used in conjunction with
@@ -259,9 +259,9 @@
 ;;; =========================================================
 ;;; ====================== Process
 ;;; =========================================================
-(def-meta-stereotype |Process| 
+(def-meta-stereotype |Process|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Component|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Process")
  "A transaction based component."
   ())
@@ -270,9 +270,9 @@
 ;;; =========================================================
 ;;; ====================== Realization
 ;;; =========================================================
-(def-meta-stereotype |Realization| 
+(def-meta-stereotype |Realization|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Classifier|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Realization")
  "A classifier that specifies a domain of objects and that also defines the
   physical implementation of those objects. For example, a Component stereotyped
@@ -287,9 +287,9 @@
 ;;; =========================================================
 ;;; ====================== Refine
 ;;; =========================================================
-(def-meta-stereotype |Refine| 
+(def-meta-stereotype |Refine|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Abstraction|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Refine")
  "Specifies a refinement relationship between model elements at different
   semantic levels, such as analysis and design. The mapping specifies the
@@ -303,9 +303,9 @@
 ;;; =========================================================
 ;;; ====================== Responsibility
 ;;; =========================================================
-(def-meta-stereotype |Responsibility| 
+(def-meta-stereotype |Responsibility|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Usage|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Responsibility")
  "A contract or an obligation of an element in its relationship to other
   elements."
@@ -315,9 +315,9 @@
 ;;; =========================================================
 ;;; ====================== Script
 ;;; =========================================================
-(def-meta-stereotype |Script| 
+(def-meta-stereotype |Script|
    (:model :UML-PROFILE-L2-20110701 :superclasses (|File|) :extends (UML23:|Artifact|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Script")
  "A script file that can be interpreted by a computer system. Subclass of
     File  ."
@@ -327,9 +327,9 @@
 ;;; =========================================================
 ;;; ====================== Send
 ;;; =========================================================
-(def-meta-stereotype |Send| 
+(def-meta-stereotype |Send|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Usage|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Send")
  "A usage dependency whose client is an operation and whose supplier is a
   signal, specifying that the client sends the supplier signal."
@@ -339,9 +339,9 @@
 ;;; =========================================================
 ;;; ====================== Service
 ;;; =========================================================
-(def-meta-stereotype |Service| 
+(def-meta-stereotype |Service|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Component|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Service")
  "A stateless, functional component (computes a value)."
   ())
@@ -350,9 +350,9 @@
 ;;; =========================================================
 ;;; ====================== Source
 ;;; =========================================================
-(def-meta-stereotype |Source| 
+(def-meta-stereotype |Source|
    (:model :UML-PROFILE-L2-20110701 :superclasses (|File|) :extends (UML23:|Artifact|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Source")
  "A source file that can be compiled into an executable file. Subclass of
     File  ."
@@ -362,9 +362,9 @@
 ;;; =========================================================
 ;;; ====================== Specification
 ;;; =========================================================
-(def-meta-stereotype |Specification| 
+(def-meta-stereotype |Specification|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Classifier|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Specification")
  "A class that specifies a domain of objects together with the operations
   applicable to the objects, without defining the physical implementation
@@ -379,9 +379,9 @@
 ;;; =========================================================
 ;;; ====================== Subsystem
 ;;; =========================================================
-(def-meta-stereotype |Subsystem| 
+(def-meta-stereotype |Subsystem|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Component|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Subsystem")
  "A unit of hierarchical decomposition for large systems. A subsystem is
   commonly instantiated indirectly. Definitions of subsystems vary widely
@@ -395,9 +395,9 @@
 ;;; =========================================================
 ;;; ====================== Trace
 ;;; =========================================================
-(def-meta-stereotype |Trace| 
+(def-meta-stereotype |Trace|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Abstraction|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Trace")
  "Specifies a trace relationship between model elements or sets of model
   elements that represent the same concept in different models. Traces are
@@ -411,9 +411,9 @@
 ;;; =========================================================
 ;;; ====================== Type
 ;;; =========================================================
-(def-meta-stereotype |Type| 
+(def-meta-stereotype |Type|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Class|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Type")
  "A class that specifies a domain of objects together with the operations
   applicable to the objects, without defining the physical implementation
@@ -428,16 +428,16 @@
 ;;; =========================================================
 ;;; ====================== Utility
 ;;; =========================================================
-(def-meta-stereotype |Utility| 
+(def-meta-stereotype |Utility|
    (:model :UML-PROFILE-L2-20110701 :superclasses NIL :extends (UML23:|Class|)
- :packages (|StandardProfileL2|) 
+ :packages (|StandardProfileL2|)
  :xmi-id "Utility")
  "A class that has no instances, but rather denotes a named collection of
   static attributes and static operations, all of which are class-scoped."
   ())
 
 
-(def-meta-package |StandardProfileL2| NIL :UML-PROFILE-L2-20110701 
+(def-meta-package |StandardProfileL2| NIL :UML-PROFILE-L2-20110701
    (|Auxiliary|
     |Call|
     |Create|
@@ -469,14 +469,14 @@
     |Type|
     |Utility|) :xmi-id "+The-Model+")
 
-(def-meta-package UML\ 2.4.1 NIL :UML-PROFILE-L2-20110701 
+(def-meta-package UML\ 2.4.1 NIL :UML-PROFILE-L2-20110701
    () :xmi-id NIL)
 
 (in-package :mofi)
 
 
 (with-slots (mofi::abstract-classes mofi:ns-uri mofi:ns-prefix) mofi:*model*
-     (setf mofi::abstract-classes 
-        '(UML-PROFILE-L2-20110701::|File|))
+     (setf mofi::abstract-classes
+	'(UML-PROFILE-L2-20110701::|File|))
      (setf mofi:ns-uri "http://www.omg.org/spec/UML/20110701/StandardProfileL2")
      (setf mofi:ns-prefix "StandardProfileL2"))

@@ -122,29 +122,6 @@
     (setf (slot-value obj 'rune-dom::parent) attr)
     obj))
 
-;;; 2022: Returned from my convenience function for cxml, xml-attributes, are attributes AND children,
-;;;       That is actually the rational thing to do. (XML was idiotic to make that distinction.)
-;;;       That notwithstanding, it isn't something that can should be encouraged here!
-;;;       A RUNE-DOM::ELEMENT for xml such as:
-;;;
-;;;  <ownedComment xmi:type="uml:Comment"
-;;;                xmi:id="Activity-_ownedComment.0"
-;;;                body="An Activity is the specification of parameterized Behavior as the coordinated sequencing of subordinate units.">
-;;;        <annotatedElement xmi:idref="Activity"/>
-;;;  </ownedComment>
-;;;
-;;; has CHILDREN: #(#<RUNE-DOM::ELEMENT body {100DACB503}>)
-;;;   ATTRIBUTES: #<XML-UTILS::LINE-CNT-ATTRIBUTE-NODE-MAP {100D900E23}>
-;;; the latter containing
-;;; The object is a STANDARD-OBJECT of type XML-UTILS::LINE-CNT-ATTRIBUTE-NODE-MAP.
-;;;      ITEMS: (#<RUNE-DOM::ATTRIBUTE xmi:type="uml:Comment" {1011A3F783}>
-;;;              #<RUNE-DOM::ATTRIBUTE xmi:id="Activity-_ownedComment.0" {1011A3F793}>
-;;;              #<RUNE-DOM::ATTRIBUTE annotatedElement="Activity" {100DACB513}>)
-;;;
-;;; So as it show, body is a RUNE-DOM::ELEMENT, and annotatedElement is an RUNE-DOM::ATTRIBUTE. Reverse of what I'd expect.
-;;;
-;;; Similarly messed up, xml-children of this element returns body, and not annotatedElement.
-;;; So I'm going to try to fix this! 
 (defun xml-children (elem) (coerce (dom:child-nodes elem) 'list))
 
 (defun (setf xml-children) (val node)

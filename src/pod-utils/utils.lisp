@@ -1,4 +1,3 @@
-
 ;;; Copyright (c) 2004 Peter Denno
 ;;;
 ;;; Permission is hereby granted, free of charge, to any person
@@ -41,7 +40,7 @@
 ;;; Value: a list of lists. If the argument is nil, it returns nil.
 (defun combinations (&rest sets)
   (cond ((null sets) nil)
-	(t 
+	(t
 	 (flet ((combinations-aux (aset bset)
 		  (cond ((not aset) bset)
 			((not bset) aset)
@@ -66,7 +65,7 @@
   (intern (string-upcase (apply #'format nil (string string) args))
 	  (find-package "KEYWORD")))
 
-#| POD lighter weight, more likely 
+#| POD lighter weight, more likely
 (declaim (inline kintern))
 (defun kintern (string)
   "Apply FORMAT to STRING and ARGS, upcase the resulting string and
@@ -164,7 +163,7 @@
   `(memoize (defun ,fn ,args ,body)))
 
 ;;; Stuff to use when you have a serious number of memoized functions,
-;;; and you have a notion of "starting over." 
+;;; and you have a notion of "starting over."
 ;;; POD Limitation: Doesn't use the keys of memoize!
 (defmacro defmemo (fname &body body)
   `(progn (defun ,fname ,@body)
@@ -182,9 +181,9 @@
        (system-add-memoized-fn ',fname))))
 
 ;;; Of course specifying :test equal should have been possible with defmemo,
-;;; but it is a little late now. 
+;;; but it is a little late now.
 ;;; "Somewhat deprecated." Use defmemo (:key #'unique :test #'eq) except where
-;;; the argument is a string. 
+;;; the argument is a string.
 (defmacro defmemo-equal (fname &body body)
   `(progn (defun ,fname ,@body)
      (eval-when (:load-toplevel)
@@ -193,10 +192,10 @@
 
 (let ((+memoized-fns+ nil))
   (defun system-clear-memoized-fns (&key suppress-warning)
-    (mapcar #'(lambda (x) 
-                (unless suppress-warning (warn "Clearing memoized ~A" x))
-                (clear-memoize x))
-            +memoized-fns+))
+    (mapcar #'(lambda (x)
+		(unless suppress-warning (warn "Clearing memoized ~A" x))
+		(clear-memoize x))
+	    +memoized-fns+))
   (defun system-add-memoized-fn (fname)
     (pushnew fname +memoized-fns+))
   (defun system-list-memoized-fns ()
@@ -209,27 +208,27 @@
 ;;; (vars a b c) => (FORMAT *TRACE-OUTPUT* "~&a = ~S b = ~S c = ~S ~%" A B C)
 (defmacro VARS (&rest variables)
   `(format *trace-output*
-           ,(loop with result = "~&"
-                  for var in variables
-                  do
-                  (setf result
-                        (if (and (consp var)
-                                 (eq (first var) 'quote))
-                            (concatenate 'string result " ~S ")
-                          (concatenate 'string result (string-downcase var) " = ~S ")))
-                  finally (return (concatenate 'string result "" #|"~%"|#)))
-           ,@variables))
+	   ,(loop with result = "~&"
+		  for var in variables
+		  do
+		  (setf result
+			(if (and (consp var)
+				 (eq (first var) 'quote))
+			    (concatenate 'string result " ~S ")
+			  (concatenate 'string result (string-downcase var) " = ~S ")))
+		  finally (return (concatenate 'string result "" #|"~%"|#)))
+	   ,@variables))
 
 ;;; The most essential macro building tool.
 (defmacro mac (macro)
   `(pprint (macroexpand-1 ',macro)))
 
-;;; Similar, but used on 'subtype' macros. 
+;;; Similar, but used on 'subtype' macros.
 (defmacro mac2 (macro)
   `(pprint (macroexpand-1 (macroexpand-1 ',macro))))
 
-;;; Dirk H.P. Gerrits' "Lisp Code Walker" slides, ALU Meeting, Amsterdam, 2003. 
-;;; With additional corrections (beyond that in his notes). 
+;;; Dirk H.P. Gerrits' "Lisp Code Walker" slides, ALU Meeting, Amsterdam, 2003.
+;;; With additional corrections (beyond that in his notes).
 (defvar *mea-hooks* (make-hash-table :test #'eq))
 (defun macroexpand-all (form &optional env)
   "Macroexpand FORM recursively until none of its subforms can be further expanded."
@@ -237,15 +236,15 @@
       (macroexpand-1 form env)
     (declare (ignore macrop))
     (let* ((key (and (consp form) (car form)))
-           (hook (gethash key *mea-hooks*)))
+	   (hook (gethash key *mea-hooks*)))
       (cond (hook (funcall hook form env))
-            ((and (consp form) (symbolp (car form)) (macro-function (car form)))
-             (macroexpand-all expansion env))
-            ((consp form) (cons (car form)
-                                (mapcar #'(lambda (arg)
-                                            (macroexpand-all arg env))
-                                        (cdr form))))
-            (t expansion)))))
+	    ((and (consp form) (symbolp (car form)) (macro-function (car form)))
+	     (macroexpand-all expansion env))
+	    ((consp form) (cons (car form)
+				(mapcar #'(lambda (arg)
+					    (macroexpand-all arg env))
+					(cdr form))))
+	    (t expansion)))))
 
 (defun load-ht (ht key-value-pairs)
   "Load the argument hash table with the argument values
@@ -255,7 +254,7 @@
 	(setf (gethash (pop key-value-pairs) ht)
 	      (pop key-value-pairs)))
   ht)
-  
+
 (defmacro when-bind ((var expr) &body body)
   "Paul Graham 'On LISP' pg 145. when+let"
   `(let ((,var ,expr))
@@ -280,11 +279,11 @@
 	((null (cdr args)) (car args))
 	(t `(aif ,(car args) (aand ,@(cdr args))))))
 
-;;; Better to call it 'bif' like KT. 
+;;; Better to call it 'bif' like KT.
 (defmacro if-bind ((var expr) then else)
   `(let ((,var ,expr))
      (if ,var
-         ,then 
+	 ,then
        ,else)))
 
 (defmacro when-bind* (binds &body body)
@@ -297,7 +296,7 @@
 
 (defmacro with-gensyms (syms &body body)
   "Paul Graham ON LISP pg 145. Used in macros to avoid variable capture."
-  `(let ,(mapcar #'(lambda (s) 
+  `(let ,(mapcar #'(lambda (s)
 		     `(,s (gensym)))
 	  syms)
      ,@body))
@@ -309,7 +308,7 @@
 
 (defun remove-extra-spaces (string)
   "Leave only one space between non-space characters of argument string."
-  (if (string= string "") 
+  (if (string= string "")
       ""
       (let* ((len (length string))
 	     (new-string (make-array len :element-type 'character :fill-pointer 0)))
@@ -324,16 +323,16 @@
   "Return the argument STRING with linefeeds inserted at some position past POSITION
    where a character in the break-bag is encountered."
   (let* ((len (length string))
-         (new-string (make-array (* 2 len) :element-type 'character :fill-pointer 0)))
+	 (new-string (make-array (* 2 len) :element-type 'character :fill-pointer 0)))
     (loop for ix from 0 to (1- (length string))
-          with count = 0
-          do (vector-push (char string ix) new-string)
-          (incf count)
-          when (and (> count position)
-                    (find (char string ix) break-bag))
-          do (vector-push #\Linefeed new-string)
-          (setf count 0)
-          finally (return new-string))))
+	  with count = 0
+	  do (vector-push (char string ix) new-string)
+	  (incf count)
+	  when (and (> count position)
+		    (find (char string ix) break-bag))
+	  do (vector-push #\Linefeed new-string)
+	  (setf count 0)
+	  finally (return new-string))))
 
 (defun read-string-to-list (string)
   (loop with val = nil and start = 0
@@ -343,32 +342,32 @@
 	collect val))
 
 ;;; (cl-ppcre:split "\\s+" "foo   bar baz frob")
-;;; ("foo" "bar" "baz" "frob") 
+;;; ("foo" "bar" "baz" "frob")
 ;;; http://weitz.de/cl-ppcre/#split .... but a bit slow if you don't need a pattern. CHECK THIS!
 (defun split (string c &key min-size end)
   "Like the perl split, split the string using the character. Return
    a list of substrings."
   (let ((result
-         (loop for i from 0 to (1- (length string))
+	 (loop for i from 0 to (1- (length string))
 	       for cnt from 0
-               with start = 0 with size = 0
+	       with start = 0 with size = 0
 	       do (incf size)
-               when (and (char= c (char string i))
+	       when (and (char= c (char string i))
 			 (or (not min-size)
 			     (> size min-size)))
-               collect (subseq string start i) into result
-               and do (setf start (1+ i) size 0)
+	       collect (subseq string start i) into result
+	       and do (setf start (1+ i) size 0)
 	       when (and end (> cnt end)) return result
-               finally (return (append result (list (subseq string start)))))))
+	       finally (return (append result (list (subseq string start)))))))
     (if (zerop (length (first (last result))))
-        (butlast result)
+	(butlast result)
 	 result)))
 
 ;;;(defun tryme () (loop for i from 1 to 1000000 do (cl-ppcre:split "x" "axbxcxdx")))
 ;;;(defun tryme1 () (loop for i from 1 to 1000000 do (split "axbxcxdx" #\x)))
 ;;;(defun tryme1 () (loop for i from 1 to 1000000 do (split2 "axbxcxdx" #\x)))
 
-#| Jonathan's. Mine is faster, except when you want a vector. 
+#| Jonathan's. Mine is faster, except when you want a vector.
 (defun split2 (a-string split-character)
   (let ((substrings (make-array 64 :adjustable t :fill-pointer 0)) (last-index 0))
     (dotimes (n (length a-string))
@@ -383,16 +382,16 @@
   "For 'abc' return 'a'. For 'product_definition_formation' return 'pdf', etc."
   (unless (stringp string) (setf string (string string)))
   (let ((result (make-array 31 :element-type 'character :fill-pointer 0))
-        (len (length string)))
+	(len (length string)))
     (vector-push (char string 0) result)
     (loop for i from 1 to (1- len)
-          when (and (char= (char string i) #\_) (< i (1- len))) do
-          (vector-push (char string (+ i 1)) result)
-          (incf i))
+	  when (and (char= (char string i) #\_) (< i (1- len))) do
+	  (vector-push (char string (+ i 1)) result)
+	  (incf i))
     result))
 
 ;;; POD What do you want for WriteIThis ? I'm getting "Write IT This"
-#+nil ; not yet used. 
+#+nil ; not yet used.
 (defun camel2spaced (str)
   "WriteThis like this: 'Write This'"
   (with-output-to-string (s)
@@ -400,11 +399,11 @@
 	  with spaced = nil
 	  for i from 0 to (1- len)
 	  for c1 = (aref str i)
-	  for c2 = (unless (= i (1- len)) (aref str (1+ i))) 
+	  for c2 = (unless (= i (1- len)) (aref str (1+ i)))
 	  for up1-p = (upper-case-p c1)
-	  for up2-p = (and c2 (upper-case-p c2)) do 
+	  for up2-p = (and c2 (upper-case-p c2)) do
 	  (cond ((or spaced
-		     (zerop i) 
+		     (zerop i)
 		     (not c2))
 		 (write-char c1 s) (setf spaced nil))
 		((or (and up1-p (not up2-p))
@@ -419,18 +418,18 @@
   "aNameLikeThis --> a-name-like-this"
   (setf c-string (string c-string)) ; 2008-01-23
   (let* ((len (length c-string))
-         (result (make-array (* 2 len) :element-type 'character :fill-pointer 0)))
+	 (result (make-array (* 2 len) :element-type 'character :fill-pointer 0)))
     (vector-push (char c-string 0) result)
     (loop for i from 1 to (1- len)
-          for char = (char c-string i) do		  
-          (when (upper-case-p char) (vector-push dash result))
-          (vector-push char result))
+	  for char = (char c-string i) do
+	  (when (upper-case-p char) (vector-push dash result))
+	  (vector-push char result))
     (string-downcase result)))
 
 (defun string-squeeze (str char-bag)
   "Return a string based on STR but with all chars for CHAR-BAR removed."
   (let* ((len (length str))
-         (result (make-array len :element-type 'character :fill-pointer 0)))
+	 (result (make-array len :element-type 'character :fill-pointer 0)))
     (loop for i from 0 to (1- len)
 	  for c = (char str i)
 	  unless (member c char-bag :test #'char=)
@@ -445,18 +444,18 @@
     (vector-push (char lisp-string 0) result)
     (loop for i from 1 to (1- len)
 	  for char = (char lisp-string i)
-          with upper-next = nil do		  
+	  with upper-next = nil do
 	  (cond ((or (char= char #\-) (char= char #\_))
-                 (setf upper-next t))
-                (t (vector-push (if upper-next (char-upcase char) char) result)
-                   (setf upper-next nil))))
+		 (setf upper-next t))
+		(t (vector-push (if upper-next (char-upcase char) char) result)
+		   (setf upper-next nil))))
     result))
 
 (defun dash-to-camel (str &key (separator #\_) (capitalize-first t))
   "change_this to ChangeThis."
   (with-output-to-string (stream)
     (let ((len (length str)))
-      (unless (char= (char str 0) separator) 
+      (unless (char= (char str 0) separator)
 	(if capitalize-first
 	    (write-char (char-upcase (char str 0)) stream)
 	    (write-char (char str 0) stream)))
@@ -466,7 +465,7 @@
 	      (if (char= (char str (1- i)) separator)
 		  (write-char (char-upcase c) stream)
 		  (write-char c stream)))))))
-	    
+
 
 ;;;=============================================
 ;;; A bunch more from Paul Grahams's "On Lisp."
@@ -487,18 +486,18 @@
 (defun longer (x y)
   "Return true if x longer than y -- only for lists."
   (labels ((compare (x y)
-             (and (consp x)
-                  (or (null y)
-                      (compare (cdr x) (cdr y))))))
+	     (and (consp x)
+		  (or (null y)
+		      (compare (cdr x) (cdr y))))))
     (if (and (listp x) (listp y))
-        (compare x y)
+	(compare x y)
       (> (length x) (length y)))))
 
 (defun string-integer-p (str)
   "Returns the integer if the string is one, otherwise nil."
   (when (stringp str)
     (let ((c1 (char str 0)))
-      (and (or (digit-char-p c1) 
+      (and (or (digit-char-p c1)
 	       (char= #\+ c1)
 	       (char= #\- c1))
 	   (every #'digit-char-p (subseq str 1))
@@ -507,23 +506,23 @@
 (defun group (source n)
   (if (zerop n) (error "zero length"))
   (labels ((rec (source acc)
-             (let ((rest (nthcdr n source)))
-               (if (consp rest)
-                   (rec rest (cons (subseq source 0 n) acc))
-                 (nreverse (cons source acc))))))
+	     (let ((rest (nthcdr n source)))
+	       (if (consp rest)
+		   (rec rest (cons (subseq source 0 n) acc))
+		 (nreverse (cons source acc))))))
     (if source (rec source nil) nil)))
 
 (defun prune (test tree)
   " (prune #'oddp '(1 2 (3 4) (5 6 (7 8 (9 10 (11)) 12) 13))) ==> (2 (4) (6 (8 (10 NIL) 12)))"
   (labels ((rec (tree acc)
-             (cond ((null tree) (nreverse acc))
-                   ((consp (car tree))
-                    (rec (cdr tree)
-                         (cons (rec (car tree) nil) acc)))
-                   (t (rec (cdr tree)
-                           (if (funcall test (car tree))
-                               acc 
-                             (cons (car tree) acc)))))))
+	     (cond ((null tree) (nreverse acc))
+		   ((consp (car tree))
+		    (rec (cdr tree)
+			 (cons (rec (car tree) nil) acc)))
+		   (t (rec (cdr tree)
+			   (if (funcall test (car tree))
+			       acc
+			     (cons (car tree) acc)))))))
     (rec tree nil)))
 
 (defun find2 (fn lst)
@@ -531,17 +530,17 @@
   (if (null lst)
       nil
     (let ((val (funcall fn (car lst))))
-      (if val 
-          (values (car lst) val)
-        (find2 fn (cdr lst))))))
+      (if val
+	  (values (car lst) val)
+	(find2 fn (cdr lst))))))
 
 (defun before (x y lst &key (test #'eql))
   "Returns like member when x before y."
   (and lst
        (let ((first (car lst)))
-         (cond ((funcall test y first) nil)
-               ((funcall test x first) lst)
-               (t (before x y (cdr lst) :test test))))))
+	 (cond ((funcall test y first) nil)
+	       ((funcall test x first) lst)
+	       (t (before x y (cdr lst) :test test))))))
 
 (defun after (x y lst &key (test #'eql))
   "Returns like member when x after y. x must be in y."
@@ -558,8 +557,8 @@
    (split-if #'(lambda (x) (> x 4)) '(1 2 3 4 5 6 7) ==> (1 2 3 4) (5 6 7)"
   (let ((acc nil))
     (do ((src lst (cdr src)))
-        ((or (null src) (funcall fn (car src)))
-         (values (nreverse acc) src))
+	((or (null src) (funcall fn (car src)))
+	 (values (nreverse acc) src))
       (push (car src) acc))))
 
 ;;; Why waste your life typing?
@@ -603,7 +602,7 @@
 
 
 ;;; "...Thus the most general form of ~D is ~mincol,padchar,commachar,comma-intervalD."
-;;; Note also that padchar "must be a character" --> put a ' before it. 
+;;; Note also that padchar "must be a character" --> put a ' before it.
 (defun now (&key (form :iso-8601) pretty-p)
   (multiple-value-bind (s m h d month y) (decode-universal-time (get-universal-time))
     (case form
@@ -627,16 +626,16 @@
 	 (format nil "~D~2,'0D~2,'0D"  y month d))
       (:hhmm (format nil "~2,'0D~2,'0D" h m)))))
 
-			
+
 ; Norvig's search routines, with do-fn
 (defun tree-search (states goal-p successors combiner do-fn)
-  "Find a state that satisfies goal-p. Start with STATES, 
+  "Find a state that satisfies goal-p. Start with STATES,
    and search according to SUCCESSORS and COMBINERS."
   (cond ((null states) :fail)
-        ((funcall goal-p (first states))
+	((funcall goal-p (first states))
 	 (when do-fn (funcall do-fn (first states)))
 	 (first states))
-        (t 
+	(t
 	 (when do-fn (funcall do-fn (first states)))
 	 (tree-search
 	  (funcall combiner
@@ -662,9 +661,9 @@
 	  ((funcall goal-p (caar +search-path+))
 	   (when do (funcall do (caar +search-path+)))
 	   (mapcar #'car +search-path+))
-	  (t 
+	  (t
 	   (when do (funcall do (caar +search-path+)))
-	   (let ((children 
+	   (let ((children
 		  (when successors ; 2011-05-10 should be pointless.
 		    (funcall successors (caar +search-path+)))))
 	     (if children
@@ -688,12 +687,12 @@
 	   (mn 'a
 	       (mn 'b
 		   (mn 'd)
-		   (mn 'e 
-		       (mn 'f 
+		   (mn 'e
+		       (mn 'f
 			   (mn 'h))
 		       (mn 'g)))
 	       (mn 'c))))
-  (depth-first-search a #'(lambda (x) (eql (name x) goal)) #'children 
+  (depth-first-search a #'(lambda (x) (eql (name x) goal)) #'children
 		      :tracking t
 		      :start-state (list (list a))))))
 |#
@@ -713,19 +712,19 @@
 	       (mn 'b
 		   (mn 'd)
 		   (mn 'a)
-		   (mn 'e 
-		       (mn 'f 
+		   (mn 'e
+		       (mn 'f
 			   (mn 'h))
 		       (mn 'g)))
 	       (mn 'c))))
-  (depth-first-search a 
+  (depth-first-search a
 		      #'(lambda (x) (declare (ignore x)) (gather-duplicates (tree-search-path) :key #'name))
-		      #'children 
+		      #'children
 		      :tracking t
 		      :start-state (list (list a))))))
 |#
 
-(defun depth-first-search (start goal-p successors 
+(defun depth-first-search (start goal-p successors
 			   &key do tracking start-state (on-fail :fail))
   "Search new states first until goal returns T."
   (let ((result
@@ -755,28 +754,28 @@
   (with-gensyms (obj pos)
     `(let ((,obj ,object))
        (if-bind (,pos (position (funcall ,key ,obj) ,place :key ,key :test ,test))
-                (setf ,place (substitute ,obj (nth ,pos ,place) ,place))
-                (push ,obj ,place)))))
+		(setf ,place (substitute ,obj (nth ,pos ,place) ,place))
+		(push ,obj ,place)))))
 
 ;;; The body should be a mp:process-run-function.
 (defmacro with-stack-size ((size) &body body)
-  `(let (#+Lispworks(sys:*sg-default-size* ,size) 
-         #-Lispworks())
+  `(let (#+Lispworks(sys:*sg-default-size* ,size)
+	 #-Lispworks())
      ,@body))
 
 ;;;   "If in the body you really want double quotes, use escape (e.g. "\"abc\"")
 (defmacro pprint-without-strings (&body body)
-  `(unwind-protect 
-       (progn 
-         (set-pprint-dispatch 'string #'(lambda (s x) (let ((*print-pretty* nil)) (format s "~a" x))))
-         ,@body)
+  `(unwind-protect
+       (progn
+	 (set-pprint-dispatch 'string #'(lambda (s x) (let ((*print-pretty* nil)) (format s "~a" x))))
+	 ,@body)
     (set-pprint-dispatch 'string nil)))
 
 (defmacro pprint-symbols (&body body)
-  `(unwind-protect 
-       (progn 
-         (set-pprint-dispatch 'symbol #'(lambda (s x) (let ((*print-pretty* nil)) (format s "~a" (symbol-name x)))))
-         ,@body)
+  `(unwind-protect
+       (progn
+	 (set-pprint-dispatch 'symbol #'(lambda (s x) (let ((*print-pretty* nil)) (format s "~a" (symbol-name x)))))
+	 ,@body)
     (set-pprint-dispatch 'symbol nil)))
 
 (defun chop (str)
@@ -798,8 +797,8 @@
 
 ;;; Sam Steingold
 (defmacro ensure-gethash (object ht default)
-  "Just like GETHASH with the default argument, but DEFAULT is only 
-   evaluated when OBJECT is not found and in that case the value of 
+  "Just like GETHASH with the default argument, but DEFAULT is only
+   evaluated when OBJECT is not found and in that case the value of
    DEFAULT is placed into (GETHASH OBJECT HT)."
   (with-gensyms (obj tab)
    `(let ((,obj ,object) (,tab ,ht))
@@ -825,8 +824,8 @@
 ;;; (It is an error if evaluated multiply and the old and new values are not eql).
 ;;; POD : So...not sure this is really valid. Compiler is permitted to use EQL to compare
 ;;; Nyef: Use for 'symbols and fixnums in an immediate-fixnum system'
-;;;  "The consequences are undefined if there are any bindings of the variable named 
-;;;   by name at the time defconstant is executed or if the value is not eql to the 
+;;;  "The consequences are undefined if there are any bindings of the variable named
+;;;   by name at the time defconstant is executed or if the value is not eql to the
 ;;;   value of initial-value" ... consider using a make-load-form.
 (defmacro define-constant (name value &optional doc)
   `(defconstant ,name (if (boundp ',name) (symbol-value ',name) ,value)
@@ -834,8 +833,8 @@
 
 ;;; Resource lists -- An array that is fast in SBCL (:fill-pointer nil :adjustable nil)
 ;;; that can be stocked with some element and automatically restocked when that element
-;;; is depleted. It is also an 'adjustable' array of sorts. 
-;;; NOTE: :adjustable-p t arrays are adjustable-array-p = t. This only means that 
+;;; is depleted. It is also an 'adjustable' array of sorts.
+;;; NOTE: :adjustable-p t arrays are adjustable-array-p = t. This only means that
 ;;; adjust-array might return an array identical to the argument. The returned array
 ;;; need not be adjustable.
 (defstruct reslist
@@ -845,16 +844,16 @@
   (arr nil :type simple-vector))
 
 (defun new-reslist (size &key (element-type t) (resize 2.0) stock-fn)
-  "Make a resource list of SIZE. Initialize with elements provided by STOCK-FN, 
+  "Make a resource list of SIZE. Initialize with elements provided by STOCK-FN,
    if provided."
   (declare (values reslist))
   (let ((reslist (make-reslist
-                 :arr (make-array size :element-type element-type)
-                 :resize resize :stock-fn stock-fn))) ; pod compile it???
+		 :arr (make-array size :element-type element-type)
+		 :resize resize :stock-fn stock-fn))) ; pod compile it???
     (when stock-fn
       (let ((arr (reslist-arr reslist)))
-        (declare (type simple-vector arr))
-        (loop for i from 0 to (1- size) do (setf (aref arr i) (funcall stock-fn))))
+	(declare (type simple-vector arr))
+	(loop for i from 0 to (1- size) do (setf (aref arr i) (funcall stock-fn))))
       (setf (reslist-fillptr reslist) size))
     reslist))
 
@@ -864,18 +863,18 @@
   (declare (type reslist reslist))
   (declare (values integer))
   (let* ((arr (reslist-arr reslist))
-         (size (array-total-size arr))
-         (ptr (reslist-fillptr reslist)))
+	 (size (array-total-size arr))
+	 (ptr (reslist-fillptr reslist)))
     (declare (type integer ptr size) (type simple-vector arr))
     (when (= ptr size)
       (let ((resize (reslist-resize reslist)))
-        (declare (type (or single-float integer) resize))
-        (setf (reslist-arr reslist)
-                (setf arr 
-                        (adjust-array arr 
-                           (if (floatp resize) 
-                             (floor (* size resize))
-                             (+ size resize)))))))
+	(declare (type (or single-float integer) resize))
+	(setf (reslist-arr reslist)
+		(setf arr
+			(adjust-array arr
+			   (if (floatp resize)
+			     (floor (* size resize))
+			     (+ size resize)))))))
     (setf (aref arr ptr) val)
     (incf (reslist-fillptr reslist))))
 
@@ -885,19 +884,19 @@
   (declare (type reslist reslist))
   (let ((arr (reslist-arr reslist)))
     (declare (type simple-vector arr))
-    (when (zerop (reslist-fillptr reslist)) 
+    (when (zerop (reslist-fillptr reslist))
       (if-bind (fn (reslist-stock-fn reslist))
        (let ((size (array-total-size arr)))
-         (declare (type integer size))
-         (loop for i from 0 to (1- size) do
-               (setf (aref arr i) (funcall fn)))
-         (setf (reslist-fillptr reslist) size))
+	 (declare (type integer size))
+	 (loop for i from 0 to (1- size) do
+	       (setf (aref arr i) (funcall fn)))
+	 (setf (reslist-fillptr reslist) size))
        (error "Reslist: Nothing left to pop.")))
     (let ((ptr (decf (reslist-fillptr reslist))))
       (declare (type integer ptr))
-      (prog1 
-        (aref arr ptr)
-        (setf (aref arr ptr) nil)))))
+      (prog1
+	(aref arr ptr)
+	(setf (aref arr ptr) nil)))))
 
 (defun intersect-predicates (fn &rest fns)
   "Paul Graham's. Return a predicate which is the AND of the arguments."
@@ -905,7 +904,7 @@
       fn
     (let ((chain (apply #'intersect-predicates fns)))
       #'(lambda (x)
-          (and (funcall fn x) (funcall chain x))))))
+	  (and (funcall fn x) (funcall chain x))))))
 
 (proclaim '(inline ht2list))
 (defun ht2list (ht)
@@ -928,7 +927,7 @@
 ;;; As of SLED11 file --brief returns:
 ;;;  XML:  XML  document text
 ;;;  Text: UTF-8 Unicode text
-#+linux 
+#+linux
 (defun usr-bin-file (filename)
   "Return results from the /usr/bin/file command as a keyword. Quick and Dirty -- test it!"
   (when (pathname filename) (setf filename (namestring (truename filename))))
@@ -940,7 +939,7 @@
 		 #+sbcl (make-string-input-stream (inferior-shell:run/s cmd))
 		 #-(or Lispworks sbcl)(error 'unknown-platform :string "Don't know how to start a process.")))
     (flet ((find-type (line)
-	      (loop for type in types do 
+	      (loop for type in types do
 		    (when-bind (pos (search (car type) line))
 			       (when (zerop pos) (return-from find-type (cdr type)))))))
       (loop for line = (read-line stream nil nil) with result = nil
@@ -952,7 +951,7 @@
     (let ((types `(("XML" . :xml) ("Zip" . :zip) ("ASCII" . :text) ("UTF-8" . :text)
 		   ("\"\\011XML" . :xml)  ("HTML" . :html))))
       (flet ((find-type (line)
-	       (loop for type in types do 
+	       (loop for type in types do
 		    (when-bind (pos (search (car type) line))
 		      (when (zerop pos) (return-from find-type (cdr type)))))))
 	(loop for line = (read-line stream nil nil) with result = nil
@@ -971,11 +970,11 @@
   ((the-instance :reader the-instance :initform nil)))
 
 (defmethod validate-superclass ((class singleton)
-                                (superclass standard-class))
+				(superclass standard-class))
   t)
 
 (defmethod validate-superclass ((class t)
-                                (superclass singleton))
+				(superclass singleton))
   t)
 
 ;;;(defmethod validate-superclass ((class singleton)
@@ -993,15 +992,15 @@
 
 (defun substitute-string (new old str)
   (let ((len (length old)) pos)
-    (loop while (setf pos (search old str)) do  
-         (setf str (strcat (subseq str 0 pos) new (subseq str (+ len pos)))))
+    (loop while (setf pos (search old str)) do
+	 (setf str (strcat (subseq str 0 pos) new (subseq str (+ len pos)))))
     str))
 
 (defun copy-file (in-path out-path)
   "Copy file from IN-PATH to OUT-PATH. Assumes latin-1 with linefeed, at least."
   (with-open-file (in in-path :direction :input)
     (with-open-file (out out-path :direction :output :if-exists :supersede)
-      (loop 
+      (loop
        (mvb (line no-newline-p) (read-line in nil nil)
 	 (when (null line) (return nil))
 	 (write-string line out)
@@ -1023,9 +1022,9 @@
   (with-output-to-string (s)
     (loop for c across str
 	  for code = (char-code c)
-	  do (cond ((and (> code 31) (< code 127)) 
+	  do (cond ((and (> code 31) (< code 127))
 		    (write-char c s))
-		   (t 
+		   (t
 		    (when replace-char (write-char replace-char s))
 		    (when warn (warn "Not basic ascii: ~A" code)))))))
 
@@ -1041,13 +1040,13 @@
 	      do (cond ((or (and (> code 31) (< code 127))
 			    (= code 9))
 			(write-char c out))
-		       (t 
-			(if replace-char 
+		       (t
+			(if replace-char
 			    (write-char replace-char out)
 			    (warn "Skipping char ~S (code ~A)" c (char-code c))))))
 	   (write-char #\Linefeed out)))))
 
-(defun basic-ascii-string-file+ (filename 
+(defun basic-ascii-string-file+ (filename
 				 &key (replace-tab
 				       '((13 . #\NewLine) (194 . #\A) (195 . #\A) (160 . #\Space)
 					 (130 . #\Space) (123 . #\Space) (162 . #\Space) (128 . #\Space)
@@ -1064,7 +1063,7 @@
 	      do (cond ((or (and (> code 31) (< code 127))
 			    (= code 9))
 			(write-char c out))
-		       (t 
+		       (t
 			(if-bind (replace-char (cdr (assoc code replace-tab)))
 			    (write-char replace-char out)
 			    (warn "Line ~A: Skipping char ~S (code ~A)" line-cnt c (char-code c))))))
@@ -1075,32 +1074,32 @@
   "Report lines containing non-ascii characters."
   (with-open-file (s filename :direction :input)
     (loop for line = (read-line s nil nil)
-          for i from 1
+	  for i from 1
 	  while line do
-	 (loop for c across line 
+	 (loop for c across line
 	       for j from 1
- 	       for code = (char-code c)
- 	       unless (or (and (> code 31) (< code 127))
+	       for code = (char-code c)
+	       unless (or (and (> code 31) (< code 127))
 			  (= code 9)) ; #\Tab
-               do (format t "~%Line ~A.~A: ~A" i j line)
+	       do (format t "~%Line ~A.~A: ~A" i j line)
 	       (return nil)))))
 
 (defun find-non-utf-8 (filename)
   "Report lines containing non-utf-8 characters."
   (with-open-file (s filename :direction :input)
     (loop for line = (read-line s nil nil)
-          for i from 1
+	  for i from 1
 	  while line do
-	 (loop for c across line 
+	 (loop for c across line
 	       for j from 1
- 	       for code = (char-code c)
- 	       unless (or 
+	       for code = (char-code c)
+	       unless (or
 		       (<= #x20 code #x7e)
 		       (<= #xa0 code #xff)
 		       (<= #x93 code #x9d) ; probably temporary
 		       (= code #x80)  ; probably temporary
 		       (= code #x09)) ; probably temporary
-               do (format t "~%Code x~x Line ~A.~A: ~A" code i j line)
+	       do (format t "~%Code x~x Line ~A.~A: ~A" code i j line)
 	       (return nil)))))
 
 (declaim (inline elip))
@@ -1113,31 +1112,31 @@
 	(format nil "~A..." (subseq str 0 (- max-len 3))))))
 
 (defun ordinal (n)
-  "Return a string that is the ordinal number (e.g. '1st') 
+  "Return a string that is the ordinal number (e.g. '1st')
    corresponding to N, an integer."
   (when (integerp n)
     (cond ((<= 11 n 19) (format nil "~Ath" n))
-	  (t 
-	   (format nil "~A~A" 
+	  (t
+	   (format nil "~A~A"
 		   n
-		   (case (rem n 10) 
+		   (case (rem n 10)
 		     (1 "st") (2 "nd") (3 "rd") ((or 4 5 6 7 8 9 0) "th")))))))
 
 ;;; POD would be nicer if it didn't use hash tables! Coersion not so nice either
 ;;; POD rewrite to use plists ???
 ;;;
 ;;; Because of the use of hash-tables, here, :test (NYI) has to be one of
-;;; eq, eql, equal, or equalp. That puts more requirements on the key. 
-;;; I should probably switch to assoc, etc. as some point. 
+;;; eq, eql, equal, or equalp. That puts more requirements on the key.
+;;; I should probably switch to assoc, etc. as some point.
 (defun equiv-classes (objects &key (key #'identity))
   "OBJECTS is a list. Return a list of list of all things that are the same
-   with respect to the test function. If x and y are in an equivalence class, 
+   with respect to the test function. If x and y are in an equivalence class,
    and x was before y in OBJECTS, x will be before y in the sublist representing
    that equivalence class."
   (let ((ht (make-hash-table :test #'equal)))
     (loop for obj in (coerce objects 'list)
 	  for k = (funcall key obj) do
-	 (setf (gethash k ht) 
+	 (setf (gethash k ht)
 	       (append (gethash k ht) (list obj))))
     (loop for key being the hash-key of ht collect (gethash key ht))))
 
@@ -1157,17 +1156,17 @@
     :test test :key key))
 
 (defun shadow-for-model (name)
-  "Shadow a symbol if it conflicts with that in any USEd package. 
-   Warn that you are doing it and return the new symbol. 
-   Run this function with *package* being the model package."   
+  "Shadow a symbol if it conflicts with that in any USEd package.
+   Warn that you are doing it and return the new symbol.
+   Run this function with *package* being the model package."
   (let* ((name-string (string name))
 	 (symbol? (intern name-string)))
     (if (eql *package* (symbol-package symbol?))
 	symbol?
-	(progn 
-	  (warn "Shadowing package ~A's symbol ~S in model ~A." 
+	(progn
+	  (warn "Shadowing package ~A's symbol ~S in model ~A."
 		(package-name (symbol-package symbol?))
-		name-string 
+		name-string
 		(package-name *package*))
 	  (shadow name-string)
 	  (find-symbol name-string)))))
@@ -1179,11 +1178,11 @@
 	   (if error-p (error "~A does not look like a 8601 date." date)
 	       (return-from date-to-utime nil))))
     (mvb (success vec)
-	(cl-ppcre:scan-to-strings 
+	(cl-ppcre:scan-to-strings
 	 "^([0-9]\{4,4\})-([0-9]\{2,2\})-([0-9]\{2,2\})(T([0-9]\{2,2\}):([0-9]\{2,2\})(:([0-9]\{2,2\}))?(.[0-9]\{1,3})?)?$"
 	 date)
       (if success
-	(encode-universal-time 
+	(encode-universal-time
 	 (if-bind (sec (aref vec 7))   (read-from-string sec) 0)
 	 (if-bind (min (aref vec 5))   (read-from-string min) 0)
 	 (if-bind (hour (aref vec 4))  (read-from-string hour) 0)
@@ -1194,15 +1193,15 @@
 
 (defun utime-to-date (time)
   "Convert universal time value TIME to a string of form 2011-03-05T18:33:00"
-  (mvb (sec min hour day month year) 
+  (mvb (sec min hour day month year)
       (decode-universal-time time)
     (format nil "~A-~2,'0D-~2,'0DT~2,'0D:~2,'0D:~2,'0D"
 	    year month day hour min sec)))
 
 (defun gethash-inv (value ht &key (test #'identity) all-p)
   "Return the first key in HT (or all keys if ALL-P=T) which is equal to VALUE."
-  (loop for val being the hash-value of ht using (hash-key key) 
-     when (and (eql val value) (funcall test key)) 
+  (loop for val being the hash-value of ht using (hash-key key)
+     when (and (eql val value) (funcall test key))
      if all-p collect key
      else return key))
 
@@ -1216,7 +1215,7 @@
 	(let ((long-str (string-trim '(#\Space) (cl-ppcre:regex-replace-all "[\\r\\n]" str " "))))
 	  (setf long-str (reduce #'pull-out (list long-str "<html>" "</html>" "<body>" "</body>" "<head>" "</head>")))
 	  (format nil (format nil "~~{~A ~~A~~^~~%~~}" prefix)
-		  (mapappend #'(lambda (l) (split l #\Space :min-size length)) 
+		  (mapappend #'(lambda (l) (split l #\Space :min-size length))
 			     (split long-str #\Newline))))
       "")))
 
@@ -1224,10 +1223,10 @@
 
 (defun  lpath-init (alist)
   "Typically, load.lisp will redefine this."
-  (loop for (key . val) in alist 
+  (loop for (key . val) in alist
        do (setf (gethash key *lpath-ht*) val)))
 
-(defun lpath (logical-host path) 
+(defun lpath (logical-host path)
   "Return a pathname merging 'LOGICAL HOST' (CL logical pathname concept) to PATH."
   (let ((default (gethash logical-host *lpath-ht*)))
     (if default
@@ -1270,32 +1269,32 @@
   (if (null x)
       (unique y)
       ;; I think unique-cons and not ucons (pg 334) is what is intended here.
-      (unique-cons (first x) (uappend (rest x) y)))) 
+      (unique-cons (first x) (uappend (rest x) y))))
 
 #+nil
 (defmacro with-package-renamed ((old-name new-name) &body body)
   "Rename a package within the scope of body."
   `(unwind-protect
-	(progn 
+	(progn
 	  (rename-package ,old-name ,new-name)
 	  ,@body)
      (rename-package ,new-name ,old-name)))
 
-(eval-when (:compile-toplevel :load-toplevel :execute)    
+(eval-when (:compile-toplevel :load-toplevel :execute)
   (unintern 'pod-utils::str))
 
 ;;; http://en.wikipedia.org/wiki/Universally_unique_identifier
-;;; 
-;;; A UUID is a 16-byte (128-bit) number. The number of theoretically possible UUIDs is therefore 
-;;; about 3 × 10^38. In its canonical form, a UUID consists of 32 hexadecimal digits, displayed in 
-;;; 5 groups separated by hyphens, in the form 8-4-4-4-12 for a total of 36 characters 
+;;;
+;;; A UUID is a 16-byte (128-bit) number. The number of theoretically possible UUIDs is therefore
+;;; about 3 × 10^38. In its canonical form, a UUID consists of 32 hexadecimal digits, displayed in
+;;; 5 groups separated by hyphens, in the form 8-4-4-4-12 for a total of 36 characters
 ;;; (32 digits and 4 hyphens).
 ;;;;
 ;;; Version 4 (random)
-;;; 
-;;; Version 4 UUIDs use a scheme relying only on random numbers. This algorithm sets the version number 
-;;; as well as two reserved bits. All other bits are set using a random or pseudorandom data source. 
-;;; Version 4 UUIDs have the form xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx where x is any hexadecimal digit 
+;;;
+;;; Version 4 UUIDs use a scheme relying only on random numbers. This algorithm sets the version number
+;;; as well as two reserved bits. All other bits are set using a random or pseudorandom data source.
+;;; Version 4 UUIDs have the form xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx where x is any hexadecimal digit
 ;;; and y is one of 8, 9, A, or B.
 
 ;;; (format nil "~8,'0X" (random (expt 16 8)))
@@ -1314,8 +1313,8 @@
 	    ;; POD 4294... is 16^8 -- larger than most-postive-fixnum. OK?
 	    (format nil "~8,'0X" (random 4294967296)))))
 
-;;; I'm sick of those warning about undefined variables and I'm not about to type 
-;;; 'defparameter' at the REPL every time I need an ad hoc global. 
+;;; I'm sick of those warning about undefined variables and I'm not about to type
+;;; 'defparameter' at the REPL every time I need an ad hoc global.
 #+sbcl
 (defmacro defp (var val &optional doc)
   `(progn (defparameter ,var ,val ,doc)

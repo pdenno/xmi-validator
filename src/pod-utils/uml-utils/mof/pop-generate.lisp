@@ -59,16 +59,16 @@
 ;;;---- 2022 SysML 1.6 (and prerequisites)------------------------
 ;;;
 ;;; Now (UML 2.5.1 and probably later) XMI references particular instances of primitives as a models.
-;;; 
-;;; I overwrote the following with some code to simply copy the 5 primitives over from (find-model :ptypes).
-;;; See 20131001/ptypes-postload.lisp
-;;; (simple-run-validator (pod:lpath :data "20131001/PrimitiveTypes.xmi"))
-;;; (pop-gen :uml25 :uml-20131001-ptypes :keep-pkg-info nil :outfile (pod:lpath :models "uml/20131001/ptypes.lisp"))
+;;; Nonetheless, I simply add a nickname to the list in :ptypes (See sei-essential-load.lisp.)
 ;;; 
 ;;; (simple-run-validator (pod:lpath :data "uml251/ptc-01-01-UML.xmi"))
-;;; (pop-gen :uml25 :uml251 :keep-pkg-info nil :outfile (pod:lpath :models "uml/20131001/uml251.lisp"))a
+;;; (pop-gen :uml25 :uml251 :keep-pkg-info nil :outfile (pod:lpath :models "uml/20131001/uml251.lisp"))
+;;;
+;;; (simple-run-validator (pod:lpath :data "uml251/ptc-18-01-03-std-profile.xmi"))
+;;; (pop-gen :uml251 :uml-profile-l2-20161101 :keep-pkg-info nil :outfile (pod:lpath :models "uml/uml-std-profile-l2-20161101.lisp"))
 ;;;
 ;;; (simple-run-validator (pod:lpath :data "sysml/20181001/ptc-18-10-04.xmi"))
+;;; (pop-gen :uml251 :sysml16 :keep-pkg-info nil :outfile (pod:lpath :models "sysml/sysml-profile-16.lisp"))
 
 (defparameter *keep-pkg-info* nil "Because I'm not passing :keep-pkg-info deep enough!")
 
@@ -275,12 +275,14 @@
 (defun next-pod-unnamed ()
   (format nil "POD-UNNAMED-~A" (incf *pod-unnamed-cnt*)))
 
-;;; 2013-11-13. This was a defun. I'm lost on how this was supposed to be invoked for multiple metamodels.
-;;; I think I need a pop-gen METHOD for each metamodel
+;;; (getem '#.(cmsym "Class") (mut *spare-session-vo*))
+(defun getem (type model)
+  "Return all elements of the argument type from the model"
+  (sort (remove-if-not  #'(lambda (x) (typep x type)) (coerce (members model) 'list))
+	#'string< 
+	:key (cmfun "%NAME")))
 
-;;; 2022-06-22 Look at load.lisp function comp-it; it compiles a bunch of these.
-;;  The new calls (ignore the old comments) to pop-gen need to specify a "version" as it shows below
-
+;;; 2022-06-22 Look at load.lisp function comp-it; it compiles a bunch of these, one for each "version", (a metamodel).
 (defmethod pop-gen ((version (eql #.*cmpkg*))
 		    tpkg &key 
 			   (model (mut *spare-session-vo*))
@@ -296,26 +298,27 @@
   (setf *unique-name-cnt* 0)
   (pop-gen-fix-inheritances version model) ; has side-effects!
   (unless (find-package tpkg) (make-package tpkg :use '(:cl :mofi)))
-  (flet ((getem (type)
-	   (sort (remove-if-not  #'(lambda (x) (typep x type)) (coerce (members model) 'list))
-		 #'string< 
-		 :key (cmfun "%NAME"))))
     (with-open-file (stream outfile :direction :output :if-exists :supersede :if-does-not-exist :create)
       (format stream ";;; Automatically created by pop-gen at ~A." (now))
       (format stream "~%;;; Source file is ~A" (slot-value *spare-session-vo* 'phttp::filename))
       (format stream "~2%(in-package ~S)~2%" tpkg)
-      (let ((classes (getem '#.(cmsym "Class"))))
-	;#.(format t "~% compiling to ~S, *cmpkg* = ~S" (cmsym "Class") *cmpkg*) #.(break "here")
+      (let ((classes (getem '#.(cmsym "Class") model)))
+	;;#.(format t "~% compiling to ~S, *cmpkg* = ~S" (cmsym "Class") *cmpkg*) #.(break "here")
 	(when keep-pkg-info
-	  (loop for p in (getem '#.(cmsym "Package")) do (write-defpackages version p tpkg stream)))
-	(loop for p in (getem '#.(cmsym "PrimitiveType")) do (pop2lisp p :tpkg tpkg :stream stream :model model :version version))
-	(loop for e in (getem '#.(cmsym "Enumeration"))   do (pop2lisp e :tpkg tpkg :stream stream :model model :version version))
-	(loop for a in (getem '#.(cmsym "Association")) do (pop2lisp a :tpkg tpkg :stream stream :model model :version version))
+	  (loop for p in (getem '#.(cmsym "Package") model)
+		do (write-defpackages version p tpkg stream)))
+	(loop for p in (getem '#.(cmsym "PrimitiveType") model)
+	      do (pop2lisp p :tpkg tpkg :stream stream :model model :version version))
+	(loop for e in (getem '#.(cmsym "Enumeration") model)
+	      do (pop2lisp e :tpkg tpkg :stream stream :model model :version version))
+	(loop for a in (getem '#.(cmsym "Association") model)
+	      do (pop2lisp a :tpkg tpkg :stream stream :model model :version version))
 	(loop for a in (assocs-without-class) do (real-pprint version a stream)) ; probably none
 	;; Classes prints associations too.
 	(loop for c in classes do (pop2lisp c :tpkg tpkg :stream stream :model model :keep-pkg-info keep-pkg-info :version version))
-	(loop for p in (getem '#.(cmsym "Package")) do (pop2lisp p :tpkg tpkg :stream stream :model model :version version))
-	(pprint-prolog version stream tpkg model classes keep-pkg-info))))
+	(loop for p in (getem '#.(cmsym "Package") model)
+	      do (pop2lisp p :tpkg tpkg :stream stream :model model :version version))
+	(pprint-prolog version stream tpkg model classes keep-pkg-info)))
   outfile)
 
 (defun assocs-without-class ()
@@ -415,8 +418,6 @@
   </ownedEnd>
 |#
 
-
-
 (defgeneric compute-assoc-end (end model tpkg))
 
 (defmethod compute-assoc-end ((end #.(cmsym "Property")) model tpkg)
@@ -485,13 +486,12 @@
 	  (when-bind 
 	      (inh (ecase version  ; 2012-02-24 nothing in stereotypes?
 		     (:cmof (cmfuncall "%SUPER-CLASS" obj))
-		     ((or :uml25 :uml4sysml12 :uml241 :uml23)
+		     ((or :uml251 :uml25 :uml4sysml12 :uml241 :uml23)
 		      (make-instance 
 		       'ocl:|Set|
 		       :value (mapcar '#.(cmsym "%GENERAL")
 				      (ocl:value (cmfuncall "%GENERALIZATION" obj)))))))
 	    (ocl:value inh))))
-
 
 ;;; Currently this is used for Stereotypes too. (Stereotypes are classes). 
 (defmethod pop2lisp ((class #.(cmsym "Class")) &key tpkg (stream *standard-output*) name-only-p model keep-pkg-info version)
@@ -774,8 +774,8 @@
      
 (defmethod pop2lisp-comments ((obj #.(cmsym "Element")))
   "Concatenate and format comments."
-  (setf *zippy* obj)
-  (break "comment")
+  ;(setf *zippy* obj)
+  ;(break "comment")
   (when-bind (comments (ocl:value (cmfuncall "%OWNED-COMMENT" obj)))
     (apply #'concatenate 'string
 	    (loop for c in comments collect (cmfuncall "%BODY" c)))))
@@ -816,18 +816,17 @@
 	  ((null val) nil)
 	  (t (kintern val)))))
 
-
 (defmethod pop2lisp ((obj #.(cmsym "ValueSpecification")) &key tpkg)
   "Guess at the value of a ValueSpecification"
   (declare (ignore tpkg))
   (let* ((val (cmfuncall "%VALUE" obj))   ; POD 2010-10-17 How does this work?
-	 (num? (if (and (stringp val) (not (char= #\# (char val 0)))) (read-from-string val) val)))
+	 (num? (if (and (stringp val)
+			(not (= 0 (length val)))
+			(not (char= #\# (char val 0)))) (read-from-string val) val)))
     (cond ((numberp num?) num?)
 	  ((string= val "") val)
 	  ((null val) nil)
 	  (t (kintern val)))))
-
-
 
 (defmethod pop2lisp ((obj #.(if (eql *cmpkg* :cmof) 
 				'(eql :never)
@@ -926,14 +925,16 @@
 (defmethod find-base-type ((version (eql #.*cmpkg*)) base-property)
   "Return the classifier symbol X for the property base_X."
   (let ((as (cmfuncall "%ASSOCIATION" base-property)))
-    ;; I think I could also just look for the non-ExtensionEnd. Would that be safer?
-    (when-bind (m-end (car (set-difference (ocl:value (cmfuncall "%MEMBER-END" as))
-					   (if (typep as '#.(cmsym "Association"))
-					       (list (cmfuncall "%OWNED-END" as)) 
-					       (ocl:value (cmfuncall "%OWNED-END" as))))))
-      (if-bind (typ (cmfuncall "%TYPE" m-end)) ; POD 2013-12-30 if added for SysML1.2 processing
-	(class-name typ)
-	(intern (subseq (cmfuncall "%NAME" m-end) 5) (lisp-package (mofi:%of-model m-end)))))))
+    (if as
+	;; I think I could also just look for the non-ExtensionEnd. Would that be safer?
+	(when-bind (m-end (car (set-difference (ocl:value (cmfuncall "%MEMBER-END" as))
+					       (if (typep as '#.(cmsym "Association"))
+						   (list (cmfuncall "%OWNED-END" as)) 
+						   (ocl:value (cmfuncall "%OWNED-END" as))))))
+	  (if-bind (typ (cmfuncall "%TYPE" m-end)) ; POD 2013-12-30 if added for SysML1.2 processing
+		   (class-name typ)
+		   (intern (subseq (cmfuncall "%NAME" m-end) 5) (lisp-package (mofi:%of-model m-end)))))
+	(warn (format nil "base-property ~A has no assocation" base-property)))))
 
 (defmethod real-pprint ((version (eql #.*cmpkg*)) (obj pg-stereotype) stream &key keep-pkg-info)
   (declare (ignore keep-pkg-info))

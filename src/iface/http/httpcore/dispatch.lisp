@@ -1,4 +1,3 @@
-
 ;;; Copyright (c) 2005, Peter Denno.  All rights reserved.
 
 ;;; Redistribution and use in source and binary forms, with or without
@@ -34,7 +33,7 @@
    :root
    "<not used>"
    "<not used>"
-   (mk-mnode 
+   (mk-mnode
     :tools
     "Validation Tools"
     "/se-interop"
@@ -42,17 +41,17 @@
     (mk-mnode :mm-loader      "Load Metamodels"    "/se-interop/tools/load-metamodels")
     (mk-mnode :frag-loader    "Load Fragments"     "/se-interop/tools/load-fragments")
     (mk-mnode :validator      "Validate Models"    "/se-interop/tools/validator"))
-#+qvt   
-    (mk-mnode :qvt 
-	      "QVT-r" 
+#+qvt
+    (mk-mnode :qvt
+	      "QVT-r"
 	      "/se-interop/qvt"
 	      (mk-mnode :load-metamodels "Load Metamodels" "/se-interop/qvt/load-metamodels")
 	      (mk-mnode :load-maps       "Load QVT-r Maps" "/se-interop/qvt/load-maps")
 	      (mk-mnode :load-models     "Load Models"     "/se-interop/qvt/load-models")
 	      (mk-mnode :map             "Execute Mapping" "/se-interop/qvt/map"))
     (mk-mnode :mof-browser    "Browse Models"      "/se-interop/tools/browse-models")
-    (mk-mnode :tools-overview 
-	     "Notes on Tools" 
+    (mk-mnode :tools-overview
+	     "Notes on Tools"
 	     "/se-interop/tools-overview"
 	     (mk-mnode :notes-criteria   "Validation Criteria"   "/se-interop/tools-overview#criteria")
 	     (mk-mnode :notes-model-diff "Model Diff Capability" "/se-interop/tools-overview#diff")
@@ -60,21 +59,21 @@
     (mk-mnode :changelog "Change Log" "/se-interop/changelog")
     #-sei.exe(mk-mnode :clear "Clear Session" "/se-interop/clear-session")))
 
-;;; *dispatch-table* : A list of functions of one argument (request) that look at the uri, 
-;;; and if matches, returns a handler, otherwise, next one in table is tried. 
+;;; *dispatch-table* : A list of functions of one argument (request) that look at the uri,
+;;; and if matches, returns a handler, otherwise, next one in table is tried.
 ;;; Example: create-static-file-dispatcher create a function that, when (eql (script-name *request*) uri),
-;;; returns a function that handles the request. (Otherwise it declines by returning nil). 
+;;; returns a function that handles the request. (Otherwise it declines by returning nil).
 
 (defun set-tbnl-dispatch-table ()
-  (setf *dispatch-table* 
-	(list 
-	 (create-folder-dispatcher-and-handler 
+  (setf *dispatch-table*
+	(list
+	 (create-folder-dispatcher-and-handler
 	  "/se-interop/static/" (namestring (pod:lpath :sei "iface/http/static/")))
-	 (create-folder-dispatcher-and-handler 
+	 (create-folder-dispatcher-and-handler
 	  "/se-interop/image/" (namestring (pod:lpath :sei "iface/http/image/")))
-	 (create-folder-dispatcher-and-handler 
+	 (create-folder-dispatcher-and-handler
 	  "/SEI/image/" (namestring (pod:lpath :sei "iface/http/image/")))
-	 
+
 	 ;; MIWG
 	 (create-prefix-dispatcher "/se-interop/tools/models-loaded" 'miwg-tools-models-loaded-dsp)
 	 (create-prefix-dispatcher "/se-interop/tools/load-profiles"   'load-profiles-dsp)
@@ -89,9 +88,9 @@
 	 (create-prefix-dispatcher "/se-interop/sysml/validator/xml-error" 'validator-report-xml-error-dsp)
 	 (create-prefix-dispatcher "/se-interop/sysml/validator/match-table" 'validator-match-table-dsp)
 	 (create-prefix-dispatcher "/se-interop/sysml/object-inventory" 'object-inventory-page)
-	 (create-static-file-dispatcher-and-handler "/se-interop/sysml/user-canonical-xmi" 
+	 (create-static-file-dispatcher-and-handler "/se-interop/sysml/user-canonical-xmi"
 						    (pod:lpath :tmp  "user-canonical.xml") "text")
-	 (create-static-file-dispatcher-and-handler "/se-interop/sysml/tc-canonical-xmi" 
+	 (create-static-file-dispatcher-and-handler "/se-interop/sysml/tc-canonical-xmi"
 						    (pod:lpath :tmp "tc-canonical.xml") "text")
 	 (create-folder-dispatcher-and-handler  "/se-interop/diff/" (pod:lpath :tmp "diff/"))
 
@@ -105,7 +104,7 @@
 	 (create-prefix-dispatcher "/se-interop/pod-load-lisp" 'pod-load-lisp)
 
 	 ;; QVT
-	 #+qvt(create-prefix-dispatcher "/se-interop/qvt/load-metamodels" 
+	 #+qvt(create-prefix-dispatcher "/se-interop/qvt/load-metamodels"
 				   #'(lambda () (qvth:qvt-load-metamodels-dsp :app :sei)))
 	 #+qvt(create-prefix-dispatcher "/se-interop/qvt/load-maps" #'(lambda () (qvth:qvt-compile-maps-dsp :app :sei)))
 	 #+qvt(create-prefix-dispatcher "/se-interop/qvt/load-models" #'(lambda () (qvth:qvt-load-models-dsp :app :sei)))
@@ -118,7 +117,7 @@
 	 ;; Modelica
 	 #+modelica(create-prefix-dispatcher "/se-interop/modelica/register-eqn" 'modelica:|RegisterEqn|)
 	 #+modelica(create-prefix-dispatcher "/se-interop/modelica/register-var" 'modelica:|RegisterVar|)
-	 
+
 	 ;; Defaults
 
 	 (create-prefix-dispatcher "/se-interop/changelog" 'miwg-tools-changelog-dsp)
@@ -135,11 +134,11 @@
 
 (defun sei-clear-session ()
   "Clear up stuff so that it looks like a new user."
-  (when (and (boundp 'tbnl:*session*) tbnl:*session*) 
+  (when (and (boundp 'tbnl:*session*) tbnl:*session*)
     (tbnl:remove-session tbnl:*session*))
   (tbnl:start-session)
   (setf (tbnl:session-value 'session-vo) ; 2011-07-27 setting 'session-vo is new!!!
-	(setf *spare-session-vo* 
+	(setf *spare-session-vo*
 	      (make-instance 'sei-session-vo
 			     :app-name :sei
 			     :tbnl-session tbnl:*session*)))
@@ -161,9 +160,9 @@
 		 :app-title "NIST Validator"
 		 :app-menu (make-sei-menu)
 		 :session-vo-class 'sei-session-vo ; was a function in pod-utils
-		 ;; app-url-key-fn is used by url-object-browser to track the instance in a URL parameter. 
+		 ;; app-url-key-fn is used by url-object-browser to track the instance in a URL parameter.
 		 ;; It creates entries in the view-object hash-table of the session-vo."
-		 :app-url-key-fn 
+		 :app-url-key-fn
 		 #'(lambda (object)
 		     (let ((obj-key (string (gensym "VOBJ"))))
 		       (with-vo (view-objects)
@@ -173,8 +172,7 @@
 		 :app-authorization-fn
 		 #'(lambda (user password)
 		     (with-trie-db (:member-db)
-		       (string-equal password 
-				     (third 
-				      (trie-query 
+		       (string-equal password
+				     (third
+				      (trie-query
 				       `(mo-user.pw ,(intern user :project-http) ?p))))))))
-
