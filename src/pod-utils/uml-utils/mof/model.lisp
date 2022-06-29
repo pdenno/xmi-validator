@@ -89,7 +89,7 @@
       :shadowing-import-from '(:ocl "Boolean" "String" "Integer" "UnlimitedNatural" "Real")
       :name (unique-name "UNNAMED-MODEL")))
 
-;;; POD Remember :afters are least-specific first. Good.
+;;; Remember :afters are least-specific first. Good.
 (defmethod initialize-instance :after ((m abstract-model) &key name force)
   "Set the model's name."
   (when (member (string name) '("CL" "POD") :test #'string=)
@@ -178,7 +178,7 @@
    ;; Strings naming operators (OCL operators and operators called in constraints, for example).
    (operator-strings :initarg :operator-strings :accessor operator-strings :initform nil)
    ;; A list of names of abstract classes, used to set the class's abstract-p slot.
-   ;; pod should be called abstract types... better, should not be recorded.
+   ;; ToDo: This should be called abstract types... better, should not be recorded.
    (abstract-classes :initform nil)
    ;; An list of direct slot objects that are declared derived, but for which no derivation specified.
    (derived-slots-no-fn :reader derived-slots-no-fn :initform nil)
@@ -190,14 +190,12 @@
     (format stream "#<Model ~A types:~A>" model-name
 	    (fill-pointer types))))
 
-;;; New for 2022!
 (defmethod ref-items ((model compiled-model))
   "Return a hash-table of all the things that might be referenceable in the model.
-   I think that should include types, packages and _0.
+   That includes types, packages, pretty-name, and _0.
    This is intended to solve most problems of lookup (see lookup-href)."
   (ref-items-memoized model))
 
-;;; New for 2022!
 (defmemo ref-items-memoized (model)
   (let ((ht (make-hash-table :test 'equal))
 	(uri (href-uri model)))
@@ -225,7 +223,7 @@
     (push m *essential-models*)))
 
 ;; A model which has these lexical properties (e.g. PTYPES, QVT, EXPRESS).
-(defclass lexical-model-mixin () ; pod7 was %%scope
+(defclass lexical-model-mixin ()
   (;; Reserved words of concrete syntax (used in OCL, QVT, for example)
    (reserved-words :reader reserved-words :initarg :reserved-words :initform nil)
    ;; Constant string of the concrete syntax (used in OCL, for example)
@@ -295,7 +293,7 @@
 	    (model-name model-n+1)
 	    (fill-pointer members))))
 
-;;; POD Still quick an dirty.
+;;; ToDo: Still quick an dirty.
 (defmethod profile-p ((m population))
   "Return T if the population describes a profile."
   (when-bind (e (aref (members m) 0))
@@ -382,7 +380,7 @@
   (let ((*package* (lisp-package m)))
     #-sbcl(declare (special *package*))
     (with-slots (preload-path classes-path) m
-      (when preload-path (load preload-path)) ;pod8 moved here from the :around method
+      (when preload-path (load preload-path))
       (when classes-path
 	(load classes-path) ; little reason to compile it -- no code.
 	;; Do this before class-finalize-slots. Needed to make accessors.
@@ -410,7 +408,7 @@
     (loop for class across types do
 	 (update-subsetted-properties-from-redefinition class) ; 2009-07-27
 	 (compute-derived-union-sources class))
-    ;; pod7 can't this go away? Replace with abstract-p on the class?
+    ;; ToDo: Can't this go away? Replace with abstract-p on the class?
     (loop for cname in abstract-classes
        do (setf (abstract-p (find-class cname)) t))))
 
@@ -454,8 +452,7 @@
 	  unless a do (error "No such association: ~A" (association ae))
 	  do (with-slots (association) ae (setf association a)))))
 
-
-;;; POD The problem with this def-mm-class identifies what is specialized,
+;;; ToDo: The problem with this def-mm-class identifies what is specialized,
 ;;; which might be another stereotype, rather than the class extended.
 ;;; The direct-superclasses of these objects (specializing another stereotype) is wrong,
 ;;; as is the extended-metaclasses.
@@ -477,7 +474,7 @@
 	    #|(loop for m in metaclasses do
 		  (find-programmatic-class m stype))|#))))
 
-;;; pod7 I don't know what it wrong here.
+;;; ToDo: I don't know what it wrong here.
 ;;; Error says I'm getting a list for slot-definition-source but I don't see it.
 (defmethod set-derived-slot-no-fn ((m compiled-model))
   "This set the slot Model.derived-slot-no-fn, which is used in the changelog

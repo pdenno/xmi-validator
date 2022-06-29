@@ -1,10 +1,8 @@
 ;;; Purpose:  - Read MOF XMI 2.1, producing instances of MOF/MOP classes (an M2 model such as UML MM).
 ;;;             Thus this could read XMI files produces by UML modeling tools INTO INSTANCES.
 ;;;             It is used by the MIWG Validator, for example.
-;;; (xmi2model-instance :file (pod:lpath :models "miwg/tc3.xmi"))
 ;;; (xmi2model-instance :file "/home/pdenno/projects/miwg/vendor-exports/release-9/tc3/canonical/valid-canonical.xml")
 ;;; (xmi2model-instance :file "/home/pdenno/projects/miwg/vendor-exports/release-9/tc3/md165-export.xml")
-;;; (xmi2model-instance :file (pod:lpath :data "infralib/10-08-07-cleanup.cmof"))
 
 (in-package :mofi)
 
@@ -43,7 +41,7 @@
    (xml-pristine2user-ht :initform (make-hash-table))
    ;; Maps from elems to line numbers
    (elem2line-ht :initform (make-hash-table))
-   ;; Counts profiles. Only used to give a name POD investigate.
+   ;; Counts profiles. Only used to give a name ToDo: investigate.
    (user-profile-count :initform 0)
    ;; Store various objects (possibly stubs) typically in response to href lookup
    (temp-made-memo :initform (make-hash-table :test #'equal))
@@ -92,7 +90,7 @@
     (vector-push-extend obj (members *population*))))
 
 ;;; Might also try :external-format '(:utf-8 :eol-style :crlf) http://weitz.de/flexi-streams/#example
-;;; POD this requires (require "twoway-stream") in delivery!
+;;; ToDo: this requires (require "twoway-stream") in delivery!
 
 
 ;;; THIS is how conditions are collected for reporting!
@@ -144,8 +142,8 @@
 	 (or (mofi:find-model (cdr xmi-ns) :error-p nil)
 	     (error 'mofi:xmi-namespace-unknown :provided (cdr xmi-ns))))))
 
-;;; POD 2019 I'm need and example before I can finish this. What I need now is a hashtable
-;;;          indexed by prefix that provides the ns-uri, whether or not this exists.
+;;; ToDo: 2019 Need an example before this can be finished. What we need now is a hashtable
+;;;       indexed by prefix that provides the ns-uri, whether or not this exists.
 ;;;
 ;;; Examples of the latter:
 ;;; <mofext:Tag xmi:type="mofext:Tag" xmi:id="_1" name="org.omg.xmi.nsPrefix" value="uml" element="_0"/>
@@ -182,7 +180,7 @@
 	     (with-results (user-profile-count)
 	       (format nil "user_profile_~A" (incf user-profile-count))))))
 
-(defmethod find-xmi-namespace ((doc rune-dom::document)) ; POD18 export
+(defmethod find-xmi-namespace ((doc rune-dom::document))
   "Return the XMI namespace of the document, or nil if you can't find it."
   (let (ns)
     (depth-first-search
@@ -286,7 +284,7 @@
 		  :profiles-used (discover-profiles-used doc)
 		  :depends-on-models models-governing)))
 
-;;; POD Designed to allow the XMI to contain both the Model and Profiles.
+;;; ToDo: Designed to allow the XMI to contain both the Model and Profiles.
 ;;; This isn't something we do in MIWG anymore.
 (defun search-doc-for-model-and-profiles (doc)
   "Search the xml doc for the Model element and Profile elements.
@@ -347,12 +345,12 @@
 
 (declaim (inline namespace-names-model-p))
 (defun namespace-names-model-p (prefix-str)
-  "Returns true if string (a URI) names the model-n+1." ; POD 2019 I added this comment. Correct?
+  "Returns true if string (a URI) names the model-n+1."
   (with-slots (model-namespaces) *results*
     (when-bind (ns-string (xml-prefix2uri prefix-str model-namespaces))
 	(find ns-string (package-nicknames (lisp-package *model*))))))
 
-;;; 2010-10-12 POD Was def-memo-equal (was class/attr, a list) I don't see why, attr is unique!
+;;; 2010-10-12 ToDo: Was def-memo-equal (was class/attr, a list) I don't see why, attr is unique!
 (defun attr-is-slot-p (class attr)
   "Returns slot if ATTR (an string-attr-node) refers to a slot in CLASS.
    Uses m1-find-slot-named, above."
@@ -377,7 +375,7 @@
 		     (warn 'mof-class-not-found :class-name class-name :elem elem)
 		     (return-from class-of-elem nil)))))
 	  ((setf slot (m1-find-slot-named parent-class (dom:node-name elem))) ;(2) Use XMI rule 2g to infer type
-;;; 2010-09-29: POD Commenting out. Stereotyping makes this not quite valid. Needs thought.
+;;; 2010-09-29: ToDo: Commenting out. Stereotyping makes this not quite valid. Needs thought.
 	   (when-bind (range (slot-definition-range slot))
 ;	     (unless (null (closer-mop:class-direct-subclasses range))
 ;	       (warn 'mof-cannot-infer-type :elem elem :class parent-class :slot (slot-direct-slot slot)))
@@ -402,7 +400,7 @@
     (cond ((eql class-name 'ptypes::|String|)
 	   (cond ((stringp value) (basic-ascii-string value #\Space))
 		 ((null value) "")))
-	  ((eql class-name 'ptypes::|Integer|) ; POD not sure about this.
+	  ((eql class-name 'ptypes::|Integer|) ; ToDo: not sure about this.
 	   (setf v (read-from-string value))
 	   (when (numberp v) v))
 	  ((eql class-name 'ptypes::|Boolean|)
@@ -415,13 +413,13 @@
 		       (numberp (setf v (read-from-string value))) v))
 		 (t (warn 'mof-expected-primitive :elem value
 			  :expected (class-name class) :got value))))
-	  ((stringp value) (read-from-string value)) ; POD not sure about this.
+	  ((stringp value) (read-from-string value)) ; ToDo: not sure about this.
 	  (t (warn 'mof-expected-primitive :elem value
 			  :expected (class-name class) :got value)))))
 
 (defun parse-enum-elem (elem class)
   "Return a keyword. Usually only called on canonical XMI."
-  (declare (ignore class)) ; POD type checking NYI????
+  (declare (ignore class)) ; ToDo: type checking NYI????
   (kintern (car (xml-children elem))))
 
 (declaim (inline xmi-stereotype-p))
@@ -568,14 +566,14 @@ Full XMI:
     (cond ((primitive-type-p range-class)
 	   (parse-primitive-value string range-class))
 	  ((enum-p range-class) (kintern string))
-	  ;; POD Rule 2j: "Use this production to serialize references whose values are objects
+	  ;; ToDo: Rule 2j: "Use this production to serialize references whose values are objects
 	  ;; that are serialized in the document. The value...separated by a space." -- I'm
 	  ;; assuming that |Element| is what is meant by "object" here.
 	  (t
 	   (let ((refs (split string #\Space)))
 	     (loop for r in refs
 		   if (string= r "")
-		   do (warn 'xmi-excess-space :string string) ; pod bug! relevant-xmi needs :elem or :object.
+		   do (warn 'xmi-excess-space :string string) ; ToDo: BUG! Relevant-xmi needs :elem or :object.
 		   else collect (make-xmi-idref :-name r)))))))
 
 
@@ -599,7 +597,7 @@ Full XMI:
 		 (vector-push-extend node stereo-elems))))
       stereo-elems)))
 
-;;; POD This should be able to look through populations too! NYI
+;;; ToDo: This should be able to look through populations too! NYI
 (defun elem2stereo-class (elem)
   "Return the mofi stereotype object (an mm-type-obj that is stereotype-p) for
    the XML ELEM, if any. If non-nil returned, ELEM is a stereotype application."
@@ -645,7 +643,7 @@ Full XMI:
    type STEREO-OBJ or NIL if failure."
   (loop for base-name in (stereotype-base-names stereo-class) ; base-name e.g. base_Class
      for xmi-id = (or (xml-get-logical base-name elem :error-p nil)
-		      (when-bind (c (xml-find-child base-name elem :error-p nil)) ; POD 2012-12-08 (never used?)
+		      (when-bind (c (xml-find-child base-name elem :error-p nil)) ; ToDo: 2012-12-08 (never used?)
 			  (xml-get-attr-value c "xmi:idref")))
      when xmi-id return (cons xmi-id base-name)))
 
@@ -728,7 +726,7 @@ Full XMI:
 ;;; Uses an equal hash table with key (%nesting-class . y) and value x. Every method does a lookup,
 ;;; using the name of the method and argument to it. This builds the table.
 
-;;; POD (%GENERALIZATION . <UML 2.5:Class Class2, id=8>)        <UML 2.5:Generalization, id=14>
+;;; ToDo: (%GENERALIZATION . <UML 2.5:Class Class2, id=8>)        <UML 2.5:Generalization, id=14>
 ;;;
 (defun pp-populate-soft-opposites (ht)
   "Populate the equal hash table, HT, with the opposite values of each s-opposite
@@ -797,7 +795,7 @@ Full XMI:
 	       (otherwise v))))
       (loop for slot in (mapped-slots (class-of obj))
 	 for slot-name = (closer-mop:slot-definition-name slot) do
-	 ;;unless (slot-definition-xmi-hidden slot) do ; 2010 POD isn't this just mapped slots?
+	 ;;unless (slot-definition-xmi-hidden slot) do ; 2010 ToDo: isn't this just mapped slots?
 	   (setf (slot-value obj slot-name)
 		 (let ((val (slot-value obj slot-name))
 		       result)
@@ -906,7 +904,7 @@ Full XMI:
 
 		     (let ((current (slot-value object slot-name)))
 		       (cond ((typep val 'ocl:|Collection|) ; 2012-11-09 redefinition described above
-			      (unless current ; POD I'm fluffing over some possible bugs by setting...
+			      (unless current ; ToDo: I'm fluffing over some possible bugs by setting...
 				(dbg-message :propagate 1 "~%3 adding ~A to ~A.~A" val object class/slot)
 				(setf (slot-value object slot-name) (car (ocl:value val))) ;... to car!!!
 				(setf changed t)))
@@ -928,7 +926,7 @@ Full XMI:
 |#
 
 
-;;; POD look all around here to eliminate recreating (class-name slot-name) lists.
+;;; ToDo: look all around here to eliminate recreating (class-name slot-name) lists.
 ;;; 2008-04-05 this is taking 5% of compute time!!!
 (defun pp-propagate-derived-unions (&optional debug-vector)
   "Propagate attribute values to derived unions.
@@ -956,7 +954,7 @@ Full XMI:
     changed))
 
 ;COPY-DOWNWARD (<uml:Model EA_Model, id=1> (<uml:Package HSUVStructure, id=2>) (|Namespace| |ownedMember|))
-;;; pod :test #'equal in insert here should be 'ocl-equal' ??? Nested Collections???
+;;; :test #'equal in insert here should be 'ocl-equal' ??? Nested Collections???
 (defun copy-downward (object val class/slot some-change)
   "Push the value VAL into OBJECT's slot. Call recursively if that slot
    is subsetting something else and that something else is a derived union.
@@ -964,7 +962,7 @@ Full XMI:
   (dbind (class-name slot-name) class/slot
     (let ((changed some-change))
       (when (pp-insert-value class/slot object val) (setf changed t))
-      (let* ((class (find-class class-name)) ; pod7 was mm-find-class
+      (let* ((class (find-class class-name))
 	     (mapped-slots (mapped-slots class))
 	     (slot (find slot-name mapped-slots :key #'closer-mop:slot-definition-name)))
 	(when-bind (subsetted (slot-definition-subsetted-properties slot))
@@ -1034,7 +1032,7 @@ Full XMI:
 
 (defvar *resource-models* nil "A list of resource-model objects.")
 
-(defclass resource-model (profile) ; pod7 now it is a MOF:model
+(defclass resource-model (profile)
   ((uri-list :initarg :uri-list :initform nil :reader uri-list) ; referencing code might use any of these.
    (short-name :initarg :short-name :initform nil :reader short-name)
    (xmiid2mmobj-ht :initform (make-hash-table :test #'equal) :reader xmiid2mmobj-ht)))  ; the whole point, this xref.
@@ -1059,9 +1057,8 @@ Full XMI:
 	  ;; Prior to uml2.4.1 primitive types where in UML.xmi; from 2.4.1 onward they are in PrimitiveTypes.xmi
 	  ;; 2022: I can't believe how complicated this is! REALLY? I removed some quirky conditions.
 	  ;;       Too bad I don't have decent regression testing! If problems, check original in github.
-	  (cond ((and model
-		      (setf result (gethash href-string (ref-items model))))
-		 result)
+	  (cond ((and model (setf result (gethash href-string (ref-items model))))
+		 result) ; ToDo: The goal is to use this one condition, but I'd have to generalize for user-model?
 		((and (member index '("Boolean" "String" "Integer" "UnlimitedNatural" "Real") :test #'string=)
 		      (or (eql model (find-model :ptypes))
 			  (eql model (find-model :uml23 :error-p nil)))) ; 2013-12-18: maybe that's how it was done back then.
@@ -1112,11 +1109,12 @@ Full XMI:
     obj))
 
 ;;; Just a thought: Another way to make this happen is to actually save the population with the compiled model.
+;;; ToDo: Are mm-eff-slot-defs equal in a useful sense for memoization?
 (defmethod href-made-memo ((prop mm-effective-slot-definition) href &key)
   "Create a umlxx:|Property| for the eff-slot-def."
   (with-results (temp-made-memo)
     (or (gethash href temp-made-memo)
-	(setf (gethash href temp-made-memo) ; POD guessing were to intern...
+	(setf (gethash href temp-made-memo) ; guessing were to intern...
 	      (make-instance (intern "Property" (lisp-package (of-model (slot-definition-range prop))))
 			     :name (string (slot-definition-name prop))
 			     :of-model (of-model (slot-definition-range prop))
@@ -1127,7 +1125,7 @@ Full XMI:
     (or (gethash href temp-made-memo)
 	(with-slots (name of-model metatype) prop
 	  (let ((model (if (typep of-model 'profile) (find-model (model-n+1 of-model)) of-model)))
-	    (setf (gethash href temp-made-memo) ; POD guessing were to intern...
+	    (setf (gethash href temp-made-memo) ; ToDo: guessing were to intern...
 		  (make-instance (if (eql :extension metatype)
 				     (intern "Extension" (lisp-package model))
 				     (intern "Association" (lisp-package model)))
@@ -1143,7 +1141,7 @@ Full XMI:
 		   (pkg-model (if (typep model 'abstract-profile)
 				  (find-model (model-n+1 model))
 				  model)))
-	      (setf (gethash href temp-made-memo) ; POD guessing were to intern...
+	      (setf (gethash href temp-made-memo) ; ToDo: guessing were to intern...
 		    (make-instance (intern "Property" (lisp-package pkg-model))
 				   :name name
 				   :of-model model

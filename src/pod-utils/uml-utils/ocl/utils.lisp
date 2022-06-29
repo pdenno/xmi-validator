@@ -93,9 +93,9 @@
 	  :test #'string=))
 
 ;;; POD without the class spec, this is a rather weak test. It iterates over all models. 
-(defun attribute-p (str &optional class)
-  "Returns true if STR (a string) names an attribute. If CLASS, a symbol, is specified, 
-   STR must be an attribute of the argument class."
+(defun attribute-p (str &optional class-sym)
+  "Returns true if STR (a string) names an attribute.
+   CLASS-SYM should be a symbol interned in a package naming a model."
   (flet ((find-attr (str class-obj)
 	   (or 
 	    (find str (mofi:mapped-slots class-obj) 
@@ -104,11 +104,8 @@
 		 (find str (mofi:soft-opposite-slots class-obj) :test #'string=
 		       :key #'(lambda (x) (second (mofi:slot-definition-soft-opposite (car x)))))))))
     (and (not (string-const-p str)) ; and this condition added 2012-02-24 
-	 (if class
-	     (loop for m in *in-scope-models*
-		for class-obj = (find-class (intern (string class) (mofi:lisp-package m)) :errorp nil)
-		when (and class-obj (find-attr str class-obj))
-		do (return-from attribute-p t))
+	 (if class-sym
+	     (find-attr str (find-class class-sym))
 	     ;; The weak part...
 	     (loop for slot in '(mofi:types mofi:inherited-types) do
 		  (loop for vec in (mapcar #'(lambda (m) (funcall slot m)) *in-scope-models*) do

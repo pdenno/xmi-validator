@@ -25,6 +25,11 @@
   (load "./pod-utils/packages.lisp")
   (load "./pod-utils/utils.lisp"))
 
+(sb-unix:unix-mkdir "/tmp/xmi-validator" #o777)
+(sb-unix:unix-mkdir "/tmp/xmi-validator/diff" #o777)
+(sb-unix:unix-mkdir "/tmp/xmi-validator/hunchentoot" #o777)
+(sb-unix:unix-mkdir "/tmp/xmi-validator/upload" #o777)
+
 ;;; Bootstrap logical pathnames.
 (defvar pod:*lpath-ht* (make-hash-table))
 
@@ -33,10 +38,10 @@
 			   (:lisplib . ,(truename "./pod-utils"))
 			   (:testlib . ,(truename "./pod-utils"))
 			   (:mylib   . ,(truename "./pod-utils"))
-			   (:tmp     . "/usr/local/tmp/")
+			   (:tmp     . ,(truename "/tmp/xmi-validator"))
 			   (:data    . ,(truename "../data/"))
 			   (:models  . ,(truename "../models/")))
-   do (setf (gethash key pod:*lpath-ht*) val))
+      do (setf (gethash key pod:*lpath-ht*) val))
 
 (defpackage :user-system
   (:use :cl :asdf :pod-utils))
@@ -65,8 +70,8 @@
 
 (in-package :mofi)
 
-(defvar *cmpkg* nil "Package for #. compiler directive -- determines whether processing
-   UML or CMOF into lisp. Set to any of the :CMOFs of a UML (e.g. :UML23).")
+(defvar *cmpkg* nil "Package for #. compiler directive (see pop-generate.lisp) -- determines 
+   whether processing UML or CMOF into lisp. Set to any of the :CMOFs of a UML (e.g. :UML23).")
 
 (defun comp-it ()
   (let ((po.lisp (pod:lpath :mylib "uml-utils/mof/pop-generate.lisp")))

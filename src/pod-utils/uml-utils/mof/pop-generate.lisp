@@ -1,31 +1,30 @@
-
 (in-package :mofi)
 
 (defgeneric class-assocs (class))
 
-;;; Purpose: directly generate MM enum, class, associations, association ends, operation, and constraint forms 
+;;; Purpose: directly generate MM enum, class, associations, association ends, operation, and constraint forms
 ;;; from a population of M3 objects (from CMOF or UML), typically from a OMG specification or a user's profile.
 ;;;
 ;;; You can compile this file with slime, but be mindful that you are compiling for a particular CMOF.
 ;;; See load.lisp function compi-it to see how it is compiled a startup.
 ;;; See also how #.*cmpkg* is used in this file.
 
-;;; NOTES 
+;;; NOTES
 ;;;  2010-10-17: As of this date, I got a relative clean read of the UML2.4 infrastructure library
 ;;;              using  infralib/10-08-15-cleanup.xmi. Which is UML. This I wrote to cmof.lisp
 ;;;              At the time, I called the UML I was using "PCMOF." Today I am going to rename
-;;;              everything in this package that references PCMOF:: to UML23::. What that 
-;;;              code represents (second half of this file) is the capability to read UML and 
-;;;              generate a mofi:model. 
+;;;              everything in this package that references PCMOF:: to UML23::. What that
+;;;              code represents (second half of this file) is the capability to read UML and
+;;;              generate a mofi:model.
 ;;;              Now I want to be able to read CMOF and generate a mofi model. That's the what
-;;;              the top half of this file does. 
+;;;              the top half of this file does.
 ;;; 2010-later: Not sure whether I'm using the CMOF infralib/10-08-07 or the UML infralib/10-08-15.
 ;;;             Probably the former, but either way, the 2010-10-17 note may not be relevant.
 
-;;; ToDo: - If it is extending "UML23:Diagram" don't print it. 
+;;; ToDo: - If it is extending "UML23:Diagram" don't print it.
 ;;;       - 2013-12-13: Implement uuid all over the place.
 ;;;       - 2013-12-13: Implement assoc-ends
-;;; 2012-01-10 : Continue sending keep-pkg-info through pop2lisp methods (not just class). 
+;;; 2012-01-10 : Continue sending keep-pkg-info through pop2lisp methods (not just class).
 
 ;;; 2013-11-22 It looks like :keep-pkg-info T is what I used only for ODM. It puts things like
 ;;; (in-package "ODM-RDFBase") in the output before every def-meta-whatever.
@@ -60,15 +59,19 @@
 ;;;
 ;;; Now (UML 2.5.1 and probably later) XMI references particular instances of primitives as a models.
 ;;; Nonetheless, I simply add a nickname to the list in :ptypes (See sei-essential-load.lisp.)
-;;; 
+;;;
 ;;; (simple-run-validator (pod:lpath :data "uml251/ptc-01-01-UML.xmi"))
 ;;; (pop-gen :uml25 :uml251 :keep-pkg-info nil :outfile (pod:lpath :models "uml/20131001/uml251.lisp"))
 ;;;
 ;;; (simple-run-validator (pod:lpath :data "uml251/ptc-18-01-03-std-profile.xmi"))
 ;;; (pop-gen :uml251 :uml-profile-l2-20161101 :keep-pkg-info nil :outfile (pod:lpath :models "uml/uml-std-profile-l2-20161101.lisp"))
 ;;;
+;;; I'm learning that if I don't start with a untouched (whatever that means!) MUT (or is it that I comp-it (see load.lisp))
+;;; what is serialized is not complete; some def-meta-operations are missing.
+;;; I added a system-clear-memoized-fns to pop-gen. That seems to have fixed things.
+;;;
 ;;; (simple-run-validator (pod:lpath :data "sysml/20181001/ptc-18-10-04.xmi"))
-;;; (pop-gen :uml251 :sysml16 :keep-pkg-info nil :outfile (pod:lpath :models "sysml/sysml-profile-16.lisp"))
+;;; (pop-gen :uml251 :sysml16) ; Creates (lpath :models "tryme.lisp")
 
 (defparameter *keep-pkg-info* nil "Because I'm not passing :keep-pkg-info deep enough!")
 
@@ -93,18 +96,18 @@
   "The model name from which we will borrow updated OCL. Nil if none, otherwise a keyword.")
 
 ;;; For CMOF/infralib: (just-those-owned-by)
-;;; For  UML/infralib: (just-those-owned-by 
-;;;	                  (mm-find-instance :predicate #'(lambda (x) (and (typep x 'uml23:|Package|)
-;;;							                   (string= (uml23:%name x) "Constructs")))
+;;; For  UML/infralib: (just-those-owned-by
+;;;			  (mm-find-instance :predicate #'(lambda (x) (and (typep x 'uml23:|Package|)
+;;;									   (string= (uml23:%name x) "Constructs")))
 ;;;			   :model (mut *spare-session-vo*))
 ;;;                       #'uml23:%name))
 (defmethod just-those-owned-by ((version (eql #.*cmpkg*))
-				&optional 
-				  (owner (mm-find-instance 
-					  :predicate 
-					  #'(lambda (x) 
+				&optional
+				  (owner (mm-find-instance
+					  :predicate
+					  #'(lambda (x)
 					      (and (typep x '#.(cmsym "Package"))
-						   #|(or 
+						   #|(or
 						   (string= (cmfuncall "%NAME" x) "Submission Diagrams")
 						   (string= (cmfuncall "%NAME" x) "BPMN 2")) |#))
 					  :model (mut *spare-session-vo*)))
@@ -121,9 +124,9 @@
 	      #'(lambda (obj) (is-owned-by-p obj owner))
 	      (coerce (members mut) 'list))))
 	(setf (slot-value mut 'members)
-	      (make-array (length objs) 
-			  :adjustable t 
-			  :fill-pointer (length objs) 
+	      (make-array (length objs)
+			  :adjustable t
+			  :fill-pointer (length objs)
 			  :initial-contents objs))))
     (values)))
 
@@ -138,14 +141,14 @@
 		     ((member (funcall owner-fn obj) those) t)
 		     (t (is-owned-by-those-p (funcall owner-fn obj))))))
       (let* ((owned-by-those
-	      (remove-if-not 
+	      (remove-if-not
 	       #'(lambda (obj) (is-owned-by-those-p obj))
 	       all-members))
 	     (result (append those owned-by-those)))
 	(setf (slot-value (mut *spare-session-vo*) 'members)
-	      (make-array (length result) 
-			  :adjustable t 
-			  :fill-pointer (length result) 
+	      (make-array (length result)
+			  :adjustable t
+			  :fill-pointer (length result)
 			  :initial-contents result))))))
 
 ;;; ==========================================
@@ -162,7 +165,7 @@
 
 (defmethod initialize-instance :after ((obj pg-abstract)  &key)
   (with-slots (name inherit) obj
-      (when (member nil inherit) 
+      (when (member nil inherit)
 	(warn "~A: Nil in inherit!" name)
 	(setf inherit (remove-if #'null inherit)))))
 
@@ -190,20 +193,20 @@
    (redefined-property :initarg :redefined-property :initform nil)
    (multiplicity :initarg :multiplicity)))
 
-(defclass pg-ptype (pg-abstract) 
+(defclass pg-ptype (pg-abstract)
   ())
 
-(defclass pg-enum (pg-abstract) 
+(defclass pg-enum (pg-abstract)
   ((vals :initarg :vals)))
 
-(defclass pg-class (pg-abstract) 
-  ((slots :initarg :slots)
+(defclass pg-class (pg-abstract)
+  ((slots :initarg :slots :reader slots)
    (object :initarg :object)))
 
-(defclass pg-stereotype (pg-class) 
+(defclass pg-stereotype (pg-class)
   ())
 
-(defclass pg-abstract-con/op (pg-abstract) 
+(defclass pg-abstract-con/op (pg-abstract)
   ((class :initarg :class)
    (body  :initarg :body)
    (obody :initarg :obody :initform nil)
@@ -214,7 +217,7 @@
   ((params :initarg :params)
    (pre :initarg :pre)
    (post :initarg :post)))
-   
+
 (defclass pg-constraint (pg-abstract-con/op) ())
 
 (defgeneric pop2lisp (obj &key tpkg &allow-other-keys)
@@ -249,7 +252,7 @@
       (error "In find-package, pkg does not exist: ~A" pkg-name)))
 
 #+nil(defun pkg-info2lisp-pkg (pinfo tpkg)
-  "Return the lisp package named by PINFO, a uml package. 
+  "Return the lisp package named by PINFO, a uml package.
    If no such package exists, create one."
   (let* ((names (full-pkg-info *cmpkg* pinfo tpkg))
 	 (pkg-name (format nil "~{~A~^-~}" names)))
@@ -279,12 +282,12 @@
 (defun getem (type model)
   "Return all elements of the argument type from the model"
   (sort (remove-if-not  #'(lambda (x) (typep x type)) (coerce (members model) 'list))
-	#'string< 
+	#'string<
 	:key (cmfun "%NAME")))
 
 ;;; 2022-06-22 Look at load.lisp function comp-it; it compiles a bunch of these, one for each "version", (a metamodel).
 (defmethod pop-gen ((version (eql #.*cmpkg*))
-		    tpkg &key 
+		    tpkg &key
 			   (model (mut *spare-session-vo*))
 			   (outfile (pod:lpath :models "tryme.lisp" ))
 			   (keep-pkg-info nil))
@@ -292,10 +295,11 @@
      - VERSION is one of :uml25 etc. See comp-it in load.lisp
      - TPKG is the mofi:model name into which code will be generated.
      - KEEP-PKG-INFO is used to put e.g. (in-package 'ODM-RDFBase') in front of every definition.
-   This is used where there are multiple objects with the same simple name. (e.g. ODM)." 
+   This is used where there are multiple objects with the same simple name. (e.g. ODM)."
   (setf *pod-unnamed-cnt* 0)
   (setf *pg-objs* nil)
   (setf *unique-name-cnt* 0)
+  (system-clear-memoized-fns)
   (pop-gen-fix-inheritances version model) ; has side-effects!
   (unless (find-package tpkg) (make-package tpkg :use '(:cl :mofi)))
     (with-open-file (stream outfile :direction :output :if-exists :supersede :if-does-not-exist :create)
@@ -324,12 +328,12 @@
 (defun assocs-without-class ()
   "Return the pg-assoc objects that own all their ends."
   (loop for obj in *pg-objs*
-       when (and (typep obj 'pg-assoc) 
+       when (and (typep obj 'pg-assoc)
 		 (= (length (owned-ends obj)) (length (member-ends obj))))
        collect obj))
 
-;;; POD Currently this, and everything else, isn't implementing hierarchical namespaces. 
-;;; Used with keep-pkg-info = t (odm.lisp style output). 
+;;; POD Currently this, and everything else, isn't implementing hierarchical namespaces.
+;;; Used with keep-pkg-info = t (odm.lisp style output).
 (defmethod write-defpackages ((version (eql #.*cmpkg*)) package tpkg stream)
   "Write a defpackage for every CMOF/UML Package. MAKE THE PACKAGES TOO."
   (let ((name (format nil "~A-~A" tpkg (cmfuncall "%NAME" package))))
@@ -361,10 +365,10 @@
 	(let ((*package* (find-package tpkg)))
 	  (real-pprint
 	   version
-	   (make-pg-instance 
+	   (make-pg-instance
 	    'pg-enum
 	    :name name
-	    :model tpkg 
+	    :model tpkg
 	    :inherit (p2l-inherit enum tpkg version)
 	    :vals (mapcar #'(lambda (x) (name-only-symbol x tpkg *keep-pkg-info*)) (hasv "ownedLiteral" enum)) ; POD 2016 and untested
 	    :xmi-id (obj2xmiid enum model)
@@ -378,31 +382,31 @@
 	   (list (or (pop2lisp (cmfuncall "%CLASS" end) :name-only-p t :tpkg tpkg)
 		     (obj2xmiid end model))
 		 (cmfuncall "%NAME" end))))
-    (let ((name (if-bind (n (cmfuncall "%NAME" assoc)) 
+    (let ((name (if-bind (n (cmfuncall "%NAME" assoc))
 			 (name-only-symbol assoc tpkg *keep-pkg-info*)
 			 (intern (format nil "unamed-assoc-~A" (incf *unique-name-cnt*)) tpkg))))
       (if name-only-p
 	  name
 	  (let ((*package* (find-package tpkg)))
-	     (make-pg-instance 
+	     (make-pg-instance
 	      'pg-assoc
 	      :name name
 	      :metatype (if (typep assoc '#.(cmsym "Extension")) :extension :association)
 	      :xmi-id (obj2xmiid assoc model)
-	      :model tpkg 
+	      :model tpkg
 	      :owned-ends (if (typep assoc '#.(cmsym "Extension"))
 			      (list (end-info (has "ownedEnd" assoc)))
 			      (mapcar #'end-info (hasv "ownedEnd" assoc)))
 	      :member-ends (mapcar #'end-info (hasv "memberEnd" assoc))
 	      :navigable-owned-ends (mapcar #'end-info (hasv "navigableOwnedEnd" assoc))
-	      :assoc-ends (sort (mapcar #'(lambda (x) (compute-assoc-end x model tpkg)) 
-					(if (typep assoc '#.(cmsym "Extension")) 
+	      :assoc-ends (sort (mapcar #'(lambda (x) (compute-assoc-end x model tpkg))
+					(if (typep assoc '#.(cmsym "Extension"))
 					    (list (has "ownedEnd" assoc))
 					    (hasv "ownedEnd" assoc)))
 				#'string<
 				:key #'xmi-id)))))))
 
-#| Full sized example (from SysML) could also be a uml:Property. 
+#| Full sized example (from SysML) could also be a uml:Property.
  <ownedEnd xmi:type="uml:ExtensionEnd"
    xmi:id="_SysML_-Ports%2526Flows-E_extension_Invo...n_InvocationOnNestedPortAction"
    xmi:uuid="eb1ecd30-1f7a-40f7-a07b-cbbf678179fc"
@@ -413,20 +417,20 @@
    association="_SysML_-Ports%2526Flows-E_extension_InvocationOnNestedPortAction_base_InvocationAction">
       <redefinedProperty xmi:idref="_SysML_-Blocks-E_e..._base_Element-extension_ElementPropertyPath"/>
       <lowerValue xmi:type="uml:LiteralInteger"
-               xmi:id="_SysML_-Ports%2526Flows-E_exten...ension_InvocationOnNestedPortAction-_lowerValue"
-               xmi:uuid="97882509-51fe-4d6a-ae25-ce950921bb50"/>
+	       xmi:id="_SysML_-Ports%2526Flows-E_exten...ension_InvocationOnNestedPortAction-_lowerValue"
+	       xmi:uuid="97882509-51fe-4d6a-ae25-ce950921bb50"/>
   </ownedEnd>
 |#
 
 (defgeneric compute-assoc-end (end model tpkg))
 
 (defmethod compute-assoc-end ((end #.(cmsym "Property")) model tpkg)
-  "Create a pg-assoc-end for ends owned by the Association (or Extension). 
+  "Create a pg-assoc-end for ends owned by the Association (or Extension).
    These will be the only thing persisting information of the associate-owned ends."
   (make-pg-instance
    'pg-assoc-end
-   :xmi-id (obj2xmiid end model) ; Use THIS as object name. 
-   :name (cmfuncall "%NAME" end) ; This is not unique. 
+   :xmi-id (obj2xmiid end model) ; Use THIS as object name.
+   :name (cmfuncall "%NAME" end) ; This is not unique.
    :type (pop2lisp (cmfuncall "%TYPE" end) :name-only-p t :tpkg tpkg)
    :visibility (when-bind (v (cmfuncall "%VISIBILITY" end)) (kintern v))
    :aggregation (when-bind (a (cmfuncall "%AGGREGATION" end)) (kintern a))
@@ -440,7 +444,7 @@
        (setf obj (cmfuncall "%OWNER" obj)))
   obj)
 
-;;; POD Currently this, and everything else, isn't implementing hierarchical namespaces. 
+;;; POD Currently this, and everything else, isn't implementing hierarchical namespaces.
 #+nil(defun name2symbol (obj tpkg)
   "Return the namespace-qualified name of the object."
     (let* ((name (cmfuncall "%NAME" obj))
@@ -454,9 +458,9 @@
      (when-bind (name (cmfuncall "%NAME" obj))
        (let ((result
 	      (if keep-pkg-info
-		  (if-bind (ns ,ns-access) 
-			   (intern name (find-package-fail 
-					 (format nil "~A-~A" tpkg 
+		  (if-bind (ns ,ns-access)
+			   (intern name (find-package-fail
+					 (format nil "~A-~A" tpkg
 						 (cmfuncall "%NAME" (pkg-or-owning-pkg ns)))))
 			   (intern name tpkg))
 		  (intern name tpkg))))
@@ -483,30 +487,35 @@
 
 (defun p2l-inherit-internal (obj tpkg version)
   (mapcar #'(lambda (x) (name-only-symbol x tpkg *keep-pkg-info*))
-	  (when-bind 
+	  (when-bind
 	      (inh (ecase version  ; 2012-02-24 nothing in stereotypes?
 		     (:cmof (cmfuncall "%SUPER-CLASS" obj))
 		     ((or :uml251 :uml25 :uml4sysml12 :uml241 :uml23)
-		      (make-instance 
+		      (make-instance
 		       'ocl:|Set|
 		       :value (mapcar '#.(cmsym "%GENERAL")
 				      (ocl:value (cmfuncall "%GENERALIZATION" obj)))))))
 	    (ocl:value inh))))
 
-;;; Currently this is used for Stereotypes too. (Stereotypes are classes). 
+
+;;; This is used for Stereotypes too. (Stereotypes are classes.)
+;;; (mm-find-instance :id 292) ==> <UML251:Stereotype AbstractRequirement, id=292>
+;;; (setf iii *)
+;;; (mut *spare-session-vo*) ==> #<Population ptc-18-10-04 (of UML251) members:1531>
+;;; (pop2lisp iii :tpkg :sysml16 :version :uml251 :model (mut *spare-session-vo*))
 (defmethod pop2lisp ((class #.(cmsym "Class")) &key tpkg (stream *standard-output*) name-only-p model keep-pkg-info version)
   "Print a CMOF/UML:Class as a def-meta-class, def-meta-constraints and def-meta-operations."
   (declare (ignore model))
   (let ((name (name-only-symbol class tpkg *keep-pkg-info*))
 	(*package* (if keep-pkg-info ; POD probably want this on enums, primitive types etc. too.
-		       (find-package (format nil "~A-~A" tpkg 
+		       (find-package (format nil "~A-~A" tpkg
 					     (cmfuncall "%NAME" (cmfuncall "%NAMESPACE" class))))
 		       (find-package tpkg))))
     (if name-only-p
 	name
 	;; Otherwise write to STREAM the class, its operations and constraints."
-	(let ((cform (make-pg-instance 
-		      (if (eql version :cmof) 			
+	(let ((cform (make-pg-instance
+		      (if (eql version :cmof)
 			  'pg-class
 			  (typecase class
 			    (#.(cmsym "Stereotype") 'pg-stereotype) ; 2011-09-07 commented out for CMOF/fuml
@@ -515,11 +524,11 @@
 		      :object class
 		      :model tpkg
 		      :inherit (p2l-inherit class tpkg version)
-		      :slots (mapcar #'(lambda (x) 
+		      :slots (mapcar #'(lambda (x)
 					 (pop2lisp x :tpkg tpkg :keep-pkg-info keep-pkg-info :version version :model model))
 				     (p2l-sort-properties class model))
 		      :doc (pop2lisp-comments class)
-		      :xmi-id (obj2xmiid class model) 
+		      :xmi-id (obj2xmiid class model)
 		      ;; 2013-11-22 see notes. I can't see why NamedElement.namespace would have a value!
 		      ;; Thus I have changed this to an OR added Element.owner
 		      :package-info (or (cmfuncall "%NAMESPACE" class) (cmfuncall "%OWNER" class))))
@@ -528,7 +537,7 @@
 				 (mapcar #'(lambda (x) (pop2lisp x :tpkg tpkg :version version))
 					 (sort (ocl:value (cmfuncall "%OWNED-RULE" class))
 					       #'string< :key (cmfun "%NAME")))))
-	      ;; Operations owned by the class have rules that are the parts (pre, body, post) of the operation. 
+	      ;; Operations owned by the class have rules that are the parts (pre, body, post) of the operation.
 	      (oforms (remove-if #'null
 				 (mapcar #'(lambda (x) (pop2lisp x :tpkg tpkg :version version))
 					 (sort (ocl:value (cmfuncall "%OWNED-OPERATION" class))
@@ -537,19 +546,19 @@
 	  ;(format stream "~%")
 	  (when rforms (loop for r in rforms do (format stream "~%") (real-pprint version r stream)))
 	  (when oforms (loop for o in oforms do (format stream "~%") (real-pprint version o stream)))
-	  (loop for a in (sort (class-assocs cform) #'string< :key #'name) 
-	        do (real-pprint version a stream))))))
+	  (loop for a in (sort (class-assocs cform) #'string< :key #'name)
+		do (real-pprint version a stream))))))
 
 
 
-;;; Both association ends could be owned by classes, but of course we want the 
+;;; Both association ends could be owned by classes, but of course we want the
 ;;; Declaration to appear only once. So we print it with the first class-owned end in member ends.
 (defmethod class-assocs ((class pg-class))
   "Return the pg-assoc objects that is the first class-owned association end."
   (let ((class-name  (name class)))
     (loop for obj in *pg-objs*
-       when (and (typep obj 'pg-assoc) 
-		 (eql class-name 
+       when (and (typep obj 'pg-assoc)
+		 (eql class-name
 		      (caar (remove-if-not #'symbolp (member-ends obj) :key #'car))))
        collect obj)))
 
@@ -559,20 +568,20 @@
 ;  (when #-updm t ; this doesn't do anything useful. Further inspection revealed that UPDM doesn't have useful OCL!
 ;	#+updm (string= "OCL2.0" (car (ocl:value (cmfuncall "%LANGUAGE" (cmfuncall "%SPECIFICATION" rule)))))
 	(let* ((op-body (with-output-to-string (str)
-			  (cl-ppcre:regex-replace-all 
-			   "&lt;" 
-			   (cl-ppcre:regex-replace-all 
+			  (cl-ppcre:regex-replace-all
+			   "&lt;"
+			   (cl-ppcre:regex-replace-all
 			    "&gt;"
-			    (format str "~{~A~^~%~}" 
+			    (format str "~{~A~^~%~}"
 				    (ocl:value (cmfuncall "%BODY" (cmfuncall "%SPECIFICATION" rule))))
 			    ">") "<")))
 	       (class (pop2lisp (cmfuncall "%CONTEXT" rule) :tpkg tpkg :name-only-p t :version version))
-	       (const (make-pg-instance 
+	       (const (make-pg-instance
 		       'pg-constraint
 		       :name (name-only-symbol rule tpkg *keep-pkg-info*)
 		       :class class
 		       :doc (with-output-to-string (str)
-			      (format str "~{~A~^~%~}" 
+			      (format str "~{~A~^~%~}"
 				      (mapcar (cmfun "%BODY") (hasv "ownedComment" rule))))
 		       :body  op-body)))
 	  (when-bind (nop (and *updated-ocl-model*
@@ -621,7 +630,7 @@
 ;;;            When I call pop2lisp on a rule, it is defining a constraint.
 ;;;          Class.ownedOperation -- operations
 ;;;          Class.ownedRule -- constraint
-;;; POD 2012-02-23 grabbing pre and post, but not using them yet. 
+;;; POD 2012-02-23 grabbing pre and post, but not using them yet.
 (defmethod pop2lisp ((op #.(cmsym "Operation")) &key tpkg version)
   "Translate an operation."
   (declare (ignore version))
@@ -630,9 +639,9 @@
 	   (op-pre (loop for p in (ocl:value (cmfuncall "%PRECONDITION" op))
 		       collect (spec-body p)))
 	   (op-post nil)
-	   (pg-op 
+	   (pg-op
 	    (when op-body
-	      (make-pg-instance 
+	      (make-pg-instance
 	       'pg-operation ; POD 2017 added intern tpkg
 	       :name (intern (format nil (if (p2l-op-is-slot-deriv-p op) "~A.1" "~A") (cmfuncall "%NAME" op)) tpkg)
 	       :class (pop2lisp (cmfuncall "%CLASS" op) :tpkg tpkg :name-only-p t)
@@ -647,7 +656,7 @@
 	(when-bind (nop (and *updated-ocl-model*
 			     (find (cmfuncall "%NAME" op)
 				   (class-ocl-updates (cmfuncall "%CLASS" op) :operations)
-				   :test #'string= 
+				   :test #'string=
 				   :key #'(lambda (x) (no-nonsense-name (operation-name x))))))
 	  (with-slots (edit status body obody) pg-op
 	    (setf edit (or (editor-note nop) ""))
@@ -666,22 +675,22 @@
 (defmethod pop2lisp ((p #.(cmsym "Parameter")) &key tpkg version)
   "Return a make-instance 'ocl-parameter form."
   (declare (ignore version))
-  `(make-instance 'ocl-parameter 
-		  :parameter-name ,(if (eql (cmfuncall "%DIRECTION" p) :return) 
-				       nil 
+  `(make-instance 'ocl-parameter
+		  :parameter-name ,(if (eql (cmfuncall "%DIRECTION" p) :return)
+				       nil
 				       (intern (cmfuncall "%NAME" p) tpkg))
 		  :parameter-type ,(pop2lisp (cmfuncall "%TYPE" p) :tpkg tpkg :name-only-p t)
 		  :parameter-return-p ,(if (eql (cmfuncall "%DIRECTION" p) :return) t nil)))
 
 ;;; (setf ccc (mm-find-instance :id 1354))
-;;; :is-derived-union-p :is-readonly-p :is-composite-p :is-ordered-p 
+;;; :is-derived-union-p :is-readonly-p :is-composite-p :is-ordered-p
 ;;; :is-derived-p :default :subsetted-properties :opposite :documentation
 (defmethod pop2lisp ((prop #.(cmsym "Property")) &key tpkg keep-pkg-info version model)
   "Print a slot."
   `(,(name-only-symbol prop tpkg keep-pkg-info)
      :xmi-id ,(obj2xmiid prop model)
-     :range ,(or (pop2lisp (cmfuncall "%TYPE" prop) :tpkg tpkg :name-only-p t) 
-		 (if keep-pkg-info t '#.(cmsym "Element"))) ; POD only works for UML! 
+     :range ,(or (pop2lisp (cmfuncall "%TYPE" prop) :tpkg tpkg :name-only-p t)
+		 (if keep-pkg-info t '#.(cmsym "Element"))) ; POD only works for UML!
      :multiplicity (,(pop2lisp (or (and (fboundp '#.(cmsym "%LOWER-VALUE"))
 					(cmfuncall "%LOWER-VALUE" prop))
 				   (cmfuncall "%LOWER" prop)))
@@ -695,7 +704,7 @@
      ,@(when (bool "isOrdered" prop) (list :is-ordered-p t))
      ,@(when (bool "isDerived" prop) (list :is-derived-p t))
      ,@(if (eql version :cmof)
-	   (when (has "default" prop) 
+	   (when (has "default" prop)
 	     (list :default (let ((val (has "default" prop)) num?)
 			      (cond ((and (cl-ppcre:scan "^[+,-]?[0-9]+.?[0-9]*$" val)
 					  (numberp (setf num? (read-from-string val))))
@@ -708,10 +717,10 @@
 	       (list :default (pop2lisp val :tpkg tpkg)))))
      ,@(when (hasv "subsettedProperty" prop) ; not enough to surpress the nil.
 	     (when-bind (results
-			 (sort 
+			 (sort
 			  (remove-if #'null
 				     (mapcar #'(lambda (x)
-						   (list 
+						   (list
 						    (pop2lisp (cmfuncall "%CLASS" x) :tpkg tpkg :name-only-p t)
 						    (intern (or (cmfuncall "%NAME" x) (next-pod-unnamed)))))
 					     (hasv "subsettedProperty" prop))
@@ -729,7 +738,7 @@
      ,@(when (hasv "ownedComment" prop) ; not enough to suppress the nil.
 	     (list :documentation
 		    (with-output-to-string (str)
-		      (format str "~{~A~^~%~}" 
+		      (format str "~{~A~^~%~}"
 			      (mapcar (cmfun "%BODY") (hasv "ownedComment" prop))))))
      ,@(when (hasv "redefinedProperty" prop)
 	     (let ((redef (car (ocl:value (cmfuncall "%REDEFINED-ELEMENT" prop)))))
@@ -739,9 +748,9 @@
 
 
 ;;; OCL of opposite UML (and I'm using i infralib/10-08-15-cleanup.xmi for CMOF).
-;;; if owningAssociation->isEmpty() and association->notEmpty() and association.memberEnd->size() = 2 
-;;;         then let otherEnd = (association.memberEnd->excluding(self))->any() in 
-;;;           if otherEnd.owningAssociation->isEmpty() then otherEnd else Set{} endif 
+;;; if owningAssociation->isEmpty() and association->notEmpty() and association.memberEnd->size() = 2
+;;;         then let otherEnd = (association.memberEnd->excluding(self))->any() in
+;;;           if otherEnd.owningAssociation->isEmpty() then otherEnd else Set{} endif
 ;;;         else Set {} endif
 #+nil
 (defun tryme-opposite (self)
@@ -761,21 +770,19 @@
 
 
 ;;; Properties are ordered. I would lose them here if they weren't already
-;;; alphabetical. (They are in 2.4.1.) 
+;;; alphabetical. (They are in 2.4.1.)
 (defmethod p2l-sort-properties ((class #.(cmsym "Class")) model)
   "Return a list of the properties of OBJ, a cmof/uml:|Class| sorted alphabetically by name."
-  (sort 
+  (sort
    (loop for obj across (members model)
       when (and (typep obj '#.(cmsym "Property"))
 		(eql class (cmfuncall "%CLASS" obj)))
       collect obj)
    #'string<
    :key (cmfun "%NAME")))
-     
+
 (defmethod pop2lisp-comments ((obj #.(cmsym "Element")))
   "Concatenate and format comments."
-  ;(setf *zippy* obj)
-  ;(break "comment")
   (when-bind (comments (ocl:value (cmfuncall "%OWNED-COMMENT" obj)))
     (apply #'concatenate 'string
 	    (loop for c in comments collect (cmfuncall "%BODY" c)))))
@@ -787,7 +794,7 @@
       (let ((*package* (find-package tpkg)))
 	(format stream "~2%(def-meta-package ~S ~S ~S ~%   (~{~S~^~%    ~}) :xmi-id ~S)"
 		(intern (cmfuncall "%NAME" obj) tpkg)
-		;; owner, ownedElement will be resolved to a mm-type-object/mm-package-mo on model-load. 
+		;; owner, ownedElement will be resolved to a mm-type-object/mm-package-mo on model-load.
 		(when-bind (owner (cmfuncall "%OWNER" obj))
 		  (pop2lisp owner :name-only-p t :tpkg tpkg))
 		tpkg
@@ -828,7 +835,7 @@
 	  ((null val) nil)
 	  (t (kintern val)))))
 
-(defmethod pop2lisp ((obj #.(if (eql *cmpkg* :cmof) 
+(defmethod pop2lisp ((obj #.(if (eql *cmpkg* :cmof)
 				'(eql :never)
 				(intern "InstanceValue" *cmpkg*))) &key tpkg)
   "Read an instance value."
@@ -846,7 +853,7 @@
   "Look through another model, which may have better OCL.
    Return a list of ocl-operation objects from the updated-ocl-model
    for CLASS (a cmof/uml:|Class| object)."
-  (when-bind (up-class (find-class (intern (cmfuncall "%NAME" class) 
+  (when-bind (up-class (find-class (intern (cmfuncall "%NAME" class)
 					   (lisp-package (find-model *updated-ocl-model*))) nil))
     (remove-if-not ; sometimes I forget to set :operation-status
      #'(lambda (x) (or (original-body x)
@@ -883,7 +890,7 @@
   (declare (ignore version))
   (with-slots (name model inherit vals doc xmi-id) obj
     (format stream "~2%(def-meta-enum ~S (:model ~S :superclasses ~S ~%   :xmi-id ~S)~%   (~{~S~^ ~})~%   ~S)"
-	     name model inherit xmi-id vals 
+	     name model inherit xmi-id vals
 	    (string-trim '(#\Space) (format-to-size doc 70 "   ")))))
 
 (defmethod real-pprint ((version (eql #.*cmpkg*)) (obj pg-assoc) stream &key)
@@ -894,7 +901,7 @@
     (format stream "      ~%  :metatype ~A" (case metatype (:association ":association") (t ":extension")))
     (format stream "      ~%  :member-ends (~{~S~^~%                ~})" member-ends)
     (format stream "      ~%  :owned-ends  (~{~S~^ ~}))" (mklist owned-ends))
-    ;; Only the association-owned ends were created. 
+    ;; Only the association-owned ends were created.
     (loop for e in assoc-ends do (real-pprint version e stream :assoc xmi-id))))
 
 (defmethod real-pprint ((version (eql #.*cmpkg*)) (obj pg-assoc-end) stream &key assoc)
@@ -914,10 +921,10 @@
     (format stream "~2%;;; =========================================================")
     (format stream "~%;;; ====================== ~A" name)
     (format stream "~%;;; =========================================================")
-    (when keep-pkg-info 
+    (when keep-pkg-info
       (format stream "~%(in-package ~S)" (package-name (symbol-package name))))
     (format stream "~%(def-meta-class ~S ~%   (:model ~S :superclasses ~S ~%    :packages ~S ~%    :xmi-id ~S)~% ~S"
-	    name model inherit (full-pkg-info version package-info model) xmi-id 
+	    name model inherit (full-pkg-info version package-info model) xmi-id
 	    (string-trim '(#\Space) (format-to-size doc 70)))
     (real-pprint-slots slots stream)
     (format stream ")")))
@@ -929,36 +936,51 @@
 	;; I think I could also just look for the non-ExtensionEnd. Would that be safer?
 	(when-bind (m-end (car (set-difference (ocl:value (cmfuncall "%MEMBER-END" as))
 					       (if (typep as '#.(cmsym "Association"))
-						   (list (cmfuncall "%OWNED-END" as)) 
+						   (list (cmfuncall "%OWNED-END" as))
 						   (ocl:value (cmfuncall "%OWNED-END" as))))))
 	  (if-bind (typ (cmfuncall "%TYPE" m-end)) ; POD 2013-12-30 if added for SysML1.2 processing
 		   (class-name typ)
 		   (intern (subseq (cmfuncall "%NAME" m-end) 5) (lisp-package (mofi:%of-model m-end)))))
 	(warn (format nil "base-property ~A has no assocation" base-property)))))
 
+(defun find-extenders-new-way (obj version)
+  (declare (ignore version))
+  (with-slots (slots object) obj
+    (let* ((base-slots (remove-if #'(lambda (x) (not (cl-ppcre:scan "^base_" (string (car x))))) slots))
+	   (bnames (mapcar #'first base-slots)))
+      (loop for s in slots
+	    for sname = (first s)
+	    when (member sname bnames)
+	      collect (second (member :range s))))))
+
+(defun find-extenders-old-way (obj version)
+  (with-slots (slots object) obj
+    (let* ((base-slots (remove-if #'(lambda (x) (not (cl-ppcre:scan "^base_" (string (car x))))) slots))
+	   (owned-attr (ocl:value (cmfuncall "%OWNED-ATTRIBUTE" object)))
+	   (extenders (mapcar #'(lambda (x) (find x owned-attr :test #'string= :key (cmfun "%NAME"))) base-slots)))
+      (mapcar #'(lambda (x) (find-base-type version x)) extenders))))
+
+(defun find-extenders (obj version)
+  (or (find-extenders-new-way obj version)
+      (find-extenders-old-way obj version)))
+
 (defmethod real-pprint ((version (eql #.*cmpkg*)) (obj pg-stereotype) stream &key keep-pkg-info)
   (declare (ignore keep-pkg-info))
   (with-slots (name model inherit package-info doc slots xmi-id object) obj
-    (let* ((non-base-slots (remove-if #'(lambda (x) (cl-ppcre:scan "^base_" (string (car x)))) slots))
-	   ;; POD This really ought to be done when the object is created!
-	   (extends (mapcar #'(lambda (x) (find-base-type version x))
-			    (mapcar #'(lambda (x)
-					(find x (ocl:value (cmfuncall "%OWNED-ATTRIBUTE" object))
-					      :test #'string= :key (cmfun "%NAME")))
-				    (mapcar #'car (set-difference slots non-base-slots))))))
-      #+md-bpmn(fix-inherit (if (string= name "ResourceParameter") (reverse inherit) inherit))
-      (when (and (null inherit) (null extends))
+    (let* ((extends (find-extenders obj version)))
+      (when (and (not (some #'identity inherit))
+		 (not (some #'identity extends)))
 	(warn "~A: Both :superclasses and :extends are null!" name))
       (format stream "~2%;;; =========================================================")
       (format stream "~%;;; ====================== ~A" name)
       (format stream "~%;;; =========================================================")
       (format stream "~%(def-meta-stereotype ~S ~%   (:model ~S :superclasses ~S :extends ~S~% :packages ~S ~% :xmi-id ~S)~% ~S"
-	      name model #+md-bpmn fix-inherit #-bpmn inherit extends 
+	      name model inherit extends
 	      (full-pkg-info version package-info model) xmi-id
 	      (string-trim '(#\Space) (format-to-size doc 70)))
       (real-pprint-slots slots stream) ; 2013-12-17 was non-base-slots
       (format stream ")"))))
-	    
+
 (defun real-pprint-slots (slots stream &key)
   "Print a def-meta-class very prettily."
     (format stream "~%  (")
@@ -967,11 +989,11 @@
 	 (loop for line on (split-at (car s) '(:range :subsetted-properties :opposite :documentation)) do
 	      (loop for tkns on (car line) do
 		   (if (keywordp (car tkns))
-		       ;; Next line needs work: Can't handle keywords with #\: in them. 
+		       ;; Next line needs work: Can't handle keywords with #\: in them.
 		       (let ((str (string-downcase (string (car tkns)))))
 			 (if (find #\Space str)
-			     (format stream ":|~A|" str) 
-			     (format stream ":~A" str))) 
+			     (format stream ":|~A|" str)
+			     (format stream ":~A" str)))
 		       (format stream "~S" (car tkns)))
 		   (when (eql (car tkns) :documentation)
 		     (format stream "~%    ")
@@ -990,8 +1012,8 @@
     (format stream "~%(def-meta-constraint ~S ~S ~%   ~S"
 	    name class (string-trim '(#\Space) (format-to-size doc 70 "   ")))
     (format stream "~%   :operation-body~%   ~S" body)
-    (when edit 
-      (format stream "~%   :operation-status ~A~%" 
+    (when edit
+      (format stream "~%   :operation-status ~A~%"
 	      (format nil ":~A" (string-downcase (string status))))
       (format stream "   :editor-note ~S~%" edit)
       (format stream "   :original-body~%   ~S" obody))
@@ -1006,7 +1028,7 @@
     (format stream "~%   :operation-body~%   ~S" body)
     (format stream "~%   :parameters") (real-pprint-params params stream)
     (when edit
-      (format stream "    :operation-status ~A~%" 
+      (format stream "    :operation-status ~A~%"
 	      (format nil ":~A" (string-downcase (string status))))
       (format stream "    :editor-note ~S~%" edit)
       (format stream "    :original-body~%    ~S~%" obody))
@@ -1034,7 +1056,7 @@
 		      (fpi-aux owner (cons (intern (cmfuncall "%NAME" owner) tpkg) accum))
 		      accum)))
     (fpi-aux package (list (intern (cmfuncall "%NAME" package) tpkg)))))
-  
+
 
 (defmethod pprint-prolog ((version (eql #.*cmpkg*)) stream tpkg model classes keep-pkg-info)
   "Write miscellaneous information."
@@ -1045,16 +1067,16 @@
 	     "~%(with-slots (abstract-classes ns-uri ns-prefix) *model*"
 	     "~%     (setf abstract-classes "))
     (format stream  "~%        '(~{~S~^~%          ~}))"
-	    (loop for c in classes 
+	    (loop for c in classes
 	       when (eql :true (cmfuncall "%IS-ABSTRACT" c))
 	       collect (name-only-symbol c tpkg keep-pkg-info)))
-    (format stream "~%     (setf ns-uri ~S)" 
-	    (or (ns-uri model) 
+    (format stream "~%     (setf ns-uri ~S)"
+	    (or (ns-uri model)
 		(format nil "http://modelegator.nist.gov/~A" tpkg)))
-    (format stream "~%     (setf ns-prefix ~S))" 
+    (format stream "~%     (setf ns-prefix ~S))"
 	    (or (ns-prefix model)
 		(string tpkg)))))
-	  
+
 (defmethod pprint-ensure-model ((p population))
   "pprint (what is roughly) the ensure-model form, suitable for framing."
   (with-slots (ns-prefix ns-uri documentation) p
@@ -1067,8 +1089,8 @@
 			 :model-class ',(if (profile-p p) 'mofi::profile 'mofi:essential-compiled-model)
 			 :ns-prefix ,ns-prefix
 			 :ns-uri ,ns-uri
-			 :classes-path 
-			 (pod:lpath 
+			 :classes-path
+			 (pod:lpath
 			  :models
 			  ,(format nil "~A.lisp" ns-prefix))))))
 
@@ -1078,7 +1100,7 @@
     (labels ((cpl (c)
 	       (if (null c)
 		   nil
-		   (when-bind (gens (remove-if #'(lambda (x) (typep x 'mm-type-mo)) 
+		   (when-bind (gens (remove-if #'(lambda (x) (typep x 'mm-type-mo))
 					       (ocl:value (cmfuncall "%GENERAL" c))))
 		     (setf accum (append accum gens))
 		     (mapcar #'cpl gens)))))
@@ -1093,7 +1115,7 @@
   "Where a class definition declares a class and superclasses of the class as
    direct superclasses, remove the superclasses (and warn)."
   (loop for c across (members p)
-        when (typep c '#.(cmsym "Class")) do
+	when (typep c '#.(cmsym "Class")) do
        (fix-inherit-aux version c)))
 
 ;;; Note that it uses the derived slot general, but makes changes to ordinary slot generalization.
@@ -1103,7 +1125,7 @@
     (let ((gens (remove-if #'(lambda (x) (typep x 'mm-type-mo)) (ocl:value gens))))
       (when (cdr gens)
 	(let ((cpls (mapcar #'calculate-cpl-thru-%general gens)))
-	  ;; Each gen should contribute a CPL that isn't a subset of another CPL. 
+	  ;; Each gen should contribute a CPL that isn't a subset of another CPL.
 	  (loop for g in gens
 	     for cpl in cpls
 	     for others = (remove cpl cpls) do
@@ -1113,35 +1135,7 @@
 		      (format t "~% Class ~A isn't needed in generalization to general ~A." c g)
 		      (let ((ization (cmfuncall "%GENERALIZATION" c)))
 			(setf (slot-value c '#.(cmsym "generalization"))
-			      (make-instance 'ocl:|Set| 
-					     :value 
+			      (make-instance 'ocl:|Set|
+					     :value
 					     (remove g (ocl:value ization)
 						     :key #'(lambda (x) (cmfuncall "%GENERAL" x))))))))))))))
-
-
-; (setf ppp (xml-document-parser (pod:lpath :data "bpmn/magicdraw/bpmn-profile-very-clean.xml")))
-; (clean-md ppp)
-; (xmlu:write-node ppp *standard-output*)
-#+nil
-(defun clean-md (xml-doc)
-  "Clean MagicDraw BPMN XMI (19MB) of associations and icons."
-  (depth-first-search 
-   xml-doc
-   #'fail
-   #'xml-children
-   :do #'(lambda (node)
-	   (when (dom:element-p node)
-	     (setf (xml-children node)
-		   (remove-if #'(lambda (x)
-				  (or 
-				   (xml-typep x "icon")
-				   (xml-typep-3 x '|http://schema.omg.org/spec/XMI/2.1|::|Association|)
-				   (and (dom:element-p x)
-					(string= "MagicDraw_Profile" (xml-prefix (xml-name x))))))
-			      (xml-children node)))))))
-   
-
-
-
-
-				

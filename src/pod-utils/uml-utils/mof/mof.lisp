@@ -242,7 +242,7 @@
    (of-model :reader of-model :initarg :of-model)
    (metatype :initarg :metatype) ; :association or :extension
    (owned-ends :initarg :owned-ends :reader owned-ends)
-   (member-ends :initarg :member-ends)))
+   (member-ends :initarg :member-ends :reader member-ends)))
 
 (defmethod print-object ((obj mm-assoc-mo) stream)
   (with-slots (xmi-id) obj
@@ -260,6 +260,20 @@
 			   :member-ends ',member-ends)))
        (with-slots (assocs) *model* (vector-push-extend ,obj assocs))
        ,obj)))
+
+;;; 0. NAME: UML251::|A_mapping_abstraction|
+;;; 1. XMI-ID: "A_mapping_abstraction"
+;;; 2. OF-MODEL: #<Model UML251 types:255>
+;;; 3. METATYPE: :ASSOCIATION
+;;; 4. OWNED-ENDS: ({Assoc-end A_mapping_abstraction-abstraction})
+;;; 5. MEMBER-ENDS: ((UML251:|Abstraction| "mapping")
+;;;                  ("A_mapping_abstraction-abstraction" "abstraction"))
+(defun find-end (model end-name)
+  "Return a collection of associations that have the argument end name."
+  (loop for assoc across (assocs model)
+	append (loop for end in (member-ends assoc)
+                     when (string= end-name (second end))
+	               collect assoc)))
 
 ;;; Unlike mm-class-mo, these don't have to be common-lisp meta objects.
 (defclass mm-assoc-end-mo ()
@@ -314,11 +328,25 @@
 		     :xmi-id ',xmi-id)
       packages)))
 
+;;; Here is the start of an alternative implementation of mm-package-mo, 
+;;; one that attempts to create packages that are conforming to a CMOF/UML.
+;;; The motivation for doing this is that href lookups that refer to packages
+;;; are going to get mm-package-mo, which won't pass the test for being CMOF/UML packages.
+;;; I didn't complete this because I opted for special method for type validation,
+;;; See http://localhost:3330/se-interop/sysml/explanation?concept=MOF-VIOLATES-TYPE .
+#+nil(defmacro def-meta-package (name owner of-model owned-element &key xmi-id)
+  `(with-slots (packages) *model*
+     (push
+      (make-instance ',(intern "Package" (find-package (model-n+1 *model*)))
+		     :name ,(symbol-name name)
+		     :of-model (find-model ,of-model)
+		     :owner ',owner
+		     :owned-element ',owned-element)
+      packages)))
+
 ;;; Same thing as above
 (defmacro def-mm-package (name owner of-model owned-element)
   `(def-meta-package ,name ,owner ,of-model ,owned-element))
-
-
 
 #| Something like Kickzales p286. Typical usage is:
   (canonicalize-direct-slot
@@ -636,7 +664,7 @@
 				     :reader-name ',fname :lisp-error c)
 			       (throw 'reader-failed nil))))
 		     (let ((*inside-derivation-p* t))
-		       (declare (global *inside-derivation-p*))
+		       (declare (special *inside-derivation-p*))
 		       (let ((val (funcall ',fname instance)))
 			 (if (typep val 'ocl::|Collection|)
 			     (make-instance (class-name (class-of val))

@@ -114,11 +114,12 @@
 				  (when val ; If mandatory, will be pickup up above
 				    (loop for v in ocl-value 
 					  unless (or (null v) (mm-typep v range)) ; POD HUH?
-					  do 
-					    (warn! mof-violates-type obj source (slot-direct-slot slot)
-						    range v (value-symbol v))))))
+					    do (warn! mof-violates-type obj source (slot-direct-slot slot)
+						      range v (value-symbol v))))))
 			       (t (when val ; If mandatory, will be pickup up above
-				    (unless (mm-typep val range) 
+				    ;(setf *zippy* (list obj val range source slot))
+				    ;(break "two")
+				    (unless (mm-typep val range)
 				      (warn! mof-violates-type obj source (slot-direct-slot slot)
 					     range val (value-symbol val)))))))))
 	(dbg-message :time 1 "~%Start OCL validation tests: ~A" (now))

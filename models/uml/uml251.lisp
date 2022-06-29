@@ -7,7 +7,7 @@
 (mofi:shadow-and-warn "Variable" :UML251)
 
 
-(def-meta-enum |AggregationKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |AggregationKind| (:model :UML251
    :xmi-id "AggregationKind")
    (|none| |shared| |composite|)
    "AggregationKind is an Enumeration for specifying the kind of aggregation
@@ -15,7 +15,7 @@
 
 
 
-(def-meta-enum |CallConcurrencyKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |CallConcurrencyKind| (:model :UML251
    :xmi-id "CallConcurrencyKind")
    (|sequential| |guarded| |concurrent|)
    "CallConcurrencyKind is an Enumeration used to specify the semantics of
@@ -23,7 +23,7 @@
 
 
 
-(def-meta-enum |ConnectorKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |ConnectorKind| (:model :UML251
    :xmi-id "ConnectorKind")
    (|assembly| |delegation|)
    "ConnectorKind is an enumeration that defines whether a Connector is an
@@ -31,7 +31,7 @@
 
 
 
-(def-meta-enum |ExpansionKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |ExpansionKind| (:model :UML251
    :xmi-id "ExpansionKind")
    (|parallel| |iterative| |stream|)
    "ExpansionKind is an enumeration type used to specify how an ExpansionRegion
@@ -39,7 +39,7 @@
 
 
 
-(def-meta-enum |InteractionOperatorKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |InteractionOperatorKind| (:model :UML251
    :xmi-id "InteractionOperatorKind")
    (|seq| |alt| |opt| |break| |par| |strict| |loop| |critical| |neg| |assert| |ignore| |consider|)
    "InteractionOperatorKind is an enumeration designating the different kinds
@@ -48,14 +48,14 @@
 
 
 
-(def-meta-enum |MessageKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |MessageKind| (:model :UML251
    :xmi-id "MessageKind")
    (|complete| |lost| |found| |unknown|)
    "This is an enumerated type that identifies the type of Message.")
 
 
 
-(def-meta-enum |MessageSort| (:model :UML251 :superclasses NIL
+(def-meta-enum |MessageSort| (:model :UML251
    :xmi-id "MessageSort")
    (|synchCall| |asynchCall| |asynchSignal| |createMessage| |deleteMessage| |reply|)
    "This is an enumerated type that identifies the type of communication action
@@ -63,7 +63,7 @@
 
 
 
-(def-meta-enum |ObjectNodeOrderingKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |ObjectNodeOrderingKind| (:model :UML251
    :xmi-id "ObjectNodeOrderingKind")
    (|unordered| |ordered| LIFO FIFO)
    "ObjectNodeOrderingKind is an enumeration indicating queuing order for offering
@@ -71,7 +71,7 @@
 
 
 
-(def-meta-enum |ParameterDirectionKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |ParameterDirectionKind| (:model :UML251
    :xmi-id "ParameterDirectionKind")
    (|in| |inout| |out| |return|)
    "ParameterDirectionKind is an Enumeration that defines literals used to
@@ -79,7 +79,7 @@
 
 
 
-(def-meta-enum |ParameterEffectKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |ParameterEffectKind| (:model :UML251
    :xmi-id "ParameterEffectKind")
    (|create| |read| |update| |delete|)
    "ParameterEffectKind is an Enumeration that indicates the effect of a Behavior
@@ -87,7 +87,7 @@
 
 
 
-(def-meta-enum |PseudostateKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |PseudostateKind| (:model :UML251
    :xmi-id "PseudostateKind")
    (|initial| |deepHistory| |shallowHistory| |join| |fork| |junction| |choice| |entryPoint| |exitPoint| |terminate|)
    "PseudostateKind is an Enumeration type that is used to differentiate various
@@ -95,7 +95,7 @@
 
 
 
-(def-meta-enum |TransitionKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |TransitionKind| (:model :UML251
    :xmi-id "TransitionKind")
    (|internal| |local| |external|)
    "TransitionKind is an Enumeration type used to differentiate the various
@@ -103,7 +103,7 @@
 
 
 
-(def-meta-enum |VisibilityKind| (:model :UML251 :superclasses NIL
+(def-meta-enum |VisibilityKind| (:model :UML251
    :xmi-id "VisibilityKind")
    (|public| |private| |protected| |package|)
    "VisibilityKind is an enumeration type that defines literals to determine
@@ -5097,7 +5097,7 @@
 ;;; ====================== Element
 ;;; =========================================================
 (def-meta-class |Element|
-   (:model :UML251 :superclasses NIL
+   (:model :UML251
     :packages (UML |CommonStructure|)
     :xmi-id "Element")
  "An Element is a constituent of a model. As such, it has the capability

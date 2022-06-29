@@ -546,7 +546,7 @@
 	  ((eql tkn '|invalid|) (read-token stream) 
 	   (setf result '(make-instance 'ocl::|OclInvalid|)))  ; <InvalidLiteralExp>
 	  ;; That concludes <LiteralExpCS> Now <PropertyCallExpCS> 
-	  ((or (and (oclp::attribute-p tkn) (not (eql #\( tkn2)))
+	  ((or (and (oclp::attribute-p tkn) (not (eql #\( tkn2))) ; 2022 tkn should be an symbol naming a class in the symbol's package.
 	       (oclp::collection-operator-p tkn)
 	       (oclp::operator-p tkn))
 	   (with-ocl-reader (setf result (parse oclp::|ModelPropertyCallExp|))))

@@ -1,5 +1,5 @@
-;;; Automatically created by pop-gen at 2022-06-25 16:16:05.
-;;; Source file is NIL
+;;; Automatically created by pop-gen at 2022-06-28 15:53:47.
+;;; Source file is ptc-18-10-04.xmi
 
 (in-package :SYSML16)
 
@@ -76,7 +76,7 @@
 ;;; ====================== AbstractRequirement
 ;;; =========================================================
 (def-meta-stereotype |AbstractRequirement|
-   (:model :SYSML16 :superclasses NIL :extends NIL
+   (:model :SYSML16 :superclasses NIL :extends (UML251:|NamedElement|)
  :packages (|SysML| |Requirements|)
  :xmi-id "SysML.AbstractRequirement")
  "An AbstractRequirement establishes the attributes and relationships essential
@@ -133,7 +133,43 @@
      "Derived from all elements that are the client of a  verify  relationship
       for which this requirement is a supplier.")))
 
-(def-meta-operation |getSatisfiedBy| |AbstractRequirement|
+(def-meta-operation |derived| |AbstractRequirement|
+   ""
+   :operation-body
+   "DeriveReqt.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client"
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|AbstractRequirement|
+			:parameter-return-p T))
+)
+
+(def-meta-operation |derivedFrom| |AbstractRequirement|
+   ""
+   :operation-body
+   "DeriveReqt.allInstances()->select(base_Abstraction.client=self).base_Abstraction.supplier"
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|AbstractRequirement|
+			:parameter-return-p T))
+)
+
+(def-meta-operation |master| |AbstractRequirement|
+   ""
+   :operation-body
+   "Copy.allInstances()->select(base_Abstraction.client=self).base_Abstraction.supplier"
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|AbstractRequirement|
+			:parameter-return-p T))
+)
+
+(def-meta-operation |refinedBy| |AbstractRequirement|
+   ""
+   :operation-body
+   "Refine.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client"
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type 'UML251:|NamedElement|
+			:parameter-return-p T))
+)
+
+(def-meta-operation |satisfiedBy| |AbstractRequirement|
    ""
    :operation-body
    "Satisfy.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client "
@@ -142,7 +178,7 @@
 			:parameter-return-p T))
 )
 
-(def-meta-operation |getTracedTo| |AbstractRequirement|
+(def-meta-operation |tracedTo| |AbstractRequirement|
    ""
    :operation-body
    "Trace.allInstances()->select(base_Abstraction.client=self).base_Abstraction.supplier"
@@ -151,7 +187,7 @@
 			:parameter-return-p T))
 )
 
-(def-meta-operation |getVerifiedBy| |AbstractRequirement|
+(def-meta-operation |verifiedBy| |AbstractRequirement|
    ""
    :operation-body
    "Verify.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client"
@@ -176,6 +212,12 @@
   itself, if the behavior is not owned by a block."
   ((|base_AcceptEventAction| :xmi-id "SysML.AcceptChangeStructuralFeatureEventAction.base_AcceptEventAction"
     :range UML251:|AcceptEventAction| :multiplicity (1 1))))
+
+(def-meta-constraint |1_one_trigger| |AcceptChangeStructuralFeatureEventAction|
+   "The action has exactly one trigger, the event of which shall be a change
+    structural feature event."
+   :operation-body
+   "self.base_AcceptEventAction.trigger->size()=1 and let trigger: UML::Trigger = self.base_AcceptEventAction.trigger->any(true) in ChangeStructuralFeatureEvent.allInstances().base_ChangeEvent->includes(trigger.event)")
 
 (def-meta-constraint |2_two_resultpins| |AcceptChangeStructuralFeatureEventAction|
    "The action has two result pins with type and ordering the same as the type
@@ -325,6 +367,28 @@
     :range UML251:|Element| :multiplicity (1 1)
     :documentation
      "Gives the element that determines the values of the property.")))
+
+(def-meta-constraint |10_multiplicity_same_or_less_restrictive| |AdjunctProperty|
+   "Properties with AdjunctProperty applied that have a Variable or Parameter
+    as principal shall have a lower multiplicity the same as or lower than
+    the lower multiplicity of their principal, and an upper multiplicity the
+    same as or higher than the upper multiplicity of their principal"
+   :operation-body
+   " self.principal.oclIsKindOf(UML::MultiplicityElement) implies self.base_Property.lower <=  self.principal.oclAsType(UML::MultiplicityElement).lower and self.base_Property.upper >= self.principal.oclAsType(UML::MultiplicityElement).upper")
+
+(def-meta-constraint |11_submachine_and_interactionuse_composite_and _compatible_type| |AdjunctProperty|
+   "Properties with AdjunctProperty applied that have an InteractionUse or
+    submachine State as principal shall be composite and be typed by the interaction
+    or state machine invoked by the interaction use or submachine State or
+    one of their generalizations."
+   :operation-body
+   " self.principal.oclIsKindOf(UML::InteractionUse) or self.principal.oclIsKindOf(UML::State) implies let behavior: UML::Behavior =  if self.principal.oclIsKindOf(UML::InteractionUse) then   self.principal.oclAsType(UML::InteractionUse).refersTo  else  self.principal.oclAsType(UML::State).submachine  endif in if behavior.oclIsUndefined() then  self.base_Property.type->isEmpty() else  self.base_Property.type->notEmpty() and behavior->closure(generalization)->including(behavior)->includes(self.base_Property.type) endif")
+
+(def-meta-constraint |1_principal_kind| |AdjunctProperty|
+   "The principal of an applied AdjunctProperty shall be a Connector, CallAction,
+    ObjectNode, Variable, Parameter, submachine State, or InteractionUse."
+   :operation-body
+   "self.principal.oclIsKindOf(UML::Connector) or self.principal.oclIsKindOf(UML::CallAction) or self.principal.oclIsKindOf(UML::ObjectNode) or self.principal.oclIsKindOf(UML::Variable) or self.principal.oclIsKindOf(UML::Parameter) or self.principal.oclIsKindOf(UML::InteractionUse) or (self.principal.oclIsKindOf(UML::State) and self.principal.oclAsType(UML::State).isSubmachineState)")
 
 (def-meta-constraint |2_same_name| |AdjunctProperty|
    "Properties to which AdjunctProperty applied shall have the same name as
@@ -806,6 +870,47 @@
      "Gives a connector end of a binding connector opposite to the end linked
       to the stereotyped property, or linked to a property that generalizes the
       stereotyped one through redefinition.")))
+
+(def-meta-constraint |1_bindingconnector_end| |BoundReference|
+   "Properties to which BoundReference is applied shall be the role of a connector
+    end of at least one binding connector, or generalized by such a property
+    through redefinition"
+   :operation-body
+   "BindingConnector.allInstances().base_Connector.end.role->exists(r | r=self.base_Property or self.base_Property->closure(redefinedElement)->includes(r))")
+
+(def-meta-constraint |2_opposite_bindingconnector_end| |BoundReference|
+   "The value of boundEnd shall be a connector end of a binding connector,
+    as identified in constraint 1, opposite the property, as identified in
+    constraint 1."
+   :operation-body
+   "let opposite: UML::ConnectorEnd = BindingConnector.allInstances().base_Connector.end->any(e | e.role=self.base_Property or self.base_Property->closure(redefinedElement)->includes(e.role)) in self.boundEnd = opposite.owner.oclAsType(UML::Connector).end->any(e | e<>opposite)")
+
+(def-meta-constraint |3_navigable| |BoundReference|
+   "The role of boundEnd shall be a property accessible by navigation from
+    instances of the block owning the property to which BoundReference is applied,
+    but shall not be the property to which BoundReference is applied, or one
+    that it is related to by redefinition."
+   :operation-body
+   "self.base_Property.association->notEmpty() and  self.boundEnd.definingEnd->notEmpty() and self.base_Property.association.navigableOwnedEnd->includes(self.boundEnd.definingEnd)")
+
+(def-meta-constraint |4_propertypath_consistency| |BoundReference|
+   "The last value of bindingPath shall be the role of boundEnd, and the other
+    values shall be the propertyPath of the NestedConnectorEnd applied to boundEnd,
+    if any."
+   :operation-body
+   "self.boundEnd = self.bindingPath->last() and  (let nce: NestedConnectorEnd = NestedConnectorEnd.allInstances()->any(n| n.base_ConnectorEnd=self.boundEnd) in nce->oclIsUndefined() or self.bindingPath->subSequence(1, self.bindingPath->size()-1) = nce.propertyPath)")
+
+(def-meta-constraint |5_reference_or_valueproperty| |BoundReference|
+   "Properties to which BoundReference is applied shall either be reference
+    properties or value properties."
+   :operation-body
+   "ValueType.allInstances().base_DataType->includes(self.base_Property.type) or not self.base_Property.isComposite()")
+
+(def-meta-constraint |6_ordered_nonunique| |BoundReference|
+   "Properties with BoundReference applied that have an upper multiplicity
+    greater than one shall be ordered and non-unique."
+   :operation-body
+   "self.base_Property.upper > 1 implies self.base_Property.isOrdered and not self.base_Property.isUnique")
 
 (def-meta-constraint |7_cannot_redefine_boundreference| |BoundReference|
    "BoundReferences shall not be applied to properties that are related by
@@ -1372,6 +1477,28 @@
       directed relationship. The target is not included in the propertyPath list.
       The same property might appear more than once because a block can own a
       property with the same or specialized block as a type.")))
+
+(def-meta-constraint |1_sourcecontext_iif_property| |DirectedRelationshipPropertyPath|
+   "sourceContext shall have a value when source is a property, otherwise it
+    shall not have a value"
+   :operation-body
+   "self.base_DirectedRelationship.source->exists(s | s.oclIsKindOf(UML::Property)) xor self.sourceContext->isEmpty() ")
+
+(def-meta-constraint |2_targetcontext_iif_property| |DirectedRelationshipPropertyPath|
+   "targetContext shall have a value when target is a property, otherwise it
+    shall not have a value."
+   :operation-body
+   "self.base_DirectedRelationship.source->exists(s | s.oclIsKindOf(UML::Property)) xor self.sourceContext->isEmpty() ")
+
+(def-meta-constraint |3_sourcepropertypath_implies_property| |DirectedRelationshipPropertyPath|
+   "source shall be a property when sourcePropertyPath has a value."
+   :operation-body
+   "self.sourcePropertyPath->notEmpty() implies self.base_DirectedRelationship.source->forAll(s | s.oclIsKindOf(UML::Property)) ")
+
+(def-meta-constraint |4_targetpropertypath_implies_property| |DirectedRelationshipPropertyPath|
+   "target shall be a property when targetPropertyPath has a value."
+   :operation-body
+   "self.targetPropertyPath->notEmpty() implies self.base_DirectedRelationship.target->forAll(s | s.oclIsKindOf(UML::Property)) ")
 
 (def-meta-constraint |5_sourcecontext_owns_sourcepath_first| |DirectedRelationshipPropertyPath|
    "The property in the first position of the sourcePropertyPath list, if any,
@@ -2058,6 +2185,12 @@
   or methods, or internal parts."
   ())
 
+(def-meta-constraint |1_no_behavior| |InterfaceBlock|
+   "Interface blocks shall not own or inherit behaviors, have classifier behaviors,
+    or methods for their behavioral features."
+   :operation-body
+   "self.base_Class.inheritedMember->select(m | m.oclIsKindOf(UML::Behavior))->isEmpty() and self.base_Class.operation.method->flatten()->isEmpty()")
+
 (def-meta-constraint |2_no_part| |InterfaceBlock|
    "Interface blocks' composite properties are either ports, value properties
     or flow properties"
@@ -2215,6 +2348,17 @@
       the connector s enclosing block. This property is applicable only for item
       flows realized by connectors. The itemProperty attribute has no values
       if the item flow is realized by an Association.")))
+
+(def-meta-constraint |1_source_and_target_linked| |ItemFlow|
+   "A Connector or an Association, or an inherited Association shall exist
+    between the source and the target of the InformationFlow."
+   :operation-body
+   "let target: UML::NamedElement = self.base_InformationFlow.informationTarget->any(true) in let targets: Set(UML::NamedElement) = if target.oclIsKindOf(UML::Classifier) then  target.oclAsType(UML::Classifier)->closure(general)->including(target) else  target->asSet() endif in let source: UML::NamedElement = self.base_InformationFlow.informationSource->any(true) in let sources: Set(UML::NamedElement) = if source.oclIsKindOf(UML::Classifier) then  source.oclAsType(UML::Classifier)->closure(general)->including(source) else  source->asSet() endif in UML::Association.allInstances()->exists(a | a.memberEnd->intersection(targets)->notEmpty() and  a.memberEnd->intersection(sources)->notEmpty()) or UML::Connector.allInstances()->exists(c | c.end->intersection(targets)->notEmpty() and  c.end->intersection(sources)->notEmpty())  ")
+
+(def-meta-constraint |2_type_restricted| |ItemFlow|
+   "An ItemFlow itemProperty shall be typed by a ValueType, Block, or Signal."
+   :operation-body
+   "ValueType.allInstances().base_DataType->includes(self.itemProperty.type) or Block.allInstances().base_Class->includes(self.itemProperty.type) or UML::Signal.allInstances()->includes(self.itemProperty.type)")
 
 (def-meta-constraint |3_itemproperty_common_owner| |ItemFlow|
    "If itemProperty has a value it shall be a property of the common (possibly
@@ -2467,6 +2611,18 @@
      "A member end of the association block owning the property on which the
       stereotype is applied.")))
 
+(def-meta-constraint |1_associationblock| |ParticipantProperty|
+   "ParticipantProperty shall only be applied to properties of association
+    classes stereotyped by Block."
+   :operation-body
+   "self.base_Property.class.oclIsKindOf(UML::AssociationClass) and  Block.allInstances().base_Class->includes(self.base_Property.class)")
+
+(def-meta-constraint |2_memberend| |ParticipantProperty|
+   "ParticipantProperty shall not be applied to properties that are member
+    ends of an association."
+   :operation-body
+   "UML::Association.allInstances().memberEnd->flatten()->excludes(self.base_Property)")
+
 (def-meta-constraint |3_aggregationkind_none| |ParticipantProperty|
    "The aggregation of a property stereotyped by ParticipantProperty shall
     be none."
@@ -2532,6 +2688,13 @@
     :range UML251:|ValueSpecification| :multiplicity (1 1)
     :documentation
      "Value of the probability")))
+
+(def-meta-constraint |1_source_decisionnode_or_objectnode| |Probability|
+   "The  probability  stereotype shall only be applied to activity edges that
+    have decision nodes or object nodes as sources, or to output parameter
+    sets."
+   :operation-body
+   "(self.base_ActivityEdge->notEmpty() implies self.base_ActivityEdge.source.oclIsKindOf(UML::DecisionNode)) and (self.base_ParameterSet->notEmpty() implies self.base_ParameterSet.parameter->forAll(p | p.direction=UML::ParameterDirectionKind::out)) ")
 
 (def-meta-constraint |2_all_outgoing_edges| |Probability|
    "When the  probability  stereotype is applied to an activity edge, then
@@ -3220,6 +3383,12 @@
       as a type, or another block that has the same property." :redefined-property (|ElementPropertyPath|
 										    |propertyPath|))))
 
+(def-meta-constraint |1_single_proxyport| |TriggerOnNestedPort|
+   "The port property of the stereotyped trigger shall have exactly one value,
+    and the value cannot be a full port."
+   :operation-body
+   "self.base_Trigger.port->size()=1 and FullPort.allInstances().base_Port->excludes(self.base_Trigger.port)")
+
 (def-meta-constraint |2_no_fullport| |TriggerOnNestedPort|
    "The values of the onNestedPort property shall not be full ports."
    :operation-body
@@ -3698,6 +3867,81 @@
      and FlowProperties have inverted directions (i.e. are \"conjugated\")."
    :operation-body
    "let allAttributes: Set(UML::Property) = self.base_Class.allFeatures()->select(oclIsKindOf(UML::Property)).oclAsType(UML::Property)->asSet() in let allOperations: Set(UML::Operation) = self.base_Class.allFeatures()->select(oclIsKindOf(UML::Operation)).oclAsType(UML::Operation)->asSet() in let allReceptions: Set(UML::Reception) = self.base_Class.allFeatures()->select(oclIsKindOf(UML::Reception)).oclAsType(UML::Reception)->asSet() in let inheritedRules: Set(UML::Constraint) = self.base_Class.inherit(self.base_Class.inheritedMember->select(oclIsKindOf(UML::Constraint))).oclAsType(UML::Constraint)->asSet() in let allRules: Set(UML::Constraint) = self.base_Class.ownedRule->union(inheritedRules) in let allOriginalAttributes: Set(UML::Property) = self.original.base_Class.allFeatures()->select(oclIsKindOf(UML::Property)).oclAsType(UML::Property)->asSet() in let allOriginalOperations: Set(UML::Operation) = self.original.base_Class.allFeatures()->select(oclIsKindOf(UML::Operation)).oclAsType(UML::Operation)->asSet() in let allOriginalReceptions: Set(UML::Reception) = self.original.base_Class.allFeatures()->select(oclIsKindOf(UML::Reception)).oclAsType(UML::Reception)->asSet() in let originalInheritedRules: Set(UML::Constraint) = self.original.base_Class.inherit(self.original.base_Class.inheritedMember->select(oclIsKindOf(UML::Constraint))).oclAsType(UML::Constraint)->asSet() in let allOrignalRules: Set(UML::Constraint) = self.original.base_Class.ownedRule->union(originalInheritedRules) in  allAttributes->size() = allOriginalAttributes->size() and allOperations->size() = allOriginalOperations->size() and allReceptions->size() = allOriginalReceptions->size()  and (allAttributes->isEmpty() or allAttributes->forAll(a | allOriginalAttributes->exists(oa | areConjugated(a, oa)))) and (allOperations->isEmpty() or allOperations->forAll(o | allOriginalOperations->exists(oo | areConjugated(o, oo)))) and (allReceptions->isEmpty() or allReceptions->forAll(r | allOriginalReceptions->exists(ro | areConjugated(r, ro)))) and areSameConstraintSets(allRules, allOrignalRules) ")
+
+(def-meta-operation |areConjugated| |~InterfaceBlock|
+   "DirectedFeature overloaded version of the areConjugated query used for
+    specifying the inverted_feature invariant that checks whether one feature
+    definition is the conjugated definition of the other."
+   :operation-body
+   "if (df1.oclIsUndefined()) then   (not df2.oclIsUndefined() and df2.featureDirection = FeatureDirectionKind::required) else if (df2.oclIsUndefined()) then   (not df1.oclIsUndefined() and df1.featureDirection = FeatureDirectionKind::required) else   (df1.featureDirection = FeatureDirectionKind::provided and df2.featureDirection = FeatureDirectionKind::required)   or (df1.featureDirection = FeatureDirectionKind::required and df2.featureDirection = FeatureDirectionKind::provided)   or (df1.featureDirection = FeatureDirectionKind::providedRequired and df2.featureDirection = FeatureDirectionKind::providedRequired) endif endif "
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name '|df1| :parameter-type '|DirectedFeature|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|df2| :parameter-type '|DirectedFeature|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
+			:parameter-return-p T))
+)
+
+(def-meta-operation |areConjugated| |~InterfaceBlock|
+   "FlowProperty overloaded version of the areConjugated query used for specifying
+    the inverted_feature invariant that check whether one feature definition
+    is the conjugated definition of the other"
+   :operation-body
+   "(fp1.direction = FlowDirectionKind::_in and fp2.direction = FlowDirectionKind::out) or (fp1.direction = FlowDirectionKind::out and fp2.direction = FlowDirectionKind::_in) or (fp1.direction = FlowDirectionKind::inout and fp2.direction = FlowDirectionKind::inout) "
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name '|fp1| :parameter-type '|FlowProperty|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|fp2| :parameter-type '|FlowProperty|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
+			:parameter-return-p T))
+)
+
+(def-meta-operation |areConjugated| |~InterfaceBlock|
+   "Reception overloaded version of the areConjugated query used for specifying
+    the inverted_feature invariant that check whether one feature definition
+    is the conjugated definition of the other."
+   :operation-body
+   "let df1: DirectedFeature = DirectedFeature.allInstances()->any(base_Feature = r1) in let df2: DirectedFeature = DirectedFeature.allInstances()->any(base_Feature = r2) in r1.concurrency = r2.concurrency and r1.isAbstract = r2.isAbstract and r1.ownedParameterSet->forAll(ps1 | r2.ownedParameterSet->exists(ps2 | areSameParameterSets(r1, ps1, r2, ps2))) and haveSameSignatures(r1, r2) and r1.signal = r2.signal and areConjugated(df1, df2) "
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name '|r1| :parameter-type 'UML251:|Reception|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|r2| :parameter-type 'UML251:|Reception|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
+			:parameter-return-p T))
+)
+
+(def-meta-operation |areConjugated| |~InterfaceBlock|
+   "Operation overloaded version of the areConjugated query used for specifying
+    the inverted_feature invariant that check whether one feature definition
+    is the conjugated definition of the other."
+   :operation-body
+   "let df1: DirectedFeature = DirectedFeature .allInstances()->any(base_Feature = o1) in let df2: DirectedFeature = DirectedFeature .allInstances()->any(base_Feature = o2) in o1.concurrency = o2.concurrency and o1.isAbstract = o2.isAbstract and o1.ownedParameterSet->forAll(ps1 | o2.ownedParameterSet->exists(ps2 | areSameParameterSets(o1, ps1, o2, ps2))) and areSameConstraintSets(o1.bodyCondition->asSet(), o2.bodyCondition->asSet()) and areSameConstraintSets(o1.precondition, o2.precondition) and areSameConstraintSets(o1.postcondition, o2.postcondition) and haveSameSignatures(o1, o2) and o1.raisedException->forAll(e1 | o2.raisedException->exists(e2 | e2 = e1)) and o1.isQuery = o2.isQuery and areConjugated(df1, df2) "
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name '|o1| :parameter-type 'UML251:|Operation|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|o2| :parameter-type 'UML251:|Operation|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
+			:parameter-return-p T))
+)
+
+(def-meta-operation |areConjugated| |~InterfaceBlock|
+   "Property overloaded version of the areConjugated query used for specifying
+    the inverted_feature invariant that checks whether one feature definition
+    is the conjugated definition of the other."
+   :operation-body
+   "let fp1: FlowProperty = FlowProperty.allInstances()->any(base_Property = a1) in let fp2: FlowProperty = FlowProperty.allInstances()->any(base_Property = a2) in let df1: DirectedFeature = DirectedFeature .allInstances()->any(base_Feature = a1) in let df2: DirectedFeature = DirectedFeature .allInstances()->any(base_Feature = a2) in a1.name = a2.name and a1.type = a2.type and a1.isStatic = a2.isStatic and a1.isOrdered = a2.isOrdered and a1.isUnique = a2.isUnique and a1.lower = a2.lower and a1.upper = a2.upper and a1.isReadOnly = a2.isReadOnly and a1.aggregation = a2.aggregation and a1.isDerived = a2.isDerived and a1.isDerivedUnion = a2.isDerivedUnion and a1.isID = a2.isID and ((not fp1.oclIsUndefined() and not fp2.oclIsUndefined() and areConjugated(fp1, fp2))   or   (fp1.oclIsUndefined() and fp2.oclIsUndefined())) and ((not df1.oclIsUndefined() and not df2.oclIsUndefined() and areConjugated(df1, df2))    or (df1.oclIsUndefined() and df2.oclIsUndefined())) "
+   :parameters
+   (list (make-instance 'ocl-parameter :parameter-name '|p1| :parameter-type 'UML251:|Property|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|p2| :parameter-type 'UML251:|Property|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
+			:parameter-return-p T))
+)
 
 (def-meta-operation |areSameConstraintSets | |~InterfaceBlock|
    "The areSameConstraintSets query is used for specifying the inverted_feature

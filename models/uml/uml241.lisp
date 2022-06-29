@@ -4,47 +4,47 @@
 (in-package :UML241)
 
 ;;; 2013-01-03 Added for bug reported by Ed Seidewitz. May want to do this for all metaobjects.
-;;; 2013-04-08 I think I added this just a few days ago. 
+;;; 2013-04-08 I think I added this just a few days ago.
 (mofi:shadow-and-warn "Variable" :UML241)
 
 
 ;;; 2012-03-04: Ed Seidewitz says:
-;;; I believe this is due to the fact that, whenever there was a constraint in UML 2.4.1 for which there 
-;;; was no OCL, we filled it in with the value TRUE, so that it was at least syntactically valid OCL. 
-;;; This is even the case for constraints that would otherwise provide the value of derived operations. 
-;;; From what I have seen, the above errors seem to result from these constraints computing 'TRUE' for 
+;;; I believe this is due to the fact that, whenever there was a constraint in UML 2.4.1 for which there
+;;; was no OCL, we filled it in with the value TRUE, so that it was at least syntactically valid OCL.
+;;; This is even the case for constraints that would otherwise provide the value of derived operations.
+;;; From what I have seen, the above errors seem to result from these constraints computing 'TRUE' for
 ;;; derived values that should really have a type other than boolean.
-;;; 
+;;;
 ;;; POD: Yes, see for example superClass.1
 
 
-(def-mm-enum |AggregationKind| :UML241 NIL 
+(def-mm-enum |AggregationKind| :UML241 NIL
    (|none| |shared| |composite|)
    "AggregationKind is an enumeration type that specifies the literals for
     defining the kind of aggregation of a property.")
 
 
 
-(def-mm-enum |CallConcurrencyKind| :UML241 NIL 
+(def-mm-enum |CallConcurrencyKind| :UML241 NIL
    (|sequential| |guarded| |concurrent|)
    "CallConcurrencyKind is an enumeration type.")
 
 
 
-(def-mm-enum |ConnectorKind| :UML241 NIL 
+(def-mm-enum |ConnectorKind| :UML241 NIL
    (|assembly| |delegation|)
    "ConnectorKind is an enumeration type.")
 
 
 
-(def-mm-enum |ExpansionKind| :UML241 NIL 
+(def-mm-enum |ExpansionKind| :UML241 NIL
    (|parallel| |iterative| |stream|)
    "ExpansionKind is an enumeration type used to specify how multiple executions
     of an expansion region interact.")
 
 
 
-(def-mm-enum |InteractionOperatorKind| :UML241 NIL 
+(def-mm-enum |InteractionOperatorKind| :UML241 NIL
    (|seq| |alt| |opt| |break| |par| |strict| |loop| |critical| |neg| |assert| |ignore| |consider|)
    "InteractionOperatorKind is an enumeration designating the different kinds
     of operators of combined fragments. The interaction operand defines the
@@ -52,53 +52,53 @@
 
 
 
-(def-mm-enum |MessageKind| :UML241 NIL 
+(def-mm-enum |MessageKind| :UML241 NIL
    (|complete| |lost| |found| |unknown|)
    "This is an enumerated type that identifies the type of message.")
 
 
 
-(def-mm-enum |MessageSort| :UML241 NIL 
+(def-mm-enum |MessageSort| :UML241 NIL
    (|synchCall| |asynchCall| |asynchSignal| |createMessage| |deleteMessage| |reply|)
    "This is an enumerated type that identifies the type of communication action
     that was used to generate the message.")
 
 
 
-(def-mm-enum |ObjectNodeOrderingKind| :UML241 NIL 
+(def-mm-enum |ObjectNodeOrderingKind| :UML241 NIL
    (|unordered| |ordered| LIFO FIFO)
    "ObjectNodeOrderingKind is an enumeration indicating queuing order within
     a node.")
 
 
 
-(def-mm-enum |ParameterDirectionKind| :UML241 NIL 
+(def-mm-enum |ParameterDirectionKind| :UML241 NIL
    (|in| |inout| |out| |return|)
    "Parameter direction kind is an enumeration type that defines literals used
     to specify direction of parameters.")
 
 
 
-(def-mm-enum |ParameterEffectKind| :UML241 NIL 
+(def-mm-enum |ParameterEffectKind| :UML241 NIL
    (|create| |read| |update| |delete|)
    "The datatype ParameterEffectKind is an enumeration that indicates the effect
     of a behavior on values passed in or out of its parameters.")
 
 
 
-(def-mm-enum |PseudostateKind| :UML241 NIL 
+(def-mm-enum |PseudostateKind| :UML241 NIL
    (|initial| |deepHistory| |shallowHistory| |join| |fork| |junction| |choice| |entryPoint| |exitPoint| |terminate|)
    "PseudostateKind is an enumeration type.")
 
 
 
-(def-mm-enum |TransitionKind| :UML241 NIL 
+(def-mm-enum |TransitionKind| :UML241 NIL
    (|internal| |local| |external|)
    "TransitionKind is an enumeration type.")
 
 
 
-(def-mm-enum |VisibilityKind| :UML241 NIL 
+(def-mm-enum |VisibilityKind| :UML241 NIL
    (|public| |private| |protected| |package|)
    "VisibilityKind is an enumeration type that defines literals to determine
     the visibility of elements in a model.")
@@ -143,18 +143,18 @@
       by the model.")))
 
 
-(def-mm-constraint "result_pins" |AcceptCallAction| 
+(def-mm-constraint "result_pins" |AcceptCallAction|
    "The result pins must match the in and inout parameters of the operation
     specified by the trigger event in number, type, and order."
    :operation-body
    "true")
 
-(def-mm-constraint "trigger_call_event" |AcceptCallAction| 
+(def-mm-constraint "trigger_call_event" |AcceptCallAction|
    "The trigger event must be a CallEvent."
    :operation-body
    "trigger.event.oclIsKindOf(CallEvent)")
 
-(def-mm-constraint "unmarshall" |AcceptCallAction| 
+(def-mm-constraint "unmarshall" |AcceptCallAction|
    "isUnmrashall must be true for an AcceptCallAction."
    :operation-body
    "isUnmarshall = true")
@@ -182,24 +182,24 @@
       of the specified signal type is accepted.")))
 
 
-(def-mm-constraint "no_input_pins" |AcceptEventAction| 
+(def-mm-constraint "no_input_pins" |AcceptEventAction|
    "AcceptEventActions may have no input pins."
    :operation-body
    "true")
 
-(def-mm-constraint "no_output_pins" |AcceptEventAction| 
+(def-mm-constraint "no_output_pins" |AcceptEventAction|
    "There are no output pins if the trigger events are only ChangeEvents, or
     if they are only CallEvents when this action is an instance of AcceptEventAction
     and not an instance of a descendant of AcceptEventAction (such as AcceptCallAction)."
    :operation-body
    "true")
 
-(def-mm-constraint "trigger_events" |AcceptEventAction| 
+(def-mm-constraint "trigger_events" |AcceptEventAction|
    "If the trigger events are all TimeEvents, there is exactly one output pin."
    :operation-body
    "true")
 
-(def-mm-constraint "unmarshall_signal_events" |AcceptEventAction| 
+(def-mm-constraint "unmarshall_signal_events" |AcceptEventAction|
    "If isUnmarshall is true, there must be exactly one trigger for events of
     type SignalEvent. The number of result output pins must be the same as
     the number of attributes of the signal. The type and ordering of each result
@@ -247,13 +247,13 @@
       its results onto pins in this set.")))
 
 #| missing/true
-(def-mm-operation "context.1" |Action| 
+(def-mm-operation "context.1" |Action|
    "Missing derivation for Action::/context : Classifier"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Classifier|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -267,7 +267,7 @@
      "Action whose execution is occurring.")))
 
 
-(def-mm-constraint "action_referenced" |ActionExecutionSpecification| 
+(def-mm-constraint "action_referenced" |ActionExecutionSpecification|
    "The Action referenced by the ActionExecutionSpecification, if any, must
     be owned by the Interaction owning the ActionExecutionOccurrence."
    :operation-body
@@ -285,19 +285,19 @@
      "The action used to provide values.")))
 
 
-(def-mm-constraint "input_pin" |ActionInputPin| 
+(def-mm-constraint "input_pin" |ActionInputPin|
    "The fromAction of an action input pin must only have action input pins
     as input pins."
    :operation-body
    "true")
 
-(def-mm-constraint "no_control_or_data_flow" |ActionInputPin| 
+(def-mm-constraint "no_control_or_data_flow" |ActionInputPin|
    "The fromAction of an action input pin cannot have control or data flows
     coming into or out of it or its pins."
    :operation-body
    "true")
 
-(def-mm-constraint "one_output_pin" |ActionInputPin| 
+(def-mm-constraint "one_output_pin" |ActionInputPin|
    "The fromAction of an action input pin must have exactly one output pin."
    :operation-body
    "true")
@@ -349,19 +349,19 @@
      "Top-level variables in the activity.")))
 
 
-(def-mm-constraint "activity_parameter_node" |Activity| 
+(def-mm-constraint "activity_parameter_node" |Activity|
    "The nodes of the activity must include one ActivityParameterNode for each
     parameter."
    :operation-body
    "true")
 
-(def-mm-constraint "autonomous" |Activity| 
+(def-mm-constraint "autonomous" |Activity|
    "An activity cannot be autonomous and have a classifier or behavioral feature
     context at the same time."
    :operation-body
    "true")
 
-(def-mm-constraint "no_supergroups" |Activity| 
+(def-mm-constraint "no_supergroups" |Activity|
    "The groups of an activity have no supergroups."
    :operation-body
    "true")
@@ -417,17 +417,17 @@
      "The minimum number of tokens that must traverse the edge at the same time.")))
 
 
-(def-mm-constraint "owned" |ActivityEdge| 
+(def-mm-constraint "owned" |ActivityEdge|
    "Activity edges may be owned only by activities or groups."
    :operation-body
    "true")
 
-(def-mm-constraint "source_and_target" |ActivityEdge| 
+(def-mm-constraint "source_and_target" |ActivityEdge|
    "The source and target of an edge must be in the same activity as the edge."
    :operation-body
    "true")
 
-(def-mm-constraint "structured_node" |ActivityEdge| 
+(def-mm-constraint "structured_node" |ActivityEdge|
    "Activity edges may be owned by at most one structured node."
    :operation-body
    "true")
@@ -471,17 +471,17 @@
      "Group immediately containing the group.")))
 
 
-(def-mm-constraint "group_owned" |ActivityGroup| 
+(def-mm-constraint "group_owned" |ActivityGroup|
    "Groups may only be owned by activities or groups."
    :operation-body
    "true")
 
-(def-mm-constraint "nodes_and_edges" |ActivityGroup| 
+(def-mm-constraint "nodes_and_edges" |ActivityGroup|
    "All nodes and edges of the group must be in the same activity as the group."
    :operation-body
    "true")
 
-(def-mm-constraint "not_contained" |ActivityGroup| 
+(def-mm-constraint "not_contained" |ActivityGroup|
    "No node or edge in a group may be contained by its subgroups or its containing
     groups, transitively."
    :operation-body
@@ -531,12 +531,12 @@
      "Inherited nodes replaced by this node in a specialization of the activity.")))
 
 
-(def-mm-constraint "owned" |ActivityNode| 
+(def-mm-constraint "owned" |ActivityNode|
    "Activity nodes can only be owned by activities or groups."
    :operation-body
    "true")
 
-(def-mm-constraint "owned_structured_node" |ActivityNode| 
+(def-mm-constraint "owned_structured_node" |ActivityNode|
    "Activity nodes may be owned by at most one structured node."
    :operation-body
    "true")
@@ -552,42 +552,42 @@
      "The parameter the object node will be accepting or providing values for.")))
 
 
-(def-mm-constraint "has_parameters" |ActivityParameterNode| 
+(def-mm-constraint "has_parameters" |ActivityParameterNode|
    "Activity parameter nodes must have parameters from the containing activity."
    :operation-body
    "true")
 
-(def-mm-constraint "maximum_one_parameter_node" |ActivityParameterNode| 
+(def-mm-constraint "maximum_one_parameter_node" |ActivityParameterNode|
    "A parameter with direction other than inout must have at most one activity
     parameter node in an activity."
    :operation-body
    "true")
 
-(def-mm-constraint "maximum_two_parameter_nodes" |ActivityParameterNode| 
+(def-mm-constraint "maximum_two_parameter_nodes" |ActivityParameterNode|
    "A parameter with direction inout must have at most two activity parameter
     nodes in an activity, one with incoming flows and one with outgoing flows."
    :operation-body
    "true")
 
-(def-mm-constraint "no_edges" |ActivityParameterNode| 
+(def-mm-constraint "no_edges" |ActivityParameterNode|
    "An activity parameter node may have all incoming edges or all outgoing
     edges, but it must not have both incoming and outgoing edges."
    :operation-body
    "true")
 
-(def-mm-constraint "no_incoming_edges" |ActivityParameterNode| 
+(def-mm-constraint "no_incoming_edges" |ActivityParameterNode|
    "Activity parameter object nodes with no incoming edges and one or more
     outgoing edges must have a parameter with in or inout direction."
    :operation-body
    "true")
 
-(def-mm-constraint "no_outgoing_edges" |ActivityParameterNode| 
+(def-mm-constraint "no_outgoing_edges" |ActivityParameterNode|
    "Activity parameter object nodes with no outgoing edges and one or more
     incoming edges must have a parameter with out, inout, or return direction."
    :operation-body
    "true")
 
-(def-mm-constraint "same_type" |ActivityParameterNode| 
+(def-mm-constraint "same_type" |ActivityParameterNode|
    "The type of an activity parameter node is the same as the type of its parameter."
    :operation-body
    "true")
@@ -630,12 +630,12 @@
      "Partition immediately containing the partition.")))
 
 
-(def-mm-constraint "dimension_not_contained" |ActivityPartition| 
+(def-mm-constraint "dimension_not_contained" |ActivityPartition|
    "A partition with isDimension = true may not be contained by another partition."
    :operation-body
    "true")
 
-(def-mm-constraint "represents_classifier" |ActivityPartition| 
+(def-mm-constraint "represents_classifier" |ActivityPartition|
    "If a non-external partition represents a classifier and is contained in
     another partition, then the containing partition must represent a classifier,
     and the classifier of the subpartition must be nested in the classifier
@@ -645,7 +645,7 @@
    :operation-body
    "true")
 
-(def-mm-constraint "represents_part" |ActivityPartition| 
+(def-mm-constraint "represents_part" |ActivityPartition|
    "If a partition represents a part, then all the non-external partitions
     in the same dimension and at the same level of nesting in that dimension
     must represent parts directly contained in the internal structure of the
@@ -653,7 +653,7 @@
    :operation-body
    "true")
 
-(def-mm-constraint "represents_part_and_is_contained" |ActivityPartition| 
+(def-mm-constraint "represents_part_and_is_contained" |ActivityPartition|
    "If a partition represents a part and is contained by another partition,
     then the part must be of a classifier represented by the containing partition,
     or of a classifier that is the type of a part representing the containing
@@ -670,7 +670,7 @@
   ())
 
 
-(def-mm-constraint "associations" |Actor| 
+(def-mm-constraint "associations" |Actor|
    "An actor can only have associations to use cases, components and classes.
     Furthermore these associations must be binary."
    :operation-body
@@ -680,7 +680,7 @@
    :original-body
    "self.ownedAttribute->forAll ( a | (a.association->notEmpty()) implies ((a.association.memberEnd.size() = 2) and (a.opposite.class.oclIsKindOf(UseCase) or (a.opposite.class.oclIsKindOf(Class) and not a.opposite.class.oclIsKindOf(Behavior)))) ")
 
-(def-mm-constraint "must_have_name" |Actor| 
+(def-mm-constraint "must_have_name" |Actor|
    "An actor must have a name."
    :operation-body
    "name->notEmpty()")
@@ -704,21 +704,21 @@
       should be removed before adding the new value.")))
 
 
-(def-mm-constraint "required_value" |AddStructuralFeatureValueAction| 
+(def-mm-constraint "required_value" |AddStructuralFeatureValueAction|
    "A value input pin is required."
    :operation-body
    "self.value -> notEmpty()")
 
-(def-mm-constraint "unlimited_natural_and_multiplicity" |AddStructuralFeatureValueAction| 
+(def-mm-constraint "unlimited_natural_and_multiplicity" |AddStructuralFeatureValueAction|
    "Actions adding a value to ordered structural features must have a single
     input pin for the insertion point with type UnlimitedNatural and multiplicity
     of 1..1, otherwise the action has no input pin for the insertion point."
    :operation-body
    "structuralFeature.isOrdered implies
-                      (insertAt->size() = 1 and 
-                       insertAt.is(1,1)     and 
-                       insertAt.type.oclIsKindOf(UnlimitedNatural)) 
-                       or insertAt->size() = 0 "
+		      (insertAt->size() = 1 and
+		       insertAt.is(1,1)     and
+		       insertAt.type.oclIsKindOf(UnlimitedNatural))
+		       or insertAt->size() = 0 "
    :operation-status :rewritten
    :editor-note "No multiplicity. Other issues. Need investigation."
    :original-body
@@ -742,12 +742,12 @@
       adding the new value.")))
 
 
-(def-mm-constraint "required_value" |AddVariableValueAction| 
+(def-mm-constraint "required_value" |AddVariableValueAction|
    "A value input pin is required."
    :operation-body
    "self.value -> notEmpty()")
 
-(def-mm-constraint "single_input_pin" |AddVariableValueAction| 
+(def-mm-constraint "single_input_pin" |AddVariableValueAction|
    "Actions adding values to ordered variables must have a single input pin
     for the insertion point with type UnlimtedNatural and multiplicity of 1..1,
     otherwise the action has no input pin for the insertion point."
@@ -848,7 +848,7 @@ endif
      "The ends that are owned by the association itself.")))
 
 
-(def-mm-constraint "association_ends" |Association| 
+(def-mm-constraint "association_ends" |Association|
    "Association ends of associations with more than two ends must be owned
     by the association."
    :operation-body
@@ -858,7 +858,7 @@ endif
    :original-body
    "if memberEnd->size() > 2 then ownedEnd->includesAll(memberEnd)")
 
-(def-mm-constraint "binary_associations" |Association| 
+(def-mm-constraint "binary_associations" |Association|
    "Only binary associations can be aggregations."
    :operation-body
    "true"
@@ -867,13 +867,13 @@ endif
    :original-body
    "self.memberEnd->exists(aggregation <> Aggregation::none) implies self.memberEnd->size() = 2")
 
-(def-mm-constraint "specialized_end_number" |Association| 
+(def-mm-constraint "specialized_end_number" |Association|
    "An association specializing another association has the same number of
     ends as the other association."
    :operation-body
    "parents()->select(oclIsKindOf(Association)).oclAsType(Association)->forAll(p | p.memberEnd->size() = self.memberEnd->size())")
 
-(def-mm-constraint "specialized_end_types" |Association| 
+(def-mm-constraint "specialized_end_types" |Association|
    "When an association specializes another association, every end of the specific
     association corresponds to an end of the general association, and the specific
     end reaches the same type or a subtype of the more general end."
@@ -881,17 +881,17 @@ endif
    "true"
    :operation-status :ignored
    :editor-note "Needs further investigation: (1) POD my parser has a bug that reads 1.0 instead of 1 and then ..
-                     (2) Why the empty sequence."
+		     (2) Why the empty sequence."
    :original-body
    "Sequence{1..self.memberEnd->size()}->  forAll(i | self.general->select(oclIsKindOf(Association)).oclAsType(Association)->   forAll(ga |self.memberEnd->at(i).type.conformsTo(ga.memberEnd->at(i).type)))")
 
-(def-mm-operation "endType.1" |Association| 
+(def-mm-operation "endType.1" |Association|
    "endType is derived from the types of the member ends."
    :operation-body
    "result = self.memberEnd->collect(e | e.type)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Type|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== AssociationClass
@@ -905,7 +905,7 @@ endif
   ())
 
 
-(def-mm-constraint "cannot_be_defined" |AssociationClass| 
+(def-mm-constraint "cannot_be_defined" |AssociationClass|
    "An AssociationClass cannot be defined between itself and something else."
    :operation-body
    "self.endType->excludes(self) and self.endType->collect(et|et.allParents()->excludes(self))->forAll(x|x)"
@@ -914,7 +914,7 @@ endif
    :original-body
    "self.endType->excludes(self) and self.endType>collect(et|et.allparents()->excludes(self))")
 
-(def-mm-constraint "disjoint_attributes_ends" |AssociationClass| 
+(def-mm-constraint "disjoint_attributes_ends" |AssociationClass|
    "The owned attributes and owned ends of an AssociationClass are disjoint"
    :operation-body
    "ownedAttribute->intersection(ownedEnd)->isEmpty()")
@@ -983,40 +983,40 @@ endif
       can only be invoked by another behavior of the classifier.")))
 
 
-(def-mm-constraint "feature_of_context_classifier" |Behavior| 
+(def-mm-constraint "feature_of_context_classifier" |Behavior|
    "The implemented behavioral feature must be a feature (possibly inherited)
     of the context classifier of the behavior."
    :operation-body
    "true")
 
-(def-mm-constraint "most_one_behaviour" |Behavior| 
+(def-mm-constraint "most_one_behaviour" |Behavior|
    "There may be at most one behavior for a given pairing of classifier (as
     owner of the behavior) and behavioral feature (as specification of the
     behavior)."
    :operation-body
    "true")
 
-(def-mm-constraint "must_realize" |Behavior| 
+(def-mm-constraint "must_realize" |Behavior|
    "If the implemented behavioral feature has been redefined in the ancestors
     of the owner of the behavior, then the behavior must realize the latest
     redefining behavioral feature."
    :operation-body
    "true")
 
-(def-mm-constraint "parameters_match" |Behavior| 
+(def-mm-constraint "parameters_match" |Behavior|
    "The parameters of the behavior must match the parameters of the implemented
     behavioral feature."
    :operation-body
    "true")
 
 #| missing/true
-(def-mm-operation "context.1" |Behavior| 
+(def-mm-operation "context.1" |Behavior|
    "Missing derivation for Behavior::/context : BehavioredClassifier"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|BehavioredClassifier|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -1071,7 +1071,7 @@ endif
       an invocation of this feature.")))
 
 
-(def-mm-operation "isDistinguishableFrom" |BehavioralFeature| 
+(def-mm-operation "isDistinguishableFrom" |BehavioralFeature|
    "The query isDistinguishableFrom() determines whether two BehavioralFeatures
     may coexist in the same Namespace. It specifies that they have to have
     different signatures."
@@ -1079,11 +1079,11 @@ endif
    "result = if n.oclIsKindOf(BehavioralFeature) then   if ns.getNamesOfMember(self)->intersection(ns.getNamesOfMember(n))->notEmpty()   then Set{}->including(self)->including(n)->isUnique(bf | bf.ownedParameter->collect(type))   else true   endif else true endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\n :parameter-type '|NamedElement|
-                        :parameter-return-p NIL)
-          (make-instance 'ocl-parameter :parameter-name '|ns| :parameter-type '|Namespace|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\n :parameter-type '|NamedElement|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|ns| :parameter-type '|Namespace|
+			:parameter-return-p NIL)))
 
 ;;; =========================================================
 ;;; ====================== BehavioredClassifier
@@ -1110,7 +1110,7 @@ endif
      "References behavior specifications owned by a classifier.")))
 
 
-(def-mm-constraint "class_behavior" |BehavioredClassifier| 
+(def-mm-constraint "class_behavior" |BehavioredClassifier|
    "If a behavior is classifier behavior, it does not have a specification."
    :operation-body
    "self.classifierBehavior->notEmpty() implies self.classifierBehavior.specification->isEmpty()")
@@ -1131,13 +1131,13 @@ endif
      "The specification of signal object transmitted to the target objects.")))
 
 
-(def-mm-constraint "number_and_order" |BroadcastSignalAction| 
+(def-mm-constraint "number_and_order" |BroadcastSignalAction|
    "The number and order of argument pins must be the same as the number and
     order of attributes in the signal."
    :operation-body
    "true")
 
-(def-mm-constraint "type_ordering_multiplicity" |BroadcastSignalAction| 
+(def-mm-constraint "type_ordering_multiplicity" |BroadcastSignalAction|
    "The type, ordering, and multiplicity of an argument pin must be the same
     as the corresponding attribute of the signal."
    :operation-body
@@ -1161,19 +1161,19 @@ endif
       placed.")))
 
 
-(def-mm-constraint "number_and_order" |CallAction| 
+(def-mm-constraint "number_and_order" |CallAction|
    "The number and order of argument pins must be the same as the number and
     order of parameters of the invoked behavior or behavioral feature. Pins
     are matched to parameters by order."
    :operation-body
    "true")
 
-(def-mm-constraint "synchronous_call" |CallAction| 
+(def-mm-constraint "synchronous_call" |CallAction|
    "Only synchronous call actions can have result pins."
    :operation-body
    "true")
 
-(def-mm-constraint "type_ordering_multiplicity" |CallAction| 
+(def-mm-constraint "type_ordering_multiplicity" |CallAction|
    "The type, ordering, and multiplicity of an argument pin must be the same
     as the corresponding parameter of the behavior or behavioral feature."
    :operation-body
@@ -1196,19 +1196,19 @@ endif
      "The invoked behavior. It must be capable of accepting and returning control.")))
 
 
-(def-mm-constraint "argument_pin_equal_parameter" |CallBehaviorAction| 
+(def-mm-constraint "argument_pin_equal_parameter" |CallBehaviorAction|
    "The number of argument pins and the number of parameters of the behavior
     of type in and in-out must be equal."
    :operation-body
    "true")
 
-(def-mm-constraint "result_pin_equal_parameter" |CallBehaviorAction| 
+(def-mm-constraint "result_pin_equal_parameter" |CallBehaviorAction|
    "The number of result pins and the number of parameters of the behavior
     of type return, out, and in-out must be equal."
    :operation-body
    "true")
 
-(def-mm-constraint "type_ordering_multiplicity" |CallBehaviorAction| 
+(def-mm-constraint "type_ordering_multiplicity" |CallBehaviorAction|
    "The type, ordering, and multiplicity of an argument or result pin is derived
     from the corresponding parameter of the behavior."
    :operation-body
@@ -1252,25 +1252,25 @@ endif
       constitutes the context of the execution of the operation.")))
 
 
-(def-mm-constraint "argument_pin_equal_parameter" |CallOperationAction| 
+(def-mm-constraint "argument_pin_equal_parameter" |CallOperationAction|
    "The number of argument pins and the number of owned parameters of the operation
     of type in and in-out must be equal."
    :operation-body
    "true")
 
-(def-mm-constraint "result_pin_equal_parameter" |CallOperationAction| 
+(def-mm-constraint "result_pin_equal_parameter" |CallOperationAction|
    "The number of result pins and the number of owned parameters of the operation
     of type return, out, and in-out must be equal."
    :operation-body
    "true")
 
-(def-mm-constraint "type_ordering_multiplicity" |CallOperationAction| 
+(def-mm-constraint "type_ordering_multiplicity" |CallOperationAction|
    "The type, ordering, and multiplicity of an argument or result pin is derived
     from the corresponding owned parameter of the operation."
    :operation-body
    "true")
 
-(def-mm-constraint "type_target_pin" |CallOperationAction| 
+(def-mm-constraint "type_target_pin" |CallOperationAction|
    "The type of the target pin must be the same as the type that owns the operation."
    :operation-body
    "true")
@@ -1321,7 +1321,7 @@ endif
      "If true, the Classifier does not provide a complete declaration and can
       typically not be instantiated. An abstract classifier is intended to be
       used by other classifiers e.g. as the target of general metarelationships
-      or generalization relationships. True when a class is abstract." 
+      or generalization relationships. True when a class is abstract."
      :redefined-property (|Classifier| |isAbstract|))
    (|isActive| :range |Boolean| :multiplicity (1 1) :default :false
     :documentation
@@ -1351,31 +1351,31 @@ endif
      "This gives the superclasses of a class." :redefined-property (|Classifier| |general|))))
 
 
-(def-mm-constraint "passive_class" |Class| 
+(def-mm-constraint "passive_class" |Class|
    "A passive class may not own receptions."
    :operation-body
    "not self.isActive implies self.ownedReception.isEmpty()")
 
 #| missing/tru
-(def-mm-operation "extension.1" |Class| 
+(def-mm-operation "extension.1" |Class|
    "Missing derivation for Class::/extension : Extension"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Extension|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
-(def-mm-operation "inherit" |Class| 
+(def-mm-operation "inherit" |Class|
    "The inherit operation is overridden to exclude redefined properties."
    :operation-body
-   "result = inhs->reject(inh | 
-                     ownedMember->select(oclIsKindOf(RedefinableElement))->select(redefinedElement->includes(inh)))"
+   "result = inhs->reject(inh |
+		     ownedMember->select(oclIsKindOf(RedefinableElement))->select(redefinedElement->includes(inh)))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|NamedElement|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|inhs| :parameter-type '|NamedElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|inhs| :parameter-type '|NamedElement|
+			:parameter-return-p NIL))
    :operation-status :rewritten
    :editor-note "reject not excluding"
    :original-body
@@ -1383,13 +1383,13 @@ endif
 )
 
 #| missing/true
-(def-mm-operation "superClass.1" |Class| 
+(def-mm-operation "superClass.1" |Class|
    "Missing derivation for Class::/superClass : Class"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Class|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -1491,7 +1491,7 @@ endif
      "The set of use cases for which this Classifier is the subject.")))
 
 
-(def-mm-constraint "maps_to_generalization_set" |Classifier| 
+(def-mm-constraint "maps_to_generalization_set" |Classifier|
    "The Classifier that maps to a GeneralizationSet may neither be a specific
     nor a general Classifier in any of the Generalization relationships defined
     for that GeneralizationSet. In other words, a power type may not be an
@@ -1499,24 +1499,24 @@ endif
    :operation-body
    "true")
 
-(def-mm-constraint "no_cycles_in_generalization" |Classifier| 
+(def-mm-constraint "no_cycles_in_generalization" |Classifier|
    "Generalization hierarchies must be directed and acyclical. A classifier
     can not be both a transitively general and transitively specific classifier
     of the same classifier."
    :operation-body
    "not self.allParents()->includes(self)")
 
-(def-mm-constraint "non_final_parents" |Classifier| 
+(def-mm-constraint "non_final_parents" |Classifier|
    "The parents of a classifier must be non-final."
    :operation-body
    "self.parents()->forAll(not isFinalSpecialization)")
 
-(def-mm-constraint "specialize_type" |Classifier| 
+(def-mm-constraint "specialize_type" |Classifier|
    "A classifier may only specialize classifiers of a valid type."
    :operation-body
    "self.parents()->forAll(c | self.maySpecializeType(c))")
 
-(def-mm-operation "allFeatures" |Classifier| 
+(def-mm-operation "allFeatures" |Classifier|
    "The query allFeatures() gives all of the features in the namespace of the
     classifier. In general, through mechanisms such as inheritance, this will
     be a larger set than feature."
@@ -1524,23 +1524,23 @@ endif
    "result = member->select(oclIsKindOf(Feature))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Feature|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "allParents" |Classifier| 
+(def-mm-operation "allParents" |Classifier|
    "The query allParents() gives all of the direct and indirect ancestors of
     a generalized Classifier."
    :operation-body
    "result = self.parents()->union(self.parents()->collect(p | p.allParents()))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Classifier|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
    :editor-note "Missing close paren."
    :original-body
     "result = self.parents()->union(self.parents()->collect(p | p.allParents())"
 )
 
-(def-mm-operation "conformsTo" |Classifier| 
+(def-mm-operation "conformsTo" |Classifier|
    "The query conformsTo() gives true for a classifier that defines a type
     that conforms to another. This is used, for example, in the specification
     of signature conformance for operations."
@@ -1548,20 +1548,20 @@ endif
    "result = (self=other) or (self.allParents()->includes(other))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|other| :parameter-type '|Classifier|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|other| :parameter-type '|Classifier|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "general.1" |Classifier| 
+(def-mm-operation "general.1" |Classifier|
    "The general classifiers are the classifiers referenced by the generalization
     relationships."
    :operation-body
    "result = self.parents()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Classifier|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "hasVisibilityOf" |Classifier| 
+(def-mm-operation "hasVisibilityOf" |Classifier|
    "The query hasVisibilityOf() determines whether a named element is visible
     in the classifier. By default all are visible. It is only called when the
     argument is something owned by a parent."
@@ -1569,18 +1569,18 @@ endif
    "Set {}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\n :parameter-type '|NamedElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\n :parameter-type '|NamedElement|
+			:parameter-return-p NIL))
    :operation-status :ignored
     :editor-note "I rewrote inheritedMember to not use inheritableMembers and hasVisibilityOf.
-                  These produce an non-progressing recursion (calling each other with no change in arguments)."
+		  These produce an non-progressing recursion (calling each other with no change in arguments)."
     :original-body
     "self.allParents()->including(self)->collect(c | c.member)->includes(n)
 result = (n.visibility <> VisibilityKind::private)"
 )
 
-(def-mm-operation "inherit" |Classifier| 
+(def-mm-operation "inherit" |Classifier|
    "The inherit operation is overridden to exclude redefined properties. The
     query inherit() defines how to inherit a set of elements. Here the operation
     is defined to inherit them all. It is intended to be redefined in circumstances
@@ -1589,11 +1589,11 @@ result = (n.visibility <> VisibilityKind::private)"
    "result = inhs"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|NamedElement|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|inhs| :parameter-type '|NamedElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|inhs| :parameter-type '|NamedElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "inheritableMembers" |Classifier| 
+(def-mm-operation "inheritableMembers" |Classifier|
    "The query inheritableMembers() gives all of the members of a classifier
     that may be inherited in one of its descendants, subject to whatever visibility
     restrictions apply."
@@ -1601,18 +1601,18 @@ result = (n.visibility <> VisibilityKind::private)"
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|NamedElement|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\c :parameter-type '|Classifier|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\c :parameter-type '|Classifier|
+			:parameter-return-p NIL))
    :operation-status :original
     :editor-note "I rewrote inheritedMember to not use inheritableMembers and hasVisibilityOf.
-                  These produce an non-progressing recursion (calling each other with no change in arguments)."
+		  These produce an non-progressing recursion (calling each other with no change in arguments)."
     :original-body
     "c.allParents()->includes(self)
 result = member->select(m | c.hasVisibilityOf(m))"
 )
 
-(def-mm-operation "inheritedMember.1" |Classifier| 
+(def-mm-operation "inheritedMember.1" |Classifier|
    "The inheritedMember association is derived by inheriting the inheritable
     members of the parents. The inheritedMember association is derived by inheriting
     the inheritable members of the parents."
@@ -1620,43 +1620,43 @@ result = member->select(m | c.hasVisibilityOf(m))"
    "result = self.inheritedMemberAux()->asSet()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|NamedElement|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
     :editor-note "I rewrote inheritedMember to not use inheritableMembers and hasVisibilityOf.
-                  These produce an non-progressing recursion (calling each other with no change in arguments)."
+		  These produce an non-progressing recursion (calling each other with no change in arguments)."
     :original-body
     "result = self.inherit(self.parents()->collect(p|p.inheritableMembers(self))->asSet())"
 )
 
 
-(def-mm-operation "inheritedMemberAux" |Classifier| 
+(def-mm-operation "inheritedMemberAux" |Classifier|
     "The inheritedMember association is derived by inheriting the inheritable members of the parents."
     :editor-note "This is a new function defined to correct the problem of non-progressing recursion
-                  of the normative inheritedMember.1"
+		  of the normative inheritedMember.1"
     :operation-status :rewritten
-    :operation-body " result = let directs = self.parents()->reject(x | x.visibility = #private) in 
-                         if directs->isEmpty() 
-                         then directs
-                         else directs->collect(x | x.inheritedMemberAux())->union(directs) endif"
-    :parameters (list (make-instance 'ocl-parameter :parameter-name nil :parameter-type '|NamedElement| 
+    :operation-body " result = let directs = self.parents()->reject(x | x.visibility = #private) in
+			 if directs->isEmpty()
+			 then directs
+			 else directs->collect(x | x.inheritedMemberAux())->union(directs) endif"
+    :parameters (list (make-instance 'ocl-parameter :parameter-name nil :parameter-type '|NamedElement|
 				     :parameter-return-p T)))
 
 
-(def-mm-operation "isTemplate" |Classifier| 
+(def-mm-operation "isTemplate" |Classifier|
    "The query isTemplate() returns whether this templateable element is actually
     a template."
    :operation-body
    "result = oclAsType(TemplateableElement).isTemplate() or general->exists(g | g.isTemplate())"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
     :editor-note "Templateable not Templatable."
     :original-body
     "result = oclAsType(TemplatableElement).isTemplate() or general->exists(g | g.isTemplate())"
 )
 
-(def-mm-operation "maySpecializeType" |Classifier| 
+(def-mm-operation "maySpecializeType" |Classifier|
    "The query maySpecializeType() determines whether this classifier may have
     a generalization relationship to classifiers of the specified type. By
     default a classifier may specialize classifiers of the same or a more general
@@ -1666,23 +1666,23 @@ result = member->select(m | c.hasVisibilityOf(m))"
    "result = self.oclIsKindOf(c.oclType())"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\c :parameter-type '|Classifier|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\c :parameter-type '|Classifier|
+			:parameter-return-p NIL))
    :operation-status :rewritten
     :editor-note "oclType() not oclType. No such operator in OCL AFAIK. But I have one for this purpose."
     :original-body
     "result = self.oclIsKindOf(c.oclType)"
 )
 
-(def-mm-operation "parents" |Classifier| 
+(def-mm-operation "parents" |Classifier|
    "The query parents() gives all of the immediate ancestors of a generalized
     Classifier."
    :operation-body
    "result = generalization->collect(general)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Classifier|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
     :editor-note "self.generalization is a Set, we want the general of each of its elements."
     :original-body
@@ -1713,7 +1713,7 @@ result = member->select(m | c.hasVisibilityOf(m))"
      "The parameterable classifier for this template parameter." :redefined-property (|TemplateParameter| |parameteredElement|))))
 
 
-(def-mm-constraint "has_constraining_classifier" |ClassifierTemplateParameter| 
+(def-mm-constraint "has_constraining_classifier" |ClassifierTemplateParameter|
    "If \"allowSubstitutable\" is true, then there must be a constrainingClassifier."
    :operation-body
    "allowSubstitutable implies constrainingClassifier->notEmpty()")
@@ -1755,18 +1755,18 @@ result = member->select(m | c.hasVisibilityOf(m))"
       the result of the test.")))
 
 
-(def-mm-constraint "body_output_pins" |Clause| 
+(def-mm-constraint "body_output_pins" |Clause|
    "The bodyOutput pins are output pins on actions in the body of the clause."
    :operation-body
    "true")
 
-(def-mm-constraint "decider_output" |Clause| 
+(def-mm-constraint "decider_output" |Clause|
    "The decider output pin must be for the test body or a node contained by
     the test body as a structured node."
    :operation-body
    "true")
 
-(def-mm-constraint "test_and_body" |Clause| 
+(def-mm-constraint "test_and_body" |Clause|
    "The test and body parts must be disjoint."
    :operation-body
    "true")
@@ -1787,7 +1787,7 @@ result = member->select(m | c.hasVisibilityOf(m))"
       in the association is to be cleared.")))
 
 
-(def-mm-constraint "multiplicity" |ClearAssociationAction| 
+(def-mm-constraint "multiplicity" |ClearAssociationAction|
    "The multiplicity of the input pin is 1..1."
    :operation-body
    "self.object.is(1,1)"
@@ -1796,7 +1796,7 @@ result = member->select(m | c.hasVisibilityOf(m))"
    :original-body
    "self.object.multiplicity.is(1,1)")
 
-(def-mm-constraint "same_type" |ClearAssociationAction| 
+(def-mm-constraint "same_type" |ClearAssociationAction|
    "The type of the input pin must be the same as the type of at least one
     of the association ends of the association."
    :operation-body
@@ -1814,7 +1814,7 @@ result = member->select(m | c.hasVisibilityOf(m))"
      "Gives the output pin on which the result is put.")))
 
 
-(def-mm-constraint "multiplicity_of_result" |ClearStructuralFeatureAction| 
+(def-mm-constraint "multiplicity_of_result" |ClearStructuralFeatureAction|
    "The multiplicity of the result output pin must be 1..1."
    :operation-body
    "result->notEmpty() implies self.result.is(1,1)"
@@ -1823,7 +1823,7 @@ result = member->select(m | c.hasVisibilityOf(m))"
    :original-body
    "result->notEmpty() implies self.result.multiplicity.is(1,1)")
 
-(def-mm-constraint "type_of_result" |ClearStructuralFeatureAction| 
+(def-mm-constraint "type_of_result" |ClearStructuralFeatureAction|
    "The type of the result output pin is the same as the type of the inherited
     object input pin."
    :operation-body
@@ -1884,20 +1884,20 @@ result = member->select(m | c.hasVisibilityOf(m))"
       classifier owning the collaboration use.")))
 
 
-(def-mm-constraint "client_elements" |CollaborationUse| 
+(def-mm-constraint "client_elements" |CollaborationUse|
    "All the client elements of a roleBinding are in one classifier and all
     supplier elements of a roleBinding are in one collaboration and they are
     compatible."
    :operation-body
    "true")
 
-(def-mm-constraint "connectors" |CollaborationUse| 
+(def-mm-constraint "connectors" |CollaborationUse|
    "The connectors in the classifier connect according to the connectors in
     the collaboration"
    :operation-body
    "true")
 
-(def-mm-constraint "every_role" |CollaborationUse| 
+(def-mm-constraint "every_role" |CollaborationUse|
    "Every role in the collaboration is bound within the collaboration use to
     a connectable element within the owning classifier."
    :operation-body
@@ -1926,13 +1926,13 @@ result = member->select(m | c.hasVisibilityOf(m))"
      "The set of operands of the combined fragment.")))
 
 
-(def-mm-constraint "break" |CombinedFragment| 
+(def-mm-constraint "break" |CombinedFragment|
    "If the interactionOperator is break, the corresponding InteractionOperand
     must cover all Lifelines within the enclosing InteractionFragment."
    :operation-body
    "true")
 
-(def-mm-constraint "consider_and_ignore" |CombinedFragment| 
+(def-mm-constraint "consider_and_ignore" |CombinedFragment|
    "The interaction operators 'consider' and 'ignore' can only be used for
     the CombineIgnoreFragment subtype of CombinedFragment"
    :operation-body
@@ -1942,13 +1942,13 @@ result = member->select(m | c.hasVisibilityOf(m))"
    :original-body
    "((interactionOperator = #consider) or (interactionOperator = #ignore)) implies oclsisTypeOf(CombineIgnoreFragment)")
 
-(def-mm-constraint "minint_and_maxint" |CombinedFragment| 
+(def-mm-constraint "minint_and_maxint" |CombinedFragment|
    "The InteractionConstraint with minint and maxint only apply when attached
     to an InteractionOperand where the interactionOperator is loop."
    :operation-body
    "true")
 
-(def-mm-constraint "opt_loop_break_neg" |CombinedFragment| 
+(def-mm-constraint "opt_loop_break_neg" |CombinedFragment|
    "If the interactionOperator is opt, loop, break, assert or neg, there must
     be exactly one operand."
    :operation-body
@@ -1976,7 +1976,7 @@ result = member->select(m | c.hasVisibilityOf(m))"
   ())
 
 
-(def-mm-constraint "association_ends" |CommunicationPath| 
+(def-mm-constraint "association_ends" |CommunicationPath|
    "The association ends of a CommunicationPath are typed by DeploymentTargets."
    :operation-body
    "self.endType->forAll (t | t.oclIsKindOf(DeploymentTarget))")
@@ -2029,30 +2029,30 @@ result = member->select(m | c.hasVisibilityOf(m))"
       or they may be the Interfaces that are required by its public Ports.")))
 
 
-(def-mm-constraint "no_nested_classifiers" |Component| 
+(def-mm-constraint "no_nested_classifiers" |Component|
    "A component cannot nest classifiers."
    :operation-body
    "self.nestedClassifier->isEmpty()")
 
-(def-mm-constraint "no_packaged_elements" |Component| 
+(def-mm-constraint "no_packaged_elements" |Component|
    "component nested in a Class cannot have any packaged elements."
    :operation-body
    "(not self.class->isEmpty()) implies self.packagedElement->isEmpty()")
 
-(def-mm-operation "provided.1" |Component| 
+(def-mm-operation "provided.1" |Component|
    "Missing derivation for Component::/provided : Interface"
    :operation-body
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Interface|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :original
     :editor-note "realizedInterfaces() not RealizedInterfaces(), and it is also a variable here. Needs investigation."
     :original-body
     "result = let  realizedInterfaces : Set(Interface) = RealizedInterfaces(self) ,   realizingClassifiers : Set(Classifier) = Set{self.realizingClassifier}->union(self.allParents().realizingClassifier),   allRealizingClassifiers : Set(Classifier) = realizingClassifiers->union(realizingClassifiers.allParents()) ,   realizingClassifierInterfaces : Set(Interface) = allRealizingClassifiers->iterate(c; rci : Set(Interface) = Set{} | rci->union(RealizedInterfaces(c))) ,   ports : Set(Port) = self.ownedPort->union(allParents.oclAsType(Set(EncapsulatedClassifier)).ownedPort) ,   providedByPorts : Set(Interface) = ports.provided  in  realizedInterfaces->union(realizingClassifierInterfaces) ->union(providedByPorts)->asSet() "
 )
 
-(def-mm-operation "realizedInterfaces" |Component| 
+(def-mm-operation "realizedInterfaces" |Component|
    "Utility returning the set of realized interfaces of a component."
    :operation-body
    "result = classifier.clientDependency->
@@ -2060,37 +2060,37 @@ select(dependency|dependency.oclIsKindOf(Realization) and dependency.supplier.oc
 collect(dependency|dependency.client)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Interface|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|classifier| :parameter-type '|Classifier|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|classifier| :parameter-type '|Classifier|
+			:parameter-return-p NIL))
    :operation-status :rewritten
     :editor-note "I removed a open paren here somewhere."
     :original-body
     "result = (classifier.clientDependency-> select(dependency|dependency.oclIsKindOf(Realization) and dependency.supplier.oclIsKindOf(Interface)))-> collect(dependency|dependency.client)"
 )
 
-(def-mm-operation "required.1" |Component| 
+(def-mm-operation "required.1" |Component|
    "Missing derivation for Component::/required : Interface"
    :operation-body
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Interface|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :original
     :editor-note "realizedInterfaces() not RealizedInterfaces(), and it is also a variable here. Needs investigation."
     :original-body
     "result =  let  usedInterfaces : Set(Interface) = UsedInterfaces(self),   realizingClassifiers : Set(Classifier) = Set{self.realizingClassifier}->union(self.allParents().realizingClassifier),   allRealizingClassifiers : Set(Classifier) = realizingClassifiers->union(realizingClassifiers.allParents()),   realizingClassifierInterfaces : Set(Interface) = allRealizingClassifiers->iterate(c; rci : Set(Interface) = Set{} | rci->union(UsedInterfaces(c))),   ports : Set(Port) = self.ownedPort->union(allParents.oclAsType(Set(EncapsulatedClassifier)).ownedPort),   usedByPorts : Set(Interface) = ports.required in  usedInterfaces->union(realizingClassifierInterfaces) ->union(usedByPorts)->asSet() "
 )
 
-(def-mm-operation "usedInterfaces" |Component| 
+(def-mm-operation "usedInterfaces" |Component|
    "Utility returning the set of used interfaces of a component."
    :operation-body
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Interface|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|classifier| :parameter-type '|Classifier|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|classifier| :parameter-type '|Classifier|
+			:parameter-return-p NIL))
    :operation-status :ignored
     :editor-note "supplierDependency not defined."
     :original-body
@@ -2139,20 +2139,20 @@ collect(dependency|dependency.client)"
      "A list of output pins that constitute the data flow outputs of the conditional." :redefined-property (|StructuredActivityNode| |structuredNodeOutput|))))
 
 
-(def-mm-constraint "clause_no_predecessor" |ConditionalNode| 
+(def-mm-constraint "clause_no_predecessor" |ConditionalNode|
    "No two clauses within a ConditionalNode maybe predecessor clauses of each
     other, either directly or indirectly."
    :operation-body
    "true")
 
-(def-mm-constraint "executable_nodes" |ConditionalNode| 
+(def-mm-constraint "executable_nodes" |ConditionalNode|
    "The union of the ExecutabledNodes in the test and body parts of all clauses
     must be the same as the subset of nodes contained in the ConditionalNode
     (considered as a StructuredActivityNode) that are ExecutableNodes."
    :operation-body
    "true")
 
-(def-mm-constraint "matching_output_pins" |ConditionalNode| 
+(def-mm-constraint "matching_output_pins" |ConditionalNode|
    "Each clause of a conditional node must have the same number of bodyOutput
     pins as the conditional node has result output pins, and each clause bodyOutput
     pin must be compatible with the corresponding result pin (by positional
@@ -2160,18 +2160,18 @@ collect(dependency|dependency.client)"
    :operation-body
    "true")
 
-(def-mm-constraint "no_input_pins" |ConditionalNode| 
+(def-mm-constraint "no_input_pins" |ConditionalNode|
    "A conditional node has no input pins."
    :operation-body
    "true")
 
-(def-mm-constraint "one_clause_with_executable_node" |ConditionalNode| 
+(def-mm-constraint "one_clause_with_executable_node" |ConditionalNode|
    "No ExecutableNode may appear in the test or body part of more than one
     clause of a conditional node."
    :operation-body
    "true")
 
-(def-mm-constraint "result_no_incoming" |ConditionalNode| 
+(def-mm-constraint "result_no_incoming" |ConditionalNode|
    "The result output pins have no incoming edges."
    :operation-body
    "true")
@@ -2196,13 +2196,13 @@ collect(dependency|dependency.client)"
 
 
 #| missing/true
-(def-mm-operation "end.1" |ConnectableElement| 
+(def-mm-operation "end.1" |ConnectableElement|
    "Missing derivation for ConnectableElement::/end : ConnectorEnd"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|ConnectorEnd|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -2237,12 +2237,12 @@ collect(dependency|dependency.client)"
      "The State in which the connection point refreshens are defined.")))
 
 
-(def-mm-constraint "entry_pseudostates" |ConnectionPointReference| 
+(def-mm-constraint "entry_pseudostates" |ConnectionPointReference|
    "The entry Pseudostates must be Pseudostates with kind entryPoint."
    :operation-body
    "entry->notEmpty() implies entry->forAll(e | e.kind = #entryPoint)")
 
-(def-mm-constraint "exit_pseudostates" |ConnectionPointReference| 
+(def-mm-constraint "exit_pseudostates" |ConnectionPointReference|
    "The exit Pseudostates must be Pseudostates with kind exitPoint."
    :operation-body
    "exit->notEmpty() implies exit->forAll(e | e.kind = #exitPoint)")
@@ -2297,7 +2297,7 @@ collect(dependency|dependency.client)"
      "An optional association that specifies the link corresponding to this connector.")))
 
 
-(def-mm-constraint "between_interfaces_ports" |Connector| 
+(def-mm-constraint "between_interfaces_ports" |Connector|
    "Each feature of each of the required interfaces of each Port or Part at
     the end of a connector must have at least one compatible feature among
     the features of the provided interfaces of Ports or Parts at the other
@@ -2309,32 +2309,32 @@ collect(dependency|dependency.client)"
    :operation-body
    "true")
 
-(def-mm-constraint "compatible" |Connector| 
+(def-mm-constraint "compatible" |Connector|
    "The connectable elements attached to the ends of a connector must be compatible."
    :operation-body
    "true")
 
-(def-mm-constraint "roles" |Connector| 
+(def-mm-constraint "roles" |Connector|
    "The ConnectableElements attached as roles to each ConnectorEnd owned by
     a Connector must be roles of the Classifier that owned the Connector, or
     they must be ports of such roles."
    :operation-body
    "true")
 
-(def-mm-constraint "types" |Connector| 
+(def-mm-constraint "types" |Connector|
    "The types of the connectable elements that the ends of a connector are
     attached to must conform to the types of the association ends of the association
     that types the connector, if any."
    :operation-body
    "true")
 
-(def-mm-operation "kind.1" |Connector| 
+(def-mm-operation "kind.1" |Connector|
    "Missing derivation for Connector::/kind : ConnectorKind"
    :operation-body
    "result = if end->exists(   role.oclIsKindOf(Port)    and partWithPort->isEmpty()   and not role.oclAsType(Port).isBehavior) then ConnectorKind::delegation  else ConnectorKind::assembly  endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|ConnectorKind|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== ConnectorEnd
@@ -2361,37 +2361,37 @@ collect(dependency|dependency.client)"
       element.")))
 
 
-(def-mm-constraint "multiplicity" |ConnectorEnd| 
+(def-mm-constraint "multiplicity" |ConnectorEnd|
    "The multiplicity of the connector end may not be more general than the
     multiplicity of the association typing the owning connector."
    :operation-body
    "true")
 
-(def-mm-constraint "part_with_port_empty" |ConnectorEnd| 
+(def-mm-constraint "part_with_port_empty" |ConnectorEnd|
    "If a connector end is attached to a port of the containing classifier,
     partWithPort will be empty."
    :operation-body
    "true")
 
-(def-mm-constraint "role_and_part_with_port" |ConnectorEnd| 
+(def-mm-constraint "role_and_part_with_port" |ConnectorEnd|
    "If a connector end references a partWithPort, then the role must be a port
     that is defined by the type of the partWithPort."
    :operation-body
    "true")
 
-(def-mm-constraint "self_part_with_port" |ConnectorEnd| 
+(def-mm-constraint "self_part_with_port" |ConnectorEnd|
    "The property held in self.partWithPort must not be a Port."
    :operation-body
    "true")
 
 #| missing/true
-(def-mm-operation "definingEnd.1" |ConnectorEnd| 
+(def-mm-operation "definingEnd.1" |ConnectorEnd|
    "Missing derivation for ConnectorEnd::/definingEnd : Property"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Property|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -2406,13 +2406,13 @@ collect(dependency|dependency.client)"
      "The set of messages that apply to this fragment")))
 
 
-(def-mm-constraint "consider_or_ignore" |ConsiderIgnoreFragment| 
+(def-mm-constraint "consider_or_ignore" |ConsiderIgnoreFragment|
    "The interaction operator of a ConsiderIgnoreFragment must be either 'consider'
     or 'ignore'."
    :operation-body
    "(interactionOperator = #consider) or (interactionOperator = #ignore)")
 
-(def-mm-constraint "type" |ConsiderIgnoreFragment| 
+(def-mm-constraint "type" |ConsiderIgnoreFragment|
    "The NamedElements must be of a type of element that identifies a message
     (e.g., an Operation, Reception, or a Signal)."
    :operation-body
@@ -2440,31 +2440,31 @@ collect(dependency|dependency.client)"
       to be satisfied.")))
 
 
-(def-mm-constraint "boolean_value" |Constraint| 
+(def-mm-constraint "boolean_value" |Constraint|
    "The value specification for a constraint must evaluate to a Boolean value."
    :operation-body
    "true")
 
-(def-mm-constraint "no_side_effects" |Constraint| 
+(def-mm-constraint "no_side_effects" |Constraint|
    "Evaluating the value specification for a constraint must not have side
     effects."
    :operation-body
    "true")
 
-(def-mm-constraint "not_apply_to_self" |Constraint| 
+(def-mm-constraint "not_apply_to_self" |Constraint|
    "A constraint cannot be applied to itself."
    :operation-body
    "not constrainedElement->includes(self)")
 
-(def-mm-constraint "value_specification_boolean" |Constraint| 
+(def-mm-constraint "value_specification_boolean" |Constraint|
    "The value specification for a constraint must evaluate to a Boolean value."
    :operation-body
    "true"
    :operation-status :rewritten
    :editor-note "No () on specification. oclIsKindOf not isOclKindOf. More generally,
-        it looks like this intends to perform runtime evaluation of the OCL string in the specification
-        property (which should more accurately be specification.body, anyway). There is no way to 
-        describe this in OCL. Carried Over from UML 2.1.1"
+	it looks like this intends to perform runtime evaluation of the OCL string in the specification
+	property (which should more accurately be specification.body, anyway). There is no way to
+	describe this in OCL. Carried Over from UML 2.1.1"
    :original-body
    "self.specification().booleanValue().isOclKindOf(Boolean)")
 
@@ -2481,19 +2481,19 @@ collect(dependency|dependency.client)"
       and False when it is in the beginning.")))
 
 
-(def-mm-constraint "first_or_last_interaction_fragment" |Continuation| 
+(def-mm-constraint "first_or_last_interaction_fragment" |Continuation|
    "Continuations always occur as the very first InteractionFragment or the
     very last InteractionFragment of the enclosing InteractionFragment."
    :operation-body
    "true")
 
-(def-mm-constraint "global" |Continuation| 
+(def-mm-constraint "global" |Continuation|
    "Continuations are always global in the enclosing InteractionFragment e.g.
     it always covers all Lifelines covered by the enclosing InteractionFragment."
    :operation-body
    "true")
 
-(def-mm-constraint "same_name" |Continuation| 
+(def-mm-constraint "same_name" |Continuation|
    "Continuations with the same name may only cover the same set of Lifelines
     (within one Classifier)."
    :operation-body
@@ -2508,7 +2508,7 @@ collect(dependency|dependency.client)"
   ())
 
 
-(def-mm-constraint "object_nodes" |ControlFlow| 
+(def-mm-constraint "object_nodes" |ControlFlow|
    "Control flows may not have object nodes at either end, except for object
     nodes with control type."
    :operation-body
@@ -2533,7 +2533,7 @@ collect(dependency|dependency.client)"
      "Specifies ends of association and inputs." :redefined-property (|LinkAction| |endData|))))
 
 
-(def-mm-constraint "association_not_abstract" |CreateLinkAction| 
+(def-mm-constraint "association_not_abstract" |CreateLinkAction|
    "The association cannot be an abstract classifier."
    :operation-body
    "self.association().isAbstract = #false")
@@ -2549,12 +2549,12 @@ collect(dependency|dependency.client)"
      "Gives the output pin on which the result is put.")))
 
 
-(def-mm-constraint "association_class" |CreateLinkObjectAction| 
+(def-mm-constraint "association_class" |CreateLinkObjectAction|
    "The association must be an association class."
    :operation-body
    "self.association().oclIsKindOf(Class)")
 
-(def-mm-constraint "multiplicity" |CreateLinkObjectAction| 
+(def-mm-constraint "multiplicity" |CreateLinkObjectAction|
    "The multiplicity of the output pin is 1..1."
    :operation-body
    "self.result.is(1,1)"
@@ -2563,7 +2563,7 @@ collect(dependency|dependency.client)"
    :original-body
    "self.result.multiplicity.is(1,1)")
 
-(def-mm-constraint "type_of_result" |CreateLinkObjectAction| 
+(def-mm-constraint "type_of_result" |CreateLinkObjectAction|
    "The type of the result pin must be the same as the association of the action."
    :operation-body
    "self.result.type = self.association()")
@@ -2583,17 +2583,17 @@ collect(dependency|dependency.client)"
      "Gives the output pin on which the result is put.")))
 
 
-(def-mm-constraint "classifier_not_abstract" |CreateObjectAction| 
+(def-mm-constraint "classifier_not_abstract" |CreateObjectAction|
    "The classifier cannot be abstract."
    :operation-body
    "not (self.classifier.isAbstract = #true)")
 
-(def-mm-constraint "classifier_not_association_class" |CreateObjectAction| 
+(def-mm-constraint "classifier_not_association_class" |CreateObjectAction|
    "The classifier cannot be an association class"
    :operation-body
    "not self.classifier.oclIsKindOf(AssociationClass)")
 
-(def-mm-constraint "multiplicity" |CreateObjectAction| 
+(def-mm-constraint "multiplicity" |CreateObjectAction|
    "The multiplicity of the output pin is 1..1."
    :operation-body
    "self.result.is(1,1)"
@@ -2602,7 +2602,7 @@ collect(dependency|dependency.client)"
    :original-body
    "self.result.multiplicity.is(1,1)")
 
-(def-mm-constraint "same_type" |CreateObjectAction| 
+(def-mm-constraint "same_type" |CreateObjectAction|
    "The type of the result pin must be the same as the classifier of the action."
    :operation-body
    "self.result.type = self.classifier")
@@ -2634,20 +2634,20 @@ collect(dependency|dependency.client)"
      "The Operations owned by the DataType.")))
 
 
-(def-mm-operation "inherit" |DataType| 
+(def-mm-operation "inherit" |DataType|
    "The inherit operation is overridden to exclude redefined properties."
    :operation-body
    "result = inhs->reject(inh | ownedMember->select(oclIsKindOf(RedefinableElement))->select(redefinedElement->includes(inh)))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|NamedElement|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|inhs| :parameter-type '|NamedElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|inhs| :parameter-type '|NamedElement|
+			:parameter-return-p NIL))
    :operation-status :rewritten
-    :editor-note "reject not excluding. The operation Classifier.inhertedMember, 
-                  redefined to eliminate non-progressing recursion, does not use inherit. 
-                  Something similar should occur here. But I haven't written it yet.
-                  See Class.inherit, Classifier.inherit. Needs further study!"
+    :editor-note "reject not excluding. The operation Classifier.inhertedMember,
+		  redefined to eliminate non-progressing recursion, does not use inherit.
+		  Something similar should occur here. But I haven't written it yet.
+		  See Class.inherit, Classifier.inherit. Needs further study!"
     :original-body
     "result = inhs->excluding(inh | ownedMember->select(oclIsKindOf(RedefinableElement))->select(redefinedElement->includes(inh)))"
 )
@@ -2667,19 +2667,19 @@ collect(dependency|dependency.client)"
       input value.")))
 
 
-(def-mm-constraint "decision_input_flow_incoming" |DecisionNode| 
+(def-mm-constraint "decision_input_flow_incoming" |DecisionNode|
    "The decisionInputFlow of a decision node must be an incoming edge of the
     decision node."
    :operation-body
    "true")
 
-(def-mm-constraint "edges" |DecisionNode| 
+(def-mm-constraint "edges" |DecisionNode|
    "The edges coming into and out of a decision node, other than the decision
     input flow (if any), must be either all object flows or all control flows."
    :operation-body
    "true")
 
-(def-mm-constraint "incoming_control_one_input_parameter" |DecisionNode| 
+(def-mm-constraint "incoming_control_one_input_parameter" |DecisionNode|
    "If the decision node has a decision input flow and an incoming control
     flow, then a decision input behavior has one input parameter whose type
     is the same as or a supertype of the type of object tokens offered on the
@@ -2687,7 +2687,7 @@ collect(dependency|dependency.client)"
    :operation-body
    "true")
 
-(def-mm-constraint "incoming_object_one_input_parameter" |DecisionNode| 
+(def-mm-constraint "incoming_object_one_input_parameter" |DecisionNode|
    "If the decision node has no decision input flow and an incoming object
     flow, then a decision input behavior has one input parameter whose type
     is the same as or a supertype of the type of object tokens offered on the
@@ -2695,19 +2695,19 @@ collect(dependency|dependency.client)"
    :operation-body
    "true")
 
-(def-mm-constraint "incoming_outgoing_edges" |DecisionNode| 
+(def-mm-constraint "incoming_outgoing_edges" |DecisionNode|
    "A decision node has one or two incoming edges and at least one outgoing
     edge."
    :operation-body
    "true")
 
-(def-mm-constraint "parameters" |DecisionNode| 
+(def-mm-constraint "parameters" |DecisionNode|
    "A decision input behavior has no output parameters, no in-out parameters
     and one return parameter."
    :operation-body
    "true")
 
-(def-mm-constraint "two_input_parameters" |DecisionNode| 
+(def-mm-constraint "two_input_parameters" |DecisionNode|
    "If the decision node has a decision input flow and an second incoming object
     flow, then a decision input behavior has two input parameters, the first
     of which has a type that is the same as or a supertype of the type of the
@@ -2717,7 +2717,7 @@ collect(dependency|dependency.client)"
    :operation-body
    "true")
 
-(def-mm-constraint "zero_input_parameters" |DecisionNode| 
+(def-mm-constraint "zero_input_parameters" |DecisionNode|
    "If the decision node has no decision input flow and an incoming control
     flow, then a decision input behavior has zero input parameters."
    :operation-body
@@ -2811,7 +2811,7 @@ collect(dependency|dependency.client)"
       remote location.")))
 
 
-(def-mm-constraint "deployed_elements" |DeploymentSpecification| 
+(def-mm-constraint "deployed_elements" |DeploymentSpecification|
    "The deployedElements of a DeploymentTarget that are involved in a Deployment
     that has an associated Deployment-Specification is a kind of Component
     (i.e. the configured components)."
@@ -2823,7 +2823,7 @@ collect(dependency|dependency.client)"
    :original-body
    "self.deployment->forAll (d | d.location.deployedElements->forAll (de |   de.oclIsKindOf(Component)))")
 
-(def-mm-constraint "deployment_target" |DeploymentSpecification| 
+(def-mm-constraint "deployment_target" |DeploymentSpecification|
    "The DeploymentTarget of a DeploymentSpecification is a kind of ExecutionEnvironment."
    :operation-body
    "result = self.deployment->forAll (d | d.location.oclIsKindOf(ExecutionEnvironment))"
@@ -2848,13 +2848,13 @@ collect(dependency|dependency.client)"
      "The set of Deployments for a DeploymentTarget.")))
 
 
-(def-mm-operation "deployedElement.1" |DeploymentTarget| 
+(def-mm-operation "deployedElement.1" |DeploymentTarget|
    "Missing derivation for DeploymentTarget::/deployedElement : PackageableElement"
    :operation-body
    "result = ((self.deployment->collect(deployedArtifact))->collect(manifestation))->collect(utilizedElement)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|PackageableElement|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== DestroyLinkAction
@@ -2886,7 +2886,7 @@ collect(dependency|dependency.client)"
      "The input pin providing the object to be destroyed.")))
 
 
-(def-mm-constraint "multiplicity" |DestroyObjectAction| 
+(def-mm-constraint "multiplicity" |DestroyObjectAction|
    "The multiplicity of the input pin is 1..1."
    :operation-body
    "self.target.is(1,1)"
@@ -2895,7 +2895,7 @@ collect(dependency|dependency.client)"
    :original-body
    "self.target.multiplicity.is(1,1)")
 
-(def-mm-constraint "no_type" |DestroyObjectAction| 
+(def-mm-constraint "no_type" |DestroyObjectAction|
    "The input pin has no type."
    :operation-body
    "self.target.type->size() = 0")
@@ -2908,7 +2908,7 @@ collect(dependency|dependency.client)"
   ())
 
 
-(def-mm-constraint "no_occurrence_specifications_below" |DestructionOccurrenceSpecification| 
+(def-mm-constraint "no_occurrence_specifications_below" |DestructionOccurrenceSpecification|
    "No other OccurrenceSpecifications on a given Lifeline in an InteractionOperand
     may appear below a DestructionOccurrenceSpecification."
    :operation-body
@@ -2974,7 +2974,7 @@ collect(dependency|dependency.client)"
      "The interval constraining the duration." :redefined-property (|IntervalConstraint| |specification|))))
 
 
-(def-mm-constraint "first_event_multiplicity" |DurationConstraint| 
+(def-mm-constraint "first_event_multiplicity" |DurationConstraint|
    "The multiplicity of firstEvent must be 2 if the multiplicity of constrainedElement
     is 2. Otherwise the multiplicity of firstEvent is 0."
    :operation-body
@@ -3019,7 +3019,7 @@ collect(dependency|dependency.client)"
       that represents only one time instant.")))
 
 
-(def-mm-constraint "first_event_multiplicity" |DurationObservation| 
+(def-mm-constraint "first_event_multiplicity" |DurationObservation|
    "The multiplicity of firstEvent must be 2 if the multiplicity of event is
     2. Otherwise the multiplicity of firstEvent is 0."
    :operation-body
@@ -3050,26 +3050,26 @@ collect(dependency|dependency.client)"
      "The Element that owns this element.")))
 
 
-(def-mm-constraint "has_owner" |Element| 
+(def-mm-constraint "has_owner" |Element|
    "Elements that must be owned must have an owner."
    :operation-body
    "self.mustBeOwned() implies owner->notEmpty()")
 
-(def-mm-constraint "not_own_self" |Element| 
+(def-mm-constraint "not_own_self" |Element|
    "An element may not directly or indirectly own itself."
    :operation-body
    "not self.allOwnedElements()->includes(self)")
 
-(def-mm-operation "allOwnedElements" |Element| 
+(def-mm-operation "allOwnedElements" |Element|
    "The query allOwnedElements() gives all of the direct and indirect owned
     elements of an element."
    :operation-body
    "result = ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Element|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "mustBeOwned" |Element| 
+(def-mm-operation "mustBeOwned" |Element|
    "The query mustBeOwned() indicates whether elements of this type must have
     an owner. Subclasses of Element that do not require an owner must override
     this operation."
@@ -3077,7 +3077,7 @@ collect(dependency|dependency.client)"
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== ElementImport
@@ -3109,24 +3109,24 @@ collect(dependency|dependency.client)"
       to add visibility to the element import.")))
 
 
-(def-mm-constraint "imported_element_is_public" |ElementImport| 
+(def-mm-constraint "imported_element_is_public" |ElementImport|
    "An importedElement has either public visibility or no visibility at all."
    :operation-body
    "self.importedElement.visibility.notEmpty() implies self.importedElement.visibility = #public")
 
-(def-mm-constraint "visibility_public_or_private" |ElementImport| 
+(def-mm-constraint "visibility_public_or_private" |ElementImport|
    "The visibility of an ElementImport is either public or private."
    :operation-body
    "self.visibility = #public or self.visibility = #private")
 
-(def-mm-operation "getName" |ElementImport| 
+(def-mm-operation "getName" |ElementImport|
    "The query getName() returns the name under which the imported PackageableElement
     will be known in the importing namespace."
    :operation-body
    "result = if self.alias->notEmpty() then   self.alias else   self.importedElement.name endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== EncapsulatedClassifier
@@ -3141,13 +3141,13 @@ collect(dependency|dependency.client)"
 
 
 #| missing/true
-(def-mm-operation "ownedPort.1" |EncapsulatedClassifier| 
+(def-mm-operation "ownedPort.1" |EncapsulatedClassifier|
    "Missing derivation for EncapsulatedClassifier::/ownedPort : Port"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Port|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -3178,34 +3178,34 @@ collect(dependency|dependency.client)"
      "The Enumeration that this EnumerationLiteral is a member of.")))
 
 ;;; It was intended that this is the derivation, not constraint
-;;; (decided in 2013-05-06 telecon). 
-;(def-mm-constraint "classifier_equals_owning_enumeration" |EnumerationLiteral| 
+;;; (decided in 2013-05-06 telecon).
+;(def-mm-constraint "classifier_equals_owning_enumeration" |EnumerationLiteral|
 ;   ""
 ;   :operation-body
 ;   "classifier = enumeration")
 
 ;;; Added 2013-05-06
-(def-mm-operation "classifier.1" |EnumerationLiteral| 
+(def-mm-operation "classifier.1" |EnumerationLiteral|
    ""
    :operation-body
    "enumeration"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Enumeration|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
    :editor-note "Pursuant to 2013-05-06 MIWG Telecon, created this derivation and removed
-                 the constraint classifier_equals_owning_enumeration."
+		 the constraint classifier_equals_owning_enumeration."
    :original-body "classifier = enumeration")
 
 
 #| missing/true
-(def-mm-operation "classifier.1" |EnumerationLiteral| 
+(def-mm-operation "classifier.1" |EnumerationLiteral|
    "Missing derivation for EnumerationLiteral::/classifier : Enumeration"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Enumeration|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -3244,25 +3244,25 @@ collect(dependency|dependency.client)"
       propagates to the outside of the node.")))
 
 
-(def-mm-constraint "edge_source_target" |ExceptionHandler| 
+(def-mm-constraint "edge_source_target" |ExceptionHandler|
    "An edge that has a source in an exception handler structured node must
     have its target in the handler also, and vice versa."
    :operation-body
    "true")
 
-(def-mm-constraint "exception_body" |ExceptionHandler| 
+(def-mm-constraint "exception_body" |ExceptionHandler|
    "The exception handler and its input object node are not the source or target
     of any edge."
    :operation-body
    "true")
 
-(def-mm-constraint "one_input" |ExceptionHandler| 
+(def-mm-constraint "one_input" |ExceptionHandler|
    "The handler body has one input, and that input is the same as the exception
     input."
    :operation-body
    "true")
 
-(def-mm-constraint "result_pins" |ExceptionHandler| 
+(def-mm-constraint "result_pins" |ExceptionHandler|
    "If the protected node is a StructuredActivityNode with output pins, then
     the exception handler body must also be a StructuredActivityNode with output
     pins that correspond in number and types to those of the protected node."
@@ -3325,7 +3325,7 @@ collect(dependency|dependency.client)"
       Action or Behavior")))
 
 
-(def-mm-constraint "same_lifeline" |ExecutionSpecification| 
+(def-mm-constraint "same_lifeline" |ExecutionSpecification|
    "The startEvent and the finishEvent must be on the same Lifeline"
    :operation-body
    "start.lifeline = finish.lifeline")
@@ -3349,7 +3349,7 @@ collect(dependency|dependency.client)"
      "The expansion region for which the node is an output.")))
 
 
-(def-mm-constraint "region_as_input_or_output" |ExpansionNode| 
+(def-mm-constraint "region_as_input_or_output" |ExpansionNode|
    "One of regionAsInput or regionAsOutput must be non-empty, but not both."
    :operation-body
    "true")
@@ -3379,7 +3379,7 @@ collect(dependency|dependency.client)"
       complete.")))
 
 
-(def-mm-constraint "expansion_nodes" |ExpansionRegion| 
+(def-mm-constraint "expansion_nodes" |ExpansionRegion|
    "An ExpansionRegion must have one or more argument ExpansionNodes and zero
     or more result ExpansionNodes."
    :operation-body
@@ -3437,7 +3437,7 @@ collect(dependency|dependency.client)"
       list of extension points is trivial.)")))
 
 
-(def-mm-constraint "extension_points" |Extend| 
+(def-mm-constraint "extension_points" |Extend|
    "The extension points referenced by the extend relationship must belong
     to the use case that is being extended."
    :operation-body
@@ -3468,12 +3468,12 @@ collect(dependency|dependency.client)"
      "References the end of the extension that is typed by a Stereotype." :redefined-property (|Association| |ownedEnd|))))
 
 
-(def-mm-constraint "is_binary" |Extension| 
+(def-mm-constraint "is_binary" |Extension|
    "An Extension is binary, i.e., it has only two memberEnds."
    :operation-body
    "memberEnd->size() = 2")
 
-(def-mm-constraint "non_owned_end" |Extension| 
+(def-mm-constraint "non_owned_end" |Extension|
    "The non-owned end of an Extension is typed by a Class."
    :operation-body
    "metaclass->notEmpty() and metaclass.oclIsKindOf(Classifier)"
@@ -3482,32 +3482,32 @@ collect(dependency|dependency.client)"
    :original-body
    "metaclassEnd()->notEmpty() and metaclass()->oclIsKindOf(Class)")
 
-(def-mm-operation "isRequired.1" |Extension| 
+(def-mm-operation "isRequired.1" |Extension|
    "The query isRequired() is true if the owned end has a multiplicity with
     the lower bound of 1."
    :operation-body
    "result = (ownedEnd->lowerBound() = 1)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "metaclass.1" |Extension| 
+(def-mm-operation "metaclass.1" |Extension|
    "The query metaclass() returns the metaclass that is being extended (as
     opposed to the extending stereotype)."
    :operation-body
    "result = metaclassEnd().type"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Class|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "metaclassEnd" |Extension| 
+(def-mm-operation "metaclassEnd" |Extension|
    "The query metaclassEnd() returns the Property that is typed by a metaclass
     (as opposed to a stereotype)."
    :operation-body
    "result = (memberEnd - OrderedSet{ownedEnd}).asOrderedSet()->first()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Property|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
    :editor-note ""
    :original-body
@@ -3531,17 +3531,17 @@ collect(dependency|dependency.client)"
       the possible types of an ExtensionEnd to only be Stereotypes." :redefined-property (|TypedElement| |type|))))
 
 
-(def-mm-constraint "aggregation" |ExtensionEnd| 
+(def-mm-constraint "aggregation" |ExtensionEnd|
    "The aggregation of an ExtensionEnd is composite."
    :operation-body
    "self.aggregation = #composite")
 
-(def-mm-constraint "multiplicity" |ExtensionEnd| 
+(def-mm-constraint "multiplicity" |ExtensionEnd|
    "The multiplicity of ExtensionEnd is 0..1 or 1."
    :operation-body
    "(self->lowerBound() = 0 or self->lowerBound() = 1) and self->upperBound() = 1")
 
-(def-mm-operation "lowerBound" |ExtensionEnd| 
+(def-mm-operation "lowerBound" |ExtensionEnd|
    "The query lowerBound() returns the lower bound of the multiplicity as an
     Integer. This is a redefinition of the default lower bound, which normally,
     for MultiplicityElements, evaluates to 1 if empty."
@@ -3549,7 +3549,7 @@ collect(dependency|dependency.client)"
    "1"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Integer|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :ignored
    :editor-note "removed lowerBound = ... but IntegerValue is not defined"
    :original-body
@@ -3570,7 +3570,7 @@ collect(dependency|dependency.client)"
      "References the use case that owns this extension point.")))
 
 
-(def-mm-constraint "must_have_name" |ExtensionPoint| 
+(def-mm-constraint "must_have_name" |ExtensionPoint|
    "An ExtensionPoint must have a name."
    :operation-body
    "self.name->notEmpty ()")
@@ -3600,7 +3600,7 @@ collect(dependency|dependency.client)"
   ())
 
 
-(def-mm-constraint "no_outgoing_edges" |FinalNode| 
+(def-mm-constraint "no_outgoing_edges" |FinalNode|
    "A final node has no outgoing edges."
    :operation-body
    "true")
@@ -3616,32 +3616,32 @@ collect(dependency|dependency.client)"
   ())
 
 
-(def-mm-constraint "cannot_reference_submachine" |FinalState| 
+(def-mm-constraint "cannot_reference_submachine" |FinalState|
    "A final state cannot reference a submachine."
    :operation-body
    "self.submachine->isEmpty()")
 
-(def-mm-constraint "no_entry_behavior" |FinalState| 
+(def-mm-constraint "no_entry_behavior" |FinalState|
    "A final state has no entry behavior."
    :operation-body
    "self.entry->isEmpty()")
 
-(def-mm-constraint "no_exit_behavior" |FinalState| 
+(def-mm-constraint "no_exit_behavior" |FinalState|
    "A final state has no exit behavior."
    :operation-body
    "self.exit->isEmpty()")
 
-(def-mm-constraint "no_outgoing_transitions" |FinalState| 
+(def-mm-constraint "no_outgoing_transitions" |FinalState|
    "A final state cannot have any outgoing transitions."
    :operation-body
    "self.outgoing->size() = 0")
 
-(def-mm-constraint "no_regions" |FinalState| 
+(def-mm-constraint "no_regions" |FinalState|
    "A final state cannot have regions."
    :operation-body
    "self.region->size() = 0")
 
-(def-mm-constraint "no_state_behavior" |FinalState| 
+(def-mm-constraint "no_state_behavior" |FinalState|
    "A final state has no state (doActivity) behavior."
    :operation-body
    "self.doActivity->isEmpty()")
@@ -3663,13 +3663,13 @@ collect(dependency|dependency.client)"
   ())
 
 
-(def-mm-constraint "edges" |ForkNode| 
+(def-mm-constraint "edges" |ForkNode|
    "The edges coming into and out of a fork node must be either all object
     flows or all control flows."
    :operation-body
    "true")
 
-(def-mm-constraint "one_incoming_edge" |ForkNode| 
+(def-mm-constraint "one_incoming_edge" |ForkNode|
    "A fork node has one incoming edge."
    :operation-body
    "true")
@@ -3683,12 +3683,12 @@ collect(dependency|dependency.client)"
   ())
 
 
-(def-mm-constraint "one_output_parameter" |FunctionBehavior| 
+(def-mm-constraint "one_output_parameter" |FunctionBehavior|
    "A function behavior has at least one output parameter."
    :operation-body
    "self.ownedParameters->   select(p | p.direction=#out or p.direction=#inout or p.direction=#return)->size() >= 1")
 
-(def-mm-constraint "types_of_parameters" |FunctionBehavior| 
+(def-mm-constraint "types_of_parameters" |FunctionBehavior|
    "The types of parameters are all data types, which may not nest anything
     but other datatypes."
    :operation-body
@@ -3707,14 +3707,14 @@ collect(dependency|dependency.client)"
   ())
 
 
-(def-mm-constraint "messages_actual_gate" |Gate| 
+(def-mm-constraint "messages_actual_gate" |Gate|
    "The message leading to/from an actualGate of an InteractionUse must correspond
     to the message leading from/to the formalGate with the same name of the
     Interaction referenced by the InteractionUse."
    :operation-body
    "true")
 
-(def-mm-constraint "messages_combined_fragment" |Gate| 
+(def-mm-constraint "messages_combined_fragment" |Gate|
    "The message leading to/from an (expression) Gate within a CombinedFragment
     must correspond to the message leading from/to the CombinedFragment on
     its outside."
@@ -3742,7 +3742,7 @@ collect(dependency|dependency.client)"
       referenced by after.")))
 
 
-(def-mm-constraint "irreflexsive_transitive_closure" |GeneralOrdering| 
+(def-mm-constraint "irreflexsive_transitive_closure" |GeneralOrdering|
    "An occurrence specification must not be ordered relative to itself through
     a series of general orderings. (In other words, the transitive closure
     of the general orderings is irreflexive.)"
@@ -3779,7 +3779,7 @@ collect(dependency|dependency.client)"
      "References the specializing classifier in the Generalization relationship.")))
 
 
-(def-mm-constraint "generalization_same_classifier" |Generalization| 
+(def-mm-constraint "generalization_same_classifier" |Generalization|
    "Every Generalization associated with a given GeneralizationSet must have
     the same general Classifier. That is, all Generalizations for a particular
     GeneralizationSet must have the same superclass."
@@ -3828,13 +3828,13 @@ collect(dependency|dependency.client)"
       GeneralizationSet.")))
 
 
-(def-mm-constraint "generalization_same_classifier" |GeneralizationSet| 
+(def-mm-constraint "generalization_same_classifier" |GeneralizationSet|
    "Every Generalization associated with a particular GeneralizationSet must
     have the same general Classifier."
    :operation-body
    "generalization->collect(g | g.general)->asSet()->size() <= 1")
 
-(def-mm-constraint "maps_to_generalization_set" |GeneralizationSet| 
+(def-mm-constraint "maps_to_generalization_set" |GeneralizationSet|
    "The Classifier that maps to a GeneralizationSet may neither be a specific
     nor a general Classifier in any of the Generalization relationships defined
     for that GeneralizationSet. In other words, a power type may not be an
@@ -3924,19 +3924,19 @@ collect(dependency|dependency.client)"
      "Determines which Messages will realize the specified flow.")))
 
 
-(def-mm-constraint "convey_classifiers" |InformationFlow| 
+(def-mm-constraint "convey_classifiers" |InformationFlow|
    "An information flow can only convey classifiers that are allowed to represent
     an information item."
    :operation-body
    "self.conveyed.represented->forAll(p | p->oclIsKindOf(Class) or oclIsKindOf(Interface)   or oclIsKindOf(InformationItem) or oclIsKindOf(Signal) or oclIsKindOf(Component))")
 
-(def-mm-constraint "must_conform" |InformationFlow| 
+(def-mm-constraint "must_conform" |InformationFlow|
    "The sources and targets of the information flow must conform with the sources
     and targets or conversely the targets and sources of the realization relationships."
    :operation-body
    "true")
 
-(def-mm-constraint "sources_and_targets_kind" |InformationFlow| 
+(def-mm-constraint "sources_and_targets_kind" |InformationFlow|
    "The sources and targets of the information flow can only be one of the
     following kind: Actor, Node, UseCase, Artifact, Class, Component, Port,
     Property, Interface, Package, ActivityNode, ActivityPartition and InstanceSpecification
@@ -3970,12 +3970,12 @@ collect(dependency|dependency.client)"
       the information. An information item represents all its represented classifiers.")))
 
 
-(def-mm-constraint "has_no" |InformationItem| 
+(def-mm-constraint "has_no" |InformationItem|
    "An informationItem has no feature, no generalization, and no associations."
    :operation-body
    "self.generalization->isEmpty() and self.feature->isEmpty()")
 
-(def-mm-constraint "not_instantiable" |InformationItem| 
+(def-mm-constraint "not_instantiable" |InformationItem|
    "It is not instantiable."
    :operation-body
    "true"
@@ -3988,7 +3988,7 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
    :original-body
    "isAbstract")
 
-(def-mm-constraint "sources_and_targets" |InformationItem| 
+(def-mm-constraint "sources_and_targets" |InformationItem|
    "The sources and targets of an information item (its related information
     flows) must designate subsets of the sources and targets of the representation
     information item, if any.The Classifiers that can realize an information
@@ -4010,12 +4010,12 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
   ())
 
 
-(def-mm-constraint "control_edges" |InitialNode| 
+(def-mm-constraint "control_edges" |InitialNode|
    "Only control edges can have initial nodes as source."
    :operation-body
    "true")
 
-(def-mm-constraint "no_incoming_edges" |InitialNode| 
+(def-mm-constraint "no_incoming_edges" |InitialNode|
    "An initial node has no incoming edges."
    :operation-body
    "true")
@@ -4028,7 +4028,7 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
   ())
 
 
-(def-mm-constraint "outgoing_edges_structured_only" |InputPin| 
+(def-mm-constraint "outgoing_edges_structured_only" |InputPin|
    "Input pins may have outgoing edges only when they are on actions that are
     structured nodes, and these edges must target a node contained by the structured
     node."
@@ -4063,26 +4063,26 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
      "A specification of how to compute, derive, or construct the instance.")))
 
 
-(def-mm-constraint "defining_feature" |InstanceSpecification| 
+(def-mm-constraint "defining_feature" |InstanceSpecification|
    "The defining feature of each slot is a structural feature (directly or
     inherited) of a classifier of the instance specification."
    :operation-body
    "slot->forAll(s | classifier->exists (c | c.allFeatures()->includes (s.definingFeature)))")
 
-(def-mm-constraint "deployment_artifact" |InstanceSpecification| 
+(def-mm-constraint "deployment_artifact" |InstanceSpecification|
    "An InstanceSpecification can be a DeployedArtifact if it is the instance
     specification of an Artifact."
    :operation-body
    "true")
 
-(def-mm-constraint "deployment_target" |InstanceSpecification| 
+(def-mm-constraint "deployment_target" |InstanceSpecification|
    "An InstanceSpecification can be a DeploymentTarget if it is the instance
     specification of a Node and functions as a part in the internal structure
     of an encompassing Node."
    :operation-body
    "true")
 
-(def-mm-constraint "structural_feature" |InstanceSpecification| 
+(def-mm-constraint "structural_feature" |InstanceSpecification|
    "One structural feature (including the same feature inherited from multiple
     classifiers) is the defining feature of at most one slot in an instance
     specification."
@@ -4147,36 +4147,36 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
      "The minimum number of iterations of a loop")))
 
 
-(def-mm-constraint "dynamic_variables" |InteractionConstraint| 
+(def-mm-constraint "dynamic_variables" |InteractionConstraint|
    "The dynamic variables that take part in the constraint must be owned by
     the ConnectableElement corresponding to the covered Lifeline."
    :operation-body
    "true")
 
-(def-mm-constraint "global_data" |InteractionConstraint| 
+(def-mm-constraint "global_data" |InteractionConstraint|
    "The constraint may contain references to global data or write-once data."
    :operation-body
    "true")
 
-(def-mm-constraint "maxint_greater_equal_minint" |InteractionConstraint| 
+(def-mm-constraint "maxint_greater_equal_minint" |InteractionConstraint|
    "If maxint is specified, then minint must be specified and the evaluation
     of maxint must be >= the evaluation of minint"
    :operation-body
    "true")
 
-(def-mm-constraint "maxint_positive" |InteractionConstraint| 
+(def-mm-constraint "maxint_positive" |InteractionConstraint|
    "If maxint is specified, then the expression must evaluate to a positive
     integer."
    :operation-body
    "true")
 
-(def-mm-constraint "minint_maxint" |InteractionConstraint| 
+(def-mm-constraint "minint_maxint" |InteractionConstraint|
    "Minint/maxint can only be present if the InteractionConstraint is associated
     with the operand of a loop CombinedFragment."
    :operation-body
    "true")
 
-(def-mm-constraint "minint_non_negative" |InteractionConstraint| 
+(def-mm-constraint "minint_non_negative" |InteractionConstraint|
    "If minint is specified, then the expression must evaluate to a non-negative
     integer."
    :operation-body
@@ -4227,13 +4227,13 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
      "Constraint of the operand.")))
 
 
-(def-mm-constraint "guard_contain_references" |InteractionOperand| 
+(def-mm-constraint "guard_contain_references" |InteractionOperand|
    "The guard must contain only references to values local to the Lifeline
     on which it resides, or values global to the whole Interaction."
    :operation-body
    "true")
 
-(def-mm-constraint "guard_directly_prior" |InteractionOperand| 
+(def-mm-constraint "guard_directly_prior" |InteractionOperand|
    "The guard must be placed directly prior to (above) the OccurrenceSpecification
     that will become the first OccurrenceSpecification within this InteractionOperand."
    :operation-body
@@ -4268,37 +4268,37 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
      "The recipient of the return value.")))
 
 
-(def-mm-constraint "all_lifelines" |InteractionUse| 
+(def-mm-constraint "all_lifelines" |InteractionUse|
    "The InteractionUse must cover all Lifelines of the enclosing Interaction
     that represent the same properties as lifelines within the referred Interaction."
    :operation-body
    "true")
 
-(def-mm-constraint "arguments_are_constants" |InteractionUse| 
+(def-mm-constraint "arguments_are_constants" |InteractionUse|
    "The arguments must only be constants, parameters of the enclosing Interaction
     or attributes of the classifier owning the enclosing Interaction."
    :operation-body
    "true")
 
-(def-mm-constraint "arguments_correspond_to_parameters" |InteractionUse| 
+(def-mm-constraint "arguments_correspond_to_parameters" |InteractionUse|
    "The arguments of the InteractionUse must correspond to parameters of the
     referred Interaction"
    :operation-body
    "true")
 
-(def-mm-constraint "gates_match" |InteractionUse| 
+(def-mm-constraint "gates_match" |InteractionUse|
    "Actual Gates of the InteractionUse must match Formal Gates of the referred
     Interaction. Gates match when their names are equal."
    :operation-body
    "true")
 
-(def-mm-constraint "returnValueRecipient_coverage" |InteractionUse| 
+(def-mm-constraint "returnValueRecipient_coverage" |InteractionUse|
    "The returnValueRecipient must be a Property of a ConnectableElement that
     is represented by a Lifeline covered by this InteractionUse."
    :operation-body
    "true")
 
-(def-mm-constraint "returnValue_type_recipient_correspondence" |InteractionUse| 
+(def-mm-constraint "returnValue_type_recipient_correspondence" |InteractionUse|
    "The type of the returnValue must correspond to the type of the returnValueRecipient."
    :operation-body
    "true")
@@ -4347,7 +4347,7 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
      "References all the Interfaces redefined by this Interface.")))
 
 
-(def-mm-constraint "visibility" |Interface| 
+(def-mm-constraint "visibility" |Interface|
    "The visibility of all features owned by an interface must be public."
    :operation-body
    "self.feature->forAll(f | f.visibility = #public)")
@@ -4389,7 +4389,7 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
      "Nodes immediately contained in the group.")))
 
 
-(def-mm-constraint "interrupting_edges" |InterruptibleActivityRegion| 
+(def-mm-constraint "interrupting_edges" |InterruptibleActivityRegion|
    "Interrupting edges of a region must have their source node in the region
     and their target node outside the region in the same activity containing
     the region."
@@ -4441,7 +4441,7 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
       is invoked.")))
 
 
-(def-mm-constraint "on_port_receiver" |InvocationAction| 
+(def-mm-constraint "on_port_receiver" |InvocationAction|
    "The onPort must be a port on the receiver object."
    :operation-body
    "true")
@@ -4464,18 +4464,18 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
       token. Default is \"and\".")))
 
 
-(def-mm-constraint "incoming_object_flow" |JoinNode| 
+(def-mm-constraint "incoming_object_flow" |JoinNode|
    "If a join node has an incoming object flow, it must have an outgoing object
     flow, otherwise, it must have an outgoing control flow."
    :operation-body
    "true"
    :operation-status :ignored
    :editor-note "oclIsTypeOf not isTypeOf, isEmpty not empty, missing )
-                   but I am uncertain what this is trying to do."
+		   but I am uncertain what this is trying to do."
    :original-body
    "(self.incoming.select(e | e.isTypeOf(ObjectFlow)->notEmpty() implies   self.outgoing.isTypeOf(ObjectFlow)) and     (self.incoming.select(e | e.isTypeOf(ObjectFlow)->empty() implies       self.outgoing.isTypeOf(ControlFlow))")
 
-(def-mm-constraint "one_outgoing_edge" |JoinNode| 
+(def-mm-constraint "one_outgoing_edge" |JoinNode|
    "A join node has one outgoing edge."
    :operation-body
    "self.outgoing->size() = 1")
@@ -4510,7 +4510,7 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
       the specific individual part within that set.")))
 
 
-(def-mm-constraint "interaction_uses_share_lifeline" |Lifeline| 
+(def-mm-constraint "interaction_uses_share_lifeline" |Lifeline|
    "If two (or more) InteractionUses within one Interaction, refer to Interactions
     with 'common Lifelines,' those Lifelines must also appear in the Interaction
     with the InteractionUses. By common Lifelines we mean Lifelines with the
@@ -4518,7 +4518,7 @@ by UML modelers in *their* domain of discourse for the same purpose. No OCL is n
    :operation-body
    "true")
 
-(def-mm-constraint "same_classifier" |Lifeline| 
+(def-mm-constraint "same_classifier" |Lifeline|
    "The classifier containing the referenced ConnectableElement must be the
     same classifier, or an ancestor, of the classifier that contains the interaction
     enclosing this lifeline."
@@ -4531,7 +4531,7 @@ endif else false endif"
    :original-body
    "if (represents->notEmpty()) then (if selector->notEmpty() then represents.isMultivalued() else not represents.isMultivalued()) ")
 
-(def-mm-constraint "selector_specified" |Lifeline| 
+(def-mm-constraint "selector_specified" |Lifeline|
    "The selector for a Lifeline must only be specified if the referenced Part
     is multivalued."
    :operation-body
@@ -4554,7 +4554,7 @@ endif else false endif"
      "Pins taking end objects and qualifier values as input.")))
 
 
-(def-mm-constraint "not_static" |LinkAction| 
+(def-mm-constraint "not_static" |LinkAction|
    "The association ends of the link end data must not be static."
    :operation-body
    "self.endData->forAll(end.isStatic = false)"
@@ -4563,7 +4563,7 @@ endif else false endif"
    :original-body
    "self.endData->forall(end.oclisKindOf(NavigableEnd) implies end.isStatic = #false")
 
-(def-mm-constraint "same_association" |LinkAction| 
+(def-mm-constraint "same_association" |LinkAction|
    "The association ends of the link end data must all be from the same association
     and include all and only the association ends of that association."
    :operation-body
@@ -4573,7 +4573,7 @@ endif else false endif"
    :original-body
    "self.endData->collect(end) = self.association()->collect(connection))")
 
-(def-mm-constraint "same_pins" |LinkAction| 
+(def-mm-constraint "same_pins" |LinkAction|
    "The input pins of the action are the same as the pins of the link end data
     and insertion pins."
    :operation-body
@@ -4587,14 +4587,14 @@ else ledpins endif"
    :original-body
    "self.input->asSet() = let ledpins : Set = self.endData->collect(value) in if self.oclIsKindOf(LinkEndCreationData) then ledpins->union(self.endData.oclAsType(LinkEndCreationData).insertAt) else ledpins ")
 
-(def-mm-operation "association" |LinkAction| 
+(def-mm-operation "association" |LinkAction|
    "The association operates on LinkAction. It returns the association of the
     action."
    :operation-body
    "result = self.endData->asSequence().first().end.association"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Association|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== LinkEndCreationData
@@ -4614,7 +4614,7 @@ else ledpins endif"
       end should be destroyed before creating a new link.")))
 
 
-(def-mm-constraint "create_link_action" |LinkEndCreationData| 
+(def-mm-constraint "create_link_action" |LinkEndCreationData|
    "LinkEndCreationData can only be end data for CreateLinkAction or one of
     its specializations."
    :operation-body
@@ -4624,7 +4624,7 @@ else ledpins endif"
    :original-body
    "self.LinkAction.oclIsKindOf(CreateLinkAction)")
 
-(def-mm-constraint "single_input_pin" |LinkEndCreationData| 
+(def-mm-constraint "single_input_pin" |LinkEndCreationData|
    "Link end creation data for ordered association ends must have a single
     input pin for the insertion point with type UnlimitedNatural and multiplicity
     of 1..1, otherwise the action has no input pin for the insertion point."
@@ -4669,12 +4669,12 @@ endif
       is omitted if the link-end data specifies an 'open' end for reading.")))
 
 
-(def-mm-constraint "end_object_input_pin" |LinkEndData| 
+(def-mm-constraint "end_object_input_pin" |LinkEndData|
    "The end object input pin is not also a qualifier value input pin."
    :operation-body
    "self.value->excludesAll(self.qualifier.value)")
 
-(def-mm-constraint "multiplicity" |LinkEndData| 
+(def-mm-constraint "multiplicity" |LinkEndData|
    "The multiplicity of the end object input pin must be 1..1."
    :operation-body
    "self.value.is(1,1)"
@@ -4683,12 +4683,12 @@ endif
    :original-body
    "self.value.multiplicity.is(1,1)")
 
-(def-mm-constraint "property_is_association_end" |LinkEndData| 
+(def-mm-constraint "property_is_association_end" |LinkEndData|
    "The property must be an association end."
    :operation-body
    "self.end.association->size() = 1")
 
-(def-mm-constraint "qualifiers" |LinkEndData| 
+(def-mm-constraint "qualifiers" |LinkEndData|
    "The qualifiers include all and only the qualifiers of the association end."
    :operation-body
    "true"
@@ -4697,7 +4697,7 @@ endif
    :original-body
    "self.qualifier->collect(qualifier) = self.end.qualifier")
 
-(def-mm-constraint "same_type" |LinkEndData| 
+(def-mm-constraint "same_type" |LinkEndData|
    "The type of the end object input pin is the same as the type of the association
     end."
    :operation-body
@@ -4721,13 +4721,13 @@ endif
       ends.")))
 
 
-(def-mm-constraint "destroy_link_action" |LinkEndDestructionData| 
+(def-mm-constraint "destroy_link_action" |LinkEndDestructionData|
    "LinkEndDestructionData can only be end data for DestroyLinkAction or one
     of its specializations."
    :operation-body
    "true")
 
-(def-mm-constraint "unlimited_natural_and_multiplicity" |LinkEndDestructionData| 
+(def-mm-constraint "unlimited_natural_and_multiplicity" |LinkEndDestructionData|
    "LinkEndDestructionData for ordered nonunique association ends must have
     a single destroyAt input pin if isDestroyDuplicates is false. It must be
     of type UnlimitedNatural and have a multiplicity of 1..1. Otherwise, the
@@ -4745,21 +4745,21 @@ endif
      "The specified Boolean value.")))
 
 
-(def-mm-operation "booleanValue" |LiteralBoolean| 
+(def-mm-operation "booleanValue" |LiteralBoolean|
    "The query booleanValue() gives the value."
    :operation-body
    "result = value"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isComputable" |LiteralBoolean| 
+(def-mm-operation "isComputable" |LiteralBoolean|
    "The query isComputable() is redefined to be true."
    :operation-body
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== LiteralInteger
@@ -4771,21 +4771,21 @@ endif
      "The specified Integer value.")))
 
 
-(def-mm-operation "integerValue" |LiteralInteger| 
+(def-mm-operation "integerValue" |LiteralInteger|
    "The query integerValue() gives the value."
    :operation-body
    "result = value"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Integer|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isComputable" |LiteralInteger| 
+(def-mm-operation "isComputable" |LiteralInteger|
    "The query isComputable() is redefined to be true."
    :operation-body
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== LiteralNull
@@ -4795,21 +4795,21 @@ endif
   ())
 
 
-(def-mm-operation "isComputable" |LiteralNull| 
+(def-mm-operation "isComputable" |LiteralNull|
    "The query isComputable() is redefined to be true."
    :operation-body
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isNull" |LiteralNull| 
+(def-mm-operation "isNull" |LiteralNull|
    "The query isNull() returns true."
    :operation-body
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== LiteralReal
@@ -4819,21 +4819,21 @@ endif
   ((|value| :range |Real| :multiplicity (1 1))))
 
 
-(def-mm-operation "isComputable" |LiteralReal| 
+(def-mm-operation "isComputable" |LiteralReal|
    "The query isComputable() is redefined to be true."
    :operation-body
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "realValue" |LiteralReal| 
+(def-mm-operation "realValue" |LiteralReal|
    "The query realValue() gives the value."
    :operation-body
    "result = value"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Real|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== LiteralSpecification
@@ -4853,21 +4853,21 @@ endif
      "The specified String value.")))
 
 
-(def-mm-operation "isComputable" |LiteralString| 
+(def-mm-operation "isComputable" |LiteralString|
    "The query isComputable() is redefined to be true."
    :operation-body
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "stringValue" |LiteralString| 
+(def-mm-operation "stringValue" |LiteralString|
    "The query stringValue() gives the value."
    :operation-body
    "result = value"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== LiteralUnlimitedNatural
@@ -4880,21 +4880,21 @@ endif
      "The specified UnlimitedNatural value.")))
 
 
-(def-mm-operation "isComputable" |LiteralUnlimitedNatural| 
+(def-mm-operation "isComputable" |LiteralUnlimitedNatural|
    "The query isComputable() is redefined to be true."
    :operation-body
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "unlimitedValue" |LiteralUnlimitedNatural| 
+(def-mm-operation "unlimitedValue" |LiteralUnlimitedNatural|
    "The query unlimitedValue() gives the value."
    :operation-body
    "result = value"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|UnlimitedNatural|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== LoopNode
@@ -4943,25 +4943,25 @@ endif
       to determine if another execution of the body will be performed.")))
 
 
-(def-mm-constraint "body_output_pins" |LoopNode| 
+(def-mm-constraint "body_output_pins" |LoopNode|
    "The bodyOutput pins are output pins on actions in the body of the loop
     node."
    :operation-body
    "true")
 
-(def-mm-constraint "executable_nodes" |LoopNode| 
+(def-mm-constraint "executable_nodes" |LoopNode|
    "The union of the ExecutableNodes in the setupPart, test and bodyPart of
     a LoopNode must be the same as the subset of nodes contained in the LoopNode
     (considered as a StructuredActivityNode) that are ExecutableNodes."
    :operation-body
    "true")
 
-(def-mm-constraint "input_edges" |LoopNode| 
+(def-mm-constraint "input_edges" |LoopNode|
    "Loop variable inputs must not have outgoing edges."
    :operation-body
    "true")
 
-(def-mm-constraint "result_no_incoming" |LoopNode| 
+(def-mm-constraint "result_no_incoming" |LoopNode|
    "The result output pins have no incoming edges."
    :operation-body
    "true")
@@ -4988,13 +4988,13 @@ endif
   ())
 
 
-(def-mm-constraint "edges" |MergeNode| 
+(def-mm-constraint "edges" |MergeNode|
    "The edges coming into and out of a merge node must be either all object
     flows or all control flows."
    :operation-body
    "true")
 
-(def-mm-constraint "one_outgoing_edge" |MergeNode| 
+(def-mm-constraint "one_outgoing_edge" |MergeNode|
    "A merge node has one outgoing edge."
    :operation-body
    "true")
@@ -5034,7 +5034,7 @@ endif
       either an Operation or a Signal.")))
 
 
-(def-mm-constraint "arguments" |Message| 
+(def-mm-constraint "arguments" |Message|
    "Arguments of a Message must only be: i) attributes of the sending lifeline
     ii) constants iii) symbolic values (which are wildcard values representing
     any legal value) iv) explicit parameters of the enclosing Interaction v)
@@ -5042,24 +5042,24 @@ endif
    :operation-body
    "true")
 
-(def-mm-constraint "cannot_cross_boundaries" |Message| 
+(def-mm-constraint "cannot_cross_boundaries" |Message|
    "Messages cannot cross bounderies of CombinedFragments or their operands."
    :operation-body
    "true")
 
-(def-mm-constraint "occurrence_specifications" |Message| 
+(def-mm-constraint "occurrence_specifications" |Message|
    "If the MessageEnds are both OccurrenceSpecifications then the connector
     must go between the Parts represented by the Lifelines of the two MessageEnds."
    :operation-body
    "true")
 
-(def-mm-constraint "sending_receiving_message_event" |Message| 
+(def-mm-constraint "sending_receiving_message_event" |Message|
    "If the sendEvent and the receiveEvent of the same Message are on the same
     Lifeline, the sendEvent must be ordered before the receiveEvent."
    :operation-body
    "true")
 
-(def-mm-constraint "signature_is_operation" |Message| 
+(def-mm-constraint "signature_is_operation" |Message|
    "In the case when the Message signature is an Operation, the arguments of
     the Message must correspond to the parameters of the Operation. A Parameter
     corresponds to an Argument if the Argument is of the same Class or a specialization
@@ -5067,7 +5067,7 @@ endif
    :operation-body
    "true")
 
-(def-mm-constraint "signature_is_signal" |Message| 
+(def-mm-constraint "signature_is_signal" |Message|
    "In the case when the Message signature is a Signal, the arguments of the
     Message must correspond to the attributes of the Signal. A Message Argument
     corresponds to a Signal Attribute if the Arguement is of the same Class
@@ -5075,7 +5075,7 @@ endif
    :operation-body
    "true")
 
-(def-mm-constraint "signature_refer_to" |Message| 
+(def-mm-constraint "signature_refer_to" |Message|
    "The signature must either refer an Operation (in which case messageSort
     is either synchCall or asynchCall) or a Signal (in which case messageSort
     is asynchSignal). The name of the NamedElement referenced by signature
@@ -5084,13 +5084,13 @@ endif
    "true")
 
 #| missing/true
-(def-mm-operation "messageKind.1" |Message| 
+(def-mm-operation "messageKind.1" |Message|
    "Missing derivation for Message::/messageKind : MessageKind"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|MessageKind|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -5157,7 +5157,7 @@ endif
     :documentation
      "For a multivalued multiplicity, this attributes specifies whether the values
       in an instantiation of this element are unique.")
-   (|lower| :range |Integer| :multiplicity (0 1) :is-derived-p T :default 1 
+   (|lower| :range |Integer| :multiplicity (0 1) :is-derived-p T :default 1
     :documentation
      "Specifies the lower bound of the multiplicity interval.")
    (|lowerValue| :range |ValueSpecification| :multiplicity (0 1) :is-composite-p T
@@ -5173,7 +5173,7 @@ endif
      "The specification of the upper bound for this multiplicity.")))
 
 
-(def-mm-constraint "lower_ge_0" |MultiplicityElement| 
+(def-mm-constraint "lower_ge_0" |MultiplicityElement|
    "The lower bound must be a non-negative integer literal."
    :operation-body
    "not lowerBound().oclIsUndefined() implies lowerBound() >= 0"
@@ -5182,40 +5182,40 @@ endif
    :original-body
    "lowerBound()->notEmpty() implies lowerBound() >= 0")
 
-(def-mm-constraint "upper_ge_lower" |MultiplicityElement| 
+(def-mm-constraint "upper_ge_lower" |MultiplicityElement|
    "The upper bound must be greater than or equal to the lower bound."
    :operation-body
    "(upperBound()->notEmpty() and lowerBound()->notEmpty()) implies upperBound() >= lowerBound()")
 
-(def-mm-constraint "value_specification_constant" |MultiplicityElement| 
+(def-mm-constraint "value_specification_constant" |MultiplicityElement|
    "If a non-literal ValueSpecification is used for the lower or upper bound,
     then that specification must be a constant expression."
    :operation-body
    "true")
 
-(def-mm-constraint "value_specification_no_side_effects" |MultiplicityElement| 
+(def-mm-constraint "value_specification_no_side_effects" |MultiplicityElement|
    "If a non-literal ValueSpecification is used for the lower or upper bound,
     then evaluating that specification must not have side effects."
    :operation-body
    "true")
 
-(def-mm-operation "compatibleWith" |MultiplicityElement| 
+(def-mm-operation "compatibleWith" |MultiplicityElement|
    "The operation compatibleWith takes another multiplicity as input. It checks
     if one multiplicity is compatible with another."
    :operation-body
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|other| :parameter-type '|MultiplicityElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|other| :parameter-type '|MultiplicityElement|
+			:parameter-return-p NIL))
    :operation-status :ignored
     :editor-note "This is supposed to look at the population of Intergers in the model? They aren't boxed in my implementation."
     :original-body
     "result = Integer.allInstances()->forAll(i : Integer | self.includesCardinality(i) implies other.includesCardinality(i))"
 )
 
-(def-mm-operation "includesCardinality" |MultiplicityElement| 
+(def-mm-operation "includesCardinality" |MultiplicityElement|
    "The query includesCardinality() checks whether the specified cardinality
     is valid for this multiplicity."
    :operation-body
@@ -5223,11 +5223,11 @@ endif
 result = (lowerBound() <= C) and (upperBound() >= C)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name 'C :parameter-type '|Integer|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name 'C :parameter-type '|Integer|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "includesMultiplicity" |MultiplicityElement| 
+(def-mm-operation "includesMultiplicity" |MultiplicityElement|
    "The query includesMultiplicity() checks whether this multiplicity includes
     all the cardinalities allowed by the specified multiplicity."
    :operation-body
@@ -5235,29 +5235,29 @@ result = (lowerBound() <= C) and (upperBound() >= C)"
 self.upperBound()->notEmpty() and self.lowerBound()->notEmpty() and M.upperBound()->notEmpty() and M.lowerBound()->notEmpty()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name 'M :parameter-type '|MultiplicityElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name 'M :parameter-type '|MultiplicityElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "is" |MultiplicityElement| 
+(def-mm-operation "is" |MultiplicityElement|
    "The operation is determines if the upper and lower bound of the ranges
     are the ones given."
    :operation-body
    "result = (lowerbound = self.lower and upperbound = self.upper)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|lowerbound| :parameter-type '|Integer|
-                        :parameter-return-p NIL)
-          (make-instance 'ocl-parameter :parameter-name '|upperbound| :parameter-type '|Integer|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|lowerbound| :parameter-type '|Integer|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|upperbound| :parameter-type '|Integer|
+			:parameter-return-p NIL))
     :operation-status :rewritten
     :editor-note "The names of the attributes are upper and lower, not upperbound and lowerbound."
     :original-body
     "result = (lowerbound = self.lowerbound and upperbound = self.upperbound)"
 )
 
-(def-mm-operation "isMultivalued" |MultiplicityElement| 
+(def-mm-operation "isMultivalued" |MultiplicityElement|
    "The query isMultivalued() checks whether this multiplicity has an upper
     bound greater than one."
    :operation-body
@@ -5265,41 +5265,41 @@ self.upperBound()->notEmpty() and self.lowerBound()->notEmpty() and M.upperBound
 upperBound()->notEmpty()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "lower.1" |MultiplicityElement| 
+(def-mm-operation "lower.1" |MultiplicityElement|
    "The derived lower attribute must equal the lowerBound."
    :operation-body
    "result = lowerBound()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Integer|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "lowerBound" |MultiplicityElement| 
+(def-mm-operation "lowerBound" |MultiplicityElement|
    "The query lowerBound() returns the lower bound of the multiplicity as an
     integer."
    :operation-body
    "result = if lowerValue->isEmpty() then 1 else lowerValue.integerValue() endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Integer|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "upper.1" |MultiplicityElement| 
+(def-mm-operation "upper.1" |MultiplicityElement|
    "The derived upper attribute must equal the upperBound."
    :operation-body
    "result = upperBound()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|UnlimitedNatural|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "upperBound" |MultiplicityElement| 
+(def-mm-operation "upperBound" |MultiplicityElement|
    "The query upperBound() returns the upper bound of the multiplicity for
     a bounded multiplicity as an unlimited natural."
    :operation-body
    "result = if upperValue.oclIsUndefined() then 1 else upperValue.unlimitedValue() endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|UnlimitedNatural|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
    :editor-note "Rewrite was probably pointless. Needs examination."
    :original-body
@@ -5343,13 +5343,13 @@ upperBound()->notEmpty()"
       the overall model, and its accessibility.")))
 
 
-(def-mm-constraint "has_no_qualified_name" |NamedElement| 
+(def-mm-constraint "has_no_qualified_name" |NamedElement|
    "If there is no name, or one of the containing namespaces has no name, there
     is no qualified name."
    :operation-body
    "(self.name->isEmpty() or self.allNamespaces()->select(ns | ns.name->isEmpty())->notEmpty())   implies self.qualifiedName->isEmpty()")
 
-(def-mm-constraint "has_qualified_name" |NamedElement| 
+(def-mm-constraint "has_qualified_name" |NamedElement|
    "When there is a name, and all of the containing namespaces have a name,
     the qualified name is constructed from the names of the containing namespaces."
    :operation-body
@@ -5359,7 +5359,7 @@ upperBound()->notEmpty()"
    :original-body
    "(self.name->notEmpty() and self.allNamespaces()->select(ns | ns.name->isEmpty())->isEmpty()) implies   self.qualifiedName = self.allNamespaces()->iterate( ns : Namespace; result: String = self.name | ns.name->union(self.separator())->union(result))")
 
-(def-mm-constraint "visibility_needs_ownership" |NamedElement| 
+(def-mm-constraint "visibility_needs_ownership" |NamedElement|
    "If a NamedElement is not owned by a Namespace, it does not have a visibility."
    :operation-body
    "true"
@@ -5369,30 +5369,30 @@ upperBound()->notEmpty()"
    :original-body
    "namespace->isEmpty() implies visibility->isEmpty()")
 
-(def-mm-operation "allNamespaces" |NamedElement| 
+(def-mm-operation "allNamespaces" |NamedElement|
    "The query allNamespaces() gives the sequence of namespaces in which the
     NamedElement is nested, working outwards."
    :operation-body
    "result = if self.namespace->isEmpty() then Sequence{} else self.namespace.allNamespaces()->prepend(self.namespace) endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Namespace|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "allOwningPackages" |NamedElement| 
+(def-mm-operation "allOwningPackages" |NamedElement|
    "The query allOwningPackages() returns all the directly or indirectly owning
     packages."
    :operation-body
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Package|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :ignored
     :editor-note "Needs examination."
     :original-body
     "result = self.namespace->select(p | p.oclIsKindOf(Package))->union(p.allOwningPackages())"
 )
 
-(def-mm-operation "isDistinguishableFrom" |NamedElement| 
+(def-mm-operation "isDistinguishableFrom" |NamedElement|
    "The query isDistinguishableFrom() determines whether two NamedElements
     may logically co-exist within a Namespace. By default, two named elements
     are distinguishable if (a) they have unrelated types or (b) they have related
@@ -5401,51 +5401,51 @@ upperBound()->notEmpty()"
    "result = if self.oclIsKindOf(n.oclType) or n.oclIsKindOf(self.oclType) then ns.getNamesOfMember(self)->intersection(ns.getNamesOfMember(n))->isEmpty() else true endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\n :parameter-type '|NamedElement|
-                        :parameter-return-p NIL)
-          (make-instance 'ocl-parameter :parameter-name '|ns| :parameter-type '|Namespace|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\n :parameter-type '|NamedElement|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|ns| :parameter-type '|Namespace|
+			:parameter-return-p NIL)))
 
 #| missing/true
-(def-mm-operation "namespace.1" |NamedElement| 
+(def-mm-operation "namespace.1" |NamedElement|
    "Missing derivation for NamedElement::/namespace : Namespace"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Namespace|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
-(def-mm-operation "qualifiedName.1" |NamedElement| 
+(def-mm-operation "qualifiedName.1" |NamedElement|
    "When there is a name, and all of the containing namespaces have a name,
     the qualified name is constructed from the names of the containing namespaces."
    :operation-body
-   "result = if self.name->notEmpty() and 
-                                 self.allNamespaces()->select(ns | ns.name->isEmpty())->isEmpty()
-                              then 
-                                  self.allNamespaces()->iterate( ns : Namespace; 
-                                  result : String = self.name | ns.name.concat(self.separator()).concat(result))
-                              else
-                                 Set{}
-                              endif"
+   "result = if self.name->notEmpty() and
+				 self.allNamespaces()->select(ns | ns.name->isEmpty())->isEmpty()
+			      then
+				  self.allNamespaces()->iterate( ns : Namespace;
+				  result : String = self.name | ns.name.concat(self.separator()).concat(result))
+			      else
+				 Set{}
+			      endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
    :editor-note "Use OCL concat not union. Carried over from UML 2.1.1"
    :original-body
     "result = if self.name->notEmpty() and self.allNamespaces()->select(ns | ns.name->isEmpty())->isEmpty() then      self.allNamespaces()->iterate( ns : Namespace; result: String = self.name | ns.name->union(self.separator())->union(result)) else     Set{} endif"
 )
 
-(def-mm-operation "separator" |NamedElement| 
+(def-mm-operation "separator" |NamedElement|
    "The query separator() gives the string that is used to separate names when
     constructing a qualified name."
    :operation-body
    "result = '::'"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== Namespace
@@ -5484,23 +5484,23 @@ upperBound()->notEmpty()"
      "References the PackageImports owned by the Namespace.")))
 
 
-(def-mm-constraint "members_distinguishable" |Namespace| 
+(def-mm-constraint "members_distinguishable" |Namespace|
    "All the members of a Namespace are distinguishable within it."
    :operation-body
    "membersAreDistinguishable()")
 
-(def-mm-operation "excludeCollisions" |Namespace| 
+(def-mm-operation "excludeCollisions" |Namespace|
    "The query excludeCollisions() excludes from a set of PackageableElements
     any that would not be distinguishable from each other in this namespace."
    :operation-body
    "result = imps->reject(imp1 | imps.exists(imp2 | not imp1.isDistinguishableFrom(imp2, self)))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|PackageableElement|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|imps| :parameter-type '|PackageableElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|imps| :parameter-type '|PackageableElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "getNamesOfMember" |Namespace| 
+(def-mm-operation "getNamesOfMember" |Namespace|
    "The query getNamesOfMember() gives a set of all of the names that a member
     would have in a Namespace. In general a member can have multiple names
     in a Namespace if it is imported more than once with different aliases.
@@ -5522,16 +5522,16 @@ else let elementImports: ElementImport = self.elementImport->select(ei | ei.impo
 endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|element| :parameter-type '|NamedElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|element| :parameter-type '|NamedElement|
+			:parameter-return-p NIL))
    :operation-status :rewritten
    :editor-note "includes not include"
    :original-body
     "result = if self.ownedMember ->includes(element) then Set{}->include(element.name) else let elementImports: ElementImport = self.elementImport->select(ei | ei.importedElement = element) in   if elementImports->notEmpty()   then elementImports->collect(el | el.getName())   else self.packageImport->select(pi | pi.importedPackage.visibleMembers()->includes(element))-> collect(pi | pi.importedPackage.getNamesOfMember(element))   endif endif"
 )
 
-(def-mm-operation "importMembers" |Namespace| 
+(def-mm-operation "importMembers" |Namespace|
    "The query importMembers() defines which of a set of PackageableElements
     are actually imported into the namespace. This excludes hidden ones, i.e.,
     those which have names that conflict with names of owned members, and also
@@ -5540,16 +5540,16 @@ endif"
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|PackageableElement|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|imps| :parameter-type '|PackageableElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|imps| :parameter-type '|PackageableElement|
+			:parameter-return-p NIL))
     :operation-status :ignored
     :editor-note "Needs examination."
     :original-body
     "result = self.excludeCollisions(imps)->select(imp | self.ownedMember->forAll(mem | mem.imp.isDistinguishableFrom(mem, self)))"
 )
 
-(def-mm-operation "importedMember.1" |Namespace| 
+(def-mm-operation "importedMember.1" |Namespace|
    "The importedMember property is derived from the ElementImports and the
     PackageImports. References the PackageableElements that are members of
     this Namespace as a result of either PackageImports or ElementImports."
@@ -5557,30 +5557,30 @@ endif"
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|PackageableElement|
-                        :parameter-return-p T))
+			:parameter-return-p T))
     :operation-status :ignored
     :editor-note "Needs investigation."
     :original-body
     "result = self.importMembers(self.elementImport.importedElement.asSet()- >union(self.packageImport.importedPackage->collect(p | p.visibleMembers())))"
 )
 
-(def-mm-operation "membersAreDistinguishable" |Namespace| 
+(def-mm-operation "membersAreDistinguishable" |Namespace|
    "The Boolean query membersAreDistinguishable() determines whether all of
     the namespace's members are distinguishable within it."
    :operation-body
    "result = self.member->forAll( memb | self.member->excluding(memb)->forAll(other | memb.isDistinguishableFrom(other, self)))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 #| missing/true
-(def-mm-operation "ownedMember.1" |Namespace| 
+(def-mm-operation "ownedMember.1" |Namespace|
    "Missing derivation for Namespace::/ownedMember : NamedElement"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|NamedElement|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -5596,7 +5596,7 @@ endif"
      "The Nodes that are defined (nested) within the Node.")))
 
 
-(def-mm-constraint "internal_structure" |Node| 
+(def-mm-constraint "internal_structure" |Node|
    "The internal structure of a Node (if defined) consists solely of parts
     of type Node."
    :operation-body
@@ -5624,14 +5624,14 @@ endif"
      "Changes or replaces data tokens flowing along edge.")))
 
 
-(def-mm-constraint "compatible_types" |ObjectFlow| 
+(def-mm-constraint "compatible_types" |ObjectFlow|
    "Object nodes connected by an object flow, with optionally intervening control
     nodes, must have compatible types. In particular, the downstream object
     node type must be the same or a supertype of the upstream object node type."
    :operation-body
    "true")
 
-(def-mm-constraint "input_and_output_parameter" |ObjectFlow| 
+(def-mm-constraint "input_and_output_parameter" |ObjectFlow|
    "A selection behavior has one input parameter and one output parameter.
     The input parameter must be a bag of elements of the same as or a supertype
     of the type of source object node. The output parameter must be the same
@@ -5640,36 +5640,36 @@ endif"
    :operation-body
    "true")
 
-(def-mm-constraint "is_multicast_or_is_multireceive" |ObjectFlow| 
+(def-mm-constraint "is_multicast_or_is_multireceive" |ObjectFlow|
    "isMulticast and isMultireceive cannot both be true."
    :operation-body
    "true")
 
-(def-mm-constraint "no_actions" |ObjectFlow| 
+(def-mm-constraint "no_actions" |ObjectFlow|
    "Object flows may not have actions at either end."
    :operation-body
    "true")
 
-(def-mm-constraint "same_upper_bounds" |ObjectFlow| 
+(def-mm-constraint "same_upper_bounds" |ObjectFlow|
    "Object nodes connected by an object flow, with optionally intervening control
     nodes, must have the same upper bounds."
    :operation-body
    "true")
 
-(def-mm-constraint "selection_behaviour" |ObjectFlow| 
+(def-mm-constraint "selection_behaviour" |ObjectFlow|
    "An object flow may have a selection behavior only if has an object node
     as a source."
    :operation-body
    "true")
 
-(def-mm-constraint "target" |ObjectFlow| 
+(def-mm-constraint "target" |ObjectFlow|
    "An edge with constant weight may not target an object node, or lead to
     an object node downstream with no intervening actions, that has an upper
     bound less than the weight."
    :operation-body
    "true")
 
-(def-mm-constraint "transformation_behaviour" |ObjectFlow| 
+(def-mm-constraint "transformation_behaviour" |ObjectFlow|
    "A transformation behavior has one input parameter and one output parameter.
     The input parameter must be the same as or a supertype of the type of object
     token coming from the source end. The output parameter must be the same
@@ -5706,7 +5706,7 @@ endif"
       the node if the upper bound is reached.")))
 
 
-(def-mm-constraint "input_output_parameter" |ObjectNode| 
+(def-mm-constraint "input_output_parameter" |ObjectNode|
    "A selection behavior has one input parameter and one output parameter.
     The input parameter must be a bag of elements of the same type as the object
     node or a supertype of the type of object node. The output parameter must
@@ -5715,13 +5715,13 @@ endif"
    :operation-body
    "true")
 
-(def-mm-constraint "object_flow_edges" |ObjectNode| 
+(def-mm-constraint "object_flow_edges" |ObjectNode|
    "All edges coming into or going out of object nodes must be object flow
     edges."
    :operation-body
    "true")
 
-(def-mm-constraint "selection_behavior" |ObjectNode| 
+(def-mm-constraint "selection_behavior" |ObjectNode|
    "If an object node has a selection behavior, then the ordering of the object
     node is ordered, and vice versa."
    :operation-body
@@ -5821,18 +5821,18 @@ endif"
       result parameter of the associated behavior.")))
 
 
-(def-mm-constraint "language_body_size" |OpaqueExpression| 
+(def-mm-constraint "language_body_size" |OpaqueExpression|
    "If the language attribute is not empty, then the size of the body and language
     arrays must be the same."
    :operation-body
    "language->notEmpty() implies (body->size() = language->size())")
 
-(def-mm-constraint "one_return_result_parameter" |OpaqueExpression| 
+(def-mm-constraint "one_return_result_parameter" |OpaqueExpression|
    "The behavior must have exactly one return result parameter."
    :operation-body
    "self.behavior.notEmpty() implies   self.behavior.ownedParameter->select(p | p.direction=#return)->size() = 1")
 
-(def-mm-constraint "only_return_result_parameters" |OpaqueExpression| 
+(def-mm-constraint "only_return_result_parameters" |OpaqueExpression|
    "The behavior may only have return result parameters."
    :operation-body
    "self.behavior.notEmpty() implies
@@ -5842,16 +5842,16 @@ endif"
    :original-body
    "self.behavior.notEmpty() implies   self.behavior.ownedParameters->select(p | p.direction<>#return)->isEmpty()")
 
-(def-mm-operation "isIntegral" |OpaqueExpression| 
+(def-mm-operation "isIntegral" |OpaqueExpression|
    "The query isIntegral() tells whether an expression is intended to produce
     an integer."
    :operation-body
    "result = false"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isNonNegative" |OpaqueExpression| 
+(def-mm-operation "isNonNegative" |OpaqueExpression|
    "The query isNonNegative() tells whether an integer expression has a non-negative
     value."
    :operation-body
@@ -5859,9 +5859,9 @@ endif"
 self.isIntegral()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isPositive" |OpaqueExpression| 
+(def-mm-operation "isPositive" |OpaqueExpression|
    "The query isPositive() tells whether an integer expression has a positive
     value."
    :operation-body
@@ -5869,19 +5869,19 @@ self.isIntegral()"
 self.isIntegral()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 #| missing/true
-(def-mm-operation "result.1" |OpaqueExpression| 
+(def-mm-operation "result.1" |OpaqueExpression|
    "Missing derivation for OpaqueExpression::/result : Parameter"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Parameter|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
-(def-mm-operation "value" |OpaqueExpression| 
+(def-mm-operation "value" |OpaqueExpression|
    "The query value() gives an integer value for an expression intended to
     produce one."
    :operation-body
@@ -5889,7 +5889,7 @@ self.isIntegral()"
 true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Integer|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== Operation
@@ -5976,18 +5976,18 @@ true"
       Specifies the upper multiplicity of the return parameter, if present.")))
 
 
-(def-mm-constraint "at_most_one_return" |Operation| 
+(def-mm-constraint "at_most_one_return" |Operation|
    "An operation can have at most one return parameter; i.e., an owned parameter
     with the direction set to 'return'"
    :operation-body
    "self.ownedParameter->select(par | par.direction = #return)->size() <= 1")
 
-(def-mm-constraint "only_body_for_query" |Operation| 
+(def-mm-constraint "only_body_for_query" |Operation|
    "A bodyCondition can only be specified for a query operation."
    :operation-body
    "bodyCondition->notEmpty() implies isQuery")
 
-(def-mm-operation "isConsistentWith" |Operation| 
+(def-mm-operation "isConsistentWith" |Operation|
    "A redefining operation is consistent with a redefined operation if it has
     the same number of owned parameters, and the type of each owned parameter
     conforms to the type of the corresponding redefined parameter. The query
@@ -6001,9 +6001,9 @@ true"
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL))
    :operation-status :ignored
    :editor-note "Needs investigation"
    :original-body
@@ -6011,59 +6011,59 @@ true"
 result = redefinee.oclIsKindOf(Operation) and let op : Operation = redefinee.oclAsType(Operation) in  self.ownedParameter->size() = op.ownedParameter->size() and  Sequence{1..self.ownedParameter->size()}->   forAll(i |op.ownedParameter->at(1).type.conformsTo(self.ownedParameter->at(i).type))"
 )
 
-(def-mm-operation "isOrdered.1" |Operation| 
+(def-mm-operation "isOrdered.1" |Operation|
    "If this operation has a return parameter, isOrdered equals the value of
     isOrdered for that parameter. Otherwise isOrdered is false."
    :operation-body
    "result = if returnResult()->notEmpty() then returnResult()->any().isOrdered else false endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isUnique.1" |Operation| 
+(def-mm-operation "isUnique.1" |Operation|
    "If this operation has a return parameter, isUnique equals the value of
     isUnique for that parameter. Otherwise isUnique is true."
    :operation-body
    "result = if returnResult()->notEmpty() then returnResult()->any().isUnique else true endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "lower.1" |Operation| 
+(def-mm-operation "lower.1" |Operation|
    "If this operation has a return parameter, lower equals the value of lower
     for that parameter. Otherwise lower is not defined."
    :operation-body
    "result = if returnResult()->notEmpty() then returnResult()->any().lower else Set{} endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Integer|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "returnResult" |Operation| 
+(def-mm-operation "returnResult" |Operation|
    "The query returnResult() returns the set containing the return parameter
     of the Operation if one exists, otherwise, it returns an empty set"
    :operation-body
    "result = ownedParameter->select (par | par.direction = #return)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Parameter|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "type.1" |Operation| 
+(def-mm-operation "type.1" |Operation|
    "If this operation has a return parameter, type equals the value of type
     for that parameter. Otherwise type is not defined."
    :operation-body
    "result = if returnResult()->notEmpty() then returnResult()->any().type else Set{} endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Type|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "upper.1" |Operation| 
+(def-mm-operation "upper.1" |Operation|
    "If this operation has a return parameter, upper equals the value of upper
     for that parameter. Otherwise upper is not defined."
    :operation-body
    "result = if returnResult()->notEmpty() then returnResult()->any().upper else Set{} endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|UnlimitedNatural|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== OperationTemplateParameter
@@ -6085,7 +6085,7 @@ result = redefinee.oclIsKindOf(Operation) and let op : Operation = redefinee.ocl
   ())
 
 
-(def-mm-constraint "incoming_edges_structured_only" |OutputPin| 
+(def-mm-constraint "incoming_edges_structured_only" |OutputPin|
    "Output pins may have incoming edges only when they are on actions that
     are structured nodes, and these edges may not target a node contained by
     the structured node."
@@ -6144,59 +6144,59 @@ result = redefinee.oclIsKindOf(Operation) and let op : Operation = redefinee.ocl
       applied to the Package.")))
 
 
-(def-mm-constraint "elements_public_or_private" |Package| 
+(def-mm-constraint "elements_public_or_private" |Package|
    "If an element that is owned by a package has visibility, it is public or
     private."
    :operation-body
    "true"
    :operation-status :ignored
    :editor-note "(1) ownedElement not ownedElements, visibility not visbility
-                  (2) Element.ownedComment subsets Element.ownedElement, thus ownedElement includes
-                  things of type Comment. Property visibility is defined on PackagableElement. 
-                  Comment, TemplateBinding, TemplateSignature, ProfileApplication, and PackageMerge
-                  are not of type PackageableElement (which supplies this property)."
+		  (2) Element.ownedComment subsets Element.ownedElement, thus ownedElement includes
+		  things of type Comment. Property visibility is defined on PackagableElement.
+		  Comment, TemplateBinding, TemplateSignature, ProfileApplication, and PackageMerge
+		  are not of type PackageableElement (which supplies this property)."
    :original-body
    "self.ownedElements->forAll(e | e.visibility->notEmpty() implies e.visbility = #public or e.visibility = #private)")
 
-(def-mm-operation "allApplicableStereotypes" |Package| 
+(def-mm-operation "allApplicableStereotypes" |Package|
    "The query allApplicableStereotypes() returns all the directly or indirectly
     owned stereotypes, including stereotypes contained in sub-profiles."
    :operation-body
    "result =  self.ownedStereotype->union(self.ownedMember->  select(oclIsKindOf(Package)).oclAsType(Package).allApplicableStereotypes()->flatten())->asSet()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Stereotype|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; POD 2014-06-23 borrowed from UML2.5
-(def-meta-operation "containingProfile" |Package| 
+(def-meta-operation "containingProfile" |Package|
    "The query containingProfile() returns the closest profile directly or indirectly
     containing this package (or this package itself, if it is a profile)."
    :operation-status :rewritten
-   :editor-note "Call recursive on namespace (which may be a Profile) not on namespace.oslAsType(Package). 
-                 Requires change to the Profile method also."
-   :operation-body    "if self.oclIsKindOf(Profile) 
-                          then  self.oclAsType(Profile) 
-                          else  self.namespace.containingProfile()  
-                       endif"
+   :editor-note "Call recursive on namespace (which may be a Profile) not on namespace.oslAsType(Package).
+		 Requires change to the Profile method also."
+   :operation-body    "if self.oclIsKindOf(Profile)
+			  then  self.oclAsType(Profile)
+			  else  self.namespace.containingProfile()
+		       endif"
    :original-body
    "result = (if self.oclIsKindOf(Profile) then  self.oclAsType(Profile)  else  self.namespace.oclAsType(Package).containingProfile()  endif)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Profile|
-                        :parameter-return-p T))
+			:parameter-return-p T))
 )
 
 #|
-(def-mm-operation "containingProfile" |Package| 
+(def-mm-operation "containingProfile" |Package|
    "The query containingProfile() returns the closest profile directly or indirectly
     containing this package (or this package itself, if it is a profile)."
    :operation-body
    "result = if self.oclIsKindOf(Profile) then   self.oclAsType(Profile) else  self.namespace.oclAsType(Package).containingProfile() endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Profile|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
-(def-mm-operation "makesVisible" |Package| 
+(def-mm-operation "makesVisible" |Package|
    "The query makesVisible() defines whether a Package makes an element visible
     outside itself. Elements with no visibility and elements with public visibility
     are made visible."
@@ -6205,57 +6205,57 @@ result = redefinee.oclIsKindOf(Operation) and let op : Operation = redefinee.ocl
 self.member->includes(el)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|el| :parameter-type '|NamedElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|el| :parameter-type '|NamedElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "mustBeOwned" |Package| 
+(def-mm-operation "mustBeOwned" |Package|
    "The query mustBeOwned() indicates whether elements of this type must have
     an owner."
    :operation-body
    "result = false"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 #| missing/true
-(def-mm-operation "nestedPackage.1" |Package| 
+(def-mm-operation "nestedPackage.1" |Package|
    "Missing derivation for Package::/nestedPackage : Package"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Package|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 #| missing/true
-(def-mm-operation "ownedStereotype.1" |Package| 
+(def-mm-operation "ownedStereotype.1" |Package|
    "Missing derivation for Package::/ownedStereotype : Stereotype"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Stereotype|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 #| missing/true
-(def-mm-operation "ownedType.1" |Package| 
+(def-mm-operation "ownedType.1" |Package|
    "Missing derivation for Package::/ownedType : Type"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Type|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
-(def-mm-operation "visibleMembers" |Package| 
+(def-mm-operation "visibleMembers" |Package|
    "The query visibleMembers() defines which members of a Package can be accessed
     outside it."
    :operation-body
    "result = member->select( m | self.makesVisible(m))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|PackageableElement|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== PackageImport
@@ -6281,7 +6281,7 @@ self.member->includes(el)"
       the package, while if it is private they will not.")))
 
 
-(def-mm-constraint "public_or_private" |PackageImport| 
+(def-mm-constraint "public_or_private" |PackageImport|
    "The visibility of a PackageImport is either public or private."
    :operation-body
    "self.visibility = #public or self.visibility = #private")
@@ -6361,7 +6361,7 @@ self.member->includes(el)"
      "The parameter sets containing the parameter. See ParameterSet.")))
 
 
-(def-mm-constraint "connector_end" |Parameter| 
+(def-mm-constraint "connector_end" |Parameter|
    "A parameter may only be associated with a connector end within the context
     of a collaboration."
    :operation-body
@@ -6371,35 +6371,35 @@ self.member->includes(el)"
    :original-body
    "self.end.notEmpty() implies self.collaboration.notEmpty()")
 
-(def-mm-constraint "in_and_out" |Parameter| 
+(def-mm-constraint "in_and_out" |Parameter|
    "Only in and inout parameters may have a delete effect. Only out, inout,
     and return parameters may have a create effect."
    :operation-body
    "true")
 
-(def-mm-constraint "not_exception" |Parameter| 
+(def-mm-constraint "not_exception" |Parameter|
    "An input parameter cannot be an exception."
    :operation-body
    "true")
 
-(def-mm-constraint "reentrant_behaviors" |Parameter| 
+(def-mm-constraint "reentrant_behaviors" |Parameter|
    "Reentrant behaviors cannot have stream parameters."
    :operation-body
    "true")
 
-(def-mm-constraint "stream_and_exception" |Parameter| 
+(def-mm-constraint "stream_and_exception" |Parameter|
    "A parameter cannot be a stream and exception at the same time."
    :operation-body
    "true")
 
 #| missing/true
-(def-mm-operation "default.1" |Parameter| 
+(def-mm-operation "default.1" |Parameter|
    "Missing derivation for Parameter::/default : String"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -6422,21 +6422,21 @@ self.member->includes(el)"
      "Parameters in the parameter set.")))
 
 
-(def-mm-constraint "input" |ParameterSet| 
+(def-mm-constraint "input" |ParameterSet|
    "If a behavior has input parameters that are in a parameter set, then any
     inputs that are not in a parameter set must be streaming. Same for output
     parameters."
    :operation-body
    "true")
 
-(def-mm-constraint "same_parameterized_entity" |ParameterSet| 
+(def-mm-constraint "same_parameterized_entity" |ParameterSet|
    "The parameters in a parameter set must all be inputs or all be outputs
     of the same parameterized entity, and the parameter set is owned by that
     entity."
    :operation-body
    "true")
 
-(def-mm-constraint "two_parameter_sets" |ParameterSet| 
+(def-mm-constraint "two_parameter_sets" |ParameterSet|
    "Two parameter sets cannot have exactly the same set of parameters."
    :operation-body
    "true")
@@ -6459,7 +6459,7 @@ self.member->includes(el)"
      "The template parameter that exposes this element as a formal parameter.")))
 
 
-(def-mm-operation "isCompatibleWith" |ParameterableElement| 
+(def-mm-operation "isCompatibleWith" |ParameterableElement|
    "The query isCompatibleWith() determines if this parameterable element is
     compatible with the specified parameterable element. By default parameterable
     element P is compatible with parameterable element Q if the kind of P is
@@ -6469,23 +6469,23 @@ self.member->includes(el)"
    "result = p->oclIsKindOf(self.oclType())"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\p :parameter-type '|ParameterableElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\p :parameter-type '|ParameterableElement|
+			:parameter-return-p NIL))
     :operation-status :ignored
     :editor-note "oclType(), not oclType. No oclType in OCL AFAIK. I have one though,."
     :original-body
     "result = p->oclIsKindOf(self.oclType)"
 )
 
-(def-mm-operation "isTemplateParameter" |ParameterableElement| 
+(def-mm-operation "isTemplateParameter" |ParameterableElement|
    "The query isTemplateParameter() determines if this parameterable element
     is exposed as a formal template parameter."
    :operation-body
    "result = templateParameter->notEmpty()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== PartDecomposition
@@ -6496,7 +6496,7 @@ self.member->includes(el)"
   ())
 
 
-(def-mm-constraint "assume" |PartDecomposition| 
+(def-mm-constraint "assume" |PartDecomposition|
    "Assume that within Interaction X, Lifeline L is of class C and decomposed
     to D. Within X there is a sequence of constructs along L (such constructs
     are CombinedFragments, InteractionUse and (plain) OccurrenceSpecifications).
@@ -6509,7 +6509,7 @@ self.member->includes(el)"
    :operation-body
    "true")
 
-(def-mm-constraint "commutativity_of_decomposition" |PartDecomposition| 
+(def-mm-constraint "commutativity_of_decomposition" |PartDecomposition|
    "Assume that within Interaction X, Lifeline L is of class C and decomposed
     to D. Assume also that there is within X an InteractionUse (say) U that
     covers L. According to the constraint above U will have a counterpart CU
@@ -6519,7 +6519,7 @@ self.member->includes(el)"
    :operation-body
    "true")
 
-(def-mm-constraint "parts_of_internal_structures" |PartDecomposition| 
+(def-mm-constraint "parts_of_internal_structures" |PartDecomposition|
    "PartDecompositions apply only to Parts that are Parts of Internal Structures
     not to Parts of Collaborations."
    :operation-body
@@ -6538,7 +6538,7 @@ self.member->includes(el)"
       it executes it.")))
 
 
-(def-mm-constraint "control_pins" |Pin| 
+(def-mm-constraint "control_pins" |Pin|
    "Control pins have a control type"
    :operation-body
    "isControl implies isControlType")
@@ -6607,41 +6607,41 @@ self.member->includes(el)"
       the port is typed by an interface.")))
 
 
-(def-mm-constraint "default_value" |Port| 
+(def-mm-constraint "default_value" |Port|
    "A defaultValue for port cannot be specified when the type of the Port is
     an Interface"
    :operation-body
    "true")
 
-(def-mm-constraint "port_aggregation" |Port| 
+(def-mm-constraint "port_aggregation" |Port|
    "Port.aggregation must be composite."
    :operation-body
    "true")
 
-(def-mm-constraint "port_destroyed" |Port| 
+(def-mm-constraint "port_destroyed" |Port|
    "When a port is destroyed, all connectors attached to this port will be
     destroyed also."
    :operation-body
    "true")
 
 #| missing/true
-(def-mm-operation "provided.1" |Port| 
+(def-mm-operation "provided.1" |Port|
    "Missing derivation for Port::/provided : Interface"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Interface|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 #| missing/true
-(def-mm-operation "required.1" |Port| 
+(def-mm-operation "required.1" |Port|
    "Missing derivation for Port::/required : Interface"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Interface|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -6671,7 +6671,7 @@ self.member->includes(el)"
       may be extended.")))
 
 
-(def-mm-constraint "metaclass_reference_not_specialized" |Profile| 
+(def-mm-constraint "metaclass_reference_not_specialized" |Profile|
    "An element imported as a metaclassReference is not specialized or generalized
     in a Profile."
    :operation-body
@@ -6681,7 +6681,7 @@ self.member->includes(el)"
    :original-body
    "self.metaclassReference.importedElement->  select(c | c.oclIsKindOf(Classifier) and   (c.generalization.namespace = self or c.specialization.namespace = self))->isEmpty()")
 
-(def-mm-constraint "references_same_metamodel" |Profile| 
+(def-mm-constraint "references_same_metamodel" |Profile|
    "All elements imported either as metaclassReferences or through metamodelReferences
     are members of the same base reference metamodel."
    :operation-body
@@ -6822,7 +6822,7 @@ self.member->includes(el)"
       subset.")))
 
 
-(def-mm-constraint "binding_to_attribute" |Property| 
+(def-mm-constraint "binding_to_attribute" |Property|
    "A binding of a property template parameter representing an attribute must
     be to an attribute."
    :operation-body
@@ -6832,36 +6832,36 @@ self.member->includes(el)"
    :original-body
    "(isAttribute(self) and (templateParameterSubstitution->notEmpty())   implies (templateParameterSubstitution->forAll(ts | isAttribute(ts.formal)))")
 
-(def-mm-constraint "deployment_target" |Property| 
+(def-mm-constraint "deployment_target" |Property|
    "A Property can be a DeploymentTarget if it is a kind of Node and functions
     as a part in the internal structure of an encompassing Node."
    :operation-body
    "true")
 
-(def-mm-constraint "derived_union_is_derived" |Property| 
+(def-mm-constraint "derived_union_is_derived" |Property|
    "A derived union is derived."
    :operation-body
    "isDerivedUnion implies isDerived")
 
-(def-mm-constraint "derived_union_is_read_only" |Property| 
+(def-mm-constraint "derived_union_is_read_only" |Property|
    "A derived union is read only."
    :operation-body
    "isDerivedUnion implies isReadOnly")
 
-(def-mm-constraint "multiplicity_of_composite" |Property| 
+(def-mm-constraint "multiplicity_of_composite" |Property|
    "A multiplicity on an aggregate end of a composite aggregation must not
     have an upper bound greater than 1. A multiplicity of a composite aggregation
     must not have an upper bound greater than 1."
    :operation-body
    "self.isComposite and self.association->notEmpty() implies
-                   let opposite = self.association.memberEnd->any(e|e<>self) in
-                   opposite.upperBound() <= 1"
+		   let opposite = self.association.memberEnd->any(e|e<>self) in
+		   opposite.upperBound() <= 1"
    :operation-status :rewritten
    :editor-note "Rewrite supplied by Maged Elaasar, 2011-05-11"
    :original-body
    "isComposite implies (upperBound()->isEmpty() or upperBound() <= 1)")
 
-(def-mm-constraint "redefined_property_inherited" |Property| 
+(def-mm-constraint "redefined_property_inherited" |Property|
    "A redefined property must be inherited from a more general classifier containing
     the redefining property."
    :operation-body
@@ -6871,12 +6871,12 @@ self.member->includes(el)"
    :original-body
    "if (redefinedProperty->notEmpty()) then   (redefinitionContext->notEmpty() and       redefinedProperty->forAll(rp|         ((redefinitionContext->collect(fc|           fc.allParents()))->asSet())->collect(c| c.allFeatures())->asSet()->includes(rp))")
 
-(def-mm-constraint "subsetted_property_names" |Property| 
+(def-mm-constraint "subsetted_property_names" |Property|
    "A property may not subset a property with the same name."
    :operation-body
    "true")
 
-(def-mm-constraint "subsetting_context_conforms" |Property| 
+(def-mm-constraint "subsetting_context_conforms" |Property|
    "Subsetting may only occur when the context of the subsetting property conforms
     to the context of the subsetted property."
    :operation-body
@@ -6886,39 +6886,39 @@ self.member->includes(el)"
    :original-body
    "self.subsettedProperty->notEmpty() implies   (self.subsettingContext()->notEmpty() and self.subsettingContext()->forAll (sc |     self.subsettedProperty->forAll(sp |       sp.subsettingContext()->exists(c | sc.conformsTo(c)))))")
 
-(def-mm-constraint "subsetting_rules" |Property| 
+(def-mm-constraint "subsetting_rules" |Property|
    "A subsetting property may strengthen the type of the subsetted property,
     and its upper bound may be less."
    :operation-body
    "self.subsettedProperty->forAll(sp |   self.type.conformsTo(sp.type) and     ((self.upperBound()->notEmpty() and sp.upperBound()->notEmpty()) implies       self.upperBound()<=sp.upperBound() ))")
 
 #| missing/true
-(def-mm-operation "default.1" |Property| 
+(def-mm-operation "default.1" |Property|
    "Missing derivation for Property::/default : String"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
-(def-mm-operation "isAttribute" |Property| 
+(def-mm-operation "isAttribute" |Property|
    "The query isAttribute() is true if the Property is defined as an attribute
     of some classifier."
    :operation-body
    "result = Classifier.allInstances()->exists(c | c.attribute->includes(p))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\p :parameter-type '|Property|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\p :parameter-type '|Property|
+			:parameter-return-p NIL))
     :operation-status :rewritten
     :editor-note "allInstances() not allInstances"
     :original-body
     "result = Classifier.allInstances->exists(c | c.attribute->includes(p))"
 )
 
-(def-mm-operation "isCompatibleWith" |Property| 
+(def-mm-operation "isCompatibleWith" |Property|
    "The query isCompatibleWith() determines if this parameterable element is
     compatible with the specified parameterable element. By default parameterable
     element P is compatible with parameterable element Q if the kind of P is
@@ -6928,19 +6928,19 @@ self.member->includes(el)"
    "result = p->oclIsKindOf(self.oclType) and self.type.conformsTo(p.oclAsType(TypedElement).type)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\p :parameter-type '|ParameterableElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\p :parameter-type '|ParameterableElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "isComposite.1" |Property| 
+(def-mm-operation "isComposite.1" |Property|
    "The value of isComposite is true only if aggregation is composite."
    :operation-body
    "result = (self.aggregation = #composite)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isConsistentWith" |Property| 
+(def-mm-operation "isConsistentWith" |Property|
    "The query isConsistentWith() specifies, for any two Properties in a context
     in which redefinition is possible, whether redefinition would be logically
     consistent. A redefining property is consistent with a redefined property
@@ -6954,18 +6954,18 @@ self.member->includes(el)"
     of the redefining property (if specified) is contained in the multiplicity
     of the redefined property."
    :operation-body
-   "result = redefinee.oclIsKindOf(Property) and 
-  let prop : Property = redefinee.oclAsType(Property) in 
-  (prop.type.conformsTo(self.type) and 
-  ((prop.lowerBound()->notEmpty() and self.lowerBound()->notEmpty()) implies prop.lowerBound() >= self.lowerBound()) and 
-  ((prop.upperBound()->notEmpty() and self.upperBound()->notEmpty()) implies prop.upperBound() <= self.upperBound()) and 
+   "result = redefinee.oclIsKindOf(Property) and
+  let prop : Property = redefinee.oclAsType(Property) in
+  (prop.type.conformsTo(self.type) and
+  ((prop.lowerBound()->notEmpty() and self.lowerBound()->notEmpty()) implies prop.lowerBound() >= self.lowerBound()) and
+  ((prop.upperBound()->notEmpty() and self.upperBound()->notEmpty()) implies prop.upperBound() <= self.upperBound()) and
   (self.isDerived implies prop.isDerived) and
   (self.isComposite implies prop.isComposite))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL))
    :operation-status :rewritten
     :editor-note "Term testing upper bound needs to reference upperBound() not lowerBound()."
     :original-body
@@ -6973,39 +6973,39 @@ self.member->includes(el)"
 result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.oclAsType(Property) in    (prop.type.conformsTo(self.type) and    ((prop.lowerBound()->notEmpty() and self.lowerBound()->notEmpty()) implies prop.lowerBound() >= self.lowerBound()) and    ((prop.upperBound()->notEmpty() and self.upperBound()->notEmpty()) implies prop.lowerBound() <= self.lowerBound()) and    (self.isComposite implies prop.isComposite))"
 )
 
-(def-mm-operation "isNavigable" |Property| 
+(def-mm-operation "isNavigable" |Property|
    "The query isNavigable() indicates whether it is possible to navigate across
     the property."
    :operation-body
    "result = not classifier->isEmpty() or association.owningAssociation.navigableOwnedEnd->includes(self)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "opposite.1" |Property| 
+(def-mm-operation "opposite.1" |Property|
    "If this property is owned by a class, associated with a binary association,
     and the other end of the association is also owned by a class, then opposite
     gives the other end."
    :operation-body
-   "result = if owningAssociation->isEmpty() 
-                      and association->notEmpty()
-                      and association.memberEnd->size() = 2
+   "result = if owningAssociation->isEmpty()
+		      and association->notEmpty()
+		      and association.memberEnd->size() = 2
    then
-           let otherEnd = (association.memberEnd->excluding(self))->any() in 
+	   let otherEnd = (association.memberEnd->excluding(self))->any() in
       if otherEnd.owningAssociation->isEmpty() then otherEnd else Set{} endif
     else Set {}
     endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Property|
-                        :parameter-return-p T))
+			:parameter-return-p T))
     :operation-status :rewritten
     :editor-note "excluding() not -.
-                  Added additional 'AND association->notEmpty()' to cut off case where self.association is empty."
+		  Added additional 'AND association->notEmpty()' to cut off case where self.association is empty."
     :original-body
     "result = if owningAssociation->isEmpty() and association.memberEnd->size() = 2   then     let otherEnd = (association.memberEnd - self)->any() in       if otherEnd.owningAssociation->isEmpty() then otherEnd else Set{} endif     else Set {}     endif"
 )
 
-(def-mm-operation "subsettingContext" |Property| 
+(def-mm-operation "subsettingContext" |Property|
    "The query subsettingContext() gives the context for subsetting a property.
     It consists, in the case of an attribute, of the corresponding classifier,
     and in the case of an association end, all of the classifiers at the other
@@ -7014,7 +7014,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    "Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Type|
-                        :parameter-return-p T))
+			:parameter-return-p T))
     :operation-status :original
     :editor-note "classifier not defined."
     :original-body
@@ -7062,13 +7062,13 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
      "Conformance between protocol state machines.")))
 
 
-(def-mm-constraint "classifier_context" |ProtocolStateMachine| 
+(def-mm-constraint "classifier_context" |ProtocolStateMachine|
    "A protocol state machine must only have a classifier context, not a behavioral
     feature context."
    :operation-body
    "(not context->isEmpty( )) and specification->isEmpty()")
 
-(def-mm-constraint "deep_or_shallow_history" |ProtocolStateMachine| 
+(def-mm-constraint "deep_or_shallow_history" |ProtocolStateMachine|
    "Protocol state machines cannot have deep or shallow history pseudostates."
    :operation-body
    "region->forAll (r | r.subvertex->forAll (v | v.oclIsKindOf(Pseudostate) implies
@@ -7078,20 +7078,20 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    :original-body
    "region->forAll (r | r.subvertex->forAll (v | v.oclIsKindOf(Psuedostate) implies ((v.kind <> #deepHistory) and (v.kind <> #shallowHistory))))) ")
 
-(def-mm-constraint "entry_exit_do" |ProtocolStateMachine| 
+(def-mm-constraint "entry_exit_do" |ProtocolStateMachine|
    "The states of a protocol state machine cannot have entry, exit, or do activity
     actions."
    :operation-body
    "region->forAll(r | r.subvertex->forAll(v | v.oclIsKindOf(State) implies (v.entry->isEmpty() and v.exit->isEmpty() and v.doActivity->isEmpty()))) ")
 
-(def-mm-constraint "ports_connected" |ProtocolStateMachine| 
+(def-mm-constraint "ports_connected" |ProtocolStateMachine|
    "If two ports are connected, then the protocol state machine of the required
     interface (if defined) must be conformant to the protocol state machine
     of the provided interface (if defined)."
    :operation-body
    "true")
 
-(def-mm-constraint "protocol_transitions" |ProtocolStateMachine| 
+(def-mm-constraint "protocol_transitions" |ProtocolStateMachine|
    "All transitions of a protocol state machine must be protocol transitions.
     (transitions as extended by the ProtocolStateMachines package)"
    :operation-body
@@ -7125,17 +7125,17 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
       the operation of the call trigger when applicable.")))
 
 
-(def-mm-constraint "associated_actions" |ProtocolTransition| 
+(def-mm-constraint "associated_actions" |ProtocolTransition|
    "A protocol transition never has associated actions."
    :operation-body
    "effect->isEmpty()")
 
-(def-mm-constraint "belongs_to_psm" |ProtocolTransition| 
+(def-mm-constraint "belongs_to_psm" |ProtocolTransition|
    "A protocol transition always belongs to a protocol state machine."
    :operation-body
    "container.belongsToPSM()")
 
-(def-mm-constraint "refers_to_operation" |ProtocolTransition| 
+(def-mm-constraint "refers_to_operation" |ProtocolTransition|
    "If a protocol transition refers to an operation (i. e. has a call trigger
     corresponding to an operation), then that operation should apply to the
     context classifier of the state machine of the protocol transition."
@@ -7143,13 +7143,13 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    "true")
 
 #| missing/true
-(def-mm-operation "referred.1" |ProtocolTransition| 
+(def-mm-operation "referred.1" |ProtocolTransition|
    "Missing derivation for ProtocolTransition::/referred : Operation"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Operation|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -7176,44 +7176,44 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
       to Pseudostates of the kind entryPoint or exitPoint.")))
 
 
-(def-mm-constraint "choice_vertex" |Pseudostate| 
+(def-mm-constraint "choice_vertex" |Pseudostate|
    "In a complete statemachine, a choice vertex must have at least one incoming
     and one outgoing transition."
    :operation-body
    "(self.kind = #choice) implies
-          ((self.incoming->size() >= 1) and (self.outgoing->size() >= 1))"
+	  ((self.incoming->size() >= 1) and (self.outgoing->size() >= 1))"
    :operation-status :rewritten
    :editor-note "size() not size."
    :original-body
    "(self.kind = #choice) implies ((self.incoming->size >= 1) and (self.outgoing->size >= 1)) ")
 
-(def-mm-constraint "fork_vertex" |Pseudostate| 
+(def-mm-constraint "fork_vertex" |Pseudostate|
    "In a complete statemachine, a fork vertex must have at least two outgoing
     transitions and exactly one incoming transition."
    :operation-body
    "(self.kind = #fork) implies
-                     ((self.incoming->size() = 1) and (self.outgoing->size() >= 2))"
+		     ((self.incoming->size() = 1) and (self.outgoing->size() >= 2))"
    :operation-status :rewritten
    :editor-note "size() not size."
    :original-body
    "(self.kind = #fork) implies ((self.incoming->size = 1) and (self.outgoing->size >= 2)) ")
 
-(def-mm-constraint "history_vertices" |Pseudostate| 
+(def-mm-constraint "history_vertices" |Pseudostate|
    "History vertices can have at most one outgoing transition."
    :operation-body
    "((self.kind = #deepHistory) or (self.kind = #shallowHistory)) implies
-                     (self.outgoing->size() <= 1)"
+		     (self.outgoing->size() <= 1)"
    :operation-status :rewritten
    :editor-note "size() not size."
    :original-body
    "((self.kind = #deepHistory) or (self.kind = #shallowHistory)) implies (self.outgoing->size <= 1) ")
 
-(def-mm-constraint "initial_vertex" |Pseudostate| 
+(def-mm-constraint "initial_vertex" |Pseudostate|
    "An initial vertex can have at most one outgoing transition."
    :operation-body
    "(self.kind = #initial) implies (self.outgoing->size <= 1)")
 
-(def-mm-constraint "join_vertex" |Pseudostate| 
+(def-mm-constraint "join_vertex" |Pseudostate|
    "In a complete statemachine, a join vertex must have at least two incoming
     transitions and exactly one outgoing transition."
    :operation-body
@@ -7224,7 +7224,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    :original-body
    "(self.kind = #join) implies ((self.outgoing->size = 1) and (self.incoming->size >= 2)) ")
 
-(def-mm-constraint "junction_vertex" |Pseudostate| 
+(def-mm-constraint "junction_vertex" |Pseudostate|
    "In a complete statemachine, a junction vertex must have at least one incoming
     and one outgoing transition."
    :operation-body
@@ -7235,19 +7235,19 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    :original-body
    "(self.kind = #junction) implies ((self.incoming->size >= 1) and (self.outgoing->size >= 1)) ")
 
-(def-mm-constraint "outgoing_from_initial" |Pseudostate| 
+(def-mm-constraint "outgoing_from_initial" |Pseudostate|
    "The outgoing transition from and initial vertex may have a behavior, but
     not a trigger or a guard."
    :operation-body
    "(self.kind = #initial) implies (self.outgoing.guard->isEmpty()   and self.outgoing.trigger->isEmpty())")
 
-(def-mm-constraint "transitions_incoming" |Pseudostate| 
+(def-mm-constraint "transitions_incoming" |Pseudostate|
    "All transitions incoming a join vertex must originate in different regions
     of an orthogonal state."
    :operation-body
    "(self.kind = #join) implies   self.incoming->forAll (t1, t2 | t1<>t2 implies     (self.stateMachine.LCA(t1.source, t2.source).container.isOrthogonal))")
 
-(def-mm-constraint "transitions_outgoing" |Pseudostate| 
+(def-mm-constraint "transitions_outgoing" |Pseudostate|
    "All transitions outgoing a fork vertex must target states in different
     regions of an orthogonal state."
    :operation-body
@@ -7267,7 +7267,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
      "Input pin from which the specified value for the qualifier is taken.")))
 
 
-(def-mm-constraint "multiplicity_of_qualifier" |QualifierValue| 
+(def-mm-constraint "multiplicity_of_qualifier" |QualifierValue|
    "The multiplicity of the qualifier value input pin is \"1..1\"."
    :operation-body
    "self.value.is(1,1)"
@@ -7276,7 +7276,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    :original-body
    "self.value.multiplicity.is(1,1)")
 
-(def-mm-constraint "qualifier_attribute" |QualifierValue| 
+(def-mm-constraint "qualifier_attribute" |QualifierValue|
    "The qualifier attribute must be a qualifier of the association end of the
     link-end data."
    :operation-body
@@ -7286,7 +7286,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    :original-body
    "self.LinkEndData.end->collect(qualifier)->includes(self.qualifier)")
 
-(def-mm-constraint "type_of_qualifier" |QualifierValue| 
+(def-mm-constraint "type_of_qualifier" |QualifierValue|
    "The type of the qualifier value input pin is the same as the type of the
     qualifier attribute."
    :operation-body
@@ -7319,7 +7319,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
      "The runtime instances of the classifier.")))
 
 
-(def-mm-constraint "multiplicity_of_result" |ReadExtentAction| 
+(def-mm-constraint "multiplicity_of_result" |ReadExtentAction|
    "The multiplicity of the result output pin is 0..*."
    :operation-body
    "true"
@@ -7328,7 +7328,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    :original-body
    "self.result.multiplicity.is(0,#null)")
 
-(def-mm-constraint "type_is_classifier" |ReadExtentAction| 
+(def-mm-constraint "type_is_classifier" |ReadExtentAction|
    "The type of the result output pin is the classifier."
    :operation-body
    "true")
@@ -7356,12 +7356,12 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
      "After termination of the action, will hold the result of the test.")))
 
 
-(def-mm-constraint "boolean_result" |ReadIsClassifiedObjectAction| 
+(def-mm-constraint "boolean_result" |ReadIsClassifiedObjectAction|
    "The type of the output pin is Boolean"
    :operation-body
    "self.result.type = Boolean")
 
-(def-mm-constraint "multiplicity_of_input" |ReadIsClassifiedObjectAction| 
+(def-mm-constraint "multiplicity_of_input" |ReadIsClassifiedObjectAction|
    "The multiplicity of the input pin is 1..1."
    :operation-body
    "self.object.is(1,1)"
@@ -7370,7 +7370,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    :original-body
    "self.object.multiplicity.is(1,1)")
 
-(def-mm-constraint "multiplicity_of_output" |ReadIsClassifiedObjectAction| 
+(def-mm-constraint "multiplicity_of_output" |ReadIsClassifiedObjectAction|
    "The multiplicity of the output pin is 1..1."
    :operation-body
    "self.result.is(1,1)"
@@ -7379,7 +7379,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
    :original-body
    "self.result.multiplicity.is(1,1)")
 
-(def-mm-constraint "no_type" |ReadIsClassifiedObjectAction| 
+(def-mm-constraint "no_type" |ReadIsClassifiedObjectAction|
    "The input pin has no type."
    :operation-body
    "self.object.type->isEmpty()")
@@ -7397,7 +7397,7 @@ result = redefinee.oclIsKindOf(Property) and    let prop : Property = redefinee.
       the end not specified by the inputs.")))
 
 
-(def-mm-constraint "compatible_multiplicity" |ReadLinkAction| 
+(def-mm-constraint "compatible_multiplicity" |ReadLinkAction|
    "The multiplicity of the open association end must be compatible with the
     multiplicity of the result output pin."
    :operation-body
@@ -7408,24 +7408,24 @@ openend.compatibleWith(self.result)"
    :original-body
    "let openend : Property = self.endData->select(ed | ed.value->size() = 0)->asSequence()->first().end in openend.multiplicity.compatibleWith(self.result.multiplicity) ")
 
-(def-mm-constraint "navigable_open_end" |ReadLinkAction| 
+(def-mm-constraint "navigable_open_end" |ReadLinkAction|
    "The open end must be navigable."
    :operation-body
    "let openend : Property = self.endData->select(ed | ed.value->size() = 0)->asSequence()->first().end in openend.isNavigable() ")
 
-(def-mm-constraint "one_open_end" |ReadLinkAction| 
+(def-mm-constraint "one_open_end" |ReadLinkAction|
    "Exactly one link-end data specification (the 'open' end) must not have
     an end object input pin."
    :operation-body
    "self.endData->select(ed | ed.value->size() = 0)->size() = 1")
 
-(def-mm-constraint "type_and_ordering" |ReadLinkAction| 
+(def-mm-constraint "type_and_ordering" |ReadLinkAction|
    "The type and ordering of the result output pin are same as the type and
     ordering of the open association end."
    :operation-body
    "let openend : Property = self.endData->select(ed | ed.value->size() = 0)->asSequence()->first().end in self.result.type = openend.type and self.result.ordering = openend.ordering ")
 
-(def-mm-constraint "visibility" |ReadLinkAction| 
+(def-mm-constraint "visibility" |ReadLinkAction|
    "Visibility of the open end must allow access to the object performing the
     action."
    :operation-body
@@ -7454,7 +7454,7 @@ openend.compatibleWith(self.result)"
      "Pin where the result value is placed.")))
 
 
-(def-mm-constraint "association_of_association" |ReadLinkObjectEndAction| 
+(def-mm-constraint "association_of_association" |ReadLinkObjectEndAction|
    "The association of the association end must be an association class."
    :operation-body
    "self.end.association.oclIsKindOf(AssociationClass)"
@@ -7463,7 +7463,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.end.Association.oclIsKindOf(AssociationClass)")
 
-(def-mm-constraint "ends_of_association" |ReadLinkObjectEndAction| 
+(def-mm-constraint "ends_of_association" |ReadLinkObjectEndAction|
    "The ends of the association must not be static."
    :operation-body
    "self.end.association.memberEnd->forAll(e | not e.isStatic)"
@@ -7472,7 +7472,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.end.association.memberEnd->forall(e | not e.isStatic)")
 
-(def-mm-constraint "multiplicity_of_object" |ReadLinkObjectEndAction| 
+(def-mm-constraint "multiplicity_of_object" |ReadLinkObjectEndAction|
    "The multiplicity of the object input pin is 1..1."
    :operation-body
    "self.object.is(1,1)"
@@ -7481,7 +7481,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.object.multiplicity.is(1,1)")
 
-(def-mm-constraint "multiplicity_of_result" |ReadLinkObjectEndAction| 
+(def-mm-constraint "multiplicity_of_result" |ReadLinkObjectEndAction|
    "The multiplicity of the result output pin is 1..1."
    :operation-body
    "self.result.is(1,1)"
@@ -7490,18 +7490,18 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.result.multiplicity.is(1,1)")
 
-(def-mm-constraint "property" |ReadLinkObjectEndAction| 
+(def-mm-constraint "property" |ReadLinkObjectEndAction|
    "The property must be an association end."
    :operation-body
    "self.end.association.notEmpty()")
 
-(def-mm-constraint "type_of_object" |ReadLinkObjectEndAction| 
+(def-mm-constraint "type_of_object" |ReadLinkObjectEndAction|
    "The type of the object input pin is the association class that owns the
     association end."
    :operation-body
    "self.object.type = self.end.association")
 
-(def-mm-constraint "type_of_result" |ReadLinkObjectEndAction| 
+(def-mm-constraint "type_of_result" |ReadLinkObjectEndAction|
    "The type of the result output pin is the same as the type of the association
     end."
    :operation-body
@@ -7526,13 +7526,13 @@ openend.compatibleWith(self.result)"
      "Pin where the result value is placed.")))
 
 
-(def-mm-constraint "association_of_association" |ReadLinkObjectEndQualifierAction| 
+(def-mm-constraint "association_of_association" |ReadLinkObjectEndQualifierAction|
    "The association of the association end of the qualifier attribute must
     be an association class."
    :operation-body
    "self.qualifier.associationEnd.association.oclIsKindOf(AssociationClass)")
 
-(def-mm-constraint "ends_of_association" |ReadLinkObjectEndQualifierAction| 
+(def-mm-constraint "ends_of_association" |ReadLinkObjectEndQualifierAction|
    "The ends of the association must not be static."
    :operation-body
    "self.qualifier.associationEnd.association.memberEnd->forAll(e | not e.isStatic)"
@@ -7541,7 +7541,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.qualifier.associationEnd.association.memberEnd->forall(e | not e.isStatic)")
 
-(def-mm-constraint "multiplicity_of_object" |ReadLinkObjectEndQualifierAction| 
+(def-mm-constraint "multiplicity_of_object" |ReadLinkObjectEndQualifierAction|
    "The multiplicity of the object input pin is 1..1."
    :operation-body
    "self.object.is(1,1)"
@@ -7550,7 +7550,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.object.multiplicity.is(1,1)")
 
-(def-mm-constraint "multiplicity_of_qualifier" |ReadLinkObjectEndQualifierAction| 
+(def-mm-constraint "multiplicity_of_qualifier" |ReadLinkObjectEndQualifierAction|
    "The multiplicity of the qualifier attribute is 1..1."
    :operation-body
    "self.qualifier.is(1,1)"
@@ -7559,7 +7559,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.qualifier.multiplicity.is(1,1)")
 
-(def-mm-constraint "multiplicity_of_result" |ReadLinkObjectEndQualifierAction| 
+(def-mm-constraint "multiplicity_of_result" |ReadLinkObjectEndQualifierAction|
    "The multiplicity of the result output pin is 1..1."
    :operation-body
    "self.result.is(1,1)"
@@ -7568,19 +7568,19 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.result.multiplicity.is(1,1)")
 
-(def-mm-constraint "qualifier_attribute" |ReadLinkObjectEndQualifierAction| 
+(def-mm-constraint "qualifier_attribute" |ReadLinkObjectEndQualifierAction|
    "The qualifier attribute must be a qualifier attribute of an association
     end."
    :operation-body
    "self.qualifier.associationEnd->size() = 1")
 
-(def-mm-constraint "same_type" |ReadLinkObjectEndQualifierAction| 
+(def-mm-constraint "same_type" |ReadLinkObjectEndQualifierAction|
    "The type of the result output pin is the same as the type of the qualifier
     attribute."
    :operation-body
    "self.result.type = self.qualifier.type")
 
-(def-mm-constraint "type_of_object" |ReadLinkObjectEndQualifierAction| 
+(def-mm-constraint "type_of_object" |ReadLinkObjectEndQualifierAction|
    "The type of the object input pin is the association class that owns the
     association end that has the given qualifier attribute."
    :operation-body
@@ -7597,7 +7597,7 @@ openend.compatibleWith(self.result)"
      "Gives the output pin on which the hosting object is placed.")))
 
 
-(def-mm-constraint "contained" |ReadSelfAction| 
+(def-mm-constraint "contained" |ReadSelfAction|
    "The action must be contained in an behavior that has a host classifier."
    :operation-body
    "true"
@@ -7606,7 +7606,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.context->size() = 1")
 
-(def-mm-constraint "multiplicity" |ReadSelfAction| 
+(def-mm-constraint "multiplicity" |ReadSelfAction|
    "The multiplicity of the result output pin is 1..1."
    :operation-body
    "self.result.is(1,1)"
@@ -7615,13 +7615,13 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.result.multiplicity.is(1,1)")
 
-(def-mm-constraint "not_static" |ReadSelfAction| 
+(def-mm-constraint "not_static" |ReadSelfAction|
    "If the action is contained in an behavior that is acting as the body of
     a method, then the operation of the method must not be static."
    :operation-body
    "true")
 
-(def-mm-constraint "type" |ReadSelfAction| 
+(def-mm-constraint "type" |ReadSelfAction|
    "The type of the result output pin is the host classifier."
    :operation-body
    "self.result.type = self.context")
@@ -7638,7 +7638,7 @@ openend.compatibleWith(self.result)"
      "Gives the output pin on which the result is put.")))
 
 
-(def-mm-constraint "multiplicity" |ReadStructuralFeatureAction| 
+(def-mm-constraint "multiplicity" |ReadStructuralFeatureAction|
    "The multiplicity of the structural feature must be compatible with the
     multiplicity of the output pin."
    :operation-body
@@ -7648,7 +7648,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.structuralFeature.multiplicity.compatibleWith(self.result.multiplicity)")
 
-(def-mm-constraint "type_and_ordering" |ReadStructuralFeatureAction| 
+(def-mm-constraint "type_and_ordering" |ReadStructuralFeatureAction|
    "The type and ordering of the result output pin are the same as the type
     and ordering of the structural feature."
    :operation-body
@@ -7666,7 +7666,7 @@ openend.compatibleWith(self.result)"
      "Gives the output pin on which the result is put.")))
 
 
-(def-mm-constraint "compatible_multiplicity" |ReadVariableAction| 
+(def-mm-constraint "compatible_multiplicity" |ReadVariableAction|
    "The multiplicity of the variable must be compatible with the multiplicity
     of the output pin."
    :operation-body
@@ -7676,7 +7676,7 @@ openend.compatibleWith(self.result)"
    :original-body
    "self.variable.multiplicity.compatibleWith(self.result.multiplicity)")
 
-(def-mm-constraint "type_and_ordering" |ReadVariableAction| 
+(def-mm-constraint "type_and_ordering" |ReadVariableAction|
    "The type and ordering of the result output pin of a read-variable action
     are the same as the type and ordering of the variable."
    :operation-body
@@ -7708,7 +7708,7 @@ openend.compatibleWith(self.result)"
      "The signal that this reception handles.")))
 
 
-(def-mm-constraint "not_query" |Reception| 
+(def-mm-constraint "not_query" |Reception|
    "A Reception can not be a query."
    :operation-body
    "not self.isQuery")
@@ -7735,17 +7735,17 @@ openend.compatibleWith(self.result)"
      "A set of classifiers to be removed from the classifiers of the object.")))
 
 
-(def-mm-constraint "classifier_not_abstract" |ReclassifyObjectAction| 
+(def-mm-constraint "classifier_not_abstract" |ReclassifyObjectAction|
    "None of the new classifiers may be abstract."
    :operation-body
    "not self.newClassifier->exists(isAbstract = true)")
 
-(def-mm-constraint "input_pin" |ReclassifyObjectAction| 
+(def-mm-constraint "input_pin" |ReclassifyObjectAction|
    "The input pin has no type."
    :operation-body
    "self.argument.type->size() = 0")
 
-(def-mm-constraint "multiplicity" |ReclassifyObjectAction| 
+(def-mm-constraint "multiplicity" |ReclassifyObjectAction|
    "The multiplicity of the input pin is 1..1."
    :operation-body
    "self.argument.is(1,1)"
@@ -7780,24 +7780,24 @@ openend.compatibleWith(self.result)"
      "References the contexts that this element may be redefined from.")))
 
 
-(def-mm-constraint "non_leaf_redefinition" |RedefinableElement| 
+(def-mm-constraint "non_leaf_redefinition" |RedefinableElement|
    "A redefinable element can only redefine non-leaf redefinable elements"
    :operation-body
    "self.redefinedElement->forAll(not isLeaf)")
 
-(def-mm-constraint "redefinition_consistent" |RedefinableElement| 
+(def-mm-constraint "redefinition_consistent" |RedefinableElement|
    "A redefining element must be consistent with each redefined element."
    :operation-body
    "self.redefinedElement->forAll(re | re.isConsistentWith(self))")
 
-(def-mm-constraint "redefinition_context_valid" |RedefinableElement| 
+(def-mm-constraint "redefinition_context_valid" |RedefinableElement|
    "At least one of the redefinition contexts of the redefining element must
     be a specialization of at least one of the redefinition contexts for each
     redefined element."
    :operation-body
    "self.redefinedElement->forAll(e | self.isRedefinitionContextValid(e))")
 
-(def-mm-operation "isConsistentWith" |RedefinableElement| 
+(def-mm-operation "isConsistentWith" |RedefinableElement|
    "The query isConsistentWith() specifies, for any two RedefinableElements
     in a context in which redefinition is possible, whether redefinition would
     be logically consistent. By default, this is false; this operation must
@@ -7808,11 +7808,11 @@ openend.compatibleWith(self.result)"
 redefinee.isRedefinitionContextValid(self)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "isRedefinitionContextValid" |RedefinableElement| 
+(def-mm-operation "isRedefinitionContextValid" |RedefinableElement|
    "The query isRedefinitionContextValid() specifies whether the redefinition
     contexts of this RedefinableElement are properly related to the redefinition
     contexts of the specified RedefinableElement to allow this element to redefine
@@ -7823,9 +7823,9 @@ redefinee.isRedefinitionContextValid(self)"
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefined| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefined| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL))
    :operation-status :ignored
     :editor-note "Use intersection/notEmpty, not includes. Removed extra close paren...MIWG: Replaced the body with TRUE, since it appears that redefinitionContext is a derived union with no subsetting properties. -- Carried over from UML 2.1.1"
     :original-body
@@ -7853,23 +7853,23 @@ redefinee.isRedefinitionContextValid(self)"
      "The formal template parameters of the extendedSignature.")))
 
 
-(def-mm-constraint "inherited_parameters" |RedefinableTemplateSignature| 
+(def-mm-constraint "inherited_parameters" |RedefinableTemplateSignature|
    "The inherited parameters are the parameters of the extended template signature."
    :operation-body
    "if extendedSignature->isEmpty() then Set{} else extendedSignature.parameter endif")
 
 #| missing/true
-(def-mm-operation "inheritedParameter.1" |RedefinableTemplateSignature| 
+(def-mm-operation "inheritedParameter.1" |RedefinableTemplateSignature|
    "Missing derivation for RedefinableTemplateSignature::/inheritedParameter
     : TemplateParameter"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|TemplateParameter|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
-(def-mm-operation "isConsistentWith" |RedefinableTemplateSignature| 
+(def-mm-operation "isConsistentWith" |RedefinableTemplateSignature|
    "The query isConsistentWith() specifies, for any two RedefinableTemplateSignatures
     in a context in which redefinition is possible, whether redefinition would
     be logically consistent. A redefining template signature is always consistent
@@ -7879,9 +7879,9 @@ redefinee.isRedefinitionContextValid(self)"
    "result = redefinee.oclIsKindOf(RedefinableTemplateSignature)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL))
    :operation-status :rewritten
     :editor-note "Redefinable not Redefineable"
     :original-body
@@ -7913,18 +7913,18 @@ redefinee.isRedefinitionContextValid(self)"
      "Gives the output pin on which the result is put.")))
 
 
-(def-mm-constraint "input_type_is_collection" |ReduceAction| 
+(def-mm-constraint "input_type_is_collection" |ReduceAction|
    "The type of the input must be a collection."
    :operation-body
    "true")
 
-(def-mm-constraint "output_types_are_compatible" |ReduceAction| 
+(def-mm-constraint "output_types_are_compatible" |ReduceAction|
    "The type of the output must be compatible with the type of the output of
     the reducer behavior."
    :operation-body
    "true")
 
-(def-mm-constraint "reducer_inputs_output" |ReduceAction| 
+(def-mm-constraint "reducer_inputs_output" |ReduceAction|
    "The reducer behavior must have two input parameters and one output parameter,
     of types compatible with the types of elements of the input collection."
    :operation-body
@@ -7967,28 +7967,28 @@ redefinee.isRedefinitionContextValid(self)"
      "The set of transitions owned by the region.")))
 
 
-(def-mm-constraint "deep_history_vertex" |Region| 
+(def-mm-constraint "deep_history_vertex" |Region|
    "A region can have at most one deep history vertex"
    :operation-body
    "self.subvertex->select (v | v.oclIsKindOf(Pseudostate))-> select(p : Pseudostate | p.kind = #deepHistory)->size() <= 1 ")
 
-(def-mm-constraint "initial_vertex" |Region| 
+(def-mm-constraint "initial_vertex" |Region|
    "A region can have at most one initial vertex"
    :operation-body
    "self.subvertex->select (v | v.oclIsKindOf(Pseudostate))-> select(p : Pseudostate | p.kind = #initial)->size() <= 1 ")
 
-(def-mm-constraint "owned" |Region| 
+(def-mm-constraint "owned" |Region|
    "If a Region is owned by a StateMachine, then it cannot also be owned by
     a State and vice versa."
    :operation-body
    "(stateMachine->notEmpty() implies state->isEmpty()) and (state->notEmpty() implies stateMachine->isEmpty())")
 
-(def-mm-constraint "shallow_history_vertex" |Region| 
+(def-mm-constraint "shallow_history_vertex" |Region|
    "A region can have at most one shallow history vertex"
    :operation-body
    "self.subvertex->select(v | v.oclIsKindOf(Pseudostate))-> select(p : Pseudostate | p.kind = #shallowHistory)->size() <= 1 ")
 
-(def-mm-operation "belongsToPSM" |Region| 
+(def-mm-operation "belongsToPSM" |Region|
    "The operation belongsToPSM () checks if the region belongs to a protocol
     state machine"
    :operation-body
@@ -8000,23 +8000,23 @@ else false endif
 endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T))
+			:parameter-return-p T))
     :operation-status :original
     :editor-note "missing endif endif"
     :original-body
     "result = if not stateMachine->isEmpty() then oclIsTypeOf(ProtocolStateMachine) else if not state->isEmpty() then state.container.belongsToPSM () else false"
 )
 
-(def-mm-operation "containingStateMachine" |Region| 
+(def-mm-operation "containingStateMachine" |Region|
    "The operation containingStateMachine() returns the sate machine in which
     this Region is defined"
    :operation-body
    "result = if stateMachine->isEmpty()  then state.containingStateMachine() else stateMachine endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|StateMachine|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isConsistentWith" |Region| 
+(def-mm-operation "isConsistentWith" |Region|
    "The query isConsistentWith() specifies that a redefining region is consistent
     with a redefined region provided that the redefining region is an extension
     of the redefined region, i.e. it adds vertices and transitions and it redefines
@@ -8025,11 +8025,11 @@ endif"
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "isRedefinitionContextValid" |Region| 
+(def-mm-operation "isRedefinitionContextValid" |Region|
    "The query isRedefinitionContextValid() specifies whether the redefinition
     contexts of a region are properly related to the redefinition contexts
     of the specified region to allow this element to redefine the other. The
@@ -8039,17 +8039,17 @@ endif"
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefined| :parameter-type '|Region|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefined| :parameter-type '|Region|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "redefinitionContext.1" |Region| 
+(def-mm-operation "redefinitionContext.1" |Region|
    "The redefinition context of a region is the nearest containing statemachine"
    :operation-body
    "result = let sm = containingStateMachine() in if sm.context->isEmpty() or sm.general->notEmpty() then sm else sm.context endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Classifier|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== Relationship
@@ -8080,7 +8080,7 @@ endif"
       cannot be zero or unlimited.")))
 
 
-(def-mm-constraint "non_unique_removal" |RemoveStructuralFeatureValueAction| 
+(def-mm-constraint "non_unique_removal" |RemoveStructuralFeatureValueAction|
    "Actions removing a value from ordered non-unique structural features must
     have a single removeAt input pin and no value input pin if isRemoveDuplicates
     is false. The removeAt pin must be of type Unlimited Natural with multiplicity
@@ -8106,7 +8106,7 @@ endif"
       be zero or unlimited.")))
 
 
-(def-mm-constraint "unlimited_natural" |RemoveVariableValueAction| 
+(def-mm-constraint "unlimited_natural" |RemoveVariableValueAction|
    "Actions removing a value from ordered non-unique variables must have a
     single removeAt input pin and no value input pin if isRemoveDuplicates
     is false. The removeAt pin must be of type Unlimited Natural with multiplicity
@@ -8137,7 +8137,7 @@ endif"
      "A pin containing the return information value produced by an earlier AcceptCallAction.")))
 
 
-(def-mm-constraint "event_on_reply_to_call_trigger" |ReplyAction| 
+(def-mm-constraint "event_on_reply_to_call_trigger" |ReplyAction|
    "The event on replyToCall trigger must be a CallEvent replyToCallEvent.oclIsKindOf(CallEvent)"
    :operation-body
    "true"
@@ -8146,7 +8146,7 @@ endif"
    :original-body
    "replyToCallEvent.oclIsKindOf(CallEvent)")
 
-(def-mm-constraint "pins_match_parameter" |ReplyAction| 
+(def-mm-constraint "pins_match_parameter" |ReplyAction|
    "The reply value pins must match the return, out, and inout parameters of
     the operation on the event on the trigger in number, type, and order."
    :operation-body
@@ -8192,13 +8192,13 @@ endif"
      "The target object to which the signal is sent.")))
 
 
-(def-mm-constraint "number_order" |SendSignalAction| 
+(def-mm-constraint "number_order" |SendSignalAction|
    "The number and order of argument pins must be the same as the number and
     order of attributes in the signal."
    :operation-body
    "true")
 
-(def-mm-constraint "type_ordering_multiplicity" |SendSignalAction| 
+(def-mm-constraint "type_ordering_multiplicity" |SendSignalAction|
    "The type, ordering, and multiplicity of an argument pin must be the same
     as the corresponding attribute of the signal."
    :operation-body
@@ -8276,12 +8276,12 @@ endif"
      "Holds the object on which to start the owned behavior.")))
 
 
-(def-mm-constraint "multiplicity" |StartClassifierBehaviorAction| 
+(def-mm-constraint "multiplicity" |StartClassifierBehaviorAction|
    "The multiplicity of the input pin is 1..1"
    :operation-body
    "true")
 
-(def-mm-constraint "type_has_classifier" |StartClassifierBehaviorAction| 
+(def-mm-constraint "type_has_classifier" |StartClassifierBehaviorAction|
    "If the input pin has a type, then the type must have a classifier behavior."
    :operation-body
    "true")
@@ -8302,32 +8302,32 @@ endif"
       behavior to be started.")))
 
 
-(def-mm-constraint "multiplicity_of_object" |StartObjectBehaviorAction| 
+(def-mm-constraint "multiplicity_of_object" |StartObjectBehaviorAction|
    "The multiplicity of the object input pin must be [1..1]."
    :operation-body
    "true")
 
-(def-mm-constraint "number_order_arguments" |StartObjectBehaviorAction| 
+(def-mm-constraint "number_order_arguments" |StartObjectBehaviorAction|
    "The number and order of the argument pins must be the same as the number
     and order of the in and in-out parameters of the invoked behavior. Pins
     are matched to parameters by order."
    :operation-body
    "true")
 
-(def-mm-constraint "number_order_results" |StartObjectBehaviorAction| 
+(def-mm-constraint "number_order_results" |StartObjectBehaviorAction|
    "The number and order of result pins must be the same as the number and
     order of the in-out, out and return parameters of the invoked behavior.
     Pins are matched to parameters by order."
    :operation-body
    "true")
 
-(def-mm-constraint "type_of_object" |StartObjectBehaviorAction| 
+(def-mm-constraint "type_of_object" |StartObjectBehaviorAction|
    "The type of the object input pin must be either a Behavior or a BehavioredClassifier
     with a classifier behavior."
    :operation-body
    "true")
 
-(def-mm-constraint "type_ordering_multiplicity_match" |StartObjectBehaviorAction| 
+(def-mm-constraint "type_ordering_multiplicity_match" |StartObjectBehaviorAction|
    "The type, ordering, and multiplicity of an argument or result pin must
     be the same as the corresponding parameter of the behavior."
    :operation-body
@@ -8428,12 +8428,12 @@ endif"
      "The state machine that is to be inserted in place of the (submachine) state.")))
 
 
-(def-mm-constraint "composite_states" |State| 
+(def-mm-constraint "composite_states" |State|
    "Only composite states can have entry or exit pseudostates defined."
    :operation-body
    "connectionPoint->notEmpty() implies isComoposite")
 
-(def-mm-constraint "destinations_or_sources_of_transitions" |State| 
+(def-mm-constraint "destinations_or_sources_of_transitions" |State|
    "The connection point references used as destinations/sources of transitions
     associated with a submachine state must be defined as entry/exit points
     in the submachine state machine."
@@ -8446,39 +8446,39 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
    :original-body
    "self.isSubmachineState implies (self.connection->forAll (cp | cp.entry->forAll (p | p.statemachine = self.submachine) and cp.exit->forAll (p | p.statemachine = self.submachine)))")
 
-(def-mm-constraint "entry_or_exit" |State| 
+(def-mm-constraint "entry_or_exit" |State|
    "Only entry or exit pseudostates can serve as connection points."
    :operation-body
    "connectionPoint->forAll(cp|cp.kind = #entry or cp.kind = #exit)")
 
-(def-mm-constraint "submachine_or_regions" |State| 
+(def-mm-constraint "submachine_or_regions" |State|
    "A state is not allowed to have both a submachine and regions."
    :operation-body
    "isComposite implies not isSubmachineState")
 
-(def-mm-constraint "submachine_states" |State| 
+(def-mm-constraint "submachine_states" |State|
    "Only submachine states can have connection point references."
    :operation-body
    "isSubmachineState implies connection->notEmpty ( )")
 
-(def-mm-operation "containingStateMachine" |State| 
+(def-mm-operation "containingStateMachine" |State|
    "The query containingStateMachine() returns the state machine that contains
     the state either directly or transitively."
    :operation-body
    "result = container.containingStateMachine()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|StateMachine|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isComposite.1" |State| 
+(def-mm-operation "isComposite.1" |State|
    "A composite state is a state with at least one region."
    :operation-body
    "result = region.notEmpty()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isConsistentWith" |State| 
+(def-mm-operation "isConsistentWith" |State|
    "The query isConsistentWith() specifies that a redefining state is consistent
     with a redefined state provided that the redefining state is an extension
     of the redefined state: A simple state can be redefined (extended) to become
@@ -8490,19 +8490,19 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "isOrthogonal.1" |State| 
+(def-mm-operation "isOrthogonal.1" |State|
    "An orthogonal state is a composite state with at least 2 regions"
    :operation-body
    "result = (region->size () > 1)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isRedefinitionContextValid" |State| 
+(def-mm-operation "isRedefinitionContextValid" |State|
    "The query isRedefinitionContextValid() specifies whether the redefinition
     contexts of a state are properly related to the redefinition contexts of
     the specified state to allow this element to redefine the other. The containing
@@ -8512,33 +8512,33 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefined| :parameter-type '|State|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefined| :parameter-type '|State|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "isSimple.1" |State| 
+(def-mm-operation "isSimple.1" |State|
    "A simple state is a state without any regions."
    :operation-body
    "result = region.isEmpty()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isSubmachineState.1" |State| 
+(def-mm-operation "isSubmachineState.1" |State|
    "Only submachine states can have a reference statemachine."
    :operation-body
    "result = submachine.notEmpty()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "redefinitionContext.1" |State| 
+(def-mm-operation "redefinitionContext.1" |State|
    "The redefinition context of a state is the nearest containing statemachine."
    :operation-body
    "result = let sm = containingStateMachine() in if sm.context->isEmpty() or sm.general->notEmpty() then sm else sm.context endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Classifier|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== StateInvariant
@@ -8589,12 +8589,12 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
       are referenced in case of a concurrent state.")))
 
 
-(def-mm-constraint "classifier_context" |StateMachine| 
+(def-mm-constraint "classifier_context" |StateMachine|
    "The classifier context of a state machine cannot be an interface."
    :operation-body
    "context->notEmpty() implies not context.oclIsKindOf(Interface)")
 
-(def-mm-constraint "connection_points" |StateMachine| 
+(def-mm-constraint "connection_points" |StateMachine|
    "The connection points of a state machine are pseudostates of kind entry
     point or exit point."
    :operation-body
@@ -8604,20 +8604,20 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
    :original-body
    "conectionPoint->forAll (c | c.kind = #entryPoint or c.kind = #exitPoint)")
 
-(def-mm-constraint "context_classifier" |StateMachine| 
+(def-mm-constraint "context_classifier" |StateMachine|
    "The context classifier of the method state machine of a behavioral feature
     must be the classifier that owns the behavioral feature."
    :operation-body
    "specification->notEmpty() implies (context->notEmpty() and specification->featuringClassifier->exists (c | c = context))")
 
-(def-mm-constraint "method" |StateMachine| 
+(def-mm-constraint "method" |StateMachine|
    "A state machine as the method for a behavioral feature cannot have entry/exit
     connection points."
    :operation-body
    "specification->notEmpty() implies connectionPoint->isEmpty()")
 
 #| missing/true?
-(def-mm-operation "LCA" |StateMachine| 
+(def-mm-operation "LCA" |StateMachine|
    "The operation LCA(s1,s2) returns an orthogonal state or region which is
     the least common ancestor of states s1 and s2, based on the statemachine
     containment hierarchy."
@@ -8625,27 +8625,27 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Namespace|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|s1| :parameter-type '|State|
-                        :parameter-return-p NIL)
-          (make-instance 'ocl-parameter :parameter-name '|s2| :parameter-type '|State|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|s1| :parameter-type '|State|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|s2| :parameter-type '|State|
+			:parameter-return-p NIL)))
 |#
 
-(def-mm-operation "ancestor" |StateMachine| 
+(def-mm-operation "ancestor" |StateMachine|
    "The query ancestor(s1, s2) checks whether s1 is an ancestor state of state
     s2."
    :operation-body
    "result =  if (s2 = s1) then   true  else   if (s2.container->isEmpty() or not s2.container.owner.oclIsKindOf(State)) then    false   else    ancestor(s1, s2.container.owner.oclAsType(State))  endif endif  "
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|s1| :parameter-type '|State|
-                        :parameter-return-p NIL)
-          (make-instance 'ocl-parameter :parameter-name '|s2| :parameter-type '|State|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|s1| :parameter-type '|State|
+			:parameter-return-p NIL)
+	  (make-instance 'ocl-parameter :parameter-name '|s2| :parameter-type '|State|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "isConsistentWith" |StateMachine| 
+(def-mm-operation "isConsistentWith" |StateMachine|
    "The query isConsistentWith() specifies that a redefining state machine
     is consistent with a redefined state machine provided that the redefining
     state machine is an extension of the redefined state machine: Regions are
@@ -8657,11 +8657,11 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL)))
 
-(def-mm-operation "isRedefinitionContextValid" |StateMachine| 
+(def-mm-operation "isRedefinitionContextValid" |StateMachine|
    "The query isRedefinitionContextValid() specifies whether the redefinition
     contexts of a statemachine are properly related to the redefinition contexts
     of the specified statemachine to allow this element to redefine the other.
@@ -8671,9 +8671,9 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefined| :parameter-type '|StateMachine|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefined| :parameter-type '|StateMachine|
+			:parameter-return-p NIL)))
 
 ;;; =========================================================
 ;;; ====================== Stereotype
@@ -8694,55 +8694,55 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
      "The profile that directly or indirectly contains this stereotype.")))
 
 
-(def-mm-constraint "associationEndOwnership" |Stereotype| 
+(def-mm-constraint "associationEndOwnership" |Stereotype|
    "Where a stereotype s property is an association end for an association
     other than a kind of extension, and the other end is not a stereotype,
     the other end must be owned by the association itself."
    :operation-body
    "ownedAttribute ->select(association->notEmpty() and not association.oclIsKindOf(Extension) and not type.oclIsKindOf(Stereotype)) ->forAll(opposite.owner = association)")
 
-(def-mm-constraint "binaryAssociationsOnly" |Stereotype| 
+(def-mm-constraint "binaryAssociationsOnly" |Stereotype|
    "Stereotypes may only participate in binary associations."
    :operation-body
    "ownedAttribute.association->forAll(memberEnd->size()=2)")
 
-(def-mm-constraint "generalize" |Stereotype| 
+(def-mm-constraint "generalize" |Stereotype|
    "A Stereotype may only generalize or specialize another Stereotype."
    :operation-body
    "generalization.general->forAll(e |e.oclIsKindOf(Stereotype)) and generalization.specific->forAll(e | e.oclIsKindOf(Stereotype)) ")
 
-(def-mm-constraint "name_not_clash" |Stereotype| 
+(def-mm-constraint "name_not_clash" |Stereotype|
    "Stereotype names should not clash with keyword names for the extended model
     element."
    :operation-body
    "true")
 
 ;;; 2014-06-23 Borrowed from my UML2.5 fix
-(def-meta-operation "containingProfile" |Stereotype| 
+(def-meta-operation "containingProfile" |Stereotype|
    "The query containingProfile returns the closest profile directly or indirectly
     containing this stereotype."
    :operation-status :rewritten
    :editor-note "Rewritten to stop recursion if namespace is a Profile."
-   :operation-body "if self.namespace.oclIsKindOf(Profile) 
-                       then self.namespace 
-                       else self.namespace.oclAsType(Package).containingProfile()
-                    endif"
+   :operation-body "if self.namespace.oclIsKindOf(Profile)
+		       then self.namespace
+		       else self.namespace.oclAsType(Package).containingProfile()
+		    endif"
    :original-body "result = (self.namespace.oclAsType(Package).containingProfile())"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Profile|
-                        :parameter-return-p T))
+			:parameter-return-p T))
 )
 
 
 #| missing/true?
-(def-mm-operation "containingProfile" |Stereotype| 
+(def-mm-operation "containingProfile" |Stereotype|
    "The query containingProfile returns the closest profile directly or indirectly
     containing this stereotype."
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Profile|
-                        :parameter-return-p T))
+			:parameter-return-p T))
     :operation-status :ignored
     :editor-note "This calls Package.containingProfile() which has a bug."
     :original-body
@@ -8750,13 +8750,13 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
 )
 |#
 
-(def-mm-operation "profile.1" |Stereotype| 
+(def-mm-operation "profile.1" |Stereotype|
    "A stereotype must be contained, directly or indirectly, in a profile."
    :operation-body
    "result = self.containingProfile()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Profile|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== StringExpression
@@ -8776,12 +8776,12 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
      "The StringExpressions that constitute this StringExpression.")))
 
 
-(def-mm-constraint "operands" |StringExpression| 
+(def-mm-constraint "operands" |StringExpression|
    "All the operands of a StringExpression must be LiteralStrings"
    :operation-body
    "operand->forAll (op | op.oclIsKindOf (LiteralString))")
 
-(def-mm-constraint "subexpressions" |StringExpression| 
+(def-mm-constraint "subexpressions" |StringExpression|
    "If a StringExpression has sub-expressions, it cannot have operands and
     vice versa (this avoids the problem of having to define a collating sequence
     between operands and subexpressions)."
@@ -8792,7 +8792,7 @@ cp.exit->forAll (p | p.stateMachine = self.submachine)))"
    :original-body
    "if subExpression->notEmpty() then operand->isEmpty() else operand->notEmpty()")
 
-(def-mm-operation "stringValue" |StringExpression| 
+(def-mm-operation "stringValue" |StringExpression|
    "The query stringValue() returns the string that concatenates, in order,
     all the component string literals of all the subexpressions that are part
     of the StringExpression."
@@ -8802,7 +8802,7 @@ then subExpression->iterate(se; stringValue = '' | stringValue.concat(se.stringV
 else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :original
     :editor-note "iterate not iterate()."
     :original-body
@@ -8839,7 +8839,7 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "Structural feature to be read.")))
 
 
-(def-mm-constraint "multiplicity" |StructuralFeatureAction| 
+(def-mm-constraint "multiplicity" |StructuralFeatureAction|
    "The multiplicity of the object input pin must be 1..1."
    :operation-body
    "self.object.is(1,1)"
@@ -8848,24 +8848,24 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
    :original-body
    "self.object.lowerBound()=1 and self.object.upperBound()=1")
 
-(def-mm-constraint "not_static" |StructuralFeatureAction| 
+(def-mm-constraint "not_static" |StructuralFeatureAction|
    "The structural feature must not be static."
    :operation-body
    "self.structuralFeature.isStatic = #false")
 
-(def-mm-constraint "one_featuring_classifier" |StructuralFeatureAction| 
+(def-mm-constraint "one_featuring_classifier" |StructuralFeatureAction|
    "A structural feature has exactly one featuringClassifier."
    :operation-body
    "self.structuralFeature.featuringClassifier->size() = 1")
 
-(def-mm-constraint "same_type" |StructuralFeatureAction| 
+(def-mm-constraint "same_type" |StructuralFeatureAction|
    "The structural feature must either be owned by the type of the object input
     pin, or it must be an owned end of a binary association with the type of
     the opposite end being the type of the object input pin."
    :operation-body
    "self.structuralFeature.featuringClassifier.oclAsType(Type)->includes(self.object.type) or  self.structuralFeature.oclAsType(Property).opposite.type = self.object.type")
 
-(def-mm-constraint "visibility" |StructuralFeatureAction| 
+(def-mm-constraint "visibility" |StructuralFeatureAction|
    "Visibility of structural feature must allow access to the object performing
     the action."
    :operation-body
@@ -8924,19 +8924,19 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
       no value and may not be accessed")))
 
 
-(def-mm-constraint "edges" |StructuredActivityNode| 
+(def-mm-constraint "edges" |StructuredActivityNode|
    "The edges owned by a structured node must have source and target nodes
     in the structured node, and vice versa."
    :operation-body
    "true")
 
-(def-mm-constraint "input_pin_edges" |StructuredActivityNode| 
+(def-mm-constraint "input_pin_edges" |StructuredActivityNode|
    "The incoming edges of the input pins of a StructuredActivityNode must have
     sources that are not within the StructuredActivityNode."
    :operation-body
    "true")
 
-(def-mm-constraint "output_pin_edges" |StructuredActivityNode| 
+(def-mm-constraint "output_pin_edges" |StructuredActivityNode|
    "The outgoing edges of the output pins of a StructuredActivityNode must
     have targets that are not within the StructuredActivityNode."
    :operation-body
@@ -8968,19 +8968,19 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "References the roles that instances may play in this classifier.")))
 
 
-(def-mm-constraint "multiplicities" |StructuredClassifier| 
+(def-mm-constraint "multiplicities" |StructuredClassifier|
    "The multiplicities on connected elements must be consistent."
    :operation-body
    "true")
 
 #| missing/true
-(def-mm-operation "part.1" |StructuredClassifier| 
+(def-mm-operation "part.1" |StructuredClassifier|
    "Missing derivation for StructuredClassifier::/part : Property"
    :operation-body
    "true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Property|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 |#
 
 ;;; =========================================================
@@ -9027,13 +9027,13 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "The template signature for the template that is the target of the binding.")))
 
 
-(def-mm-constraint "one_parameter_substitution" |TemplateBinding| 
+(def-mm-constraint "one_parameter_substitution" |TemplateBinding|
    "A binding contains at most one parameter substitution for each formal template
     parameter of the target template signature."
    :operation-body
    "template.parameter->forAll(p | parameterSubstitution->select(b | b.formal = p)->size() <= 1)")
 
-(def-mm-constraint "parameter_substitution_formal" |TemplateBinding| 
+(def-mm-constraint "parameter_substitution_formal" |TemplateBinding|
    "Each parameter substitution must refer to a formal template parameter of
     the target template signature."
    :operation-body
@@ -9069,7 +9069,7 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "The template signature that owns this template parameter.")))
 
 
-(def-mm-constraint "must_be_compatible" |TemplateParameter| 
+(def-mm-constraint "must_be_compatible" |TemplateParameter|
    "The default must be compatible with the formal template parameter."
    :operation-body
    "default->notEmpty() implies default->isCompatibleWith(parameteredElement)")
@@ -9097,7 +9097,7 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "The optional bindings from this element to templates.")))
 
 
-(def-mm-constraint "must_be_compatible" |TemplateParameterSubstitution| 
+(def-mm-constraint "must_be_compatible" |TemplateParameterSubstitution|
    "The actual parameter must be compatible with the formal template parameter,
     e.g. the actual parameter for a class template parameter must be a class."
    :operation-body
@@ -9124,7 +9124,7 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "The element that owns this template signature.")))
 
 
-(def-mm-constraint "own_elements" |TemplateSignature| 
+(def-mm-constraint "own_elements" |TemplateSignature|
    "Parameters must own the elements they parameter or those elements must
     be owned by the element being templated."
    :operation-body
@@ -9152,16 +9152,16 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "The optional bindings from this element to templates.")))
 
 
-(def-mm-operation "isTemplate" |TemplateableElement| 
+(def-mm-operation "isTemplate" |TemplateableElement|
    "The query isTemplate() returns whether this templateable element is actually
     a template."
    :operation-body
    "result = ownedTemplateSignature->notEmpty()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "parameterableElements" |TemplateableElement| 
+(def-mm-operation "parameterableElements" |TemplateableElement|
    "The query parameterableElements() returns the set of elements that may
     be used as the parametered elements for a template parameter of this templateable
     element. By default, this set includes all the owned elements. Subclasses
@@ -9171,7 +9171,7 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
    "result = allOwnedElements()->select(oclIsKindOf(ParameterableElement))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|ParameterableElement|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :rewritten
    :editor-note "added () to allOwnedElements."
    :original-body
@@ -9198,7 +9198,7 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "Gives the pin on which an object is placed.")))
 
 
-(def-mm-constraint "multiplicity" |TestIdentityAction| 
+(def-mm-constraint "multiplicity" |TestIdentityAction|
    "The multiplicity of the input pins is 1..1."
    :operation-body
    "self.first.is(1,1) and self.second.is(1,1)"
@@ -9207,12 +9207,12 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
    :original-body
    "self.first.multiplicity.is(1,1) and self.second.multiplicity.is(1,1) ")
 
-(def-mm-constraint "no_type" |TestIdentityAction| 
+(def-mm-constraint "no_type" |TestIdentityAction|
    "The input pins have no type."
    :operation-body
    "self.first.type->size() = 0 and self.second.type->size() = 0 ")
 
-(def-mm-constraint "result_is_boolean" |TestIdentityAction| 
+(def-mm-constraint "result_is_boolean" |TestIdentityAction|
    "The type of the result is the UML standard primitive type Boolean. (This
     is not directly representable in OCL at the metamodel level.)"
    :operation-body
@@ -9252,13 +9252,13 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "Specifies the corresponding time deadline.")))
 
 
-(def-mm-constraint "starting_time" |TimeEvent| 
+(def-mm-constraint "starting_time" |TimeEvent|
    "The starting time for a relative time event may only be omitted for a time
     event that is the trigger of a state machine."
    :operation-body
    "true")
 
-(def-mm-constraint "when_non_negative" |TimeEvent| 
+(def-mm-constraint "when_non_negative" |TimeEvent|
    "The ValueSpecification when must return a non-negative Integer."
    :operation-body
    "true")
@@ -9360,17 +9360,17 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
      "Specifies the triggers that may fire the transition.")))
 
 
-(def-mm-constraint "fork_segment_guards" |Transition| 
+(def-mm-constraint "fork_segment_guards" |Transition|
    "A fork segment must not have guards or triggers."
    :operation-body
    "(source.oclIsKindOf(Pseudostate) and source.kind = #fork) implies (guard->isEmpty() and trigger->isEmpty())")
 
-(def-mm-constraint "fork_segment_state" |Transition| 
+(def-mm-constraint "fork_segment_state" |Transition|
    "A fork segment must always target a state."
    :operation-body
    "(source.oclIsKindOf(Pseudostate) and source.kind = #fork) implies (target.oclIsKindOf(State))")
 
-(def-mm-constraint "initial_transition" |Transition| 
+(def-mm-constraint "initial_transition" |Transition|
    "An initial transition at the topmost level (region of a statemachine) either
     has no trigger or it has a trigger with the stereotype >."
    :operation-body
@@ -9380,17 +9380,17 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
    :original-body
    "self.source.oclIsKindOf(Pseudostate) implies (self.source.oclAsType(Pseudostate).kind = #initial) implies (self.source.container = self.stateMachine.top) implies ((self.trigger->isEmpty) or (self.trigger.stereotype.name = 'create')) ")
 
-(def-mm-constraint "join_segment_guards" |Transition| 
+(def-mm-constraint "join_segment_guards" |Transition|
    "A join segment must not have guards or triggers."
    :operation-body
    "(target.oclIsKindOf(Pseudostate) and target.kind = #join) implies (guard->isEmpty() and trigger->isEmpty())")
 
-(def-mm-constraint "join_segment_state" |Transition| 
+(def-mm-constraint "join_segment_state" |Transition|
    "A join segment must always originate from a state."
    :operation-body
    "(target.oclIsKindOf(Pseudostate) and target.kind = #join) implies (source.oclIsKindOf(State))")
 
-(def-mm-constraint "outgoing_pseudostates" |Transition| 
+(def-mm-constraint "outgoing_pseudostates" |Transition|
    "Transitions outgoing pseudostates may not have a trigger."
    :operation-body
    "source.oclIsKindOf(Pseudostate) and (source.kind <> #initial) implies trigger->isEmpty()"
@@ -9399,39 +9399,39 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
    :original-body
    "source.oclIsKindOf(Pseudostate) and (source.kind <> #initial)) implies trigger->isEmpty()")
 
-(def-mm-constraint "signatures_compatible" |Transition| 
+(def-mm-constraint "signatures_compatible" |Transition|
    "In case of more than one trigger, the signatures of these must be compatible
     in case the parameters of the signal are assigned to local variables/attributes."
    :operation-body
    "true")
 
-(def-mm-constraint "state_is_external" |Transition| 
+(def-mm-constraint "state_is_external" |Transition|
    "A transition with kind external can source any vertex except entry points."
    :operation-body
    "(kind = TransitionKind::external) implies  not (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint)")
 
-(def-mm-constraint "state_is_internal" |Transition| 
+(def-mm-constraint "state_is_internal" |Transition|
    "A transition with kind internal must have a state as its source, and its
     source and target must be equal."
    :operation-body
    "(kind = TransitionKind::internal) implies   (source.oclIsKindOf (State) and source = target)")
 
-(def-mm-constraint "state_is_local" |Transition| 
+(def-mm-constraint "state_is_local" |Transition|
    "A transition with kind local must have a composite state or an entry point
     as its source."
    :operation-body
    "(kind = TransitionKind::local) implies   ((source.oclIsKindOf (State) and source.oclAsType(State).isComposite) or   (source.oclIsKindOf (Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint))")
 
-(def-mm-operation "containingStateMachine" |Transition| 
+(def-mm-operation "containingStateMachine" |Transition|
    "The query containingStateMachine() returns the state machine that contains
     the transition either directly or transitively."
    :operation-body
    "result = container.containingStateMachine()"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|StateMachine|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isConsistentWith" |Transition| 
+(def-mm-operation "isConsistentWith" |Transition|
    "The query isConsistentWith() specifies that a redefining transition is
     consistent with a redefined transition provided that the redefining transition
     has the following relation to the redefined transition: A redefining transition
@@ -9443,9 +9443,9 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
     (source = trans.source) and (trigger = trans.trigger))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|redefinee| :parameter-type '|RedefinableElement|
+			:parameter-return-p NIL))
    :operation-status :rewritten
    :editor-note "Various problems with parentheses, trans not tran"
    :original-body
@@ -9453,13 +9453,13 @@ else operand->iterate(op; stringValue = '' | stringValue.concat(op.value)) endif
 result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefinee.oclAsType(Transition) in     (source() = trans.source() and trigger() = tran.trigger())"
 )
 
-(def-mm-operation "redefinitionContext.1" |Transition| 
+(def-mm-operation "redefinitionContext.1" |Transition|
    "The redefinition context of a transition is the nearest containing statemachine."
    :operation-body
    "result = let sm = containingStateMachine() in if sm.context->isEmpty() or sm.general->notEmpty() then sm else sm.context endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Classifier|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== Trigger
@@ -9490,7 +9490,7 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
      "Specifies the owning package of this classifier, if any.")))
 
 
-(def-mm-operation "conformsTo" |Type| 
+(def-mm-operation "conformsTo" |Type|
    "The query conformsTo() gives true for a type that conforms to another.
     By default, two types do not conform to each other. This query is intended
     to be redefined for specific conformance situations."
@@ -9498,9 +9498,9 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
    "result = false"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '|other| :parameter-type '|Type|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '|other| :parameter-type '|Type|
+			:parameter-return-p NIL)))
 
 ;;; =========================================================
 ;;; ====================== TypedElement
@@ -9534,41 +9534,41 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
      "The type of the object to be unmarshalled.")))
 
 
-(def-mm-constraint "multiplicity_of_object" |UnmarshallAction| 
+(def-mm-constraint "multiplicity_of_object" |UnmarshallAction|
    "The multiplicity of the object input pin is 1..1"
    :operation-body
    "true")
 
-(def-mm-constraint "multiplicity_of_result" |UnmarshallAction| 
+(def-mm-constraint "multiplicity_of_result" |UnmarshallAction|
    "The multiplicity of each result output pin must be compatible with the
     multiplicity of the corresponding structural features of the unmarshall
     classifier."
    :operation-body
    "true")
 
-(def-mm-constraint "number_of_result" |UnmarshallAction| 
+(def-mm-constraint "number_of_result" |UnmarshallAction|
    "The number of result output pins must be the same as the number of structural
     features of the unmarshall classifier."
    :operation-body
    "true")
 
-(def-mm-constraint "same_type" |UnmarshallAction| 
+(def-mm-constraint "same_type" |UnmarshallAction|
    "The type of the object input pin must be the same as the unmarshall classifier."
    :operation-body
    "true")
 
-(def-mm-constraint "structural_feature" |UnmarshallAction| 
+(def-mm-constraint "structural_feature" |UnmarshallAction|
    "The unmarshall classifier must have at least one structural feature."
    :operation-body
    "true")
 
-(def-mm-constraint "type_and_ordering" |UnmarshallAction| 
+(def-mm-constraint "type_and_ordering" |UnmarshallAction|
    "The type and ordering of each result output pin must be the same as the
     corresponding structural feature of the unmarshall classifier."
    :operation-body
    "true")
 
-(def-mm-constraint "unmarshallType_is_classifier" |UnmarshallAction| 
+(def-mm-constraint "unmarshallType_is_classifier" |UnmarshallAction|
    "unmarshallType must be a Classifier with ordered attributes"
    :operation-body
    "true")
@@ -9614,35 +9614,35 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
       but need not, own the use cases that apply to it.")))
 
 
-(def-mm-constraint "binary_associations" |UseCase| 
+(def-mm-constraint "binary_associations" |UseCase|
    "UseCases can only be involved in binary Associations."
    :operation-body
    "true")
 
-(def-mm-constraint "cannot_include_self" |UseCase| 
+(def-mm-constraint "cannot_include_self" |UseCase|
    "A use case cannot include use cases that directly or indirectly include
     it."
    :operation-body
    "not self.allIncludedUseCases()->includes(self)")
 
-(def-mm-constraint "must_have_name" |UseCase| 
+(def-mm-constraint "must_have_name" |UseCase|
    "A UseCase must have a name."
    :operation-body
    "self.name -> notEmpty ()")
 
-(def-mm-constraint "no_association_to_use_case" |UseCase| 
+(def-mm-constraint "no_association_to_use_case" |UseCase|
    "UseCases can not have Associations to UseCases specifying the same subject."
    :operation-body
    "true")
 
-(def-mm-operation "allIncludedUseCases" |UseCase| 
+(def-mm-operation "allIncludedUseCases" |UseCase|
    "The query allIncludedUseCases() returns the transitive closure of all use
     cases (directly or indirectly) included by this use case."
    :operation-body
    "result = self.include->union(self.include->collect(n | n.allIncludedUseCases()))"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|UseCase|
-                        :parameter-return-p T))
+			:parameter-return-p T))
    :operation-status :original
    :editor-note "in is a reserved word."
    :original-body
@@ -9661,13 +9661,13 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
      "Value that the pin will provide.")))
 
 
-(def-mm-constraint "compatible_type" |ValuePin| 
+(def-mm-constraint "compatible_type" |ValuePin|
    "The type of value specification must be compatible with the type of the
     value pin."
    :operation-body
    "true")
 
-(def-mm-constraint "no_incoming_edges" |ValuePin| 
+(def-mm-constraint "no_incoming_edges" |ValuePin|
    "Value pins have no incoming edges."
    :operation-body
    "true")
@@ -9684,23 +9684,23 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
   ())
 
 
-(def-mm-operation "booleanValue" |ValueSpecification| 
+(def-mm-operation "booleanValue" |ValueSpecification|
    "The query booleanValue() gives a single Boolean value when one can be computed."
    :operation-body
    "result = Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "integerValue" |ValueSpecification| 
+(def-mm-operation "integerValue" |ValueSpecification|
    "The query integerValue() gives a single Integer value when one can be computed."
    :operation-body
    "result = Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Integer|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isCompatibleWith" |ValueSpecification| 
+(def-mm-operation "isCompatibleWith" |ValueSpecification|
    "The query isCompatibleWith() determines if this parameterable element is
     compatible with the specified parameterable element. By default parameterable
     element P is compatible with parameterable element Q if the kind of P is
@@ -9711,16 +9711,16 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
    "result = p->oclIsKindOf(self.oclType()) and self.type.conformsTo(p.oclAsType(TypedElement).type)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\p :parameter-type '|ParameterableElement|
-                        :parameter-return-p NIL))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\p :parameter-type '|ParameterableElement|
+			:parameter-return-p NIL))
     :operation-status :rewritten
     :editor-note "oclType() not oclType. no oclType in OCL, AFAIK. This implementation has one one though..."
     :original-body
     "result = p->oclIsKindOf(self.oclType) and self.type.conformsTo(p.oclAsType(TypedElement).type)"
 )
 
-(def-mm-operation "isComputable" |ValueSpecification| 
+(def-mm-operation "isComputable" |ValueSpecification|
    "The query isComputable() determines whether a value specification can be
     computed in a model. This operation cannot be fully defined in OCL. A conforming
     implementation is expected to deliver true for this operation for all value
@@ -9731,41 +9731,41 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
    "result = false"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "isNull" |ValueSpecification| 
+(def-mm-operation "isNull" |ValueSpecification|
    "The query isNull() returns true when it can be computed that the value
     is null."
    :operation-body
    "result = false"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "realValue" |ValueSpecification| 
+(def-mm-operation "realValue" |ValueSpecification|
    "The query realValue() gives a single Real value when one can be computed."
    :operation-body
    "result = Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Real|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "stringValue" |ValueSpecification| 
+(def-mm-operation "stringValue" |ValueSpecification|
    "The query stringValue() gives a single String value when one can be computed."
    :operation-body
    "result = Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|String|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
-(def-mm-operation "unlimitedValue" |ValueSpecification| 
+(def-mm-operation "unlimitedValue" |ValueSpecification|
    "The query unlimitedValue() gives a single UnlimitedNatural value when one
     can be computed."
    :operation-body
    "result = Set{}"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|UnlimitedNatural|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 ;;; =========================================================
 ;;; ====================== ValueSpecificationAction
@@ -9782,13 +9782,13 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
      "Value specification to be evaluated.")))
 
 
-(def-mm-constraint "compatible_type" |ValueSpecificationAction| 
+(def-mm-constraint "compatible_type" |ValueSpecificationAction|
    "The type of value specification must be compatible with the type of the
     result pin."
    :operation-body
    "true")
 
-(def-mm-constraint "multiplicity" |ValueSpecificationAction| 
+(def-mm-constraint "multiplicity" |ValueSpecificationAction|
    "The multiplicity of the result pin is 1..1"
    :operation-body
    "true")
@@ -9818,21 +9818,21 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
      "A structured activity node that owns the variable.")))
 
 
-(def-mm-constraint "owned" |Variable| 
+(def-mm-constraint "owned" |Variable|
    "A variable is owned by a StructuredNode or Activity, but not both."
    :operation-body
    "true")
 
-(def-mm-operation "isAccessibleBy" |Variable| 
+(def-mm-operation "isAccessibleBy" |Variable|
    "The isAccessibleBy() operation is not defined in standard UML. Implementations
     should define it to specify which actions can access a variable."
    :operation-body
    "result = true"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Boolean|
-                        :parameter-return-p T)
-          (make-instance 'ocl-parameter :parameter-name '\a :parameter-type '|Action|
-                        :parameter-return-p NIL)))
+			:parameter-return-p T)
+	  (make-instance 'ocl-parameter :parameter-name '\a :parameter-type '|Action|
+			:parameter-return-p NIL)))
 
 ;;; =========================================================
 ;;; ====================== VariableAction
@@ -9845,7 +9845,7 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
      "Variable to be read.")))
 
 
-(def-mm-constraint "scope_of_variable" |VariableAction| 
+(def-mm-constraint "scope_of_variable" |VariableAction|
    "The action must be in the scope of the variable."
    :operation-body
    "self.variable.isAccessibleBy(self)")
@@ -9871,27 +9871,27 @@ result = (redefinee.oclIsKindOf(Transition) and   let trans: Transition = redefi
      "Specifies the transitions departing from this vertex.")))
 
 
-(def-mm-operation "containingStateMachine" |Vertex| 
+(def-mm-operation "containingStateMachine" |Vertex|
    "The operation containingStateMachine() returns the state machine in which
     this Vertex is defined"
    :operation-body
-   "result = 
+   "result =
 if not container->isEmpty()
    then container.containingStateMachine()
-   else if (oclIsKindOf(Pseudostate)) 
-           then if (kind = #entryPoint) or (kind = #exitPoint) 
-                    then stateMachine
-                    else if (oclIsKindOf(ConnectionPointReference)) 
-                            then state.containingStateMachine() -- no other valid cases possible
-                            else false 
-                         endif
-                endif
-           else false
+   else if (oclIsKindOf(Pseudostate))
+	   then if (kind = #entryPoint) or (kind = #exitPoint)
+		    then stateMachine
+		    else if (oclIsKindOf(ConnectionPointReference))
+			    then state.containingStateMachine() -- no other valid cases possible
+			    else false
+			 endif
+		endif
+	   else false
        endif
 endif"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|StateMachine|
-                        :parameter-return-p T))
+			:parameter-return-p T))
     :operation-status :rewritten
     :editor-note "added 2 'else false' and endif"
     :original-body
@@ -9899,23 +9899,23 @@ endif"
 )
 
 
-(def-mm-operation "incoming.1" |Vertex| 
+(def-mm-operation "incoming.1" |Vertex|
    "Missing derivation for Vertex::/incoming : Transition"
    :operation-body
    "result = Transition.allInstances()->select(t | t.target=self)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Transition|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 
 
-(def-mm-operation "outgoing.1" |Vertex| 
+(def-mm-operation "outgoing.1" |Vertex|
    "Missing derivation for Vertex::/outgoing : Transition"
    :operation-body
    "result = Transition.allInstances()->select(t | t.source=self)"
    :parameters
    (list (make-instance 'ocl-parameter :parameter-name NIL :parameter-type '|Transition|
-                        :parameter-return-p T)))
+			:parameter-return-p T)))
 
 
 ;;; =========================================================
@@ -9927,7 +9927,7 @@ endif"
   ())
 
 
-(def-mm-constraint "allow_access" |WriteLinkAction| 
+(def-mm-constraint "allow_access" |WriteLinkAction|
    "The visibility of at least one end must allow access to the class using
     the action."
    :operation-body
@@ -9949,13 +9949,13 @@ endif"
      "Value to be added or removed from the structural feature.")))
 
 
-(def-mm-constraint "input_pin" |WriteStructuralFeatureAction| 
+(def-mm-constraint "input_pin" |WriteStructuralFeatureAction|
    "The type of the value input pin is the same as the type of the structural
     feature."
    :operation-body
    "self.value->notEmpty() implies self.value.type =  self.structuralFeature.type")
 
-(def-mm-constraint "multiplicity" |WriteStructuralFeatureAction| 
+(def-mm-constraint "multiplicity" |WriteStructuralFeatureAction|
    "The multiplicity of the input pin is 1..1."
    :operation-body
    "self.value.is(1,1)"
@@ -9964,7 +9964,7 @@ endif"
    :original-body
    "self.value.multiplicity.is(1,1)")
 
-(def-mm-constraint "multiplicity_of_result" |WriteStructuralFeatureAction| 
+(def-mm-constraint "multiplicity_of_result" |WriteStructuralFeatureAction|
    "The multiplicity of the result output pin must be 1..1."
    :operation-body
    "result->notEmpty() implies self.result.is(1,1)"
@@ -9973,7 +9973,7 @@ endif"
    :original-body
    "result->notEmpty() implies self.result.multiplicity.is(1,1)")
 
-(def-mm-constraint "type_of_result" |WriteStructuralFeatureAction| 
+(def-mm-constraint "type_of_result" |WriteStructuralFeatureAction|
    "The type of the result output pin is the same as the type of the inherited
     object input pin."
    :operation-body
@@ -9991,7 +9991,7 @@ endif"
      "Value to be added or removed from the variable.")))
 
 
-(def-mm-constraint "multiplicity" |WriteVariableAction| 
+(def-mm-constraint "multiplicity" |WriteVariableAction|
    "The multiplicity of the input pin is 1..1."
    :operation-body
    "self.value.is(1,1)"
@@ -10000,12 +10000,12 @@ endif"
    :original-body
    "self.value.multiplicity.is(1,1)")
 
-(def-mm-constraint "same_type" |WriteVariableAction| 
+(def-mm-constraint "same_type" |WriteVariableAction|
    "The type input pin is the same as the type of the variable."
    :operation-body
    "self.value -> notEmpty() implies self.value.type = self.variable.type")
 
-(def-mm-package "uml" NIL :UML241 
+(def-mm-package "uml" NIL :UML241
    (|Abstraction|
     |AcceptCallAction|
     |AcceptEventAction|
@@ -10265,55 +10265,55 @@ endif"
 (in-package :mofi)
 
 (with-slots (mofi::abstract-classes mofi:ns-uri mofi:ns-prefix) mofi:*model*
-     (setf mofi::abstract-classes 
-        '(UML241::|Action|
-          UML241::|ActivityEdge|
-          UML241::|ActivityGroup|
-          UML241::|ActivityNode|
-          UML241::|Behavior|
-          UML241::|BehavioralFeature|
-          UML241::|BehavioredClassifier|
-          UML241::|CallAction|
-          UML241::|Classifier|
-          UML241::|ConnectableElement|
-          UML241::|ControlNode|
-          UML241::|DeployedArtifact|
-          UML241::|DeploymentTarget|
-          UML241::|DirectedRelationship|
-          UML241::|Element|
-          UML241::|EncapsulatedClassifier|
-          UML241::|Event|
-          UML241::|ExecutableNode|
-          UML241::|ExecutionSpecification|
-          UML241::|Feature|
-          UML241::|FinalNode|
-          UML241::|InteractionFragment|
-          UML241::|InvocationAction|
-          UML241::|LinkAction|
-          UML241::|LiteralSpecification|
-          UML241::|MessageEnd|
-          UML241::|MessageEvent|
-          UML241::|MultiplicityElement|
-          UML241::|NamedElement|
-          UML241::|Namespace|
-          UML241::|ObjectNode|
-          UML241::|Observation|
-          UML241::|PackageableElement|
-          UML241::|ParameterableElement|
-          UML241::|Pin|
-          UML241::|RedefinableElement|
-          UML241::|Relationship|
-          UML241::|StructuralFeature|
-          UML241::|StructuralFeatureAction|
-          UML241::|StructuredClassifier|
-          UML241::|TemplateableElement|
-          UML241::|Type|
-          UML241::|TypedElement|
-          UML241::|ValueSpecification|
-          UML241::|VariableAction|
-          UML241::|Vertex|
-          UML241::|WriteLinkAction|
-          UML241::|WriteStructuralFeatureAction|
-          UML241::|WriteVariableAction|))
+     (setf mofi::abstract-classes
+	'(UML241::|Action|
+	  UML241::|ActivityEdge|
+	  UML241::|ActivityGroup|
+	  UML241::|ActivityNode|
+	  UML241::|Behavior|
+	  UML241::|BehavioralFeature|
+	  UML241::|BehavioredClassifier|
+	  UML241::|CallAction|
+	  UML241::|Classifier|
+	  UML241::|ConnectableElement|
+	  UML241::|ControlNode|
+	  UML241::|DeployedArtifact|
+	  UML241::|DeploymentTarget|
+	  UML241::|DirectedRelationship|
+	  UML241::|Element|
+	  UML241::|EncapsulatedClassifier|
+	  UML241::|Event|
+	  UML241::|ExecutableNode|
+	  UML241::|ExecutionSpecification|
+	  UML241::|Feature|
+	  UML241::|FinalNode|
+	  UML241::|InteractionFragment|
+	  UML241::|InvocationAction|
+	  UML241::|LinkAction|
+	  UML241::|LiteralSpecification|
+	  UML241::|MessageEnd|
+	  UML241::|MessageEvent|
+	  UML241::|MultiplicityElement|
+	  UML241::|NamedElement|
+	  UML241::|Namespace|
+	  UML241::|ObjectNode|
+	  UML241::|Observation|
+	  UML241::|PackageableElement|
+	  UML241::|ParameterableElement|
+	  UML241::|Pin|
+	  UML241::|RedefinableElement|
+	  UML241::|Relationship|
+	  UML241::|StructuralFeature|
+	  UML241::|StructuralFeatureAction|
+	  UML241::|StructuredClassifier|
+	  UML241::|TemplateableElement|
+	  UML241::|Type|
+	  UML241::|TypedElement|
+	  UML241::|ValueSpecification|
+	  UML241::|VariableAction|
+	  UML241::|Vertex|
+	  UML241::|WriteLinkAction|
+	  UML241::|WriteStructuralFeatureAction|
+	  UML241::|WriteVariableAction|))
      (setf mofi:ns-uri "http://www.omg.org/spec/UML/20110701")
      (setf mofi:ns-prefix "uml"))
