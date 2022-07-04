@@ -71,6 +71,12 @@
     (and (member (slot-direct-slot slot) bslots)
 	 (some #'(lambda (s) (funcall (car (slot-definition-readers s)) obj)) bslots))))
 
+(defun mm-typep-package (val range)
+  (let ((rname (symbol-name (class-name range))))
+    (or (mm-typep val range)
+	(and (typep val 'mm-package-mo)
+	     (or (string= "Profile" rname)
+		 (string= "Package" rname))))))
 
 (defun validate-slotwise (model &key (collections-p t) run-cmof-p)
   "Check for missing mandatory value, incorrect multiplicity, wrong type specified for attribute
@@ -113,13 +119,13 @@
 				    (warn! mof-violates-multiplicity obj source (slot-direct-slot slot)))
 				  (when val ; If mandatory, will be pickup up above
 				    (loop for v in ocl-value 
-					  unless (or (null v) (mm-typep v range)) ; POD HUH?
+					  unless (or (null v) (mm-typep-package v range)) ; ToDo: null?
 					    do (warn! mof-violates-type obj source (slot-direct-slot slot)
 						      range v (value-symbol v))))))
 			       (t (when val ; If mandatory, will be pickup up above
 				    ;(setf *zippy* (list obj val range source slot))
 				    ;(break "two")
-				    (unless (mm-typep val range)
+				    (unless (mm-typep-package val range)
 				      (warn! mof-violates-type obj source (slot-direct-slot slot)
 					     range val (value-symbol val)))))))))
 	(dbg-message :time 1 "~%Start OCL validation tests: ~A" (now))

@@ -14,6 +14,15 @@
     #-sbcl(clos:slot-definition-name slot)
     #+sbcl(closer-mop:slot-definition-name slot)))
 
+;;; SB-PCL doesn't implement slot-direct-slot.
+;;; ToDo: 1) Is that true, or was this just calling it with the symbol sometimes!
+;;;;      2) This might need some adjustment for situations where there are same-named slots.
+(defun my-slot-direct-slot (eslot)
+  (let* ((source (slot-definition-source eslot))
+	 (class (if (symbolp source) (find-class source) source))
+	 (dslots (slot-value class 'sb-pcl::direct-slots)))
+    (find (slot-definition-name eslot) dslots :key #'slot-definition-name)))
+
 #-sbcl(defun slot-def-documentation (slot) (documentation slot 'slot))
 #+sbcl
 (defun slot-def-documentation (slot)
@@ -47,9 +56,8 @@
 	    (esc (package-name (symbol-package (class-name obj))))
 	    (esc (encode-angle (string (class-name obj)))))))
 
-
-;;; POD 2009-12-14: This has problems when the symbol is || Why would it be that?
-;;; POD 2009-12-14: I added the if zerop stuff for that reason. Still not working.
+;;; ToDo: This has problems when the symbol is || Why would it be that?
+;;;        I added the if zerop stuff for that reason. Still not working.
 (defmethod encode-for-url ((obj symbol))
   (macrolet ((esc (v) `(tbnl:url-encode (string ,v))))
     (format nil "symbol*~A*~A"
@@ -358,10 +366,7 @@
 
 ;;; The expo method caused me to specialize on slot, and this gets called for both d- and e-.
 (defmethod url-property-button (class (slot mofi::mm-effective-slot-definition) &key open-slots image object)
-  (setf *zippy* (list :url-property-button-eff (mofi:slot-definition-source slot)))
-  (when-bind (dslot (find (slot-def-name slot)
-			  (closer-mop:class-direct-slots (mofi:slot-definition-source slot))
-			   :key #'slot-def-name))
+  (when-bind (dslot (my-slot-direct-slot slot))
     (url-property-button class dslot :open-slots open-slots :image image :object object)))
 
 ;;; You can always get open-slots from the request.
@@ -371,7 +376,6 @@
     IMAGE - either :open or :close
     OBJECT - a 'VOBJ' object key.
     -- Note that image html doesn't look like xml. (Works on firefox, but not IE)."
-  (setf *zippy* (list :url-property-button-dir class slot open-slots object))
   (let* ((app (find-http-app (safe-app-name)))
 	 (img (case image
 	       (:open  (format nil "<img src='~A/image/down-arrow.png'>" (app-url-prefix app)))
@@ -384,14 +388,14 @@
 	(format nil "<a href='~A/object-view?obj-key=~A&open-slots=~{~A~^|~}&examples=~A~A#~A' name='~A'>~A</a>"
 		(app-url-prefix app)
 		object
-		(mapcar #'encode-for-url (mapcar #'(lambda (x) (when x (slot-direct-slot x))) open-slots))
+		(mapcar #'encode-for-url (mapcar #'(lambda (x) (when x (my-slot-direct-slot x))) open-slots))
 		n-examples
 		(menu-from-request)
 		slot-name slot-name img)
 	(format nil "<a href='~A/class-view?class=~A&open-slots=~{~A~^|~}&examples=~A~A#~A' name='~A'>~A</a>"
 		(app-url-prefix app)
 		(encode-for-url class)
-		(mapcar #'encode-for-url (mapcar #'(lambda (x) (when x (slot-direct-slot x))) open-slots))
+		(mapcar #'encode-for-url (mapcar #'(lambda (x) (when x (my-slot-direct-slot x))) open-slots))
 		n-examples
 		(menu-from-request)
 		slot-name slot-name img))))
@@ -415,14 +419,14 @@
 	(format nil "<a href='~A/object-view?obj-key=~A&open-slots=~{~A~^|~}&examples=~A~A#~A' name='~A'>~A</a>"
 		(app-url-prefix app)
 		object
-		(mapcar #'encode-for-url (mapcar #'(lambda (x) (when x (slot-direct-slot x))) open-slots))
+		(mapcar #'encode-for-url (mapcar #'(lambda (x) (when x (my-slot-direct-slot x))) open-slots))
 		n-examples
 		(menu-from-request)
 		slot-name slot-name img)
 	(format nil "<a href='~A/class-view?class=~A&open-slots=~{~A~^|~}&examples=~A~A#~A' name='~A'>~A</a>"
 		(app-url-prefix app)
 		(encode-for-url class)
-		(mapcar #'encode-for-url (mapcar #'(lambda (x) (when x (slot-direct-slot x))) open-slots))
+		(mapcar #'encode-for-url (mapcar #'(lambda (x) (when x (my-slot-direct-slot x))) open-slots))
 		n-examples
 		(menu-from-request)
 		slot-name slot-name img))))
@@ -534,7 +538,7 @@
   (let ((class (decode-for-url (safe-get-parameter "class")))
 	(operator (safe-get-parameter "operator"))
 	(menu (decode-for-url (safe-get-parameter "menu")))
-	(open-slots  (mapcar #'(lambda (x) (when x (slot-direct-slot x)))
+	(open-slots  (mapcar #'(lambda (x) (when x (my-slot-direct-slot x)))
 			     (mapcar #'decode-for-url
 				     (split
 				      (safe-get-parameter "open-slots")
@@ -785,6 +789,7 @@
 
 (defmethod show-slot ((view (eql :class-browser)) slot class open-slots &key)
   "Produce html for slot, its multiplicity, source etc."
+  (setf *zippy* (list :show-slot slot open-slots))
   (let* ((open-p (member (slot-def-name slot) open-slots :key #'slot-def-name))
 	 (source-class (mofi:slot-definition-source slot))
 	 (range-class  (mofi:slot-definition-range slot)))
@@ -884,7 +889,7 @@
 				 (find-if #'stringp (flatten default-val))
 				 (last1 default-val))
 			 default-val))))
-      (when (member (slot-direct-slot slot)
+      (when (member (my-slot-direct-slot slot)
 		    (mofi:derived-slots-no-fn (mofi:of-model (mofi:slot-definition-source slot))))
 	(str "<br/><strong>The spec does not provide a function to compute this derived property!</strong>"))
       (:br)))))
@@ -896,7 +901,7 @@
   (when-bind (obj-key (safe-get-parameter "obj-key"))
     (with-vo (view-objects)
       (when-bind (obj (gethash obj-key view-objects))
-	(let ((open-slots (mapcar #'slot-direct-slot
+	(let ((open-slots (mapcar #'my-slot-direct-slot
 				  (mapcar #'decode-for-url
 					  (split
 					   (safe-get-parameter "open-slots")
@@ -948,7 +953,7 @@
 	       (when-bind (vobj (gethash obj perfect-ht))
 		 (format stream "Corresponding valid.xmi object: ~A" (url-object-browser vobj)))))))
        (:h3 "Properties:")
-       (loop for slot in (mapcar #'slot-direct-slot (mofi:mapped-slots class)) do
+       (loop for slot in (mapcar #'my-slot-direct-slot (mofi:mapped-slots class)) do
 	     (format stream "~A" (show-slot :object-browser slot class open-slots
 						  :object obj :vobj obj-key)))))))
 

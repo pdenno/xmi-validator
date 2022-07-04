@@ -334,6 +334,10 @@
 ;;; are going to get mm-package-mo, which won't pass the test for being CMOF/UML packages.
 ;;; I didn't complete this because I opted for special method for type validation,
 ;;; See http://localhost:3330/se-interop/sysml/explanation?concept=MOF-VIOLATES-TYPE .
+;;; I *think* a problem with what I started below is that no matter whether I provide
+;;; a conformant Package or not, it might not be for the correct version of schema involved.
+;;; For example, a profile might be written in UML 2.5, but reference the SysML 1.6 package.
+;;; That package is in UML 2.5.1.
 #+nil(defmacro def-meta-package (name owner of-model owned-element &key xmi-id)
   `(with-slots (packages) *model*
      (push
