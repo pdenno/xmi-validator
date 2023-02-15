@@ -141,48 +141,31 @@
 
 ;;; Here are some example usages for debugging
 #+nil(defun tryme ()
-  (let ((oclp::*in-scope-models* (list (mofi:find-model :uml251)
-				       (mofi:find-model :ocl)))
-	(*model* (mofi:find-model :uml251)))
-    (oclp:uml-ocl2lisp ; a convenience function
-     "((supplierDependency->   select(oclIsKindOf(Usage) and client->forAll(oclIsKindOf(Interface))))
-         ->collect(client.oclAsType(Interface))->asSet())"
-     :class-context 'uml251:|Classifier|)))
+  (let ((*model* (mofi:find-model :sysml16)))
+    (oclp:uml-ocl2lisp
+     "Verify.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client"
+     :class-context 'sysml16:|AbstractRequirement|)))
 
+;;; (mofi:compile-constraints (find-class 'uml241:|StateMachine|))
 #+nil(defun tryme ()
-  (let ((oclp::*in-scope-models* (list (mofi:find-model :uml241)
-				       (mofi:find-model :ocl)))
-	(*model* (mofi:find-model :uml241)))
-    (oclp:uml-ocl2lisp ; a convenience function
-     "context->notEmpty() implies not context.oclIsKindOf(Interface)"
-     :class-context 'uml241:|StateMachine|)))
-
-;;; (compile-constraints (find-class 'uml241:|StateMachine|))
-#+nil(defun tryme ()
-  (let ((oclp::*in-scope-models* (list (mofi:find-model :uml241)
-				       (mofi:find-model :ocl)))
-	(*model* (mofi:find-model :uml241)))
+  (let ((*model* (mofi:find-model :uml241)))
     (oclp:ocl2lisp
      "context->notEmpty() implies not context.oclIsKindOf(Interface)"
      :debug-p t
-     :scope oclp::*in-scope-models*
      :class-context 'uml241:|StateMachine|)))
 
 ;;; This gets called by load-model, not by evaluating the def-mm-constraint
 ;;; Handler-case doesn't need to throw and it always handles the error.
-;;;  NOTE!!! To test this function in isolation, wrap it in
-;;; (let ((*in-scope-models* (list (find-model :uml) (find-model :ocl)))) ...)
 (defmethod compile-constraints ((class mofi:mm-type-mo) &key (gf-name 'ocl-constraints))
   "Compile all OCL constraints of class CLASS with (eq x.constraint-gf gf-name).
     (1) Add a method to the generic function named by gf-name for CLASS.
     (2) Set op.lisp to the lisp produced by the concatenation (with special variable
-	binding for tracking) of the  ocl2lisp for each constraint."
+	binding for tracking) of the  ocl2lisp for each constraint.
+     Note that this depends on oclp:*in-scope-models* which is bound in initial-instance
+     for a mofi:compiled-model."
   (flet ((compile-one-constraint (ocl-text constraint-name)
 	   (handler-case
-	       (let ((oclp::*in-scope-models* ; 2012-02-24 added this binding of oclp::*in-scope-models*
-		      (list (mofi:of-model class) (mofi:find-model :ptypes) (mofi:find-model :ocl)))
-		     (mofi:*model* (mofi:of-model class)))
-		 (declare (special oclp::*in-scope-models* mofi:*model*))
+	       (let ((mofi:*model* (mofi:of-model class)))
 		 (oclp:ocl2lisp ocl-text :class-context (class-name class)))
 	     (error ()
 	       (warn "OCL parse error on constraint ~A.~A: ~% '~A'"
@@ -279,10 +262,8 @@
     (2) Set op.lisp to the lisp produced by ocl2lisp."
   (flet ((compile-it (ocl-text class op-name)
 	   (handler-case
-	       (let ((oclp::*in-scope-models* ; 2012-02-24 added this binding of oclp::*in-scope-models*
-		      (list (mofi:of-model class) (mofi:find-model :ptypes) (mofi:find-model :ocl)))
-		     (mofi:*model* (mofi:of-model class)))
-		 (declare (special oclp::*in-scope-models* mofi:*model*))
+	       (let ((mofi:*model* (mofi:of-model class)))
+		 (declare (special mofi:*model*))
 		   (oclp:ocl2lisp ocl-text :class-context (class-name class)))
 	     (error ()
 	       (warn "OCL parse error on operation ~A.~A: ~% '~A'"

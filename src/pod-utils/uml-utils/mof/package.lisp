@@ -1,4 +1,3 @@
-
 (in-package :cl-user)
 
 (defpackage mofi
@@ -9,7 +8,7 @@
   (:shadowing-import-from :ptypes "Boolean" "String" "Integer" "UnlimitedNatural" "Real")
   (:shadowing-import-from :ocl "-TYP" "VALUE")
   (:export #:abstract-model
-           #:abstract-p
+	   #:abstract-p
 	   #:abstract-profile
 	   #:all-umls
 	   #:all-xmis
@@ -74,6 +73,7 @@
 	   #:general-errors
 	   #:href-uri
 	   #:inherited-types
+	   #:in-scope-models
 	   #:*inside-derivation-p*
 	   #:instance-install-fn
 	   #:instances
@@ -90,7 +90,7 @@
 	   #:mm-class-mo
 	   #:mm-effective-slot-definition
 	   #:mm-find-instance
-       	   #:mm-package-mo
+	   #:mm-package-mo
 	   #:model-diff
 	   #:model-name
 	   #:model-n+1
@@ -112,7 +112,7 @@
 	   #:ns-prefix
 	   #:ns-uri
 	   #:of-class
-           #:of-model
+	   #:of-model
 	   #:object-extents
 	   #:object-vector
 	   #:ocl-constraint
@@ -216,33 +216,21 @@
 	   ;; Stuff that was in a ill-conceived package called MOF
 	   #:%conditions
 	   #:|conditions|
-	   #:%debug-id  
+	   #:%debug-id
 	   #:|debug-id|
 	   #:%defined-at
-	   #:|defined-at| 
+	   #:|defined-at|
 	   #:%obj-id
-	   #:|obj-id| 
+	   #:|obj-id|
 	   #:%mapped-slots
 	   #:|mapped-slots|
 	   #:%of-model
-	   #:|of-model| 
+	   #:|of-model|
 	   #:%sort-name
-	   #:|sort-name| 
+	   #:|sort-name|
 	   #:%source-elem
-	   #:|source-elem| 
+	   #:|source-elem|
 	   #:%tmpl-desc
 	   #:|tmpl-desc|
 	   #:%token-position
 	   #:|token-position|))
-
-
-
-
-
-
-
-
-
-	   
-
-

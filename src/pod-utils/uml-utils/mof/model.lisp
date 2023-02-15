@@ -183,7 +183,13 @@
    ;; An list of direct slot objects that are declared derived, but for which no derivation specified.
    (derived-slots-no-fn :reader derived-slots-no-fn :initform nil)
    ;; pretty-name: can't make it a nickname because of possible package collisions
-   (pretty-name :reader pretty-name :initform nil :initarg :pretty-name)))
+   (pretty-name :reader pretty-name :initform nil :initarg :pretty-name)
+   ;; in-scope-models: models that may be referenced when compiling the subject model;
+   ;; used to bind oclp:*in-scope-models*.
+   (in-scope-models :reader in-scope-models :initform nil)))
+
+(defmethod initialize-instance :after ((m compiled-model) &key)
+  (setf (slot-value m 'in-scope-models) (cons m (depends-on-models m))))
 
 (defmethod print-object ((obj compiled-model) stream)
   (with-slots (model-name types) obj
@@ -391,8 +397,9 @@
 	(load-model-compiled-resolve-assocs m)
 	(unless (or (eql m +mof+)              ;; ocl:compile-constraints not yet defined
 		    (eql m (find-model :ocl))) ;; (and no constraints anyway).
-	  (let ((oclp:*in-scope-models* (list (find-model :ocl) (find-model :ptypes) m)))
+	  (let ((oclp:*in-scope-models* (cons m (depends-on-models m))))
 	    (declare (special oclp:*in-scope-models*))
+	    (format t "~% In load-model *in-scope-models* = ~A" oclp:*in-scope-models*)
 	    (loop for class across (types m)
 	       do (ocl:compile-operations class)
 	       do (ocl:compile-constraints class)))

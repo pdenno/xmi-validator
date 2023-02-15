@@ -100,6 +100,7 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :href-uri "http://www.omg.org/spec/UML/20161101/StandardProfile.xmi"
  :model-class 'mofi::profile
  :model-n+1 :uml241
+ :depends-on-models '(:ocl :ptypes)
  :classes-path (pod:lpath :models "uml/uml-std-profile-20161101.lisp")
  :href-uri "http://www.omg.org/spec/UML/20110701/StandardProfile.xmi"
  :ns-uri "http://www.omg.org/spec/UML/20110701/StandardProfile"      ; Use this one for xmlns
@@ -114,7 +115,7 @@ URLs had different dates than the URI, and now we still have a similar problem w
 	      "http://www.omg.org/spec/UML/20131001/UML.xmi")
  :pretty-name "UML"
  :features '(:miwg)
- :depends-on-models '(:ocl #|:uml-profile-20131001|#)
+ :depends-on-models '(:ocl :ptypes #|:uml-profile-20131001|#)
  :documentation "Compiled from UML/20131001  on 2013-12-12. "
  :model-class 'mofi:essential-compiled-model
  :classes-path (pod:lpath :models "uml/uml25.lisp")
@@ -133,6 +134,7 @@ URLs had different dates than the URI, and now we still have a similar problem w
  :href-uri "http://www.omg.org/spec/UML/20131001/StandardProfile.xmi"
  :model-class 'mofi::profile
  :model-n+1 :uml25
+ :depends-on-models '(:ocl :ptypes)
  :classes-path (pod:lpath :models "uml/uml-std-profile-20131001.lisp")
  :href-uri "http://www.omg.org/spec/UML/20131001/StandardProfile.xmi"
  :ns-uri "http://www.omg.org/spec/UML/20131001/StandardProfile"      ; Use this one for xmlns

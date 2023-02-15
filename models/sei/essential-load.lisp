@@ -116,7 +116,7 @@
 	      "http://schema.omg.org/spec/CMOF"
 	      "http://schema.omg.org/spec/MOF/2.0/cmof.xml")
  :features '(:always)
- :depends-on-models '(:ocl)
+ :depends-on-models '(:ocl :ptypes)
  :documentation "Generated from infralib/10-08-15-cleanup.xmi (which is a metamodel specified in UML).
 		 updated with OCL from uml23 only where appropriate. (I hope!)"
  :model-class 'mofi:essential-compiled-model
@@ -138,7 +138,7 @@
 	      "http://www.omg.org/spec/UML/20090901/UML.xmi")  ;<---- Use this one for hrefs with
  :pretty-name "UML"
  :features '(:miwg :cre)
- :depends-on-models '(:ocl)
+ :depends-on-models '(:ocl :ptypes)
  :documentation "Produced from http://www.omg.org/cgi-bin/doc?ptc/09-09-23 (Updated UML 2.3 L3.merged.xmi)
 		CMOF_file (1194956 bytes)"
  :classes-path (pod:lpath :models "uml/uml23.lisp")
@@ -156,7 +156,7 @@
 	      "http://www.omg.org/spec/UML/20110701/UML.xmi")
  :pretty-name "UML"
  :features '(:miwg :cre)
- :depends-on-models '(:ocl)
+ :depends-on-models '(:ocl :ptypes)
  :documentation "Retrieved from http://www.omg.org/spec/UML/2.4.1/ Validator-generated version
   created 2012-01-22, back-filling edits from 2.3."
  :classes-path (pod:lpath :models "uml/uml241.lisp")

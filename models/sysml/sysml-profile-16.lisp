@@ -133,7 +133,7 @@
      "Derived from all elements that are the client of a  verify  relationship
       for which this requirement is a supplier.")))
 
-(def-meta-operation |derived| |AbstractRequirement|
+(def-meta-operation |derived.1| |AbstractRequirement|
    ""
    :operation-body
    "DeriveReqt.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client"
@@ -142,7 +142,7 @@
 			:parameter-return-p T))
 )
 
-(def-meta-operation |derivedFrom| |AbstractRequirement|
+(def-meta-operation |derivedFrom.1| |AbstractRequirement|
    ""
    :operation-body
    "DeriveReqt.allInstances()->select(base_Abstraction.client=self).base_Abstraction.supplier"
@@ -151,7 +151,7 @@
 			:parameter-return-p T))
 )
 
-(def-meta-operation |master| |AbstractRequirement|
+(def-meta-operation |master.1| |AbstractRequirement|
    ""
    :operation-body
    "Copy.allInstances()->select(base_Abstraction.client=self).base_Abstraction.supplier"
@@ -160,7 +160,7 @@
 			:parameter-return-p T))
 )
 
-(def-meta-operation |refinedBy| |AbstractRequirement|
+(def-meta-operation |refinedBy.1| |AbstractRequirement|
    ""
    :operation-body
    "Refine.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client"
@@ -169,7 +169,7 @@
 			:parameter-return-p T))
 )
 
-(def-meta-operation |satisfiedBy| |AbstractRequirement|
+(def-meta-operation |satisfiedBy.1| |AbstractRequirement|
    ""
    :operation-body
    "Satisfy.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client "
@@ -178,7 +178,7 @@
 			:parameter-return-p T))
 )
 
-(def-meta-operation |tracedTo| |AbstractRequirement|
+(def-meta-operation |tracedTo.1| |AbstractRequirement|
    ""
    :operation-body
    "Trace.allInstances()->select(base_Abstraction.client=self).base_Abstraction.supplier"
@@ -187,7 +187,7 @@
 			:parameter-return-p T))
 )
 
-(def-meta-operation |verifiedBy| |AbstractRequirement|
+(def-meta-operation |verifiedBy.1| |AbstractRequirement|
    ""
    :operation-body
    "Verify.allInstances()->select(base_Abstraction.supplier=self).base_Abstraction.client"

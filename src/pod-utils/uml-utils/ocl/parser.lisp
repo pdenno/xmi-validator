@@ -47,10 +47,9 @@
 (defun uml-ocl2lisp (code &key class-context (debug-level 5))
   "Convenience function to run ocl2lisp in the context of UML."
   (format t "~%Testcase: ~S~%" code)
-  (let ((*in-scope-models* (list (mofi:of-model (find-class class-context))
-				 (mofi:find-model :ptypes)
-				 (mofi:find-model :ocl)))
-	(mofi:*model* (mofi:of-model (find-class class-context))))
+  (let* ((class-model (mofi:of-model (find-class class-context)))
+	 (*in-scope-models* (mofi:in-scope-models class-model))
+	 (mofi:*model* (mofi:of-model (find-class class-context))))
     (declare (special *in-scope-models* mofi:*model*))
     (with-debugging (:parser debug-level)
       (ocl2lisp code :class-context class-context))))
@@ -63,7 +62,10 @@
   (init-bcounters) ; done on every form
   (setf *class-context* class-context)
   (setf *tags-trace* nil)
-  (subst 'self 'inject-self (parse-data stream '|ExpressionInOcl| :scope scope)))
+    (let* ((class-model (mofi:of-model (find-class class-context)))
+	   (*in-scope-models* (mofi:in-scope-models class-model)))
+      (declare (special *in-scope-models* mofi:*model*))
+      (subst 'self 'inject-self (parse-data stream '|ExpressionInOcl| :scope scope))))
 
 ;;; ToDo: 2010-05-30 Previously, I only had this one:
 

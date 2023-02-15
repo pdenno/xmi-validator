@@ -2,20 +2,19 @@
 
 (in-package :mofi)
 
-;;; 2016-09-22: I only have canonical for miwg23. 
+;;; 2016-09-22: I only have canonical for miwg23.
 
 (defparameter *regression-tests* nil "A list of test objects.")
 
-
-#| This stuff isn't necessary. There is a slot called 'suite'. 
-(defparameter *uml22-tests* 
+#| This stuff isn't necessary. There is a slot called 'suite'.
+(defparameter *uml22-tests*
   '(:aasysml-22 :dishwasher-22 :handset-22 :mickael-22 :rif-22
 			:rhapsody-exercise-1and2-22 :magicdraw-exercise-1-22
 			:brookshire-22)
   "UML 2.2 tests -- these could additionally use profiles.")
 
-(defparameter *uml21-tests* 
-  '(:aasysml :dishwasher :handset :mickael :rif 
+(defparameter *uml21-tests*
+  '(:aasysml :dishwasher :handset :mickael :rif
     :rhapsody-exercise-1and2 :magicdraw-exercise-1 :brookshire #|:fuml|#)
   "UML 2.1 tests -- these could additionally use profiles.")
 |#
@@ -29,7 +28,7 @@
   (check-untested-error-category)
   (loop for test in (sort (remove-if-not #'(lambda (x) (eql (suite x) suite)) *regression-tests*)
 			  #'< :key #'run-sequence)
-     do (run-recorded-test (name test) 
+     do (run-recorded-test (name test)
 			   :run-canonical-p (or run-canonical-p save-canonical-p)
 			   :save-canonical-p save-canonical-p
 			   :suite suite))
@@ -84,7 +83,7 @@
 			(loop for c across (conditions (processing-results mut))
 			   when (string= title (get :title (class-name (class-of c))))
 			   do (incf found)
-			   finally 
+			   finally
 			     (unless (= cnt found)
 			       (format *debug-io* "~% '~A' (expected ~A, got ~A)" title cnt found))))))))
 	(when run-canonical-p (test-canonical mut))
@@ -94,7 +93,7 @@
 					(string name))
 	    (if success
 		(pod-utils::copy-file (phttp::user-pathname (pod:lpath :tmp "diff/user-canonical.xml"))
-			   (merge-pathnames 
+			   (merge-pathnames
 			    (make-pathname :name (format nil "tc~A" (aref vec 0)) :type "xml")
 			    (suite-canonical-path suite)))
 		(warn "Not copying canonical to respository.")))))))
@@ -107,12 +106,12 @@
 	    (make-instance 'phttp:sei-session-vo :models *essential-models*)
 	    *spare-session-vo*))
     (handler-bind
-	((simple-warning #'(lambda (c) 
+	((simple-warning #'(lambda (c)
 			     (with-slots (mofi::conditions) mofi:*results*
 			       (vector-push-extend c mofi::conditions))
 			     (muffle-warning))))
       (with-debugging (:readers 0) ;(:readers 5)
-	(let ((mutt (xmi2model-instance :file fname))) 
+	(let ((mutt (xmi2model-instance :file fname)))
 	  (with-vo (mut) (setf mut mutt)) ; 2012-10-03
 	  (dbg-message :readers 5 "~%Passed xmi2model-instance")
 	  (when validate-p (validate mutt))
@@ -133,7 +132,7 @@
   (format *debug-io* "~% Generating canonical. Comparing its validation with that of original.")
   (let ((orig-cond (equiv-classes (coerce (conditions (processing-results mut)) 'list)
 			     :key #'(lambda (x) (get :title (class-name (class-of x)))))))
-    (mofi:xmi-direct-transform mut) 
+    (mofi:xmi-direct-transform mut)
     (let ((fname (phttp::user-pathname (pod:lpath :tmp "diff/user-canonical.xml"))))
       (format t "~% Canonical is ~A" (truename fname))
       (if (eql :xml (usr-bin-file fname))
@@ -141,10 +140,10 @@
 		 (cmut-cond (equiv-classes (coerce (conditions (processing-results cmut)) 'list)
 					   :key #'(lambda (x) (get :title (class-name (class-of x)))))))
 	    (loop for cmut-class in cmut-cond
-	          for orig-class = (find (class-of (car cmut-class)) orig-cond 
+		  for orig-class = (find (class-of (car cmut-class)) orig-cond
 					 :key #'(lambda (x) (class-of (car x))))
-	          unless (= (length orig-class) (length cmut-class))
-	          do (format *debug-io* "~% ~30A : Original ~A, Canonical ~A"
+		  unless (= (length orig-class) (length cmut-class))
+		  do (format *debug-io* "~% ~30A : Original ~A, Canonical ~A"
 			     (get :title (class-name (class-of (car cmut-class))))
 			     (length orig-class)
 			     (length cmut-class))))
@@ -154,7 +153,7 @@
 
 (defparameter *run-sequence* 0 "Ordering that tests should run is order they appear in this file.")
 (defclass regression-test ()
-  ((name :initarg :name :reader name) 
+  ((name :initarg :name :reader name)
    (comment :initarg :comment :initform "")
    (path :initarg :path)
    (suite :initarg :suite :reader suite )
@@ -167,7 +166,7 @@
 
 
 (defmacro defTest (&key name path suite comment expected)
-  `(progn 
+  `(progn
     (setf *regression-tests*
 	  (remove ,name *regression-tests* :key #'name))
     (push
@@ -195,7 +194,7 @@
      ocl-violation
      mof-creates-abstract-class
      mof-stereotype-application-in-model
-     mof-duplicate-sterotype-application 
+     mof-duplicate-sterotype-application
      mof-invalid-sterotype-application
      mof-no-object-for-stereotyping
      mof-violates-type
@@ -213,7 +212,7 @@
      xmi-serializes-default
      xmi-excess-space
      mof-duplicate-xmi-id)
-    (:diff 
+    (:diff
      xmi-diff-property-not-specified
      xmi-diff-property-values-differ
      xmi-diff-valid-missing
@@ -224,15 +223,15 @@
 (defun error-on-non-existant-error-category ()
   "Produce an error when you can't find an error category in *error-categories*."
   (loop for cat in (mapappend #'cdr *error-categories*)
-        unless (find-class cat nil)
-        do (error "I don't know about error category ~A" cat)))
+	unless (find-class cat nil)
+	do (error "I don't know about error category ~A" cat)))
 
 (defun check-untested-error-category ()
   (flet ((subs-of (class-name)
 	   (mapcar #'class-name (class-direct-subclasses (find-class class-name nil)))))
     (let* ((ignore '(ocl-type-error-report mof-diff-warning))
 	   (all-cats (append (mapappend #'cdr *error-categories*) ignore))
-	   (all-subs (append 
+	   (all-subs (append
 		      (subs-of 'mof-diff-warning)
 		      (subs-of 'mof-warning))))
       (loop for test in all-subs
@@ -245,7 +244,7 @@
   '("/home/pdenno/projects/miwg/Tests/OMG-Model-Interchange/trunk/UML2.1.1-XMI2.1/Test-Case-6/Submissions/RSx-7.5.x/our-export.xmi;"
     "/home/pdenno/projects/miwg/Tests/OMG-Model-Interchange/trunk/Tests/SysML1.2-XMI2.1/Test-Case-11/Submissions/Modelio-1.2/our-export.xmi"))
 
-(defparameter *vendor-files-to-ignore* 
+(defparameter *vendor-files-to-ignore*
   '("/local/lisp/pod-utils/uml-utils/data/maged/latest/Test-Case-15/Submissions/Modelio-2.4.19/our-export.xmi"))
 #|
   '("/local/lisp/pod-utils/uml-utils/data/maged/base/Test-Case-9/Submissions/MagicDraw-17.0/our-export.xmi"
@@ -278,15 +277,15 @@
    and differences to valid."
   (ensure-trie-db :miwg-testing)
   (loop for tc in '("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12a" "12b" "13" "14" "15" "16")
-        for tc-name = (kintern (format nil "TC~A" tc))
-        for base = (merge-pathnames 
-		    (make-pathname 
-		     :directory (list :relative (format nil "Test-Case-~A" tc) "Submissions")) 
+	for tc-name = (kintern (format nil "TC~A" tc))
+	for base = (merge-pathnames
+		    (make-pathname
+		     :directory (list :relative (format nil "Test-Case-~A" tc) "Submissions"))
 		    #P"/local/lisp/pod-utils/uml-utils/data/maged/base/") do
        (format t "~3% ========== Test Case ~A ===========" tc)
-       (cl-fad:walk-directory 
+       (cl-fad:walk-directory
 	base
-	#'(lambda (b-pname) 
+	#'(lambda (b-pname)
 	    (when (and (string= "our-export" (pathname-name b-pname))
 		       (or (string= "xml" (pathname-type b-pname))
 			   (string= "xmi" (pathname-type b-pname))))
@@ -308,13 +307,13 @@
 	(e-type-cnt-c 0))
     (format t "~2% TOOL ~A" tool)
     (with-trie-db (:miwg-testing)
-      (loop for ecat in '(:metamodel :xmi :diff) 
+      (loop for ecat in '(:metamodel :xmi :diff)
 	    for ecat-cnt-b = 0
 	    for ecat-cnt-c = 0 do
 	   (format t "~%  ~A errors" ecat)
 	   (loop for etype in (cdr (assoc ecat *error-categories*))
 	      for cnt-b = (count etype cb :test #'(lambda (x o) (typep o x)))
-	      for cnt-c = (count etype cc :test #'(lambda (x o) (typep o x))) 
+	      for cnt-c = (count etype cc :test #'(lambda (x o) (typep o x)))
 	      when (not (zerop cnt-b)) do  (incf e-type-cnt-b) (incf ecat-cnt-b)
 	      when (not (zerop cnt-c)) do  (incf e-type-cnt-c) (incf ecat-cnt-c)
 	      when (or (not (zerop cnt-b)) (not (zerop cnt-c))) do
@@ -343,7 +342,7 @@
     (loop for tool in (all-tools) do
 	 (format t "~%")
 	 (loop for cat in '(:metamodel :xmi :diff) do
-	      (format t "~%~A issue reduction for ~A: ~A" 
+	      (format t "~%~A issue reduction for ~A: ~A"
 		      cat tool
 		      (- (reduce #'+ (flatten (lt-query (?cnt) `(issue-cat ,tool ?tc ,cat :base ?cnt))))
 			 (reduce #'+ (flatten (lt-query (?cnt) `(issue-cat ,tool ?tc ,cat :last ?cnt))))))))))
@@ -351,9 +350,9 @@
 
 (defun corresponding-current (b-pname)
   "Return the matching 'current' file in the maged directories."
-  (let ((maybe 
+  (let ((maybe
 	 (merge-pathnames
-	  (make-pathname :directory (list :relative "latest" 
+	  (make-pathname :directory (list :relative "latest"
 					  (nth 8 (pathname-directory b-pname))
 					  "Submissions"
 					  (nth 10 (pathname-directory b-pname)))
@@ -365,9 +364,9 @@
 ;;; POD Currently, I only check whether or not there is an exception.
 (defun run-vendor-xmi (&key (start-at 1) (end-after 100))
   "Toplevel function to run vendor's XMI."
-  (cl-fad:walk-directory 
+  (cl-fad:walk-directory
    (pod:lpath :models "miwg/")
-   #'(lambda (pname) 
+   #'(lambda (pname)
        (when (and (string= "our-export" (pathname-name pname))
 		  (or (string= "xml" (pathname-type pname))
 		      (string= "xmi" (pathname-type pname))))
@@ -395,7 +394,7 @@
 (defun run-other-tests ()
   (lookup-href-tests))
 
-;;; In UML 2.3 primitive types were in UML.xmi. After that, in PrimitiveTypes.xmi. 
+;;; In UML 2.3 primitive types were in UML.xmi. After that, in PrimitiveTypes.xmi.
 (defun lookup-href-tests ()
   (if (and
        (typep (lookup-href "http://www.omg.org/spec/UML/20090901/UML.xmi") 'uml23:|Model|)
@@ -409,18 +408,18 @@
        (null                              (lookup-href "http://www.omg.org/spec/UML/2.5/UML.xmi#String")))
       (format t "~2% *** lookup-href tests ok. ***")
       (format t "~2% *** LOOKUP-HREF TESTS FAILED! ***")))
-       
+
 
 #+nil
 (defun copy-vendor-exports ()
   (break "Do I really want to do this? I update these files a bit...")
-  (cl-fad:walk-directory 
-   "~/projects/miwg/Tests/" 
+  (cl-fad:walk-directory
+   "~/projects/miwg/Tests/"
    #'(lambda (file)
        (let ((fname (pathname-name file))
 	     (ftype (pathname-type file)))
 	 (when (and (string-equal fname "our-export")
-		    (or (string-equal ftype "xmi")					  
+		    (or (string-equal ftype "xmi")
 			(string-equal ftype "xml")))
 	   (mvb (success vec)
 	       (cl-ppcre:scan-to-strings ".*/Test-Case-([0-9]+)/Submissions/(.+)/our-export.xm[i,l]" (namestring file))
@@ -429,11 +428,11 @@
 		      (vendor (aref vec 1))
 		      (dir (format nil "/home/pdenno/projects/miwg/vendor-exports/tc~A/" tc-num)))
 		 (ensure-directories-exist dir)
-		 (pod-utils::copy-file file 
-			    (format nil "~A~A.xml" 
-				    dir 
+		 (pod-utils::copy-file file
+			    (format nil "~A~A.xml"
+				    dir
 				    (string-downcase
-				     (cl-ppcre:regex-replace-all 
+				     (cl-ppcre:regex-replace-all
 				      "\\ "
 				      (cl-ppcre:regex-replace-all "\\." vendor "-")
 				      ""))))))))))))
