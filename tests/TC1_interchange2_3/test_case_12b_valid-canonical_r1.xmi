@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="TestCase12b" xmi:uuid="725A27D7-D3AE-4D47-9C63-E94E92B25081">
+    <packagedElement xmi:id="TestCase12b-Structure" xmi:uuid="725A27D7-D3AE-449A-9BF1-E94E26BD02EC" xmi:type="uml:Package">
+      <packagedElement xmi:id="TestCase12b-Structure-Detection_System" xmi:uuid="725A27D7-D3AE-431F-92FE-E94EC273A9F7" xmi:type="uml:Class">
+        <ownedAttribute xmi:id="TestCase12b-Structure-Detection_System-sensor" xmi:uuid="725A27D7-D3AE-48D5-95C3-E94E52FC3F95">
+          <name>sensor</name>
+          <type xmi:idref="TestCase12b-Structure-Sensor"/>
+          <aggregation>composite</aggregation>
+          <association xmi:idref="TestCase12b-Structure-Association1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase12b-Structure-Detection_System-processor" xmi:uuid="725A27D7-D3AE-483D-9CF3-E94E46E373E5">
+          <name>processor</name>
+          <type xmi:idref="TestCase12b-Structure-Processor"/>
+          <aggregation>composite</aggregation>
+          <association xmi:idref="TestCase12b-Structure-Association2"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="TestCase12b-Structure-Detection_System-alarm" xmi:uuid="725A27D7-D3AE-459B-9DC0-E94E550F890B">
+          <name>alarm</name>
+          <type xmi:idref="TestCase12b-Structure-Alarm"/>
+          <aggregation>composite</aggregation>
+          <association xmi:idref="TestCase12b-Structure-Association3"/>
+        </ownedAttribute>
+        <ownedReception xmi:id="TestCase12b-Structure-Detection_System-Set" xmi:uuid="725A27D7-D3AE-46EC-97BD-E94EBCD587F4">
+          <name>Set</name>
+          <signal xmi:idref="TestCase12b-Structure-Set"/>
+        </ownedReception>
+        <ownedReception xmi:id="TestCase12b-Structure-Detection_System-Reset" xmi:uuid="725A27D7-D3AE-484E-95EF-E94E5A10998A">
+          <name>Reset</name>
+          <signal xmi:idref="TestCase12b-Structure-Reset"/>
+        </ownedReception>
+        <ownedBehavior xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder" xmi:uuid="725A27D7-D3AE-4F77-9560-E94E4FE7F1F5" xmi:type="uml:Activity">
+          <ownedParameter xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Parameter1" xmi:uuid="725A27D7-D3AE-458F-9F29-E94E762859BA">
+            <upperValue xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Parameter1-upperValue" xmi:uuid="725A27D7-D3AE-4029-9529-E94E8DCF03C7" xmi:type="uml:LiteralUnlimitedNatural">
+              <value>1</value>
+            </upperValue>
+            <lowerValue xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Parameter1-lowerValue" xmi:uuid="725A27D7-D3AE-46C5-9029-E94E5A87BBD1" xmi:type="uml:LiteralInteger">
+              <value>1</value>
+            </lowerValue>
+            <name>Parameter1</name>
+            <type xmi:idref="TestCase12b-Structure-Sensor_Input"/>
+            <isStream>true</isStream>
+          </ownedParameter>
+          <ownedParameter xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Parameter2" xmi:uuid="725A27D7-D3AE-48F6-9F69-E94E47AA341B">
+            <upperValue xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Parameter2-upperValue" xmi:uuid="725A27D7-D3AE-4298-9360-E94E4B617BDA" xmi:type="uml:LiteralUnlimitedNatural">
+              <value>1</value>
+            </upperValue>
+            <lowerValue xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Parameter2-lowerValue" xmi:uuid="725A27D7-D3AE-4605-92D6-E94E478FA180" xmi:type="uml:LiteralInteger">
+              <value>1</value>
+            </lowerValue>
+            <name>Parameter2</name>
+            <direction>out</direction>
+            <type xmi:idref="TestCase12b-Structure-Alarm_Signal"/>
+            <isStream>true</isStream>
+          </ownedParameter>
+          <node xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Set" xmi:uuid="725A27D7-D3AE-4172-9A4A-E94E63E16327" xmi:type="uml:AcceptEventAction">
+            <trigger xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Set-trigger" xmi:uuid="725A27D7-D3AE-481B-9359-E94E7C589C8A">
+              <event xmi:idref="TestCase12b-Behavior-packagedElement-1"/>
+            </trigger>
+            <name>Set</name>
+            <outgoing xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-1"/>
+            <inPartition xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-1"/>
+          </node>
+          <node xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Sense_Input" xmi:uuid="725A27D7-D3AE-4EBD-92EC-E94E418605EB" xmi:type="uml:CallBehaviorAction">
+            <argument xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Sense_Input-in" xmi:uuid="725A27D7-D3AE-4739-9838-E94EE3496058" xmi:type="uml:InputPin">
+              <name>in</name>
+              <incoming xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-5"/>
+              <type xmi:idref="TestCase12b-Structure-Sensor_Input"/>
+            </argument>
+            <result xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Sense_Input-out" xmi:uuid="725A27D7-D3AE-4EB4-9FDE-E94E2206DDC4" xmi:type="uml:OutputPin">
+              <name>out</name>
+              <outgoing xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-2"/>
+              <type xmi:idref="TestCase12b-Structure-Sensor_Signal"/>
+            </result>
+            <name>Sense Input</name>
+            <incoming xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-1"/>
+            <inPartition xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-1"/>
+            <inInterruptibleRegion xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-4"/>
+            <behavior xmi:idref="TestCase12b-Behavior-Sense_Input"/>
+          </node>
+          <node xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Process_Signal" xmi:uuid="725A27D7-D3AE-4D85-9E85-E94E3E9F0763" xmi:type="uml:CallBehaviorAction">
+            <argument xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Process_Signal-in" xmi:uuid="725A27D7-D3AE-4923-9665-E94E81FF1D7D" xmi:type="uml:InputPin">
+              <name>in</name>
+              <incoming xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-2"/>
+              <type xmi:idref="TestCase12b-Structure-Sensor_Signal"/>
+            </argument>
+            <result xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Process_Signal-out" xmi:uuid="725A27D7-D3AE-45AE-9E93-E94E67022DE8" xmi:type="uml:OutputPin">
+              <name>out</name>
+              <outgoing xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-3"/>
+              <type xmi:idref="TestCase12b-Structure-Alert"/>
+            </result>
+            <name>Process Signal</name>
+            <inPartition xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-2"/>
+            <inInterruptibleRegion xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-4"/>
+            <behavior xmi:idref="TestCase12b-Behavior-Process_Signal"/>
+          </node>
+          <node xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Set_Alarm" xmi:uuid="725A27D7-D3AE-4A4A-9DCA-E94E5500EC64" xmi:type="uml:CallBehaviorAction">
+            <argument xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Set_Alarm-in" xmi:uuid="725A27D7-D3AE-419A-9D7F-E94E789BAEDD" xmi:type="uml:InputPin">
+              <name>in</name>
+              <incoming xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-3"/>
+              <type xmi:idref="TestCase12b-Structure-Alert"/>
+            </argument>
+            <result xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Set_Alarm-out" xmi:uuid="725A27D7-D3AE-4337-9E99-E94EE892CCF0" xmi:type="uml:OutputPin">
+              <name>out</name>
+              <outgoing xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-4"/>
+              <type xmi:idref="TestCase12b-Structure-Alarm_Signal"/>
+            </result>
+            <name>Set Alarm</name>
+            <inPartition xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-3"/>
+            <inInterruptibleRegion xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-4"/>
+            <behavior xmi:idref="TestCase12b-Behavior-Set_Alarm"/>
+          </node>
+          <node xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-node-5" xmi:uuid="725A27D7-D3AE-42D8-9DEB-E94EEC5E5C83" xmi:type="uml:ActivityParameterNode">
+            <outgoing xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-5"/>
+            <type xmi:idref="TestCase12b-Structure-Sensor_Input"/>
+            <parameter xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Parameter1"/>
+          </node>
+          <node xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-node-6" xmi:uuid="725A27D7-D3AE-4D38-9E7C-E94E15005884" xmi:type="uml:ActivityParameterNode">
+            <incoming xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-4"/>
+            <type xmi:idref="TestCase12b-Structure-Alarm_Signal"/>
+            <parameter xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Parameter2"/>
+          </node>
+          <node xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Reset" xmi:uuid="725A27D7-D3AE-4524-939B-E94E75F92494" xmi:type="uml:AcceptEventAction">
+            <trigger xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-Reset-trigger" xmi:uuid="725A27D7-D3AE-4AA5-993D-E94E016D54F5">
+              <event xmi:idref="TestCase12b-Behavior-packagedElement-2"/>
+            </trigger>
+            <name>Reset</name>
+            <inInterruptibleRegion xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-4"/>
+            <outgoing xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-6"/>
+          </node>
+          <node xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-node-8" xmi:uuid="725A27D7-D3AE-4A1D-93A9-E94E77265623" xmi:type="uml:FlowFinalNode">
+            <incoming xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-6"/>
+          </node>
+          <edge xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-1" xmi:uuid="725A27D7-D3AE-42AB-9CA7-E94EA1DA1B10" xmi:type="uml:ControlFlow">
+            <source xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Set"/>
+            <target xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Sense_Input"/>
+            <inPartition xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-1"/>
+          </edge>
+          <edge xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-2" xmi:uuid="725A27D7-D3AE-47A3-9A55-E94ED922ED18" xmi:type="uml:ObjectFlow">
+            <source xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Sense_Input-out"/>
+            <target xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Process_Signal-in"/>
+          </edge>
+          <edge xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-3" xmi:uuid="725A27D7-D3AE-4144-9148-E94E2DCAA3AB" xmi:type="uml:ObjectFlow">
+            <source xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Process_Signal-out"/>
+            <target xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Set_Alarm-in"/>
+          </edge>
+          <edge xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-4" xmi:uuid="725A27D7-D3AE-4D6B-96C1-E94EDFFD110C" xmi:type="uml:ObjectFlow">
+            <source xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Set_Alarm-out"/>
+            <target xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-node-6"/>
+          </edge>
+          <edge xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-5" xmi:uuid="725A27D7-D3AE-4BDF-91FE-E94E8F2738B2" xmi:type="uml:ObjectFlow">
+            <source xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-node-5"/>
+            <target xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Sense_Input-in"/>
+          </edge>
+          <edge xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-6" xmi:uuid="725A27D7-D3AE-45C4-9B84-E94EBAD90075" xmi:type="uml:ControlFlow">
+            <source xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Reset"/>
+            <target xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-node-8"/>
+            <interrupts xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-4"/>
+          </edge>
+          <group xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-group-1" xmi:uuid="725A27D7-D3AE-42BD-908F-E94EB31FE524" xmi:type="uml:ActivityPartition">
+            <node xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Set"/>
+            <node xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Sense_Input"/>
+            <represents xmi:idref="TestCase12b-Structure-Sensor"/>
+          </group>
+          <group xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-group-2" xmi:uuid="725A27D7-D3AE-4174-9A16-E94E3EFCEFDF" xmi:type="uml:ActivityPartition">
+            <node xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Process_Signal"/>
+            <represents xmi:idref="TestCase12b-Structure-Processor"/>
+          </group>
+          <group xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-group-3" xmi:uuid="725A27D7-D3AE-4804-92FB-E94E0F946B56" xmi:type="uml:ActivityPartition">
+            <node xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Set_Alarm"/>
+            <represents xmi:idref="TestCase12b-Structure-Alarm"/>
+          </group>
+          <group xmi:id="TestCase12b-Structure-Detection_System-Detect_Intruder-group-4" xmi:uuid="725A27D7-D3AE-40BC-9A3A-E94E1B803A5B" xmi:type="uml:InterruptibleActivityRegion">
+            <node xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Sense_Input"/>
+            <node xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Process_Signal"/>
+            <node xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Set_Alarm"/>
+            <node xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-Reset"/>
+            <interruptingEdge xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-edge-6"/>
+          </group>
+          <name>Detect Intruder</name>
+          <partition xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-1"/>
+          <partition xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder-group-3"/>
+        </ownedBehavior>
+        <name>Detection System</name>
+        <isActive>true</isActive>
+        <classifierBehavior xmi:idref="TestCase12b-Structure-Detection_System-Detect_Intruder"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Association1" xmi:uuid="725A27D7-D3AE-4582-9329-E94E6290695F" xmi:type="uml:Association">
+        <ownedEnd xmi:id="TestCase12b-Structure-Association1-" xmi:uuid="725A27D7-D3AE-4AE0-9505-E94E70D60BFC">
+          <name/>
+          <type xmi:idref="TestCase12b-Structure-Detection_System"/>
+          <isUnique>false</isUnique>
+          <association xmi:idref="TestCase12b-Structure-Association1"/>
+        </ownedEnd>
+        <name>Association1</name>
+        <memberEnd xmi:idref="TestCase12b-Structure-Detection_System-sensor"/>
+        <memberEnd xmi:idref="TestCase12b-Structure-Association1-"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Association2" xmi:uuid="725A27D7-D3AE-4510-91A3-E94E0CABA51F" xmi:type="uml:Association">
+        <ownedEnd xmi:id="TestCase12b-Structure-Association2-" xmi:uuid="725A27D7-D3AE-47B2-9674-E94E2CD794AB">
+          <name/>
+          <type xmi:idref="TestCase12b-Structure-Detection_System"/>
+          <isUnique>false</isUnique>
+          <association xmi:idref="TestCase12b-Structure-Association2"/>
+        </ownedEnd>
+        <name>Association2</name>
+        <memberEnd xmi:idref="TestCase12b-Structure-Detection_System-processor"/>
+        <memberEnd xmi:idref="TestCase12b-Structure-Association2-"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Association3" xmi:uuid="725A27D7-D3AE-4726-9195-E94EE5EA4B13" xmi:type="uml:Association">
+        <ownedEnd xmi:id="TestCase12b-Structure-Association3-" xmi:uuid="725A27D7-D3AE-4573-9B60-E94E7B0286CA">
+          <name/>
+          <type xmi:idref="TestCase12b-Structure-Detection_System"/>
+          <isUnique>false</isUnique>
+          <association xmi:idref="TestCase12b-Structure-Association3"/>
+        </ownedEnd>
+        <name>Association3</name>
+        <memberEnd xmi:idref="TestCase12b-Structure-Detection_System-alarm"/>
+        <memberEnd xmi:idref="TestCase12b-Structure-Association3-"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Sensor" xmi:uuid="725A27D7-D3AE-4936-9183-E94E2F36A1A1" xmi:type="uml:Class">
+        <name>Sensor</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Processor" xmi:uuid="725A27D7-D3AE-42BC-9C2A-E94E6A12770E" xmi:type="uml:Class">
+        <name>Processor</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Alarm" xmi:uuid="725A27D7-D3AE-4C48-97F5-E94E8B2F8336" xmi:type="uml:Class">
+        <name>Alarm</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Sensor_Input" xmi:uuid="725A27D7-D3AE-46E5-9301-E94EA02B87B7" xmi:type="uml:Class">
+        <name>Sensor Input</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Sensor_Signal" xmi:uuid="725A27D7-D3AE-4E41-981F-E94E1EDC8F89" xmi:type="uml:Class">
+        <name>Sensor Signal</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Alert" xmi:uuid="725A27D7-D3AE-4BAF-9B80-E94E46C5AC31" xmi:type="uml:Class">
+        <name>Alert</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Alarm_Signal" xmi:uuid="725A27D7-D3AE-4806-9220-E94E7A7D7CF8" xmi:type="uml:Class">
+        <name>Alarm Signal</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Set" xmi:uuid="725A27D7-D3AE-4A70-9236-E94E4EDDCF71" xmi:type="uml:Signal">
+        <name>Set</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Structure-Reset" xmi:uuid="725A27D7-D3AE-45CD-9442-E94E62F18BEA" xmi:type="uml:Signal">
+        <name>Reset</name>
+      </packagedElement>
+      <name>Structure</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase12b-Behavior" xmi:uuid="725A27D7-D3AE-4E1D-9364-E94E1D9A0FE6" xmi:type="uml:Package">
+      <packagedElement xmi:id="TestCase12b-Behavior-packagedElement-1" xmi:uuid="725A27D7-D3AE-4762-91A6-E94EEFD93225" xmi:type="uml:SignalEvent">
+        <signal xmi:idref="TestCase12b-Structure-Set"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Behavior-packagedElement-2" xmi:uuid="725A27D7-D3AE-4E0A-937B-E94E6322899B" xmi:type="uml:SignalEvent">
+        <signal xmi:idref="TestCase12b-Structure-Reset"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Behavior-Sense_Input" xmi:uuid="725A27D7-D3AE-451B-9D74-E94EB00395D0" xmi:type="uml:Activity">
+        <ownedParameter xmi:id="TestCase12b-Behavior-Sense_Input-in" xmi:uuid="725A27D7-D3AE-4DD7-935E-E94EA67C8752" xmi:type="uml:Parameter">
+          <name>in</name>
+          <isStream>true</isStream>
+          <type xmi:idref="TestCase12b-Structure-Sensor_Input"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="TestCase12b-Behavior-Sense_Input-out" xmi:uuid="725A27D7-D3AE-4B0E-9FBB-E94EA04A7A49" xmi:type="uml:Parameter">
+          <name>out</name>
+          <isStream>true</isStream>
+          <direction>out</direction>
+          <type xmi:idref="TestCase12b-Structure-Sensor_Signal"/>
+        </ownedParameter>
+        <node xmi:id="TestCase12b-Behavior-Sense_Input-node-1" xmi:uuid="725A27D7-D3AE-4B41-93D7-E94EBA7A7F59" xmi:type="uml:ActivityParameterNode">
+          <type xmi:idref="TestCase12b-Structure-Sensor_Input"/>
+          <parameter xmi:idref="TestCase12b-Behavior-Sense_Input-in"/>
+        </node>
+        <node xmi:id="TestCase12b-Behavior-Sense_Input-node-2" xmi:uuid="725A27D7-D3AE-4C8B-9A73-E94E2EFDA10B" xmi:type="uml:ActivityParameterNode">
+          <type xmi:idref="TestCase12b-Structure-Sensor_Signal"/>
+          <parameter xmi:idref="TestCase12b-Behavior-Sense_Input-out"/>
+        </node>
+        <name>Sense Input</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Behavior-Process_Signal" xmi:uuid="725A27D7-D3AE-4AE5-9B10-E94E7952DD3C" xmi:type="uml:Activity">
+        <ownedParameter xmi:id="TestCase12b-Behavior-Process_Signal-in" xmi:uuid="725A27D7-D3AE-49FB-91F6-E94E02491957" xmi:type="uml:Parameter">
+          <isStream>true</isStream>
+          <name>in</name>
+          <type xmi:idref="TestCase12b-Structure-Sensor_Signal"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="TestCase12b-Behavior-Process_Signal-out" xmi:uuid="725A27D7-D3AE-422E-94DA-E94E6E6BED2E" xmi:type="uml:Parameter">
+          <name>out</name>
+          <direction>out</direction>
+          <type xmi:idref="TestCase12b-Structure-Alert"/>
+        </ownedParameter>
+        <node xmi:id="TestCase12b-Behavior-Process_Signal-node-1" xmi:uuid="725A27D7-D3AE-421C-9BA2-E94EE3CEBD77" xmi:type="uml:ActivityParameterNode">
+          <type xmi:idref="TestCase12b-Structure-Sensor_Signal"/>
+          <parameter xmi:idref="TestCase12b-Behavior-Process_Signal-in"/>
+        </node>
+        <node xmi:id="TestCase12b-Behavior-Process_Signal-node-2" xmi:uuid="725A27D7-D3AE-4069-9BA1-E94EA62A10CD" xmi:type="uml:ActivityParameterNode">
+          <type xmi:idref="TestCase12b-Structure-Alert"/>
+          <parameter xmi:idref="TestCase12b-Behavior-Process_Signal-out"/>
+        </node>
+        <name>Process Signal</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase12b-Behavior-Set_Alarm" xmi:uuid="725A27D7-D3AE-488D-94F6-E94EAC2B8E4B" xmi:type="uml:Activity">
+        <ownedParameter xmi:id="TestCase12b-Behavior-Set_Alarm-in" xmi:uuid="725A27D7-D3AE-47D7-97C4-E94E7BDE7BA3" xmi:type="uml:Parameter">
+          <name>in</name>
+          <type xmi:idref="TestCase12b-Structure-Alert"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="TestCase12b-Behavior-Set_Alarm-out" xmi:uuid="725A27D7-D3AE-4933-93A6-E94E8E45B5AB" xmi:type="uml:Parameter">
+          <isStream>true</isStream>
+          <name>out</name>
+          <direction>out</direction>
+          <type xmi:idref="TestCase12b-Structure-Alarm_Signal"/>
+        </ownedParameter>
+        <node xmi:id="TestCase12b-Behavior-Set_Alarm-node-1" xmi:uuid="725A27D7-D3AE-4835-98F7-E94E28953F90" xmi:type="uml:ActivityParameterNode">
+          <type xmi:idref="TestCase12b-Structure-Alert"/>
+          <parameter xmi:idref="TestCase12b-Behavior-Set_Alarm-in"/>
+        </node>
+        <node xmi:id="TestCase12b-Behavior-Set_Alarm-node-2" xmi:uuid="725A27D7-D3AE-4E0F-9A8B-E94E447393C7" xmi:type="uml:ActivityParameterNode">
+          <type xmi:idref="TestCase12b-Structure-Alarm_Signal"/>
+          <parameter xmi:idref="TestCase12b-Behavior-Set_Alarm-out"/>
+        </node>
+        <name>Set Alarm</name>
+      </packagedElement>
+      <name>Behavior</name>
+    </packagedElement>
+    <name>TestCase12b</name>
+  </uml:Model>
+  <!--  Generated by the NIST Validator on 2012-07-16 15:26:06. -->
+</xmi:XMI>

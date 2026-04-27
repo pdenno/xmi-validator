@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/2.5.1" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Package xmi:id="pkg1">
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="instance1" name="MyInstance">
+      <!-- Error: InstanceSpecification cannot have ownedAttribute -->
+      <ownedAttribute xmi:id="wrong1" name="oops"/>
+    </packagedElement>
+    
+    <packagedElement xmi:type="uml:LiteralUnlimitedNatural" xmi:id="literal1" value="not-a-number"/>
+  </uml:Package>
+</xmi:XMI>

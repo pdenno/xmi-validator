@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="TestCase7" xmi:uuid="725A27D7-D26D-4C9A-9ABB-0E2AA11D1747">
+    <name>TestCase7</name>
+    <packagedElement xmi:id="TestCase7-subStateMachine" xmi:uuid="725A27D7-D26D-4010-940F-0E2A3245F1F0" xmi:type="uml:StateMachine">
+      <name>subStateMachine</name>
+      <submachineState xmi:idref="TestCase7-compositeStateMachine-region-subvertex-5"/>
+      <region xmi:id="TestCase7-subStateMachine-region" xmi:uuid="725A27D7-D26D-4440-948D-0E2AB49B2358" xmi:type="uml:Region">
+        <transition xmi:id="TestCase7-subStateMachine-region-transition-3" xmi:uuid="725A27D7-D26D-4152-95FF-0E2AF4880D30" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-subStateMachine-region-subvertex-3"/>
+          <source xmi:idref="TestCase7-subStateMachine-region-subvertex-1"/>
+        </transition>
+        <transition xmi:id="TestCase7-subStateMachine-region-transition-2" xmi:uuid="725A27D7-D26D-4182-9B5B-0E2A4F1B6E05" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-subStateMachine-region-subvertex-2"/>
+          <source xmi:idref="TestCase7-subStateMachine-enter2"/>
+          <kind>local</kind>
+        </transition>
+        <transition xmi:id="TestCase7-subStateMachine-region-transition-5" xmi:uuid="725A27D7-D26D-45E8-924F-0E2A476BC65F" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-subStateMachine-region-subvertex-3"/>
+          <source xmi:idref="TestCase7-subStateMachine-region-subvertex-2"/>
+        </transition>
+        <transition xmi:id="TestCase7-subStateMachine-region-transition-6" xmi:uuid="725A27D7-D26D-492C-9FAB-0E2A547A8162" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-subStateMachine-exit1"/>
+          <source xmi:idref="TestCase7-subStateMachine-region-subvertex-3"/>
+        </transition>
+        <transition xmi:id="TestCase7-subStateMachine-region-transition-4" xmi:uuid="725A27D7-D26D-4D38-98EC-0E2AF63CF536" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-subStateMachine-exit2"/>
+          <source xmi:idref="TestCase7-subStateMachine-region-subvertex-2"/>
+        </transition>
+        <transition xmi:id="TestCase7-subStateMachine-region-transition-1" xmi:uuid="725A27D7-D26D-4E0B-9674-0E2A3BE825B0" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-subStateMachine-region-subvertex-1"/>
+          <source xmi:idref="TestCase7-subStateMachine-enter1"/>
+          <kind>local</kind>
+        </transition>
+        <subvertex xmi:id="TestCase7-subStateMachine-region-subvertex-3" xmi:uuid="725A27D7-D26D-4B9E-9638-0E2A7CE98542" xmi:type="uml:Pseudostate">
+          <name>Junction</name>
+          <kind>junction</kind>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-subStateMachine-region-subvertex-1" xmi:uuid="725A27D7-D26D-4F33-9610-0E2A6966493E" xmi:type="uml:State">
+          <name>state7</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-subStateMachine-region-subvertex-2" xmi:uuid="725A27D7-D26D-4FCB-9A7E-0E2A95B4B2A9" xmi:type="uml:State">
+          <name>state8</name>
+        </subvertex>
+      </region>
+      <connectionPoint xmi:id="TestCase7-subStateMachine-exit1" xmi:uuid="725A27D7-D26D-4388-9ADE-0E2A0709E147" xmi:type="uml:Pseudostate">
+        <name>exit1</name>
+        <kind>exitPoint</kind>
+      </connectionPoint>
+      <connectionPoint xmi:id="TestCase7-subStateMachine-exit2" xmi:uuid="725A27D7-D26D-47FA-9B6C-0E2AE0123A77" xmi:type="uml:Pseudostate">
+        <name>exit2</name>
+        <kind>exitPoint</kind>
+      </connectionPoint>
+      <connectionPoint xmi:id="TestCase7-subStateMachine-enter2" xmi:uuid="725A27D7-D26D-4811-9833-0E2AACF5F710" xmi:type="uml:Pseudostate">
+        <name>enter2</name>
+        <kind>entryPoint</kind>
+      </connectionPoint>
+      <connectionPoint xmi:id="TestCase7-subStateMachine-enter1" xmi:uuid="725A27D7-D26D-4B47-9D77-0E2A5D0E7E03" xmi:type="uml:Pseudostate">
+        <name>enter1</name>
+        <kind>entryPoint</kind>
+      </connectionPoint>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase7-packagedElement-2" xmi:uuid="725A27D7-D26D-4177-9F87-0E2AE141AB91" xmi:type="uml:CallEvent">
+      <operation xmi:idref="TestCase7-protocolClass-referredOperation"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase7-simpleStateMachine" xmi:uuid="725A27D7-D26D-423E-92A8-0E2A50F95F3C" xmi:type="uml:StateMachine">
+      <name>simpleStateMachine</name>
+      <region xmi:id="TestCase7-simpleStateMachine-region" xmi:uuid="725A27D7-D26D-4146-9155-0E2AB2D015C5" xmi:type="uml:Region">
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-1" xmi:uuid="725A27D7-D26D-4004-9DBD-0E2ABBE3C63F" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-2"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-1"/>
+        </transition>
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-4" xmi:uuid="725A27D7-D26D-4088-9585-0E2A0884575E" xmi:type="uml:Transition">
+          <ownedRule xmi:id="TestCase7-simpleStateMachine-region-transition-4-ownedRule" xmi:uuid="725A27D7-D26D-41EF-9129-0E2A9222F85C" xmi:type="uml:Constraint">
+            <specification xmi:id="TestCase7-simpleStateMachine-region-transition-4-ownedRule-specification" xmi:uuid="725A27D7-D26D-4327-997A-0E2AAEBD2E15" xmi:type="uml:OpaqueExpression">
+              <body>else</body>
+            </specification>
+            <constrainedElement xmi:idref="TestCase7-simpleStateMachine-region-transition-4"/>
+          </ownedRule>
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-5"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-3"/>
+          <guard xmi:idref="TestCase7-simpleStateMachine-region-transition-4-ownedRule"/>
+        </transition>
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-6" xmi:uuid="725A27D7-D26D-40ED-9E78-0E2A1FD8C4CA" xmi:type="uml:Transition">
+          <ownedRule xmi:id="TestCase7-simpleStateMachine-region-transition-6-ownedRule" xmi:uuid="725A27D7-D26D-4CF2-902D-0E2A850F30E4" xmi:type="uml:Constraint">
+            <specification xmi:id="TestCase7-simpleStateMachine-region-transition-6-ownedRule-specification" xmi:uuid="725A27D7-D26D-4BA8-9F2C-0E2AD7218CE1" xmi:type="uml:OpaqueExpression">
+              <body>x==0</body>
+            </specification>
+            <constrainedElement xmi:idref="TestCase7-simpleStateMachine-region-transition-6"/>
+          </ownedRule>
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-7"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-4"/>
+          <guard xmi:idref="TestCase7-simpleStateMachine-region-transition-6-ownedRule"/>
+        </transition>
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-8" xmi:uuid="725A27D7-D26D-4501-99E0-0E2A0DB212B9" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-7"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-5"/>
+          <effect xmi:id="TestCase7-simpleStateMachine-region-transition-8-effect" xmi:uuid="725A27D7-D26D-47A4-9B58-0E2ABA46812F" xmi:type="uml:OpaqueBehavior">
+            <body>opaqueBehavior</body>
+          </effect>
+        </transition>
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-9" xmi:uuid="725A27D7-D26D-456E-9552-0E2A4E0B7045" xmi:type="uml:Transition">
+          <ownedRule xmi:id="TestCase7-simpleStateMachine-region-transition-9-ownedRule" xmi:uuid="725A27D7-D26D-4DFF-986B-0E2A14207D49" xmi:type="uml:Constraint">
+            <specification xmi:id="TestCase7-simpleStateMachine-region-transition-9-ownedRule-specification" xmi:uuid="725A27D7-D26D-4F65-943E-0E2A55F24850" xmi:type="uml:OpaqueExpression">
+              <body>x&lt;0</body>
+            </specification>
+            <constrainedElement xmi:idref="TestCase7-simpleStateMachine-region-transition-9"/>
+          </ownedRule>
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-7"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-6"/>
+          <guard xmi:idref="TestCase7-simpleStateMachine-region-transition-9-ownedRule"/>
+        </transition>
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-5" xmi:uuid="725A27D7-D26D-46BB-9630-0E2A7FF6BA75" xmi:type="uml:Transition">
+          <ownedRule xmi:id="TestCase7-simpleStateMachine-region-transition-5-ownedRule" xmi:uuid="725A27D7-D26D-412A-9487-0E2A78BFAE79" xmi:type="uml:Constraint">
+            <specification xmi:id="TestCase7-simpleStateMachine-region-transition-5-ownedRule-specification" xmi:uuid="725A27D7-D26D-4B0C-929C-0E2A004CD15A" xmi:type="uml:OpaqueExpression">
+              <body>x&gt;0</body>
+            </specification>
+            <constrainedElement xmi:idref="TestCase7-simpleStateMachine-region-transition-5"/>
+          </ownedRule>
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-6"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-3"/>
+          <guard xmi:idref="TestCase7-simpleStateMachine-region-transition-5-ownedRule"/>
+        </transition>
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-3" xmi:uuid="725A27D7-D26D-47AE-9B0C-0E2A0FB4BB49" xmi:type="uml:Transition">
+          <ownedRule xmi:id="TestCase7-simpleStateMachine-region-transition-3-ownedRule" xmi:uuid="725A27D7-D26D-4A73-99B3-0E2A24954B99" xmi:type="uml:Constraint">
+            <specification xmi:id="TestCase7-simpleStateMachine-region-transition-3-ownedRule-specification" xmi:uuid="725A27D7-D26D-47F8-95C5-0E2AD10082F6" xmi:type="uml:OpaqueExpression">
+              <body>x&lt;0</body>
+            </specification>
+            <constrainedElement xmi:idref="TestCase7-simpleStateMachine-region-transition-3"/>
+          </ownedRule>
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-4"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-3"/>
+          <guard xmi:idref="TestCase7-simpleStateMachine-region-transition-3-ownedRule"/>
+        </transition>
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-7" xmi:uuid="725A27D7-D26D-4F1A-979B-0E2A3ED757DD" xmi:type="uml:Transition">
+          <ownedRule xmi:id="TestCase7-simpleStateMachine-region-transition-7-ownedRule" xmi:uuid="725A27D7-D26D-43CF-9678-0E2A9D63E61A" xmi:type="uml:Constraint">
+            <specification xmi:id="TestCase7-simpleStateMachine-region-transition-7-ownedRule-specification" xmi:uuid="725A27D7-D26D-4220-940B-0E2A37041AA0" xmi:type="uml:OpaqueExpression">
+              <body>x!=0</body>
+            </specification>
+            <constrainedElement xmi:idref="TestCase7-simpleStateMachine-region-transition-7"/>
+          </ownedRule>
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-4"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-4"/>
+          <guard xmi:idref="TestCase7-simpleStateMachine-region-transition-7-ownedRule"/>
+        </transition>
+        <transition xmi:id="TestCase7-simpleStateMachine-region-transition-2" xmi:uuid="725A27D7-D26D-4FDF-9626-0E2AA8FD977D" xmi:type="uml:Transition">
+          <trigger xmi:id="TestCase7-simpleStateMachine-region-transition-2-trigger" xmi:uuid="725A27D7-D26D-4598-96B3-0E2A1992AE1A" xmi:type="uml:Trigger">
+            <event xmi:idref="TestCase7-packagedElement-6"/>
+          </trigger>
+          <target xmi:idref="TestCase7-simpleStateMachine-region-subvertex-3"/>
+          <source xmi:idref="TestCase7-simpleStateMachine-region-subvertex-2"/>
+        </transition>
+        <subvertex xmi:id="TestCase7-simpleStateMachine-region-subvertex-1" xmi:uuid="725A27D7-D26D-445B-9581-0E2A841E8E4B" xmi:type="uml:Pseudostate">
+          <name>initial</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-simpleStateMachine-region-subvertex-4" xmi:uuid="725A27D7-D26D-44D3-9002-0E2AD812ADFE" xmi:type="uml:State">
+          <name>state_1</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-simpleStateMachine-region-subvertex-6" xmi:uuid="725A27D7-D26D-45C8-90D0-0E2A9B470836" xmi:type="uml:State">
+          <name>state_3</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-simpleStateMachine-region-subvertex-7" xmi:uuid="725A27D7-D26D-46E9-92D9-0E2A185709C7" xmi:type="uml:FinalState">
+          <name>finalState</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-simpleStateMachine-region-subvertex-3" xmi:uuid="725A27D7-D26D-4AD1-9665-0E2AB974E6AC" xmi:type="uml:Pseudostate">
+          <name>choice</name>
+          <kind>choice</kind>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-simpleStateMachine-region-subvertex-5" xmi:uuid="725A27D7-D26D-4CC3-967F-0E2A1170EB25" xmi:type="uml:State">
+          <name>state_2</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-simpleStateMachine-region-subvertex-2" xmi:uuid="725A27D7-D26D-4E53-94AE-0E2A74A2F9FE" xmi:type="uml:State">
+          <name>state_0</name>
+          <exit xmi:id="TestCase7-simpleStateMachine-region-subvertex-2-exit" xmi:uuid="725A27D7-D26D-4001-977D-0E2A243DC83F" xmi:type="uml:Activity">
+            <name>opaqueExitBehavior</name>
+          </exit>
+          <entry xmi:id="TestCase7-simpleStateMachine-region-subvertex-2-entry" xmi:uuid="725A27D7-D26D-4DAE-92F0-0E2A2B884355" xmi:type="uml:Activity">
+            <name>opaqueEntryBehavior</name>
+          </entry>
+          <doActivity xmi:id="TestCase7-simpleStateMachine-region-subvertex-2-doActivity" xmi:uuid="725A27D7-D26D-4EE7-92C4-0E2AD277BA34" xmi:type="uml:Activity">
+            <name>opaqueDoBehavior</name>
+          </doActivity>
+        </subvertex>
+      </region>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase7-protocolClass" xmi:uuid="725A27D7-D26D-432F-9668-0E2A7953118C" xmi:type="uml:Class">
+      <name>protocolClass</name>
+      <ownedBehavior xmi:id="TestCase7-protocolClass-protocolStateMachine" xmi:uuid="725A27D7-D26D-4403-9070-0E2A5D1FB10C" xmi:type="uml:ProtocolStateMachine">
+        <name>protocolStateMachine</name>
+        <region xmi:id="TestCase7-protocolClass-protocolStateMachine-region" xmi:uuid="725A27D7-D26D-4AB6-9D9F-0E2AF40777DF" xmi:type="uml:Region">
+          <transition xmi:id="TestCase7-protocolClass-protocolStateMachine-region-transition-2" xmi:uuid="725A27D7-D26D-42FB-9413-0E2AC15B31B9" xmi:type="uml:ProtocolTransition">
+            <ownedRule xmi:id="TestCase7-protocolClass-protocolStateMachine-region-transition-2-ownedRule-2" xmi:uuid="725A27D7-D26D-49A3-90DD-0E2A2150AE83" xmi:type="uml:Constraint">
+              <specification xmi:id="TestCase7-protocolClass-protocolStateMachine-region-transition-2-ownedRule-2-specification" xmi:uuid="725A27D7-D26D-4A30-9587-0E2A7BD1F766" xmi:type="uml:OpaqueExpression">
+                <body>Condition2</body>
+              </specification>
+              <constrainedElement xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-transition-2"/>
+            </ownedRule>
+            <ownedRule xmi:id="TestCase7-protocolClass-protocolStateMachine-region-transition-2-ownedRule-1" xmi:uuid="725A27D7-D26D-4EDF-9D1E-0E2ADC13F6D5" xmi:type="uml:Constraint">
+              <specification xmi:id="TestCase7-protocolClass-protocolStateMachine-region-transition-2-ownedRule-1-specification" xmi:uuid="725A27D7-D26D-4FB1-96FA-0E2AA001351F" xmi:type="uml:OpaqueExpression">
+                <body>Condition1</body>
+              </specification>
+              <constrainedElement xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-transition-2"/>
+            </ownedRule>
+            <trigger xmi:id="TestCase7-protocolClass-protocolStateMachine-region-transition-2-trigger" xmi:uuid="725A27D7-D26D-4BE1-9668-0E2ADB452963" xmi:type="uml:Trigger">
+              <event xmi:idref="TestCase7-packagedElement-2"/>
+            </trigger>
+            <target xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-subvertex-1"/>
+            <source xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-subvertex-2"/>
+            <guard xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-transition-2-ownedRule-1"/>
+            <preCondition xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-transition-2-ownedRule-1"/>
+            <postCondition xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-transition-2-ownedRule-2"/>
+          </transition>
+          <transition xmi:id="TestCase7-protocolClass-protocolStateMachine-region-transition-3" xmi:uuid="725A27D7-D26D-4B71-94BC-0E2AF4F01F4F" xmi:type="uml:Transition">
+            <target xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-subvertex-2"/>
+            <source xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-subvertex-3"/>
+          </transition>
+          <transition xmi:id="TestCase7-protocolClass-protocolStateMachine-region-transition-1" xmi:uuid="725A27D7-D26D-4CAB-9BB9-0E2A81AA6A06" xmi:type="uml:Transition">
+            <target xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-subvertex-4"/>
+            <source xmi:idref="TestCase7-protocolClass-protocolStateMachine-region-subvertex-1"/>
+          </transition>
+          <subvertex xmi:id="TestCase7-protocolClass-protocolStateMachine-region-subvertex-4" xmi:uuid="725A27D7-D26D-40F3-92D1-0E2A70A651C5" xmi:type="uml:FinalState">
+            <name>FinalState</name>
+          </subvertex>
+          <subvertex xmi:id="TestCase7-protocolClass-protocolStateMachine-region-subvertex-1" xmi:uuid="725A27D7-D26D-44DA-91EE-0E2A359EF338" xmi:type="uml:State">
+            <name>State2</name>
+          </subvertex>
+          <subvertex xmi:id="TestCase7-protocolClass-protocolStateMachine-region-subvertex-3" xmi:uuid="725A27D7-D26D-48D2-905D-0E2AF6512386" xmi:type="uml:Pseudostate">
+            <name>Initial</name>
+          </subvertex>
+          <subvertex xmi:id="TestCase7-protocolClass-protocolStateMachine-region-subvertex-2" xmi:uuid="725A27D7-D26D-4928-91EC-0E2A1DB896A9" xmi:type="uml:State">
+            <name>State1</name>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:id="TestCase7-protocolClass-referredOperation" xmi:uuid="725A27D7-D26D-4DB4-9A02-0E2A36D42D50" xmi:type="uml:Operation">
+        <visibility>public</visibility>
+        <name>referredOperation</name>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase7-packagedElement-6" xmi:uuid="725A27D7-D26D-4429-9644-0E2A2EEBC98A" xmi:type="uml:ChangeEvent">
+      <changeExpression xmi:id="TestCase7-packagedElement-6-changeExpression" xmi:uuid="725A27D7-D26D-423E-9B3D-0E2A19379A40" xmi:type="uml:OpaqueExpression">
+        <body>x!=-1</body>
+      </changeExpression>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase7-compositeStateMachine" xmi:uuid="725A27D7-D26D-4AEB-9B03-0E2AADAB4C1E" xmi:type="uml:StateMachine">
+      <name>compositeStateMachine</name>
+      <region xmi:id="TestCase7-compositeStateMachine-region" xmi:uuid="725A27D7-D26D-490E-950A-0E2AEF786C3E" xmi:type="uml:Region">
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-7" xmi:uuid="725A27D7-D26D-403C-9569-0E2AAB123B6B" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-2"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-5-connection-3"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-11" xmi:uuid="725A27D7-D26D-4165-95BE-0E2A1E78BEA1" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3-region-2-subvertex-1"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-7"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-3" xmi:uuid="725A27D7-D26D-427E-93DD-0E2A35FFE8EB" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-5-connection-1"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-2"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-5" xmi:uuid="725A27D7-D26D-42A3-99C3-0E2A09B4A612" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-8"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-4"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-9" xmi:uuid="725A27D7-D26D-42D1-9355-0E2A4C03FAA9" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-4"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-6"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-4" xmi:uuid="725A27D7-D26D-442D-95A0-0E2ACEBB9C4F" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-4"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-1" xmi:uuid="725A27D7-D26D-480C-966B-0E2ADF05F5A9" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-2"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-1"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-6" xmi:uuid="725A27D7-D26D-48E5-9DFB-0E2AA460B751" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-5-connection-2"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-4"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-2" xmi:uuid="725A27D7-D26D-4C3B-9583-0E2A71D1C984" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-7"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-2"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-8" xmi:uuid="725A27D7-D26D-4CA7-9AC1-0E2ACA39798D" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-4"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-5-connection-4"/>
+        </transition>
+        <transition xmi:id="TestCase7-compositeStateMachine-region-transition-10" xmi:uuid="725A27D7-D26D-4D26-9C7F-0E2AD769B39E" xmi:type="uml:Transition">
+          <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3-region-1-subvertex-1"/>
+          <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-7"/>
+        </transition>
+        <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-2" xmi:uuid="725A27D7-D26D-425A-9781-0E2AF338396F" xmi:type="uml:State">
+          <name>state1</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-1" xmi:uuid="725A27D7-D26D-42A7-90BD-0E2A66994E44" xmi:type="uml:Pseudostate">
+          <name>initial</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-4" xmi:uuid="725A27D7-D26D-43A0-9190-0E2AD1AAB98B" xmi:type="uml:State">
+          <name>state6</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-5" xmi:uuid="725A27D7-D26D-440A-9F43-0E2A449CB8F3" xmi:type="uml:State">
+          <name>subMachineState</name>
+          <submachine xmi:idref="TestCase7-subStateMachine"/>
+          <connection xmi:id="TestCase7-compositeStateMachine-region-subvertex-5-connection-4" xmi:uuid="725A27D7-D26D-4063-90FB-0E2A852C28F9" xmi:type="uml:ConnectionPointReference">
+            <name>exit2</name>
+            <exit xmi:idref="TestCase7-subStateMachine-exit2"/>
+          </connection>
+          <connection xmi:id="TestCase7-compositeStateMachine-region-subvertex-5-connection-1" xmi:uuid="725A27D7-D26D-45BF-9F2E-0E2A8A24ABA4" xmi:type="uml:ConnectionPointReference">
+            <name>enter1</name>
+            <entry xmi:idref="TestCase7-subStateMachine-enter1"/>
+          </connection>
+          <connection xmi:id="TestCase7-compositeStateMachine-region-subvertex-5-connection-2" xmi:uuid="725A27D7-D26D-496C-970D-0E2AD41F6B06" xmi:type="uml:ConnectionPointReference">
+            <name>enter2</name>
+            <entry xmi:idref="TestCase7-subStateMachine-enter2"/>
+          </connection>
+          <connection xmi:id="TestCase7-compositeStateMachine-region-subvertex-5-connection-3" xmi:uuid="725A27D7-D26D-4BE8-967A-0E2A1EF10F0C" xmi:type="uml:ConnectionPointReference">
+            <name>exit1</name>
+            <exit xmi:idref="TestCase7-subStateMachine-exit1"/>
+          </connection>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-8" xmi:uuid="725A27D7-D26D-4480-96AF-0E2AC71DE31C" xmi:type="uml:FinalState">
+          <name>finalState</name>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-6" xmi:uuid="725A27D7-D26D-4775-95BA-0E2A49089CE7" xmi:type="uml:Pseudostate">
+          <name>join</name>
+          <kind>join</kind>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-7" xmi:uuid="725A27D7-D26D-47B9-91B2-0E2A50E63923" xmi:type="uml:Pseudostate">
+          <name>fork</name>
+          <kind>fork</kind>
+        </subvertex>
+        <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-3" xmi:uuid="725A27D7-D26D-4925-9B93-0E2A2C4D058C" xmi:type="uml:State">
+          <name>compositeState</name>
+          <region xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-1" xmi:uuid="725A27D7-D26D-42B9-9BB2-0E2ACD152809" xmi:type="uml:Region">
+            <name>Region</name>
+            <transition xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-1-transition-2" xmi:uuid="725A27D7-D26D-45E2-9364-0E2A42F39F8D" xmi:type="uml:Transition">
+              <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-6"/>
+              <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3-region-1-subvertex-2"/>
+            </transition>
+            <transition xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-1-transition-1" xmi:uuid="725A27D7-D26D-4888-98DD-0E2ADB2AC7E1" xmi:type="uml:Transition">
+              <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3-region-1-subvertex-2"/>
+              <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3-region-1-subvertex-1"/>
+            </transition>
+            <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-1-subvertex-1" xmi:uuid="725A27D7-D26D-43F9-9E82-0E2A3E0A700A" xmi:type="uml:State">
+              <name>state2</name>
+            </subvertex>
+            <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-1-subvertex-2" xmi:uuid="725A27D7-D26D-4CB2-9559-0E2A8CBBB386" xmi:type="uml:State">
+              <name>state3</name>
+            </subvertex>
+          </region>
+          <region xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-2" xmi:uuid="725A27D7-D26D-48CC-99B0-0E2AF3FB6775" xmi:type="uml:Region">
+            <name>Region1</name>
+            <transition xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-2-transition-2" xmi:uuid="725A27D7-D26D-408A-9494-0E2AC320DAEC" xmi:type="uml:Transition">
+              <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-6"/>
+              <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3-region-2-subvertex-2"/>
+            </transition>
+            <transition xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-2-transition-1" xmi:uuid="725A27D7-D26D-4F52-9176-0E2AC05BC38B" xmi:type="uml:Transition">
+              <target xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3-region-2-subvertex-2"/>
+              <source xmi:idref="TestCase7-compositeStateMachine-region-subvertex-3-region-2-subvertex-1"/>
+            </transition>
+            <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-2-subvertex-2" xmi:uuid="725A27D7-D26D-400F-991F-0E2A07E86C3B" xmi:type="uml:State">
+              <name>state5</name>
+            </subvertex>
+            <subvertex xmi:id="TestCase7-compositeStateMachine-region-subvertex-3-region-2-subvertex-1" xmi:uuid="725A27D7-D26D-4170-99C1-0E2AFFDD4DFD" xmi:type="uml:State">
+              <name>state4</name>
+            </subvertex>
+          </region>
+        </subvertex>
+      </region>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

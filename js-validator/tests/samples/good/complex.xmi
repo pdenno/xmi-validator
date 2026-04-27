@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/2.5.1" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Package xmi:id="pkg1" name="BasePackage">
+    <packagedElement xmi:type="uml:Class" xmi:id="class1" name="SourceClass">
+      <ownedAttribute xmi:id="attr1" name="target" type="class2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="class2" name="TargetClass"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="assoc1" memberEnd="attr1 attr2">
+        <ownedEnd xmi:id="attr2" type="class1" association="assoc1"/>
+    </packagedElement>
+  </uml:Package>
+</xmi:XMI>
