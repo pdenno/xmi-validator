@@ -11,7 +11,5 @@ if "%~1"=="" (
 echo Starting Stateless XMI Validator...
 echo Target: %1
 
-REM TODO: Point this to the compiled CLI entrypoint once built in Phase 6.
-REM npx ts-node src/cli/index.ts %*
+npx.cmd tsx src/cli/index.ts %*
 
-echo [Warning: CLI execution mapping pending Phase 6 Core Engine completion]

@@ -7,13 +7,15 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "validate": "tsx src/cli/index.ts"
   },
   "devDependencies": {
     "typescript": "~5.9.3",
     "@types/node": "^20.0.0",
     "vite": "^8.0.1",
-    "vitest": "^4.1.1"
+    "vitest": "^4.1.1",
+    "tsx": "^4.22.4"
   },
   "dependencies": {
     "saxes": "^6.0.0"

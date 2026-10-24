@@ -11,7 +11,5 @@ fi
 echo "Starting Stateless XMI Validator..."
 echo "Target: $1"
 
-# TODO: Point this to the compiled CLI entrypoint once built in Phase 6.
-# npx ts-node src/cli/index.ts "$@"
+npx tsx src/cli/index.ts "$@"
 
-echo "[Warning: CLI execution mapping pending Phase 6 Core Engine completion]"

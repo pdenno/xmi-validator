@@ -1,29 +1,71 @@
 # xmi-validator
-Validator for models and profiles specified in OMG XML Metadata Interchange (XMI)
 
-More information about building (including a Docker file) is in the works.  
-For the time being under linux and MacOS, if you a little bit comfortable with Common Lisp:
+Validator and Automated Refactoring Engine for models and profiles specified in OMG XML Metadata Interchange (XMI).
 
-1. Install [sbcl](http://www.sbcl.org/). 
+---
 
-2. Install [quicklisp](https://www.quicklisp.org/beta/). 
+## Overview
 
-3. Install xmllint
+This repository provides validation tools for UML, SysML, and OMG XMI specifications:
 
-4. Create the directory `/usr/local/tmp` if it does not already exist.
+1. **`js-validator` (TypeScript / Node.js Engine)**:
+   A modern, fast, and stateless validation and automated refactoring engine. Validates XMI 2.5.1 / UML 2.5.1 compliance, diagnoses root causes, and automatically refactors non-compliant or vendor-corrupted XMI files.
 
-5. Add the following to `~/.config/common-lisp/source-registry.conf`, where "Documents/git/xmi-validator/src"
-is replaced with the src directory under which you cloned/forked the repository. 
+2. **Common Lisp / SBCL Engine (`src/`)**:
+   Legacy Common Lisp validation server.
 
-``` 
-(:source-registry
-  (:tree (:home "Documents/git/xmi-validator/src"))
-  :inherit-configuration)
-```  
+---
 
-6. Start lisp (run `sbcl` in a shell from the `src` directory) and a the lisp prompt, run `(load "load")`. 
-With a little luck, the code should compile, load, and start the server and report: 
-`Validator available at http://localhost:3330/se-interop/`
+## Features & Error Checks (`js-validator`)
 
-BTW: You might want a file `~/.sbclrc` containing at least the line `(declaim (sb-ext:muffle-conditions style-warning))`.
-That will reduce the number of useless reports on compilation from sbcl.
+### Errors & Rules Checked
+* **XMI 2.5.1 Specification Rules**:
+  - Global `xmi:id` Uniqueness & Collision Detection
+  - XML NCName Syntax Compliance (flagging invalid characters like double colons `::` in IDs)
+  - Reference Integrity Verification (detecting broken `idref`, `type`, `base_*`, `href` references)
+* **UML Metamodel & Structural Rules**:
+  - Association End Classifier Validation (ensuring ends target `Classifier`s, not `InstanceSpecification`s)
+  - Activity Diagram & ControlFlow Wiring (verifying `ControlFlow` edges connect valid `ActivityNode`s like `CallBehaviorAction`, `DecisionNode`, `InitialNode`, rather than `uml:Activity` behavior classifiers)
+  - Package Ownership Rules (preventing orphaned `<edge xmi:type="uml:ControlFlow">` tags under `Package`)
+* **Stereotype & Documentation Rules**:
+  - Missing `<ownedComment>` documentation
+  - Placeholder / unnamed model attributes (`name="unnamed"`)
+* **Vendor & Specification Version Rules**:
+  - Sparx Enterprise Architect, MagicDraw/Cameo, and vendor `<xmi:Extension>` tag detection
+  - Outdated OMG specification namespace URI detection
+
+---
+
+## Automated Refactoring Engine (`XmiRefactorer`)
+
+Supports CLI automated refactoring (`--refactor` / `--strip-extensions`) to repair corrupted XMI files:
+
+* **Extension ID Collision Disambiguation**: Appends unique extension suffixes to duplicate `xmi:id` attributes inside `<xmi:Extension>` tags.
+* **NCName Colon Sanitization**: Converts colons (`::`) in `xmi:id` and `xmi:idref` attributes into compliant NCName underscores (`__`).
+* **Primitive & External Type Resolution**: Injects standard `PrimitiveTypes` / `DataType` package headers for bare type references (`String`, `Integer`, `Boolean`, `Returncode_t`, etc.).
+* **Association End Classifier Re-targeting**: Maps `InstanceSpecification` IDs to underlying `classifier` class IDs and re-targets `<ownedEnd> <type>` references to valid `uml:Class` elements.
+* **CallBehaviorAction Node Generation & ControlFlow Re-targeting**: Wraps `uml:Activity` behaviors in `CallBehaviorAction` nodes inside the Activity context, re-targeting `ControlFlow` `source` and `target` attributes while preserving all original `uml:Activity` package definitions.
+* **Package-Level ControlFlow Relocation & Deduplication**: Strips orphaned package-level `<edge>` elements and relocates them inside the containing `<packagedElement xmi:type="uml:Activity">`.
+* **Extension Stripping (`--strip-extensions`)**: Strips vendor-specific `<xmi:Extension>` blocks to export clean, 100% compliant standard OMG XMI files.
+
+---
+
+## Getting Started (`js-validator`)
+
+```bash
+cd js-validator
+
+# Run automated tests
+npm test
+
+# Run validation and root cause diagnosis
+npx tsx src/cli/index.ts "path/to/model.xml"
+
+# Run automated refactoring to generate clean XMI
+npx tsx src/cli/index.ts --refactor --strip-extensions "path/to/model.xml" -o "path/to/model-pure.xml"
+```
+
+---
+
+## License
+MIT
