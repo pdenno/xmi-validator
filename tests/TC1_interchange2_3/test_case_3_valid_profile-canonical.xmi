@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:cmof="http://schema.omg.org/spec/MOF/2.0/cmof.xml">
+  <uml:Profile xmi:id="TestCase3_Profile" xmi:uuid="725A27D7-D26B-40A6-97F3-AF0F5B6A66AE">
+    <name>TestCase3_Profile</name>
+    <packageImport xmi:id="TestCase3_Profile-packageImport" xmi:uuid="725A27D7-D26B-4D28-9932-AF0F04787CCD" xmi:type="uml:PackageImport">
+      <importedPackage href="http://www.omg.org/spec/UML/20090901/UML.xmi#_0"/>
+    </packageImport>
+    <packagedElement xmi:id="TestCase3_Profile-Stereotype2" xmi:uuid="725A27D7-D26B-40F7-91B1-AF0FA64EB24F" xmi:type="uml:Stereotype">
+      <name>Stereotype2</name>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype2-attribute3" xmi:uuid="725A27D7-D26B-4133-9111-AF0F658BB2EF" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute3</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Classifier"/>
+        <lowerValue xmi:id="TestCase3_Profile-Stereotype2-attribute3-lowerValue" xmi:uuid="725A27D7-D26B-48FB-976F-AF0F715E53DA" xmi:type="uml:LiteralInteger"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-7"/>
+        <aggregation>shared</aggregation>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype2-attribute4" xmi:uuid="725A27D7-D26B-49AD-9046-AF0F01C2451D" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute4</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <upperValue xmi:id="TestCase3_Profile-Stereotype2-attribute4-upperValue" xmi:uuid="725A27D7-D26B-437B-9197-AF0F0DABF3F8" xmi:type="uml:LiteralUnlimitedNatural">
+          <value>*</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase3_Profile-Stereotype2-attribute4-lowerValue" xmi:uuid="725A27D7-D26B-44BE-9F95-AF0F83E6FC33" xmi:type="uml:LiteralInteger"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-8"/>
+        <aggregation>shared</aggregation>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype2-base_Property" xmi:uuid="725A27D7-D26B-4725-9114-AF0F456D0066" xmi:type="uml:Property">
+        <name>base_Property</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-13"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-14" xmi:uuid="725A27D7-D26B-422D-9254-AF0F33AA9B94" xmi:type="uml:Extension">
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-14-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype4-base_Class"/>
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-14-ownedEnd" xmi:uuid="725A27D7-D26B-488E-9D94-AF0F7953A64A" xmi:type="uml:ExtensionEnd">
+        <name>extension_Stereotype4</name>
+        <association xmi:idref="TestCase3_Profile-packagedElement-14"/>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="TestCase3_Profile-Stereotype4"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-19" xmi:uuid="725A27D7-D26B-443B-9FBE-AF0FF6F7BE0C" xmi:type="uml:Extension">
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-19-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype7-base_Interface"/>
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-19-ownedEnd" xmi:uuid="725A27D7-D26B-4C74-9FBB-AF0FDE6E1442" xmi:type="uml:ExtensionEnd">
+        <name>extension_Stereotype7</name>
+        <association xmi:idref="TestCase3_Profile-packagedElement-19"/>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="TestCase3_Profile-Stereotype7"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-18" xmi:uuid="725A27D7-D26B-4459-96E6-AF0F5753CA16" xmi:type="uml:Extension">
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-18-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype6-base_Interface"/>
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-18-ownedEnd" xmi:uuid="725A27D7-D26B-44F6-981B-AF0F0EF1B429" xmi:type="uml:ExtensionEnd">
+        <name>extension_Stereotype6</name>
+        <association xmi:idref="TestCase3_Profile-packagedElement-18"/>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="TestCase3_Profile-Stereotype6"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-Color" xmi:uuid="725A27D7-D26B-448B-9843-AF0FD21E9640" xmi:type="uml:Enumeration">
+      <name>Color</name>
+      <ownedLiteral xmi:id="TestCase3_Profile-Color-GREEN" xmi:uuid="725A27D7-D26B-4ABC-9C48-AF0F2C9836BF" xmi:type="uml:EnumerationLiteral">
+        <name>GREEN</name>
+        <specification xmi:id="TestCase3_Profile-Color-GREEN-specification" xmi:uuid="725A27D7-D26B-4890-9B3A-AF0FD46AEB6C" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </specification>
+        <classifier xmi:idref="TestCase3_Profile-Color"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="TestCase3_Profile-Color-RED" xmi:uuid="725A27D7-D26B-429F-9A87-AF0F30572AD5" xmi:type="uml:EnumerationLiteral">
+        <name>RED</name>
+        <specification xmi:id="TestCase3_Profile-Color-RED-specification" xmi:uuid="725A27D7-D26B-4BCE-97C9-AF0FA06CD5A4" xmi:type="uml:LiteralInteger"/>
+        <classifier xmi:idref="TestCase3_Profile-Color"/>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-Stereotype4" xmi:uuid="725A27D7-D26B-44AC-92B8-AF0F00C18A37" xmi:type="uml:Stereotype">
+      <name>Stereotype4</name>
+      <ownedRule xmi:id="TestCase3_Profile-Stereotype4-ownedRule" xmi:uuid="725A27D7-D26B-41DE-9125-AF0F268B554E" xmi:type="uml:Constraint">
+        <specification xmi:id="TestCase3_Profile-Stereotype4-ownedRule-specification" xmi:uuid="725A27D7-D26B-4E18-9EA6-AF0FD7FA3E9E" xmi:type="uml:OpaqueExpression">
+          <language>OCL</language>
+          <body>self.base_Class.ownedOperation-&gt;forAll(o| o.visibility = uml::VisibilityKind::protected)</body>
+        </specification>
+        <constrainedElement xmi:idref="TestCase3_Profile-Stereotype4"/>
+      </ownedRule>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype4-base_Class" xmi:uuid="725A27D7-D26B-4A9D-9C0E-AF0F4A4E34D0" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-14"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype4-attribute7" xmi:uuid="725A27D7-D26B-4978-9296-AF0FB7BC4748" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute7</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-9" xmi:uuid="725A27D7-D26B-4506-9995-AF0F1C137339" xmi:type="uml:Extension">
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-9-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype1-base_Operation"/>
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-9-ownedEnd" xmi:uuid="725A27D7-D26B-4D07-905A-AF0F55D51193" xmi:type="uml:ExtensionEnd">
+        <name>extension_Stereotype1</name>
+        <association xmi:idref="TestCase3_Profile-packagedElement-9"/>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="TestCase3_Profile-Stereotype1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-10" xmi:uuid="725A27D7-D26B-4539-9896-AF0F8570D287" xmi:type="uml:Extension">
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-10-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype1-base_Property"/>
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-10-ownedEnd" xmi:uuid="725A27D7-D26B-4634-9BB9-AF0FC6356B5E" xmi:type="uml:ExtensionEnd">
+        <name>extension_Stereotype1</name>
+        <association xmi:idref="TestCase3_Profile-packagedElement-10"/>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="TestCase3_Profile-Stereotype1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-7" xmi:uuid="725A27D7-D26B-4561-9C63-AF0F1FAC9568" xmi:type="uml:Association">
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-7-ownedEnd" xmi:uuid="725A27D7-D26B-40D6-908A-AF0FAB90D87C" xmi:type="uml:Property">
+        <visibility>private</visibility>
+        <name>stereotype3</name>
+        <type xmi:idref="TestCase3_Profile-Stereotype2"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-7"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype2-attribute3"/>
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-7-ownedEnd"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-Stereotype1" xmi:uuid="725A27D7-D26B-458E-9ECF-AF0F0835EDCE" xmi:type="uml:Stereotype">
+      <name>Stereotype1</name>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype1-base_Property" xmi:uuid="725A27D7-D26B-47AE-9C32-AF0F58609850" xmi:type="uml:Property">
+        <name>base_Property</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-10"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype1-attribute1" xmi:uuid="725A27D7-D26B-4AAA-9047-AF0FBDEBDA7D" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute1</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype1-attribute2" xmi:uuid="725A27D7-D26B-4951-965E-AF0FB978B8B3" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute2</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype1-base_Operation" xmi:uuid="725A27D7-D26B-4D52-9C12-AF0FC71A6F87" xmi:type="uml:Property">
+        <name>base_Operation</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Operation"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-9"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-Stereotype6" xmi:uuid="725A27D7-D26B-46F8-9AF7-AF0F5FD9C127" xmi:type="uml:Stereotype">
+      <name>Stereotype6</name>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype6-base_Interface" xmi:uuid="725A27D7-D26B-439B-92F1-AF0F176ECE3B" xmi:type="uml:Property">
+        <name>base_Interface</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Interface"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-18"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype6-attribute9" xmi:uuid="725A27D7-D26B-473B-9B9F-AF0FFFA88A7E" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute9</name>
+        <type xmi:idref="TestCase3_Profile-Stereotype7"/>
+        <lowerValue xmi:id="TestCase3_Profile-Stereotype6-attribute9-lowerValue" xmi:uuid="725A27D7-D26B-463A-9F26-AF0F99E9EAC3" xmi:type="uml:LiteralInteger"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-17"/>
+        <aggregation>shared</aggregation>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-Stereotype7" xmi:uuid="725A27D7-D26B-48A7-9B1C-AF0F34298B24" xmi:type="uml:Stereotype">
+      <name>Stereotype7</name>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype7-base_Interface" xmi:uuid="725A27D7-D26B-4742-9FE8-AF0F5CA3B10F" xmi:type="uml:Property">
+        <name>base_Interface</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Interface"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-19"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-8" xmi:uuid="725A27D7-D26B-4A4B-9251-AF0F2113A3C4" xmi:type="uml:Association">
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-8-ownedEnd" xmi:uuid="725A27D7-D26B-42C6-94C2-AF0F2FFECB1C" xmi:type="uml:Property">
+        <visibility>private</visibility>
+        <name>stereotype3</name>
+        <type xmi:idref="TestCase3_Profile-Stereotype2"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-8"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype2-attribute4"/>
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-8-ownedEnd"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-17" xmi:uuid="725A27D7-D26B-4BB8-9628-AF0F971B7968" xmi:type="uml:Association">
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-17-ownedEnd" xmi:uuid="725A27D7-D26B-46AE-93AB-AF0F353A6381" xmi:type="uml:Property">
+        <visibility>private</visibility>
+        <name>attribute10</name>
+        <type xmi:idref="TestCase3_Profile-Stereotype6"/>
+        <lowerValue xmi:id="TestCase3_Profile-packagedElement-17-ownedEnd-lowerValue" xmi:uuid="725A27D7-D26B-4EC1-9192-AF0FC9D2CE17" xmi:type="uml:LiteralInteger"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-17"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype6-attribute9"/>
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-17-ownedEnd"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-Stereotype5" xmi:uuid="725A27D7-D26B-4C8C-9A17-AF0FFCA80111" xmi:type="uml:Stereotype">
+      <name>Stereotype5</name>
+      <generalization xmi:id="TestCase3_Profile-Stereotype5-generalization" xmi:uuid="725A27D7-D26B-42FE-922B-AF0F31AE226A" xmi:type="uml:Generalization">
+        <general xmi:idref="TestCase3_Profile-Stereotype4"/>
+      </generalization>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype5-attribute8" xmi:uuid="725A27D7-D26B-4A8F-9D47-AF0F634E5069" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute8</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Integer"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-Stereotype3" xmi:uuid="725A27D7-D26B-4D40-957D-AF0F489FB3B9" xmi:type="uml:Stereotype">
+      <name>Stereotype3</name>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype3-base_Class" xmi:uuid="725A27D7-D26B-4323-90CD-AF0F1FB78B80" xmi:type="uml:Property">
+        <name>base_Class</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Class"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-2"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype3-attribute5" xmi:uuid="725A27D7-D26B-4F2E-9200-AF0F7E1318DE" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute5</name>
+        <type xmi:idref="TestCase3_Profile-Color"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase3_Profile-Stereotype3-attribute6" xmi:uuid="725A27D7-D26B-4B89-9FBF-AF0F26337DD2" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>attribute6</name>
+        <type href="http://www.omg.org/spec/UML/20090901/UML.xmi#Property"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-4"/>
+        <aggregation>shared</aggregation>
+      </ownedAttribute>
+      <icon xmi:id="TestCase3_Profile-Stereotype3-icon-2" xmi:uuid="725A27D7-D26B-4085-9105-AF0FF41367E4">
+        <format>PNG</format>
+        <content>89504E470D0A1A0A0000000D4948445200000018000000180803000000D7A9CDCA000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000000206348524D00007A26000080840000FA00000080E8000075300000EA6000003A98000017709CBA513C00000300504C54450000000808081010101818182020203030303838384040404848485858586060606868687878787F7F7F4CFF008787878F8F8F9797979F9F9FAFAFAFB7B7B7BFBFBFC7C7C7CFCFCFD7D7D7DFDFDFE7E7E7EFEFEFF7F7F7FFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FB142D3A0000001874455874536F667477617265005061696E742E4E45542076332E3336A9E7E2250000009C494441542853CD91C912832010445B100D18708998B8FDFF6F861910E321D754FA02358F2EBA01FB17E1CFC1E2835E39648AEB8D04ABD08FC818AC371AD541226C2AB611984B88BB4BEA24C4330185EA18D3AA2137764C909F73E71406063DF415B468188C5057D0A065B049E4ABE9C4806289A9C602F5E9D12043ECE143FC52DB20A342A13E17DC579B8A03C2CC6773DA4D1D39AC3F1EEB175FFB068C1D327D1AB319A30000000049454E44AE426082</content>
+      </icon>
+      <icon xmi:id="TestCase3_Profile-Stereotype3-icon-1" xmi:uuid="725A27D7-D26B-4EB0-9021-AF0F67BA069C">
+        <format>PNG</format>
+        <content>89504E470D0A1A0A0000000D4948445200000018000000180803000000D7A9CDCA000000017352474200AECE1CE90000000467414D410000B18F0BFC6105000000206348524D00007A26000080840000FA00000080E8000075300000EA6000003A98000017709CBA513C00000300504C54450000000808081010101818182020203030303838384040404848485858586060606868687878787F7F7F4CFF008787878F8F8F9797979F9F9FAFAFAFB7B7B7BFBFBFC7C7C7CFCFCFD7D7D7DFDFDFE7E7E7EFEFEFF7F7F7FFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FB142D3A0000001874455874536F667477617265005061696E742E4E45542076332E3336A9E7E2250000009C494441542853CD91C912832010445B100D18708998B8FDFF6F861910E321D754FA02358F2EBA01FB17E1CFC1E2835E39648AEB8D04ABD08FC818AC371AD541226C2AB611984B88BB4BEA24C4330185EA18D3AA2137764C909F73E71406063DF415B468188C5057D0A065B049E4ABE9C4806289A9C602F5E9D12043ECE143FC52DB20A342A13E17DC579B8A03C2CC6773DA4D1D39AC3F1EEB175FFB068C1D327D1AB319A30000000049454E44AE426082</content>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-13" xmi:uuid="725A27D7-D26B-4E6F-9A7A-AF0F9FD1DF5F" xmi:type="uml:Extension">
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-13-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype2-base_Property"/>
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-13-ownedEnd" xmi:uuid="725A27D7-D26B-4959-916F-AF0F65A2330D" xmi:type="uml:ExtensionEnd">
+        <name>extension_Stereotype2</name>
+        <lowerValue xmi:id="TestCase3_Profile-packagedElement-13-ownedEnd-lowerValue" xmi:uuid="725A27D7-D26B-4C1D-9CE5-AF0F42F19CE6" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <association xmi:idref="TestCase3_Profile-packagedElement-13"/>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="TestCase3_Profile-Stereotype2"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-4" xmi:uuid="725A27D7-D26B-4E82-9F31-AF0F3ED37A08" xmi:type="uml:Association">
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-4-ownedEnd" xmi:uuid="725A27D7-D26B-4D55-9C6D-AF0F9301E36C" xmi:type="uml:Property">
+        <visibility>private</visibility>
+        <name>stereotype1</name>
+        <type xmi:idref="TestCase3_Profile-Stereotype3"/>
+        <association xmi:idref="TestCase3_Profile-packagedElement-4"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype3-attribute6"/>
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-4-ownedEnd"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase3_Profile-packagedElement-2" xmi:uuid="725A27D7-D26B-4ECC-9AF9-AF0F2F73F84A" xmi:type="uml:Extension">
+      <memberEnd xmi:idref="TestCase3_Profile-packagedElement-2-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase3_Profile-Stereotype3-base_Class"/>
+      <ownedEnd xmi:id="TestCase3_Profile-packagedElement-2-ownedEnd" xmi:uuid="725A27D7-D26B-423A-9CBF-AF0F91B8970E" xmi:type="uml:ExtensionEnd">
+        <name>extension_Stereotype3</name>
+        <association xmi:idref="TestCase3_Profile-packagedElement-2"/>
+        <aggregation>composite</aggregation>
+        <type xmi:idref="TestCase3_Profile-Stereotype3"/>
+      </ownedEnd>
+    </packagedElement>
+    <metamodelReference xmi:idref="TestCase3_Profile-packageImport"/>
+  </uml:Profile>
+  <cmof:Tag xmi:id="tag2" xmi:uuid="725A27D7-D26B-46A9-9A5B-AF0F5709BFF8">
+    <name>org.omg.xmi.nsURI</name>
+    <value>http:///schemas/TestCase3_Profile.xmi</value>
+    <element>_0</element>
+  </cmof:Tag>
+  <cmof:Tag xmi:id="tag1" xmi:uuid="725A27D7-D26B-4C4B-9B57-AF0FE72DC9BA">
+    <name>org.omg.xmi.nsPrefix</name>
+    <value>TestCase3_Profile</value>
+    <element>_0</element>
+  </cmof:Tag>
+</xmi:XMI>

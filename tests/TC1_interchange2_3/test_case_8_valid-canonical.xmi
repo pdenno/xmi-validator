@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Model xmi:id="TestCase8" xmi:uuid="725A27D7-D262-4A0F-9C85-6AEDA7798746">
+    <name>TestCase8</name>
+    <packagedElement xmi:id="TestCase8-Package1" xmi:uuid="725A27D7-D262-4790-903A-6AED50204BC0" xmi:type="uml:Package">
+      <ownedComment xmi:id="TestCase8-Package1-ownedComment" xmi:uuid="725A27D7-D262-48C9-96E7-6AED098F39DF" xmi:type="uml:Comment">
+        <body>Comment: All actors, use cases 1 though 4, Class1 and this comment scoped to Package1. Use Cases 1 through 4 have no subject. Use Case5 has Class1 as both its owner and its subject.</body>
+        <annotatedElement xmi:idref="TestCase8-Package1-Actor1"/>
+        <annotatedElement xmi:idref="TestCase8-Package1-Use_Case1"/>
+        <annotatedElement xmi:idref="TestCase8-Package1-Use_Case3"/>
+      </ownedComment>
+      <name>Package1</name>
+      <packagedElement xmi:id="TestCase8-Package1-Actor1" xmi:uuid="725A27D7-D262-425A-90EE-6AED76DF858E" xmi:type="uml:Actor">
+        <name>Actor1</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package1-Use_Case4" xmi:uuid="725A27D7-D262-46EE-9F05-6AEDF6A97976" xmi:type="uml:UseCase">
+        <name>Use Case4</name>
+        <generalization xmi:id="TestCase8-Package1-Use_Case4-generalization" xmi:uuid="725A27D7-D262-4FBF-9773-6AEDA19732F0" xmi:type="uml:Generalization">
+          <general xmi:idref="TestCase8-Package1-Use_Case3"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package1-Actor2" xmi:uuid="725A27D7-D262-4A80-9FCA-6AED4FA5CA46" xmi:type="uml:Actor">
+        <name>Actor2</name>
+        <generalization xmi:id="TestCase8-Package1-Actor2-generalization" xmi:uuid="725A27D7-D262-4CCA-918F-6AEDC726F68B" xmi:type="uml:Generalization">
+          <general xmi:idref="TestCase8-Package1-Actor1"/>
+        </generalization>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package1-Use_Case2" xmi:uuid="725A27D7-D262-4AB3-9245-6AEDB438408B" xmi:type="uml:UseCase">
+        <name>Use Case2</name>
+        <extend xmi:id="TestCase8-Package1-Use_Case2-extend" xmi:uuid="725A27D7-D262-4E55-9E72-6AEDA0B20EAE" xmi:type="uml:Extend">
+          <extensionLocation xmi:idref="TestCase8-Package1-Use_Case1-ExtensionPoint1"/>
+          <extendedCase xmi:idref="TestCase8-Package1-Use_Case1"/>
+        </extend>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package1-Use_Case3" xmi:uuid="725A27D7-D262-4BA6-9335-6AED85360A51" xmi:type="uml:UseCase">
+        <name>Use Case3</name>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package1-Use_Case1" xmi:uuid="725A27D7-D262-4DCA-9986-6AEDF7AC3FAC" xmi:type="uml:UseCase">
+        <name>Use Case1</name>
+        <include xmi:id="TestCase8-Package1-Use_Case1-include" xmi:uuid="725A27D7-D262-493A-9E2B-6AEDCC18D29F" xmi:type="uml:Include">
+          <addition xmi:idref="TestCase8-Package1-Use_Case3"/>
+        </include>
+        <extensionPoint xmi:id="TestCase8-Package1-Use_Case1-ExtensionPoint1" xmi:uuid="725A27D7-D262-4C07-9F79-6AED7F4D84CF" xmi:type="uml:ExtensionPoint">
+          <name>ExtensionPoint1</name>
+        </extensionPoint>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package1-Class1" xmi:uuid="725A27D7-D262-4DCD-99C8-6AED06C2FFD4" xmi:type="uml:Class">
+        <name>Class1</name>
+        <useCase xmi:idref="TestCase8-Package1-Class1-Use_Case5"/>
+        <ownedUseCase xmi:id="TestCase8-Package1-Class1-Use_Case5" xmi:uuid="725A27D7-D262-4235-962E-6AEDD4DA6F52" xmi:type="uml:UseCase">
+          <name>Use Case5</name>
+          <subject xmi:idref="TestCase8-Package1-Class1"/>
+        </ownedUseCase>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase8-Package2" xmi:uuid="725A27D7-D262-4E3B-93BE-6AEDA4338BA3" xmi:type="uml:Package">
+      <name>Package2</name>
+      <packagedElement xmi:id="TestCase8-Package2-" xmi:uuid="725A27D7-D262-432B-9F6B-6AED33A7D525" xmi:type="uml:Association">
+        <name/>
+        <ownedEnd xmi:id="TestCase8-Package2--ownedEnd-2" xmi:uuid="725A27D7-D262-4DD4-9FBD-6AED319E1E49" xmi:type="uml:Property">
+          <name/>
+          <type xmi:idref="TestCase8-Package1-Actor1"/>
+          <association xmi:idref="TestCase8-Package2-"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="TestCase8-Package2--ownedEnd-1" xmi:uuid="725A27D7-D262-4A04-927D-6AED27EE03CE" xmi:type="uml:Property">
+          <name/>
+          <type xmi:idref="TestCase8-Package1-Use_Case1"/>
+          <association xmi:idref="TestCase8-Package2-"/>
+        </ownedEnd>
+        <navigableOwnedEnd xmi:idref="TestCase8-Package2--ownedEnd-2"/>
+        <navigableOwnedEnd xmi:idref="TestCase8-Package2--ownedEnd-1"/>
+        <memberEnd xmi:idref="TestCase8-Package2--ownedEnd-1"/>
+        <memberEnd xmi:idref="TestCase8-Package2--ownedEnd-2"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Dependency2" xmi:uuid="725A27D7-D262-43B8-9D2E-6AEDF82E062A" xmi:type="uml:Dependency">
+        <name>Dependency2</name>
+        <supplier xmi:idref="TestCase8-Package2-Use_Case7"/>
+        <client xmi:idref="TestCase8-Package2-Use_Case6"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Dependency3" xmi:uuid="725A27D7-D262-45D3-9ECA-6AED1514640D" xmi:type="uml:Dependency">
+        <name>Dependency3</name>
+        <supplier xmi:idref="TestCase8-Package2-Class3"/>
+        <client xmi:idref="TestCase8-Package2-Use_Case6"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Dependency1" xmi:uuid="725A27D7-D262-4772-938D-6AED48585956" xmi:type="uml:Dependency">
+        <name>Dependency1</name>
+        <supplier xmi:idref="TestCase8-Package2-Use_Case6"/>
+        <client xmi:idref="TestCase8-Package2-Class3"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Use_Case6" xmi:uuid="725A27D7-D262-49A7-9ABA-6AEDE815E7C3" xmi:type="uml:UseCase">
+        <name>Use Case6</name>
+        <clientDependency xmi:idref="TestCase8-Package2-Dependency2"/>
+        <clientDependency xmi:idref="TestCase8-Package2-Dependency3"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Association1" xmi:uuid="725A27D7-D262-49DA-98AB-6AED3F99987A" xmi:type="uml:Association">
+        <ownedComment xmi:id="TestCase8-Package2-Association1-ownedComment" xmi:uuid="725A27D7-D262-4178-9A5B-6AED4C020CDE" xmi:type="uml:Comment">
+          <body>Comment: theActor is owned by Class2, theClass2 is owned by Association1, this comment annotates and is owned by Association1</body>
+          <annotatedElement xmi:idref="TestCase8-Package2-Association1"/>
+        </ownedComment>
+        <name>Association1</name>
+        <ownedEnd xmi:id="TestCase8-Package2-Association1-theClass2" xmi:uuid="725A27D7-D262-441D-9B0D-6AEDC3DECA82" xmi:type="uml:Property">
+          <visibility>private</visibility>
+          <name>theClass2</name>
+          <type xmi:idref="TestCase8-Package2-Class2"/>
+          <upperValue xmi:id="TestCase8-Package2-Association1-theClass2-upperValue" xmi:uuid="725A27D7-D262-4E13-9E55-6AED3D9E32A0" xmi:type="uml:LiteralUnlimitedNatural">
+            <value>*</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase8-Package2-Association1-theClass2-lowerValue" xmi:uuid="725A27D7-D262-4912-9D18-6AEDE905424F" xmi:type="uml:LiteralInteger"/>
+          <isUnique>false</isUnique>
+          <association xmi:idref="TestCase8-Package2-Association1"/>
+        </ownedEnd>
+        <memberEnd xmi:idref="TestCase8-Package2-Association1-theClass2"/>
+        <memberEnd xmi:idref="TestCase8-Package2-Class2-theActor"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Class3" xmi:uuid="725A27D7-D262-4A08-9710-6AEDB13C05ED" xmi:type="uml:Class">
+        <name>Class3</name>
+        <clientDependency xmi:idref="TestCase8-Package2-Dependency1"/>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Class2" xmi:uuid="725A27D7-D262-4A44-94B0-6AEDE0B41D37" xmi:type="uml:Class">
+        <name>Class2</name>
+        <ownedAttribute xmi:id="TestCase8-Package2-Class2-theActor" xmi:uuid="725A27D7-D262-43E7-9FEE-6AED7E6000B8" xmi:type="uml:Property">
+          <visibility>private</visibility>
+          <name>theActor</name>
+          <type xmi:idref="TestCase8-Package2-Actor3"/>
+          <isUnique>false</isUnique>
+          <association xmi:idref="TestCase8-Package2-Association1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Use_Case7" xmi:uuid="725A27D7-D262-4B7D-96D5-6AED74F9CCCF" xmi:type="uml:UseCase">
+        <name>Use Case7</name>
+        <ownedBehavior xmi:id="TestCase8-Package2-Use_Case7-Activity1" xmi:uuid="725A27D7-D262-4B2D-9DAA-6AEDA14459BF" xmi:type="uml:Activity">
+          <ownedComment xmi:id="TestCase8-Package2-Use_Case7-Activity1-ownedComment" xmi:uuid="725A27D7-D262-4E8F-9047-6AEDA95FC62E" xmi:type="uml:Comment">
+            <body>Comment: Activity1 is an Activity, this comment is owned by and annotates it</body>
+            <annotatedElement xmi:idref="TestCase8-Package2-Use_Case7-Activity1"/>
+          </ownedComment>
+          <name>Activity1</name>
+        </ownedBehavior>
+      </packagedElement>
+      <packagedElement xmi:id="TestCase8-Package2-Actor3" xmi:uuid="725A27D7-D262-4EA4-9F7A-6AED29338E1F" xmi:type="uml:Actor">
+        <name>Actor3</name>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

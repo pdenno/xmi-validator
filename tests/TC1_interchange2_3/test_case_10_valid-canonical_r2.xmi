@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:sysml="http://www.omg.org/spec/SysML/20100301/SysML-profile">
+  <sysml:Block xmi:id="_-Block-4" xmi:uuid="725A27D7-D2EF-4361-9752-4E18572BB496">
+    <base_Class xmi:idref="TestCase10-F0"/>
+  </sysml:Block>
+  <sysml:Block xmi:id="_-Block-1" xmi:uuid="725A27D7-D2EF-46A0-951C-4E18EEDB89C3">
+    <base_Class xmi:idref="TestCase10-B0"/>
+  </sysml:Block>
+  <sysml:Block xmi:id="_-Block-3" xmi:uuid="725A27D7-D2EF-4D5C-9394-4E18FE165A93">
+    <base_Class xmi:idref="TestCase10-B2"/>
+  </sysml:Block>
+  <sysml:Block xmi:id="_-Block-2" xmi:uuid="725A27D7-D2EF-4E90-939E-4E18DF4D7085">
+    <base_Class xmi:idref="TestCase10-B1"/>
+  </sysml:Block>
+  <sysml:FlowPort xmi:id="_-FlowPort-2" xmi:uuid="725A27D7-D2EF-405B-9356-4E189B7CC202">
+    <direction>in</direction>
+    <base_Port xmi:idref="TestCase10-B2-p1"/>
+  </sysml:FlowPort>
+  <sysml:FlowPort xmi:id="_-FlowPort-1" xmi:uuid="725A27D7-D2EF-4602-9FF2-4E1843A245AF">
+    <direction>out</direction>
+    <base_Port xmi:idref="TestCase10-B1-p1"/>
+  </sysml:FlowPort>
+  <sysml:FlowProperty xmi:id="_-FlowProperty" xmi:uuid="725A27D7-D2EF-43E6-961B-4E18DF8B937E">
+    <direction>out</direction>
+    <base_Property xmi:idref="TestCase10-FS1-fp1"/>
+  </sysml:FlowProperty>
+  <sysml:FlowSpecification xmi:id="_-FlowSpecification" xmi:uuid="725A27D7-D2EF-4AB7-9873-4E1809CA3D30">
+    <base_Interface xmi:idref="TestCase10-FS1"/>
+  </sysml:FlowSpecification>
+  <sysml:ItemFlow xmi:id="_-ItemFlow" xmi:uuid="725A27D7-D2EF-45D9-9307-4E186B7AF679">
+    <base_InformationFlow xmi:idref="TestCase10-i"/>
+    <itemProperty>_8a391be9-56c3-4b36-95b3-7c696a6f40ca</itemProperty>
+  </sysml:ItemFlow>
+  <uml:Model xmi:id="TestCase10" xmi:uuid="725A27D7-D2EF-4887-9278-4E18C9B5D9BF">
+    <name>TestCase10</name>
+    <profileApplication xmi:id="TestCase10-profileApplication" xmi:uuid="725A27D7-D2EF-4DDB-9266-4E18BAA7B402" xmi:type="uml:ProfileApplication">
+      <appliedProfile href="http://www.omg.org/spec/SysML/20100301/SysML-profile.uml#_0"/>
+    </profileApplication>
+    <packagedElement xmi:id="TestCase10-i" xmi:uuid="725A27D7-D2EF-4666-9134-4E18805CC425" xmi:type="uml:InformationFlow">
+      <name>i</name>
+      <realizingConnector xmi:idref="TestCase10-B0-Connects"/>
+      <informationTarget xmi:idref="TestCase10-B2-p1"/>
+      <informationSource xmi:idref="TestCase10-B1-p1"/>
+      <conveyed xmi:idref="TestCase10-F0"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase10-packagedElement-8" xmi:uuid="725A27D7-D2EF-478D-9E94-4E180FEB5D61" xmi:type="uml:Association">
+      <ownedEnd xmi:id="TestCase10-packagedElement-8-ownedEnd" xmi:uuid="725A27D7-D2EF-4A94-9041-4E186502ED16" xmi:type="uml:Property">
+        <visibility>private</visibility>
+        <type xmi:idref="TestCase10-B0"/>
+        <upperValue xmi:id="TestCase10-packagedElement-8-ownedEnd-upperValue" xmi:uuid="725A27D7-D2EF-454A-9FE9-4E188B40B057" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-packagedElement-8-ownedEnd-lowerValue" xmi:uuid="725A27D7-D2EF-4808-991D-4E185F74EB52" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <association xmi:idref="TestCase10-packagedElement-8"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="TestCase10-packagedElement-8-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase10-B0-b1"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase10-packagedElement-6" xmi:uuid="725A27D7-D2EF-47D3-9C75-4E1832345A57" xmi:type="uml:Association">
+      <ownedEnd xmi:id="TestCase10-packagedElement-6-ownedEnd" xmi:uuid="725A27D7-D2EF-4E1A-9F2F-4E183B8F6843" xmi:type="uml:Property">
+        <visibility>private</visibility>
+        <type xmi:idref="TestCase10-B0"/>
+        <upperValue xmi:id="TestCase10-packagedElement-6-ownedEnd-upperValue" xmi:uuid="725A27D7-D2EF-4120-9B3B-4E185FFC818D" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-packagedElement-6-ownedEnd-lowerValue" xmi:uuid="725A27D7-D2EF-4AB7-9DA5-4E184C220EF4" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <association xmi:idref="TestCase10-packagedElement-6"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="TestCase10-packagedElement-6-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase10-B0-b2"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase10-F0" xmi:uuid="725A27D7-D2EF-4936-92A8-4E18B0597C6D" xmi:type="uml:Class">
+      <name>F0</name>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase10-B0" xmi:uuid="725A27D7-D2EF-4B7D-9CCE-4E1813D2B8A8" xmi:type="uml:Class">
+      <name>B0</name>
+      <ownedConnector xmi:id="TestCase10-B0-Connects" xmi:uuid="725A27D7-D2EF-4F73-933D-4E187740563B" xmi:type="uml:Connector">
+        <name>Connects</name>
+        <end xmi:id="TestCase10-B0-Connects-end-2" xmi:uuid="725A27D7-D2EF-4F07-95D4-4E18937C37CD" xmi:type="uml:ConnectorEnd">
+          <upperValue xmi:id="TestCase10-B0-Connects-end-2-upperValue" xmi:uuid="725A27D7-D2EF-468E-950B-4E181446A18C" xmi:type="uml:LiteralInteger">
+            <value>1</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase10-B0-Connects-end-2-lowerValue" xmi:uuid="725A27D7-D2EF-4548-9B25-4E1864BB5023" xmi:type="uml:LiteralInteger">
+            <value>1</value>
+          </lowerValue>
+          <role xmi:idref="TestCase10-B2-p1"/>
+          <partWithPort xmi:idref="TestCase10-B0-b2"/>
+        </end>
+        <end xmi:id="TestCase10-B0-Connects-end-1" xmi:uuid="725A27D7-D2EF-4819-9FEE-4E18E1C139BF" xmi:type="uml:ConnectorEnd">
+          <upperValue xmi:id="TestCase10-B0-Connects-end-1-upperValue" xmi:uuid="725A27D7-D2EF-459C-96C0-4E188E6EB507" xmi:type="uml:LiteralInteger">
+            <value>1</value>
+          </upperValue>
+          <lowerValue xmi:id="TestCase10-B0-Connects-end-1-lowerValue" xmi:uuid="725A27D7-D2EF-4B33-911E-4E18093A0688" xmi:type="uml:LiteralInteger">
+            <value>1</value>
+          </lowerValue>
+          <role xmi:idref="TestCase10-B1-p1"/>
+          <partWithPort xmi:idref="TestCase10-B0-b1"/>
+        </end>
+      </ownedConnector>
+      <ownedAttribute xmi:id="TestCase10-B0-b1" xmi:uuid="725A27D7-D2EF-412D-9C68-4E18DDF9E542" xmi:type="uml:Property">
+        <name>b1</name>
+        <type xmi:idref="TestCase10-B1"/>
+        <upperValue xmi:id="TestCase10-B0-b1-upperValue" xmi:uuid="725A27D7-D2EF-4E38-9217-4E18239C4F87" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-B0-b1-lowerValue" xmi:uuid="725A27D7-D2EF-499C-9808-4E18794F5466" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <association xmi:idref="TestCase10-packagedElement-8"/>
+        <aggregation>composite</aggregation>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase10-B0-b2" xmi:uuid="725A27D7-D2EF-41B1-9CA4-4E18839CF77B" xmi:type="uml:Property">
+        <name>b2</name>
+        <type xmi:idref="TestCase10-B2"/>
+        <upperValue xmi:id="TestCase10-B0-b2-upperValue" xmi:uuid="725A27D7-D2EF-4CB4-9902-4E18B5248A7A" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-B0-b2-lowerValue" xmi:uuid="725A27D7-D2EF-425F-984A-4E185C39ABDC" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <association xmi:idref="TestCase10-packagedElement-6"/>
+        <aggregation>composite</aggregation>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="TestCase10-B0-i" xmi:uuid="725A27D7-D2EF-428D-9541-4E187D1CC686" xmi:type="uml:Property">
+        <visibility>private</visibility>
+        <name>i</name>
+        <type xmi:idref="TestCase10-F0"/>
+        <upperValue xmi:id="TestCase10-B0-i-upperValue" xmi:uuid="725A27D7-D2EF-49BA-9201-4E18AA5A4AF5" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-B0-i-lowerValue" xmi:uuid="725A27D7-D2EF-4B63-9C56-4E18189BCE4D" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <association xmi:idref="TestCase10-packagedElement-7"/>
+        <aggregation>composite</aggregation>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase10-FS1" xmi:uuid="725A27D7-D2EF-4C63-9F63-4E18114D5D8A" xmi:type="uml:Interface">
+      <name>FS1</name>
+      <isAbstract>true</isAbstract>
+      <ownedAttribute xmi:id="TestCase10-FS1-fp1" xmi:uuid="725A27D7-D2EF-4510-91D0-4E184DC9DE25" xmi:type="uml:Property">
+        <visibility>public</visibility>
+        <name>fp1</name>
+        <type xmi:idref="TestCase10-F0"/>
+        <upperValue xmi:id="TestCase10-FS1-fp1-upperValue" xmi:uuid="725A27D7-D2EF-46F4-9355-4E18CB1C95F3" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-FS1-fp1-lowerValue" xmi:uuid="725A27D7-D2EF-4646-9341-4E18A20AA2A3" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <aggregation>composite</aggregation>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase10-B2" xmi:uuid="725A27D7-D2EF-4C6A-930D-4E181B3B974B" xmi:type="uml:Class">
+      <name>B2</name>
+      <ownedAttribute xmi:id="TestCase10-B2-p1" xmi:uuid="725A27D7-D2EF-4851-9ACE-4E181CEF3BE5" xmi:type="uml:Port">
+        <name>p1</name>
+        <type xmi:idref="TestCase10-FS1"/>
+        <upperValue xmi:id="TestCase10-B2-p1-upperValue" xmi:uuid="725A27D7-D2EF-40E8-99BF-4E18D5EA3521" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-B2-p1-lowerValue" xmi:uuid="725A27D7-D2EF-477C-97FA-4E18477C487B" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <aggregation>composite</aggregation>
+        <isConjugated>true</isConjugated>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase10-packagedElement-7" xmi:uuid="725A27D7-D2EF-4DB1-9E44-4E187F96A953" xmi:type="uml:Association">
+      <ownedEnd xmi:id="TestCase10-packagedElement-7-ownedEnd" xmi:uuid="725A27D7-D2EF-4E87-91B6-4E18DD4F12A3" xmi:type="uml:Property">
+        <visibility>private</visibility>
+        <type xmi:idref="TestCase10-B0"/>
+        <upperValue xmi:id="TestCase10-packagedElement-7-ownedEnd-upperValue" xmi:uuid="725A27D7-D2EF-47FD-93F1-4E18FBD377D9" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-packagedElement-7-ownedEnd-lowerValue" xmi:uuid="725A27D7-D2EF-40E4-9372-4E180213191A" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <association xmi:idref="TestCase10-packagedElement-7"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="TestCase10-packagedElement-7-ownedEnd"/>
+      <memberEnd xmi:idref="TestCase10-B0-i"/>
+    </packagedElement>
+    <packagedElement xmi:id="TestCase10-B1" xmi:uuid="725A27D7-D2EF-4F8F-911F-4E18C2DAD240" xmi:type="uml:Class">
+      <name>B1</name>
+      <ownedAttribute xmi:id="TestCase10-B1-p1" xmi:uuid="725A27D7-D2EF-41E2-9BE0-4E18F704C437" xmi:type="uml:Port">
+        <name>p1</name>
+        <type xmi:idref="TestCase10-FS1"/>
+        <upperValue xmi:id="TestCase10-B1-p1-upperValue" xmi:uuid="725A27D7-D2EF-488D-9C7D-4E1898E83751" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </upperValue>
+        <lowerValue xmi:id="TestCase10-B1-p1-lowerValue" xmi:uuid="725A27D7-D2EF-45AB-9800-4E18752FABCF" xmi:type="uml:LiteralInteger">
+          <value>1</value>
+        </lowerValue>
+        <aggregation>composite</aggregation>
+      </ownedAttribute>
+    </packagedElement>
+  </uml:Model>
+  <sysml:NestedConnectorEnd xmi:id="_-NestedConnectorEnd-2" xmi:uuid="725A27D7-D2EF-4395-9774-4E18BF28EF91">
+    <propertyPath xmi:idref="TestCase10-B0-b2"/>
+    <base_ConnectorEnd xmi:idref="TestCase10-B0-Connects-end-2"/>
+  </sysml:NestedConnectorEnd>
+  <sysml:NestedConnectorEnd xmi:id="_-NestedConnectorEnd-1" xmi:uuid="725A27D7-D2EF-4CEF-988D-4E1814F274AC">
+    <propertyPath xmi:idref="TestCase10-B0-b1"/>
+    <base_ConnectorEnd xmi:idref="TestCase10-B0-Connects-end-1"/>
+  </sysml:NestedConnectorEnd>
+</xmi:XMI>

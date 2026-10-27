@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/2.5.1" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:sysml="http://www.omg.org/spec/SysML/20181001">
+  <uml:Package xmi:id="pkg1" name="DocTest">
+    <!-- Undocumented element - should trigger warning -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class1" name="UndocumentedClass"/>
+    
+    <!-- Documented element - should NOT trigger warning -->
+    <packagedElement xmi:type="uml:Class" xmi:id="class2" name="DocumentedClass">
+      <ownedComment xmi:id="comment1" body="This is some documentation."/>
+    </packagedElement>
+
+    <!-- Stereotype/Prop without doc -->
+    <sysml:Block xmi:id="block1" name="UndocumentedBlock" base_Class="class1"/>
+  </uml:Package>
+</xmi:XMI>
